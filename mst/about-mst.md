@@ -168,7 +168,7 @@ normally and provides normal service level to the client applications. When the
 new replacement standby node is ready and synchronized with the master, it
 starts replicating the master in real time and normal operation resumes.
 
-If the PostgreSQL master fails, the combined information from the MST monitoring
+If the $PG master fails, the combined information from the MST monitoring
 infrastructure and the standby node is used to make a failover decision. On the
 nodes, the open source monitoring daemon `PGLookout`, in combination with the
 information from the MST system infrastructure, reports the failover. If the
@@ -247,7 +247,7 @@ client resolves the DNS address correctly, as the underlying address changes
 during automatic failover.
 
 For more information about adjusting keep alive settings, see the
-[PostgreSQL documentation][pg-keepalive].
+[$PG documentation][pg-keepalive].
 
 ## Long running queries
 

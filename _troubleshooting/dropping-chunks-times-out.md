@@ -27,6 +27,6 @@ the chunk. When the drop chunk operation can get an exclusive lock on the chunk,
 it completes as expected.
 
 For more information about locks, see the
-[PostgreSQL lock monitoring documentation][pg-lock-monitoring].
+[$PG lock monitoring documentation][pg-lock-monitoring].
 
 [pg-lock-monitoring]: https://wiki.postgresql.org/wiki/Lock_Monitoring

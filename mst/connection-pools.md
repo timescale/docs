@@ -22,7 +22,7 @@ client queries to use a limited number of backend connections more efficiently,
 leading to lower resource use on the server and better total performance.
 
 Without connection pooling, the database connections are handled directly by
-PostgreSQL backend processes, one process per connection:
+$PG backend processes, one process per connection:
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/pgbouncer-pooling-none.webp"

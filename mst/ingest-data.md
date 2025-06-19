@@ -56,7 +56,7 @@ and can connect to it using `psql`.
     );
     ```
 
-1.  Load the `timescaledb` PostgreSQL extension:
+1.  Load the `timescaledb` $PG extension:
 
     ```sql
     CREATE EXTENSION timescaledb;
@@ -112,7 +112,7 @@ Before you begin, make sure you have
     available CPU cores on your client machine or server, to prevent the workers
     having to compete for resources. This helps your ingest go faster.
 1.  *OPTIONAL:* If you don't want to use the `timescaledb-parallel-copy` tool,
-    or if you have a very small dataset, you can use the PostgreSQL `COPY`
+    or if you have a very small dataset, you can use the $PG `COPY`
     command instead:
 
     ```sql
@@ -126,7 +126,7 @@ Before you begin, make sure you have
 You can use a client driver such as JDBC, Python, or Node.js, to insert data
 directly into your new database.
 
-See the [PostgreSQL instructions][postgres-odbc] for using the ODBC driver.
+See the [$PG instructions][postgres-odbc] for using the ODBC driver.
 
 See the [Code Quick Starts][code-qs] for using various languages, including Python and node.js.
 
@@ -134,16 +134,16 @@ See the [Code Quick Starts][code-qs] for using various languages, including Pyth
 
 If you have data stored in a message queue, you can import it into your
 $MST_SERVICE_SHORT. This section provides instructions on using the Kafka
-Connect PostgreSQL connector.
+Connect $PG connector.
 
-This connector deploys PostgreSQL change events from Kafka Connect to a runtime
+This connector deploys $PG change events from Kafka Connect to a runtime
 service. It monitors one or more schemas in a $MST_SERVICE_LONG, and writes all
 change events to Kafka topics, which can then be independently consumed by one
 or more clients. Kafka Connect can be distributed to provide fault tolerance,
 which ensures the connectors are running and continually keeping up with changes
 in the database.
 
-You can also use the PostgreSQL connector as a library without Kafka or Kafka
+You can also use the $PG connector as a library without Kafka or Kafka
 Connect. This allows applications and services to directly connect to
 $MST_SHORT and obtain the ordered change events. In this environment, the
 application must record the progress of the connector so that when it is

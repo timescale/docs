@@ -37,7 +37,7 @@ in $TIMESCALE_DB.
 Before you begin, make sure you have:
 
 *   A $TIMESCALE_DB instance running locally or on the cloud. For more information, see [installation options][install-timescale]
-*   [`psql`][psql-install], DBeaver, or any other PostgreSQL client
+*   [`psql`][psql-install], DBeaver, or any other $PG client
 
 <Highlight type="note">
 The easiest way to get a new $TIMESCALE_DB instance up and running and complete

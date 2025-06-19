@@ -43,9 +43,9 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 
 <Procedure>
 
-1. **Install the PostgreSQL connector**
+1. **Install the $PG connector**
 
-   In another Terminal window, navigate to <KAFKA_HOME>, then download and configure the PostgreSQL sink and driver.
+   In another Terminal window, navigate to <KAFKA_HOME>, then download and configure the $PG sink and driver.
    ```bash
    mkdir -p "plugins/camel-postgresql-sink-kafka-connector"
    curl https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-postgresql-sink-kafka-connector/3.21.0/camel-postgresql-sink-kafka-connector-3.21.0-package.tar.gz \

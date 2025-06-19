@@ -8,20 +8,20 @@ keywords: [configuration, settings, Docker]
 # Configuration with Docker
 
 If you are running TimescaleDB in a [Docker container][docker], there are two
-different ways to modify your PostgreSQL configuration. You can edit the
-PostgreSQL configuration file inside the Docker container, or you can set
+different ways to modify your $PG configuration. You can edit the
+$PG configuration file inside the Docker container, or you can set
 parameters at the command prompt.
 
-## Edit the PostgreSQL configuration file inside Docker
+## Edit the $PG configuration file inside Docker
 
 You can start the Dockert container, and then use a text editor to edit the
-PostgreSQL configuration file directly. The configuration file requires one
+$PG configuration file directly. The configuration file requires one
 parameter per line. Blank lines are ignored, and you can use a `#` symbol at the
 beginning of a line to denote a comment.
 
 <Procedure>
 
-### Editing the PostgreSQL configuration file inside Docker
+### Editing the $PG configuration file inside Docker
 
 1.  Start your Docker instance:
 

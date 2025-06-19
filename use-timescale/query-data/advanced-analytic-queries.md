@@ -10,7 +10,7 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 # Perform advanced analytical queries
 
 You can use $TIMESCALE_DB for a variety of analytical queries. Some of these
-queries are native PostgreSQL, and some are additional functions provided by $TIMESCALE_DB and $TOOLKIT_LONG. This section contains the most common and useful analytic queries.
+queries are native $PG, and some are additional functions provided by $TIMESCALE_DB and $TOOLKIT_LONG. This section contains the most common and useful analytic queries.
 
 ## Calculate the median and percentile
 
@@ -142,7 +142,7 @@ ORDER BY bucket;
 
 ## Group data into time buckets
 
-The [`time_bucket`][time_bucket] function in $TIMESCALE_DB extends the PostgreSQL
+The [`time_bucket`][time_bucket] function in $TIMESCALE_DB extends the $PG
 [`date_bin`][date_bin] function. Time bucket accepts arbitrary time intervals,
 as well as optional offsets, and returns the bucket start time. For example:
 

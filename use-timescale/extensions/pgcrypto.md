@@ -8,7 +8,7 @@ tags: [extensions, pgcrypto]
 
 # Encrypt data using pgcrypto
 
-The `pgcrypto` PostgreSQL extension provides cryptographic functions such as:
+The `pgcrypto` $PG extension provides cryptographic functions such as:
 
 *   General hashing
 *   Password hashing

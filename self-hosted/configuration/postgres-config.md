@@ -6,21 +6,21 @@ keywords: [configuration, settings]
 tags: [tune]
 ---
 
-# Manual PostgreSQL configuration and tuning
+# Manual $PG configuration and tuning
 
 If you prefer to tune settings yourself, or for settings not covered by
 `timescaledb-tune`, you can manually configure your installation using the
-PostgreSQL configuration file.
+$PG configuration file.
 
 For some common configuration settings you might want to adjust, see the
 [about-configuration][about-configuration] page.
 
-For more information about the PostgreSQL configuration page, see the
-[PostgreSQL documentation][pg-config].
+For more information about the $PG configuration page, see the
+[$PG documentation][pg-config].
 
-## Edit the PostgreSQL configuration file
+## Edit the $PG configuration file
 
-The location of the PostgreSQL configuration file depends on your operating
+The location of the $PG configuration file depends on your operating
 system and installation. 
 
 1. **Find the location of the config file for your $PG instance**

@@ -20,11 +20,11 @@ import Step6eTurnOnCompressionPolicies from "versionContent/_partials/_migrate_d
 import Step6aThroughc from "versionContent/_partials/_migrate_dual_write_6a_through_c.mdx";
 import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
 
-# Dual-write and backfill from PostgreSQL database
+# Dual-write and backfill from $PG database
 
 This document provides detailed step-by-step instructions to migrate data using
 the [dual-write and backfill][dual-write-and-backfill] migration method from a
-source database which is using PostgreSQL to $CLOUD_LONG.
+source database which is using $PG to $CLOUD_LONG.
 
 <SourceTargetNote />
 

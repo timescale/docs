@@ -8,7 +8,7 @@ tags: [write]
 
 # About writing data
 
-$TIMESCALE_DB supports writing data in the same way as PostgreSQL, using `INSERT`,
+$TIMESCALE_DB supports writing data in the same way as $PG, using `INSERT`,
 `UPDATE`, `INSERT ... ON CONFLICT`, and `DELETE`.
 
 <Highlight type="note">

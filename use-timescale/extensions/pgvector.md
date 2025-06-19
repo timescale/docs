@@ -8,17 +8,17 @@ tags: [extensions, pgvector]
 
 # Create a chatbot using pgvector
 
-The `pgvector` PostgreSQL extension helps you to store and search over machine
+The `pgvector` $PG extension helps you to store and search over machine
 learning-generated embeddings. It provides different capabilities that allows
 you to identify both exact and approximate nearest neighbors. It is designed to
-work seamlessly with other PostgreSQL features, including indexing and querying.
+work seamlessly with other $PG features, including indexing and querying.
 
 For more information about these functions and the options available, see the
 [pgvector][pgvector-repo] repository.
 
 ## Use the `pgvector` extension to create a `chatbot`
 
-The `pgvector` PostgreSQL extension allows you to create, store, and query
+The `pgvector` $PG extension allows you to create, store, and query
 OpenAI [vector embeddings][vector-embeddings] in $TIGER_POSTGRES. This page shows you how to 
 use [retrieval augmented generation (RAG)][rag-docs] to create a chatbot that combines
 your data with ChatGPT using OpenAI and `pgvector`. RAG provides a solution to the

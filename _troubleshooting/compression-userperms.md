@@ -42,6 +42,6 @@ GRANT PRIVILEGES
 ```
 
 For more information about the `GRANT` command, see the
-[PostgreSQL documentation][pg-grant].
+[$PG documentation][pg-grant].
 
 [pg-grant]: https://www.postgresql.org/docs/current/sql-grant.html

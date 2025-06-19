@@ -5,10 +5,10 @@ products: [mst]
 tags: [extension]
 ---
 
-# Use the PostgreSQL dblink extension
+# Use the $PG dblink extension
 
-The `dblink` [PostgreSQL extension][dblink-extension] allows you to connect to
-other PostgreSQL databases and to run arbitrary queries.
+The `dblink` [$PG extension][dblink-extension] allows you to connect to
+other $PG databases and to run arbitrary queries.
 
 You can use [foreign data wrappers][pg-fdw] (FDWs) to define a remote
 `foreign server` to access its data. The database connection details such as
@@ -19,7 +19,7 @@ hostnames are kept in a single place, and you only need to create a
 
 Before you begin, sign in to your $MST_SERVICE_LONG,
 navigate to the `Overview` tab, and take a note of these parameters for the
-PostgreSQL remote server. Alternatively, you can use the `avn service get`
+$PG remote server. Alternatively, you can use the `avn service get`
 command in the Aiven client:
 
 *   `HOSTNAME`: The remote database hostname
@@ -32,7 +32,7 @@ command in the Aiven client:
 
 ### Enable the dblink extension
 
-To enable the `dblink` extension on an $MST_SHORT PostgreSQL $MST_SERVICE_SHORT:
+To enable the `dblink` extension on an $MST_SHORT $PG $MST_SERVICE_SHORT:
 
 1.  Connect to the database as the `tsdbadmin` user:
 
@@ -97,7 +97,7 @@ To enable the `dblink` extension on an $MST_SHORT PostgreSQL $MST_SERVICE_SHORT:
             );
     ```
 
-1.  Enable `user1` to use the remote PostgreSQL connection `mst_remote`:
+1.  Enable `user1` to use the remote $PG connection `mst_remote`:
 
    ```sql
     GRANT USAGE ON FOREIGN SERVER mst_remote TO user1;
@@ -108,7 +108,7 @@ To enable the `dblink` extension on an $MST_SHORT PostgreSQL $MST_SERVICE_SHORT:
 ## Query data using a foreign data wrapper
 
 In this example in the `user1` user queries the remote table `inventory` defined
-in the target PostgreSQL database from the `mst_remote` server definition:
+in the target $PG database from the `mst_remote` server definition:
 
 ### Quering data using a foreign data wrapper
 

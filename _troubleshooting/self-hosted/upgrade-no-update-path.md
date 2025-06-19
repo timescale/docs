@@ -26,5 +26,5 @@ upgrade, it might fail with the above error.
 This occurs if the list of available extensions does not include the version you
 are trying to upgrade to, and it can occur if the package was not installed
 correctly in the first place. To correct the problem, install the upgrade
-package, restart PostgreSQL, verify the version, and then attempt the upgrade
+package, restart $PG, verify the version, and then attempt the upgrade
 again.

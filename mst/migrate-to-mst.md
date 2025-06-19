@@ -44,9 +44,9 @@ Ensure that you have:
 *   Created a new empty database in $MST_LONG. For more
     information, see the [Install $MST_LONG][install-mst].
     Provision your database with enough space for all your data.
-*   Checked that you're running the same major version of PostgreSQL on both
+*   Checked that you're running the same major version of $PG on both
     $MST_LONG and your source database. For information
-    about upgrading PostgreSQL, see the [upgrade
+    about upgrading $PG, see the [upgrade
     instructions for $SELF_LONG][upgrading-postgresql-self-hosted]
     and [$MST_LONG][upgrading-postgresql].
 *   Checked that you're running the same major version of $TIMESCALE_DB on both

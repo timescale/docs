@@ -91,9 +91,9 @@ a `REPLICA IDENTITY` setting. For live migration to successfully replicate `UPDA
 as a prerequisite.
 
 
-## Set REPLICA IDENTITY on PostgreSQL partitioned tables
+## Set REPLICA IDENTITY on $PG partitioned tables
 
-If your PostgreSQL tables use native partitioning, setting `REPLICA IDENTITY` on the
+If your $PG tables use native partitioning, setting `REPLICA IDENTITY` on the
 root (parent) table will not automatically apply it to the partitioned child tables.
 You must manually set `REPLICA IDENTITY` on each partitioned child table.
 
@@ -302,7 +302,7 @@ functions as you wish.
 
 ## Extension availability
 
-There are a vast number of PostgreSQL extensions available in the wild.
+There are a vast number of $PG extensions available in the wild.
 $CLOUD_LONG supports many of the most popular extensions, but not all extensions.
 Before migrating, check that the extensions you are using are supported on
 $CLOUD_LONG. Consult the [list of supported extensions].
@@ -325,7 +325,7 @@ default tablespace as desired.
 
 ## Only one database per instance
 
-While PostgreSQL clusters can contain many databases, $SERVICE_LONGs are 
+While $PG clusters can contain many databases, $SERVICE_LONGs are 
 limited to a single database. When migrating a cluster with multiple databases
 to $CLOUD_LONG, one can either migrate each source database to a separate 
 $SERVICE_LONG or "merge" source databases to target schemas.
@@ -350,7 +350,7 @@ SELECT exists (SELECT 1 FROM timescaledb_information.continuous_aggregates WHERE
 If you have partial continuous aggregates in your database, [migrate them][migrate] 
 from partial to finalized before you migrate your database.
 
-If you accidentally migrate partial continuous aggregates across PostgreSQL
+If you accidentally migrate partial continuous aggregates across $PG
 versions, you see the following error when you query any continuous aggregates:
 
 ```

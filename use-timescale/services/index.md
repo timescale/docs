@@ -39,7 +39,7 @@ or [contact us][contact-timescale] directly.
 ## Advanced configuration
 
 $CLOUD_LONG is a versatile hosting service that provides a growing list of
-advanced features for your PostgreSQL and time-series data workloads.
+advanced features for your $PG and time-series data workloads.
 
 For more information about customizing your database configuration, see the
 [Configuration section][configuration].

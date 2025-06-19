@@ -7,8 +7,8 @@ keywords: [queries]
 
 # About querying data
 
-Querying data in $TIMESCALE_DB works just like querying data in PostgreSQL. You
-can reuse your existing queries if you're moving from another PostgreSQL
+Querying data in $TIMESCALE_DB works just like querying data in $PG. You
+can reuse your existing queries if you're moving from another $PG
 database.
 
 $TIMESCALE_DB also provides some additional features to help with data analysis:

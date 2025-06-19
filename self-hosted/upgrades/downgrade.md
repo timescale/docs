@@ -31,8 +31,8 @@ Before you downgrade:
 
 *   Read [the release notes][relnotes] for the TimescaleDB version you are
   downgrading to.
-*   Check which PostgreSQL version you are currently running. You might need to
-  [upgrade to the latest PostgreSQL version][upgrade-pg]
+*   Check which $PG version you are currently running. You might need to
+  [upgrade to the latest $PG version][upgrade-pg]
   before you begin your TimescaleDB downgrade.
 *   [Perform a backup][backup] of your database. While TimescaleDB
   downgrades are performed in-place, downgrading is an intrusive operation.
@@ -41,9 +41,9 @@ Before you downgrade:
 
 ## Downgrade TimescaleDB to a previous minor version
 
-This downgrade uses the PostgreSQL `ALTER EXTENSION` function to downgrade to
+This downgrade uses the $PG `ALTER EXTENSION` function to downgrade to
 a previous version of the TimescaleDB extension. TimescaleDB supports having
-different extension versions on different databases within the same PostgreSQL
+different extension versions on different databases within the same $PG
 instance. This allows you to upgrade and downgrade extensions independently on
 different databases. Run the `ALTER EXTENSION` function on each database to
 downgrade them individually.

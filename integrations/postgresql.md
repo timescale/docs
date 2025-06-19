@@ -8,6 +8,6 @@ tags: [change]
 
 import FDW from "versionContent/_partials/_foreign-data-wrappers.mdx";
 
-# Integrate PostgreSQL with $CLOUD_LONG
+# Integrate $PG with $CLOUD_LONG
 
 <FDW />

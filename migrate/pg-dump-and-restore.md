@@ -26,7 +26,7 @@ import MigrateAWSRDSMigrateData from "versionContent/_partials/_migrate_awsrds_m
 
 You use downtime migration to move less than 100GB of data from a self-hosted database to a $SERVICE_LONG.
 
-Downtime migration uses the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. 
+Downtime migration uses the native $PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. 
 If you are migrating from $SELF_LONG, this method works for hypertables compressed into the columnstore without having 
 to convert the data back to the rowstore before you begin. 
 
@@ -43,7 +43,7 @@ shell commands.
 <MigrationPrerequisites />
 
 
-- Install the PostgreSQL client tools on your migration machine. 
+- Install the $PG client tools on your migration machine. 
 
   This includes `psql`, `pg_dump`, and `pg_dumpall`. 
 
@@ -71,38 +71,38 @@ And that is it, you have migrated your data from a self-hosted instance running 
 </Tab>
 <Tab title="From PostgreSQL">
 
-This section shows you how to move your data from self-hosted PostgreSQL to a $SERVICE_LONG
+This section shows you how to move your data from self-hosted $PG to a $SERVICE_LONG
 using `pg_dump` and `psql` from Terminal.
 
-Migration from PostgreSQL moves the data only. You must manually enable $CLOUD_LONG features like
+Migration from $PG moves the data only. You must manually enable $CLOUD_LONG features like
 [hypertables][about-hypertables], [hypercore][data-compression] or [data retention][data-retention] after the migration is complete. You enable $CLOUD_LONG features while your database is offline.
 
 
 <MigrateFromPostgres />
 
 
-And that is it, you have migrated your data from a self-hosted instance running PostgreSQL to a $SERVICE_LONG.
+And that is it, you have migrated your data from a self-hosted instance running $PG to a $SERVICE_LONG.
 
 </Tab>
 
 <Tab title="From AWS RDS/Aurora">
 
-To migrate your data from an Amazon RDS/Aurora PostgreSQL instance to a $SERVICE_LONG, you extract the data to an intermediary 
-EC2 Ubuntu instance in the same AWS region as your RDS/Aurora PostgreSQL instance. You then upload your data to a $SERVICE_LONG. 
+To migrate your data from an Amazon RDS/Aurora $PG instance to a $SERVICE_LONG, you extract the data to an intermediary 
+EC2 Ubuntu instance in the same AWS region as your RDS/Aurora $PG instance. You then upload your data to a $SERVICE_LONG. 
 To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to 
 rapidLy extract and store your data before uploading to $CLOUD_LONG.  
 
-Migration from RDS/Aurora PostgreSQL moves the data only. You must manually enable $CLOUD_LONG features like
+Migration from RDS/Aurora $PG moves the data only. You must manually enable $CLOUD_LONG features like
 [hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable $CLOUD_LONG
 features while your database is offline.
 
-This section shows you how to move your data from a PostgreSQL database running in an Amazon RDS/Aurora PostgreSQL instance to a
+This section shows you how to move your data from a $PG database running in an Amazon RDS/Aurora $PG instance to a
 $SERVICE_LONG using `pg_dump` and `psql` from Terminal.
 
 
 <MigrateFromAWSRDS />
 
-And that is it, you have migrated your data from an RDS/Aurora PostgreSQL instance to a $SERVICE_LONG.
+And that is it, you have migrated your data from an RDS/Aurora $PG instance to a $SERVICE_LONG.
 
 </Tab>
 

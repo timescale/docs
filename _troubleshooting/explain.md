@@ -18,13 +18,13 @@ tags: [queries, query, explain, performance]
 
 To troubleshoot a query, you can examine its EXPLAIN plan.
 
-PostgreSQL's EXPLAIN feature allows users to understand the underlying query
-plan that PostgreSQL uses to execute a query. There are multiple ways that
-PostgreSQL can execute a query: for example, a query might be fulfilled using a
+$PG's EXPLAIN feature allows users to understand the underlying query
+plan that $PG uses to execute a query. There are multiple ways that
+$PG can execute a query: for example, a query might be fulfilled using a
 slow sequence scan or a much more efficient index scan. The choice of plan
-depends on what indexes are created on the table, the statistics that PostgreSQL
+depends on what indexes are created on the table, the statistics that $PG
 has about your data, and various planner settings. The EXPLAIN output let's you
-know which plan PostgreSQL is choosing for a particular query. PostgreSQL has a
+know which plan $PG is choosing for a particular query. $PG has a
 [in-depth explanation][using explain] of this feature.
 
 To understand the query performance on a hypertable, we suggest first

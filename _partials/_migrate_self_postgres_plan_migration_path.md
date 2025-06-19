@@ -4,15 +4,15 @@ import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_times
 Best practice is to always use the latest version of TimescaleDB. Subscribe to our releases on GitHub or use $CLOUD_LONG 
 and always run the latest update without any hassle. 
 
-Check the following support matrix against the versions of $TIMESCALE_DB and PostgreSQL that you are running currently 
+Check the following support matrix against the versions of $TIMESCALE_DB and $PG that you are running currently 
 and the versions you want to update to, then choose your upgrade path.
 
-For example, to upgrade from $TIMESCALE_DB 2.13 on PostgreSQL 13 to $TIMESCALE_DB 2.18.2 you need to:
+For example, to upgrade from $TIMESCALE_DB 2.13 on $PG 13 to $TIMESCALE_DB 2.18.2 you need to:
 1. Upgrade $TIMESCALE_DB to 2.15
-1. Upgrade PostgreSQL to 14, 15 or 16.
+1. Upgrade $PG to 14, 15 or 16.
 1. Upgrade $TIMESCALE_DB to 2.18.2.
 
-You may need to [upgrade to the latest PostgreSQL version][upgrade-pg] before you upgrade TimescaleDB. Also,
+You may need to [upgrade to the latest $PG version][upgrade-pg] before you upgrade TimescaleDB. Also,
 if you use [$TOOLKIT_LONG][toolkit-install], ensure the `timescaledb_toolkit` extension is >=  
 v1.6.0 before you upgrade $TIMESCALE_DB extension.
 

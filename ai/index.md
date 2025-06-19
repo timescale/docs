@@ -9,7 +9,7 @@ tags: [ai, vector]
 
 # Power your AI apps with pgai on $CLOUD_LONG
 
-pgai on $CLOUD_LONG is a cloud solution for building search, RAG, and AI agents with $PG. This suite of tools empowers you to deploy production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
+pgai on $CLOUD_LONG is a cloud solution for building search, RAG, and AI agents with $PG. This suite of tools empowers you to deploy production AI applications with $PG as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
 
 <Highlight type="cloud" header="Start building today" button="Try for free">
 

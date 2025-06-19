@@ -15,15 +15,15 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 ## Connect a Rails app to your service 
 
-Every $SERVICE_LONG is a 100% PostgreSQL database hosted in $CLOUD_LONG with
+Every $SERVICE_LONG is a 100% $PG database hosted in $CLOUD_LONG with
 $COMPANY extensions such as $TIMESCALE_DB. You connect to your $SERVICE_LONG
-from a standard Rails app configured for PostgreSQL. 
+from a standard Rails app configured for $PG. 
 
 <Procedure>
 
-1.  **Create a new Rails app configured for PostgreSQL**
+1.  **Create a new Rails app configured for $PG**
 
-    Rails creates and bundles your app, then installs the standard PostgreSQL Gems.
+    Rails creates and bundles your app, then installs the standard $PG Gems.
 
     ```bash
     rails new my_app -d=postgresql
@@ -90,7 +90,7 @@ from a standard Rails app configured for PostgreSQL.
       | pg_buffercache      | 1.5     | public     | examine the shared buffer cache| 
       | pg_stat_statements  | 1.11    | public     | track planning and execution statistics of all SQL statements executed| 
       | plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language| 
-      | postgres_fdw        | 1.1     | public     | foreign-data wrapper for remote PostgreSQL servers| 
+      | postgres_fdw        | 1.1     | public     | foreign-data wrapper for remote $PG servers| 
       | timescaledb         | 2.18.1  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)| 
       | timescaledb_toolkit | 1.19.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities| 
 
@@ -98,8 +98,8 @@ from a standard Rails app configured for PostgreSQL.
 
 ## Optimize time-series data in hypertables
 
-Hypertables are PostgreSQL tables designed to simplify and accelerate data analysis. Anything 
-you can do with regular PostgreSQL tables, you can do with hypertables - but much faster and more conveniently.
+Hypertables are $PG tables designed to simplify and accelerate data analysis. Anything 
+you can do with regular $PG tables, you can do with hypertables - but much faster and more conveniently.
 
 In this section, you use the helpers in the $TIMESCALE_DB gem to create and manage a [hypertable][about-hypertables].
 

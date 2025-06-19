@@ -7,7 +7,7 @@ keywords: [Grafana, visualizations, analytics]
 
 # Connect $TIMESCALE_DB and Grafana
 
-Grafana ships with built-in Prometheus, PostgreSQL, Jaeger, and other data
+Grafana ships with built-in Prometheus, $PG, Jaeger, and other data
 source plugins that allow you to query and visualize data from a compatible
 database. To add a data source in Grafana you must be signed as a user with
 organization administration role privileges.

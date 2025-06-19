@@ -50,7 +50,7 @@ To achieve this, real-time analytics systems must meet several key requirements:
 * **Query flexibility** provides full SQL support, allowing for complex queries with joins, filters, aggregations, and analytical functions.
 
 
-### $CLOUD_LONG: real-time analytics from PostgreSQL
+### $CLOUD_LONG: real-time analytics from $PG
 
 $CLOUD_LONG is a high-performance database that brings real-time analytics to applications. It combines fast queries,
 high ingest performance, and full SQL support—all while ensuring scalability and reliability. $CLOUD_LONG extends $PG with the $TIMESCALE_DB extension. It enables sub-second queries on vast amounts of incoming data while providing optimizations designed for continuously updating datasets.
@@ -249,7 +249,7 @@ Min/max metadata allows queries filtering on correlated dimensions (e.g., `order
 </center>
 
 
-#### PostgreSQL indexes (row and columnar)
+#### $PG indexes (row and columnar)
 
 Unlike many databases, $TIMESCALE_DB supports standard $PG indexes on columnstore data (B-tree and hash currently, when using the hypercore table access method), allowing queries to efficiently locate specific values within both row-based and compressed columnar storage. These indexes enable fast lookups, range queries, and filtering operations that further reduce unnecessary data scans.
 

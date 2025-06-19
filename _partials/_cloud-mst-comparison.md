@@ -3,7 +3,7 @@
   header="Tiger Cloud or MST?"
 >
 
-$CLOUD_LONG is a high-performance developer focused cloud that provides PostgreSQL services enhanced 
+$CLOUD_LONG is a high-performance developer focused cloud that provides $PG services enhanced 
 with our blazing fast vector search. You can securely integrate $CLOUD_LONG with your AWS, GCS or Azure 
 infrastructure. [Create a $SERVICE_LONG][timescale-service] and try for free.
 

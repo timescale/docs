@@ -8,12 +8,12 @@ tags: [recovery, logical backup, pg_dump, pg_restore]
 
 # Logical backup with `pg_dump` and `pg_restore`
 
-You backup and restore each self-hosted PostgreSQL database with $TIMESCALE_DB enabled using the native 
-PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. This also works for compressed hypertables, 
+You back up and restore each self-hosted $PG database with $TIMESCALE_DB enabled using the native
+$PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. This also works for compressed hypertables, 
 you don't have to decompress the chunks before you begin.
 
 If you are using `pg_dump` to backup regularly, make sure you keep
-track of the versions of PostgreSQL and $TIMESCALE_DB you are running. For more
+track of the versions of $PG and $TIMESCALE_DB you are running. For more
 information, see [Versions are mismatched when dumping and restoring a database][troubleshooting-version-mismatch].
 
 This page shows you how to:
@@ -26,7 +26,7 @@ You can also [upgrade between different versions of $TIMESCALE_DB][timescaledb-u
 ## Prerequisites
 
 - A source database to backup from, and a target database to restore to.
-- Install the `psql` and `pg_dump` PostgreSQL client tools on your migration machine.
+- Install the `psql` and `pg_dump` $PG client tools on your migration machine.
 
 ## Back up and restore an entire database
 
@@ -160,16 +160,16 @@ In Terminal:
        psql -d $TARGET -c "\COPY <table-name> FROM <table-name>.csv CSV"
        ```
 
-       The standard `COPY` command in PostgreSQL is single threaded. If you have a
+       The standard `COPY` command in $PG is single threaded. If you have a
        lot of data, you can speed up the copy using the [timescaledb-parallel-copy][parallel importer].
 
 </procedure>
 
-Best practice is to backup and restore a database at a time. However, if you have superuser access to 
-PostgreSQL instance with $TIMESCALE_DB installed, you can use `pg_dumpall` to backup all PostgreSQL databases in a 
+Best practice is to backup and restore a database at a time. However, if you have superuser access to
+$PG instance with $TIMESCALE_DB installed, you can use `pg_dumpall` to back up all $PG databases in a 
 cluster, including global objects that are common to all databases, namely database roles, tablespaces,
-and privilege grants. You restore the PostgreSQL instance using `psql`. For more information, see the
-[PostgreSQL documentation][postgres-docs].
+and privilege grants. You restore the $PG instance using `psql`. For more information, see the
+[$PG documentation][postgres-docs].
 
 
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy

@@ -9,7 +9,7 @@ keywords: [hypertables, indexes]
 
 You can use an index on your database to speed up read operations. You can
 create an index on any combination of columns. $TIMESCALE_DB supports all table objects supported
-within PostgreSQL, including data types, indexes, and triggers.
+within $PG, including data types, indexes, and triggers.
 
 You can create an index using the `CREATE INDEX` command. For example, to create
 an index that sorts first by `location`, then by `time`, in descending order:
@@ -18,7 +18,7 @@ an index that sorts first by `location`, then by `time`, in descending order:
 CREATE INDEX ON conditions (location, time DESC);
 ```
 
-You can run this command before or after you convert a regular PostgreSQL table
+You can run this command before or after you convert a regular $PG table
 to a hypertable.
 
 ## Default indexes
@@ -92,7 +92,7 @@ than having to wait until index creation is complete.
 <Highlight type="note">
 
 You can also use the
-[PostgreSQL `WITH` clause](https://www.postgresql.org/docs/current/queries-with.html)
+[$PG `WITH` clause](https://www.postgresql.org/docs/current/queries-with.html)
 to perform indexing transactions on an individual chunk.
 
 </Highlight>

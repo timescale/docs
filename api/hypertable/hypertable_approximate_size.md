@@ -24,7 +24,7 @@ instead.
 
 <Highlight type="note">
 This function relies on the per backend caching using the in-built
-PostgreSQL storage manager layer to compute the approximate size
+$PG storage manager layer to compute the approximate size
 cheaply. The PG cache invalidation clears off the cached size for a
 chunk when DML happens into it. That size cache is thus able to get
 the latest size in a matter of minutes. Also, due to the backend

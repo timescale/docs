@@ -20,7 +20,7 @@ This section shows you how to:
 * Upgrade $SELF_LONG to a new [minor version][upgrade-minor].
 * Upgrade $SELF_LONG to a new [major version][upgrade-major].
 * Upgrade $SELF_LONG running in a [Docker container][upgrade-docker] to a new minor version.
-* Upgrade [PostgreSQL][upgrade-pg] to a new version.
+* Upgrade [$PG][upgrade-pg] to a new version.
 * Downgrade $SELF_LONG to the [previous minor version][downgrade].
 
 [downgrade]: /self-hosted/:currentVersion:/upgrades/downgrade/

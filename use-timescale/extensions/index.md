@@ -6,12 +6,12 @@ keywords: [services, settings, extensions]
 tags: [extensions]
 ---
 
-# $CLOUD_LONG PostgreSQL extensions 
+# $CLOUD_LONG $PG extensions 
 
-The following PostgreSQL extensions are installed with each $SERVICE_LONG:
+The following $PG extensions are installed with each $SERVICE_LONG:
 
 - [$COMPANY extensions][timescale-extensions]
-- [PostgreSQL built-in extensions][built-ins]
+- [$PG built-in extensions][built-ins]
 - [Third-party extensions][third-party]
 
 ## $COMPANY extensions
@@ -19,12 +19,12 @@ The following PostgreSQL extensions are installed with each $SERVICE_LONG:
 | Extension                                  | Description                            | Enabled by default                                                            |
 |--------------------------------------------|----------------------------------------|-------------------------------------------------------------------------------|
 | [pgai][pgai]                               | Helper functions for AI workflows      | For $SERVICE_SHORTs with the [AI and Vector capability][services]             |
-| [pgvector][pgvector]                       | Vector similarity search for PostgreSQL | For $SERVICE_SHORTs with the [AI and Vector capability][services]             |
+| [pgvector][pgvector]                       | Vector similarity search for $PG | For $SERVICE_SHORTs with the [AI and Vector capability][services]             |
 | [pgvectorscale][pgvectorscale]             | Advanced indexing for vector data      | For $SERVICE_SHORTs with the [AI and Vector capability][services]             |
 | [timescaledb_toolkit][timescaledb-toolkit] | TimescaleDB Toolkit                    | For $SERVICE_SHORTs with the [Time series and analytics capability][services] |
 | [timescaledb][timescaledb]                 | TimescaleDB                            | For all $SERVICE_SHORTs                                                       |
 
-## PostgreSQL built-in extensions
+## $PG built-in extensions
 
 | Extension                                | Description                                                            | Enabled by default      |
 |------------------------------------------|------------------------------------------------------------------------|-------------------------|
@@ -76,7 +76,7 @@ The following PostgreSQL extensions are installed with each $SERVICE_LONG:
 
 | Extension                                        | Description                                                | Enabled by default |
 |--------------------------------------------------|------------------------------------------------------------|--------------------|
-| [h3][h3]                                         | H3 bindings for PostgreSQL                                 | -                  |
+| [h3][h3]                                         | H3 bindings for $PG                                 | -                  |
 | [pgaudit][pgaudit]                               | Detailed session and/or object audit logging               | -                  |
 | [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                      | -                  |
 | [pgrouting][pgrouting]                           | Geospatial routing functionality                           | -                  |
@@ -85,7 +85,7 @@ The following PostgreSQL extensions are installed with each $SERVICE_LONG:
 | [postgis_sfcgal][postgis-sfcgal]                 | PostGIS SFCGAL functions                                   | -                  |
 | [postgis_tiger_geocoder][postgis-tiger-geocoder] | PostGIS tiger geocoder and reverse geocoder                | -                  |
 | [postgis_topology][postgis-topology]             | PostGIS topology spatial types and functions               | -                  |
-| [unit][unit]                                     | SI units for PostgreSQL                                    | -                  |
+| [unit][unit]                                     | SI units for $PG                                    | -                  |
 
 [amcheck]: https://www.postgresql.org/docs/current/amcheck.html
 [autoinc]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-AUTOINC

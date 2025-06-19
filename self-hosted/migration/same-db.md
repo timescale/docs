@@ -8,9 +8,9 @@ tags: [import]
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Migrate data to TimescaleDB from the same PostgreSQL instance
+# Migrate data to TimescaleDB from the same $PG instance
 
-You can migrate data into a $TIMESCALE_DB $HYPERTABLE from a regular PostgreSQL
+You can migrate data into a $TIMESCALE_DB $HYPERTABLE from a regular $PG
 table. This method assumes that you have $TIMESCALE_DB set up in the same database
 instance as your existing table.
 

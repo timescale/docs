@@ -113,20 +113,20 @@ Highlighted features in TimescaleDB v2.20 include:
 * Enhanced developer flexibility with continuous aggregates now supporting window and mutable functions, plus 
   customizable refresh orders.
 
-### PostgreSQL 13 and 14 deprecated on Tiger Cloud
+### $PG 13 and 14 deprecated on Tiger Cloud
 
-[TimescaleDB version 2.20][timescale220] is not compatible with PostgreSQL versions v14 and below.
-TimescaleDB 2.19.3 is the last bug-fix release for PostgreSQL 14. Future fixes are for
-PostgreSQL 15+ only. To continue receiving critical fixes and security patches, and to take
-advantage of the latest TimescaleDB features, you must upgrade to PostgreSQL 15 or newer.
-This deprecation affects all Tiger Cloud services currently running PostgreSQL 13 or
-PostgreSQL 14.
+[TimescaleDB version 2.20][timescale220] is not compatible with $PG versions v14 and below.
+TimescaleDB 2.19.3 is the last bug-fix release for $PG 14. Future fixes are for
+$PG 15+ only. To continue receiving critical fixes and security patches, and to take
+advantage of the latest TimescaleDB features, you must upgrade to $PG 15 or newer.
+This deprecation affects all Tiger Cloud services currently running $PG 13 or
+$PG 14.
 
-The timeline for the PostgreSQL 13 and 14 deprecation is as follows:
+The timeline for the $PG 13 and 14 deprecation is as follows:
 
 - **Deprecation notice period begins**: starting in early June 2025, you will receive email communication.
 - **Customer self-service upgrade window**: June 2025 through September 14, 2025. We strongly encourage you to
-  [manually upgrade PostgreSQL](https://docs.tigerdata.com/use-timescale/latest/upgrades/#manually-upgrade-postgresql-for-a-service)
+  [manually upgrade $PG](https://docs.tigerdata.com/use-timescale/latest/upgrades/#manually-upgrade-postgresql-for-a-service)
   during this period.
 - **Automatic upgrade deadline**: your service will be
   [automatically upgraded](https://docs.timescale.com/use-timescale/latest/upgrades/#automatic-postgresql-upgrades-for-a-service)
@@ -138,10 +138,10 @@ You now can:
 * Edit a running livesync to add and drop tables from an existing configuration:
   - For existing tables, Timescale Console stops the livesync while keeping the target table intact.
   - Newly added tables sync their existing data and transition into the Change Data Capture (CDC) state.
-* Create multiple livesync instances for PostgreSQL per service. This is an upgrade from our initial launch which 
+* Create multiple livesync instances for $PG per service. This is an upgrade from our initial launch which 
   limited users to one LiveSync per service.
 
-  This enables you to sync data from multiple PostgreSQL source databases into a single Timescale Cloud service.
+  This enables you to sync data from multiple $PG source databases into a single Timescale Cloud service.
 * No more hassle looking up schema and table names for livesync configuration from the source. Starting today, all 
   schema and table names are available in a dropdown menu for seamless source table selection.
 
@@ -178,8 +178,8 @@ Available on Scale and Enterprise plans. [Learn more here](https://docs.timescal
 
 ![Prometheus export user interface](https://assets.timescale.com/docs/images/timescale-create-prometheus-exporter.png)
 
-### 📥 Import text files into PostgreSQL tables
-Our import options in Timescale Console have expanded to include local text files.  You can add the content of multiple text files (one file per row) into a PostgreSQL table for use with Vectorizers while creating embeddings for evaluation and development. This new option is located in Service > Actions > Import Data.
+### 📥 Import text files into $PG tables
+Our import options in Timescale Console have expanded to include local text files.  You can add the content of multiple text files (one file per row) into a $PG table for use with Vectorizers while creating embeddings for evaluation and development. This new option is located in Service > Actions > Import Data.
 
 ## 🤖 Automatic document embeddings from S3 and a sample dataset for AI testing
 <Label type="date">May 09, 2025</Label>
@@ -188,7 +188,7 @@ Our import options in Timescale Console have expanded to include local text file
 
 pgai vectorizer now supports automatic document vectorization. This makes it dramatically easier to build RAG and semantic search applications on top of unstructured data stored in Amazon S3. With just a SQL command, developers can create, update, and synchronize vector embeddings from a wide range of document formats—including PDFs, DOCX, XLSX, HTML, and more—without building or maintaining complex ETL pipelines.
 
-Instead of juggling multiple systems and syncing metadata, vectorizer handles the entire process: downloading documents from S3, parsing them, chunking text, and generating vector embeddings stored right in PostgreSQL using pgvector. As documents change, embeddings stay up-to-date automatically—keeping your PostgreSQL database the single source of truth for both structured and semantic data.
+Instead of juggling multiple systems and syncing metadata, vectorizer handles the entire process: downloading documents from S3, parsing them, chunking text, and generating vector embeddings stored right in $PG using pgvector. As documents change, embeddings stay up-to-date automatically—keeping your $PG database the single source of truth for both structured and semantic data.
 
 ![create a vectorizer](https://assets.timescale.com/docs/images/console-create-a-vectorizer.png )
 
@@ -323,7 +323,7 @@ To see the job information page, in [Timescale Console][console], select the ser
 ## 🤩 In-Console Livesync for PostgreSQL
 <Label type="date">March 21, 2025</Label>
 
-You can now set up an active data ingestion pipeline with livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep livesync running for as long as you need, ensuring that your existing source PostgreSQL tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/). 
+You can now set up an active data ingestion pipeline with livesync for PostgreSQL in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep livesync running for as long as you need, ensuring that your existing source $PG tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for PostgreSQL](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/). 
 
 ![Livesync in Timescale Console](https://assets.timescale.com/docs/images/timescale-cloud-livesync-tile.png)
 
@@ -338,7 +338,7 @@ You can now set up an active data ingestion pipeline with livesync for PostgreSQ
 
 ### pgvectorscale 0.6 — store up to 16K dimension embeddings
 
-pgvectorscale 0.6.0 now supports storing vectors with up to 16,000 dimensions, removing the previous limitation of 2,000 from pgvector. This lets you use larger embedding models like OpenAI's text-embedding-3-large (3072 dim) with PostgreSQL as your vector database. This release also includes key performance and capability enhancements, including NEON support for SIMD distance calculations on aarch64 processors, improved inner product distance metric implementation, and improved index statistics. See the release details [here](https://github.com/timescale/pgvectorscale/releases/tag/0.6.0). 
+pgvectorscale 0.6.0 now supports storing vectors with up to 16,000 dimensions, removing the previous limitation of 2,000 from pgvector. This lets you use larger embedding models like OpenAI's text-embedding-3-large (3072 dim) with $PG as your vector database. This release also includes key performance and capability enhancements, including NEON support for SIMD distance calculations on aarch64 processors, improved inner product distance metric implementation, and improved index statistics. See the release details [here](https://github.com/timescale/pgvectorscale/releases/tag/0.6.0). 
 
 ### pgai Vectorizer supports models from AWS Bedrock, Azure AI, Google Vertex via LiteLLM
 
@@ -499,7 +499,7 @@ Enable this feature in PopSQL/Timescale Console data mode > `Project` > `Setting
 ## 🤖 pgai Extension and Python Library Updates
 <Label type="date">January 24, 2025</Label>
 
-### AI — pgai PostgreSQL extension 0.7.0
+### AI — pgai $PG extension 0.7.0
 This release enhances the Vectorizer functionality by adding configurable `base_url` support for OpenAI API. This enables pgai Vectorizer to use all OpenAI-compatible models and APIs via the OpenAI integration simply by changing the `base_url`. This release also includes public granting of vectorizers, superuser creation on any table, an upgrade to the Ollama client to 0.4.5, a new `docker-start` command, and various fixes for struct handling, schema qualification, and system package management. [See all changes on Github](https://github.com/timescale/pgai/releases/tag/extension-0.7.0).
 
 ### AI - pgai python library 0.5.0
@@ -511,14 +511,14 @@ This release adds comprehensive SQLAlchemy and Alembic support for vector embedd
 ### AWS Transit Gateway Support (Early Access)
 Timescale Cloud now enables you to connect to your Timescale Cloud services through AWS Transit Gateway. This feature is available to Scale and Enterprise customers. It will be in Early Access for a short time and available in the Timescale Console very soon. If you are interested in implementing this Early Access Feature, reach out to your Rep.
 
-## 🇮🇳 New region in India, PostgreSQL 17 upgrades, and TimescaleDB on AWS Marketplace
+## 🇮🇳 New region in India, $PG 17 upgrades, and TimescaleDB on AWS Marketplace
 <Label type="date">January 10, 2025</Label>
 
 ### Welcome India! (Support for a new region: Mumbai)
 Timescale Cloud now supports the Mumbai region. Starting today, you can run Timescale Cloud services in Mumbai, bringing our database solutions closer to users in India.
 
-### PostgreSQL major version upgrades to PG 17
-Timescale Cloud services can now be upgraded directly to PostgreSQL 17 from versions 14, 15, or 16. Users running versions 12 or 13 must first upgrade to version 15 or 16, before upgrading to 17.
+### $PG major version upgrades to PG 17
+Timescale Cloud services can now be upgraded directly to $PG 17 from versions 14, 15, or 16. Users running versions 12 or 13 must first upgrade to version 15 or 16, before upgrading to 17.
 
 ### Timescale Cloud available on AWS Marketplace
 Timescale Cloud is now available in the [AWS Marketplace][aws-timescale]. This allows you to keep billing centralized on your AWS account, use your already committed AWS Enterprise Discount Program spend to pay your Timescale Cloud bill and simplify procurement and vendor management.
@@ -686,8 +686,8 @@ Navigate to the AI tab in your service overview and follow the instructions to a
 
 ![Vectorizer setup](https://s3.amazonaws.com/assets.timescale.com/docs/images/vectorizer-setup.png)
 
-### PostgreSQL-to-PostgreSQL foreign data wrappers: 
-Fetch and query data from multiple PostgreSQL databases, including time-series data in hypertables, directly within Timescale Cloud using [foreign data wrappers (FDW)](https://docs.timescale.com/use-timescale/latest/schema-management/foreign-data-wrappers/). No more complicated ETL processes or external tools—just seamless integration right within your SQL editor. This feature is ideal for developers who manage multiple PostgreSQL and time-series instances and need quick, easy access to data across databases.
+### $PG-to-$PG foreign data wrappers: 
+Fetch and query data from multiple $PG databases, including time-series data in hypertables, directly within Timescale Cloud using [foreign data wrappers (FDW)](https://docs.timescale.com/use-timescale/latest/schema-management/foreign-data-wrappers/). No more complicated ETL processes or external tools—just seamless integration right within your SQL editor. This feature is ideal for developers who manage multiple $PG and time-series instances and need quick, easy access to data across databases.
 
 ### Faster queries over tiered data 
 This release adds support for runtime chunk exclusion for queries that need to access [tiered storage](https://docs.timescale.com/use-timescale/latest/data-tiering/). Chunk exclusion now works with queries that use stable expressions in the `WHERE` clause. The most common form of this type of query is:
@@ -721,7 +721,7 @@ The newest version of Data Mode Notebooks is now waaaay faster.  Why? We've inco
 
 ### 🏗️ Live Migrations v1.0 Release
 
-Last year, we began developing a solution for low-downtime migration from PostgreSQL and TimescaleDB. Since then, this solution has evolved significantly, featuring enhanced functionality, improved reliability, and performance optimizations. We're now proud to announce that **live migration is production-ready** with the release of version 1.0.
+Last year, we began developing a solution for low-downtime migration from $PG and TimescaleDB. Since then, this solution has evolved significantly, featuring enhanced functionality, improved reliability, and performance optimizations. We're now proud to announce that **live migration is production-ready** with the release of version 1.0.
 
 Many of our customers have successfully migrated databases to Timescale using [live migration](https://docs.timescale.com/migrate/latest/live-migration/), with some databases as large as a few terabytes in size.
 
@@ -739,7 +739,7 @@ Previously, these actions were only visible during the service creation process 
 
 ### 🧭 Import Data from MySQL
 
-We've noticed users struggling to convert their MySQL schema and data into their Timescale Cloud services. This was due to the semantic differences between MySQL and PostgreSQL. To simplify this process, we now offer **easy-to-follow instructions** to import data from MySQL to Timescale Cloud.  This feature is available as part of the data import wizard, under the **Import from MySQL** option.
+We've noticed users struggling to convert their MySQL schema and data into their Timescale Cloud services. This was due to the semantic differences between MySQL and $PG. To simplify this process, we now offer **easy-to-follow instructions** to import data from MySQL to Timescale Cloud.  This feature is available as part of the data import wizard, under the **Import from MySQL** option.
 
 ![MySQL import instructions](https://assets.timescale.com/docs/images/mysql-import-instructions.png)
 
@@ -806,7 +806,7 @@ For more details on multiple HA replicas, see [Manage high availability](https:/
 
    ![Session Status Indicator](https://s3.amazonaws.com/assets.timescale.com/docs/images/session-status-indicator.gif)
 
-* Released live-migration v0.0.26 and then v0.0.27 which includes multiple performance improvements and bugfixes as well as better support for PostgreSQL 12.
+* Released live-migration v0.0.26 and then v0.0.27 which includes multiple performance improvements and bugfixes as well as better support for $PG 12.
 
 ## One-click SQL statement execution from Timescale Console, and session support in the SQL editor
 <Label type="date">September 05, 2024</Label>
@@ -989,12 +989,12 @@ In TimescaleDB v2.16.0 we:
   `INNER/LEFT` and `LATERAL` joins are now supported. Plus, you can now join with multiple regular tables,
   and have more than one equality operator on join clauses.
 
-**PostgreSQL 13 support removal announcement**
+**$PG 13 support removal announcement**
 
-Following the deprecation announcement for PostgreSQL 13 in TimescaleDB v2.13,
-PostgreSQL 13 is no longer supported in TimescaleDB v2.16.
+Following the deprecation announcement for $PG 13 in TimescaleDB v2.13,
+$PG 13 is no longer supported in TimescaleDB v2.16.
 
-The currently supported PostgreSQL major versions are 14, 15, and 16.
+The currently supported $PG major versions are 14, 15, and 16.
  
 ## 📦 Performance, packaging and stability improvements for Timescale Cloud
 <Label type="date">August 8, 2024</Label>
@@ -1097,14 +1097,14 @@ To access the compression wizard, navigate to `Explorer`, and select the hyperta
 
 The [vectorscale extension][pgvectorscale] is now available on [Timescale Cloud][signup].
 
-pgvectorscale complements pgvector, the open-source vector data extension for PostgreSQL, and introduces the
+pgvectorscale complements pgvector, the open-source vector data extension for $PG, and introduces the
 following key innovations for pgvector data:
 
 - A new index type called StreamingDiskANN, inspired by the DiskANN algorithm, based on research from Microsoft.
 - Statistical Binary Quantization: developed by Timescale researchers, This compression method improves on
   standard Binary Quantization.
 
-On benchmark dataset of 50 million Cohere embeddings (768 dimensions each), PostgreSQL with pgvector and
+On benchmark dataset of 50 million Cohere embeddings (768 dimensions each), $PG with pgvector and
 pgvectorscale achieves 28x lower p95 latency and 16x higher query throughput compared to Pinecone's storage
 optimized (s1) index for approximate nearest neighbor queries at 99% recall, all at 75% less cost when
 self-hosted on AWS EC2.
@@ -1118,11 +1118,11 @@ To learn more, see the [pgvectorscale documentation][pgvectorscale].
 The [pgai extension][pgai] is now available on [Timescale Cloud][signup].
 
 pgai brings embedding and generation AI models closer to the database. With pgai, you can now do the following directly
-from within PostgreSQL in a SQL query:
+from within $PG in a SQL query:
 
 * Create embeddings for your data.
 * Retrieve LLM chat completions from models like OpenAI GPT4o.
-* Reason over your data and facilitate use cases like classification, summarization, and data enrichment on your existing relational data in PostgreSQL.
+* Reason over your data and facilitate use cases like classification, summarization, and data enrichment on your existing relational data in $PG.
 
 To learn more, see the [pgai documentation][pgai].
 
@@ -1144,7 +1144,7 @@ To learn more, see the [TimescaleDB release notes](https://github.com/timescale/
 ## 🔍 Database Audit Logging with pgaudit
 <Label type="date">May 31, 2024</Label>
 
-The [PostgreSQL Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][signup].
+The [$PG Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][signup].
 pgaudit provides detailed database session and object audit logging in the Timescale
 Cloud logs.
 
@@ -1157,7 +1157,7 @@ To learn more, see the [pgaudit documentation](https://github.com/pgaudit/pgaudi
 ## 🌡 International System of Unit Support with postgresql-unit
 <Label type="date">May 31, 2024</Label>
 
-The [SI Units for PostgreSQL extension(unit)](https://github.com/df7cb/postgresql-unit) provides support for the
+The [SI Units for $PG extension(unit)](https://github.com/df7cb/postgresql-unit) provides support for the
 [ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in [Timescale Cloud][signup].
 
 You can use Timescale Cloud to solve day-to-day questions. For example, to see what 50°C is in °F, run the following

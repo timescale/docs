@@ -9,7 +9,7 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 # Improve hypertable and query performance
 
-Hypertables are PostgreSQL tables that help you improve insert and query performance by automatically partitioning 
+Hypertables are $PG tables that help you improve insert and query performance by automatically partitioning 
 your data by time. Each hypertable is made up of child tables called chunks. Each chunk is assigned a range of time, 
 and only contains data from that range. When you run a query, $TIMESCALE_DB identifies the correct chunk and runs 
 the query on it, instead of going through the entire table. This page shows you how to tune hypertables to increase 
@@ -159,10 +159,10 @@ For more details on how to implement chunk skipping, see the [API Reference][api
 
 ## Analyze your $HYPERTABLEs
 
-You can use the PostgreSQL `ANALYZE` command to query all chunks in your
+You can use the $PG `ANALYZE` command to query all chunks in your
 $HYPERTABLE. The statistics collected by the `ANALYZE` command are used by the
-PostgreSQL planner to create the best query plan. For more information about the
-`ANALYZE` command, see the [PostgreSQL documentation][pg-analyze].
+$PG planner to create the best query plan. For more information about the
+`ANALYZE` command, see the [$PG documentation][pg-analyze].
 
 [api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
 [best-practices]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning

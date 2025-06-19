@@ -27,7 +27,7 @@ Before you begin, make sure you have:
 
 *   A $TIMESCALE_DB instance running locally or on the cloud. For more
     information, see [the Getting Started guide](/getting-started/latest/)
-*   [`psql`][psql], DBeaver, or any other PostgreSQL client
+*   [`psql`][psql], DBeaver, or any other $PG client
 
 ## What's candlestick data and OHLCV?
 
