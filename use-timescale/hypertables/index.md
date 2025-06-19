@@ -108,4 +108,4 @@ This section shows you:
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
 
-[troubleshooting]: /use-timescale/:currentVersion:/hypertable/troubleshooting/
+[troubleshooting]: /use-timescale/:currentVersion:/hypertables/troubleshooting/
