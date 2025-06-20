@@ -9,6 +9,34 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to $COMPANY products.
 
+## 🚀 Multi-command queries in SQL editor, improved job page experience, multiple AWS Transit Gateways, and a new service creation flow
+<Label type="date">June 20, 2025</Label>
+
+### Run multiple statements in SQL editor
+Execute complex queries with multiple commands in a single run—perfect for data transformations, table setup, and batch operations.
+
+### Branch conversations in SQL assistant
+Start new discussion threads from any point in your SQL assistant chat to explore different approaches to your data questions more easily.
+
+### Smarter results table
+- Expand JSON data instantly: turn complex JSON objects into readable columns with one click—no more digging through nested data structures.
+- Filter with precision: use a new smart filter to pick exactly what you want from a dropdown of all available values.
+
+### Jobs page improvements
+Individual job pages now display their corresponding configuration for TimescaleDB job types—for example, columnstore, retention, CAgg refreshes, tiering, and others.
+
+### Multiple AWS Transit Gateways
+
+You can now connect multiple AWS Transit Gateways, when those gateways use overlapping CIDRs. Ideal for teams with zero-trust policies, this lets you keep each network path isolated.
+
+How it works: when you create a new peering connection, Tiger Cloud reuses the existing Transit Gateway if you supply the same ID—otherwise it automatically creates a new, isolated Transit Gateway.
+
+### Updated service creation flow
+
+The new service creation flow makes the choice of service type clearer. You can now create distinct types with Postgres extensions for real-time analytics (TimescaleDB), AI (pgvectorscale, pgai), and RTA/AI hybrid applications.
+
+![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
+
 ## ⚙️ Improved Terraform support and TimescaleDB v2.20.3
 <Label type="date">June 13, 2025</Label>
 
