@@ -555,8 +555,20 @@ module.exports = [
         ],
       },
       {
+        title: "Service configuration",
         href: "configuration",
-        excerpt: "Configure PostgreSQL and TimescaleDB",
+        children: [
+          {
+            title: "Tiger Postgres configuration",
+            href: "tiger-postgres",
+            excerpt: "Configure PostgreSQL and TimescaleDB",
+          },
+          {
+            title: "Grand Unified Configuration (GUC) parameters",
+            href: "gucs",
+            excerpt: "Change the behaviour of TimescaleDB using GUCs",
+          },
+          ],
       },
       {
         title: "Administration Functions",
