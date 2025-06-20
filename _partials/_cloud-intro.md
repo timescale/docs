@@ -14,12 +14,10 @@ JSON handling, and extensibility through custom functions, data types, and exten
    the pgai extension.
 - **Hybrid applications**: get a full set of tools to develop applications that combine time-based data and AI.
 
-$CLOUD_LONG continuously monitors your $SERVICE_SHORTs and prevents common $PG out-of-memory crashes.
-
 All $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][live-migration], 
 [automatic backups and PITR][automatic-backups], [high availability][high-availability], [$READ_REPLICAs][readreplica], [data forking][operations-forking], [connection pooling][connection-pooling], [tiered storage][data-tiering], 
 [usage-based storage][how-plans-work], secure in-$CONSOLE [SQL editing][in-console-editors], $SERVICE_SHORT [metrics][metrics] 
-and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp;and much more.
+and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp;and much more. $CLOUD_LONG continuously monitors your $SERVICE_SHORTs and prevents common $PG out-of-memory crashes.
 
 [what-is-time-series]: https://www.timescale.com/blog/time-series-database-an-explainer#what-is-a-time-series-database
 [create-service]: /getting-started/:currentVersion:/services/
