@@ -1,6 +1,6 @@
 ---
 title: Virtual Private Cloud
-excerpt: Virtual Private Cloud peering ensures that your Timescale Cloud services are only accessible through your secured AWS infrastructure. Set up VPC peering in Timescale Console
+excerpt: Virtual Private Cloud peering ensures that your Tiger Cloud services are only accessible through your secured AWS infrastructure. Set up VPC peering in Tiger Cloud Console
 products: [cloud]
 keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]
@@ -35,7 +35,7 @@ peering connection to your Customer $VPC, you use AWS Security Groups to
 restrict the apps in your Customer $VPC that are visible to the Peering $VPC.
 The last step is to attach individual $SERVICE_SHORTs to the Peering $VPC in $CONSOLE. 
 
-* You create each Peering $VPC on a [$CLOUD_LONG project level][project-members].
+* You create each Peering $VPC on a [$PROJECT_LONG level][project-members].
 
 <VpcLimitations />
 
@@ -69,11 +69,11 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
 
 1.  **In [$CONSOLE > Security > VPC][console-vpc], click `Create a VPC`**
 
-    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/add-peering-vpc.png)
+    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-cloud.png)
 
 1.  **Choose your region and IP range, name your $VPC, then click `Create VPC`**
 
-    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/configure-peering-vpc.png)
+    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-cloud.png)
 
     The IP ranges of the Peering $VPC and Customer VPC should not overlap. 
 
@@ -82,7 +82,7 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
     1. In the `VPC Peering` column, click `Add`.
     2. Enter information about your existing Customer VPC, then click `Add Connection`.
 
-       ![Add peering](https://assets.timescale.com/docs/images/add-peering.png)
+       ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-cloud.png)
 
     <VpcLimitations />
 
@@ -127,7 +127,7 @@ peering request from an unknown account.
         * `Target`: the peering connection ID you copied to your clipboard.
     2.  Click `Save changes`.
 
-Network traffic is secured between your AWS account and $CLOUD_LONG for this project. 
+Network traffic is secured between your AWS account and $CLOUD_LONG for this $PROJECT_SHORT. 
 
 </Procedure>
 

@@ -1,6 +1,6 @@
 ---
 title: About constraints
-excerpt: Constraints are rules that apply to your table columns, preventing you from entering invalid data. Learn how constraints work for hypertables in Timescale Cloud
+excerpt: Constraints are rules that apply to your table columns, preventing you from entering invalid data. Learn how constraints work for hypertables in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [schemas, constraints]
 ---
@@ -54,4 +54,4 @@ Time columns used for partitioning must not allow `NULL` values. A
 For more information on how to manage constraints, see the
 [PostgreSQL docs][postgres-createconstraint].
 
-[postgres-createconstraint]: https://www.postgresql.org/docs/current/static/ddl-constraints.html
+[postgres-createconstraint]: https://www.postgresql.org/docs/current/ddl-constraints.html

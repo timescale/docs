@@ -1,6 +1,6 @@
 ---
-title: Integrate Datadog with Timescale Cloud
-excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Timescale Cloud service with time-series and analytics capability to Datadog
+title: Integrate Datadog with Tiger Cloud
+excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Tiger Cloud service with time-series and analytics capability to Datadog
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integrate]
@@ -36,7 +36,7 @@ This page explains how to:
 
 - Install [Datadog Agent][datadog-agent-install].
 
-## Monitor Timescale Cloud service metrics with Datadog
+## Monitor $SERVICE_LONG metrics with Datadog
 
 Export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to
 Datadog using a $CLOUD_LONG data exporter. The available metrics include CPU usage, RAM usage, and storage.
@@ -61,7 +61,7 @@ metrics about your $SERVICE_LONGs.
 
 1. **Connect to your $SERVICE_LONG**
 
-   For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For self-hosted, use [`psql`][psql].
+   For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For $SELF_LONG, use [`psql`][psql].
 
 1. **Add the `datadog` user to your $SERVICE_LONG**
 
@@ -138,13 +138,13 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [datadog-postgres-metrics]:https://docs.datadoghq.com/integrations/postgres/?tab=host#metrics
 [datadog-postgres-setup]: https://docs.datadoghq.com/integrations/postgres/?tab=host#configuration
 [datadog-signup]: https://www.datadoghq.com/
-[datadog-monitor-cloud]: /use-timescale/:currentVersion:/integrations/datadog/#monitor-timescale-cloud-service-metrics-with-datadog
-[datadog-agent]: /use-timescale/:currentVersion:/integrations/datadog/#configure-datadog-agent-to-collect-metrics-for-your-timescale-cloud-services
+[datadog-monitor-cloud]: /integrations/:currentVersion:/datadog/#monitor-timescale-cloud-service-metrics-with-datadog
+[datadog-agent]: /integrations/:currentVersion:/datadog/#configure-datadog-agent-to-collect-metrics-for-your-timescale-cloud-services
 [datadog-agent-restart]: https://docs.datadoghq.com/agent/configuration/agent-commands/#start-stop-and-restart-the-agent
 [projects]: /use-timescale/:currentVersion:/members/
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
-[psql]: /use-timescale/:currentVersion:/integrations/psql/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[psql]: /integrations/:currentVersion:/psql/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/

@@ -1,6 +1,6 @@
 ---
-title: Integrate Debezium with Timescale Cloud
-excerpt: Integrate Debezium with Timescale Cloud to enable change data capture in your Timescale Cloud service and streaming to Redis Streams
+title: Integrate Debezium with Tiger Cloud
+excerpt: Integrate Debezium with Tiger Cloud to enable change data capture in your Tiger Cloud service and streaming to Redis Streams
 products: [self_hosted]
 keywords: [Debezium, integrate]
 ---
@@ -62,7 +62,7 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
 
 </Tab>
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger Cloud">
 
 Debezium requires logical replication to be enabled. Currently, this is not enabled by default on $SERVICE_LONGs.
 We are working on enabling this feature as you read. As soon as it is live, these docs will be updated.

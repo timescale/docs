@@ -20,7 +20,7 @@ schema post-data. This includes information about constraints.
     ```
 
 1.  Restore the dumped schema post-data from the `dump_post_data.dump` file into
-    your Timescale database, using your connection details. To avoid permissions
+    your $SERVICE_LONG, using your connection details. To avoid permissions
     errors, include the `--no-owner` flag:
 
     ```bash
@@ -48,8 +48,8 @@ pg_restore: error: could not execute query: ERROR:  trigger "ts_insert_blocker" 
 
 Continuous aggregates aren't migrated by default when you transfer your schema
 and data separately. You can restore them by recreating the continuous aggregate
-definitions and recomputing the results on your Timescale database. The recomputed
-continuous aggregates only aggregate existing data in your Timescale database. They
+definitions and recomputing the results on your $SERVICE_LONG. The recomputed
+continuous aggregates only aggregate existing data in your $SERVICE_LONG. They
 don't include deleted raw data.
 
 <Procedure>
@@ -82,7 +82,7 @@ don't include deleted raw data.
     (1 row)
     ```
 
-1.  Connect to your Timescale database:
+1.  Connect to your $SERVICE_LONG:
 
     ```bash
     psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
@@ -101,7 +101,7 @@ don't include deleted raw data.
 ## Recreate policies
 
 By default, policies aren't migrated when you transfer your schema and data
-separately. Recreate them on your Timescale database.
+separately. Recreate them on your $SERVICE_LONG.
 
 <Procedure>
 
@@ -123,7 +123,7 @@ separately. Recreate them on your Timescale database.
         FROM timescaledb_information.jobs WHERE owner = '<SOURCE_DB_USERNAME>';
     ```
 
-1.  Connect to your Timescale database:
+1.  Connect to your $SERVICE_LONG:
 
     ```sql
     psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"

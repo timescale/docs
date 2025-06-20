@@ -4,7 +4,7 @@
 1.  **Click `New exporter`**
 1.  **Select `Metrics` for `Data type` and `Datadog` for provider**
 
-    ![Add Datadog exporter](https://assets.timescale.com/docs/images/tsc-integrations-datadog.webp)
+    ![Add Datadog exporter](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-integrations-datadog.png)
 
 1.  **Choose your AWS region and provide the API key**
 

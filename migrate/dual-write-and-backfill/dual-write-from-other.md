@@ -1,6 +1,6 @@
 ---
 title: Migrate from non-PostgreSQL using dual-write and backfill
-excerpt: Migrate from a non-PostgreSQL database to Timescale Cloud using the low-downtime dual-write and backfill method
+excerpt: Migrate from a non-PostgreSQL database to Tiger Cloud using the low-downtime dual-write and backfill method
 products: [cloud]
 keywords: [migration, low-downtime]
 tags: [migration, logical backup]
@@ -21,12 +21,12 @@ import Step6aThroughc from "versionContent/_partials/_migrate_dual_write_6a_thro
 
 This document provides detailed step-by-step instructions to migrate data using
 the [dual-write and backfill][dual-write-and-backfill] migration method from a
-source database which is not using PostgreSQL to Timescale.
+source database which is not using PostgreSQL to $CLOUD_LONG.
 
 <SourceTargetNote />
 
 In detail, the migration process consists of the following steps:
-1. Set up a target database instance in Timescale.
+1. Set up a target $SERVICE_LONG.
 1. Modify the application to write to a secondary database.
 1. Set up schema and migrate relational data to target database.
 1. Start the application in dual-write mode.

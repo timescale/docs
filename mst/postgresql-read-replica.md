@@ -14,18 +14,19 @@ For information about creating a read-only replica using the Aiven client,
 see the documentation on [creating a read replica using the CLI][read-replica-cli].
 
 <Highlight type="note">
-If you are running a Managed Service for TimescaleDB
-[Pro plan](https://docs.timescale.com/mst/latest/about-mst/#service-configuration-plans),
+
+If you are running a $MST_LONG [Pro plan](https://docs.tigerdata.com/mst/latest/about-mst/#service-configuration-plans),
 you have standby nodes available in a high availability setup. The standby nodes
 support read-only queries to reduce the effect of slow queries on the primary
 node.
+
 </Highlight>
 
 <Procedure>
 
 ## Creating a replica of PostgreSQL
 
-1.  In [MST Portal][mst-login], click the
+1.  In [$MST_CONSOLE_LONG][mst-login], click the
     service you want to create a remote replica for.
 
 1.  In `Overview`, click `Create a read replica`.
@@ -43,9 +44,9 @@ click the `Promote to master` button.
 
 <Procedure>
 
-## Using read-only replica for the service on MST
+## Using read-only replica for the service on $MST_SHORT
 
-1.  In the `Overview` page of the read-only replica for the service on MST, copy
+1.  In the `Overview` page of the read-only replica for the service on $MST_SHORT, copy
     the `Service URI`.
 
 1.  At the psql prompt, connect to the read-only service:
@@ -66,7 +67,7 @@ click the `Promote to master` button.
 </Procedure>
 
 <Highlight type="note">
-Managed Service for TimescaleDB uses asynchronous replication, so some lag is
+$MST_LONG uses asynchronous replication, so some lag is
 expected. When you run an `INSERT` operation on the primary node, a small
 delay of less than a second is expected for the change to propagate to the
 replica.

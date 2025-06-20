@@ -1,10 +1,10 @@
-1. Ensure that the Timescale Cloud service is running the PostgreSQL extensions used in your source database.
+1. Ensure that the $SERVICE_LONG is running the PostgreSQL extensions used in your source database.
 
     1. Check the extensions on the source database:
        ```bash
        psql $SOURCE  -c "SELECT * FROM pg_extension;"
        ```
-    1. For each extension, enable it on your target Timescale Cloud service:
+    1. For each extension, enable it on your target $SERVICE_LONG:
        ```bash
        psql $TARGET  -c "CREATE EXTENSION IF NOT EXISTS <extension name> CASCADE;"
        ```
@@ -16,6 +16,6 @@
 [dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
 [restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency
 [long-running-pgdump]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks
-[Upgrade TimescaleDB]: https://docs.timescale.com/self-hosted/latest/upgrades/
+[Upgrade TimescaleDB]: https://docs.tigerdata.com/self-hosted/latest/upgrades/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore       
