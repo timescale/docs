@@ -2,7 +2,7 @@
 title: SQL inteface for pgvector and pgvectorscale
 excerpt: Use the SQL interface to work with pgvector and pgvectorscale, including installing the extensions, creating a table, querying the vector embeddings, and more
 products: [cloud, mst, self_hosted]
-keywords: [ai, vector, pgvector, timescale vector, sql, pgvectorscale]
+keywords: [ai, vector, pgvector, tigerdata vector, sql, pgvectorscale]
 tags: [ai, vector, sql]
 ---
 
@@ -10,7 +10,7 @@ tags: [ai, vector, sql]
 
 ## Installing the pgvector and pgvectorscale extensions
 
-If not already installed, install the `vector` and `vectorscale` extensions on your Timescale database.
+If not already installed, install the `vector` and `vectorscale` extensions on your $COMPANY database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
@@ -61,7 +61,9 @@ The available distance types and their operators are:
 | Negative inner product | `<#>`           |
 
 <Highlight type="note">
+
 If you are using an index, you need to make sure that the distance function used in index creation is the same one used during query (see below). This is important because if you create your index with one distance function but query with another, your index cannot be used to speed up the query.
+
 </Highlight>
 
 
@@ -81,7 +83,7 @@ The key part is that the `ORDER BY` contains a distance measure against a consta
 Note that if performing a query without an index, you always get an exact result, but the query is slow (it has to read all of the data you store for every query). With an index, your queries are an order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more][vector-search-indexing]).
 
 <!-- vale Google.Colons = NO -->
-Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: StreamingDiskANN, HNSW, and ivfflat. Below is the trade-offs between these algorithms:
+Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on $TIMESCALE_DB: StreamingDiskANN, HNSW, and ivfflat. Below is the trade-offs between these algorithms:
 <!-- vale Google.Colons = Yes -->
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
@@ -104,8 +106,7 @@ You can see the details of each index below.
 
 The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. 
 You can read more about it in 
-[How We Made PostgreSQL as Fast as Pinecone for Vector Data](https://www.timescale.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data/).
-
+[How We Made PostgreSQL as Fast as Pinecone for Vector Data](https://www.timescale.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data).
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, with cosine distance metric, run:
 ```sql
@@ -251,7 +252,7 @@ LIMIT 10
 
 ### pgvector ivfflat
 
-Pgvector provides a clustering-based indexing algorithm. The [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) describes how it works in detail. It provides the fastest index-build speed but the slowest query speeds of any indexing algorithm.
+Pgvector provides a clustering-based indexing algorithm. The [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work) describes how it works in detail. It provides the fastest index-build speed but the slowest query speeds of any indexing algorithm.
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
@@ -267,7 +268,7 @@ This command creates an index for cosine-distance queries because of `vector_cos
 | Euclidean / L2         | `<->`            | `vector_ip_ops`     |
 | Negative inner product | `<#>`            | `vector_l2_ops`     |
 
-Note: *ivfflat should never be created on empty tables* because it needs to cluster data, and that only happens when an index is first created, not when new rows are inserted or modified. Also, if your table undergoes a lot of modifications, you need to rebuild this index occasionally to maintain good accuracy. See the [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) for details.
+Note: *ivfflat should never be created on empty tables* because it needs to cluster data, and that only happens when an index is first created, not when new rows are inserted or modified. Also, if your table undergoes a lot of modifications, you need to rebuild this index occasionally to maintain good accuracy. See the [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work) for details.
 
 Pgvector ivfflat has a `lists` index parameter that should be set. See the next section.
 

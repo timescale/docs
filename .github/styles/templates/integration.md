@@ -1,5 +1,5 @@
 ---
-title: Integrate <third-party tool name> with Timescale Cloud 
+title: Integrate <third-party tool name> with Tiger Cloud 
 excerpt: SEO friendly explanation of why the user will do it
 keywords: [<third-party tool name>]
 ---
@@ -12,7 +12,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 // Provide context for the integration steps, for example, if an additional connector is used.
 
-// See https://docs.timescale.com/integrations/latest/grafana/ for an example. 
+// See https://docs.tigerdata.com/integrations/latest/grafana/ for an example. 
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ To connect to $CLOUD_LONG:
 
 // Add only if there is a simple way to illustrate how the two solutions work together. 
 
-Take the following steps to <whatever the tool must do in conjunction with Timescale Cloud>:
+Take the following steps to <whatever the tool must do in conjunction with Tiger Cloud>:
 
 <Procedure>
 

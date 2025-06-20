@@ -7,7 +7,7 @@ tags: [extensions]
 
 # Supported PostgreSQL extensions
 
-Managed Service for TimescaleDB supports many PostgreSQL extensions. See
+$MST_LONG supports many PostgreSQL extensions. See
 [available extensions](#available-extensions) for a full list.
 
 ## Add an extension
@@ -35,7 +35,7 @@ before they are fully available.
 
 ## Available extensions
 
-These extensions are available on Managed Service for TimescaleDB:
+These extensions are available on $MST_LONG:
 
 <!-- vale Vale.Spelling = NO -->
 
@@ -93,8 +93,7 @@ These extensions are available on Managed Service for TimescaleDB:
 
 <Highlight type="note">
 The `postgis_legacy` extension is not packaged or supported as an extension by
-the PostGIS project. Timescale provides the extension package for Managed
-Service for TimescaleDB.
+the PostGIS project. $COMPANY provides the extension package for $MST_LONG.
 </Highlight>
 
 ## Request an extension
@@ -108,6 +107,6 @@ ability to offer the highest possible service level. An example of an untrusted
 language extension is `plpythonu`.
 
 <Highlight type="note">
-You can contact Support directly from Managed Service for TimescaleDB. Click the
+You can contact Support directly from $MST_LONG. Click the
 life-preserver icon in the upper-right corner of your dashboard.
 </Highlight>

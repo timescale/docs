@@ -1,6 +1,6 @@
 ---
 title: Data retention
-excerpt: Timescale Cloud API reference for data retention. Includes SQL functions for adding and removing data retention policies that run on a schedule that you define
+excerpt: TimescaleDB API reference for data retention. Includes SQL functions for adding and removing data retention policies that run on a schedule that you define
 keywords: [data retention, delete]
 tags: [drop]
 products: [cloud, self_hosted, mst]

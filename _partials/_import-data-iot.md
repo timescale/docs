@@ -56,7 +56,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
     Use one of the following SQL editors to run a query and see the data you uploaded:
        - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
        - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
-       - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
+       - **psql**: easily run queries on your $SERVICE_LONGs or $SELF_LONG deployment from Terminal.
 
     ```sql
     SELECT time_bucket('1 day', created, 'Europe/Berlin') AS "time",

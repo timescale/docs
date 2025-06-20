@@ -13,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 
 # Multi-node administration
 
-Multi-node TimescaleDB allows you to administer your cluster directly
+Multi-node $TIMESCALE_DB allows you to administer your cluster directly
 from the access node. When your environment is set up, you do not
 need to log directly into the data nodes to administer your database.
 

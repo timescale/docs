@@ -122,7 +122,7 @@ Grafana, like many charting tools, doesn't perform well when plotting millions o
 Also, by default, Grafana refreshes dashboards every 30 seconds. This further strains
 CPU, memory, and network bandwidth. In extreme cases, Grafana freezes.
 
-To solve this problem, you can pre-aggregate your data using TimescaleDB's
+To solve this problem, you can pre-aggregate your data using $TIMESCALE_DB's
 [`time_bucket`][time_bucket] hyperfunction.
 
 <Procedure>

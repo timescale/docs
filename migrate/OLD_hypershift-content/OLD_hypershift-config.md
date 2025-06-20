@@ -1,6 +1,6 @@
 ---
 title: Configuring Hypershift
-excerpt: Migrate an existing PostgreSQL database to Timescale in a single step
+excerpt: Migrate an existing PostgreSQL database to a self-hosted TimescaleDB instance in a single step
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
@@ -9,7 +9,7 @@ tags: [ingest, Hypershift, postgresql]
 # Hypershift configuration file
 
 Hypershift uses a YAML configuration file to determine how to set up your new
-Timescale database. You can create your own file, or use the example file as a
+$SELF_LONG database. You can create your own file, or use the example file as a
 starting point. To complete your file, you need these details for the tables
 that you want to convert to hypertables:
 
@@ -26,7 +26,7 @@ Use this format:
 
 ```yml
 source: '<SOURCE_DB_URI>'
-target: '<TARGET_DU_URI>'
+target: '<TARGET_DB_URI>'
 verify: <boolean>
 include_tables: []
 exclude_tables: []
@@ -64,12 +64,6 @@ Connection strings are in the format:
 
 ```bash
 postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DB_NAME>
-```
-
-For example:
-
-```bash
-postgres://tsdbadmin:my_password@timescale-cloud.com:30001/my_database
 ```
 
 ## Verify
@@ -353,4 +347,4 @@ verbose: <boolean> # Default = false
 
 </Collapsible>
 
-[chunk-time]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
+[chunk-time]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning

@@ -14,7 +14,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # recompress_chunk() <Tag type="community" content="Community" />
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
 
 Recompresses a compressed chunk that had more data inserted after compression.
 
@@ -31,9 +31,11 @@ You can also recompress chunks by
 allowing you to target a specific chunk.
 
 <Highlight type="important">
-`recompress_chunk` is deprecated since version 2.14 and will be removed in the future. 
+
+`recompress_chunk` is deprecated since $TIMESCALE_DB v2.14 and will be removed in the future. 
 The procedure is now a wrapper which calls [`compress_chunk`](/api/latest/compression/compress_chunk/) 
 instead of it. 
+
 </Highlight>
 
 <Highlight type="important">
@@ -68,9 +70,9 @@ CALL recompress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 
 ## Troubleshooting
 
-In TimescaleDB 2.6.0 and above, `recompress_chunk` is implemented as a procedure.
+In $TIMESCALE_DB 2.6.0 and above, `recompress_chunk` is implemented as a procedure.
 Previously, it was implemented as a function. If you are upgrading to
-TimescaleDB 2.6.0 or above, the`recompress_chunk`
+$TIMESCALE_DB 2.6.0 or above, the`recompress_chunk`
 function could cause an error. For example, trying to run `SELECT
 recompress_chunk(i.show_chunks, true) FROM...` gives the following error:
 

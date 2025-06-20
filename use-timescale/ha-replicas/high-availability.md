@@ -1,6 +1,6 @@
 ---
 title: Manage high availability
-excerpt: Timescale Cloud ensures high availability of your service by creating replicas that take over in case of the primary node downtime. Create and set up high availability replicas in Timescale Console
+excerpt: Tiger Cloud ensures high availability of your service by creating replicas that take over in case of the primary node downtime. Create and set up high availability replicas in Tiger Cloud Console
 products: [cloud]
 keywords: [high availability, replicas]
 tags: [failover, availability zones, replication, wal]
@@ -14,11 +14,11 @@ import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 
 # Manage high availability
 
-For Timescale Cloud Service with very low tolerance for downtime, Timescale Cloud offers 
+For $SERVICE_LONGs with very low tolerance for downtime, $CLOUD_LONG offers 
 High Availability (HA) replicas. HA replicas significantly reduce the risk of downtime and data loss due to 
-system failure, and enable services to avoid downtime during routine maintenance.
+system failure, and enable $SERVICE_SHORTs to avoid downtime during routine maintenance.
 
-This page shows you how to choose the best high availability option for your Timescale Cloud Service.  
+This page shows you how to choose the best high availability option for your $SERVICE_SHORT.
 
 ## What is HA replication?
 
@@ -33,20 +33,20 @@ HA replicas can be synchronous and asynchronous.
 ![Sync and async replication](https://assets.timescale.com/docs/images/sync_async_replication_draft.png)
 
 HA replicas have separate unique addresses that you can use to serve read-only requests in parallel to your 
-primary data node. When your primary data node fails, Timescale Cloud automatically fails over to 
-an HA replica within 30 seconds. During failover, the read-only address is unavailable while Timescale Cloud automatically creates a new HA replica. The time to make this replica depends on several factors, including the size of your data.
+primary data node. When your primary data node fails, $CLOUD_LONG automatically fails over to 
+an HA replica within 30 seconds. During failover, the read-only address is unavailable while $CLOUD_LONG automatically creates a new HA replica. The time to make this replica depends on several factors, including the size of your data.
 
-Operations such as upgrading your Timescale Cloud Service to a new major or minor version may necessitate 
-a service restart. Restarts are run during the [maintenance window][upgrade]. To avoid any downtime, each data
+Operations such as upgrading your $SERVICE_SHORT to a new major or minor version may necessitate 
+a $SERVICE_SHORT restart. Restarts are run during the [maintenance window][upgrade]. To avoid any downtime, each data
 node is updated in turn. That is, while the primary data node is updated, a replica is promoted to primary. 
 After the primary is updated and online, the same maintenance is performed on the HA replicas.
 
-To ensure that all Timescale Cloud Services have minimum downtime and data loss in the most common
-failure scenarios and during maintenance, [rapid recovery][rapid-recovery] is enabled by default for all services.
+To ensure that all $SERVICE_SHORTs have minimum downtime and data loss in the most common
+failure scenarios and during maintenance, [rapid recovery][rapid-recovery] is enabled by default for all $SERVICE_SHORTs.
 
 ## Choose an HA strategy
 
-The following HA configurations are available in Timescale Cloud:
+The following HA configurations are available in $CLOUD_LONG:
 
 - **Non-production**: no replica, best for developer environments.
 
@@ -71,13 +71,13 @@ The following table summarizes the differences between these HA configurations:
 
 The `High` and `Highest` HA strategies are available with the [Scale and the Enterprise][pricing-plans] pricing plans.
 
-To enable HA for a Timescale Cloud Service:  
+To enable HA for a $SERVICE_SHORT:  
 
 <HASetup />
 
 To change your HA replica strategy, click `Change configuration`, choose a strategy and click `Change configuration`.
 To download the connection information for the HA replica, either click the link next to the replica
-`Active configuration`, or find the information in the `Overview` tab for this service.
+`Active configuration`, or find the information in the `Overview` tab for this $SERVICE_SHORT.
 
 ## Test failover for your HA replicas
 
@@ -114,7 +114,7 @@ primary is not in a state to safely switch.
     select * from pg_stat_replication;
     ```
 
-    Note the `application_name`. This is your service ID followed by the
+    Note the `application_name`. This is your $SERVICE_SHORT ID followed by the
     node. The important part is the `-an-0` or `-an-1`.
 
 1.  Schedule a switchover:

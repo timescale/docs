@@ -38,8 +38,8 @@ This page shows you how to perform a major upgrade. For minor upgrades, see
 
 ## Plan your upgrade path
 
-Best practice is to always use the latest version of TimescaleDB. Subscribe to our releases on GitHub or use Timescale
-Cloud and always get latest update without any hassle.
+Best practice is to always use the latest version of TimescaleDB. Subscribe to our releases on GitHub or use $CLOUD_LONG 
+and always get latest update without any hassle.
 
 Check the following support matrix against the versions of TimescaleDB and PostgreSQL that you are
 running currently and the versions you want to update to, then choose your upgrade path.

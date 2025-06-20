@@ -15,7 +15,7 @@ hyperfunction:
 api_details:
   summary: |
     Downsample your data with the [Largest Triangle Three Buckets algorithm](https://github.com/sveinn-steinarsson/flot-downsample), while preserving gaps in the underlying data.
-    This method is a specialization of the [LTTB](/api/latest/hyperfunctions/downsampling#lttb) algorithm.
+    This method is a specialization of the [LTTB](/api/latest/hyperfunctions/downsampling/#lttb) algorithm.
   signatures:
     - language: sql
       code: |

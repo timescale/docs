@@ -1,6 +1,6 @@
 ---
 title: Export metrics to Amazon Cloudwatch
-excerpt: Amazon Cloudwatch is a monitoring and observability service. Create an exporter in Timescale Cloud and export telemetry metrics of your service
+excerpt: Amazon Cloudwatch is a monitoring and observability service. Create an exporter in Tiger Cloud and export telemetry metrics of your service
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integration, metrics, Cloudwatch, alerting]
@@ -25,7 +25,7 @@ This page shows you how to create an Amazon CloudWatch exporter in $CONSOLE, and
 ## Create a data exporter
 
 $CLOUD_LONG data exporters send telemetry data from a $SERVICE_LONG to a third-party monitoring
-tools. You create an exporter on the [project level][projects], in the same AWS region as your $SERVICE_SHORT:
+tools. You create an exporter on the [$PROJECT_SHORT level][projects], in the same AWS region as your $SERVICE_SHORT:
 
 <CloudWatchExporter />
 

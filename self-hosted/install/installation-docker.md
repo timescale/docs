@@ -10,14 +10,14 @@ import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.md
 import SelfHostedDocker from "versionContent/_partials/_install-self-hosted-docker-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
 
-# Install TimescaleDB from a Docker container
+# Install $TIMESCALE_DB from a Docker container
 
 TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
 time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB 
 instance on any local system from a pre-built Docker container. 
 
 This section shows you how to 
-[Install and configure TimescaleDB on PostgreSQL](#install-and-configure-timescaledb-on-postgresql).
+[Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgresql).
 
 < TestingEnv/>
 
@@ -29,10 +29,10 @@ To run, and connect to a PostgreSQL installation on Docker, you need to install:
 - [psql][install-psql]
 
 
-## Install and configure TimescaleDB on PostgreSQL
+## Install and configure $TIMESCALE_DB on $PG
 
 This section shows you how to install the latest version of PostgreSQL and
-TimescaleDB on a [supported platform](#supported-platforms) using containers supplied by Timescale.
+$TIMESCALE_DB on a [supported platform](#supported-platforms) using containers supplied by $COMPANY.
 
 <SelfHostedDocker />
 
@@ -82,6 +82,7 @@ on top of an existing data directory, you can specify the directory to mount a
 data volume using the `-v` flag.
 
 <Highlight type="warning">
+
 The two container types store PostgreSQL data dir in different places,
 make sure you select the correct one to mount:
 
@@ -91,6 +92,7 @@ make sure you select the correct one to mount:
 `timescaledb-ha`|`/home/postgres/pgdata/data`
 `timescaledb`| `/var/lib/postgresql/data`
 <!-- vale Vale.Terms = YES -->
+
 </Highlight>
 
 ```bash
@@ -122,10 +124,10 @@ information, see the [Docker documentation on logs][docker-logs].
 
 [alpine]: https://alpinelinux.org/
 [config]: /self-hosted/:currentVersion:/configuration/
-[docker-install]: https://docs.docker.com/get-docker/
+[docker-install]: https://docs.docker.com/get-started/get-docker/
 [docker-postgres]: https://hub.docker.com/_/postgres
 [dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
 [install-psql]: https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/
 [ubuntu]: https://ubuntu.com
-[docker-logs]: https://docs.docker.com/config/containers/logging/
+[docker-logs]: https://docs.docker.com/engine/logging/
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/

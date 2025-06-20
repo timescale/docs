@@ -1,6 +1,6 @@
 ---
 title: Migrate from PostgreSQL using dual-write and backfill
-excerpt: Migrate from a PostgreSQL database to Timescale Cloud using the low-downtime dual-write and backfill method
+excerpt: Migrate from a PostgreSQL database to Tiger Cloud using the low-downtime dual-write and backfill method
 products: [cloud]
 keywords: [migration, low-downtime]
 tags: [migration, logical backup]
@@ -24,12 +24,12 @@ import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dum
 
 This document provides detailed step-by-step instructions to migrate data using
 the [dual-write and backfill][dual-write-and-backfill] migration method from a
-source database which is using PostgreSQL to Timescale.
+source database which is using PostgreSQL to $CLOUD_LONG.
 
 <SourceTargetNote />
 
 In detail, the migration process consists of the following steps:
-1. Set up a target database instance in Timescale.
+1. Set up a target $SERVICE_LONG.
 1. Modify the application to write to the target database.
 1. Migrate schema and relational data from source to target.
 1. Start the application in dual-write mode.
@@ -109,7 +109,7 @@ SELECT create_hypertable('<table name>', by_range('<time column name>'));
 
 <Highlight type="note">
 
-The `by_range` dimension builder is an addition to TimescaleDB
+The `by_range` dimension builder is an addition to $TIMESCALE_DB
 2.13. For simpler cases, like this one, you can also create the
 hypertable using the old syntax:
 
@@ -123,10 +123,10 @@ For more information about the options which you can pass to
 more information about hypertables in general, consult the
 [hypertable documentation].
 
-You may also wish to consider taking advantage of some of Timescale's killer
+You may also wish to consider taking advantage of some of $CLOUD_LONG's killer
 features, such as:
 - [retention policies] to automatically drop unneeded data
-- [tiered storage] to automatically move data to Timescale's low-cost bottomless object storage tier
+- [tiered storage] to automatically move data to $CLOUD_LONG's low-cost bottomless object storage tier
 - [hypercore] to reduce the size of your hypertables by compressing data in the columnstore
 - [continuous aggregates] to write blisteringly fast aggregate queries on your data
 

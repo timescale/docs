@@ -9,7 +9,7 @@ To create a hypertable:
 
 1. **Connect to your service**
 
-    In Timescale Console, click `Data`, then select a service.
+    In $CONSOLE, click `Data`, then select a $SERVICE_SHORT.
 
 1. **Create a PostgreSQL table** 
 

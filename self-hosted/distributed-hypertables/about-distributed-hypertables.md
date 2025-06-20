@@ -44,7 +44,7 @@ also be partitioned by space. This allows you to balance inserts and queries
 between data nodes, similar to traditional sharding. Without space partitioning,
 all data in the same time range would write to the same chunk on a single node.
 
-By default, Timescale creates as many space partitions as there are data
+By default, $TIMESCALE_DB creates as many space partitions as there are data
 nodes. You can change this number, but having too many space partitions degrades
 performance. It increases planning time for some queries, and leads to poorer
 balancing when mapping items to partitions.
@@ -192,7 +192,7 @@ for several reasons:
     New chunks for `device_B` are now stored on node 4. If you query across the
     repartitioning boundary, a final aggregate for `device_B` cannot be
     calculated on node 3 or node 4 alone. Partially processed data must be sent
-    to the access node for final aggregation. The Timescale query planner
+    to the access node for final aggregation. The $TIMESCALE_DB query planner
     dynamically detects such overlapping chunks and reverts to the appropriate
     partial aggregation plan. This means that you can add data nodes and
     repartition your data to achieve elasticity without worrying about query
@@ -207,7 +207,7 @@ for several reasons:
 *   The query includes a $JOB function. The access node assumes the
     function doesn't exist on the data nodes, and doesn't push it down.
 
-Timescale uses several optimizations to avoid these limitations, and push down
+$TIMESCALE_DB uses several optimizations to avoid these limitations, and push down
 as many queries as possible. For example, `now()` is a non-immutable function.
 The database converts it to a constant on the access node and pushes down the
 constant timestamp to the data nodes.
@@ -261,7 +261,7 @@ to distributed hypertables:
 Note that these limitations concern usage from the access node. Some
 currently unsupported features might still work on individual data nodes,
 but such usage is neither tested nor officially supported. Future versions
-of Timescale might remove some of these limitations.
+of $TIMESCALE_DB might remove some of these limitations.
 
 [native-replication]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#replicating-distributed-hypertables
 [create_distributed_restore_point]: /api/:currentVersion:/distributed-hypertables/create_distributed_restore_point/
