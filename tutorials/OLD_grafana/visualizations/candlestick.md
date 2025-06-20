@@ -166,7 +166,7 @@ difference gives the traded volume for that bucket.
 </Procedure>
 
 In conclusion, candlestick charts are a great way to visualize financial data.
-This tutorial shows you how to use TimescaleDB to generate candlestick values
+This tutorial shows you how to use $TIMESCALE_DB to generate candlestick values
 that includes open, high, low, and close, from raw data in a hypertable. It also
 shows you how to query the traded volume for each time interval.
 

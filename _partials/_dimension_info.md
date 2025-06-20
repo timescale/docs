@@ -20,7 +20,7 @@ of the dimension build to extract a compatible data type. Look in the example se
 
 #### Custom partitioning
 
-By default, TimescaleDB calls PostgreSQL's internal hash function for the given type.
+By default, $TIMESCALE_DB calls PostgreSQL's internal hash function for the given type.
 You use a custom partitioning function for value types that do not have a native PostgreSQL hash function.
 
 You can specify a custom partitioning function for both range and hash partitioning. A partitioning function should 
@@ -104,7 +104,7 @@ The partition type and default value depending on column type is:
 #### by_hash()
 
 The main purpose of hash partitioning is to enable parallelization across multiple disks within the same time interval. 
-Every distinct item in hash partitioning is hashed to one of *N* buckets. By default, TimescaleDB uses flexible range 
+Every distinct item in hash partitioning is hashed to one of *N* buckets. By default, $TIMESCALE_DB uses flexible range 
 intervals to manage chunk sizes. 
 
 ### Parallelizing disk I/O
@@ -122,7 +122,7 @@ For the following options:
   Best practice is to use RAID when possible, as you do not need to manually manage tablespaces
   in the database.
 
-- **Multiple tablespaces**: for each physical disk, add a separate tablespace to the database. TimescaleDB allows you to
+- **Multiple tablespaces**: for each physical disk, add a separate tablespace to the database. $TIMESCALE_DB allows you to
   add multiple tablespaces to a *single* hypertable. However, although under the hood, a hypertable's
   chunks are spread across the tablespaces associated with that hypertable.
 
@@ -135,7 +135,7 @@ When adding a hash partitioned dimension, set the number of partitions to a mult
 the number of partitions P=N*Pd where N is the number of disks and Pd is the number of partitions per
 disk. This enables you to add more disks later and move partitions to the new disk from other disks.
 
-TimescaleDB does *not* benefit from a very large number of hash
+$TIMESCALE_DB does *not* benefit from a very large number of hash
 partitions, such as the number of unique items you expect in partition
 field.  A very large number of hash partitions leads both to poorer
 per-partition load balancing (the mapping of items to partitions using

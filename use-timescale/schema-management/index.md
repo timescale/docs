@@ -1,6 +1,6 @@
 ---
 title: Schema management
-excerpt: A database schema design can significantly improve performance by optimizing data retrieval, storage, and indexing. Learn all about creating and managing schemas in Timescale Cloud
+excerpt: A database schema design can significantly improve performance by optimizing data retrieval, storage, and indexing. Learn all about creating and managing schemas in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [schemas]
 ---

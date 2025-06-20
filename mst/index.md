@@ -7,7 +7,7 @@ products: [mst]
 import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
 import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
 
-# Managed Service for TimescaleDB
+# $MST_LONG
 
 <MSTIntro />
 

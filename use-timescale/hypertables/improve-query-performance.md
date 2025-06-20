@@ -11,7 +11,7 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 Hypertables are PostgreSQL tables that help you improve insert and query performance by automatically partitioning 
 your data by time. Each hypertable is made up of child tables called chunks. Each chunk is assigned a range of time, 
-and only contains data from that range. When you run a query, Timescale Cloud identifies the correct chunk and runs 
+and only contains data from that range. When you run a query, $TIMESCALE_DB identifies the correct chunk and runs 
 the query on it, instead of going through the entire table. This page shows you how to tune hypertables to increase 
 performance even more.
 
@@ -144,7 +144,7 @@ In the satellite example, the time of adding data to a database inevitably follo
 Sequential IDs and the creation timestamp for both entities also increase synchronously. This means those two 
 columns are correlated. 
 
-For a more in-depth look on chunk skipping, see [our blog post](https://www.timescale.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes/).
+For a more in-depth look on chunk skipping, see [our blog post](https://www.timescale.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes).
 
 ### Enable chunk skipping
 
@@ -165,7 +165,7 @@ PostgreSQL planner to create the best query plan. For more information about the
 `ANALYZE` command, see the [PostgreSQL documentation][pg-analyze].
 
 [api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
-[best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables#best-practices-for-time-partitioning
+[best-practices]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#enable-chunk-skipping
 [chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [analyze-hypertables]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#analyze-your-hypertables

@@ -1,6 +1,6 @@
 ---
 title: Counter aggregation
-excerpt: When collecting data from counters, interruptions usually cause the counter to reset to zero. Timescale Cloud counter aggregation functions help collect data in spite of interruptions or resets
+excerpt: When collecting data from counters, interruptions usually cause the counter to reset to zero. TimescaleDB counter aggregation functions help collect data in spite of interruptions or resets
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gauges, counters]
 ---
@@ -24,7 +24,7 @@ rather than resetting to 0. A reset could occur if you have had a short server
 outage, or any number of other reasons. To get around this, you can analyze
 counter data by looking at the change over time, which accounts for resets.
 
-Accounting for resets can be difficult to do in SQL, so Timescale has developed
+Accounting for resets can be difficult to do in SQL, so $TIMESCALE_DB has developed
 aggregate and accessor functions that handle calculations for counters in a more
 practical way.
 
@@ -135,7 +135,7 @@ going on in each part.
 
 <Highlight type="note">
 
-In this procedure, `Prometheus` is used to do the extrapolation. Timescale's
+In this procedure, `Prometheus` is used to do the extrapolation. $TIMESCALE_DB's
 current `extrapolation` function is built to mimic the Prometheus project's
 `increase` function, which measures the change of a counter extrapolated to the
 edges of the queried region.

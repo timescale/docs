@@ -8,12 +8,12 @@ keywords: [installation]
 import TimescaleDB from "versionContent/_partials/_timescaledb.mdx";
 import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
 
-# Install TimescaleDB
+# Install $TIMESCALE_DB
 
 $TIMESCALE_DB is an extension for $PG that enables time-series workloads,
 increasing ingest, query, storage and analytics performance.
 
-You can install self-hosted TimescaleDB for free from
+You can install $SELF_LONG for free from
 [source][self-hosted-source], or a [pre-built container][self-hosted-container].
 This guide provides instructions for installing the latest version of
 TimescaleDB. For more details about the latest release, see the

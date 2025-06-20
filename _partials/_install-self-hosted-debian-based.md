@@ -17,7 +17,7 @@
     sudo apt install postgresql-server-dev-17
     ```
 
-1.  **Add the TimescaleDB package**
+1.  **Add the $TIMESCALE_DB package**
 
     <Terminal>
 
@@ -39,7 +39,7 @@
 
     </Terminal>
 
-1.  **Install the TimescaleDB GPG key**
+1.  **Install the $TIMESCALE_DB GPG key**
 
     ```bash
     wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/timescaledb.gpg
@@ -61,11 +61,11 @@
     sudo apt install timescaledb-2-postgresql-17 postgresql-client-17
     ```
     
-    To install a specific TimescaleDB [release][releases-page], set the version. For example:
+    To install a specific $TIMESCALE_DB [release][releases-page], set the version. For example:
     
     `sudo apt-get install timescaledb-2-postgresql-14='2.6.0*' timescaledb-2-loader-postgresql-14='2.6.0*'`
 
-    Older versions of TimescaleDB may not support all the OS versions listed on this page.
+    Older versions of $TIMESCALE_DB may not support all the OS versions listed on this page.
 
 1.  **Tune your PostgreSQL instance for TimescaleDB**
 

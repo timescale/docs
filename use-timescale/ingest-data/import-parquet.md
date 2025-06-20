@@ -1,6 +1,6 @@
 ---
 title: Import data from Parquet
-excerpt: Ingest data into your Timescale Cloud service from an external Apache Parquet file
+excerpt: Ingest data into your Tiger Cloud service from an external Apache Parquet file
 products: [cloud, self_hosted]
 keywords: [data migration]
 tags: [import, parquet]
@@ -33,7 +33,7 @@ To import data from a Parquet file:
 
 <Procedure>
 
-1. **Setup your $SERVICE_SHORT connection string**
+1. **Set up your $SERVICE_SHORT connection string**
 
     <SetupConnectionString />
 
@@ -61,7 +61,7 @@ To import data from a Parquet file:
        psql $TARGET -c  "SELECT create_hypertable('<TABLE_NAME>', by_range('<COLUMN_NAME>'))"
        ```
 
-1. **Setup a DuckDB connection to your $SERVICE_SHORT**
+1. **Set up a DuckDB connection to your $SERVICE_SHORT**
 
    1.  In Terminal on the source machine with your Parquet files, start a new DuckDB interactive session:
 

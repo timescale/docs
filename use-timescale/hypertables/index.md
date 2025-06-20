@@ -1,6 +1,6 @@
 ---
 title: Hypertables
-excerpt: Hypertables are PostgreSQL tables with special features that power real-time analytics on time-series and event data. Learn to use hypertabes in your Timescale Cloud service
+excerpt: Hypertables are PostgreSQL tables with special features that power real-time analytics on time-series and event data
 products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
@@ -84,22 +84,23 @@ The default indexes are:
 *   On $HYPERTABLEs with space partitions, an index on the space parameter and
     time
 
-$HYPERTABLEs have some restrictions on unique constraints and indexes. If you
+$HYPERTABLE_CAPs have some restrictions on unique constraints and indexes. If you
 want a unique index on a $HYPERTABLE, it must include all the partitioning
 columns for the table. To learn more, see 
 [Enforce constraints with unique indexes on $HYPERTABLEs][hypertables-and-unique-indexes].
 
 You can prevent index creation by setting the `create_default_indexes` option to `false`.
 
-This section shows you how to:
+This section shows you:
 
 * [Optimize time-series data in hypertables][create-hypertables]
 * [Improve hypertable and query performance][change-chunk-intervals]
 * [Enforce constraints with unique indexes][hypertables-and-unique-indexes]
+* [Troubleshooting][troubleshooting]
 
 [about-distributed-hypertables]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
 [best-practices-space]: #best-practices-for-space-partitioning
-[blog-chunk-time]: https://www.timescale.com/blog/timescale-cloud-tips-testing-your-chunk-size/
+[blog-chunk-time]: https://www.timescale.com/blog/timescale-cloud-tips-testing-your-chunk-size
 [change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals/
 [create-hypertables]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
 [hypertable-concepts]: /use-timescale/:currentVersion:/hypertables/
@@ -107,3 +108,4 @@ This section shows you how to:
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
 
+[troubleshooting]: /use-timescale/:currentVersion:/hypertables/troubleshooting/

@@ -7,7 +7,7 @@ keywords: [compression, hypertables]
 
 # Compression policy
 
-You can create a compression policy within the Timescale console.
+You can create a compression policy within $CONSOLE.
 
 In most cases, an automated compression policy is sufficient. However, if you
 want more control over compression, you can also manually compress specific
