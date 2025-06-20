@@ -9,24 +9,26 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to $COMPANY products.
 
-## 🚀 Improved SQL Editor and Jobs Page Experience and Updated Service Creation Flow in Timescale Cloud
+## 🚀 Multi-command queries in SQL editor, improved job page experience, and a new service creation flow in Tiger Cloud Console
 <Label type="date">June 20, 2025</Label>
-### Run multiple statements in the Tiger Cloud SQL Editor
-Execute complex queries with multiple commands in a single run - perfect for data transformations, table setup, and batch operations
 
-### Branch conversations in SQL Assistant
-Start new discussion threads from any point in your SQL Assistant chat, making it easier to explore different approaches to your data questions
+### Run multiple statements in SQL editor
+Execute complex queries with multiple commands in a single run—perfect for data transformations, table setup, and batch operations.
 
-### Results Table Gets Smarter
-- Expand JSON data instantly: Turn complex JSON objects into readable columns with one click - no more digging through nested data structures
-- Filter with precision: New smart filter lets you pick exactly what you want to see from a dropdown of all available values
+### Branch conversations in SQL assistant
+Start new discussion threads from any point in your SQL assistant chat to explore different approaches to your data questions more easily.
+
+### Smarter results table
+- Expand JSON data instantly: turn complex JSON objects into readable columns with one click—no more digging through nested data structures.
+- Filter with precision: use a new smart filter lets you pick exactly what you want to see from a dropdown of all available values.
 
 ### Jobs page improvements
-Individual jobs pages now display their corresponding configuration for TimescaleDB job types (Columnstore, Retention, CAgg refreshes, Tiering, etc.).
+Individual job pages now display their corresponding configuration for TimescaleDB job types—for example, columnstore, retention, CAgg refreshes, tiering, and others.
 
-### Updated service creation flow in Tiger Cloud 
-We have changed the service creation flow to make the choice of service type clearer.  Now users can create distinct types with PostgreSQL extensions for real-time analytics (TimescaleDB), AI (pgvectorscale, pgai) and RTA/AI hybrid applications. 
+### Updated service creation flow 
+The new service creation flow makes the choice of service type clearer. You can now create distinct types with PostgreSQL extensions for real-time analytics (TimescaleDB), AI (pgvectorscale, pgai), and RTA/AI hybrid applications.
 
+![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
 
 ## ⚙️ Improved Terraform support and TimescaleDB v2.20.3
 <Label type="date">June 13, 2025</Label>
