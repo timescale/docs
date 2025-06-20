@@ -7,40 +7,31 @@ This page shows you how to export your $SERVICE_SHORT metrics to Prometheus:
 - For $CLOUD_LONG, using a dedicated Prometheus exporter in $CONSOLE or [PostgreSQL Exporter][postgresql-exporter].
 - For $SELF_LONG, using [PostgreSQL Exporter][postgresql-exporter].
 
-## Prerequisites 
-
-<Availability products={['cloud']} price_plans={['enterprise']} />
-
-To follow the steps on this page:
-
-- For $CLOUD_LONG:
-  
-  - Create a target [$SERVICE_LONG][create-service] with the time-series and analytics capability enabled. You need your [connection details][connection-info].
-  - To use PostgreSQL Exporter: [install PostgreSQL Exporter][install-exporter] in the same AWS region as your $SERVICE_SHORT.
-- For $SELF_LONG:
-
-  - Create a target [self-hosted $TIMESCALE_DB][enable-timescaledb] instance. You need your [connection details][connection-info].
-  - [Install PostgreSQL Exporter][install-exporter] in the same AWS region as your database.
-
-- [Download and run Prometheus][install-prometheus] in the same AWS region as your $SERVICE_LONG or database.
-
 ## Export metrics to Prometheus
 
 To export your data, do the following:
 
 <Tabs label="Export metrics to Prometheus">
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger Cloud">
 
-You can export different metrics from your $SERVICE_LONG using the $CONSOLE Prometheus exporter and PostgreSQL Exporter. 
+You can export different metrics from your $SERVICE_LONG using the Prometheus exporter in $CONSOLE or PostgreSQL Exporter. 
 
 The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. PostgreSQL Exporter exposes metrics that you define, excluding the system metrics available with the $CONSOLE exporter.
 
 The Prometheus exporter is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
 
+### Prerequisites
+
+To follow the steps on this page:
+
+- Create a target [$SERVICE_LONG][create-service] with the time-series and analytics capability enabled. You need your [connection details][connection-info].
+- [Download and run Prometheus][install-prometheus] in the same AWS region as your $SERVICE_LONG or database.
+- To use PostgreSQL Exporter: [install PostgreSQL Exporter][install-exporter] in the same AWS region as your $SERVICE_SHORT.
+
 <Tabs>
 
-<Tab title="Using Timescale Console exporter">
+<Tab title="Using Tiger Cloud Console exporter">
 
 <Procedure>
 
@@ -52,7 +43,7 @@ You create a Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, 
 
     1. Select `Metrics` for data type and `Prometheus` for provider.
 
-       ![Create a Prometheus exporter in Timescale Cloud](https://assets.timescale.com/docs/images/timescale-create-prometheus-exporter.png)
+       ![Create a Prometheus exporter in Tiger Cloud](https://assets.timescale.com/docs/images/timescale-create-prometheus-exporter.png)
 
     1. Choose the region for the exporter. Only $SERVICE_SHORTs in the same project and region can be attached to this exporter.
 
@@ -68,17 +59,17 @@ You create a Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, 
 
     1. Select the exporter in the drop-down, then click `Attach exporter`.
 
-       ![Attach a Prometheus exporter to a Timescale Cloud service](https://assets.timescale.com/docs/images/attach-prometheus-exporter-timescale-cloud.png)
+       ![Attach a Prometheus exporter to a Tiger Cloud service](https://assets.timescale.com/docs/images/attach-prometheus-exporter-timescale-cloud.png)
 
    The exporter is now attached to your $SERVICE_SHORT. To unattach it, click the trash icon in the exporter list.
 
-   ![Unattach a Prometheus exporter from a Timescale Cloud service](https://assets.timescale.com/docs/images/unattach-prometheus-exporter-timescale-service.png)
+   ![Unattach a Prometheus exporter from a Tiger Cloud service](https://assets.timescale.com/docs/images/unattach-prometheus-exporter-timescale-service.png)
 
 1. **Configure the Prometheus scrape target**
 
     1. Select your service, then click `Operations` > `Exporters` and click the information icon next to the exporter. You see the exporter details.
 
-       ![Prometheus exporter details in Timescale Cloud](https://assets.timescale.com/docs/images/prometheus-exporter-details-timescale-cloud.png)
+       ![Prometheus exporter details in Tiger Cloud](https://assets.timescale.com/docs/images/prometheus-exporter-details-timescale-cloud.png)
 
     1. Copy the exporter URL.
 
@@ -215,9 +206,17 @@ You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure P
 
 <Tab title="Self-hosted TimescaleDB">
 
-<Procedure>
-
 You export metrics from $SELF_LONG to PostgreSQL Exporter, then configure Prometheus to scrape metrics from it.
+
+## Prerequisites
+
+To follow the steps on this page:
+
+- Create a target [self-hosted $TIMESCALE_DB][enable-timescaledb] instance. You need your [connection details][connection-info].
+- [Install PostgreSQL Exporter][install-exporter] in the same AWS region as your database.
+- [Download and run Prometheus][install-prometheus] in the same AWS region as your $SERVICE_LONG or database.
+
+<Procedure>
 
 1. **Create a user to access your database metrics**
 
