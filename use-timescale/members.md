@@ -5,21 +5,21 @@ products: [cloud]
 keywords: [members, projects, admin, roles]
 tags: [users]
 cloud_ui:
-    path:
-        - [members]
+  path:
+    - [members]
 ---
 
 # Control user access to $PROJECT_LONGs
 
 When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a $PROJECT_SHORT for you, and
 you are assigned the `Owner` role for the $PROJECT_SHORT. As the $PROJECT_SHORT owner, you have rights to
-add and delete other users, and edit $PROJECT_SHORT settings. Users that you add to the $PROJECT_SHORT are 
-assigned the `Member` role. Members have rights to collaborate with you on your $PROJECT_SHORT, and help 
-create and administer the $SERVICE_SHORTs running in the $PROJECT_SHORT. 
+add and delete other users, and edit $PROJECT_SHORT settings. Users that you add to the $PROJECT_SHORT are
+assigned the `Member` role. Members have rights to collaborate with you on your $PROJECT_SHORT, and help
+create and administer the $SERVICE_SHORTs running in the $PROJECT_SHORT.
 
 ![Project users in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-users-overview.png)
 
-If you have the [Enterprise pricing plan][pricing-plans], you can use your company [SAML][saml] 
+If you have the [Enterprise pricing plan][pricing-plans], you can use your company [SAML][saml]
 identity provider to log in to $CONSOLE.
 
 ## Add a user to your $PROJECT_SHORT
@@ -38,7 +38,7 @@ To add a user to a $PROJECT_SHORT:
 1.  Type the email address of the person that you want to add, and click `Add
     user`.
 
-    [Enterprise plan][pricing-plans] and SAML users receive a notification in $CONSOLE. Users in the 
+    [Enterprise plan][pricing-plans] and SAML users receive a notification in $CONSOLE. Users in the
     other pricing plans receive a confirmation email. The new user then [joins the $PROJECT_SHORT][join-a-project].
 
 </Procedure>
@@ -49,23 +49,23 @@ When you are asked to join a $PROJECT_SHORT, the $CONSOLE sends you an invitatio
 instructions in the invitation email to join the $PROJECT_SHORT:
 
 - **New $CLOUD_LONG user**:
-  1. In the invitation email, click **Accept Invite**.
-     $CLOUD_LONG opens.
-  2. Follow the setup wizard and create a new $ACCOUNT_SHORT.
+    1. In the invitation email, click **Accept Invite**.
+       $CLOUD_LONG opens.
+    2. Follow the setup wizard and create a new $ACCOUNT_SHORT.
 
-     You are added to the $PROJECT_SHORT you were invited to.
+       You are added to the $PROJECT_SHORT you were invited to.
 
 - **Existing $CLOUD_LONG user**:
-  1. In the invitation email, click **Accept Invite**.
+    1. In the invitation email, click **Accept Invite**.
 
-     $CONSOLE_LONG opens and you are added to the $PROJECT_SHORT.
+       $CONSOLE_LONG opens and you are added to the $PROJECT_SHORT.
 
 - **[Enterprise plan][pricing-plans] and SAML user**:
-  1. Log in to $CONSOLE_SHORT using your company's identity provider.
-  2. Click `Notifications`, then accept the invitation. 
+    1. Log in to $CONSOLE_SHORT using your company's identity provider.
+    2. Click `Notifications`, then accept the invitation.
 
-     $CONSOLE_LONG opens, and you are added to the $PROJECT_SHORT. As you are now 
-     included in more than one $PROJECT_SHORT, you can easily [change $PROJECT_SHORTs][change-project].
+       $CONSOLE_LONG opens, and you are added to the $PROJECT_SHORT. As you are now
+       included in more than one $PROJECT_SHORT, you can easily [change $PROJECT_SHORTs][change-project].
 
 
 ## Resend a $PROJECT_SHORT invitation
@@ -126,7 +126,7 @@ To stop working in a $PROJECT_SHORT:
 
 1. In [$CONSOLE][cloud-login], click `Invite users`.
 1. Click `⋮` > `Leave project`, then click `Leave`.
-   ![Leave a project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-leave-project.png)
+   ![Leave a project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-leave-a-project.png)
 
 Your $ACCOUNT_SHORT is removed from the $PROJECT_SHORT immediately, you can no longer access this $PROJECT_SHORT.
 

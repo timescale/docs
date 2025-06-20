@@ -21,7 +21,7 @@
 
    1. Select your $SERVICE_SHORT in the connection drop-down in the top right. 
 
-      ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connection-dropdown.png)
+      ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-data-mode-connection-dropdown.png)
 
    1. Run a test query:
 
