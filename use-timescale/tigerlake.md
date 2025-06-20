@@ -7,11 +7,12 @@ keywords: [data lake, lakehouse, s3, iceberg]
 
 # BaseLake
 
-BaseLake unifies operational architecture with datalake architectures of S3 and Iceberg. 
-This enables real-time application building alongside efficient data pipeline management within a single system.
+BaseLake unifies operational architecture with the datalake architectures of S3 and Iceberg. BaseLake enables you to 
+build real-time applications alongside efficient data pipeline management within a single system.
 
-This experimental release is a native integration enabling continuous replication between AWS [S3 Tables](s3-tables) (managed Iceberg and catalog) running in your AWS account and
-relational tables and hypertables in Tiger Cloud. 
+
+This experimental release is a native integration enabling continuous replication between managed Iceberg and catalog 
+running in AWS [S3 Tables](s3-tables) in your AWS account and relational tables and hypertables in Tiger Cloud. 
 
 ## Getting started
 
