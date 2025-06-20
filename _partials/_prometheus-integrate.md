@@ -19,8 +19,6 @@ You can export different metrics from your $SERVICE_LONG using the Prometheus ex
 
 The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. PostgreSQL Exporter exposes metrics that you define, excluding the system metrics available with the $CONSOLE exporter.
 
-The Prometheus exporter is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
-
 ### Prerequisites
 
 To follow the steps on this page:
@@ -33,9 +31,11 @@ To follow the steps on this page:
 
 <Tab title="Using Tiger Cloud Console exporter">
 
-<Procedure>
+<Availability products={['cloud']} price_plans={['enterprise']} />
 
-You create a Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. 
+You create a Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL.
+
+<Procedure>
 
 1. **Create a Prometheus exporter**
 
