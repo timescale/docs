@@ -25,7 +25,13 @@ Start new discussion threads from any point in your SQL assistant chat to explor
 ### Jobs page improvements
 Individual job pages now display their corresponding configuration for TimescaleDB job types—for example, columnstore, retention, CAgg refreshes, tiering, and others.
 
-### Updated service creation flow 
+### Multiple AWS Transit Gateways
+
+You can now connect multiple AWS Transit Gateways, when those gateways use overlapping CIDRs. Ideal for teams with zero-trust policies, this lets you keep each network path isolated.
+
+How it works: when you create a new peering connection, Tiger Cloud reuses the existing Transit Gateway if you supply the same ID—otherwise it automatically creates a new, isolated Transit Gateway.
+
+### Updated service creation flow
 The new service creation flow makes the choice of service type clearer. You can now create distinct types with PostgreSQL extensions for real-time analytics (TimescaleDB), AI (pgvectorscale, pgai), and RTA/AI hybrid applications.
 
 ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
