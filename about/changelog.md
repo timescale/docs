@@ -9,6 +9,25 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to $COMPANY products.
 
+## 🚀 Improved SQL Editor and Jobs Page Experience and Updated Service Creation Flow in Timescale Cloud
+<Label type="date">June 20, 2025</Label>
+### Run multiple statements in the Tiger Cloud SQL Editor
+Execute complex queries with multiple commands in a single run - perfect for data transformations, table setup, and batch operations
+
+### Branch conversations in SQL Assistant
+Start new discussion threads from any point in your SQL Assistant chat, making it easier to explore different approaches to your data questions
+
+### Results Table Gets Smarter
+- Expand JSON data instantly: Turn complex JSON objects into readable columns with one click - no more digging through nested data structures
+- Filter with precision: New smart filter lets you pick exactly what you want to see from a dropdown of all available values
+
+### Jobs page improvements
+Individual jobs pages now display their corresponding configuration for TimescaleDB job types (Columnstore, Retention, CAgg refreshes, Tiering, etc.).
+
+### Updated service creation flow in Tiger Cloud 
+We have changed the service creation flow to make the choice of service type clearer.  Now users can create distinct types with PostgreSQL extensions for real-time analytics (TimescaleDB), AI (pgvectorscale, pgai) and RTA/AI hybrid applications. 
+
+
 ## ⚙️ Improved Terraform support and TimescaleDB v2.20.3
 <Label type="date">June 13, 2025</Label>
 
