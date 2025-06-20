@@ -6,6 +6,7 @@ keywords: [hypertables, indexes, chunks]
 ---
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import ChunkInterval from "versionContent/_partials/_chunk-interval.mdx";
 
 # Improve hypertable and query performance
 
@@ -27,11 +28,7 @@ Adjusting your hypertable chunk interval can improve performance in your databas
 
 1. **Choose an optimum chunk interval**
 
-   The default chunk interval is 7 days. You can set a custom interval when you create a hypertable.
-   Best practice is that prior to processing, one chunk of data takes up 25% of main memory, including the indexes
-   from each active hypertable. For example, if you write approximately 2 GB of data per day to a database with 64
-   GB of memory, set `chunk_interval` to 1 week. If you write approximately 10 GB of data per day on the same
-   machine, set the time interval to 1 day. For more information, see [best practices for time partitioning][best-practices].
+   <ChunkInterval />
 
    In the following example you create a table called `conditions` that stores time values in the
    `time` column and has chunks that store data for a `chunk_interval` of one day:
