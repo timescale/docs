@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL transaction ID wraparound
+title: Postgres transaction ID wraparound
 section: troubleshooting
 products: [mst]
 topics: [configuration]

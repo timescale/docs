@@ -384,10 +384,10 @@ Before you begin, make sure you have:
     _ = load_dotenv(find_dotenv())
     openai.api_key  = os.environ['OPENAI_API_KEY']
 
-    # Get Tiger Cloud / PostgreSQL database connection string by reading local .env file
+    # Get Tiger Cloud / Postgres database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to PostgreSQL Tiger Cloud service using connection string
+    # Connect to Postgres Tiger Cloud service using connection string
     conn = psycopg2.connect(connection_string)
 
     ###############################################################################

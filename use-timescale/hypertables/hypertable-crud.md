@@ -1,6 +1,6 @@
 ---
 title: Optimize time-series data in hypertables
-excerpt: Hypertables are PostgreSQL tables designed for real-time analytics. See how to create, alter, and drop a hypertable. 
+excerpt: Hypertables are Postgres tables designed for real-time analytics. See how to create, alter, and drop a hypertable. 
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, create]
 ---

@@ -93,7 +93,7 @@ pg_restore
 Plotly
 pre
 POSIX
-PostgreSQL
+Postgres
 [Pp]ooler?
 Prometheus
 PromLens

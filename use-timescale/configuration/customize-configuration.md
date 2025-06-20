@@ -1,6 +1,6 @@
 ---
 title: Configure database parameters
-excerpt: Customize standard PostgreSQL configuration and specific Tiger Cloud options for each service individually
+excerpt: Customize standard Postgres configuration and specific Tiger Cloud options for each service individually
 products: [cloud]
 keywords: [configure, services, settings]
 cloud_ui:

@@ -1,6 +1,6 @@
 ---
 title: Configuration
-excerpt: Tiger Cloud includes additional configurable settings on top of standard PostgreSQL configuration. Learn what you can configure and how
+excerpt: Tiger Cloud includes additional configurable settings on top of standard Postgres configuration. Learn what you can configure and how
 products: [cloud]
 keywords: [configuration, settings]
 ---

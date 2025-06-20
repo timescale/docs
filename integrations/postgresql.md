@@ -1,6 +1,6 @@
 ---
 title: Integrate with PostgreSQL
-excerpt: Query any other PostgreSQL database or another Tiger Cloud service from your service by using PostgreSQL foreign data wrappers
+excerpt: Query any other Postgres database or another Tiger Cloud service from your service by using Postgres foreign data wrappers
 products: [cloud, self_hosted]
 keywords: [integrate, foreign data wrappers, fdw]
 tags: [change]

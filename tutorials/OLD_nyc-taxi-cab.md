@@ -260,7 +260,7 @@ Next, let's upload the taxi cab data into your TimescaleDB instance.
 The data is in the file called `nyc_data_rides.csv` and we load it
 into the `rides` hypertable. To do this, we'll use the `psql` `\copy` command below.
 
->:WARNING: The PostgreSQL `\COPY` command is single-threaded and doesn't support batching
+>:WARNING: The Postgres `\COPY` command is single-threaded and doesn't support batching
 inserts into multiple transactions. With nearly 11 million rows of data this import can take
 10 minutes or more depending on your Internet connection.
 
@@ -420,7 +420,7 @@ AND pickup_datetime < '2016-01-08'
 GROUP BY day ORDER BY day;
 ```
 
->:TIP: Queries like the ones above execute up to 20x faster on large datasets with TimescaleDB vs. a vanilla PostgreSQL database, thanks to Timescale's automatic time and space partitioning.
+>:TIP: Queries like the ones above execute up to 20x faster on large datasets with TimescaleDB vs. a vanilla Postgres database, thanks to Timescale's automatic time and space partitioning.
 
 Your result should look like this:
 
@@ -484,7 +484,7 @@ SELECT rates.description, COUNT(vendor_id) AS num_trips,
   ORDER BY LOWER(rates.description);
 ```
 
->:TIP: This is a simple illustration of a powerful point: By allowing JOINs over hypertables and regular PostgreSQL tables, TimescaleDB allows you to combine your time-series data with your relational or business data to unearth powerful insights.
+>:TIP: This is a simple illustration of a powerful point: By allowing JOINs over hypertables and regular Postgres tables, TimescaleDB allows you to combine your time-series data with your relational or business data to unearth powerful insights.
 
 Your result should look like this, joining the information in the `rates` table
 with the query you ran earlier:
