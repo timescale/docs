@@ -8,7 +8,7 @@ use as is, or extend with the capabilities specific to your business needs:
 
 - **Time-series and analytics**: $PG with $TIMESCALE_DB. The $PG you know and love, 
    supercharged with functionality for storing and querying [time-series data][what-is-time-series] at scale for 
-   real-time analytics and other use cases. Get faster time-based queries with $HYPERTABLEs, $CAGGs, and columnar storage. Save on storage with native compression, data retention policies, and bottomless data tiering to Amazon S3. 
+   real-time analytics and other use cases. Get faster time-based queries with $HYPERTABLEs, $CAGGs, and columnar storage. Save money by compressing data into the $COLUMNSTORE, moving cold data to low-cost bottomless storage in Amazon S3, and deleting old data with automated policies. 
 - **AI and vector**: $PG with vector extensions. Use $PG as a vector database with 
    purpose built extensions for building AI applications from start to scale. Get fast and accurate similarity search 
    with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with 
@@ -23,7 +23,7 @@ All $SERVICE_LONGs include the tooling you expect for production and developer e
 [usage-based storage][how-plans-work], secure in-$CONSOLE [SQL editing][in-console-editors], $SERVICE_SHORT [metrics][metrics] 
 and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp;and much more.
 
-[what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
+[what-is-time-series]: https://www.timescale.com/blog/time-series-database-an-explainer#what-is-a-time-series-database
 [create-service]: /getting-started/:currentVersion:/services/
 [live-migration]: /migrate/:currentVersion:/live-migration/
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
@@ -34,7 +34,7 @@ and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[metrics]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
-[insights]: /use-timescale/:currentVersion:/metrics-logging/insights/
+[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
+[insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 

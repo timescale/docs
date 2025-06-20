@@ -1,5 +1,5 @@
 name: Feedback
-description: Help us improve the Timescale documentation site by leaving your feedback
+description: Help us improve the TigerData documentation site by leaving your feedback
 title: "[Feedback]"
 labels: ["documentation", "feedback", "community"]
 body:
@@ -24,12 +24,12 @@ body:
   - type: textarea
     id: improvements
     attributes:
-      label: How could we improve the Timescale documentation site?
+      label: How could we improve the TigerData documentation site?
       placeholder: Send us your ideas!
   - type: markdown
     attributes:
       value: |
         We welcome documentation contributions!
 
-        * For information about how to suggest a change, see the [contributing guide](https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md) in our GitHub repository.
-        * For information on style and word usage, see the [style guide](https://docs.timescale.com/about/latest/contribute-to-docs).
+        * For information about how to suggest a change, see the [README](https://github.com/timescale/docs/blob/latest/README.md).
+        * For information on documentation style and structure, see the [contributing guide](https://https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md).

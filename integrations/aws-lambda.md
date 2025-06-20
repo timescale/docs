@@ -1,13 +1,14 @@
 ---
-title: Integrate AWS Lambda with Timescale Cloud
-excerpt: With AWS Lambda, you can run code without provisioning or managing servers, and scale automatically. Integrate AWS Lambda with Timescale Cloud and inject data into your service
+title: Integrate AWS Lambda with Tiger Cloud
+excerpt: With AWS Lambda, you can run code without provisioning or managing servers, and scale automatically. Integrate AWS Lambda with Tiger Cloud and inject data into your service
 products: [cloud, self_hosted]
 keywords: [connect, integrate, aws, lambda]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Integrate AWS Lambda with Timescale Cloud
+# Integrate AWS Lambda with Tiger Cloud
 
 [AWS Lambda][AWS-Lambda] is a serverless computing service provided by Amazon Web Services (AWS) that allows you to run 
 code without provisioning or managing servers, scaling automatically as needed.
@@ -31,27 +32,25 @@ Create a table in $SERVICE_LONG to store time-series data.
 
 1. **Connect to your $SERVICE_LONG**
 
-      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For self-hosted, use [`psql`][psql].
+      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For $SELF_LONG, use [`psql`][psql].
 
-1. **Create a table to store sensor data**
+1. **Create a hypertable to store sensor data**
+
+   [Hypertables][about-hypertables] are PostgreSQL tables that automatically partition your data by time. You interact
+   with hypertables in the same way as regular PostgreSQL tables, but with extra features that make managing your
+   time-series data much easier.
 
    ```sql
    CREATE TABLE sensor_data (
      time TIMESTAMPTZ NOT NULL,
      sensor_id TEXT NOT NULL,
      value DOUBLE PRECISION NOT NULL
+   ) WITH (
+     tsdb.hypertable,
+     tsdb.partition_column='time'
    );
    ```
-
-1. **For better performance and easier real-time analytics, convert the table to a hypertable**
-
-   [Hypertables][about-hypertables] are PostgreSQL tables that automatically partition your data by time. You interact 
-   with hypertables in the same way as regular PostgreSQL tables, but with extra features that makes managing your 
-   time-series data much easier.
-
-   ```sql
-   SELECT create_hypertable('sensor_data', 'time');
-   ```
+   <OldCreateHypertable />   
 
 </Procedure>
 
@@ -198,13 +197,13 @@ You can now seamlessly ingest time-series data from AWS Lambda into $CLOUD_LONG.
 [AWS-Lambda]: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 [lambda-functions]: https://console.aws.amazon.com/lambda/home#/functions
 [aws-sign-up]: https://signin.aws.amazon.com/signup?request_type=register
-[install-aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
+[install-aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 [install-nodejs]: https://nodejs.org/en/download
 [install-postgresql]: https://www.postgresql.org/download/
 [console]: https://console.cloud.timescale.com/
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /integrations/:currentVersion:/psql/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [aws-iam-role]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access-keys-admin-managed.html#admin-list-access-key
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

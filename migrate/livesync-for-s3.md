@@ -1,6 +1,6 @@
 ---
-title: Livesync S3 to Timescale Cloud
-excerpt: Synchronize data from S3 to Timescale Cloud service in real time
+title: Livesync S3 to Tiger Cloud
+excerpt: Synchronize data from S3 to Tiger Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
@@ -9,11 +9,11 @@ tags: [recovery, logical backup, replication]
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
-# $LIVESYNC_CAP from S3 to Timescale Cloud
+# $LIVESYNC_CAP from S3 to $CLOUD_LONG
 
 You use $LIVESYNC to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. Livesync runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
-![$LIVESYNC_CAP view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
+![$LIVESYNC_CAP view status](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-livesync-for-s3-view-status.png)
 
 You can use $LIVESYNC to synchronize your existing and new data. Here's what $LIVESYNC can do:
 
@@ -35,7 +35,7 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
 
 **Note**: $LIVESYNC for S3 currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
-<EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in Timescale Community</a>.
+<EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>.
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
 - **CSV**:
    - Maximum file size: 1 GB 
   
-      To increase this limit, contact sales@timescale.com
+      To increase this limit, contact sales@tigerdata.com
    - Maximum row size: 2 MB
    - Supported compressed formats:
       - `.gz`
@@ -77,7 +77,6 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
       - Skip header: skip the first row if your file has headers
 - **Parquet**:
    - Maximum file size: 1 GB
-   - Maximum row group uncompressed size: 200 MB
    - Maximum row size: 2 MB
 - **Sync iteration**:
 
@@ -92,14 +91,14 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][portal-ops-mode], select the service to sync live data to.
+   In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to sync live data to.
 1. **Start $LIVESYNC**
    1. Click `Actions` > `Livesync for S3`.
    2. Click `New livesync for S3`.
 
 1. **Connect the source S3 bucket to the target $SERVICE_SHORT**
 
-   ![Livesync connect to bucket](https://assets.timescale.com/docs/images/livesync-s3-wizard.png)
+   ![Livesync connect to bucket](https://assets.timescale.com/docs/images/tiger-cloud-console/livesync-s3-wizard-tiger-cloud.png)
 
    1. In `Livesync for S3`, set the `Bucket name` and `Authentication method`, then click `Continue`.
    
@@ -123,7 +122,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    $CONSOLE checks the file schema and, if possible, suggests the column to use as the time dimension in a 
    [hypertable][about-hypertables].
      
-   ![Livesync choose table](https://assets.timescale.com/docs/images/livesync-s3-create-tables.png)
+   ![Livesync choose table](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-livesync-s3-create-tables.png)
    
    1. Choose the `Data type` for each column, then click `Continue`.
    1. Choose the interval. This can be a minute, an hour, or use a [cron expression][cron-expression].  
@@ -136,11 +135,11 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    1. To view the progress of the $LIVESYNC, click the name of the $LIVESYNC process.
    
       You see the status of the file being synced. Only one file runs at a time.
-      ![livesync view status](https://assets.timescale.com/docs/images/livesync-s3-view-status.png)
+      ![livesync view status](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-livesync-for-s3-view-status.png)
    1. To pause and restart $LIVESYNC, click the buttons on the right of the $LIVESYNC process and select an action.
    
       During pauses, you can edit the configuration before resuming.
-      ![livesync start stop](https://assets.timescale.com/docs/images/livesync-s3-start-stop.png)
+      ![livesync start stop](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-livesync-for-s3-start-stop.png)
 
 </Procedure>
 
@@ -148,7 +147,7 @@ And that is it, you are using $LIVESYNC to synchronize all the data, or specific
 $SERVICE_LONG in real time.
 
 
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/

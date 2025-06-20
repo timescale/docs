@@ -1,6 +1,6 @@
 ---
 title: Query time-series data tutorial - set up dataset
-excerpt: Inject and set up a dataset in Timescale Cloud so you can query and visualize time-series data
+excerpt: Inject and set up a dataset in Tiger Cloud so you can query and visualize time-series data
 products: [cloud]
 keywords: [beginner, tutorials, create, dataset]
 layout_components: [next_prev_large]

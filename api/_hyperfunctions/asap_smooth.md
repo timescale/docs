@@ -14,7 +14,7 @@ hyperfunction:
   type: function
 api_details:
   summary: >
-    Downsample your data with the [ASAP smoothing algorithm](https://arxiv.org/pdf/1703.00983.pdf).
+    Downsample your data with the [ASAP smoothing algorithm](http://arxiv.org/pdf/1703.00983).
     This algorithm preserves the approximate shape and larger trends of the input data, while minimizing the local variance between points.
   signatures:
     - language: sql

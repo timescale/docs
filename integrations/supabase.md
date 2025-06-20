@@ -1,13 +1,14 @@
 ---
-title: Integrate Supabase with Timescale Cloud
-excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Timescale Cloud
+title: Integrate Supabase with Tiger Cloud
+excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Integrate Supabase with Timescale Cloud
+# Integrate Supabase with $CLOUD_LONG
 
 [Supabase][supabase] is an open source Firebase alternative. This page shows how to run real-time analytical queries 
 against a $SERVICE_LONG through Supabase using a foreign data wrapper (fdw) to bring aggregated data from your 
@@ -38,19 +39,18 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
           time timestamptz NOT NULL DEFAULT now(), 
           origin_time timestamptz NOT NULL, 
           name TEXT
+      ) WITH (
+        tsdb.hypertable,
+        tsdb.partition_column='time'
       );
       ```
+     <OldCreateHypertable />   
 
-   1. Turn the table to a hypertable:
-
-      ```sql
-      SELECT create_hypertable('signs', by_range('time'));
-      ```
 1. **Optimize cooling data for analytics**
 
-   Hypercore is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for real-time analytics 
-   and powered by time-series data. The advantage of Hypercore is its ability to seamlessly switch between row-oriented 
-   and column-oriented storage. This flexibility enables $CLOUD_LONG to deliver the best of both worlds, solving the
+   Hypercore is the hybrid row-columnar storage engine in $TIMESCALE_DB, designed specifically for real-time analytics 
+   and powered by time-series data. The advantage of hypercore is its ability to seamlessly switch between row-oriented 
+   and column-oriented storage. This flexibility enables $TIMESCALE_DB to deliver the best of both worlds, solving the
    key challenges in real-time analytics.
 
    ```sql

@@ -1,6 +1,6 @@
 ---
 title: Migrate from TimescaleDB using dual-write and backfill
-excerpt: Migrate from a TimescaleDB database to Timescale Cloud using the low-downtime dual-write and backfill method
+excerpt: Migrate from a TimescaleDB database to Tiger Cloud using the low-downtime dual-write and backfill method
 products: [cloud]
 keywords: [migration, low-downtime]
 tags: [migration, logical backup]
@@ -19,16 +19,16 @@ import TimescaleDBVersion from "versionContent/_partials/_migrate_from_timescale
 import DumpDatabaseRoles from "versionContent/_partials/_migrate_dual_write_dump_database_roles.mdx";
 import ExplainPgDumpFlags from "versionContent/_partials/_migrate_explain_pg_dump_flags.mdx";
 
-# Dual-write and backfill from TimescaleDB database
+# Dual-write and backfill from $TIMESCALE_DB database
 
 This document provides detailed step-by-step instructions to migrate data using
 the [dual-write and backfill][dual-write-and-backfill] migration method from a
-source database which is using TimescaleDB to Timescale.
+source database which is using $TIMESCALE_DB to $CLOUD_LONG.
 
 <SourceTargetNote />
 
 In detail, the migration process consists of the following steps:
-1. Set up a target database instance in Timescale.
+1. Set up a target $SERVICE_LONG.
 1. Modify the application to write to a secondary database.
 1. Migrate schema and relational data from source to target.
 1. Start the application in dual-write mode.
@@ -53,10 +53,12 @@ relational schema that you are using in the source database to the target
 database.
 
 <Highlight type="important">
+
 The PostgresSQL versions of the source and target databases can be of different
 versions, as long as the target version is greater than that of the source.
 
-The version of TimescaleDB used in both databases must be exactly the same.
+The version of $TIMESCALE_DB used in both databases must be exactly the same.
+
 </Highlight>
 
 <SetupSourceTarget />
@@ -65,7 +67,7 @@ The version of TimescaleDB used in both databases must be exactly the same.
 
 <DumpDatabaseRoles />
 
-### 3b. Dump all plain tables and the TimescaleDB catalog from the source database
+### 3b. Dump all plain tables and the $TIMESCALE_DB catalog from the source database
 
 ```bash
 pg_dump -d "$SOURCE" \
@@ -84,12 +86,12 @@ pg_dump -d "$SOURCE" \
 
 <ExplainPgDumpFlags />
 
-If the source database has the timescaledb extension installed in a schema
-other than "public" it causes issues on Timescale. Edit the dump file to remove
+If the source database has the $TIMESCALE_DB extension installed in a schema
+other than "public" it causes issues on $CLOUD_LONG. Edit the dump file to remove
 any references to the non-public schema. The extension must be in the "public"
-schema on Timescale. This is a known limitation.
+schema on $CLOUD_LONG. This is a known limitation.
 
-### 3c. Ensure that the correct TimescaleDB version is installed
+### 3c. Ensure that the correct $TIMESCALE_DB version is installed
 
 <TimescaleDBVersion />
 
@@ -128,14 +130,14 @@ the migration is complete.
 
 ## 6. Backfill data from source to target
 
-The simplest way to backfill from TimescaleDB, is to use the
+The simplest way to backfill from $TIMESCALE_DB, is to use the
 [timescaledb-backfill][timescaledb-backfill] backfill tool. It efficiently
-copies compressed and uncompressed hypertables, and data stored in continuous
+copies hypertables with the $COLUMNSTORE or compression enabled, and data stored in continuous
 aggregates from one database to another.
 
 `timescaledb-backfill` performs best when executed from a machine located close
 to the target database. The ideal scenario is an EC2 instance located in the
-same region as the Timescale service. Use a Linux-based distribution on x86_64.
+same region as the $SERVICE_LONG. Use a Linux-based distribution on x86_64.
 
 [//]: # (TODO: Recommended spec for the instance.)
 

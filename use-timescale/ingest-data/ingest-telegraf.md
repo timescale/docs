@@ -1,6 +1,6 @@
 ---
 title: Ingest data using Telegraf
-excerpt: Ingest data into a Timescale Cloud service using using the Telegraf plugin
+excerpt: Ingest data into a Tiger Cloud service using using the Telegraf plugin
 products: [cloud, self_hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
@@ -29,7 +29,7 @@ $SERVICE_LONG.
 - [Install Telegraf][install-telegraf]
 
 
-## Link Telegraf to your service
+## Link Telegraf to your $SERVICE_SHORT
 
 <Procedure>
 
@@ -155,8 +155,8 @@ see the [PostgreQL output plugin][output-plugin].
 
 
 [output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
-[install-telegraf]: https://docs.influxdata.com/telegraf/v1.21/introduction/installation/
+[install-telegraf]: https://docs.influxdata.com/telegraf/v1/introduction/installation/
 [create-service]: /getting-started/latest/
 [connect-timescaledb]: /integrations/:currentVersion:/find-connection-details/
 [grafana]: /integrations/:currentVersion:/grafana/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/

@@ -49,7 +49,7 @@ window.
     ```sql
     CREATE MATERIALIZED VIEW <continuous_aggregate_name>
         WITH (timescaledb.continuous)
-        AS SELECT time_bucket('<interval>', <time_column>),
+        AS SELECT time_bucket('<interval>', <partition_column>),
         <other_columns_to_select>,
         ...
         FROM <hypertable>
@@ -84,7 +84,7 @@ window.
 
 1.  Use the returned ID to query for the watermark's timestamp:
 
-    For TimescaleDB >= 2.12:
+    For $TIMESCALE_DB >= 2.12:
 
     ```sql
     SELECT COALESCE(
@@ -93,7 +93,7 @@ window.
     );
     ```
 
-    For TimescaleDB < 2.12:
+    For $TIMESCALE_DB < 2.12:
 
     ```sql
     SELECT COALESCE(

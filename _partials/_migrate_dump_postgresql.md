@@ -17,16 +17,16 @@ import MigrationValidateRestartApp from "versionContent/_partials/_migrate_valid
 
 </Procedure>
 
-## Migrate the roles from TimescaleDB to your Timescale Cloud service
+## Migrate the roles from $TIMESCALE_DB to your $SERVICE_LONG
 
-Roles manage database access permissions. To migrate your role-based security hierarchy to your Timescale Cloud service:
+Roles manage database access permissions. To migrate your role-based security hierarchy to your $SERVICE_LONG:
 <Procedure>
 
 <MigrationProcedureDumpSchemaPostgres />
 
 </Procedure>
 
-## Upload your data to the target Timescale Cloud service
+## Upload your data to the target $SERVICE_LONG
 
 ```bash
 psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
@@ -34,7 +34,7 @@ psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
 -f dump.sql
 ```
 
-## Validate your Timescale Cloud service and restart your app
+## Validate your $SERVICE_LONG and restart your app
 <Procedure>
 
 <MigrationValidateRestartApp />

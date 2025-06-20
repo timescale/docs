@@ -7,14 +7,8 @@ keywords: [queries, DISTINCT, SkipScan]
 
 # Get faster `DISTINCT` queries with `SkipScan`
 
-SkipScan improves query times for `DISTINCT` queries. It works on PostgreSQL
-tables, Timescale hypertables, and Timescale distributed hypertables.
-SkipScan is included in TimescaleDB&nbsp;2.2.1 and later.
-
-<Highlight type="note">
-This page discusses the Timescale Skipscan feature. SkipScan is not currently
-available in standard PostgreSQL.
-</Highlight>
+SkipScan improves query times for `DISTINCT` queries. It works on both regular PostgreSQL
+tables and hypertables. SkipScan is included in $TIMESCALE_DB v2.2.1 and later.
 
 ## Speed up `DISTINCT` queries
 
@@ -30,10 +24,6 @@ of unique values from an ordered index. Even when you have an index that matches
 the exact order and columns for these kinds of queries, PostgreSQL scans the
 entire index to find all unique values. As a table grows, this operation keeps
 getting slower.
-
-<Highlight type="note">
-Timescale SkipScan does not currently work on compressed chunks.
-</Highlight>
 
 SkipScan allows queries to incrementally jump from one ordered value to the next
 without reading all of the rows in between. Without support for this feature,
@@ -61,7 +51,7 @@ Skip scan cost is based on the ratio of distinct tuples to total tuples. If the 
 
 ## Use SkipScan queries
 
-SkipScan is included in TimescaleDB&nbsp;2.2.1 and later. This section describes
+SkipScan is included in $TIMESCALE_DB v2.2.1 and later. This section describes
 how to set up your database index and query to use a SkipScan node.
 
 Your index must:
@@ -100,4 +90,4 @@ ANALYZE` output shows one or more `Custom Scan (SkipScan)` nodes, like this:
          Index Cond: (tags_id > NULL::integer)
 ```
 
-[blog-skipscan]: https://www.timescale.com/blog/how-we-made-distinct-queries-up-to-8000x-faster-on-postgresql/
+[blog-skipscan]: https://www.timescale.com/blog/how-we-made-distinct-queries-up-to-8000x-faster-on-postgresql

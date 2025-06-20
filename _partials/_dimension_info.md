@@ -1,8 +1,8 @@
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 ### Dimension info
 
-To create a `_timescaledb_internal.dimension_info` instance, you call  
-`by_range` and `by_hash` when you [create a hypertable][create_hypertable], or [add a dimension][add_dimension] 
+To create a `_timescaledb_internal.dimension_info` instance, you call [add_dimension][add_dimension] 
 to an existing hypertable. 
 
 #### Samples
@@ -11,7 +11,7 @@ Hypertables must always have a primary range dimension, followed by an arbitrary
 dimensions that can be either range or hash, Typically this is just one hash. For example:
 
 ```sql
-SELECT create_hypertable('conditions', by_range('time'));
+SELECT add_dimension('conditions', by_range('time'));
 SELECT add_dimension('conditions', by_hash('location', 2));
 ```
 
@@ -20,7 +20,7 @@ of the dimension build to extract a compatible data type. Look in the example se
 
 #### Custom partitioning
 
-By default, TimescaleDB calls PostgreSQL's internal hash function for the given type.
+By default, $TIMESCALE_DB calls PostgreSQL's internal hash function for the given type.
 You use a custom partitioning function for value types that do not have a native PostgreSQL hash function.
 
 You can specify a custom partitioning function for both range and hash partitioning. A partitioning function should 
@@ -34,29 +34,44 @@ Create a by-range dimension builder. You can partition `by_range` on it's own.
 
 ##### Samples
 
-The simplest usage is to partition on a time column:
+- Partition on time using `CREATE TABLE`
 
-```sql
-SELECT create_hypertable('my_table', by_range('time'));
-```
+   The simplest usage is to partition on a time column:
+   
+   ```sql
+   CREATE TABLE conditions (
+      time        TIMESTAMPTZ       NOT NULL,
+      location    TEXT              NOT NULL,
+      device      TEXT              NOT NULL,
+      temperature DOUBLE PRECISION  NULL,
+      humidity    DOUBLE PRECISION  NULL
+   ) WITH (
+      tsdb.hypertable,
+      tsdb.partition_column='time'
+   );
+   ```
+   
+   <OldCreateHypertable />
 
-This is the default partition, you do not need to add it explicitly.
+   This is the default partition, you do not need to add it explicitly.
 
-If you have a table with a non-time column containing the time, such as
-a JSON column, add a partition function to extract the time.
+- Extract time from a non-time column using `create_hypertable`
 
-```sql
-CREATE TABLE my_table (
-   metric_id serial not null,
-   data jsonb,
-);
-
-CREATE FUNCTION get_time(jsonb) RETURNS timestamptz AS $$
-  SELECT ($1->>'time')::timestamptz
-$$ LANGUAGE sql IMMUTABLE;
-
-SELECT create_hypertable('my_table', by_range('data', '1 day', 'get_time'));
-```
+   If you have a table with a non-time column containing the time, such as
+   a JSON column, add a partition function to extract the time:
+   
+   ```sql
+   CREATE TABLE my_table (
+      metric_id serial not null,
+      data jsonb,
+   );
+   
+   CREATE FUNCTION get_time(jsonb) RETURNS timestamptz AS $$
+     SELECT ($1->>'time')::timestamptz
+   $$ LANGUAGE sql IMMUTABLE;
+   
+   SELECT create_hypertable('my_table', by_range('data', '1 day', 'get_time'));
+   ```
 
 ##### Arguments
 
@@ -89,7 +104,7 @@ The partition type and default value depending on column type is:
 #### by_hash()
 
 The main purpose of hash partitioning is to enable parallelization across multiple disks within the same time interval. 
-Every distinct item in hash partitioning is hashed to one of *N* buckets. By default, TimescaleDB uses flexible range 
+Every distinct item in hash partitioning is hashed to one of *N* buckets. By default, $TIMESCALE_DB uses flexible range 
 intervals to manage chunk sizes. 
 
 ### Parallelizing disk I/O
@@ -107,7 +122,7 @@ For the following options:
   Best practice is to use RAID when possible, as you do not need to manually manage tablespaces
   in the database.
 
-- **Multiple tablespaces**: for each physical disk, add a separate tablespace to the database. TimescaleDB allows you to
+- **Multiple tablespaces**: for each physical disk, add a separate tablespace to the database. $TIMESCALE_DB allows you to
   add multiple tablespaces to a *single* hypertable. However, although under the hood, a hypertable's
   chunks are spread across the tablespaces associated with that hypertable.
 
@@ -120,7 +135,7 @@ When adding a hash partitioned dimension, set the number of partitions to a mult
 the number of partitions P=N*Pd where N is the number of disks and Pd is the number of partitions per
 disk. This enables you to add more disks later and move partitions to the new disk from other disks.
 
-TimescaleDB does *not* benefit from a very large number of hash
+$TIMESCALE_DB does *not* benefit from a very large number of hash
 partitions, such as the number of unique items you expect in partition
 field.  A very large number of hash partitions leads both to poorer
 per-partition load balancing (the mapping of items to partitions using
@@ -130,9 +145,19 @@ queries.
 ##### Samples
 
 ```sql
-SELECT create_hypertable('conditions', by_range('time'));
+CREATE TABLE conditions (
+   "time"      TIMESTAMPTZ       NOT NULL,
+   location    TEXT              NOT NULL,
+   device      TEXT              NOT NULL,
+   temperature DOUBLE PRECISION  NULL,
+   humidity    DOUBLE PRECISION  NULL
+) WITH (
+   tsdb.hypertable,
+   tsdb.partition_column='time',
+   tsdb.chunk_interval='1 day'
+);
+
 SELECT add_dimension('conditions', by_hash('location', 2));
-SELECT add_dimension('conditions', by_range('time_received', INTERVAL '1 day'));
 ```
 
 ##### Arguments
@@ -153,5 +178,6 @@ dimension information used by this function.
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
 [by-range]: /api/:currentVersion:/hypertable/create_hypertable/#by_range
+[by-hash]: /api/:currentVersion:/hypertable/create_hypertable/#by_hash
 [by-hash]: /api/:currentVersion:/hypertable/create_hypertable/#by_hash
 

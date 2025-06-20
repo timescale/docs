@@ -1,89 +1,91 @@
 ---
-title: Create unique indexes on a hypertable
-excerpt: Having a unique index on your hypertable simplifies lookup, speeds up aggregation, and makes JOINs more efficient. Learn to create a unique index in Timescale Cloud and what the related limitations are
+title: Enforce constraints with unique indexes
+excerpt: Having a unique index on your hypertable simplifies lookup, speeds up aggregation, and makes JOINs more efficient. Learn to create a unique index in TimescaleDB and what the related limitations are
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, unique indexes, primary keys]
 ---
 
-# Create unique indexes on a hypertable
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-You can use a unique index on a hypertable to enforce constraints. You do not
-need to have a unique index on your hypertables. When you create a unique index,
-it must contain all the partitioning columns of the hypertable.
+# Enforce constraints with unique indexes
 
-<Highlight type="note">
-If you have a primary key, you have a unique index. In PostgreSQL, a primary key
-is a unique index with a `NOT NULL` constraint.
-</Highlight>
+You use unique indexes on a $HYPERTABLE to enforce [constraints][constraints]. If you have a primary key, 
+you have a unique index. In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
 
-To create a unique index on a hypertable:
+You do not need to have a unique index on your $HYPERTABLEs. When you create a unique index,
+it must contain all the partitioning columns of the $HYPERTABLE. 
 
-1.  Determine your partitioning columns
-1.  Create a unique index that includes all those columns, and optionally
-    additional columns
+## Create a hypertable and add unique indexes
 
-## Determine the partitioning columns
+To create a unique index on a $HYPERTABLE:
 
-Before you create a unique index, you need to determine which unique indexes are
-allowed on your hypertable. Begin by identifying your partitioning columns.
+<Procedure>
 
-Timescale traditionally uses these columns to partition hypertables:
+1. **Determine the partitioning columns**
 
-*   The `time` column used to create the hypertable. Every Timescale hypertable
-    is partitioned by time.
-*   Any space-partitioning columns. Space partitions are optional and not
-    included in every hypertable. You have a space-partitioning column if you
-    specified the `partitioning_column` parameter when you creates your
-    hypertable.
+   Before you create a unique index, you need to determine which unique indexes are
+   allowed on your $HYPERTABLE. Begin by identifying your partitioning columns.
 
-## Create a unique index on a hypertable
+   $TIMESCALE_DB traditionally uses the following columns to partition $HYPERTABLEs:
 
-When you create a unique index on a hypertable, it must contain all the
-partitioning columns you identified earlier. It may contain other columns as
-well, and they may be arranged in any order.
+   *   The `time` column used to create the $HYPERTABLE. Every $TIMESCALE_DB $HYPERTABLE
+       is partitioned by time.
+   *   Any space-partitioning columns. Space partitions are optional and not
+       included in every $HYPERTABLE. 
 
-<Highlight type="note">
-This restriction is necessary to guarantee global uniqueness in the index.
-</Highlight>
+1. **Create a $HYPERTABLE**
 
-Create a unique index with the `CREATE UNIQUE INDEX` command. Make sure to
-include all partitioning columns in the index. You can include other columns as
-well if needed.
+   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
+   use most often to filter your data. For example:
+      ```sql
+      CREATE TABLE hypertable_example(
+        time TIMESTAMPTZ,
+        user_id BIGINT,
+        device_id BIGINT,
+        value FLOAT
+      ) WITH (
+        tsdb.hypertable,
+        tsdb.partition_column='time',
+        tsdb.segmentby = 'device_id',
+        tsdb.orderby = 'time DESC'
+      );
+      ```
+   <OldCreateHypertable />
 
-For example, for a hypertable named `hypertable_example`, partitioned on `time`
-and `device_id`, create an index on `time` and `device_id`:
+1. **Create a unique index on the $HYPERTABLE**
 
-```sql
-CREATE UNIQUE INDEX idx_deviceid_time
-  ON hypertable_example(device_id, time);
-```
+   When you create a unique index on a $HYPERTABLE, it must contain all the partitioning columns. It may contain 
+   other columns as well, and they may be arranged in any order. You cannot create a unique index without `time`, 
+   because `time` is a partitioning column.
 
-You can also create a unique index on `time`, `user_id`, and `device_id`. Note
-that `device_id` is not a partitioning column, but this still works:
+   For example:
 
-```sql
-CREATE UNIQUE INDEX idx_userid_deviceid_time
-  ON hypertable_example(user_id, device_id, time);
-```
+   - Create a unique index on `time` and `device_id` with a call to `CREATE UNIQUE INDEX`: 
+ 
+      ```sql
+      CREATE UNIQUE INDEX idx_deviceid_time
+        ON hypertable_example(device_id, time);
+      ```
 
-You cannot create a unique index without `time`, because `time` is a
-partitioning column. For example, this does not work:
+   - Create a unique index on `time`, `user_id`, and `device_id`. 
+   
+     `device_id` is not a partitioning column, but this still works:
+   
+     ```sql
+     CREATE UNIQUE INDEX idx_userid_deviceid_time
+       ON hypertable_example(user_id, device_id, time);
+     ```
 
-```sql
--- This gives you an error
-CREATE UNIQUE INDEX idx_deviceid
-  ON hypertable_example(device_id);
-```
+   <Highlight type="note">
 
-You get the error:
+   This restriction is necessary to guarantee global uniqueness in the index.
 
-```bash
-ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in partitioning)
-```
+   </Highlight>   
 
-Fix the error by adding `time` to your unique index.
+</Procedure>
 
-## Create a hypertable from a table with unique indexes
+## Create a hypertable from an existing table with unique indexes
 
 If you create a unique index on a table before turning it into a hypertable, the
 same restrictions apply in reverse. You can only partition the table by columns
@@ -91,12 +93,10 @@ in your unique index.
 
 <Procedure>
 
-### Creating a hypertable from a table with unique indexes
-
-1.  Create your table. For example:
+1. **Create a relational table**
 
     ```sql
-    CREATE TABLE hypertable_example(
+    CREATE TABLE another_hypertable_example(
       time TIMESTAMPTZ,
       user_id BIGINT,
       device_id BIGINT,
@@ -104,47 +104,40 @@ in your unique index.
     );
     ```
 
-1.  Create a unique index on the table. In this example, the index is on
-    `device_id` and `time`:
+1. **Create a unique index on the table** 
+
+    For example, on `device_id` and `time`:
 
     ```sql
     CREATE UNIQUE INDEX idx_deviceid_time
-      ON hypertable_example(device_id, time);
+      ON another_hypertable_example(device_id, time);
     ```
 
-1.  Turn the table into a hypertable partitioned on `time` alone:
+1. **Turn the table into a partitioned hypertable**
 
-    ```sql
-    SELECT * from create_hypertable('hypertable_example', by_range('time'));
-    ```
+   - On `time` alone:
 
-    Alternatively, turn the table into a hypertable partitioned on `time` and
-    `device_id`:
+       ```sql
+       SELECT * from create_hypertable('another_hypertable_example', by_range('time'));
+       ```
 
-    ```sql
-    SELECT * FROM create_hypertable('hypertable_example', by_range('time'));
-	SELECT * FROM add_dimension('hypertable_example', by_hash('device_id', 4));
-    ```
+   - On `time` and `device_id`:
+
+       ```sql
+       SELECT * FROM create_hypertable('another_hypertable_example', by_range('time'));
+       SELECT * FROM add_dimension('another_hypertable_example', by_hash('device_id', 4));
+       ```
+
+   You get an error if you try to turn the relational table into a hypertable partitioned by `time` and `user_id`.
+   This is because `user_id` is not part of the `UNIQUE INDEX`. To fix the error, add `user_id` to your unique index. 
 
 </Procedure>
 
-You cannot turn the table into a hypertable partitioned by `time` and `user_id`,
-because `user_id` isn't part of the unique index. This doesn't work:
 
-```sql
--- This gives you an error
-SELECT * FROM create_hypertable('hypertable_example', by_range('time'));
-SELECT * FROM add_dimension('hypertable_example', by_hash('user_id', 4));
-```
 
-You get the error:
 
-```bash
-ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in partitioning)
-```
-
-Note that the error arises from creating an index, not from creating a
-hypertable. This happens because Timescale recreates indexes after converting
-a table to a hypertable.
-
-Fix the error by adding `user_id` to your unique index.
+[constraints]: https://www.postgresql.org/docs/current/ddl-constraints.html
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

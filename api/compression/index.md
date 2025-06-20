@@ -1,6 +1,6 @@
 ---
 title: Compression
-excerpt: Timescale Cloud API reference for compressing your data. Includes SQL functions for compressing and decompressing chunks, managing compression policies, and getting compression stats
+excerpt: TimescaleDB API reference for compressing your data. Includes SQL functions for compressing and decompressing chunks, managing compression policies, and getting compression stats
 keywords: [compression]
 tags: [hypertables]
 products: [cloud, mst, self_hosted]
@@ -21,9 +21,9 @@ Before you set up compression, you need to
 <Highlight type="note">
 Before you set up compression for the first time, read
 the compression
-[blog post](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/)
+[blog post](https://www.tigerdata.com/blog/building-columnar-compression-in-a-row-oriented-database)
 and
-[documentation](https://docs.timescale.com/use-timescale/latest/compression/).
+[documentation](https://docs.tigerdata.com/use-timescale/latest/compression/).
 </Highlight>
 
 You can also [compress chunks manually][compress_chunk], instead of using an
@@ -35,7 +35,6 @@ Compressed chunks have the following limitations:
 *   Creation of unique constraints on compressed chunks is not supported. You
     can add them by disabling compression on the hypertable and re-enabling
     after constraint creation.
-*   [Timescale SkipScan][skipscan] does not currently work on compressed chunks.
 
 ## Restrictions
 
@@ -43,7 +42,7 @@ In general, compressing a hypertable imposes some limitations on the types
 of data modifications that you can perform on data inside a compressed chunk.
 
 This table shows changes to the compression feature, added in different versions
-of TimescaleDB:
+of $TIMESCALE_DB:
 
 |TimescaleDB version|Supported data modifications on compressed chunks|
 |-|-|
@@ -52,14 +51,14 @@ of TimescaleDB:
 |2.3|Schema modifications and basic insert of new data is allowed. Deleting, updating and some advanced insert statements are not supported.|
 |2.11|Deleting, updating and advanced insert statements are supported.|
 
-In TimescaleDB 2.1&nbsp;and later, you can modify the schema of hypertables that
+In $TIMESCALE_DB 2.1&nbsp;and later, you can modify the schema of hypertables that
 have compressed chunks. Specifically, you can add columns to and rename existing
 columns of compressed hypertables.
 
-In TimescaleDB&nbsp;2.3 and later, you can insert data into compressed chunks
+In $TIMESCALE_DB v2.3 and later, you can insert data into compressed chunks
 and to enable compression policies on distributed hypertables.
 
-In TimescaleDB&nbsp;2.11 and later, you can update and delete compressed data.
+In $TIMESCALE_DB v2.11 and later, you can update and delete compressed data.
 You can also use advanced insert statements like `ON CONFLICT` and `RETURNING`.
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/

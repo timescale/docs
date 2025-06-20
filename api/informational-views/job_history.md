@@ -13,7 +13,7 @@ products: [cloud, mst, self_hosted]
 
 Shows information about the $JOBs run by the automation framework.
 This includes custom $JOBs and $JOBs run by policies
-created to manage data retention, continuous aggregates, compression, and
+created to manage data retention, continuous aggregates, columnstore, and
 other automation policies. For more information about automation policies,
 see [$JOBs][jobs].
 
@@ -80,7 +80,7 @@ check_schema      | _timescaledb_functions
 check_name        | policy_job_stat_history_retention_check
 ```
 
-On Timescale and Managed Service for TimescaleDB, the owner of the job history
+On $TIMESCALE_DB and $MST_LONG, the owner of the job history
 retention job is `tsdbadmin`. In an on-premise installation, the owner of the
 job is the same as the extension owner.
 The owner of the retention job can alter it and delete it.

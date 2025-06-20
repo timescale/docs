@@ -23,7 +23,7 @@ The function you set as `integer_now_func` has no arguments. It must be either:
   plan, especially if you have a lot of chunks. 
 
 - `STABLE`: `integer_now_func` is evaluated just before query execution starts. 
-  [chunk pruning](https://www.timescale.com/blog/optimizing-queries-timescaledb-hypertables-with-partitions-postgresql-6366873a995d/) is executed at runtime. This generates a correct result, but may increase 
+  [chunk pruning](https://www.timescale.com/blog/optimizing-queries-timescaledb-hypertables-with-partitions-postgresql-6366873a995d) is executed at runtime. This generates a correct result, but may increase 
   planning time.
 
 
@@ -61,4 +61,4 @@ Set the integer `now` function for a hypertable with a time column in [unix time
     SELECT set_integer_now_func('hypertable_name', 'unix_now_stable');
     ```
 
-[chunks]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[chunks]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

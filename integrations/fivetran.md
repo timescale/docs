@@ -1,6 +1,6 @@
 ---
-title: Integrate Fivetran with Timescale Cloud
-excerpt: Fivetran is a fully managed data pipeline platform that simplifies extract, transform, and load processes. Integrate Fivetran with Timescale Cloud for seamless data synchronization
+title: Integrate Fivetran with Tiger Cloud
+excerpt: Fivetran is a fully managed data pipeline platform that simplifies extract, transform, and load processes. Integrate Fivetran with Tiger Cloud for seamless data synchronization
 products: [cloud, self_hosted]
 keywords: [Fivetran, PostgreSQL, connection, integrate]
 
@@ -86,8 +86,8 @@ To see data injected by Fivetran into your $SERVICE_LONG:
 You have successfully integrated Fivetran with $CLOUD_LONG.
 
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[fivetran]: https://www.fivetran.com/docs
+[fivetran]: https://fivetran.com/docs/getting-started
 [sign-up-fivetran]: https://www.fivetran.com/
 [fivetran-dashboard-destinations]: https://fivetran.com/dashboard/destinations
-[fivetran-dashboard-connectors]: https://fivetran.com/dashboard/connectors
+[fivetran-dashboard-connectors]: https://fivetran.com/dashboard/connections
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql

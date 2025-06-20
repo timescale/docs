@@ -1,18 +1,14 @@
 ---
 title: Schema modifications
-excerpt: Timescale Cloud enables you to modify the schema of compressed hypertables. This includes adding a nullable column, renaming and dropping a column, and adding a column with a default value
+excerpt: TimescaleDB enables you to modify the schema of compressed hypertables. This includes adding a nullable column, renaming and dropping a column, and adding a column with a default value
 products: [cloud, mst, self_hosted]
 keywords: [compression, schemas, hypertables]
 ---
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
-
 # Schema modifications
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/modify-data-in-hypercore">Modify your data in hypercore</a>.
-
 You can modify the schema of compressed hypertables in recent versions of
-Timescale.
+$TIMESCALE_DB.
 
 |Schema modification|Before TimescaleDB&nbsp;2.1|TimescaleDB&nbsp;2.1 to 2.5|TimescaleDB&nbsp;2.6 and above|
 |-|-|-|-|
@@ -40,7 +36,7 @@ ALTER TABLE conditions ADD COLUMN device_id integer;
 ```
 
 Note that adding constraints to the new column is not supported before
-TimescaleDB 2.6.
+$TIMESCALE_DB v2.6.
 
 ## Add a column with a default value and a NOT NULL constraint
 

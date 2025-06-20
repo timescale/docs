@@ -1,7 +1,7 @@
 import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
 
 In modern applications, data usually grows very quickly. This means that aggregating 
-it into useful summaries can become very slow. $CLOUD_LONG continuous aggregates make
+it into useful summaries can become very slow. Continuous aggregates in $TIMESCALE_DB make
 aggregating data lightning fast, accurate, and easy. 
 
 If you are collecting data very frequently, you might want to aggregate your
@@ -22,15 +22,13 @@ views, because the whole view is not created from scratch on each refresh. This
 means that you can get on with working your data instead of maintaining your
 database.
 
-Because continuous aggregates are based on hypertables, you can query them in
-exactly the same way as your other tables, and enable [compression][compression]
-or [tiered storage][data-tiering] on them. You can even
-create
-[continuous aggregates on top of your continuous aggregates][hierarchical-caggs]—for an even more fine-tuned aggregation. 
+
+Because continuous aggregates are based on hypertables, you can query them in exactly the same way as your other tables. This includes continuous aggregates in the rowstore, compressed into the [columnstore][hypercore], 
+or [tiered to object storage][data-tiering]. You can even create [continuous aggregates on top of your continuous aggregates][hierarchical-caggs] - for an even more fine-tuned aggregation. 
 
 [Real-time aggregation][real-time-aggregation] enables you to combine pre-aggregated data from the materialized view with the most recent raw data. This gives you up-to-date results on every query. <RealTimeAgg />
 
-[compression]: /use-timescale/:currentVersion:/compression/about-compression
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/

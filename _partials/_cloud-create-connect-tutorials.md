@@ -1,4 +1,4 @@
-A service in Timescale is a cloud instance which contains your database.
+A service in $CLOUD_LONG is a cloud instance which contains your database.
 Each service contains a single database, named `tsdb`.
 You can connect to a service from your local system using the `psql`
 command-line utility. If you've used PostgreSQL before, you might already have

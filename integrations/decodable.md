@@ -1,8 +1,8 @@
 ---
-title: Integrate Decodable with Timescale Cloud 
-excerpt: Decodable enables you to build, run, and manage data pipelines effortlessly. Seamlessly integrate Decodable with Timescale Cloud to unlock real-time data processing capabilities
+title: Integrate Decodable with Tiger Cloud 
+excerpt: Decodable enables you to build, run, and manage data pipelines effortlessly. Seamlessly integrate Decodable with Tiger Cloud to unlock real-time data processing capabilities
 products: [cloud, self_hosted]
-keywords: [Decodable, Timescale Cloud]
+keywords: [Decodable, Tiger Cloud]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
@@ -47,7 +47,7 @@ To stream data gathered in Decodable to a $SERVICE_LONG:
 
    1. Connect to your $SERVICE_LONG.
 
-      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For self-hosted, use [`psql`][psql].
+      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For $SELF_LONG, use [`psql`][psql].
 
    1. Check the data from Decodable is streaming into your $SERVICE_LONG.
 
@@ -72,4 +72,4 @@ You have successfully integrated Decodable with $CLOUD_LONG.
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/

@@ -7,7 +7,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 # Ingest data into a $SERVICE_LONG
 
 This tutorial uses a dataset that contains Bitcoin blockchain data for
-the past five days, in a hypertable named `transactions`.
+the past five days, in a $HYPERTABLE named `transactions`.
 
 ## Prerequisites
 

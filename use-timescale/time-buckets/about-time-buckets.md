@@ -1,6 +1,6 @@
 ---
 title: About time buckets
-excerpt: Learn how time buckets help you aggregate data by time interval for efficient and simple real-time analytics in Timescale Cloud
+excerpt: Learn how time buckets help you aggregate data by time interval for efficient and simple real-time analytics in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [time buckets]
 ---
@@ -99,4 +99,4 @@ parameter.
 [origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
-[create-hypertable]: /use-timescale/:currentVersion:/hypertables/create/
+[create-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable

@@ -10,7 +10,7 @@
     - **Key pair**: use an existing pair or create a new one that you will use to access the intermediary machine.
     - **VPC**: by default, this is the same as the database instance.
     - **Configure Storage**: adjust the volume to at least the size of RDS/Aurora PostgreSQL instance you are migrating from.
-    You can reduce the space used by your data on Timescale Cloud using [Hypercore][hypercore].
+    You can reduce the space used by your data on $CLOUD_LONG using [Hypercore][hypercore].
 1. Click `Lauch instance`. AWS creates your EC2 instance, then click `Connect to instance` > `SSH client`.
    Follow the instructions to create the connection to your intermediary EC2 instance. 
 
@@ -88,6 +88,6 @@
 
 </Procedure>
 
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [databases]: https://console.aws.amazon.com/rds/home#databases:

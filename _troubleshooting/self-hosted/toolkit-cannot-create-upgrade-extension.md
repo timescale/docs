@@ -19,7 +19,7 @@ keywords: [hyperfunctions, Toolkit, installation, upgrades, updates]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-In some cases, when you create the TimescaleDB Toolkit extension, or upgrade it
+In some cases, when you create the $TOOLKIT_LONG extension, or upgrade it
 with the `ALTER EXTENSION timescaledb_toolkit UPDATE` command, it might fail
 with the above error.
 
@@ -31,11 +31,11 @@ again.
 
 <Procedure>
 
-### Troubleshooting TimescaleDB Toolkit setup
+### Troubleshooting $TOOLKIT_LONG setup
 
-1.  If you're installing Toolkit from a package, check your package manager's
-    local repository list. Make sure the TimescaleDB repository is available and
-    contains Toolkit. For instructions on adding the TimescaleDB repository, see
+1.  If you're installing $TOOLKIT_SHORT from a package, check your package manager's
+    local repository list. Make sure the $TIMESCALE_DB repository is available and
+    contains Toolkit. For instructions on adding the $TIMESCALE_DB repository, see
     the installation guides:
     *   [Linux installation guide][linux-install]
 1.  Update your local repository list with `apt update` or `yum update`.

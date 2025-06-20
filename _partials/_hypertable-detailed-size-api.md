@@ -8,9 +8,11 @@ executed on a distributed hypertable, it returns size information
 as a separate row per node, including the access node.
 
 <Highlight type="note">
+
 When a continuous aggregate name is provided, the function
 transparently looks up the backing hypertable and returns its statistics
 instead.
+
 </Highlight>
 
 For more information about using hypertables, including chunk size partitioning,

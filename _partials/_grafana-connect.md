@@ -1,4 +1,4 @@
-## Connect Grafana to $CLOUD_LONG 
+## Connect Grafana to Tiger Cloud 
 
 To visualize the results of your queries, enable Grafana to read the data in your $SERVICE_SHORT:
 

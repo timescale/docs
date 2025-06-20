@@ -1,16 +1,16 @@
 ---
-title: Migrate data to Timescale from InfluxDB
+title: Migrate data to TimescaleDB from InfluxDB
 excerpt: Migrate data into your self-hosted TimescaleDB installation using the Outflux tool
 products: [self_hosted]
 keywords: [data migration, InfluxDB]
 tags: [import, Outflux]
 ---
 
-# Migrate data to Timescale from InfluxDB
+# Migrate data to $TIMESCALE_DB from InfluxDB
 
-You can migrate data to Timescale from InfluxDB using the Outflux tool.
-[Outflux][outflux] is an open source tool built by Timescale for fast, seamless
-migrations. It pipes exported data directly to Timescale, and manages schema
+You can migrate data to $TIMESCALE_DB from InfluxDB using the Outflux tool.
+[Outflux][outflux] is an open source tool built by $COMPANY for fast, seamless
+migrations. It pipes exported data directly to $SELF_LONG, and manages schema
 discovery, validation, and creation.
 
 <Highlight type="important">
@@ -25,7 +25,7 @@ version 2 and later.
 Before you start, make sure you have:
 
 *   A running instance of InfluxDB and a means to connect to it.
-*   An [installation of Timescale][install] and a means to connect to it.
+*   An [$SELF_LONG instance][install] and a means to connect to it.
 *   Data in your InfluxDB instance. 
 
 ## Procedures
@@ -33,7 +33,7 @@ Before you start, make sure you have:
 To import data from Outflux, follow these procedures:
 
 1.  [Install Outflux][install-outflux]
-1.  [Discover, validate, and transfer schema][discover-validate-and-transfer-schema] to Timescale (optional)
+1.  [Discover, validate, and transfer schema][discover-validate-and-transfer-schema] to $SELF_LONG (optional)
 1.  [Migrate data to Timescale][migrate-data-to-timescale]
 
 ## Install Outflux
@@ -64,8 +64,7 @@ where you installed it.
 Outflux can:
 
 *   Discover the schema of an InfluxDB measurement
-*   Validate whether a Timescale table exists that can hold the transferred
-    data
+*   Validate whether a table exists that can hold the transferred data
 *   Create a new table to satisfy the schema requirements if no valid table
     exists
 
@@ -92,8 +91,7 @@ argument.
 
 <Highlight type="note">
 
-This example uses the `postgres` user and database to connect to the Timescale
-database. For other connection options and configuration, see the [Outflux
+This example uses the `postgres` user and database to connect to the $SELF_LONG instance. For other connection options and configuration, see the [Outflux
 Github repo][outflux-gitbuh].
 
 </Highlight>
@@ -102,7 +100,7 @@ Github repo][outflux-gitbuh].
 
 Outflux's `schema-transfer` can use 1 of 4 schema strategies:
 
-*   `ValidateOnly`: checks that Timescale is installed and that the specified
+*   `ValidateOnly`: checks that $SELF_LONG is installed and that the specified
     database has a properly partitioned hypertable with the correct columns, but
     doesn't perform modifications
 *   `CreateIfMissing`: runs the same checks as `ValidateOnly`, and creates and
@@ -118,10 +116,10 @@ You can specify your schema strategy by passing a value to the
 strategy is `CreateIfMissing`.
 
 By default, each tag and field in InfluxDB is treated as a separate column in
-your Timescale tables. To transfer tags and fields as a single JSONB column,
+your $TIMESCALE_DB tables. To transfer tags and fields as a single JSONB column,
 use the flag `--tags-as-json`.
 
-## Migrate data to Timescale
+## Migrate data to $TIMESCALE_DB
 
 Transfer your schema and migrate your data all at once with the `migrate`
 command.
@@ -147,7 +145,7 @@ In addition, `outflux migrate` also takes the following flags:
 *   `chunk-size`: Changes the size of data chunks transferred. Data is pulled
     from the InfluxDB server in chunks of default size 15 000.
 *   `batch-size`: Changes the number of rows in an insertion batch. Data is
-    inserted into Timescale in batches that are 8000 rows by default.
+    inserted into a $SELF_LONG database in batches that are 8000 rows by default.
 
 For more flags, see the [Github documentation for `outflux
 migrate`][outflux-migrate]. Alternatively, see the command line help:

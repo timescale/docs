@@ -22,8 +22,11 @@ dataset and copy the data to your database.
     unzip bitcoin_sample.zip
     ```
 
+1. In Terminal, navigate to the folder where you unzipped the Bitcoin transactions, then 
+   connect to your $SERVICE_SHORT using [psql][connect-using-psql].
+
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    Timescale instance. If the `.csv` files aren't in your current directory,
+    $SERVICE_LONG. If the `.csv` files aren't in your current directory,
     specify the file paths in these commands:
 
     ```sql
@@ -38,3 +41,4 @@ dataset and copy the data to your database.
 
 [satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi
 [coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction
+[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service

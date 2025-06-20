@@ -5,13 +5,13 @@
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
 
-   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/console-services-view.png)
+   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
    Connect using data mode or SQL editor in $CONSOLE, or psql in the command line:
 
-   <Tabs label="Connect to your Timescale Cloud service">
+   <Tabs label="Connect to your Tiger Cloud service">
 
    <Tab title="Data mode in Console">
 
@@ -21,7 +21,7 @@
 
    1. Select your $SERVICE_SHORT in the connection drop-down in the top right. 
 
-      ![Select a connection](https://assets.timescale.com/docs/images/data-mode-connection-dropdown.png)
+      ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-data-mode-connection-dropdown.png)
 
    1. Run a test query:
 
@@ -45,7 +45,7 @@
    
    1. Click `SQL editor`. 
 
-      ![SQL editor](https://assets.timescale.com/docs/images/ops-view-sql-editor.png)
+      ![Check a $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ops-mode-sql-editor.png)
 
    1. Run a test query:
 
@@ -93,7 +93,7 @@
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE][portal-ops-mode] in $CONSOLE: add $READ_REPLICAs and enable 
-  high availability, configure compression, change parameters, and so on.
+  high availability, compress data into the $COLUMNSTORE, change parameters, and so on.
 - Analyze your data in the [$DATA_MODE][portal-data-mode] in $CONSOLE: write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
@@ -106,5 +106,5 @@ Quick recap. You:
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [install-psql]: /integrations/:currentVersion:/psql/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [psql]: /integrations/:currentVersion:/psql/

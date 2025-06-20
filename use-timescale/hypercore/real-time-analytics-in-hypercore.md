@@ -1,6 +1,6 @@
 ---
 title: Optimize your data for real-time analytics
-excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore.
+excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore
 products: [cloud, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
@@ -8,16 +8,12 @@ keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import HCConversionOverview from "versionContent/_partials/_hypercore-conversion-overview.mdx";
 import HCPolicyWorkflow from "versionContent/_partials/_hypercore_policy_workflow.mdx";
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
 import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
+import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 
 # Optimize your data for real-time analytics 
 
-$HYPERCORE_CAP is the TimescaleDB hybrid row-columnar storage engine used by $HYPERTABLEs.
-$HYPERTABLE_CAPs partition your data in $CHUNKs. $CHUNK_CAPs stored in the $ROWSTORE use a row-oriented data format optimized for high-speed inserts and updates. $CHUNK_CAPs stored in the $COLUMNSTORE use a columnar data format optimized for analytics.
-You ingest **hot** data into the $ROWSTORE. As data **cools** and becomes more suited for analytics, 
-$CLOUD_LONG automatically converts these $CHUNKs of data to the $COLUMNSTORE. You define the moment when data is converted 
-using a $COLUMNSTORE policy.
+<HypercoreIntroShort />
 
 <HCConversionOverview />
 
@@ -28,7 +24,7 @@ from the $ROWSTORE to the $COLUMNSTORE.
 
 <PrereqCloud />
 
-The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [Try the key Timescale features][ingest-data].   
+The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [this key features tutorial][ingest-data].   
 
 ## Optimize your data with $COLUMNSTORE policies 
 
@@ -49,15 +45,13 @@ single device, you `segmentby` the `Device ID` column. This enables you to run m
 data in the $COLUMNSTORE. 
 - The compression rate you want to achieve. The [lower the cardinality][cardinality-blog] of the `segmentby` column, the better compression results you get.
 
-When $CLOUD_LONG converts a $CHUNK to the $COLUMNSTORE, TimescaleDB automatically creates a different schema for your 
-data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when 
+When $TIMESCALE_DB converts a $CHUNK to the $COLUMNSTORE, it automatically creates a different schema for your 
+data. It also creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when 
 you write to and read from the $COLUMNSTORE.
 
 To set up your $HYPERCORE automation:
 
 <HCPolicyWorkflow />
-
-<UsageBasedStorage />
 
 ## Reference
 
@@ -70,17 +64,16 @@ repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is us
 
 [create-hypertable]: /use-timescale/:currentVersion:/compression/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[delta]: /use-timescale/:currentVersion:/compression/compression-methods/#delta-encoding
-[delta-delta]: /use-timescale/:currentVersion:/compression/compression-methods/#delta-of-delta-encoding
-[simple-8b]: /use-timescale/:currentVersion:/compression/compression-methods/#simple-8b
-[run-length]: /use-timescale/:currentVersion:/compression/compression-methods/#run-length-encoding
-[xor]: /use-timescale/:currentVersion:/compression/compression-methods/#xor-based-encoding
-[dictionary]: /use-timescale/:currentVersion:/compression/compression-methods/#dictionary-compression
+[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
+[delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
+[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
+[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
+[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-encoding
+[dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression
 [ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[run-job]: /api/:currentVersion:/actions/run_job/
-[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
-[alter_job]: /api/:currentVersion:/actions/alter_job/
+[run-job]: /api/:currentVersion:/jobs-automation/run_job/
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/

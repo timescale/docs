@@ -5,26 +5,19 @@ products: [cloud, mst, self_hosted]
 keywords: [compression]
 ---
 
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+# Compression methods in hypercore
 
-# About compression methods
+Depending on the data type that is compressed when your data is converted from the rowstore to the
+columnstore, TimescaleDB uses the following compression algorithms:
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">hypercore</a>.
+- **Integers, timestamps, boolean and other integer-like types**: a combination of the following compression
+  methods is used: [delta encoding][delta], [delta-of-delta][delta-delta], [simple-8b][simple-8b], and
+  [run-length encoding][run-length].
+- **Columns that do not have a high amount of repeated values**: [XOR-based][xor] compression with
+  some [dictionary compression][dictionary].
+- **All other types**: [dictionary compression][dictionary].
 
-
-TimescaleDB uses different compression algorithms, depending on the data type
-that is being compressed.
-
-For integers, timestamps, and other integer-like types, a combination of
-compression methods are used: [delta encoding][delta],
-[delta-of-delta][delta-delta], [simple-8b][simple-8b], and
-[run-length encoding][run-length].
-
-For columns that do not have a high amount of repeated values,
-[XOR-based][xor] compression is used, with some
-[dictionary compression][dictionary].
-
-For all other types, [dictionary compression][dictionary] is used.
+This page gives an in-depth explanation of the compression methods used in hypercore. 
 
 ## Integer compression
 
@@ -288,9 +281,9 @@ not using a dictionary in that scenario.
 
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [manual-compression]: /use-timescale/:currentVersion:/compression/manual-compression/
-[delta]: /use-timescale/:currentVersion:/compression/compression-methods/#delta-encoding
-[delta-delta]: /use-timescale/:currentVersion:/compression/compression-methods/#delta-of-delta-encoding
-[simple-8b]: /use-timescale/:currentVersion:/compression/compression-methods/#simple-8b
-[run-length]: /use-timescale/:currentVersion:/compression/compression-methods/#run-length-encoding
-[xor]: /use-timescale/:currentVersion:/compression/compression-methods/#xor-based-encoding
-[dictionary]: /use-timescale/:currentVersion:/compression/compression-methods/#dictionary-compression
+[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
+[delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
+[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
+[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
+[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-encoding
+[dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression

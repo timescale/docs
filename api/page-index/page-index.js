@@ -10,15 +10,19 @@ module.exports = [
       "Jobs allow you to run functions and procedures implemented in a language of your choice on a schedule within TimescaleDB. This allows...",
     children: [
       {
-        title: "Hypertables & chunks",
+        title: "Hypertables and chunks",
         href: "hypertable",
         children: [
           {
-            title: "create_hypertable",
+            title: "CREATE TABLE",
+            href: "create_table",
+          },
+          {
+            title: "create_hypertable (old API)",
             href: "create_hypertable",
           },
           {
-            title: "create_hypertable (old interface)",
+            title: "create_hypertable (even older API)",
             href: "create_hypertable_old",
           },
           {
@@ -32,6 +36,10 @@ module.exports = [
           {
             title: "reorder_chunk",
             href: "reorder_chunk",
+          },
+          {
+            title: "split_chunk",
+            href: "split_chunk",
           },
           {
             title: "merge_chunks",
@@ -561,7 +569,7 @@ module.exports = [
         title: "API Reference Tag Overview",
         href: "api-tag-overview",
         description:
-          "An overview of what different tags represent in the API section of Timescale Documentation.",
+          "An overview of what different tags represent in the API section of TigerData Documentation.",
       },
       {
         title: "Compression (Old API, replaced by Hypercore)",

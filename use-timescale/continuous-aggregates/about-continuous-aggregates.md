@@ -1,6 +1,6 @@
 ---
 title: About continuous aggregates
-excerpt: A Timescale continuous aggregate combines your data into analytic summaries and is refreshed in the background when new data is added. Learn how continuous aggregates work and how to use them
+excerpt: A TimescaleDB continuous aggregate combines your data into analytic summaries and is refreshed in the background when new data is added. Learn how continuous aggregates work and how to use them
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
@@ -60,23 +60,24 @@ Given the following schema:
 
 ```sql
 CREATE TABLE locations (
-    id TEXT PRIMARY KEY,
-    name TEXT
+  id TEXT PRIMARY KEY,
+  name TEXT
 );
 
 CREATE TABLE devices (
-    id SERIAL PRIMARY KEY,
-    location_id TEXT,
-    name TEXT
+  id SERIAL PRIMARY KEY,
+  location_id TEXT,
+  name TEXT
 );
 
 CREATE TABLE conditions (
-    "time" TIMESTAMPTZ,
-    device_id INTEGER,
-    temperature FLOAT8
+  "time" TIMESTAMPTZ,
+  device_id INTEGER,
+  temperature FLOAT8
+) WITH (
+  tsdb.hypertable,
+  tsdb.partition_column='time'
 );
-
-SELECT create_hypertable('conditions', by_range('time'));
 ```
 
 See the following `JOIN` examples on continuous aggregates:
@@ -179,14 +180,14 @@ See the following `JOIN` examples on continuous aggregates:
 
 ## Function support
 
-In TimescaleDB 2.7 and later, continuous aggregates support all PostgreSQL
+In $TIMESCALE_DB v2.7 and later, continuous aggregates support all PostgreSQL
 aggregate functions. This includes both parallelizable aggregates, such as `SUM`
 and `AVG`, and non-parallelizable aggregates, such as `RANK`.
 
-In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
+In $TIMESCALE_DB v2.10.0 and later, the `FROM` clause supports `JOINS`, with
 some restrictions. For more information, see the [`JOIN` support section][caggs-joins].
 
-In older versions of TimescaleDB, continuous aggregates only support
+In older versions of $TIMESCALE_DB, continuous aggregates only support
 [aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
 You can work around this by aggregating the other parts of your query in the
 continuous aggregate, then
@@ -194,7 +195,7 @@ continuous aggregate, then
 
 <CaggsFunctionSupport />
 
-If you want the old behavior in later versions of TimescaleDB, set the
+If you want the old behavior in later versions of $TIMESCALE_DB, set the
 `timescaledb.finalized` parameter to `false` when you create your continuous
 aggregate.
 
@@ -224,7 +225,7 @@ Using the same temperature example, the materialization table looks like this:
 |2021/01/02|New York|2||
 |2021/01/02|Stockholm|2|69|
 
-The materialization table is stored as a Timescale hypertable, to take
+The materialization table is stored as a $TIMESCALE_DB hypertable, to take
 advantage of the scaling and query optimizations that hypertables offer.
 Materialization tables contain a column for each group-by clause in the query,
 and an `aggregate` column for each aggregate in the query.
