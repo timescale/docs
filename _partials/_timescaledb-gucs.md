@@ -1,3 +1,13 @@
+
+IAIN: Can we update the structure to follow the same format as the other API ref please. For example:
+
+| Name | Type | Default | Required | Description                                                                                                                                                                                                              |
+| -- | -- | -- |---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `auto_sparse_indexes` | `BOOLEAN` |`&ts_guc_auto_sparse_indexes` (Don't think this is resolving correctly) | ✖  | Set to `true` to create [sparse indexes][sparse-indexes] on the $HYPERTABLE columns used as index keys when a chunk is converted to the columnstore. You must enable `auto_sparse_indexes` before the chunk is converted. | 
+
+
+IAIN: current version below
+
 | Name | Type | Short Description | Short Description | Value |
 | --- | --- | --- | --- | --- |
 | `auto_sparse_indexes` | `BOOLEAN` | Create sparse indexes on compressed chunks | The hypertable columns that are used as index keys will have  suitable sparse indexes when compressed. Must be set at the moment  of chunk compression | `&ts_guc_auto_sparse_indexes` |
@@ -57,3 +67,6 @@
 | `max_tuples_decompressed_per_dml_transaction` | `INTEGER` | The max number of tuples that can be decompressed during an ""INSERT | UPDATE | `" If the number of tuples exceeds this value` |
 | `restoring` | `BOOLEAN` | Enable restoring mode for timescaledb | In restoring mode all timescaledb internal hooks are disabled. This  mode is required for restoring logical dumps of databases with  timescaledb. | `false` |
 | `telemetry_level` | `ENUM` | Telemetry settings level | Level used to determine which telemetry to send | `TELEMETRY_DEFAULT` |
+
+
+[sparse-indexes]: /use-timescale/:currentVersion:/schema-management/indexing/#best-practices-for-indexing
