@@ -9,7 +9,7 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to $COMPANY products.
 
-## 🚀 Multi-command queries in SQL editor, improved job page experience, and a new service creation flow in Tiger Cloud Console
+## 🚀 Multi-command queries in SQL editor, improved job page experience, multiple AWS Transit Gateways, and a new service creation flow
 <Label type="date">June 20, 2025</Label>
 
 ### Run multiple statements in SQL editor
@@ -20,7 +20,7 @@ Start new discussion threads from any point in your SQL assistant chat to explor
 
 ### Smarter results table
 - Expand JSON data instantly: turn complex JSON objects into readable columns with one click—no more digging through nested data structures.
-- Filter with precision: use a new smart filter lets you pick exactly what you want to see from a dropdown of all available values.
+- Filter with precision: use a new smart filter to pick exactly what you want from a dropdown of all available values.
 
 ### Jobs page improvements
 Individual job pages now display their corresponding configuration for TimescaleDB job types—for example, columnstore, retention, CAgg refreshes, tiering, and others.
@@ -32,7 +32,8 @@ You can now connect multiple AWS Transit Gateways, when those gateways use overl
 How it works: when you create a new peering connection, Tiger Cloud reuses the existing Transit Gateway if you supply the same ID—otherwise it automatically creates a new, isolated Transit Gateway.
 
 ### Updated service creation flow
-The new service creation flow makes the choice of service type clearer. You can now create distinct types with PostgreSQL extensions for real-time analytics (TimescaleDB), AI (pgvectorscale, pgai), and RTA/AI hybrid applications.
+
+The new service creation flow makes the choice of service type clearer. You can now create distinct types with Postgres extensions for real-time analytics (TimescaleDB), AI (pgvectorscale, pgai), and RTA/AI hybrid applications.
 
 ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
 
