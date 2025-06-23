@@ -20,7 +20,7 @@ You use AWS Transit Gateway as a traffic controller for your network. Instead of
 
 You can then create a peering connection between your $SERVICE_LONGs and AWS Transit Gateway in $CLOUD_LONG. This means that, no matter how big or complex your infrastructure is, you can connect securely to your $SERVICE_LONGs. 
 
-For enhanced security, you can add peering connections to multiple Transit Gateways with the same CIDR—$CLOUD_LONG creates a new isolated connection for every unique Transit Gateway ID. Otherwise, you can reuse the existing connection for your $SERVICE_SHORTs in the same project and region. 
+For enhanced security, you can add peering connections to multiple Transit Gateways with overlapping CIDRs—$CLOUD_LONG creates a new isolated connection for every unique Transit Gateway ID. Otherwise, the existing connection is reused for your $SERVICE_SHORTs in the same project and region. 
 
 To configure this secure connection, you:
 
