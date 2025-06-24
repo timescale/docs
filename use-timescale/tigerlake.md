@@ -163,6 +163,19 @@ To execute queries against Iceberg, best practice is to use the following produc
 * Only Postgres 17 is supported.
 * Only the S3 Tables REST Iceberg catalog is supported.
 * Certain columnstore optimizations must be disabled in hypertables in order to collect correlating WAL events.
+* Truncate is not supported
+* Tiered chunks are excluded
+* "Principal": {
+                "AWS": "arn:aws:iam::142548018081:root"
+            }, 
+            is not root
+* rename table
+
+## Replicas
+
+What happens on fail over?
+
+
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
