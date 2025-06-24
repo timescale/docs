@@ -176,6 +176,38 @@ To execute queries against Iceberg, best practice is to use the following produc
 What happens on fail over?
 
 
+## Schemas created and roles
+
+```sql
+CREATE SCHEMA _timescaledb_lake_catalog;
+CREATE SCHEMA _timescaledb_lake_tables;
+
+CREATE TABLE _timescaledb_lake_catalog.sync_tables(
+    id              SERIAL PRIMARY KEY,
+    pg_schema       NAME,
+    pg_table        NAME,
+    iceberg_schema  TEXT,
+    iceberg_table   TEXT,
+    column_list     TEXT[] DEFAULT NULL,
+    partition_by    TEXT[]
+);
+ALTER TABLE _timescaledb_lake_catalog.sync_tables ADD CONSTRAINT
+    sync_tables_uniq_pg_schema_pg_table UNIQUE (pg_schema, pg_table);
+
+-- Create signal table for Debezium
+CREATE TABLE _timescaledb_lake_tables.dbz_signals (
+    id TEXT DEFAULT gen_random_uuid() PRIMARY KEY,
+    type TEXT NOT NULL,
+    data TEXT
+);
+CREATE TABLE _timescaledb_lake_tables.dbz_heartbeat (
+    id INTEGER PRIMARY KEY,
+    count INTEGER
+);
+
+GRANT USAGE ON SCHEMA _timescaledb_lake_catalog, _timescaledb_lake_tables TO PUBLIC;
+GRANT SELECT ON ALL TABLES IN SCHEMA _timescaledb_lake_catalog, _timescaledb_lake_tables TO PUBLIC;
+```
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
