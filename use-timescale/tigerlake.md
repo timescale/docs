@@ -1,140 +1,206 @@
 ---
-title: BaseLake
-excerpt: Unifies the Tiger Cloud operational architecture with datalake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
+title: Integrate data lakes with Tiger Cloud
+excerpt: Unifies the Tiger Cloud operational architecture with data lake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 products: [cloud]
 keywords: [data lake, lakehouse, s3, iceberg]
 ---
 
-# BaseLake
+import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 
-BaseLake unifies operational architecture with the datalake architectures of S3 and Iceberg. BaseLake enables you to 
-build real-time applications alongside efficient data pipeline management within a single system.
+# Integrate data lakes with $CLOUD_LONG
 
+$LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. $LAKE_LONG enables you to build 
+real-time applications alongside efficient data pipeline management within a single system.
 
 This experimental release is a native integration enabling continuous replication between managed Iceberg and catalog 
-running in AWS [S3 Tables](s3-tables) in your AWS account and relational tables and hypertables in Tiger Cloud. 
+running in AWS [S3 Tables][s3-tables] in your AWS account and relational tables and $HYPERTABLEs in $CLOUD_LONG. 
 
-## Getting started
+## Prerequisites
 
-To connect TigerData with AWS S3 Tables, the ARN of a table bucket and a ARN of role with permission to write to the table bucket, are required.
-Three options are available to curate these ARNs:
-* [Using the AWS CouldFormation Console](#setup-baselake-using-aws-management-console)
-* [Through the AWS CLI with a CloudFormation template](#setup-baselake-using-the-aws-cloudformation-cli)
-* [Step by step guide to create bucket and role](#step-by-step-guide)
+<IntegrationPrereqsCloud/>
 
-### Setup BaseLake using AWS Management Console
+## Integrate a data lake with your $SERVICE_LONG
 
-1. Sign in to the AWS Management Console and open  [CloudFormation console][cmc].
-2. In the navigation bar on the top of the page:
-   1. Choose the name of the currently displayed AWS Region
-   2. Set it to the Region in which you want to create your table bucket. **This must match the region your Tiger Cloud service** is running in. If the regions do not match AWS charges you for cross-region data transfer.
-3. Click **Create stack**. If prompted choose **With new resources**. This is the standard option.
-4. Under **Specify Template**, copy the following URL into the Amazon S3 URL box and Click **Next**.
+To connect a $SERVICE_LONG to the AWS S3 Tables that make up your data lake, you need the following:
+
+- The ARN of the data lake table bucket
+- The ARN of a role with permissions to write to the table bucket
+
+You set up the data lake table bucket and role ARNs, using one of the following methods:
+
+<Tabs label="Install TimescaleDB">
+
+<Tab title="AWS Management Console">
+
+<Procedure >
+
+1. **Set the AWS Region to host your table bucket**
+   1. In [AWS CloudFormation][cmc], select the currently AWS Region at the top-right of the page.
+   2. Set it to the Region to create your table bucket in. 
+
+   **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for 
+   cross-region data transfer.
+
+1. **Create your CloudFormation stack**
+   1. Click `Create stack`, then select `With new resources (standard)`.
+   1. In `Amazon S3 URL`, paste the following URL, then click `Next`.
+      ```
+      https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml
+      ```
+   1. In `Specify stack details`, enter the following details, then click `Next`:
+      * `Stack Name`: a name for this CloudFormation stack
+      * `BucketName`: a name for this S3 table bucket
+      * `ProjectID` and `ServiceID`: enter the [connection details][get-project-id] for your $LAKE_LONG $SERVICE_SHORT.
+   1. In `Configure stack options` check `I acknowledge that AWS CloudFormation might create IAM resources`, then 
+      click `Next`.
+   1. In `Review and create`, click `Submit`. and wait for the deployment to complete. 
+       AWS deploys your stack and creates the S3 table bucket and IAM role.
+   1. Click `Outputs`, then copy all four outputs.
+
+1. **Provide this information to $COMPANY**
+
+   Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket, and your
+   [$PROJECT_LONG and $SERVICE_SHORT IDs][get-project-id].
+   $COMPANY uses these outputs to provision your $LAKE_LONG services.
+
+   $COMPANY uses this configuration to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is
+   ready to use. Provisioning takes about 10-15 minutes, during this time the $SERVICE_SHORT is restarted.
+
+</Procedure>
+
+</Tab>
+
+<Tab title="AWS CloudFormation CLI">
+
+<Procedure >
+
+1. **Create your CloudFormation stack** 
+   Replace the following values in the command, then run it from the terminal:
+   
+      * `CapabilityIAM`: IAIN, I added this 'cos it looks like a variable to me
+      * `StackName`: the name for this CloudFormation stack
+      * `BucketName`: The name of the S3 table bucket to crate
+      * `ProjectID`: enter your $SERVICE_LONG [connection details][get-project-id] 
+      * `ServiceID`: enter your $SERVICE_LONG [connection details][get-project-id]
+   
+   ```shell
+   aws cloudformation create-stack \
+     --capabilities <CapabilityIAM> \
+     --template-url https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml \
+     --stack-name <StackName> \
+     --parameters \
+       ParameterKey=BucketName,ParameterValue="<BucketName>" \
+       ParameterKey=ProjectID,ParameterValue="<ProjectID>" \
+       ParameterKey=ServiceID,ParameterValue="<ServiceID>"
    ```
-   https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml
-   ```
-5. Enter the following details, then click `Next`:
-   * `Stack Name`: the name for this CloudFormation stack
-   * `BucketName`: The name of the S3 table bucket which will be created
-   * `ProjectID` and `ServiceID`: Your Tiger Cloud service details, see [these instructions](get-project-id)
-6. Check `I acknowledge that AWS CloudFormation might create IAM resources`, then click `Next`.
-7. On the review page, click `Submit` and wait for the deployment to complete. 
-8. Click `Outputs`, then copy all four outputs. 
-9. Provide the outputs to Timescale. Timescale uses them to provision your BaseLake services.
 
-### Setup BaseLake using the AWS CloudFormation CLI
+1. **Provide this information to $COMPANY**
 
-Replace the following values in the command, then run it from the terminal:
-* `Stack Name`: the name for this CloudFormation stack
-* `BucketName`: The name of the S3 table bucket which will be created
-* `ProjectID` and `ServiceID`: Your Tiger Cloud service details, see [these instructions](get-project-id)
+   Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket, and your
+   [$PROJECT_LONG and $SERVICE_SHORT IDs][get-project-id].
+   $COMPANY uses these outputs to provision your $LAKE_LONG services.
 
-```shell
-aws cloudformation create-stack \
-  --capabilities CAPABILITY_IAM \
-  --template-url https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml \
-  --stack-name {STACK_NAME} \
-  --parameters \
-    ParameterKey=BucketName,ParameterValue="{BUCKET_NAME}" \
-    ParameterKey=ProjectID,ParameterValue="{ProjectID}" \
-    ParameterKey=ServiceID,ParameterValue="{ServiceID}"
-```
+   $COMPANY uses this configuration to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is
+   ready to use. Provisioning takes about 10-15 minutes, during this time the $SERVICE_SHORT is restarted.
 
-### Step by step guide
+</Procedure>
 
-#### Create an S3 Bucket 
-1. Log in to the [AWS Management Console](aws-console).
-2. Open the [Amazon S3 console](s3-console).
-3. In the navigation bar on the top of the page, choose the name of the currently displayed AWS Region. Next, choose the region in which you want to create your table bucket. **This should match the region your Tiger Cloud service** will be in, or AWS will charge you for cross-region data transfer.
-4. In the left navigation pane, choose Table buckets
-5. Click Create table bucket then enter a name for your bucket, and create it. Note down the bucket’s Amazon Resource Name (ARN) that is displayed.
+</Tab>
 
-#### Create ARN role
-1. Open [IAM Dashboard](iam-dashboard), to create a new Role.
-2. In the left navigation pane click Roles, then click Create role and select Custom trust policy
-3. Replace the entire **Custom trust policy** code block with the following, substituting `{PROJECT_ID}` and `{SERVICE_ID}` with the appropriate values for the Tiger Cloud project and the service you intend to use with TigerLake. To locate your Project ID and Service ID, [follow these steps](get-project-id).
+<Tab title="Manual configuration">
 
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::142548018081:root"
-            },
-            "Action": "sts:AssumeRole",
-            "Condition": {
-                "StringEquals": {
-                    "sts:ExternalId": "{PROJECT_ID}/{SERVICE_ID}"
-                }
-            }
-        }
-    ]
-}
-```
+<Procedure >
 
-4. Click Next, then click Next again without selecting any permission policies.
-5. Give the Role a name and click Create role.
-6. In Roles Overview, select the role you just created, click Add Permissions > Create inline policy.
-7. Select JSON then replace the entire Policy editor code block with the following, substituting the two instances of `{S3TABLE_BUCKET_ARN}` with the ARN for the table bucket you created earlier.
+1. **Create a S3 Bucket** 
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "BucketOps",
-      "Effect": "Allow",
-      "Action": [
-        "s3tables:*"
-      ],
-      "Resource": "{S3TABLE_BUCKET_ARN}"
-    },
-    {
-      "Sid": "BucketTableOps",
-      "Effect": "Allow",
-      "Action": [
-        "s3tables:*"
-      ],
-      "Resource": "{S3TABLE_BUCKET_ARN}/table/*"
-    }
-  ]
-}
-```
+   1. Set the AWS Region to host your table bucket
+      1. In [Amazon S3 console][s3-console], select the currently AWS Region at the top-right of the page.
+      2. Set it to the Region to create your table bucket in.
 
-8. Click Next, then give the inline policy a name and click Create policy
-9. Provide TigerData with the ARN of this role, the ARN of the S3 table bucket, and your Tiger Cloud Project and Service IDs.
-10. We’ll spin up the services with the configurations and let you know when it’s completed.
+      **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for
+      cross-region data transfer.
+   1. In the left navigation pane, click `Table buckets`, then click `Create table bucket`.
+   1. Enter `Table bucket name`, then click `Create table bucket`. 
+   1. Copy the `Amazon Resource Name (ARN)` for your table bucket.
 
-## Provisioning
+1. **Create an ARN role**
+   1. In [IAM Dashboard][iam-dashboard], click `Roles` then click `Create role`
+   1. In `Select trusted entity`, click `Custom trust policy`, replace the **Custom trust policy** code block with the 
+      following: 
+   
+      ```json
+      {
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Principal": {
+                      "AWS": "arn:aws:iam::142548018081:root"
+                  },
+                  "Action": "sts:AssumeRole",
+                  "Condition": {
+                      "StringEquals": {
+                          "sts:ExternalId": "<ProjectID>/<ServiceID>"
+                      }
+                  }
+              }
+          ]
+      }
+      ```
+   1. Replace `<ProjectID>` and `<ServiceID>` with the the [connection details][get-project-id] for your $LAKE_LONG 
+         $SERVICE_SHORT, then click `Next`.  
 
-- takes about 10-15 minutes
-- service will be restarted
+   1. In `Permissions policies`. click `Next`.
+   1. In `Role details`, enter `Role name`, then click `Create role`.
+   1. In `Roles`, select the role you just created, then click `Add Permissions` > `Create inline policy`.
+   1. Select `JSON` then replace the `Policy editor` code block with the following:
+   
+         ```json
+         {
+           "Version": "2012-10-17",
+           "Statement": [
+             {
+               "Sid": "BucketOps",
+               "Effect": "Allow",
+               "Action": [
+                 "s3tables:*"
+               ],
+               "Resource": "<S3TABLE_BUCKET_ARN>"
+             },
+             {
+               "Sid": "BucketTableOps",
+               "Effect": "Allow",
+               "Action": [
+                 "s3tables:*"
+               ],
+               "Resource": "<S3TABLE_BUCKET_ARN>/table/*"
+             }
+           ]
+         }
+         ```
+   1. Replace `<S3TABLE_BUCKET_ARN>` with the `Amazon Resource Name (ARN)` for the table bucket you just created.
+   1. Click `Next`, then give the inline policy a name and click `Create policy`.
 
-## API
+1. **Provide this information to $COMPANY**
 
-To stream a Postgres table or hypertable from a Tiger Cloud service to Iceberg, run the following statement:
+   Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket, and your
+   [$PROJECT_LONG and $SERVICE_SHORT IDs][get-project-id].
+   $COMPANY uses these outputs to provision your $LAKE_LONG services.
+
+   $COMPANY uses this configuration to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is 
+   ready to use. Provisioning takes about 10-15 minutes, during this time the $SERVICE_SHORT is restarted.
+
+</Procedure>
+
+</Tab>
+
+</Tabs>
+
+## Stream data from your $SERVICE_LONG to your data lake
+
+To stream data from a $PG relational table, or a $HYPERTABLE in your $SERVICE_LONG to your data lake, run the following 
+statement:
+
 ```sql
 ALTER TABLE <table_name> SET (
    tigerlake.iceberg_sync = true | false,
@@ -142,48 +208,57 @@ ALTER TABLE <table_name> SET (
 )
 ```
 
-* `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming and to `false` to stop the stream. Please be aware that a stream can not be resumed after being stopped. 
-* `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the partitioning specification of the hypertable is used. Streamed Postgres tables can have a partition specification for the Iceberg table, if intentially defined. 
+* `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming, or `false` to stop the stream. A stream 
+  **cannot** resume after being stopped. 
+* `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the 
+  partitioning specification of the $HYPERTABLE is used. Streamed $PG tables can have a partition specification 
+  for the Iceberg table, if intentially defined. 
 
 When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
 The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
 
-Only tables or hypertables with primary keys are supported, this includes composite primary keys as well. 
+Only tables or $HYPERTABLEs with primary keys are supported, this includes composite primary keys as well. 
 A primary key is necessary for Iceberg to perform update or delete statements.
 
 ### Partitioning
 
-The partition interval of for an Iceberg table is by default the same as the one from a hypertable.
-
-Supporting hour, day, month, year and truncate.
-
-Please refer to the [Iceberg partition specification](iceberg-partition-spec).
+By default, the partition interval of for an Iceberg table is the same as the one from a $HYPERTABLE. Supported values 
+are hour, day, month, year and truncate. For more information, see the 
+[Iceberg partition specification][iceberg-partition-spec].
 
 ## Query your data
+
+IAIN: I don't get why we are talking about Iceberg here. Do you mean against the data lake or the service? 
 
 To execute queries against Iceberg, best practice is to use the following products:
 * [AWS Athena][aws-athena]: ensure that integration with the AWS analytics services is enabled for the table bucket.
 * [duckdb][duckdb]: support for S3 Tables is in preview. 
 * [Apache Spark][apache-spark]
 
-## Limitations
+
+## Reference
+
+### Limitations
+
 * Only Postgres 17 is supported.
 * Only the S3 Tables REST Iceberg catalog is supported.
-* Certain columnstore optimizations must be disabled in hypertables in order to collect correlating WAL events.
+* Certain columnstore optimizations must be disabled in $HYPERTABLEs in order to collect correlating WAL events.
 * Truncate is not supported
 * Tiered chunks are excluded
-* "Principal": {
-                "AWS": "arn:aws:iam::142548018081:root"
-            }, 
-            is not root
+* The following is not root: 
+   ```json
+   "Principal": {
+                  "AWS": "arn:aws:iam::142548018081:root"
+              }, 
+    ```        
 * rename table
 
-## Replicas
+### Replicas
 
 What happens on fail over?
 
 
-## Schemas created and roles
+### Schemas and roles created in your $LAKE_LONG $SERVICE_SHORT
 
 ```sql
 CREATE SCHEMA _timescaledb_lake_catalog;
@@ -224,5 +299,8 @@ GRANT SELECT ON ALL TABLES IN SCHEMA _timescaledb_lake_catalog, _timescaledb_lak
 [aws-console]: https://console.aws.amazon.com/
 [s3-console]: https://console.aws.amazon.com/s3/
 [iam-dashboard]: https://console.aws.amazon.com/iamv2/home
-[get-project-id]: https://docs.tigerdata.com/integrations/latest/find-connection-details/#find-your-project-and-service-id
 [iceberg-partition-spec]: https://iceberg.apache.org/spec/#partition-transforms
+[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
+[setup-console]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-aws-management-console
+[setup-cli]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-the-aws-cloudformation-cli
+[setup-manual]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-manually
