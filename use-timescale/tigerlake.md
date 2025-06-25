@@ -137,14 +137,12 @@ To stream a Postgres table or hypertable from a Tiger Cloud service to Iceberg, 
 ```sql
 ALTER TABLE <table_name> SET (
    tigerlake.iceberg_sync = true | false,
-   tigerlake.iceberg_partitionby = '<partition_specification>',
-   tigerlake.iceberg_columns = 'column_name[, column_name ...]'
+   tigerlake.iceberg_partitionby = '<partition_specification>'
 )
 ```
 
 * `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming and to `false` to stop the stream. Please be aware that a stream can not be resumed after being stopped. 
 * `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the partitioning specification of the hypertable is used. Streamed Postgres tables can have a partition specification for the Iceberg table, if intentially defined. 
-* `tigerlake.iceberg_columns`: optional property to reduce the set of columns, defined as comma separated value, to to be synced to Iceberg. By default all columns are in scope.
 
 When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
 The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
