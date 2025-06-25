@@ -14,10 +14,8 @@ import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 
 # create_hypertable()
 
-<Deprecated2200 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypertable/create_table/">CREATE TABLE</a>.
-
-Replace a standard PostgreSQL relational table with a [hypertable][hypertable-docs]
-that is partitioned on a single dimension. 
+Replace a standard PostgreSQL relational table with a [hypertable][hypertable-docs] that is partitioned on a single 
+dimension. To create a new hypertable, best practice is to call <a href="https://docs.tigerdata.com/api/latest/hypertable/create_table/">CREATE TABLE</a>.
 
 A hypertable is a PostgreSQL table that automatically partitions your data by time. A dimension defines the way your 
 data is partitioned.  All actions work on the resulting hypertable. For example, `ALTER TABLE`, and `SELECT`.
