@@ -756,7 +756,7 @@ module.exports = [
       {
         title: "TigerLake",
         href: "tigerlake",
-        excerpt: "Unifies the Timescale Cloud operational architecture with the data lake (S3 + Iceberg) architectures",
+        excerpt: "Unifies the Tiger Cloud operational architecture with the data lake (S3 + Iceberg) architectures",
       },
       {
         title: "Troubleshoot TigerData products",
