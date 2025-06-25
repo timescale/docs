@@ -24,12 +24,12 @@ compressing data in hypertables.
 
 $TIMESCALE_DB compression allows you to store the data in a vastly more
 efficient format allowing up to 20x compression ratio compared to a
-normal PostgreSQL table, but this is of course highly dependent on the
+normal $PG table, but this is of course highly dependent on the
 data and configuration.
 
-$TIMESCALE_DB compression is implemented natively in PostgreSQL and does
+$TIMESCALE_DB compression is implemented natively in $PG and does
 not require special storage formats. Instead it relies on features of
-PostgreSQL to transform the data into columnar format before
+$PG to transform the data into columnar format before
 compression. The use of a columnar format allows better compression
 ratio since similar data is stored adjacently. For more details on how
 the compression format looks, you can look at the [compression

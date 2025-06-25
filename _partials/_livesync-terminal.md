@@ -17,7 +17,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
   You need a minimum of a 4 CPU/16GB EC2 instance to run $LIVESYNC.
 
-- Install the [PostgreSQL client tools][install-psql] on your sync machine.
+- Install the [$PG client tools][install-psql] on your sync machine.
 
   This includes `psql`, `pg_dump`, `pg_dumpall` and `vacuumdb` commands.
 
@@ -89,7 +89,7 @@ Use `pg_dump` to:
 ## Convert partitions and tables with time-series data into hypertables
 
 For efficient querying and analysis, you can convert tables which contain time-series or
-events data, and tables that are already partitioned using PostgreSQL declarative partition into
+events data, and tables that are already partitioned using $PG declarative partition into
 [hypertables][about-hypertables].
 
 <Procedure>
@@ -109,7 +109,7 @@ events data, and tables that are already partitioned using PostgreSQL declarativ
    psql -X -d $TARGET -c "SELECT create_hypertable('public.metrics', by_range('time', '1 day'::interval));"
    ```
 
-1. **Convert PostgreSQL partitions to hypertables**
+1. **Convert $PG partitions to hyperatables**
 
    Rename the partition and create a new normal table with the same name as the partitioned table, then
    convert to a hypertable:
@@ -129,7 +129,7 @@ EOF
 
 ## Synchronize data to your $SERVICE_LONG
 
-You use the $LIVESYNC docker image to synchronize changes in real-time from a PostgreSQL database
+You use the $LIVESYNC docker image to synchronize changes in real-time from a $PG database
 instance to a $SERVICE_LONG:
 
 <Procedure>
@@ -248,7 +248,7 @@ For example:
 1. **Create a publication named `analytics` which publishes `metrics` and `tags` tables**
 
    `PUBLICATION` enables you to add all the tables in the schema or even all the tables in the database. However, it
-   requires superuser privileges on most of the managed PostgreSQL offerings.
+   requires superuser privileges on most of the managed $PG offerings.
 
    ```sql
    CREATE PUBLICATION analytics FOR TABLE metrics, tags;
@@ -260,7 +260,7 @@ For example:
    ALTER PUBLICATION analytics ADD TABLE events;
    ```
 
-1. **Publish PostgreSQL declarative partitioned table**
+1. **Publish $PG declarative partitioned table**
 
    To publish declaratively partitioned table changes to your $SERVICE_LONG, set the `publish_via_partition_root`
    special `PUBLICATION` config to `true`:

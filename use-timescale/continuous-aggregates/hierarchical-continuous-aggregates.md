@@ -68,7 +68,7 @@ continuous aggregate, and doesn't get even more recent data from the source
 hypertable. This happens because the materialized-only continuous aggregate
 provides a stopping point, and the yearly continuous aggregate is unaware of any
 layers beyond that stopping point. This is similar to
-[how stacked views work in PostgreSQL][postgresql-views].
+[how stacked views work in $PG][postgresql-views].
 
 To make queries on the yearly continuous aggregate access all recent data, you
 can either:

@@ -156,13 +156,13 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
          -- sleep infinity
          ```
 
-    1. Launch the PostgreSQL interactive shell within the created `test-pod`:
+    1. Launch the $PG interactive shell within the created `test-pod`:
 
          ```shell
          kubectl exec -it test-pod -- bash -c "psql -h \$PGHOST -U \$PGUSER -d \$PGDATABASE"
          ```
 
-   You see the PostgreSQL interactive terminal.
+   You see the $PG interactive terminal.
 
 </Procedure>
 

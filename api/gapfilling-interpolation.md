@@ -14,7 +14,7 @@ more information about gapfilling and interpolation functions, see the
 
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
-[$TOOLKIT_LONG][install-toolkit] PostgreSQL extension.
+[$TOOLKIT_LONG][install-toolkit] $PG extension.
 
 <HyperfunctionTable
     hyperfunctionFamily='gapfilling and interpolation'

@@ -1,6 +1,6 @@
 import EnableReplication from "versionContent/_partials/_migrate_live_setup_enable_replication.mdx";
 
-1. **Tune the Write Ahead Log (WAL) on the PostgreSQL source database**
+1. **Tune the Write Ahead Log (WAL) on the $PG source database**
 
    ```sql
    psql $SOURCE <<EOF
@@ -13,7 +13,7 @@ import EnableReplication from "versionContent/_partials/_migrate_live_setup_enab
    * [GUC “max_wal_senders” as 10](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS)
    * [GUC “wal_sender_timeout” as 0](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-SENDER-TIMEOUT)
 
-   This will require a restart of the PostgreSQL source database.
+   This will require a restart of the $PG source database.
 
 1. **Create a user for $LIVESYNC and assign permissions**
 

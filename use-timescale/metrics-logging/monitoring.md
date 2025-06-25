@@ -123,7 +123,7 @@ This view includes the following graphs:
 - `Execution time`: the median and P95 query execution times over the selected period. This is useful to understand the consistency and efficiency of your query's execution over time.
 - `Rows`: the impact of your query on rows over time. If it's a `SELECT` statement, it shows the number of rows retrieved, while for an `INSERT/UPDATE` statement, it reflects the rows inserted.
 - `Plans and executions`: the number of query plans and executions over time. You can use this to optimize query performance, helping you assess if you can benefit from prepared statements to reduce planning overhead.
-- `Shared buffers hit and miss`: shared buffers play a critical role in PostgreSQL's performance by caching data in memory. A shared buffer hit occurs when the required data block is found in the shared buffer memory, while a miss indicates that PostgreSQL couldn't locate the block in memory. A miss doesn't necessarily mean a disk read, because PostgreSQL may retrieve the data from the operating system's disk pages cache. If you observe a high number of shared buffer misses, your current shared buffers setting might be insufficient. Increasing the shared buffer size can improve cache hit rates and query speed.
+- `Shared buffers hit and miss`: shared buffers play a critical role in $PG's performance by caching data in memory. A shared buffer hit occurs when the required data block is found in the shared buffer memory, while a miss indicates that $PG couldn't locate the block in memory. A miss doesn't necessarily mean a disk read, because $PG may retrieve the data from the operating system's disk pages cache. If you observe a high number of shared buffer misses, your current shared buffers setting might be insufficient. Increasing the shared buffer size can improve cache hit rates and query speed.
 - `Cache hit ratio`: measures how much of your query's data is read from shared buffers. A 100% value indicates that all the data required by the query was found in the shared buffer, while a 0% value means none of the necessary data blocks were in the shared buffers. This metric provides a clear understanding of how efficiently your query leverages shared buffers, helping you optimize data access and database performance.
 
 ## Query-level statistics with `pg_stat_statements`
@@ -134,11 +134,11 @@ You can also get query-level statistics for your $SERVICE_SHORTs with the `pg_st
 
 <Highlight type="note">
 
-For more information about `pg_stat_statements`, see the [PostgreSQL documentation][pg-statement-docs].
+For more information about `pg_stat_statements`, see the [$PG documentation][pg-statement-docs].
 
 </Highlight>
 
-Query the `pg_stat_statements` view as you would any PostgreSQL view.
+Query the `pg_stat_statements` view as you would any $PG view.
 The full view includes superuser queries used by $CLOUD_LONG to manage your $SERVICE_SHORT in the background. To view only your
 queries, filter by the current user.
 

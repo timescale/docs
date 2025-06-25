@@ -49,13 +49,13 @@ To move your data from a self-hosted database to a $SERVICE_LONG:
 <Tab title="From TimescaleDB">
 
 </Tab>
-<Tab title="From PostgreSQL">
+<Tab title="From Postgres">
 
 </Tab>
 <Tab title="From AWS RDS">
 
 </Tab>
-<Tab title="From Non-PostgreSQL">
+<Tab title="From Non-Postgres">
 
 </Tab>
 </Tabs>

@@ -253,7 +253,7 @@ Your data should look like this:
 
 You might have noticed, however, that this data takes a long time to query because
 we have to aggregate every row in the `tracking` table to get the total
-yards of each player, in each game. That's a lot of work for PostgreSQL to do
+yards of each player, in each game. That's a lot of work for $PG to do
 when it needs to scan 20 million rows. On our small test machine this query
 often takes 25-30 seconds to run.
 

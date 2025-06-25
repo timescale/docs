@@ -10,7 +10,7 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 # Enforce constraints with unique indexes
 
 You use unique indexes on a $HYPERTABLE to enforce [constraints][constraints]. If you have a primary key, 
-you have a unique index. In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
+you have a unique index. In $PG, a primary key is a unique index with a `NOT NULL` constraint.
 
 You do not need to have a unique index on your $HYPERTABLEs. When you create a unique index,
 it must contain all the partitioning columns of the $HYPERTABLE. 

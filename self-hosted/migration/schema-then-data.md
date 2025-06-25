@@ -63,19 +63,19 @@ not be transferred to Timescale. To avoid this problem, see the section on
 
 Before you begin, check that you have:
 
-*   Installed the PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
+*   Installed the $PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
     utilities.
-*   Installed a client for connecting to PostgreSQL. These instructions use
+*   Installed a client for connecting to $PG. These instructions use
     [`psql`][psql], but any client works.
 *   Created a new empty database in a $SELF_LONG instance. For more information, see
     the [Install $TIMESCALE_DB][install-selfhosted]. Provision
     your database with enough space for all your data.
-*   Checked that any other PostgreSQL extensions you use are compatible with
+*   Checked that any other $PG extensions you use are compatible with
     $TIMESCALE_DB. For more information, see the [list of compatible
-    extensions][extensions]. Install your other PostgreSQL extensions.
-*   Checked that you're running the same major version of PostgreSQL on both your
+    extensions][extensions]. Install your other $PG extensions.
+*   Checked that you're running the same major version of $PG on both your
     $SELF_LONG instance and your source database. For information about upgrading
-    PostgreSQL on your source database, see the [upgrade instructions for
+    $PG on your source database, see the [upgrade instructions for
     $SELF_LONG][upgrading-postgresql-self-hosted] and [Managed
     Service for TimescaleDB][upgrading-postgresql].
 *   Checked that you're running the same major version of $TIMESCALE_DB on both
@@ -116,7 +116,7 @@ owners, and settings. This doesn't include Timescale-specific schemas.
 ## Restore hypertables in your $SELF_LONG instance
 
 After pre-data migration, your hypertables from your source database become
-regular PostgreSQL tables in Timescale. Recreate your hypertables in your $SELF_LONG instance to
+regular $PG tables in Timescale. Recreate your hypertables in your $SELF_LONG instance to
 restore them.
 
 <Procedure>
@@ -183,7 +183,7 @@ Split each table by time range, and copy each range individually. For example:
 
 When you have copied your data into `.csv` files, you can restore it to
 $SELF_LONG by copying from the `.csv` files. There are two methods: using
-regular PostgreSQL [`COPY`][copy], or using the TimescaleDB
+regular $PG [`COPY`][copy], or using the TimescaleDB
 [`timescaledb-parallel-copy`][timescaledb-parallel-copy] function. In tests,
 `timescaledb-parallel-copy` is 16% faster. The `timescaledb-parallel-copy` tool
 is not included by default. You must install the function.

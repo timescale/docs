@@ -12,9 +12,9 @@ download the dataset, then upload the data to your $SERVICE_LONG.
    This test dataset contains second-by-second trade data for the most-traded crypto-assets
    and a regular table of asset symbols and company names.  
 
-   To import up to 100GB of data directly from your current PostgreSQL based database, 
-   [migrate with downtime][migrate-with-downtime] using native PostgreSQL tooling. To seamlessly import 100GB-10TB+ 
-   of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-PostgreSQL
+   To import up to 100GB of data directly from your current $PG-based database, 
+   [migrate with downtime][migrate-with-downtime] using native $PG tooling. To seamlessly import 100GB-10TB+ 
+   of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG
    data sources, see [Import and ingest data][data-ingest].
 
 

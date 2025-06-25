@@ -1,6 +1,6 @@
 ---
 title: Analyse geospatial data with postgis
-excerpt: PostGIS enables you to store, query, and manipulate geographic and spatial data directly within PostgreSQL. Learn to use PostGIS to analyze geospatial data 
+excerpt: PostGIS enables you to store, query, and manipulate geographic and spatial data directly within Postgres. Learn to use PostGIS to analyze geospatial data 
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, postgis]
 tags: [extensions, postgis]
@@ -8,9 +8,9 @@ tags: [extensions, postgis]
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Analyse geospatial data using postgis
+# Analyze geospatial data using postgis
 
-The `postgis` PostgreSQL extension provides storing, indexing, and querying
+The `postgis` $PG extension provides storing, indexing, and querying
 geographic data. It helps in spatial data analysis, the study of patterns,
 anomalies, and theories within spatial or geographical data.
 
@@ -19,7 +19,7 @@ For more information about these functions and the options available, see the
 
 ## Use the `postgis` extension to analyze geospatial data
 
-The `postgis` PostgreSQL extension allows you to conduct complex analyses of
+The `postgis` $PG extension allows you to conduct complex analyses of
 your geospatial time-series data. $COMPANY understands that you have a
 multitude of data challenges and helps you discover when things happened, and
 where they occurred. In this example you can query when the `covid` cases were

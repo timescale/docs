@@ -11,7 +11,7 @@ To create a hypertable:
 
     In $CONSOLE, click `Data`, then select a $SERVICE_SHORT.
 
-1. **Create a PostgreSQL table** 
+1. **Create a $PG table** 
 
     Copy the following into your query, then click `Run`:
 

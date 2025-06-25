@@ -1,4 +1,4 @@
-$CLOUD_LONG supercharges your real-time analytics by letting you run complex queries continuously, with near-zero latency. Under the hood, this is achieved by using hypertables—PostgreSQL tables that automatically partition your time-series data by time and optionally by space. When you run a query, $CLOUD_LONG identifies the correct partition and runs the query on it, instead of going through the entire table. 
+$CLOUD_LONG supercharges your real-time analytics by letting you run complex queries continuously, with near-zero latency. Under the hood, this is achieved by using hypertables—$PG tables that automatically partition your time-series data by time and optionally by space. When you run a query, $CLOUD_LONG identifies the correct partition and runs the query on it, instead of going through the entire table. 
 
 ![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
 
@@ -12,7 +12,7 @@ Hypertables offer the following benefits:
 
 - **Advanced data analysis with [hyperfunctions][hyperfunctions]**: $CLOUD_LONG enables you to efficiently process, aggregate, and analyze significant volumes of data while maintaining high performance.
 
-To top it all, there is no added complexity—you interact with hypertables in the same way as you would with regular PostgreSQL tables. All the optimization magic happens behind the scenes.
+To top it all, there is no added complexity—you interact with hypertables in the same way as you would with regular $PG tables. All the optimization magic happens behind the scenes.
 
 <Highlight type="note">
 
