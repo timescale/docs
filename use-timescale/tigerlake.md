@@ -143,16 +143,22 @@ ALTER TABLE <table_name> SET (
 ```
 
 * `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming and to `false` to stop the stream. Please be aware that a stream can not be resumed after being stopped. 
-* `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the partitioning specification of the hypertable is used. Streamed Postgres tables can have a partition specification for the Iceberg table, if intentially defined. Please refer to the [Iceberg partition specification](iceberg-partition-spec).
+* `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the partitioning specification of the hypertable is used. Streamed Postgres tables can have a partition specification for the Iceberg table, if intentially defined. 
 * `tigerlake.iceberg_columns`: optional property to reduce the set of columns, defined as comma separated value, to to be synced to Iceberg. By default all columns are in scope.
 
 When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
 The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
 
-The partition interval of for an Iceberg table is by default the same as the one from a hypertable.
-
 Only tables or hypertables with primary keys are supported, this includes composite primary keys as well. 
 A primary key is necessary for Iceberg to perform update or delete statements.
+
+### Partitioning
+
+The partition interval of for an Iceberg table is by default the same as the one from a hypertable.
+
+Supporting hour, day, month, year and truncate.
+
+Please refer to the [Iceberg partition specification](iceberg-partition-spec).
 
 ## Query your data
 
