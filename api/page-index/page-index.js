@@ -18,11 +18,11 @@ module.exports = [
             href: "create_table",
           },
           {
-            title: "create_hypertable (old API)",
+            title: "create_hypertable",
             href: "create_hypertable",
           },
           {
-            title: "create_hypertable (even older API)",
+            title: "create_hypertable (old API)",
             href: "create_hypertable_old",
           },
           {
