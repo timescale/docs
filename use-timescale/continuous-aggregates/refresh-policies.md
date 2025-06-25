@@ -60,7 +60,7 @@ See the [API reference][api-reference] for the full list of required and optiona
 
 The policy in this example ensures that all data in the continuous aggregate is up to date with the hypertable, except for data written within the last hour of wall-clock time. The policy also does not refresh the last time bucket of the continuous aggregate.
 
-Since the policy in this example runs once every hour (`schedule_interval`) while also excluding data within the most recent hour (`end_offset`), it takes up to 2 hours for data written to the hypertable to be reflected in the continuous aggregate. Backfill, which is outside the most recent hour of data, will be visible after up to 1 hour depending on when the policy last ran when the data was written.
+Since the policy in this example runs once every hour (`schedule_interval`) while also excluding data within the most recent hour (`end_offset`), it takes up to 2 hours for data written to the hypertable to be reflected in the continuous aggregate. Backfills, which are usually outside the most recent hour of data, will be visible after up to 1 hour depending on when the policy last ran when the data was written.
 
 Because it has an open-ended `start_offset` parameter, any data that is removed
 from the table, for example with a `DELETE` or with `drop_chunks`, is also removed
