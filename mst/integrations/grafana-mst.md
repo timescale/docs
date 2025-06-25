@@ -8,7 +8,7 @@ keywords: [Grafana, visualizations, analytics, integration]
 # Integrate $MST_LONG and Grafana
 
 You can integrate $MST_LONG with Grafana to visualize your
-data. Grafana service in MST has built-in Prometheus, PostgreSQL, Jaeger, and
+data. Grafana service in MST has built-in Prometheus, $PG, Jaeger, and
 other data source plugins that allow you to query and visualize data from a
 compatible database.
 

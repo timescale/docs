@@ -63,7 +63,7 @@ The `tsdbadmin` user for $MST_LONGs can:
 
 This allows you to use the `tsdbadmin` user to create another user with any
 other roles. For a complete list of roles available, see the
-[PostgreSQL role attributes documentation][pg-roles-doc].
+[$PG role attributes documentation][pg-roles-doc].
 
 <Highlight type="important">
 

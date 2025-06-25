@@ -17,6 +17,6 @@
   ```shell
   psql -X -d $SOURCE -c 'ALTER TABLE {table_name} REPLICA IDENTITY FULL'
    ```
-  For each `UPDATE` or `DELETE` statement, PostgreSQL reads the whole table to find all matching rows. This results
+  For each `UPDATE` or `DELETE` statement, $PG reads the whole table to find all matching rows. This results
   in significantly slower replication. If you are expecting a large number of `UPDATE` or `DELETE` operations on the table,
   best practice is to not use `FULL`.

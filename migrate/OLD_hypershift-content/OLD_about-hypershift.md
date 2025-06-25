@@ -1,6 +1,6 @@
 ---
 title: About migrating to TimescaleDB with hypershift
-excerpt: Migrate an existing PostgreSQL database to TimescaleDB in a single step
+excerpt: Migrate an existing Postgres database to TimescaleDB in a single step
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]

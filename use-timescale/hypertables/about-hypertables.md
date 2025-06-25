@@ -7,7 +7,7 @@ keywords: [hypertables, partitions]
 
 # About hypertables
 
-Hypertables are PostgreSQL tables designed to simplify and speed up data analysis. Anything you can do with regular PostgreSQL tables, you can do with hypertables—but much faster and more conveniently. This page explains hypertable partitioning, indexing, and analysis with the PostgreSQL `ANALYZE` command.  
+Hypertables are $PG tables designed to simplify and speed up data analysis. Anything you can do with regular $PG tables, you can do with hypertables—but much faster and more conveniently. This page explains hypertable partitioning, indexing, and analysis with the $PG `ANALYZE` command.  
 
 <Highlight type="note">
 
@@ -103,10 +103,10 @@ indexes on a hypertable][hypertables-and-unique-indexes].
 
 ## Analyze a hypertable
 
-You can use the PostgreSQL `ANALYZE` command to query all chunks in your
+You can use the $PG `ANALYZE` command to query all chunks in your
 hypertable. The statistics collected by the `ANALYZE` command are used by the
-PostgreSQL planner to create the best query plan. For more information about the
-`ANALYZE` command, see the [PostgreSQL documentation][pg-analyze].
+$PG planner to create the best query plan. For more information about the
+`ANALYZE` command, see the [$PG documentation][pg-analyze].
 
 ## Learn more
 

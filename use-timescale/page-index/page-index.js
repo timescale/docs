@@ -327,7 +327,7 @@ module.exports = [
             title: "About Configuration",
             href: "about-configuration",
             excerpt:
-              "Overview of configuration options and methods for PostgreSQL and Tiger Cloud",
+              "Overview of configuration options and methods for Postgres and Tiger Cloud",
           },
           {
             title: "Customize configuration",
@@ -375,7 +375,7 @@ module.exports = [
             title: "Ingest data with Kafka",
             href: "ingest-kafka",
             excerpt:
-              "Import data into a Tiger Cloud service using the PostgreSQL Kafka connector",
+              "Import data into a Tiger Cloud service using the Postgres Kafka connector",
           },
           {
             title: "Ingest metrics with Telegraf",
@@ -622,24 +622,24 @@ module.exports = [
         excerpt: "Keep your Tiger Cloud service up-to-date",
       },
       {
-        title: "Tiger Cloud PostgreSQL extensions",
+        title: "Tiger Cloud Postgres extensions",
         href: "extensions",
-        excerpt: "The PostgreSQL extensions installed in each Tiger Cloud service",
+        excerpt: "The Postgres extensions installed in each Tiger Cloud service",
         children: [
           {
             title: "Create a chatbot using pgvector",
             href: "pgvector",
-            excerpt: "Using the pgvector PostgreSQL extension",
+            excerpt: "Using the pgvector Postgres extension",
           },
           {
             title: "Encrypt data using pgcrypto",
             href: "pgcrypto",
-            excerpt: "Using the pgcrypto PostgreSQL extension",
+            excerpt: "Using the pgcrypto Postgres extension",
           },
           {
             title: "Analyse geospatial data using postgis",
             href: "postgis",
-            excerpt: "Using the postgis PostgreSQL extension",
+            excerpt: "Using the postgis Postgres extension",
           },
         ],
       },

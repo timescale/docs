@@ -41,7 +41,7 @@ exceptions:
   - NFT
   - pgAdmin
   - PgVectorizer
-  - PostgreSQL
+  - Postgres
   - Prometheus
   - Promscale
   - Promscale Connector
