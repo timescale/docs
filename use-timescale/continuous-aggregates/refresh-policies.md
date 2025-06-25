@@ -58,8 +58,9 @@ See the [API reference][api-reference] for the full list of required and optiona
 
 </Procedure>
 
-The policy in this example ensures that all the data in the continuous aggregate
-is up to date with the hypertable, except for anything written within the last hour. This means that the actual `INSERT` or `UPDATE` of the data falls within the last hour, regardless of its timestamp. The policy also does not refresh the last time bucket of the continuous aggregate.
+The policy in this example ensures that all data in the continuous aggregate is up to date with the hypertable, except for data written within the last hour of wall-clock time. The policy also does not refresh the last time bucket of the continuous aggregate.
+
+Since the policy in this example runs once every hour (`schedule_interval`) while also excluding data within the most recent hour (`end_offset`), it takes up to 2 hours for data written to the hypertable to be reflected in the continuous aggregate. Backfill, which is outside the most recent hour of data, will be visible after up to 1 hour depending on when the policy last ran when the data was written.
 
 Because it has an open-ended `start_offset` parameter, any data that is removed
 from the table, for example with a `DELETE` or with `drop_chunks`, is also removed
@@ -91,12 +92,14 @@ refresh the dropped data.
 </Procedure>
 
 <Highlight type="note">
+
 It is important to consider your data retention policies when you're setting up
 continuous aggregate policies. If the continuous aggregate policy window covers
 data that is removed by the data retention policy, the data will be removed when
 the aggregates for those buckets are refreshed. For example, if you have a data
 retention policy that removes all data older than two weeks, the continuous
 aggregate policy will only have data for the last two weeks.
+
 </Highlight>
 
 ## Manually refresh a continuous aggregate
