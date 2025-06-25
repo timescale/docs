@@ -160,6 +160,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | Performance insights                                          | ✓                                 | ✓                                              | ✓                                              |
 | Metrics and log exporters	                                    |                                   | ✓                                              | ✓                                              |
 | **Security and compliance**                                   |                                   |                                                |                                                |
+| Role-based access                                             | ✓                                 | ✓                                              | ✓                                              |
 | End-to-end encryption                                         | ✓                                 | ✓                                              | ✓                                              |
 | Private Networking (VPC)                                      | 1 multi-attach VPC	               | Unlimited multi-attach VPCs                    | 	Unlimited multi-attach VPCs                   | 
 | AWS Transit Gateway                                           |                                   | ✓                                              | ✓                                              |
