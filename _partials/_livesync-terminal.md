@@ -19,7 +19,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
 - Install the [PostgreSQL client tools][install-psql] on your sync machine.
 
-  This includes `psql`, `pg_dump`, and `pg_dumpall`.
+  This includes `psql`, `pg_dump`, `pg_dumpall` and `vacuumdb` commands.
 
 
 ## Limitations
@@ -94,7 +94,7 @@ events data, and tables that are already partitioned using PostgreSQL declarativ
 
 <Procedure>
 
-1. **Convert tables to hyperatables**
+1. **Convert tables to hypertables**
 
    Run the following on each table in the target $SERVICE_LONG to convert it to a hypertable:
 
@@ -109,19 +109,19 @@ events data, and tables that are already partitioned using PostgreSQL declarativ
    psql -X -d $TARGET -c "SELECT create_hypertable('public.metrics', by_range('time', '1 day'::interval));"
    ```
 
-1. **Convert PostgreSQL partitions to hyperatables**
+1. **Convert PostgreSQL partitions to hypertables**
 
    Rename the partition and create a new normal table with the same name as the partitioned table, then
    convert to a hypertable:
 
    ```shell
-   psql $TARGET -f - <<EOF
-   BEGIN;
-   ALTER TABLE public.events RENAME TO events_part;
-   CREATE TABLE public.events(LIKE public.events_part INCLUDING ALL);
-   SELECT create_hypertable('public.events', by_range('time', '1 day'::interval));
-   COMMIT;
-   EOF
+   psql $TARGET -f - <<'EOF'
+      BEGIN;
+      ALTER TABLE public.events RENAME TO events_part;
+      CREATE TABLE public.events(LIKE public.events_part INCLUDING ALL);
+      SELECT create_hypertable('public.events', by_range('time', '1 day'::interval));
+      COMMIT;
+EOF
    ```
 
 </Procedure>
@@ -139,7 +139,7 @@ instance to a $SERVICE_LONG:
    As you run $LIVESYNC continuously, best practice is to run it as a background process.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.1.11 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET
+   docker run -d --rm --name livesync timescale/live-sync:v0.1.16 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET
    ```
 
 1. **Trace progress**
@@ -168,23 +168,69 @@ instance to a $SERVICE_LONG:
 
    - r: table is ready, synching live changes
 
+1. **(Optional) Update table statistics**
+
+   If you have a large table, you can run `ANALYZE` on the target $SERVICE_LONG to update the table statistics
+   after the initial sync is complete. This helps the query planner make better decisions for query execution plans.
+
+   ```bash
+   vacuumdb --analyze --verbose --dbname=$TARGET
+   ```
+
 1. **Stop $LIVESYNC**
 
    ```shell
    docker stop live-sync
    ```
 
+1. **(Optional) Reset sequence nextval on the target $SERVICE_LONG**
+
+   $LIVESYNC does not automatically reset the sequence nextval on the target $SERVICE_LONG. Run the following script to reset the sequence for all tables that have a serial or identity column in the target $SERVICE_LONG:
+
+   ```bash
+   psql $TARGET -f - <<'EOF'
+      DO $$
+   DECLARE
+     rec RECORD;
+   BEGIN
+     FOR rec IN (
+       SELECT
+         sr.target_schema  AS table_schema,
+         sr.target_table   AS table_name,
+         col.column_name,
+         pg_get_serial_sequence(
+           sr.target_schema || '.' || sr.target_table,
+           col.column_name
+         ) AS seqname
+       FROM _ts_live_sync.subscription_rel AS sr
+       JOIN information_schema.columns AS col
+         ON col.table_schema = sr.target_schema
+        AND col.table_name   = sr.target_table
+       WHERE col.column_default LIKE 'nextval(%'  -- only serial/identity columns
+     ) LOOP
+       EXECUTE format(
+         'SELECT setval(%L,
+            COALESCE((SELECT MAX(%I) FROM %I.%I), 0) + 1,
+            false
+          );',
+         rec.seqname,       -- the sequence identifier
+         rec.column_name,   -- the column to MAX()
+         rec.table_schema,  -- schema for MAX()
+         rec.table_name     -- table for MAX()
+       );
+     END LOOP;
+   END;
+   $$ LANGUAGE plpgsql;
+EOF
+   ```
+
 1. **Cleanup**
 
-   You need to manually execute a SQL snippet to cleanup replication slots created by the live-migration.
+   Removes replication slots created by $LIVESYNC on the source database.
 
    ```shell
-   psql $SOURCE -f - <<EOF
-   select pg_drop_replication_slot(slot_name) from pg_stat_replication_slots where slot_name like 'livesync%';
-   select pg_drop_replication_slot(slot_name) from pg_stat_replication_slots where slot_name like 'ts%';
-   EOF
-   ``` 
-   A command to clean up is coming shortly.
+   docker run -it --rm --name livesync timescale/live-sync:v0.1.16 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET --drop
+   ```
 
 </Procedure>
 
