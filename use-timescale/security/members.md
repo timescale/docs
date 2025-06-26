@@ -153,7 +153,7 @@ Your $ACCOUNT_SHORT is removed from the $PROJECT_SHORT immediately, you can no l
 
 The Owner can change the roles of all users in the $PROJECT_SHORT. An Admin can change the roles of all users other than the Owner.
 
-To change another user's role:
+To change the role for another user:
 
 <Procedure>
 
