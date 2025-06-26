@@ -1,5 +1,5 @@
 ---
-title: Role-based access to Tiger Cloud projects
+title: Control access to Tiger Cloud projects
 excerpt: Manage your projects and services in Tiger Cloud Console. Add and delete users, assign roles, join and leave projects, transfer project ownership, and configure authentication
 products: [cloud]
 keywords: [members, projects, admin, roles]
@@ -9,13 +9,13 @@ cloud_ui:
     - [members]
 ---
 
-# Role-based access to $PROJECT_LONGs
+# Control user access to Tiger Cloud projects
 
 When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a $PROJECT_SHORT with built-in role-based access. This includes the following roles: 
 
-- `Owner`: $CLOUD_LONG assigns this role to you when your $PROJECT_SHORT is created. As Owner, you can add and delete other users, transfer project ownership, administer $SERVICE_SHORTs, and edit $PROJECT_SHORT settings. 
-- `Admin`: the Owner assigns this role to other users in the $PROJECT_SHORT. A user with the `Admin` role has the same scope of rights as the `Owner` but cannot transfer project ownership.
-- `Viewer`: the Owner and Admin assign this role to other users in the $PROJECT_SHORT. A Viewer has limited, read-only access to $CONSOLE_LONG. This means that a Viewer cannot modify $SERVICE_SHORTs and their configurations in any way. A Viewer has no access to the $DATA_MODE and has read-queries-only access to $SQL_EDITOR. 
+- **Owner**: $CLOUD_LONG assigns this role to you when your $PROJECT_SHORT is created. As the Owner, you can add and delete other users, transfer project ownership, administer $SERVICE_SHORTs, and edit $PROJECT_SHORT settings. 
+- **Admin**: the Owner assigns this role to other users in the $PROJECT_SHORT. A user with the Admin role has the same scope of rights as the Owner but cannot transfer project ownership.
+- **Viewer**: the Owner and Admins assign this role to other users in the $PROJECT_SHORT. A Viewer has limited, read-only access to $CONSOLE_LONG. This means that a Viewer cannot modify $SERVICE_SHORTs and their configurations in any way. A Viewer has no access to the $DATA_MODE and has read-queries-only access to $SQL_EDITOR. 
 
 ![Project users in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-project-users-overview.png)
 
@@ -24,7 +24,7 @@ identity provider to log in to $CONSOLE_SHORT.
 
 <Highlight type="important">
 
-$PROJECT_LONG RBAC roles do not overlap with database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT. This page describes the user roles available in $CONSOLE_SHORT. For the database-level user roles, see [Manage database level user roles][database-rbac].
+User roles in a $PROJECT_LONG do not overlap with the database-level roles for the individual $SERVICE_SHORTs. This page describes the $PROJECT_SHORT roles available in $CONSOLE_SHORT. For the database-level user roles, see [Manage data security in your $SERVICE_LONG][database-rbac].
 
 </Highlight>
 
@@ -52,28 +52,54 @@ To add a user to a $PROJECT_SHORT:
 
 ## Join a $PROJECT_SHORT
 
-When you are asked to join a $PROJECT_SHORT, the $CONSOLE sends you an invitation email. Follow the
+When you are asked to join a $PROJECT_SHORT, $CONSOLE sends you an invitation email. Follow the
 instructions in the invitation email to join the $PROJECT_SHORT:
 
-- **New $CLOUD_LONG user**:
-    1. In the invitation email, click `Accept Invite`.
-       $CLOUD_LONG opens.
-    2. Follow the setup wizard and create a new $ACCOUNT_SHORT.
+<Tabs label="Join a Tiger Cloud project">
 
-       You are added to the $PROJECT_SHORT you were invited to.
+<Tab title="New Tiger Cloud user">
 
-- **Existing $CLOUD_LONG user**:
-    1. In the invitation email, click `Accept Invite`.
+<Procedure>
 
-       $CONSOLE_LONG opens and you are added to the $PROJECT_SHORT.
+1. **In the invitation email, click `Accept Invite`**
 
-- **[Enterprise plan][pricing-plans] and SAML user**:
-    1. Log in to $CONSOLE_SHORT using your company's identity provider.
-    2. Click `Notifications`, then accept the invitation.
+   $CLOUD_LONG opens. 
 
-       $CONSOLE_LONG opens, and you are added to the $PROJECT_SHORT. As you are now
-       included in more than one $PROJECT_SHORT, you can easily [change $PROJECT_SHORTs][change-project].
+1. **Follow the setup wizard and create a new $ACCOUNT_SHORT**
 
+   You are added to the $PROJECT_SHORT you were invited to.
+
+</Procedure>
+    
+</Tab>
+
+<Tab title="Existing Tiger Cloud user">
+
+<Procedure>
+
+1. **In the invitation email, click `Accept Invite`**
+
+   $CONSOLE_LONG opens, and you are added to the $PROJECT_SHORT.
+
+</Procedure>
+    
+</Tab>
+
+<Tab title="Enterprise plan and SAML user">
+
+<Procedure>
+
+1. **Log in to $CONSOLE_SHORT using your company's identity provider**
+
+1. **Click `Notifications`, then accept the invitation**
+
+   $CONSOLE_LONG opens, and you are added to the $PROJECT_SHORT. As you are now included in more than one $PROJECT_SHORT, you can easily [change $PROJECT_SHORTs][change-project].
+
+</Procedure>
+
+</Tab>
+
+</Tabs>
 
 ## Resend a $PROJECT_SHORT invitation
 
@@ -100,8 +126,6 @@ To change the $PROJECT_SHORT you are currently working in:
    ![Change project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-change-project.png)
 
 1. Select the $PROJECT_SHORT you want to use.
-
-You can now manage the users and $SERVICE_SHORTs in this $PROJECT_SHORT.
 
 </Procedure>
 
@@ -131,7 +155,6 @@ To transfer $PROJECT_SHORT ownership:
 If you have the [Enterprise pricing plan][pricing-plans], and log in to $CLOUD_LONG using [SAML authentication][saml]
 or have not enabled [two-factor authentication][2fa], [contact support](https://www.timescale.com/contact) to transfer
 $PROJECT_SHORT ownership.
-
 
 ## Leave a $PROJECT_SHORT
 
@@ -163,7 +186,7 @@ To change the role for another user:
 
     ![Change user role in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-change-user-role.png)
 
-The user role is changed immediately. 
+    The user role is changed immediately. 
 
 </Procedure>
 

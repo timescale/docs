@@ -11,7 +11,7 @@ Learn how $CLOUD_LONG protects your data and privacy.
 
 *   Learn about [security in $CLOUD_LONG][overview]
 *   Restrict access to your [$PROJECT_SHORT][console-rbac]
-*   Restrict access to your [data][read-only]
+*   Restrict access to the [data in your $SERVICE_SHORT][read-only]
 *   Set up [multifactor][mfa] and [SAML][saml] authentication
 *   Generate multiple [client credentials][client-credentials] instead of using your username and password
 *   Connect with a [stricter SSL mode][ssl]

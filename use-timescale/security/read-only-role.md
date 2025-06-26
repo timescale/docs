@@ -1,20 +1,20 @@
 ---
-title: Role-based access to your data
+title: Manage data security in your Tiger Cloud service
 excerpt: Learn about the available user roles to access data in your database
 products: [cloud]
 keywords: [client credentials, accounts, users, members, read-only, security]
 tags: [authentication, credentials, members, security]
 ---
 
-# Role-based access to your data
+# Manage data security in your Tiger Cloud service
 
-When you create a $SERVICE_SHORT, $CLOUD_LONG assigns you the tsdmadmin role. This role has full permissions to modify data in your $SERVICE_SHORT. However,  $CLOUD_LONG does not provide superuser access. tsdmadmin is not a superuser. 
+When you create a $SERVICE_SHORT, $CLOUD_LONG assigns you the tsdmadmin role. This role has full permissions to modify data in your $SERVICE_SHORT. However, $CLOUD_LONG does not provide superuser access. tsdmadmin is not a superuser. 
 
 As tsdmadmin, you can use standard $PG means to create other roles or assign individual permissions. This page shows you how to create a read-only role for your database. Adding a read-only role does not provide resource isolation. To restrict the access of a read-only user, as well as isolate resources, create a [read replica][read-scaling] instead. 
 
 <Highlight type="important">
 
-The user roles for managing data in the underlying database and administering $SERVICE_SHORTs in $CONSOLE_LONG do not overlap. This page describes the user roles on the database level. For user roles available in $CONSOLE_SHORT, see [Role-based access to Tiger Cloud projects][console-rbac].
+The database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT do not overlap with the $PROJECT_LONG user roles. This page describes the database-level roles. For user roles available in $CONSOLE_SHORT, see [Control user access to Tiger Cloud projects][console-rbac].
 
 </Highlight>
 
@@ -24,7 +24,7 @@ You can create a read-only user to provide limited access to your database.
 
 <Procedure>
 
-1.  Connect to your $SERVICE_SHORT as the `tsdbadmin` user.
+1.  Connect to your $SERVICE_SHORT as the tsdbadmin user.
 
 1.  Create the new role:
 

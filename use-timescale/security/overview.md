@@ -21,10 +21,10 @@ To see our security features at a glance, see [$COMPANY Security][security-at-ti
 
 $CLOUD_LONG provides role-based access for you to:
 
-* Administer your $PROJECT_LONG. 
+* Administer your $PROJECT_LONG
    In $CONSOLE_LONG, users with the Owner, Admin, and Viewer roles have different permissions to manage users and $SERVICE_SHORTs in the $PROJECT_SHORT. 
-* Administer each $SERVICE_SHORT in the $PROJECT_SHORT.
-    To restrict access to your data on the database level, you can create other roles on top of the default `tsdbadmin` role. 
+* Manage data in each $SERVICE_SHORT
+    To restrict access to your data on the database level, you can create other roles on top of the default tsdbadmin role. 
 
 ## Data encryption
 

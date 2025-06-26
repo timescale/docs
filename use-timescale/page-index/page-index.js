@@ -697,14 +697,14 @@ module.exports = [
             excerpt: "Get an overview of Tiger Cloud security",
           },
           {
-            title: "Role-based access to Tiger Cloud projects",
+            title: "Control user access to Tiger Cloud projects",
             href: "members",
-            excerpt: "User role management in Tiger Cloud",
+            excerpt: "Project and user role management in Tiger Cloud",
           },
           {
-            title: "Role-based access to your data",
+            title: "Manage data security in your service",
             href: "read-only-role",
-            excerpt: "Restrict access to your data",
+            excerpt: "Restrict access to your data with roles",
           },
           {
             title: "SAML authentication",
