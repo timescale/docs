@@ -697,7 +697,7 @@ module.exports = [
             excerpt: "Get an overview of Tiger Cloud security",
           },
           {
-            title: "Control user access to Tiger Cloud projects",
+            title: "Control user access to projects",
             href: "members",
             excerpt: "Project and user role management in Tiger Cloud",
           },
