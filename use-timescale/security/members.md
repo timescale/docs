@@ -24,7 +24,7 @@ identity provider to log in to $CONSOLE_SHORT.
 
 <Highlight type="important">
 
-The user roles for administering $SERVICE_SHORTs in $CONSOLE_LONG and managing data in the underlying database do not overlap. This page describes the user roles available in $CONSOLE_SHORT. For the database-level user roles, see [Role-based access to your data][database-rbac].
+$PROJECT_LONG RBAC roles do not overlap with database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT. This page describes the user roles available in $CONSOLE_SHORT. For the database-level user roles, see [Manage database level user roles][database-rbac].
 
 </Highlight>
 
