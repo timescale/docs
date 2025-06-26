@@ -153,7 +153,7 @@ To transfer $PROJECT_SHORT ownership:
 </Procedure>
 
 If you have the [Enterprise pricing plan][pricing-plans], and log in to $CLOUD_LONG using [SAML authentication][saml]
-or have not enabled [two-factor authentication][2fa], [contact support](https://www.timescale.com/contact) to transfer
+or have not enabled [two-factor authentication][2fa], [contact support](https://www.tigerdata.com/contact) to transfer
 $PROJECT_SHORT ownership.
 
 ## Leave a $PROJECT_SHORT
