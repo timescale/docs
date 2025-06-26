@@ -78,7 +78,6 @@ You set up the data lake table bucket and role ARNs, using one of the following 
 1. **Create your CloudFormation stack** 
    Replace the following values in the command, then run it from the terminal:
    
-      * `CapabilityIAM`: IAIN, I added this 'cos it looks like a variable to me
       * `StackName`: the name for this CloudFormation stack
       * `BucketName`: The name of the S3 table bucket to crate
       * `ProjectID`: enter your $SERVICE_LONG [connection details][get-project-id] 
@@ -148,6 +147,9 @@ You set up the data lake table bucket and role ARNs, using one of the following 
           ]
       }
       ```
+      `"Principal": { "AWS": "arn:aws:iam::123456789012:root" }` does not mean `root` access. This delegates 
+        permissions to the entire AWS account, not just the root user.
+
    1. Replace `<ProjectID>` and `<ServiceID>` with the the [connection details][get-project-id] for your $LAKE_LONG 
          $SERVICE_SHORT, then click `Next`.  
 
@@ -236,70 +238,29 @@ The following partition intervals and specifications are supported, and the defi
 | `year`        | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
 | `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options] | `int`, `long`, `decimal`, `string`, `binary` | `int` |
 
+## Limitations
+
+* Only Postgres 17 is supported.
+* Only the S3 Tables REST Iceberg catalog is supported.
+* Certain columnstore optimizations must be disabled in $HYPERTABLEs in order to collect correlating WAL events.
+* The `TRUNCATE` statement is not supported, and will not truncate data in the corresponding Iceberg table.
+* The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synched.
+* Renaming a table in Postgres is not reflected in Iceberg table and can lead sync issues.
+
+## Replicas
+
+**TODO**
+What happens on fail over?
+
 ## Query your data
 
-IAIN: I don't get why we are talking about Iceberg here. Do you mean against the data lake or the service? 
+**TODO** add links to guides and build one to demostrate the querying part
 
 To execute queries against Iceberg, best practice is to use the following products:
 * [AWS Athena][aws-athena]: ensure that integration with the AWS analytics services is enabled for the table bucket.
 * [duckdb][duckdb]: support for S3 Tables is in preview. 
 * [Apache Spark][apache-spark]
 
-
-## Reference
-
-### Limitations
-
-* Only Postgres 17 is supported.
-* Only the S3 Tables REST Iceberg catalog is supported.
-* Certain columnstore optimizations must be disabled in $HYPERTABLEs in order to collect correlating WAL events.
-* Truncate is not supported
-* Tiered chunks are excluded
-* The following is not root: 
-   ```json
-   "Principal": {
-                  "AWS": "arn:aws:iam::142548018081:root"
-              }, 
-    ```        
-* rename table
-
-### Replicas
-
-What happens on fail over?
-
-
-### Schemas and roles created in your $LAKE_LONG $SERVICE_SHORT
-
-```sql
-CREATE SCHEMA _timescaledb_lake_catalog;
-CREATE SCHEMA _timescaledb_lake_tables;
-
-CREATE TABLE _timescaledb_lake_catalog.sync_tables(
-    id              SERIAL PRIMARY KEY,
-    pg_schema       NAME,
-    pg_table        NAME,
-    iceberg_schema  TEXT,
-    iceberg_table   TEXT,
-    column_list     TEXT[] DEFAULT NULL,
-    partition_by    TEXT[]
-);
-ALTER TABLE _timescaledb_lake_catalog.sync_tables ADD CONSTRAINT
-    sync_tables_uniq_pg_schema_pg_table UNIQUE (pg_schema, pg_table);
-
--- Create signal table for Debezium
-CREATE TABLE _timescaledb_lake_tables.dbz_signals (
-    id TEXT DEFAULT gen_random_uuid() PRIMARY KEY,
-    type TEXT NOT NULL,
-    data TEXT
-);
-CREATE TABLE _timescaledb_lake_tables.dbz_heartbeat (
-    id INTEGER PRIMARY KEY,
-    count INTEGER
-);
-
-GRANT USAGE ON SCHEMA _timescaledb_lake_catalog, _timescaledb_lake_tables TO PUBLIC;
-GRANT SELECT ON ALL TABLES IN SCHEMA _timescaledb_lake_catalog, _timescaledb_lake_tables TO PUBLIC;
-```
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
