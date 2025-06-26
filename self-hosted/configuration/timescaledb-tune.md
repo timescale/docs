@@ -10,7 +10,7 @@ tags: [tune]
 
 To help make configuring $TIMESCALE_DB a little easier, you can use the [`timescaledb-tune`][tstune]
 tool. This tool handles setting the most common parameters to good values based
-on your system. It accounts for memory, CPU, and PostgreSQL version.
+on your system. It accounts for memory, CPU, and $PG version.
 `timescaledb-tune` is packaged with the $TIMESCALE_DB binary releases as a
 dependency, so if you installed $TIMESCALE_DB from a binary release (including
 Docker), you should already have access to the tool. Alternatively, you can use

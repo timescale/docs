@@ -12,7 +12,7 @@ $MST_SERVICE_LONGs are automatically backed up, with full
 backups daily, and write-ahead log (WAL) continuously recorded. All backups are
 [encrypted][aiven-encrypt].
 
-$MST_LONG uses [`pghoard`][pghoard], a PostgreSQL backup
+$MST_LONG uses [`pghoard`][pghoard], a $PG backup
 daemon and restore tool, to store backup data in cloud object stores. The number
 of backups stored and the retention time of the backup depend on the service
 plan.
@@ -40,7 +40,7 @@ up indexes, transactions, and data:
 |-|-|-|
 |index|contains all data from indexes|does not contain index data, it contains only queries used to recreate indexes from other data|
 |transactions|contains uncommitted transactions|does not contain uncommitted transactions|
-|data|contains deleted and updated rows which have not been cleaned up by PostgreSQL VACUUM process, and all databases, including templates|does not contain any data already deleted, and depending on the options given, the output might be compressed|
+|data|contains deleted and updated rows which have not been cleaned up by $PG VACUUM process, and all databases, including templates|does not contain any data already deleted, and depending on the options given, the output might be compressed|
 
 ## Restore a service
 

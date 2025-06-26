@@ -5,7 +5,7 @@ subsection: tdigest()
 
 Estimate the value at a given percentile, or the percentile rank of a given
 value, using the t-digest algorithm. This estimation is more memory- and
-CPU-efficient than an exact calculation using PostgreSQL's `percentile_cont` and
+CPU-efficient than an exact calculation using Postgres's `percentile_cont` and
 `percentile_disc` functions.
 
 `tdigest` is one of two advanced percentile approximation aggregates provided in

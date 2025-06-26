@@ -28,7 +28,7 @@
       local replication debezium                         trust  
       ```
       This permission is for the `debezium` $PG user running on a local or Docker deployment. For more about replication 
-      permissions, see [Configuring PostgreSQL to allow replication with the Debezium connector host][debezium-replication-permissions].
+      permissions, see [Configuring $PG to allow replication with the Debezium connector host][debezium-replication-permissions].
 
    1. Restart $PG.
 
@@ -37,7 +37,7 @@
 
    Use [`psql`][psql-connect]. 
 
-1. **Create a Debezium user in PostgreSQL**
+1. **Create a Debezium user in $PG**
 
    Create a user with the `LOGIN` and `REPLICATION` permissions:
 

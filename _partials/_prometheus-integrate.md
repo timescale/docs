@@ -5,7 +5,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 This page shows you how to export your $SERVICE_SHORT telemetry to Prometheus:
 
 - For $CLOUD_LONG, using a dedicated Prometheus exporter in $CONSOLE. 
-- For $SELF_LONG, using [PostgreSQL Exporter][postgresql-exporter]. 
+- For $SELF_LONG, using [Postgres Exporter][postgresql-exporter]. 
 
 ## Prerequisites
 
@@ -17,8 +17,8 @@ To follow the steps on this page:
   Create a target [$SERVICE_LONG][create-service] with the time-series and analytics capability enabled.
 - For $SELF_LONG:
   - Create a target [$SELF_LONG][enable-timescaledb] instance. You need your [connection details][connection-info].
-  - [Install PostgreSQL Exporter][install-exporter].
-  To reduce latency and potential data transfer costs, install Prometheus and PostgreSQL Exporter on a machine in the same AWS region as your $SERVICE_LONG.
+  - [Install Postgres Exporter][install-exporter].
+  To reduce latency and potential data transfer costs, install Prometheus and Postgres Exporter on a machine in the same AWS region as your $SERVICE_LONG.
 
 ## Export $SERVICE_LONG telemetry to Prometheus
 
@@ -30,7 +30,7 @@ To export your data, do the following:
 
 <Procedure>
 
-To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. To scrape other metrics, use PostgreSQL Exporter as described for $SELF_LONG. The Prometheus exporter is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
+To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. To scrape other metrics, use Postgres Exporter as described for $SELF_LONG. The Prometheus exporter is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
 
 1. **Create a Prometheus exporter**
 
@@ -112,7 +112,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
 <Procedure>
 
-To export metrics from $SELF_LONG, you import telemetry data about your database to PostgreSQL Exporter, then configure Prometheus to scrape metrics from it. PostgreSQL Exporter exposes metrics that you define, excluding the system metrics.
+To export metrics from $SELF_LONG, you import telemetry data about your database to Postgres Exporter, then configure Prometheus to scrape metrics from it. Postgres Exporter exposes metrics that you define, excluding the system metrics.
 
 1. **Create a user to access telemetry data about your database**
 
@@ -130,9 +130,9 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
        GRANT pg_read_all_stats to monitoring;
        ```
 
-1. **Import telemetry data about your database to PostgreSQL Exporter**
+1. **Import telemetry data about your database to Postgres Exporter**
 
-    1. Connect PostgreSQL Exporter to your database:
+    1. Connect Postgres Exporter to your database:
 
        Use your [connection details][connection-info] to import telemetry data about your database. You connect as
        the `monitoring` user:
@@ -163,7 +163,7 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
 
 1. **Configure Prometheus to scrape metrics**
 
-    1. In your Prometheus installation, update `prometheus.yml` to point to your PostgreSQL Exporter instance as a scrape
+    1. In your Prometheus installation, update `prometheus.yml` to point to your Postgres Exporter instance as a scrape
        target. In the following example, you replace `<exporter-host>` with the hostname or IP address of the PostgreSQL
        Exporter.
 
@@ -178,13 +178,13 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
        ```
 
        If `prometheus.yml` has not been created during installation, create it manually. If you are using Docker, you can
-       find the IPAddress in `Inspect` > `Networks` for the container running PostgreSQL Exporter.
+       find the IPAddress in `Inspect` > `Networks` for the container running Postgres Exporter.
 
     1. Restart Prometheus.
 
     1. Check the Prometheus UI at `http://<prometheus-host>:9090/targets` and `http://<prometheus-host>:9090/tsdb-status`.
 
-       You see the PostgreSQL Exporter target and the metrics scraped from it.
+       You see the Postgres Exporter target and the metrics scraped from it.
 
 </Procedure>
     
@@ -193,7 +193,7 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
 </Tabs>
 
 You can further [visualize your data][grafana-prometheus] with Grafana. Use the 
-[Grafana PostgreSQL dashboard][postgresql-exporter-dashboard] or [create a custom dashboard][grafana] that suits your needs.
+[Grafana Postgres dashboard][postgresql-exporter-dashboard] or [create a custom dashboard][grafana] that suits your needs.
 
 [install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
 [postgresql-exporter-dashboard]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=dashboards

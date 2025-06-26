@@ -34,7 +34,7 @@ This tutorial covers:
 1.  [Setting up your dataset][dataset-energy]: Set up and connect to a
     $SERVICE_LONG, and load data into the database using `psql`.
 1.  [Querying your dataset][query-energy]: Analyze a dataset containing energy
-    consumption data using $CLOUD_LONG and PostgreSQL, and visualize the
+    consumption data using $CLOUD_LONG and $PG, and visualize the
     results in Grafana.
 1.  [Bonus: Store data efficiently][compress-energy]: Learn how to store and query your
 energy consumption data more efficiently using compression feature of Timescale.

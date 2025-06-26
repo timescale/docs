@@ -1,13 +1,13 @@
 ---
-title: Supported PostgreSQL extensions in Managed Service for TimescaleDB
+title: Supported Postgres extensions in Managed Service for TimescaleDB
 excerpt: Add an extension and see a list of available extensions in Managed Service for TimescaleDB
 products: [mst]
 tags: [extensions]
 ---
 
-# Supported PostgreSQL extensions
+# Supported $PG extensions
 
-$MST_LONG supports many PostgreSQL extensions. See
+$MST_LONG supports many $PG extensions. See
 [available extensions](#available-extensions) for a full list.
 
 ## Add an extension
@@ -59,9 +59,9 @@ These extensions are available on $MST_LONG:
 *   ltree
 *   pg_buffercache
 *   pg_cron
-*   pg_partman (PostgreSQL 10 and older)
-*   pg_prometheus (PostgreSQL 10 and newer)
-*   pg_repack (PostgreSQL 10 and newer)
+*   pg_partman ($PG 10 and older)
+*   pg_prometheus ($PG 10 and newer)
+*   pg_repack ($PG 10 and newer)
 *   pg_stat_statements
 *   pg_trgm
 *   pgcrypto
@@ -71,7 +71,7 @@ These extensions are available on $MST_LONG:
 *   plcoffee
 *   plls
 *   plperl
-*   plv8  (PostgreSQL 10 and older)
+*   plv8  ($PG 10 and older)
 *   postgis
 *   postgis_address_standardizer
 *   postgis_sfcgal

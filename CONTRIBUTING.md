@@ -146,7 +146,7 @@ To make a documentation page more visible and clear for Google:
 - Include main page keywords into the meta tags, page title, first header, and intro. These are usually the names of features described in the page. For example, for a page dedicated to creating hypertables, you can use the keyword **hypertable** in the following way: 
 
    - Title: Create a hypertable in Tiger Cloud
-   - Description: Turn a regular PostgreSQL table into a hypertable in a few steps, using Tiger Cloud Console. 
+   - Description: Turn a regular $PG table into a hypertable in a few steps, using Tiger Cloud Console. 
    - First header: Create a hypertable
 
 ## Docs for deprecated products

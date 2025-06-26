@@ -27,7 +27,7 @@ $HYPERCORE_CAP’s hybrid approach combines the benefits of row-oriented and col
    $TIMESCALE_DB is optimized for super fast INSERT and UPSERT performance.  
 
 - **Full mutability with transactional semantics**: regardless of where data is stored,
-  $HYPERCORE provides full ACID support. Like in a vanilla PostgreSQL database, inserts and updates
+  $HYPERCORE provides full ACID support. Like in a vanilla $PG database, inserts and updates
   to the $ROWSTORE and $COLUMNSTORE are always consistent, and available to queries as soon as they are
   completed.
 

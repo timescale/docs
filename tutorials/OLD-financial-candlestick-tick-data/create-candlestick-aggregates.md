@@ -18,7 +18,7 @@ buckets. If you want to work with pre-aggregated stock and crypto data, see the
 $TIMESCALE_DB includes [hyperfunctions][hyperfunctions] that you can use to
 store and query your financial data more
 easily. Hyperfunctions are SQL functions within $TIMESCALE_DB that make it
-easier to manipulate and analyze time-series data in PostgreSQL with fewer
+easier to manipulate and analyze time-series data in $PG with fewer
 lines of code. There are three
 hyperfunctions that are essential for calculating candlestick values:
 [`time_bucket()`][time-bucket], [`FIRST()`][first], and [`LAST()`][last].
@@ -26,7 +26,7 @@ hyperfunctions that are essential for calculating candlestick values:
 The `time_bucket()` hyperfunction helps you aggregate records into buckets of
 arbitrary time intervals based on the timestamp value. `FIRST()` and `LAST()`
 help you calculate the opening and closing prices. To calculate
-highest and lowest prices, you can use the standard PostgreSQL aggregate
+highest and lowest prices, you can use the standard $PG aggregate
 functions `MIN` and `MAX`.
 
 In this first SQL example, use the hyperfunctions to query the tick data,
@@ -74,7 +74,7 @@ in the bucket to get the correct result.
 
 In $TIMESCALE_DB, the most efficient way to create candlestick views is to
 use [continuous aggregates][caggs]. Continuous aggregates are very similar
-to PostgreSQL materialized views but with three major advantages.
+to $PG materialized views but with three major advantages.
 
 First,
 materialized views recreate all of the data any time the view

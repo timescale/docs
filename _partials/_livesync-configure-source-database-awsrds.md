@@ -1,8 +1,8 @@
 import EnableReplication from "versionContent/_partials/_migrate_live_setup_enable_replication.mdx";
 
-Updating parameters on a PostgreSQL instance will cause an outage. Choose a time that will cause the least issues to tune this database.
+Updating parameters on a $PG instance will cause an outage. Choose a time that will cause the least issues to tune this database.
 
-1. **Tune the Write Ahead Log (WAL) on the RDS/Aurora PostgreSQL source database**
+1. **Tune the Write Ahead Log (WAL) on the RDS/Aurora $PG source database**
 
    1. In [https://console.aws.amazon.com/rds/home#databases:][databases],
       select the RDS instance to migrate.

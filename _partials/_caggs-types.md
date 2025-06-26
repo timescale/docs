@@ -1,7 +1,7 @@
 There are three main ways to make aggregation easier: materialized views,
 continuous aggregates, and real-time aggregates.
 
-[Materialized views][pg-materialized views] are a standard PostgreSQL function.
+[Materialized views][pg-materialized views] are a standard $PG function.
 They are used to cache the result of a complex query so that you can reuse it
 later on. Materialized views do not update regularly, although you can manually
 refresh them as required.

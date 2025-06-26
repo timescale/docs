@@ -16,7 +16,7 @@ IoT devices, IT systems, marketing analytics, user behavior, financial metrics, 
 hyperfunctions can make a huge difference. Hyperfunctions provide you with meaningful, actionable insights in real time.  
 
 $CLOUD_LONG includes all hyperfunctions by default, while self-hosted $TIMESCALE_DB includes a subset of them. For
-additional hyperfunctions, install the [$TOOLKIT_LONG][install-toolkit] PostgreSQL extension.
+additional hyperfunctions, install the [$TOOLKIT_LONG][install-toolkit] $PG extension.
 
 ## Available hyperfunctions
 
@@ -38,7 +38,7 @@ For more information about each of the API calls listed in this table, see the
 ## Function pipelines
 
 Function pipelines are an experimental feature, designed to radically improve
-the developer ergonomics of analyzing data in PostgreSQL and SQL, by applying
+the developer ergonomics of analyzing data in $PG and SQL, by applying
 principles from functional programming and popular tools like Python's Pandas,
 and PromQL.
 

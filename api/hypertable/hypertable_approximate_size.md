@@ -24,14 +24,14 @@ instead.
 
 <Highlight type="note">
 This function relies on the per backend caching using the in-built
-PostgreSQL storage manager layer to compute the approximate size
+$PG storage manager layer to compute the approximate size
 cheaply. The PG cache invalidation clears off the cached size for a
 chunk when DML happens into it. That size cache is thus able to get
 the latest size in a matter of minutes. Also, due to the backend
 caching, any long running session will only fetch latest data for new
 or modified chunks and can use the cached data (which is calculated
 afresh the first time around) effectively for older chunks. Thus it
-is recommended to use a single connected postgres backend session to
+is recommended to use a single connected $PG backend session to
 compute the approximate sizes of hypertables to get faster results.
 </Highlight>
 
