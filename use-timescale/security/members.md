@@ -89,7 +89,7 @@ $PROJECT_SHORT_CAP invitations are valid for 7 days. To resend a $PROJECT_SHORT 
 
 </Procedure>
 
-## Change the current $PROJECT_SHORT
+## Change your current $PROJECT_SHORT
 
 To change the $PROJECT_SHORT you are currently working in:
 
