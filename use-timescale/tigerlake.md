@@ -60,15 +60,6 @@ You set up the data lake table bucket and role ARNs, using one of the following 
        AWS deploys your stack and creates the S3 table bucket and IAM role.
    1. Click `Outputs`, then copy all four outputs.
 
-1. **Provide this information to $COMPANY**
-
-   Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket, and your
-   [$PROJECT_LONG and $SERVICE_SHORT IDs][get-project-id].
-   $COMPANY uses these outputs to provision your $LAKE_LONG services.
-
-   $COMPANY uses this configuration to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is
-   ready to use. Provisioning takes about 10-15 minutes, during this time the $SERVICE_SHORT is restarted.
-
 </Procedure>
 
 </Tab>
@@ -95,15 +86,6 @@ You set up the data lake table bucket and role ARNs, using one of the following 
        ParameterKey=ProjectID,ParameterValue="<ProjectID>" \
        ParameterKey=ServiceID,ParameterValue="<ServiceID>"
    ```
-
-1. **Provide this information to $COMPANY**
-
-   Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket, and your
-   [$PROJECT_LONG and $SERVICE_SHORT IDs][get-project-id].
-   $COMPANY uses these outputs to provision your $LAKE_LONG services.
-
-   $COMPANY uses this configuration to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is
-   ready to use. Provisioning takes about 10-15 minutes, during this time the $SERVICE_SHORT is restarted.
 
 </Procedure>
 
@@ -187,20 +169,17 @@ You set up the data lake table bucket and role ARNs, using one of the following 
    1. Replace `<S3TABLE_BUCKET_ARN>` with the `Amazon Resource Name (ARN)` for the table bucket you just created.
    1. Click `Next`, then give the inline policy a name and click `Create policy`.
 
-1. **Provide this information to $COMPANY**
-
-   Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket, and your
-   [$PROJECT_LONG and $SERVICE_SHORT IDs][get-project-id].
-   $COMPANY uses these outputs to provision your $LAKE_LONG services.
-
-   $COMPANY uses this configuration to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is 
-   ready to use. Provisioning takes about 10-15 minutes, during this time the $SERVICE_SHORT is restarted.
-
 </Procedure>
 
 </Tab>
 
 </Tabs>
+
+Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket.
+$COMPANY uses these outputs to provision your $LAKE_LONG services.
+
+$COMPANY uses this configuration to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is 
+ready to use. Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
 
 ## Stream data from your $SERVICE_LONG to your data lake
 
