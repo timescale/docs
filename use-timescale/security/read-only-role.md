@@ -8,7 +8,7 @@ tags: [authentication, credentials, members, security]
 
 # Role-based access to your data
 
-When you create a $SERVICE_SHORT, $CLOUD_LONG assigns you the `tsdmadmin` role. This role has the full scope of permissions to modify data in your $SERVICE_SHORT, but it is not a superuser. $CLOUD_LONG does not provide superuser access. 
+When you create a $SERVICE_SHORT, $CLOUD_LONG assigns you the tsdmadmin role. This role has full permissions to modify data in your $SERVICE_SHORT. However,  $CLOUD_LONG does not provide superuser access. tsdmadmin is not a superuser. 
 
 As `tsdmadmin`, you can use standard $PG means to create other roles or assign individual permissions. This page explains how to create a read-only role for your database. Note that adding a read-only role does not provide resource isolation. If you want to restrict the access of a read-only user, as well as isolate resources, you can create a read replica instead. For more information, see [Read scaling][read-scaling].
 
