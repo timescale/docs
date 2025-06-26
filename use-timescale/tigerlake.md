@@ -2,6 +2,7 @@
 title: Integrate data lakes with Tiger Cloud
 excerpt: Unifies the Tiger Cloud operational architecture with data lake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [data lake, lakehouse, s3, iceberg]
 ---
 
@@ -212,19 +213,28 @@ ALTER TABLE <table_name> SET (
   **cannot** resume after being stopped. 
 * `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the 
   partitioning specification of the $HYPERTABLE is used. Streamed $PG tables can have a partition specification 
-  for the Iceberg table, if intentially defined. 
-
-When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
-The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
+  for the Iceberg table, if intentially defined. Please refer to [partitioning](#partitioning) for more details.
 
 Only tables or $HYPERTABLEs with primary keys are supported, this includes composite primary keys as well. 
 A primary key is necessary for Iceberg to perform update or delete statements.
 
+When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
+The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
+
 ### Partitioning
 
-By default, the partition interval of for an Iceberg table is the same as the one from a $HYPERTABLE. Supported values 
-are hour, day, month, year and truncate. For more information, see the 
-[Iceberg partition specification][iceberg-partition-spec].
+By default, the partition interval for an Iceberg table is the same as the one from a $HYPERTABLE.
+The sync of a Postgres table does not enable any partitioning in Iceberg, but can be set through the [API](#api) with `tigerlake.iceberg_partitionby`.
+
+The following partition intervals and specifications are supported, and the define behavior of [Iceberg partition specification][iceberg-partition-spec].
+
+| Interval      | Description | Source types | Result type |
+| ------------- | --- | --- | --- |
+| `hour`        | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
+| `day`         | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
+| `month`       | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
+| `year`        | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
+| `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options] | `int`, `long`, `decimal`, `string`, `binary` | `int` |
 
 ## Query your data
 
@@ -300,6 +310,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA _timescaledb_lake_catalog, _timescaledb_lak
 [s3-console]: https://console.aws.amazon.com/s3/
 [iam-dashboard]: https://console.aws.amazon.com/iamv2/home
 [iceberg-partition-spec]: https://iceberg.apache.org/spec/#partition-transforms
+[iceberg-truncate-options]: https://iceberg.apache.org/spec/#truncate-transform-details
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [setup-console]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-aws-management-console
 [setup-cli]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-the-aws-cloudformation-cli
