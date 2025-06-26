@@ -11,7 +11,7 @@ tags: [recovery, failures]
 $CLOUD_LONG automatically handles backup for your $SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform backups manually. What's more, with cross-region backup available, you are protected even if an entire AWS region goes down.
 
 In the event of a storage failure, a $SERVICE_SHORT automatically recovers from backup
-to the point of failure. In the event of a user error where a point-in-time
+to the point of failure. In the event of a user error, where a point-in-time
 recovery needs to be done, you can create a PITR fork.
 
 ## Automated same-region backup 
@@ -28,21 +28,19 @@ can be recovered to any point during this time period.
 
 <Availability products={['cloud']} price_plans={['enterprise']} />
 
-For added reliability, you can have a cross-region backup enabled. In this case, you get a full copy of your automated backup—but in a different AWS region from your $SERVICE_SHORT. 
+For added reliability, you can enable cross-region backup. In this case, you have two identical backups of your $SERVICE_SHORT at any time, but one of them is in a different AWS region.
 
 You enable cross-region backup when creating a $SERVICE_SHORT, or configure it for an existing $SERVICE_SHORT in $CONSOLE_LONG:
 
 <Procedure>
 
-1. In [$CONSOLE_SHORT][console], select your $SERVICE_SHORT.
+1. In [$CONSOLE_SHORT][console], select your $SERVICE_SHORT and click `Operations` > `Backup & restore`. 
 
-1. Click `Operations` > `Backup & restore`. 
+1. In `Cross-region backup`, select the region in the dropdown and click `Enable backup`. 
 
-1. In `Cross-region backup`, select the region and click `Enable backup`. 
+   ![Create cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/create-cross-region-backup-tiger-cloud.png)
 
-   
-
-   You can now see the backup, its region, and creation date.
+   You can now see the backup, its region, and creation date in a list. 
 
 </Procedure>
 
@@ -50,13 +48,11 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 <Procedure>
 
-1. In [$CONSOLE_SHORT][console], select your $SERVICE_SHORT.
-
-1. Click `Operations` > `Backup & restore`.
+1. In [$CONSOLE_SHORT][console], select your $SERVICE_SHORT and click `Operations` > `Backup & restore`.
 
 1. Click the trash icon next to the existing backup to disable it. 
 
-   
+   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/cross-region-backup-list-tiger-cloud.png)
 
 1. Create a new backup in a different region. 
 
@@ -76,33 +72,44 @@ or unwanted action manually. You can recover a $SERVICE_SHORT to any point withi
 Initiating a point-in-time recovery of your $SERVICE_SHORT creates a fork of your $SERVICE_SHORT as of the specified recovery point. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time of recovery.
 
 Since the point-in-time recovery is done in a fork, to migrate your
-application to the point of recovery, switch out the connection
+application to the point of recovery, change the connection
 strings in your application to use the fork. The provision time for the
 recovery fork is typically less than twenty minutes, but can take longer
 depending on the amount of WAL to be replayed.
 
 To avoid paying for compute for the recovery fork and the original $SERVICE_SHORT, pause the original to only pay storage costs.
 
-You initiate a point-in-time recovery in $CONSOLE_LONG.
+You initiate a point-in-time recovery in $CONSOLE_LONG:
+
+<Tabs label="Point-in-time recovery in Tiger Cloud Console">
+
+<Tab title="Same-region backup">
 
 <Procedure>
 
-1.  In $CONSOLE, from the `Services` list, ensure the $SERVICE_SHORT
+1.  In [$CONSOLE][console], from the `Services` list, ensure the $SERVICE_SHORT
     you want to recover has a status of `Running` or `Paused`.
-1.  Navigate to the `Operations` tab.
-1.  In the `Backup & restore` section, click `Create recovery fork`. In the
-    creation page, select the time you would like to recover to, ensuring the
-    correct time zone (UTC offset).
-1.  [](#)<Optional />You can also add an HA replica, enable cross-region backup, change the compute resources, and
+1.  Navigate to `Operations` > `Backup & restore` and click `Create recovery fork`. 
+1.  Select the recovery point, ensuring the correct time zone (UTC offset).
+1.  Configure the fork. 
+    You can add an HA replica, enable cross-region backup, change the compute resources, and
     add a connection pooler as part of this process. It is recommended to match
     the same configuration you had at the point you want to recover to.
-1.  Confirm by clicking `Fork service`. A fork of the $SERVICE_SHORT is
-    created to the point-in-time specified.
-1.  The recovered $SERVICE_SHORT shows in the `Services` dashboard with a label stating
-    which $SERVICE_SHORT it has been forked from.
-1.  If you would like to use your application to use the recovered fork, update your connection strings to the fork throughout your app.
+1.  Confirm by clicking `Fork service`.
+    A fork of the $SERVICE_SHORT is created to the point-in-time specified. The recovered $SERVICE_SHORT which $SERVICE_SHORT it has been forked from.
+1.  Update the connection strings in your app to use the fork.
 
 </Procedure>
+
+</Tab>
+
+<Tab title="Cross-region backup">
+
+[Contact us](mailto:support@tigerdata.com) and we will assist in recovering your $SERVICE_SHORT.
+    
+</Tab>
+
+</Tabs>
 
 
 [console]: https://console.cloud.timescale.com/dashboard/services

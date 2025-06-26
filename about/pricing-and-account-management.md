@@ -156,6 +156,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | **Availability and monitoring**                               |                                   |                                                |                                                |
 | High-availability replicas <br/>(Automated multi-AZ failover) | ✓                                 | ✓                                              | ✓                                              |
 | Read replicas		                                               |                                   | ✓                                              | ✓                                              |
+| Cross-region backup                                           |                                   |                                                | ✓                                              |
 | Point-in-time recovery and forking                            | 	3 days                           | 14 days                                        | 14 days                                        |
 | Performance insights                                          | ✓                                 | ✓                                              | ✓                                              |
 | Metrics and log exporters	                                    |                                   | ✓                                              | ✓                                              |
