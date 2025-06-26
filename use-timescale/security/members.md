@@ -40,7 +40,7 @@ To add a user to a $PROJECT_SHORT:
 
 1.  In [$CONSOLE][cloud-login], click `Invite users`, then click `Add new user`.
 
-1.  Type the email address of the person that you want to add, select their role, and click `Add
+1.  Type the email address of the person that you want to add, select their role, and click `Invite
     user`.
 
     ![Send a user invitation in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-add-new-user.png)
