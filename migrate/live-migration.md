@@ -22,7 +22,7 @@ import Troubleshooting from "versionContent/_partials/_migrate_live_migrate_faq_
 # Live migration
 
 Live migration is an end-to-end solution that copies the database schema and data to
-your target $SERVICE_LONG, then replicates the database activity in your source database to the target service in real time. Live migration uses the PostgreSQL logical decoding functionality and leverages [pgcopydb].
+your target $SERVICE_LONG, then replicates the database activity in your source database to the target service in real time. Live migration uses the $PG logical decoding functionality and leverages [pgcopydb].
 
 You use the live migration Docker image to move 100GB-10TB+ of data to a $SERVICE_LONG seamlessly with only a few minutes downtime.
 
@@ -74,9 +74,9 @@ using live migration from Terminal.
 <ValidateDataInCloud />
 
 </Tab>
-<Tab title="From PostgreSQL">
+<Tab title="From Postgres">
 
-This section shows you how to move your data from self-hosted PostgreSQL to a $SERVICE_LONG using 
+This section shows you how to move your data from self-hosted $PG to a $SERVICE_LONG using 
 live migration from Terminal.
 
 <MigrateSetupEnvironmentPostgres />
@@ -88,7 +88,7 @@ live migration from Terminal.
 </Tab>
 <Tab title="From AWS RDS/Aurora">
 
-To migrate your data from an Amazon RDS/Aurora PostgreSQL instance to a $SERVICE_LONG, you extract the data to an intermediary
+To migrate your data from an Amazon RDS/Aurora $PG instance to a $SERVICE_LONG, you extract the data to an intermediary
 EC2 Ubuntu instance in the same AWS region as your RDS/Aurora instance. You then upload your data to a $SERVICE_LONG.
 To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to
 rapidly extract and store your data before uploading to $CLOUD_LONG.

@@ -17,7 +17,7 @@ Which column you choose to create your
 index on depends on what kind of data you have stored.
 When you create a hypertable, set the datatype for the `time` column as
 `timestamptz` and not `timestamp`.
-For more information, see [PostgreSQL timestamp][postgresql-timestamp].
+For more information, see [$PG timestamp][postgresql-timestamp].
 
 <Highlight type="note">
 While it is possible to add an index that does not include the `time` column,

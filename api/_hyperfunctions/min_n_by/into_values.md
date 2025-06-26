@@ -18,7 +18,7 @@ hyperfunction:
 api_details:
   summary: |
     This returns the smallest values seen by the aggregate and the
-    corresponding values associated with them. Note that PostgresQL requires
+    corresponding values associated with them. Note that Postgres requires
     an input argument with type matching the associated value in order to
     deterimine the response type.
   signatures:
@@ -40,7 +40,7 @@ api_details:
       - name: dummy
         type: ANYELEMENT
         description: >
-          This is purely to inform PostgresQL of the response type.  A NULL
+          This is purely to inform Postgres of the response type.  A NULL
           cast to the appropriate type is typical.
     returns:
       - column: into_values

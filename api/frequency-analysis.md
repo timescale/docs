@@ -9,7 +9,7 @@ keywords: [frequency, hyperfunctions, Toolkit]
 This section includes frequency aggregate APIs, which find the most common elements out of a set of
 vastly more varied values.
 
-For these hyperfunctions, you need to install the [TimescaleDB Toolkit][install-toolkit] PostgreSQL extension.
+For these hyperfunctions, you need to install the [TimescaleDB Toolkit][install-toolkit] $PG extension.
 
 <HyperfunctionTable
     hyperfunctionFamily='frequency analysis'

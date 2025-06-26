@@ -68,7 +68,7 @@ standbys for each node in a multi-node cluster.
 ### Automation
 
 Similar to how high-availability configurations for single-node
-PostgreSQL uses a system like Patroni for automatically handling
+$PG uses a system like Patroni for automatically handling
 fail-over, native replication requires an external entity to
 orchestrate fail-over, chunk re-replication, and data node
 management. This orchestration is _not_ provided by default in

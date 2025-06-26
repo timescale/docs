@@ -1,14 +1,14 @@
 ---
-title: Migrate your PostgreSQL database to self-hosted TimescaleDB
-excerpt: Choose how to migrate your existing PostgreSQL database to your self-hosted TimescaleDB installation - all at once, by separating data and schema, within the same database, or using Outflux
+title: Migrate your Postgres database to self-hosted TimescaleDB
+excerpt: Choose how to migrate your existing Postgres database to your self-hosted TimescaleDB installation - all at once, by separating data and schema, within the same database, or using Outflux
 products: [self_hosted]
 keywords: [data migration, self_hosted, postgresql, RDS]
 tags: [ingest, migrate, RDS]
 ---
 
-# Migrate your PostgreSQL database to self-hosted TimescaleDB
+# Migrate your $PG database to self-hosted TimescaleDB
 
-You can migrate your existing PostgreSQL database to $SELF_LONG.
+You can migrate your existing $PG database to $SELF_LONG.
 
 There are several methods for migrating your data:
 
@@ -24,7 +24,7 @@ There are several methods for migrating your data:
     from the beginning. However, Timescale-specific features won't be
     automatically migrated. Follow the instructions to restore your hypertables,
     continuous aggregates, and policies.
-*   If you need to move data from PostgreSQL tables into hypertables within an
+*   If you need to move data from $PG tables into hypertables within an
     existing $SELF_LONG instance,
     [migrate within the same database][migrate-same-db]: This method assumes that
     you have $TIMESCALE_DB set up in the same database instance as your existing table.

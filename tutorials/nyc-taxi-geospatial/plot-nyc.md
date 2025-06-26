@@ -22,7 +22,7 @@ answer these questions:
 
 To answer these geospatial questions, you need the ride count data from the NYC
 taxi dataset, but you also need some geospatial data to work out which trips
-originated where. $TIMESCALE_DB is compatible with all other PostgreSQL extensions
+originated where. $TIMESCALE_DB is compatible with all other $PG extensions,
 so you can use the [PostGIS][postgis] extension to slice the data by time and
 location.
 

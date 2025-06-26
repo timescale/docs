@@ -1,18 +1,18 @@
 ---
 title: Uninstall TimescaleDB
-excerpt: Uninstall TimescaleDB installed with Homebrew or MacPorts without having to uninstall PostgreSQL
+excerpt: Uninstall TimescaleDB installed with Homebrew or MacPorts without having to uninstall Postgres
 products: [self_hosted]
 keywords: [uninstall]
 ---
 
 # Uninstall TimescaleDB
 
-PostgreSQL is designed to be easily extensible. The extensions loaded into the
+$PG is designed to be easily extensible. The extensions loaded into the
 database can function just like features that are built in. TimescaleDB extends
-PostgreSQL for time-series data, giving PostgreSQL the high-performance,
+$PG for time-series data, giving $PG the high-performance,
 scalability, and analytical capabilities required by modern data-intensive
 applications. If you installed TimescaleDB with Homebrew or MacPorts, you can
-uninstall it without having to uninstall PostgreSQL.
+uninstall it without having to uninstall $PG.
 
 <Procedure>
 
@@ -34,7 +34,7 @@ uninstall it without having to uninstall PostgreSQL.
 
 1.  Save the changes to the `postgresql.conf` file.
 
-1.  Restart PostgreSQL:
+1.  Restart $PG:
 
     ```bash
     brew services restart postgresql
@@ -86,7 +86,7 @@ uninstall it without having to uninstall PostgreSQL.
 
 1.  Save the changes to the `postgresql.conf` file.
 
-1.  Restart PostgreSQL:
+1.  Restart $PG:
 
     ```bash
     port reload postgresql

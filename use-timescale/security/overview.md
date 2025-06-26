@@ -11,7 +11,7 @@ tags: [encryption, VPC, privacy]
 $COMPANY implements a variety of secure software engineering practices in $TIMESCALE_DB, including code static analysis 
 for security hardening, automated scanning for dependency vulnerabilities, and code security reviews. 
 Additionally, $COMPANY has developed the https://github.com/timescale/pgspot open-source extension that we 
-use to identify security issues with PostgreSQL extensions. This has helped tighten our security posture.
+use to identify security issues with $PG extensions. This has helped tighten our security posture.
 $COMPANY products do not have any identified weaknesses.
 
 This page lists the additional things we do to ensure operational security and to lock down $SERVICE_LONGs. 

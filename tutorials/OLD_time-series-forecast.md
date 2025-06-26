@@ -25,7 +25,7 @@ Time-series predictions can be used to:
 
 Time-series forecasting alone is a powerful tool. But time-series
 data joined with business data can be a competitive advantage for
-any developer. TimescaleDB is PostgreSQL for time-series data and
+any developer. TimescaleDB is $PG for time-series data and
 as such, time-series data stored in TimescaleDB can be easily
 joined with business data in another relational database in order
 to develop an even more insightful forecast into how your data
@@ -82,7 +82,7 @@ INSERT INTO rides_count
 
 Notice that you have made the `rides_count` table a TimescaleDB hypertable.
 This allows you to take advantage of TimescaleDB's faster insert and query
-performance with time-series data. Here, you can see how PostgreSQL aggregate
+performance with time-series data. Here, you can see how $PG aggregate
 functions such as `COUNT` and various PostGIS functions all work as usual
 with TimescaleDB. You can use PostGIS to select data points from the original
 `rides` table where the pickup location is less than 400m from the GPS location
@@ -164,7 +164,7 @@ SELECT * FROM rides_count;
  ...
 ```
 
-Create two PostgreSQL views, `rides_count_train` and `rides_count_test`  for
+Create two $PG views, `rides_count_train` and `rides_count_test`  for
 the training and testing datasets.
 
 ```sql
@@ -180,7 +180,7 @@ WHERE one_hour >= '2016-01-22 00:00:00';
 ```
 
 R has an [RPostgres][rpostgres] package which allows you to connect to your
-database from R. The code below establishes a connection to the PostgreSQL
+database from R. The code below establishes a connection to the $PG
 database `nyc_data`. You can connect to a different database simply by changing
 the parameters of `dbConnect`. The final line of code should print out a list of
 all tables in your database. This means that you have successfully connected and
@@ -386,7 +386,7 @@ Set up MADlib in the `nyc_data` database:
 
 <Highlight type="warning">
 This command might differ depending on the directory in which you installed
-MADlib and the names of your PostgreSQL user, host and database.
+MADlib and the names of your $PG user, host and database.
 </Highlight>
 
 Now you can make use of MADlib's library to analyze the taxicab dataset. Here,
@@ -582,9 +582,9 @@ surge pricing during rush hours, yellow taxicab prices stay
 pretty much constant all day.
 
 From a technical standpoint, you have seen how TimescaleDB integrates
-seamlessly with other PostgreSQL extensions PostGIS and MADlib.
+seamlessly with other $PG extensions PostGIS and MADlib.
 This means that TimescaleDB users can easily take advantage of
-the vast PostgreSQL ecosystem.
+the vast $PG ecosystem.
 
 ### Holt-Winters with Python
 
@@ -639,7 +639,7 @@ SELECT * FROM rides_length;
 ...
 ```
 
-You can also create two PostgreSQL views for the training
+You can also create two $PG views for the training
 and testing datasets.
 
 ```sql
@@ -759,10 +759,10 @@ day on the previous Monday.
 
 This tutorial looked at different ways you can build statistical models to
 analyze time-series data and how you can leverage the full power of the
-PostgreSQL ecosystem with TimescaleDB. This tutorial also looked at integrating
+$PG ecosystem with TimescaleDB. This tutorial also looked at integrating
 TimescaleDB with R, Apache MADlib, and Python. You can simply choose the option
 you are most familiar with from a vast number of choices that TimescaleDB
-inherits from PostgreSQL. ARIMA and Holt-Winters are just a couple from a wide
+inherits from $PG. ARIMA and Holt-Winters are just a couple from a wide
 variety of statistical models and machine learning algorithms that you can use
 to analyze and make predictions on time-series data in your TimescaleDB
 database.

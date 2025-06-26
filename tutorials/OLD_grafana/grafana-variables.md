@@ -104,7 +104,7 @@ LIMIT 500;
 
 Now we can use the drop-down to filter our rides based on the type of payment used:
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_with_variable.png" alt="Visualizing time series data in PostgreSQL using the Grafana Worldmap and filtering using a variable"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_with_variable.png" alt="Visualizing time series data in Postgres using the Grafana Worldmap and filtering using a variable"/>
 
 #### Building dynamic panels using Grafana variables
 

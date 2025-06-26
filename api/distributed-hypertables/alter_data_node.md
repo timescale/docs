@@ -36,7 +36,7 @@ configuration is reachable and can be authenticated by the access node.
 |-|-|
 |`host`|Host name for the remote data node|
 |`database`|Database name where remote hypertables are created. The default is the database name that was provided in `add_data_node`|
-|`port`|Port to use on the remote data node. The default is the PostgreSQL port that was provided in `add_data_node`|
+|`port`|Port to use on the remote data node. The default is the $PG port that was provided in `add_data_node`|
 |`available`|Configure availability of the remote data node. The default is `true` meaning that the data node is available for read/write queries|
 
 ## Returns
