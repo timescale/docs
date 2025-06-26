@@ -107,7 +107,7 @@ You can now manage the users and $SERVICE_SHORTs in this $PROJECT_SHORT.
 
 ## Transfer $PROJECT_SHORT ownership
 
-Each $PROJECT_SHORT in $CONSOLE has one `Owner`. As the $PROJECT_SHORT owner, you have rights to
+Each $PROJECT_LONG has one Owner. As the $PROJECT_SHORT Owner, you have rights to
 add and delete users, edit $PROJECT_SHORT settings, and transfer the owner role to another user. When you transfer
 ownership to another user, you lose your ownership rights.
 
