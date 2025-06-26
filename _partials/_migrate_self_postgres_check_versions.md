@@ -1,6 +1,6 @@
 <Procedure>
 
-To see the versions of PostgreSQL and $TIMESCALE_DB running in a self-hosted database instance: 
+To see the versions of $PG and $TIMESCALE_DB running in a self-hosted database instance: 
 
 1. **Set your connection string**
 
@@ -10,11 +10,11 @@ To see the versions of PostgreSQL and $TIMESCALE_DB running in a self-hosted dat
    export SOURCE="postgres://<user>:<password>@<source host>:<source port>/<db_name>"
    ```
 
-2. **Retrieve the version of PostgreSQL that you are running**
+2. **Retrieve the version of $PG that you are running**
     ```shell
     psql -X -d $SOURCE -c "SELECT version();"
     ```
-   PostgreSQL returns something like:
+   $PG returns something like:
     ```shell
     -----------------------------------------------------------------------------------------------------------------------------------------
     PostgreSQL 17.2 (Ubuntu 17.2-1.pgdg22.04+1) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
@@ -25,7 +25,7 @@ To see the versions of PostgreSQL and $TIMESCALE_DB running in a self-hosted dat
     ```sql
     psql -X -d $SOURCE -c "\dx timescaledb;"
     ```
-   PostgreSQL returns something like:
+   $PG returns something like:
     ```shell
         Name     | Version |   Schema   |                             Description
     -------------+---------+------------+---------------------------------------------------------------------

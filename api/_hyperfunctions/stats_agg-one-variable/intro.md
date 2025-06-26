@@ -5,7 +5,7 @@ subsection: stats_agg() (one variable)
 
 Perform common statistical analyses, such as calculating averages and standard
 deviations, using this group of functions. These functions are similar to the
-[PostgreSQL statistical aggregates][pg-stats-aggs], but they include more
+[Postgres statistical aggregates][pg-stats-aggs], but they include more
 features and are easier to use in [continuous aggregates][caggs] and window
 functions.
 

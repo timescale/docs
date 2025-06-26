@@ -31,7 +31,7 @@ practical way.
 <Highlight type="note">
 
 Counter aggregates can be used in continuous aggregates, even though they are
-not parallelizable in PostgreSQL. For more information, see the section on
+not parallelizable in $PG. For more information, see the section on
 parallelism and ordering.
 
 </Highlight>
@@ -182,7 +182,7 @@ out of it.
 ## Parallelism and ordering
 
 The counter reset calculations require a strict ordering of inputs, which means
-they are not parallelizable in PostgreSQL. This is because PostgreSQL handles
+they are not parallelizable in $PG. This is because $PG handles
 parallelism by issuing rows randomly to workers. However, if your parallelism
 can guarantee sets of rows that are disjointed in time, the algorithm can be
 parallelized, as long as it is within a time range, and all rows go to the same

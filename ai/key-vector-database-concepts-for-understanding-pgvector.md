@@ -1,6 +1,6 @@
 ---
 title: Key vector database concepts for understanding pgvector
-excerpt: Learn the most important vector database concepts for understanding AI in PostgreSQL - pgvector, pgvectorscale, and pgai
+excerpt: Learn the most important vector database concepts for understanding AI in $PG - pgvector, pgvectorscale, and pgai
 products: [cloud, mst, self_hosted]
 keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]
@@ -12,7 +12,7 @@ tags: [ai, vector]
 
 ## `Vector` data type provided by pgvector
 
-Vectors inside of the database are stored in regular PostgreSQL tables using `vector` columns. The `vector` column type is provided by the [pgvector](https://github.com/pgvector/pgvector) extension. A common way to store vectors is alongside the data they have indexed. For example, to store embeddings for documents, a common table structure is:
+Vectors inside of the database are stored in regular $PG tables using `vector` columns. The `vector` column type is provided by the [pgvector](https://github.com/pgvector/pgvector) extension. A common way to store vectors is alongside the data they have indexed. For example, to store embeddings for documents, a common table structure is:
 
 ```sql
 CREATE TABLE IF NOT EXISTS document_embedding  (
@@ -43,7 +43,7 @@ ORDER BY embedding <=> $1
 LIMIT 10
 ```
 
-The query above returns the 10 rows with the smallest distance between the query's embedding and the row's embedding. Of course, this being PostgreSQL, you can add additional `WHERE` clauses (such as filters on the metadata), joins, etc.
+The query above returns the 10 rows with the smallest distance between the query's embedding and the row's embedding. Of course, this being $PG, you can add additional `WHERE` clauses (such as filters on the metadata), joins, etc.
 
 
 ### Vector distance types
@@ -72,14 +72,14 @@ Many embedding systems (for example OpenAI's ada-002) use vectors with length 1 
 - The Euclidean distance is related to the dot product, where the squared Euclidean distance is `2(1−dot product)`.
 
 <!-- vale Google.Headings = NO -->
-#### Recommended vector distance for use in PostgreSQL
+#### Recommended vector distance for use in $PG
 <!-- vale Google.Headings = YES -->
 
 Using cosine distance, especially on unit vectors, is recommended. These recommendations are based on OpenAI's [recommendation](https://platform.openai.com/docs/guides/embeddings/which-distance-function-should-i-use) as well as the fact that the ranking of different distances on unit vectors is preserved.
 
 ## Vector search indexing (approximate nearest neighbor search)
 
-In PostgreSQL and other relational databases, indexing is a way to speed up queries. For vector data, indexes speed up the similarity search query shown above where you find the most similar embedding to some given query embedding. This problem is often referred to as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
+In $PG and other relational databases, indexing is a way to speed up queries. For vector data, indexes speed up the similarity search query shown above where you find the most similar embedding to some given query embedding. This problem is often referred to as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
 
 <Highlight type="note">
 
@@ -87,7 +87,7 @@ The term "index" in the context of vector databases has multiple meanings. It ca
 
 </Highlight>
 
-Finding the K nearest neighbors is not a new problem in PostgreSQL, but existing techniques only work with low-dimensional data. These approaches cease to be effective when dealing with data larger than approximately 10 dimensions due to the "curse of dimensionality." Given that embeddings often consist of more than a thousand dimensions(OpenAI's are 1,536) new techniques had to be developed.
+Finding the K nearest neighbors is not a new problem in $PG, but existing techniques only work with low-dimensional data. These approaches cease to be effective when dealing with data larger than approximately 10 dimensions due to the "curse of dimensionality." Given that embeddings often consist of more than a thousand dimensions(OpenAI's are 1,536) new techniques had to be developed.
 
 There are no known exact algorithms for efficiently searching in such high-dimensional spaces. Nevertheless, there are excellent approximate algorithms that fall into the category of approximate nearest neighbor algorithms.
 

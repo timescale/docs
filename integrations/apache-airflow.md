@@ -34,13 +34,13 @@ To install the Python libraries required to connect to $CLOUD_LONG:
 
 <Procedure>
 
-1. **Enable PostgreSQL connections between Airflow and $CLOUD_LONG**
+1. **Enable $PG connections between Airflow and $CLOUD_LONG**
 
     ```bash
     pip install psycopg2-binary
     ```
 
-1. **Enable PostgreSQL connection types in the Airflow UI**
+1. **Enable $PG connection types in the Airflow UI**
 
     ```bash
     pip install apache-airflow-providers-postgres
@@ -120,7 +120,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
            dag=dag,
        )
        ```
-      This DAG uses the `company` table created in [Create regular PostgreSQL tables for relational data][create-a-table-in-timescale].
+      This DAG uses the `company` table created in [Create regular $PG tables for relational data][create-a-table-in-timescale].
 
    1.  In your browser, refresh the Airflow UI.
    1.  In `Search DAGS`, type `timescale_dag` and press ENTER.  

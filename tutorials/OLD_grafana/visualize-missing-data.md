@@ -20,7 +20,7 @@ for example, breaking applications downstream.
 
 In this tutorial, you'll see how to use [Grafana][grafana-external]
 (an open-source visualization tool) and TimescaleDB for
-handling missing time-series data (using the TimescaleDB/PostgreSQL data
+handling missing time-series data (using the TimescaleDB/$PG data
 source natively available in Grafana).
 
 ### Prerequisites

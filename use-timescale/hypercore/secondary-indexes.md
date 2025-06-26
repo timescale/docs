@@ -137,15 +137,15 @@ This needs to be taken into account when you define your $COLUMNSTORE settings.
 <Deprecated2210 /> This feature is sunsetted in TimescaleDB v2.22.0.
 
 $TIMESCALE_DB supports and accelerates real-time analytics using [$HYPERCORE][hypercore] without missing out on important  
-PostgreSQL features, including support for standard PostgreSQL indexes. $HYPERCORE_CAP is a hybrid storage engine 
-because it supports deep analytics while staying true to PostgreSQL. Full support for B-tree and hash indexes
+$PG features, including support for standard $PG indexes. $HYPERCORE_CAP is a hybrid storage engine 
+because it supports deep analytics while staying true to $PG. Full support for B-tree and hash indexes
 on $COLUMNSTORE data enables you to perform point lookups 1,185x faster, enforce unique constraints, and execute
 upserts 224x faster—all while maintaining $COLUMNSTORE compression and analytics performance.
 
 ### Choose the best indexing method
 
 [Indexes are a fundamental part of database performance optimization][blog-perf-tuning], they enable queries to 
-quickly locate and retrieve data without scanning entire tables. B-tree and hash indexes are among PostgreSQL’s 
+quickly locate and retrieve data without scanning entire tables. B-tree and hash indexes are among $PG’s 
 most widely used index types. However, they are designed for different query types:
 
 - [B-tree indexes][b-tree-overview]: keep data sorted in a hierarchical structure ideal for queries that involve 
@@ -171,20 +171,20 @@ or enforcing uniqueness.
 
 ### How B-tree and hash indexes work 
 
-PostgreSQL offers [multiple index types][postgres-index-types]. For example, the default B-tree, hash, GIN, and BRIN, 
-all implemented as Index Access Methods (IAMs). PostgreSQL supplies the [table access method (TAM)][postgres-tam-methods] 
+$PG offers [multiple index types][postgres-index-types]. For example, the default B-tree, hash, GIN, and BRIN, 
+all implemented as Index Access Methods (IAMs). $PG supplies the [table access method (TAM)][postgres-tam-methods] 
 interface for table storage. 
 
 ![TAM architecture](https://assets.timescale.com/docs/images/tam_architecture.png)
 
-By default, $TIMESCALE_DB stores data in the $ROWSTORE in standard PostgreSQL row-oriented tables, using the default heap 
-TAM. To make the heap TAM work with the $COLUMNSTORE, $TIMESCALE_DB integrates PostgreSQL [TOAST][storage-toast] to store 
+By default, $TIMESCALE_DB stores data in the $ROWSTORE in standard $PG row-oriented tables, using the default heap 
+TAM. To make the heap TAM work with the $COLUMNSTORE, $TIMESCALE_DB integrates $PG [TOAST][storage-toast] to store 
 columnar data as compressed arrays. However, querying columnized data returns compressed, opaque data. To support 
-normal queries, $TIMESCALE_DB adds the `DecompressChunk` scan node to the PostgreSQL query plan in order to decompress data 
+normal queries, $TIMESCALE_DB adds the `DecompressChunk` scan node to the $PG query plan in order to decompress data 
 on-the-fly. However, the heap TAM only indexes the compressed values, not the original data.
 
-$HYPERCORE_CAP TAM handles decompression behind the scenes. This enables PostgreSQL to use standard interfaces for 
-indexing, to collect statistics, enforce constraints and lock tuples by reference. This also allows PostgreSQL’s built-in
+$HYPERCORE_CAP TAM handles decompression behind the scenes. This enables $PG to use standard interfaces for 
+indexing, to collect statistics, enforce constraints and lock tuples by reference. This also allows $PG’s built-in
 scan nodes, such as sequential and index scans, to operate on the $COLUMNSTORE. Custom scan nodes are used for 
 analytical query performance optimizations, including vectorized filtering and aggregation.
 
@@ -268,10 +268,10 @@ $HYPERCORE_CAP TAM is now active on all $COLUMNSTORE $CHUNKs in the $HYPERTABLE.
 ### Create b-tree and hash indexes
 
 Once you have enabled $HYPERCORE TAM in your policy, the indexes are rebuilt when the table $CHUNKs are converted from 
-the $ROWSTORE to the $COLUMNSTORE. When you query data, these indexes are used by the PostgreSQL query planner over the
+the $ROWSTORE to the $COLUMNSTORE. When you query data, these indexes are used by the $PG query planner over the
 $ROWSTORE and $COLUMNSTORE.
 
-You add hash and B-tree indexes to a $HYPERTABLE the same way as a regular PostgreSQL table:
+You add hash and B-tree indexes to a $HYPERTABLE the same way as a regular $PG table:
 
 - **Hash index**
    ```sql

@@ -100,7 +100,7 @@ Live-migration does not migrate table privileges. After completing Live-migratio
    psql -d $TARGET -f /tmp/grants.psql
    ```
 
-### Postgres to $CLOUD_LONG: “live-replay not keeping up with source load”
+### $PG to $CLOUD_LONG: “live-replay not keeping up with source load”
 
 1. Go to $CONSOLE -> `Monitoring` -> `Insights` tab and find the query which takes significant time
 2. If the query is either UPDATE/DELETE, make sure the columns used on the WHERE clause have necessary indexes.

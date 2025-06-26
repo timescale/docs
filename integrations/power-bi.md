@@ -11,7 +11,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 [Power BI][power-bi] is a business analytics tool for visualizing data, creating interactive reports, and sharing insights across an organization.
 
-This page explains how to integrate Power BI with $CLOUD_LONG using the PostgreSQL ODBC driver, so that you can build interactive reports based on the data in your $SERVICE_LONG. 
+This page explains how to integrate Power BI with $CLOUD_LONG using the $PG ODBC driver, so that you can build interactive reports based on the data in your $SERVICE_LONG. 
 
 ## Prerequisites
 

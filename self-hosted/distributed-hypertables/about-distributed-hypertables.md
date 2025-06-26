@@ -215,7 +215,7 @@ constant timestamp to the data nodes.
 ## Combine distributed hypertables and standard hypertables
 
 You can use distributed hypertables in the same database as standard hypertables
-and standard PostgreSQL tables. This mostly works the same way as having
+and standard $PG tables. This mostly works the same way as having
 multiple standard tables, with a few differences. For example, if you `JOIN` a
 standard table and a distributed hypertable, the access node needs to fetch the
 raw data from the data nodes and perform the `JOIN` locally.

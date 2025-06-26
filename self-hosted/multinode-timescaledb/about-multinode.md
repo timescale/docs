@@ -30,12 +30,12 @@ your specific requirements.
 
 Multi-node $TIMESCALE_DB allows you to tie several databases together into a
 logical distributed database to combine the processing power of many physical
-PostgreSQL instances.
+$PG instances.
 
 One of the databases exists on an access node and stores
 metadata about the other databases. The other databases are
 located on data nodes and hold the actual data. In theory, a
-PostgreSQL instance can serve as both an access node and a data node
+$PG instance can serve as both an access node and a data node
 at the same time in different databases. However, it is recommended not to
 have mixed setups, because it can be complicated, and server
 instances are often provisioned differently depending on the role they

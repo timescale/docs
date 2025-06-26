@@ -19,7 +19,7 @@ constraint.
 
 <Highlight type="note">
 
-In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
+In $PG, a primary key is a unique index with a `NOT NULL` constraint.
 If you have a primary key, you automatically have a unique index.
 
 </Highlight>
