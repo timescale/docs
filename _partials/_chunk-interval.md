@@ -1,7 +1,7 @@
-Postgres builds the index on the fly during ingestion. That means that to build a new entry on the index, 
+$PG builds the index on the fly during ingestion. That means that to build a new entry on the index, 
 a significant portion of the index needs to be traversed during every row insertion. When the index does not fit
-into memory, it is constantly flushed to disk and read back, which wastes IO resources which would otherwise
-been used for writing the heap/WAL data to disk. 
+into memory, it is constantly flushed to disk and read back. This wastes IO resources which would otherwise
+be used for writing the heap/WAL data to disk. 
 
 The default chunk interval is 7 days. However, best practice is to set `chunk_interval` so that prior to processing,
 the indexes for chunks currently being ingested into fit within 25% of main memory. For example, on a system with 64 
