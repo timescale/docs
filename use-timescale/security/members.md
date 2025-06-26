@@ -15,7 +15,7 @@ When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a $PROJ
 
 - `Owner`: $CLOUD_LONG assigns this role to you when your $PROJECT_SHORT is created. As Owner, you can add and delete other users, transfer project ownership, administer $SERVICE_SHORTs, and edit $PROJECT_SHORT settings. 
 - `Admin`: the Owner assigns this role to other users in the $PROJECT_SHORT. A user with the `Admin` role has the same scope of rights as the `Owner` but cannot transfer project ownership.
-- `Viwer`: the `Owner` and `Admin` can assign this role to other users in the $PROJECT_SHORT. A user with the `Viewer` role has limited, read-only access to $CONSOLE_LONG. This means that a `Viewer` cannot modify $SERVICE_SHORTs and their configurations in any way. A `Viewer` has no access to the $DATA_MODE and has read-queries-only access to $SQL_EDITOR. 
+- `Viewer`: the Owner and Admin assign this role to other users in the $PROJECT_SHORT. A Viewer has limited, read-only access to $CONSOLE_LONG. This means that a Viewer cannot modify $SERVICE_SHORTs and their configurations in any way. A Viewer has no access to the $DATA_MODE and has read-queries-only access to $SQL_EDITOR. 
 
 ![Project users in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-project-users-overview.png)
 
