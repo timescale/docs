@@ -1,5 +1,5 @@
 ---
-title: Real-time analytics with Tiger Cloud and Grafana
+title: Analytics on energy consumption
 excerpt: Simulate an IOT dataset in your Tiger Cloud service
 products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
