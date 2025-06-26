@@ -36,7 +36,7 @@ You set up the data lake table bucket and role ARNs, using one of the following 
 <Procedure >
 
 1. **Set the AWS Region to host your table bucket**
-   1. In [AWS CloudFormation][cmc], select the currently AWS Region at the top-right of the page.
+   1. In [AWS CloudFormation][cmc], select the current AWS Region at the top-right of the page.
    2. Set it to the Region to create your table bucket in. 
 
    **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for 
@@ -45,9 +45,11 @@ You set up the data lake table bucket and role ARNs, using one of the following 
 1. **Create your CloudFormation stack**
    1. Click `Create stack`, then select `With new resources (standard)`.
    1. In `Amazon S3 URL`, paste the following URL, then click `Next`.
-      ```
+   
+      ```http request
       https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml
       ```
+   
    1. In `Specify stack details`, enter the following details, then click `Next`:
       * `Stack Name`: a name for this CloudFormation stack
       * `BucketName`: a name for this S3 table bucket
@@ -114,7 +116,7 @@ You set up the data lake table bucket and role ARNs, using one of the following 
 1. **Create a S3 Bucket** 
 
    1. Set the AWS Region to host your table bucket
-      1. In [Amazon S3 console][s3-console], select the currently AWS Region at the top-right of the page.
+      1. In [Amazon S3 console][s3-console], select the current AWS Region at the top-right of the page.
       2. Set it to the Region to create your table bucket in.
 
       **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for
@@ -147,6 +149,7 @@ You set up the data lake table bucket and role ARNs, using one of the following 
           ]
       }
       ```
+      
       `"Principal": { "AWS": "arn:aws:iam::123456789012:root" }` does not mean `root` access. This delegates 
         permissions to the entire AWS account, not just the root user.
 
