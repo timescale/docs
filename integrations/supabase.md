@@ -29,7 +29,7 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 1. **Optimize time-series data in hypertables**
 
    Time-series data represents how a system, process, or behavior changes over time. [Hypertables][hypertables-section]
-   are PostgreSQL tables that help you improve insert and query performance by automatically partitioning your data by
+   are $PG tables that help you improve insert and query performance by automatically partitioning your data by
    time.
 
    1. [Connect to your $SERVICE_LONG][connect] and create a table that will point to a Supabase database:
@@ -62,7 +62,7 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 1. **Create optimized analytical queries**
 
    Continuous aggregates are designed to make queries on very large datasets run
-   faster. Continuous aggregates in $CLOUD_LONG use PostgreSQL [materialized views][postgres-materialized-views] to 
+   faster. Continuous aggregates in $CLOUD_LONG use $PG [materialized views][postgres-materialized-views] to 
    continuously, and incrementally refresh a query in the background, so that when you run the query,
    only the data that has changed needs to be computed, not the entire dataset.
 

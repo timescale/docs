@@ -9,7 +9,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Connect with psql
 
-[`psql`][psql-docs] is a terminal-based frontend to PostgreSQL that enables you to type in queries interactively, issue them to Postgres, and see the query results. 
+[`psql`][psql-docs] is a terminal-based frontend to $PG that enables you to type in queries interactively, issue them to Postgres, and see the query results. 
 
 This page shows you how to use the `psql` command line tool to interact with your $SERVICE_LONG.
 
@@ -54,7 +54,7 @@ If there is no existing installation, take the following steps to install `psql`
     
 <Tab title="MacOS Homebrew">
 
-Install using Homebrew. `libpqxx` is the official C++ client API for PostgreSQL.
+Install using Homebrew. `libpqxx` is the official C++ client API for $PG.
 
 <Procedure>
 
@@ -93,7 +93,7 @@ On Intel chips, the symbolic link is added to `/usr/local/bin`. On Apple Silicon
 
 <Tab title="MacOS MacPorts">
 
-Install using MacPorts. `libpqxx` is the official C++ client API for PostgreSQL.
+Install using MacPorts. `libpqxx` is the official C++ client API for $PG.
 
 <Procedure>
 
@@ -145,11 +145,11 @@ Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
 <Tab title="Windows">
 
-`psql` is installed by default when you install PostgreSQL. This procedure uses the interactive installer provided by PostgreSQL and EnterpriseDB.
+`psql` is installed by default when you install $PG. This procedure uses the interactive installer provided by $PG and EnterpriseDB.
 
 <Procedure>
 
-1.  Download and run the PostgreSQL installer from [www.enterprisedb.com][windows-installer].
+1.  Download and run the $PG installer from [www.enterprisedb.com][windows-installer].
  
 1. In the `Select Components` dialog, check `Command Line Tools`, along with any other components you want to install, and click `Next`.
 
@@ -200,7 +200,7 @@ When you start using `psql`, these are the commands you are likely to use most f
 |`\di`|List all indexes from all tables|
 |`\dn`|List all schemas in the current database|
 |`\dt`|List available tables|
-|`\du`|List PostgreSQL database roles|
+|`\du`|List $PG database roles|
 |`\dv`|List views in current schema|
 |`\dv+`|List all views with more details|
 |`\dx`|Show all installed extensions|

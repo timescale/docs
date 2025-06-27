@@ -14,13 +14,13 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 
 To set up multi-node on a $SELF_LONG instance, you need:
 
-*   A PostgreSQL instance to act as an access node (AN)
-*   One or more PostgreSQL instances to act as data nodes (DN)
+*   A $PG instance to act as an access node (AN)
+*   One or more $PG instances to act as data nodes (DN)
 *   $TIMESCALE_DB [installed][install] and [set up][setup] on all nodes
 *   Access to a superuser role, such as `postgres`, on all nodes
 
 The access and data nodes must begin as individual $TIMESCALE_DB instances.
-They should be hosts with a running PostgreSQL server and a loaded $TIMESCALE_DB
+They should be hosts with a running $PG server and a loaded $TIMESCALE_DB
 extension. For more information about installing $SELF_LONG
 instances, see the [installation instructions][install]. Additionally, you
 can configure [high availability with multi-node][multi-node-ha] to

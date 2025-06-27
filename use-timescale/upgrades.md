@@ -1,6 +1,6 @@
 ---
 title: Maintenance and upgrades
-excerpt: Keep your Tiger Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of PostgreSQL
+excerpt: Keep your Tiger Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of Postgres
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:
@@ -106,7 +106,7 @@ deprecation is as follows:
 - **Automatic upgrade deadline**: $CLOUD_LONG performs an [automatic upgrade][automatic-upgrade] of your $SERVICE_SHORT.
 
 
-## Manually upgrade PostgreSQL for a $SERVICE_SHORT
+## Manually upgrade $PG for a $SERVICE_SHORT
 
 Upgrading to a newer version of $PG enables you to take advantage of new features, enhancements, and security fixes. 
 It also ensures that you are using a version of $PG that's compatible with the newest version of $TIMESCALE_DB. 
@@ -134,7 +134,7 @@ The following table shows you the compatible versions of $PG and $TIMESCALE_DB.
 <SupportMatrix />
 
 For more information about feature changes between versions, see the
-[PostgreSQL release notes][postgres-relnotes] and
+[$PG release notes][postgres-relnotes] and
 [$TIMESCALE_DB release notes][timescale-relnotes].
 
 <Highlight type="warning">
@@ -176,7 +176,7 @@ To upgrade your $SERVICE_SHORT to a newer version of $PG:
 
 </Procedure>
 
-## Automatic PostgreSQL upgrades for a $SERVICE_SHORT
+## Automatic $PG upgrades for a $SERVICE_SHORT
 
 If you do not manually upgrade your $SERVICE_SHORTs within the [customer self-service upgrade window][deprecation-window], 
 $CLOUD_LONG performs an automatic upgrade. Automatic upgrades can result in downtime, best practice is to 

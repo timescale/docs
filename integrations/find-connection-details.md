@@ -57,7 +57,7 @@ To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LON
 
 <Tab title="Self-hosted TimescaleDB">
 
-Find the connection details in the [PostgreSQL configuration file][postgres-config] or by asking your database administrator. The `postgres` superuser, created during PostgreSQL installation, has all the permissions required to run procedures in this documentation. However, it is recommended to create other users and assign permissions on the need-only basis. 
+Find the connection details in the [$PG configuration file][postgres-config] or by asking your database administrator. The `postgres` superuser, created during $PG installation, has all the permissions required to run procedures in this documentation. However, it is recommended to create other users and assign permissions on the need-only basis. 
 
 </Tab>
 

@@ -34,10 +34,10 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
    
 </Procedure>
 
-## Create a standard PostgreSQL table for relational data
+## Create a standard $PG table for relational data
 
 When you have relational data that enhances your time-series data, store that data in
-standard PostgreSQL relational tables. 
+standard $PG relational tables. 
 
 <Procedure>
 
@@ -52,8 +52,8 @@ standard PostgreSQL relational tables.
 
 </Procedure>
 
-You now have two tables within your $SERVICE_LONG. A hypertable named `crypto_ticks`, and a normal 
-PostgreSQL table named `crypto_assets`.
+You now have two tables within your $SERVICE_LONG. A hypertable named `crypto_ticks`, and a normal
+$PG table named `crypto_assets`.
 
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services

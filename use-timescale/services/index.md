@@ -1,6 +1,6 @@
 ---
 title: About Tiger Cloud services
-excerpt: A Tiger Cloud service is a 100% PostgreSQL database instance that you use as is, or extend with capabilities specific to your business needs. Learn more about services and available features
+excerpt: A Tiger Cloud service is a 100% Postgres database instance that you use as is, or extend with capabilities specific to your business needs. Learn more about services and available features
 products: [cloud]
 keywords: [services]
 cloud_ui:
@@ -39,7 +39,7 @@ or [contact us][contact-timescale] directly.
 ## Advanced configuration
 
 $CLOUD_LONG is a versatile hosting service that provides a growing list of
-advanced features for your PostgreSQL and time-series data workloads.
+advanced features for your $PG and time-series data workloads.
 
 For more information about customizing your database configuration, see the
 [Configuration section][configuration].

@@ -6,7 +6,7 @@ subsection: stats_agg() (two variables)
 Perform linear regression analysis, for example to calculate correlation
 coefficient and covariance, on two-dimensional data. You can also calculate
 common statistics, such as average and standard deviation, on each dimension
-separately. These functions are similar to the [PostgreSQL statistical
+separately. These functions are similar to the [Postgres statistical
 aggregates][pg-stats-aggs], but they include more features and are easier to use
 in [continuous aggregates][caggs] and window functions. The linear regressions
 are based on the standard least-squares fitting method.

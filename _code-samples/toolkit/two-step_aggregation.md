@@ -18,7 +18,7 @@ The inner aggregate call creates a machine-readable partial form that can be use
 While the one-step calling convention is easier for the simple case, it becomes much more difficult and hard to reason about for slightly more complex use-cases detailed in the next section. We wanted the calling convention to remain consistent and easy to reason about so you can take advantage of the same functions even as you start doing more complicated analyses.  This also to keeps the docs consistent and prevents adding special cases everywhere.
 
 ## Why We Use Two-Step Aggregates <a id="two-step-philosophy"></a>
-Interestingly, almost all Postgres aggregates do a version of this [under the hood already](https://www.postgresql.org/docs/current/xaggr.html), where they have an internal state used for aggregation and then a final function that displays the output to the user.
+Interestingly, almost all $PG aggregates do a version of this [under the hood already](https://www.postgresql.org/docs/current/xaggr.html), where they have an internal state used for aggregation and then a final function that displays the output to the user.
 
 So why do we make this calling convention explicit?
 

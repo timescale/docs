@@ -83,7 +83,7 @@ data.
 ### Upgrading TimescaleDB within Docker
 
 1.  Pull the latest TimescaleDB image. This command pulls the image for
-    TimescaleDB 2.17.x running on PostgreSQL 17. If you're using another PostgreSQL version, 
+    TimescaleDB 2.17.x running on $PG 17. If you're using another $PG version, 
     look for the relevant tag in the
     [TimescaleDB HA Docker Hub repository](https://hub.docker.com/r/timescale/timescaledb-ha/tags).
 

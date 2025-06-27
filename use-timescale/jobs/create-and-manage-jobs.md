@@ -1,6 +1,6 @@
 ---
 title: Create and manage jobs
-excerpt: Jobs are custom PostgreSQL functions and procedures that you set up to run on a schedule. Create, register, test, alter, and delete jobs in TimescaleDB
+excerpt: Jobs are custom Postgres functions and procedures that you set up to run on a schedule. Create, register, test, alter, and delete jobs in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [jobs]
 tags: [scheduled jobs, background jobs, automation framework]

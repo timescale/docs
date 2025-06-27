@@ -24,7 +24,7 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 
 *   Python 3
 *   TimescaleDB (see [installation options][install-timescale])
-*   [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
+*   [Psql][psql-install] or any other $PG client (for example, DBeaver)
 
 ## Download the dataset
 
@@ -230,7 +230,7 @@ conn.close()
 
 ## Analyze NFL data
 
-Now that you have all the data ingested, let's go over some ideas on how you can analyze the data using PostgreSQL and TimescaleDB to help you perfect
+Now that you have all the data ingested, let's go over some ideas on how you can analyze the data using $PG and TimescaleDB to help you perfect
 your fantasy drafting strategy and win your fantasy season.
 
 Some of this analysis includes visualizations to help you see the potential uses for this data. These are created using the Matplotlib Python module, which is one of many great visualization tools.
@@ -393,7 +393,7 @@ The y-axis, or the number of plays for one team during a single game shows that 
 
 ### **Average yards per game for top three players of each position**
 
-You can use this PostgreSQL query to extract the average yards run by an individual player over one game. This query only includes the top three highest player's average yard values per position type. The data is ordered by the average yards run across all players for each position. This becomes important later on.
+You can use this $PG query to extract the average yards run by an individual player over one game. This query only includes the top three highest player's average yard values per position type. The data is ordered by the average yards run across all players for each position. This becomes important later on.
 
 Note: This query excludes some position types from the list due to such low average yard values, the excluded positions are Kicker, Punter, Nose Tackle, Long Snapper, and Defensive Tackle
 
