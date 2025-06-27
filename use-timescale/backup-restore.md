@@ -17,7 +17,7 @@ have a full backup available for the current and previous week:
 
 ![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
-In the event of a storage failure, a $SERVICE_SHORT automatically recovers from backup
+In the event of a storage failure, a $SERVICE_SHORT automatically recovers from a backup
 to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, where a point-in-time recovery needs to be done, you can [create a point-in-time recovery fork][create-fork].
 
 ## Enable cross-region backup 
