@@ -39,7 +39,7 @@ formats. Each comes with its own benefits and challenges:
   Prometheus' histogram metric.
 *   **Aggregated data**: Grafana also accepts pre-aggregated
   time-bucket data. You can aggregate your data using
-  $TIMESCALE_DB's `time_bucket` function or PostgreSQL's
+  $TIMESCALE_DB's `time_bucket` function or $PG's
   `date_trunc` function. To create the histogram, Grafana further
   buckets the aggregated data. It automatically selects a bucket size,
   which is about 10% of your data's total range.
@@ -248,8 +248,8 @@ volume for that bucket.
 You can do this with a pre-aggregation query, using:
 
 *   $TIMESCALE_DB's [`time_bucket`][time_bucket] function.
-*   PostgreSQL's [`max`][max] function.
-*   PostgreSQL's [`lag`][lag] function. Use this to subtract each from the
+*   $PG's [`max`][max] function.
+*   $PG's [`lag`][lag] function. Use this to subtract each from the
     previous, when the rows are ordered by descending `time`.
 
 <Procedure>

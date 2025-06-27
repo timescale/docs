@@ -42,7 +42,7 @@ This tutorial has a few sections to help you on your journey:
 
 *   Python 3
 *   $TIMESCALE_DB (see [installation options][install-timescale])
-*   [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
+*   [Psql][psql-install] or any other $PG client (for example, DBeaver)
 *   The [$TOOLKIT_LONG][toolkit]
 
 ## Download the dataset

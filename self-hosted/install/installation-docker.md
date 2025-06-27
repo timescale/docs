@@ -12,7 +12,7 @@ import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-d
 
 # Install $TIMESCALE_DB from a Docker container
 
-TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
+TimescaleDB is a [$PG extension](https://www.postgresql.org/docs/current/external-extensions.html) for
 time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB 
 instance on any local system from a pre-built Docker container. 
 
@@ -23,7 +23,7 @@ This section shows you how to
 
 ### Prerequisites
 
-To run, and connect to a PostgreSQL installation on Docker, you need to install:
+To run, and connect to a $PG installation on Docker, you need to install:
 
 - [Docker][docker-install]
 - [psql][install-psql]
@@ -31,13 +31,13 @@ To run, and connect to a PostgreSQL installation on Docker, you need to install:
 
 ## Install and configure $TIMESCALE_DB on $PG
 
-This section shows you how to install the latest version of PostgreSQL and
+This section shows you how to install the latest version of $PG and
 $TIMESCALE_DB on a [supported platform](#supported-platforms) using containers supplied by $COMPANY.
 
 <SelfHostedDocker />
 
 
-And that is it! You have TimescaleDB running on a database on a self-hosted instance of PostgreSQL.
+And that is it! You have TimescaleDB running on a database on a self-hosted instance of $PG.
 
 ## More Docker options
 
@@ -50,7 +50,7 @@ docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password time
 
 The `-p` flag binds the container port to the host port. This means that
 anything that can access the host port can also access your TimescaleDB container,
-so it's important that you set a PostgreSQL password using the
+so it's important that you set a $PG password using the
 `POSTGRES_PASSWORD` environment variable. Without that variable, the Docker
 container disables password checks for all database users.
 
@@ -63,7 +63,7 @@ docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
 ```
 
-If you don't want to install `psql` and other PostgreSQL client tools locally,
+If you don't want to install `psql` and other $PG client tools locally,
 or if you are using a Microsoft Windows host system, you can connect using the
 version of `psql` that is bundled within the container with this command:
 
@@ -83,7 +83,7 @@ data volume using the `-v` flag.
 
 <Highlight type="warning">
 
-The two container types store PostgreSQL data dir in different places,
+The two container types store $PG data dir in different places,
 make sure you select the correct one to mount:
 
 <!-- vale Vale.Terms = NO -->
@@ -101,14 +101,14 @@ docker run -d --name timescaledb -p 5432:5432 \
 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
 ```
 
-When you install TimescaleDB using a Docker container, the PostgreSQL settings
+When you install TimescaleDB using a Docker container, the $PG settings
 are inherited from the container. In most cases, you do not need to adjust them.
 However, if you need to change a setting you can add `-c setting=value` to your
 Docker `run` command. For more information, see the
 [Docker documentation][docker-postgres].
 
 The link provided in these instructions is for the latest version of TimescaleDB
-on PostgreSQL 16. To find other Docker tags you can use, see the
+on $PG 16. To find other Docker tags you can use, see the
 [Dockerhub repository][dockerhub].
 
 

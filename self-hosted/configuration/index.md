@@ -1,13 +1,13 @@
 ---
 title: Configuration
-excerpt: Learn how to configure your TimescaleDB instance on top of the default PostgreSQL server configuration settings
+excerpt: Learn how to configure your TimescaleDB instance on top of the default Postgres server configuration settings
 products: [self_hosted]
 keywords: [configuration, settings]
 ---
 
 # Configuration
 
-By default, $TIMESCALE_DB uses the default PostgreSQL server configuration
+By default, $TIMESCALE_DB uses the default $PG server configuration
 settings. However, in some cases, these settings are not appropriate, especially
 if you have larger servers that use more hardware resources such as CPU, memory,
 and storage.

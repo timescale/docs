@@ -1,7 +1,6 @@
 ## Migrate schema post-data
 
-When you have migrated your table and hypertable data, migrate your PostgreSQL
-schema post-data. This includes information about constraints.
+When you have migrated your table and hypertable data, migrate your $PG schema post-data. This includes information about constraints.
 
 <Procedure>
 

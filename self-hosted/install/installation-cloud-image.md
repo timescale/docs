@@ -61,7 +61,7 @@ with the `timescaledb-tools` package. For more information, see the
 
 <Highlight type="note">
 
-After running the `timescaledb-tune` script, you need to restart the PostgreSQL
+After running the `timescaledb-tune` script, you need to restart the $PG
 service for the configuration changes to take effect. To restart the service,
 run `sudo systemctl restart postgresql.service`.
 
@@ -69,12 +69,12 @@ run `sudo systemctl restart postgresql.service`.
 
 ## Set up the $TIMESCALE_DB extension
 
-When you have PostgreSQL and TimescaleDB installed, connect to your instance and
+When you have $PG and TimescaleDB installed, connect to your instance and
 set up the TimescaleDB extension.
 
 <Procedure>
 
-1.  On your instance, at the command prompt, connect to the PostgreSQL
+1.  On your instance, at the command prompt, connect to the $PG
     instance as the `postgres` superuser:
 
     ```bash

@@ -79,7 +79,7 @@ Imagine there is a query that joins a hypertable to another table on a shared ke
 
 If you run `EXPLAIN` on this query, you see that the query planner performs a `NestedJoin` between these two tables, which means querying the hypertable multiple times.  Even if the hypertable is well indexed, if it is also large, the query will be slow. How do you force a once-only lookup? Use materialized Common Table Expressions (CTEs).
 
-If you split the query into two parts using CTEs, you can `materialize` the hypertable lookup and force PostgreSQL to perform it only once. 
+If you split the query into two parts using CTEs, you can `materialize` the hypertable lookup and force $PG to perform it only once. 
 
 ```sql
 WITH cached_query AS materialized (

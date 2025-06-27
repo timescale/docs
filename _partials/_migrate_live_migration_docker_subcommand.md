@@ -29,7 +29,7 @@ Live-migration contains 3 subcommands:
 
 On a high-level,
 
-the `snapshot` subcommand creates a Postgres snapshot connection to the source
+the `snapshot` subcommand creates a $PG snapshot connection to the source
 database along with a replication slot. This is pre-requisite before running
 the `migrate` subcommand.
 

@@ -1,6 +1,6 @@
 ---
 title: Integrate Kubernetes with Tiger Cloud
-excerpt: Learn how to integrate Kubernetes with Tiger Cloud to enable seamless deployment and scaling of your PostgreSQL workloads
+excerpt: Learn how to integrate Kubernetes with Tiger Cloud to enable seamless deployment and scaling of your Postgres workloads
 products: [cloud, self_hosted]
 keywords: [Kubernetes, Tiger Cloud, PostgreSQL, container orchestration]
 ---

@@ -43,7 +43,7 @@ CREATE TABLE public.stocks_intraday (
 );
 ```
 
-This creates a regular PostgreSQL table with all the columns needed to ingest candlestick data records.
+This creates a regular $PG table with all the columns needed to ingest candlestick data records.
 
 # Create hypertable
 

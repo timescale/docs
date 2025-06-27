@@ -21,7 +21,7 @@ keywords: [updates]
 
 If the error occurs immediately after updating your version of $TIMESCALE_DB and
 the file mentioned is from the previous version, it is probably due to an incomplete
-update process. Within the greater PostgreSQL server instance, each
+update process. Within the greater $PG server instance, each
 database that has $TIMESCALE_DB installed needs to be updated with the SQL command
 `ALTER EXTENSION timescaledb UPDATE;` while connected to that database. Otherwise,
 the database looks for the previous version of the $TIMESCALE_DB files.

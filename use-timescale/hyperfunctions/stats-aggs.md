@@ -9,7 +9,7 @@ keywords: [hyperfunctions, Toolkit, statistics]
 
 To make common statistical aggregates easier to work with in window functions
 and continuous aggregates, $TIMESCALE_DB provides common statistical aggregates in
-a slightly different form than otherwise available in PostgreSQL.
+a slightly different form than otherwise available in $PG.
 
 This example calculates the average, standard deviation, and kurtosis of
 a value in the `measurements` table:

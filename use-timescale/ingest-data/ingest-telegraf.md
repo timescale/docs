@@ -48,7 +48,7 @@ To create a Telegraf configuration that exports data to a hypertable in your $SE
     ```
 
     `telegraf.conf` configures a CPU input plugin that samples
-    various metrics about CPU usage, and the PostgreSQL output plugin. `telegraf.conf`
+    various metrics about CPU usage, and the $PG output plugin. `telegraf.conf`
     also includes all available input, output, processor, and aggregator
     plugins. These are commented out by default.
 
@@ -73,7 +73,7 @@ To create a Telegraf configuration that exports data to a hypertable in your $SE
     > cpu,cpu=cpu2,host=localhost usage_guest=0,usage_guest_nice=0,usage_idle=91.99999999982538,usage_iowait=0,usage_irq=0,usage_nice=0,usage_softirq=0,usage_steal=0,usage_system=3.999999999996362,usage_user=3.999999999996362 1669640025000000000
     ```
 
-1. **Configure the PostgreSQL output plugin**
+1. **Configure the $PG output plugin**
 
    1.  In `telegraf.conf`, in the `[[outputs.postgresql]]` section, set `connection` to
       the value of $TARGET.

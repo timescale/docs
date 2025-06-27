@@ -30,7 +30,7 @@ choosing an algorithm:
 
 Before you begin, it is important to understand that the formal definition for
 a percentile is imprecise, and there are different methods for determining what
-the true percentile actually is. In PostgreSQL, given a target percentile `p`,
+the true percentile actually is. In $PG, given a target percentile `p`,
 [`percentile_disc`][pg-percentile] returns the smallest element of a set, so
 that `p` percent of the set is less than that element. However,
 [`percentile_cont`][pg-percentile] returns an interpolated value between the two
@@ -51,7 +51,7 @@ the same underlying data, regardless of how it is ordered or re-aggregated. On
 the other hand,  `tdigest` builds up incremental buckets based on the average of
 nearby points, which can result in some subtle differences in estimates based on
 the same data unless the order and batching of the aggregation is strictly
-controlled, which is sometimes difficult to do in PostgreSQL. If stable
+controlled, which is sometimes difficult to do in $PG. If stable
 estimates are important to you, choose `uddsketch`.
 
 Calculating precise error bars for `tdigest` can be difficult, especially when

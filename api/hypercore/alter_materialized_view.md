@@ -18,7 +18,7 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 `ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH`
 clause [options][create_materialized_view] for the continuous aggregate view.
 `ALTER MATERIALIZED VIEW` statement also supports the following
-[PostgreSQL clauses][postgres-alterview] on the
+[$PG clauses][postgres-alterview] on the
 continuous aggregate view:
 
 *   `RENAME TO` clause to rename the continuous aggregate view

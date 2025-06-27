@@ -16,7 +16,7 @@ more database replicas.
 
 Before you begin, make sure you have at least two separate instances of
 $TIMESCALE_DB running. If you installed TimescaleDB using a Docker container, use
-a [PostgreSQL entry point script][docker-postgres-scripts] to run the
+a [$PG entry point script][docker-postgres-scripts] to run the
 configuration. For more advanced examples, see the
 [$TIMESCALE_DB Helm Charts repository][timescale-streamrep-helm].
 
@@ -33,7 +33,7 @@ procedures:
 
 ## Configure the primary database
 
-To configure the primary database, you need a PostgreSQL user with a role that
+To configure the primary database, you need a $PG user with a role that
 allows it to initialize streaming replication. This is the user each replica
 uses to stream from the primary database.
 
@@ -55,8 +55,10 @@ uses to stream from the primary database.
     ```
 
 <Highlight type="important">
+
 The [scram-sha-256](https://www.postgresql.org/docs/current/sasl-authentication.html#SASL-SCRAM-SHA-256) encryption level is the most secure
-password-based authentication available in PostgreSQL. It is only available in PostgreSQL 10 and later.
+password-based authentication available in $PG. It is only available in $PG 10 and later.
+
 </Highlight>
 
 </Procedure>
@@ -75,7 +77,7 @@ There are several replication settings that need to be added or edited in the
     connections from replicas or backup clients. As a minimum, this should equal
     the number of replicas you intend to have.
 1.  Set the `wal_level` parameter to the amount of information written to the
-    PostgreSQL write-ahead log (WAL). For replication to work, there needs to be
+    $PG write-ahead log (WAL). For replication to work, there needs to be
     enough data in the WAL to support archiving and replication. The default
     value is usually appropriate.
 1.  Set the `max_replication_slots` parameter to the total number of replication
@@ -83,7 +85,7 @@ There are several replication settings that need to be added or edited in the
 1.  Set the `listen_addresses` parameter to the address of the primary database.
     Do not leave this parameter as the local loopback address, because the
     remote replicas must be able to connect to the primary to stream the WAL.
-1.  Restart PostgreSQL to pick up the changes. This must be done before you
+1.  Restart $PG to pick up the changes. This must be done before you
     create replication slots.
 
 </Procedure>
@@ -114,7 +116,7 @@ more information about the different replication modes, see the
 
 ## Create replication slots
 
-When you have configured `postgresql.conf` and restarted PostgreSQL, you can
+When you have configured `postgresql.conf` and restarted $PG, you can
 create a [replication slot][postgres-rslots-docs] for each replica. Replication
 slots ensure that the primary does not delete segments from the WAL until they
 have been received by the replicas. This is important in case a replica goes
@@ -143,7 +145,7 @@ provide the strongest protection for streaming replication.
 There are several replication settings that need to be added or edited to the
 `pg_hba.conf` configuration file. In this example, the settings restrict
 replication connections to traffic coming from `REPLICATION_HOST_IP` as the
-PostgreSQL user `repuser` with a valid password. `REPLICATION_HOST_IP` can
+$PG user `repuser` with a valid password. `REPLICATION_HOST_IP` can
 initiate streaming replication from that machine without additional credentials.
 You can change the `address` and `method` values to match your security and
 network settings.
@@ -162,14 +164,14 @@ For more information about `pg_hba.conf`, see the
     host  replication repuser <REPLICATION_HOST_IP>/32  scram-sha-256
     ```
 
-1.  Restart PostgreSQL to pick up the changes.
+1.  Restart $PG to pick up the changes.
 
 </Procedure>
 
 ## Create a base backup on the replica
 
 Replicas work by streaming the primary server's WAL log and replaying its
-transactions in PostgreSQL recovery mode. To do this, the replica needs to be in
+transactions in $PG recovery mode. To do this, the replica needs to be in
 a state where it can replay the log. You can do this by restoring the replica
 from a base backup of the primary instance.
 
@@ -177,9 +179,9 @@ from a base backup of the primary instance.
 
 ### Creating a base backup on the replica
 
-1.  Stop PostgreSQL services.
+1.  Stop $PG services.
 1.  If the replica database already contains data, delete it before you run the
-    backup, by removing the PostgreSQL data directory:
+    backup, by removing the $PG data directory:
 
     ```bash
     rm -rf <DATA_DIRECTORY>/*
@@ -200,7 +202,7 @@ from a base backup of the primary instance.
     automated setup, you might need to use a [pgpass file][pgpass-file].
 1.  When the backup is complete, create a
     [standby.signal][postgres-recovery-docs] file in your data directory. When
-    PostgreSQL finds a `standby.signal` file in its data directory, it starts in
+    $PG finds a `standby.signal` file in its data directory, it starts in
     recovery mode and streams the WAL through the replication protocol:
 
     ```bash
@@ -241,8 +243,8 @@ can configure the replication and recovery settings.
     ```
 
     The `hot_standby` parameter must be set to `on` to allow read-only queries
-    on the replica. In PostgreSQL 10 and later, this setting is `on` by default.
-1.  Restart PostgreSQL to pick up the changes.
+    on the replica. In $PG 10 and later, this setting is `on` by default.
+1.  Restart $PG to pick up the changes.
 
 </Procedure>
 
@@ -272,7 +274,7 @@ might require greater consistency between the primary and replicas, especially
 if you have a heavy workload. Under heavy workloads, replicas can lag far behind
 the primary, providing stale data to clients reading from the replicas.
 Additionally, in cases where any data loss is fatal, asynchronous replication
-might not provide enough of a durability guarantee. The PostgreSQL
+might not provide enough of a durability guarantee. The $PG
 [`synchronous_commit`][postgres-synchronous-commit-docs] feature has several
 options with varying consistency and performance tradeoffs.
 
@@ -286,7 +288,7 @@ In the `postgresql.conf` file, set the `synchronous_commit` parameter to:
     does not wait for the operating system to actually write it. This can cause
     a small amount of data loss if the server crashes when some data has not
     been written, but it does not result in data corruption. Turning
-    `synchronous_commit` off is a well-known PostgreSQL optimization for
+    `synchronous_commit` off is a well-known $PG optimization for
     workloads that can withstand some data loss in the event of a system crash.
 *   `local`: Enforces `on` behavior only on the primary server.
 *   `remote_write`: The database returns `success` to a client when the WAL
@@ -345,7 +347,7 @@ asynchronously.
 
 ## Replication diagnostics
 
-The PostgreSQL [pg_stat_replication][postgres-pg-stat-replication-docs] view
+The $PG [pg_stat_replication][postgres-pg-stat-replication-docs] view
 provides information about each replica. This view is particularly useful for
 calculating replication lag, which measures how far behind the primary the
 current state of the replica is. The `replay_lag` field gives a measure of the
@@ -410,11 +412,11 @@ sync_state       | sync
 
 ## Failover
 
-PostgreSQL provides some failover functionality, where the replica is promoted
+$PG provides some failover functionality, where the replica is promoted
 to  primary in the event of a failure. This is provided using the
-[pg_ctl][pgctl-docs] command or the `trigger_file`. However, PostgreSQL does
+[pg_ctl][pgctl-docs] command or the `trigger_file`. However, $PG does
 not provide support for automatic failover. For more information, see the
-[PostgreSQL failover documentation][failover-docs]. If you require a
+[$PG failover documentation][failover-docs]. If you require a
 configurable high availability solution with automatic failover functionality,
 check out [Patroni][patroni-github].
 
