@@ -82,7 +82,7 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 1.  Configure the fork. 
 
     You can add an HA replica, enable cross-region backup, change the compute resources, and
-    add a connection pooler as part of this process. It is recommended to match
+    add a connection pooler as part of this process. Best practice is to match
     the same configuration you had at the point you want to recover to.
 1.  Confirm by clicking `Fork service`.
 
