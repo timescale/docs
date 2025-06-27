@@ -33,13 +33,7 @@ is created on your data. If you want to manually create a time index, you can us
 CREATE INDEX ON conditions (time DESC);
 ```
 
-After you create a hypertable, you can specify an optional hash partition in addition to time. For example:
-
-```sql
-add_dimension('conditions', by_hash('location', 4))
-```
-
-You can then create an additional index on the optional column and time: 
+You can also create an additional index on another column and time. For example:
 
 ```sql
 CREATE INDEX ON conditions (location, time DESC);
@@ -48,7 +42,7 @@ CREATE INDEX ON conditions (location, time DESC);
 For more information about the order to use when declaring indexes, see the
 [about indexing][about-index] section.
 
-If you do not want to create these default indexes, you can set
+If you do not want to create default indexes, you can set
 `create_default_indexes` to `false` when you create a hypertable. For example:
 
 ```sql
