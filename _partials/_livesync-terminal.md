@@ -138,20 +138,20 @@ For example:
 
 1. **Create a publication that specifies the table to synchronize**
 
-   `PUBLICATION` enables you to add all the tables in the schema or even all the tables in the database. However, it
+   A `PUBLICATION` enables you to synchronize some or all the tables in the schema or database. 
    requires superuser privileges on most of the managed PostgreSQL offerings.
 
    ```sql
-   CREATE PUBLICATION analytics FOR TABLE metrics, tags;
+   CREATE PUBLICATION <publication_name> FOR TABLE <table_name>, <table_name>;
    ```
 
-1. **Add tables after to an existing publication with a call to [ALTER PUBLICATION][alter-publication]**
+    To add tables after to an existing publication, call [ALTER PUBLICATION][alter-publication]**
 
    ```sql
-   ALTER PUBLICATION analytics ADD TABLE events;
+   ALTER PUBLICATION <publication_name> ADD TABLE <table_name>;
    ```
 
-1. **Publish PostgreSQL declarative partitioned table**
+1. **Publish the $PG declarative partitioned table**
 
    To publish declaratively partitioned table changes to your $SERVICE_LONG, set the `publish_via_partition_root`
    special `PUBLICATION` config to `true`:
