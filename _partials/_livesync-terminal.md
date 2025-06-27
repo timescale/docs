@@ -15,7 +15,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
 - [Install Docker][install-docker] on your sync machine.
 
-  You need a minimum of a 4 CPU/16GB EC2 instance to run $LIVESYNC.
+  For a better experience, use at least 4 CPU/16GB EC2 instance to run $LIVESYNC.
 
 - Install the [$PG client tools][install-psql] on your sync machine.
 
@@ -24,9 +24,10 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
 ## Limitations
 
+- The schema is not migrated by $LIVESYNC, you use `pg_dump`/`pg_restore` to migrate it.
+
 <LivesyncLimitations />
 
-- The schema is not migrated by $LIVESYNC, you use `pg_dump`/`pg_restore` to migrate it.
 
 ## Set your connection strings
 

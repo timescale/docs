@@ -16,7 +16,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 ## Limitations
 
-* The source PostgreSQL instance must be accessible from the Internet.
+* The source $PG instance must be accessible from the Internet.
 
   Services hosted behind a firewall or VPC is not supported. It is in the
   roadmap to support this in the future.

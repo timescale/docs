@@ -1,6 +1,6 @@
 * This works for $PG databases only as source. $TIMESCALE_DB is not yet supported.
 
-* The source PostgreSQL instance must be running PostgreSQL 13 or later.
+* The source must be running $PG 13 or later.
 
 * Schema changes must be co-ordinated.
 
