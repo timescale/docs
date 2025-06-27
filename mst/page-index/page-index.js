@@ -124,12 +124,8 @@ module.exports = [
           "A command line tool for Managed Service for TimescaleDB",
       },
       {
-        title: "Migrate your data to Managed Service for TimescaleDB",
+        title: "Migrate your data to a Managed Service for TimescaleDB",
         href: "migrate-to-mst",
-      },
-      {
-        title: "Migrate your data",
-        href: "migrate-to-cloud",
       },
       {
         title: "Using the REST API",
