@@ -136,7 +136,7 @@ For example:
 
 <Procedure>
 
-1. **Create a publication named `analytics` which publishes `metrics` and `tags` tables**
+1. **Create a publication that specifies the table to synchronize**
 
    `PUBLICATION` enables you to add all the tables in the schema or even all the tables in the database. However, it
    requires superuser privileges on most of the managed PostgreSQL offerings.
