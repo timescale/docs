@@ -109,5 +109,5 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 [support]: https://www.timescale.com/contact/
 [pitr]: /use-timescale/:currentVersion:/backup-restore/point-in-time-recovery/
 [rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/#rapid-recovery
-[cross-region]: #enable-cross-region-backup
-[create-fork]: #create-a-point-in-time-recovery-fork
+[cross-region]: /use-timescale/:currentVersion:/backup-restore#enable-cross-region-backup
+[create-fork]: /use-timescale/:currentVersion:/backup-restore#create-a-point-in-time-recovery-fork
