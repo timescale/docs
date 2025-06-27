@@ -15,7 +15,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
 - [Install Docker][install-docker] on your sync machine.
 
-  For a better experience, use at least 4 CPU/16GB EC2 instance to run $LIVESYNC.
+  For a better experience, use a 4 CPU/16GB EC2 instance or greater to run $LIVESYNC.
 
 - Install the [$PG client tools][install-psql] on your sync machine.
 

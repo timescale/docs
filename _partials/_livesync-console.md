@@ -20,9 +20,9 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
   Services hosted behind a firewall or VPC are not supported. This functionality is on the roadmap. 
 
-* Indexes (including Primary Key and Unique constraints) are not migrated by $SERVICE_LONG.
+* Indexes, including the primary key and unique constraints, are not migrated to the target $SERVICE_LONG.
 
-  We recommend that you create only the necessary indexes on the target $SERVICE_LONG depending on your query patterns.
+  We recommend that, depending on your query patterns, you create only the necessary indexes on the target $SERVICE_LONG.
 
 <LivesyncLimitations />
 
