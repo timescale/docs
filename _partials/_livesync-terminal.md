@@ -17,7 +17,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
   You need a minimum of a 4 CPU/16GB EC2 instance to run $LIVESYNC.
 
-- Install the [PostgreSQL client tools][install-psql] on your sync machine.
+- Install the [$PG client tools][install-psql] on your sync machine.
 
   This includes `psql`, `pg_dump`, `pg_dumpall` and `vacuumdb` commands.
 
@@ -89,7 +89,7 @@ Use `pg_dump` to:
 ## Convert partitions and tables with time-series data into hypertables
 
 For efficient querying and analysis, you can convert tables which contain time-series or
-events data, and tables that are already partitioned using PostgreSQL declarative partition into
+events data, and tables that are already partitioned using $PG declarative partition into
 [hypertables][about-hypertables].
 
 <Procedure>
@@ -99,17 +99,17 @@ events data, and tables that are already partitioned using PostgreSQL declarativ
    Run the following on each table in the target $SERVICE_LONG to convert it to a hypertable:
 
    ```shell
-   psql -X -d $TARGET -c "SELECT create_hypertable('<table>', by_range('<partition column>', '<chunk interval>'::interval));"
+   psql -X -d $TARGET -c "SELECT public.create_hypertable('<table>', by_range('<partition column>', '<chunk interval>'::interval));"
    ```
 
    For example, to convert the *metrics* table into a hypertable with *time* as a partition column and
    *1 day* as a partition interval:
 
    ```shell
-   psql -X -d $TARGET -c "SELECT create_hypertable('public.metrics', by_range('time', '1 day'::interval));"
+   psql -X -d $TARGET -c "SELECT public.create_hypertable('public.metrics', by_range('time', '1 day'::interval));"
    ```
 
-1. **Convert PostgreSQL partitions to hypertables**
+1. **Convert $PG partitions to hypertables**
 
    Rename the partition and create a new normal table with the same name as the partitioned table, then
    convert to a hypertable:
@@ -132,20 +132,17 @@ EOF
 After the schema is migrated, you [`CREATE PUBLICATION`][create-publication] on the source database that
 specifies the tables to synchronize.
 
-For example:
-
 <Procedure>
 
 1. **Create a publication that specifies the table to synchronize**
 
-   A `PUBLICATION` enables you to synchronize some or all the tables in the schema or database. 
-   requires superuser privileges on most of the managed PostgreSQL offerings.
+   A `PUBLICATION` enables you to synchronize some or all the tables in the schema or database.
 
    ```sql
    CREATE PUBLICATION <publication_name> FOR TABLE <table_name>, <table_name>;
    ```
 
-    To add tables after to an existing publication, call [ALTER PUBLICATION][alter-publication]**
+    To add tables after to an existing publication, use [ALTER PUBLICATION][alter-publication]**
 
    ```sql
    ALTER PUBLICATION <publication_name> ADD TABLE <table_name>;
@@ -153,14 +150,13 @@ For example:
 
 1. **Publish the $PG declarative partitioned table**
 
-   To publish declaratively partitioned table changes to your $SERVICE_LONG, set the `publish_via_partition_root`
-   special `PUBLICATION` config to `true`:
-
    ```sql
    ALTER PUBLICATION <publication_name> SET(publish_via_partition_root=true);
    ```
 
-1. **Stop syncing a table in the `PUBLICATION` with a call to `DROP TABLE`**
+   To convert partitioned table to hypertable, follow [Convert partitions and tables with time-series data into hypertables](#convert-partitions-and-tables-with-time-series-data-into-hypertables).
+
+1. **Stop syncing a table in the `PUBLICATION`, use `DROP TABLE`**
 
    ```sql
    ALTER PUBLICATION <publication_name> DROP TABLE <table_name>;
@@ -171,28 +167,30 @@ For example:
 
 ## Synchronize data to your $SERVICE_LONG
 
-You use the $LIVESYNC docker image to synchronize changes in real-time from a PostgreSQL database
+You use the $LIVESYNC docker image to synchronize changes in real-time from a $PG database
 instance to a $SERVICE_LONG:
 
 <Procedure>
 
 1. **Start $LIVESYNC**
 
-   As you run $LIVESYNC continuously, best practice is to run it as a background process.
+   As you run $LIVESYNC continuously, best practice is to run it as a Docker daemon.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.1.16 run --publication <publication_name> --subscription <subscription> --source $SOURCE --target $TARGET
+   docker run -d --rm --name livesync timescale/live-sync:v0.1.16 run \
+      --publication <publication_name> --subscription <subscription_name> \
+      --source $SOURCE --target $TARGET
    ```
 
-   Make sure to use the same `--publication` name as you created in the previous step. To use multiple publication repeat the `--publication` flag.
+   `--publication`: The name of the publication as you created in the previous step. To use multiple publication repeat the `--publication` flag.
 
-   For example, to synchronize both `analytics` and `iot` publications:
+   `--subscription`: The name that identifies the subscription on the target $SERVICE_LONG.
 
-   ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.1.16 run --publication analytics --publication iot --subscription livesync --source $SOURCE --target $TARGET
-   ```
+   `--source`: The connection string to the source $PG database.
 
-1. **Trace progress**
+   `--target`: The connection string to the target $SERVICE_LONG.
+
+1. **Capture Logs**
 
    Once $LIVESYNC is running as a docker daemon, you can also capture the logs:
    ```shell
@@ -205,59 +203,56 @@ instance to a $SERVICE_LONG:
 
    ```bash
    psql $TARGET -c "SELECT * FROM _ts_live_sync.subscription_rel"
-
-   subname  | pubname | schemaname | tablename | rrelid | state |    lsn     |          updated_at           |                                  last_error                                   |          created_at           | rows_copied | approximate_rows | bytes_copied | approximate_size | target_schema | target_table
-----------+---------+------------+-----------+--------+-------+------------+-------------------------------+-------------------------------------------------------------------------------+-------------------------------+-------------+------------------+--------------+------------------+---------------+--------------
- livesync | analytics | public     | metrics   |  20856 | r     | 6/1A8CBA48 | 2025-06-24 06:16:21.434898+00 |                                                                               | 2025-06-24 06:03:58.172946+00 |    18225440 |         18225440 |   1387359359 |       1387359359 | public        | metrics
-
    ```
+
+   You see something like the following:
+
+   | subname  | pubname | schemaname | tablename | rrelid | state |    lsn     |          updated_at           |                                  last_error                                   |          created_at           | rows_copied | approximate_rows | bytes_copied | approximate_size | target_schema | target_table |
+   |----------|---------|-------------|-----------|--------|-------|------------|-------------------------------|-------------------------------------------------------------------------------|-------------------------------|-------------|------------------|--------------|------------------|---------------|-------------|
+ |livesync | analytics | public     | metrics   |  20856 | r     | 6/1A8CBA48 | 2025-06-24 06:16:21.434898+00 |                                                                               | 2025-06-24 06:03:58.172946+00 |    18225440 |         18225440 |   1387359359 |       1387359359 | public        | metrics  |
+
    The `state` column indicates the current state of the table synchronization.
    Possible values for `state` are:
 
-   - d: initial table data sync
-
-   - f: initial table data sync completed
-
-   - s: catching up with the latest change
-
-   - r: table is ready, synching live changes
-
-   `rows_copied` indicates rows copied so far during the initial sync.
-
-   `approximate_rows` indicates the approximate number of rows in the table.
-
-   `bytes_copied` indicates the number of bytes copied so far during the initial sync.
-
-   `approximate_size` indicates the approximate size of the table in bytes.
-
+   | state | description |
+   |-------|-------------|
+   | d | initial table data sync |
+   | f | initial table data sync completed |
+   | s | catching up with the latest changes |
+   | r | table is ready, synching live changes |
 
    To see the replication lag, run the following against the SOURCE database:
 
    ```bash
-   psql $SOURCE -c "SELECT slot_name, pg_size_pretty(pg_current_wal_flush_lsn() - confirmed_flush_lsn) AS lag FROM pg_replication_slots WHERE slot_name LIKE 'live_sync_%' AND slot_type = 'logical'"
+   psql $SOURCE -f - <<'EOF'
+   SELECT
+      slot_name,
+      pg_size_pretty(pg_current_wal_flush_lsn() - confirmed_flush_lsn) AS lag
+   FROM pg_replication_slots
+   WHERE slot_name LIKE 'live_sync_%' AND slot_type = 'logical'
+EOF
    ```
 
 1. **Add or remove tables from the publication**
 
-   If you need to add or remove tables from the publication, you can do so using `ALTER PUBLICATION` commands.
-   $LIVESYNC automatically picks up these changes and starts syncing the new tables.
-
-   For example, to add a new table `events` to the publication:
+   To add tables, use [ALTER PUBLICATION .. ADD TABLE][alter-publication]**
 
    ```sql
-   ALTER PUBLICATION analytics ADD TABLE events;
+   ALTER PUBLICATION <publication_name> ADD TABLE <table_name>;
    ```
 
-   To remove a table `tags` from the publication:
+   To remove tables, use [ALTER PUBLICATION .. DROP TABLE][alter-publication]**
 
    ```sql
-   ALTER PUBLICATION analytics DROP TABLE tags;
+   ALTER PUBLICATION <publication_name> DROP TABLE <table_name>;
    ```
 
-1. **(Optional) Update table statistics**
+1. **Update table statistics**
 
-   If you have a large table, you can run `ANALYZE` on the target $SERVICE_LONG to update the table statistics
-   after the initial sync is complete. This helps the query planner make better decisions for query execution plans.
+   If you have a large table, you can run `ANALYZE` on the target $SERVICE_LONG
+   to update the table statistics after the initial sync is complete.
+
+   This helps the query planner make better decisions for query execution plans.
 
    ```bash
    vacuumdb --analyze --verbose --dbname=$TARGET
@@ -271,7 +266,11 @@ instance to a $SERVICE_LONG:
 
 1. **(Optional) Reset sequence nextval on the target $SERVICE_LONG**
 
-   $LIVESYNC does not automatically reset the sequence nextval on the target $SERVICE_LONG. Run the following script to reset the sequence for all tables that have a serial or identity column in the target $SERVICE_LONG:
+   $LIVESYNC does not automatically reset the sequence nextval on the target
+   $SERVICE_LONG.
+
+   Run the following script to reset the sequence for all tables that have a
+   serial or identity column in the target $SERVICE_LONG:
 
    ```bash
    psql $TARGET -f - <<'EOF'
@@ -315,7 +314,10 @@ EOF
    Use the `--drop` flag to remove the replication slots created by $LIVESYNC on the source database.
 
    ```shell
-   docker run -it --rm --name livesync timescale/live-sync:v0.1.16 run --publication analytics --subscription livesync --source $SOURCE --target $TARGET --drop
+   docker run -it --rm --name livesync timescale/live-sync:v0.1.16 run \
+      --publication <publication_name> --subscription <subscription_name> \
+      --source $SOURCE --target $TARGET \
+      --drop
    ```
 
 </Procedure>

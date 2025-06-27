@@ -16,13 +16,14 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 ## Limitations
 
+* The source PostgreSQL instance must be accessible from the Internet.
+
+  Services hosted behind a firewall or VPC is not supported. It is in the
+  roadmap to support this in the future.
+
 * Indexes (including Primary Key and Unique constraints) are not migrated by $SERVICE_LONG.
 
   We recommend that you create only the necessary indexes on the target $SERVICE_LONG depending on your query patterns.
-
-* Tables with user-defined types are not migrated by $SERVICE_LONG.
-
-  You need to create the user defined types on the target $SERVICE_LONG before syncing the table.
 
 <LivesyncLimitations />
 
