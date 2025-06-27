@@ -97,15 +97,15 @@ You create a Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, 
         *   `timescale.cloud.system.disk.usage.bytes`
         *   `timescale.cloud.system.disk.total.bytes`
 
-       Additionally, use the following tags to filter your results.
+       Additionally, use the following labels to filter your results.
 
-       |Tag|Example variable| Description                |
-             |-|-|----------------------------|
-       |`host`|`us-east-1.timescale.cloud`|                            |
-       |`project-id`||                            |
-       |`service-id`||                            |
-       |`region`|`us-east-1`| AWS region                 |
-       |`role`|`replica` or `primary`| For $SERVICE_SHORT with replicas |
+       | Label        |Example variable| Description                       |
+             |--------------|-|-----------------------------------|
+       | `host`       |`us-east-1.timescale.cloud`|                                   |
+       | `project-id` ||                                   |
+       | `service-id` ||                                   |
+       | `region`     |`us-east-1`| AWS region                        |
+       | `role`       |`replica` or `primary`| For $SERVICE_SHORTs with replicas |
 
 </Procedure>
 
@@ -113,9 +113,9 @@ You create a Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, 
 
 <Tab title="Using PostgreSQL Exporter">
 
-<Procedure>
-
 You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure Prometheus to scrape metrics from it.
+
+<Procedure>
 
 1. **Create a user to access your $SERVICE_LONG metrics**
 
@@ -153,11 +153,13 @@ You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure P
             prometheuscommunity/postgres-exporter
          ```
 
-    1. Configure the following labels for your $SERVICE_SHORT in PostgreSQL Exporter:
+    1. Configure at least the following labels for your $SERVICE_SHORT in PostgreSQL Exporter:
 
        - `project_id`
        - `service_id`
        - `region`
+   
+       Having the same labels configured in PostgreSQL Exporter as in the $CLOUD_LONG Prometheus exporter helps you correlate metrics from both sources. 
 
     1. Check the metrics for your $SERVICE_SHORT in the Prometheus format:
 
@@ -187,6 +189,7 @@ You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure P
             labels:
               service_id: '<your-service-id>'
               project_id: '<your-project-id>'
+              region: '<your-region>'
        ```
 
        If `prometheus.yml` has not been created during installation, create it manually. If you are using Docker, you can
