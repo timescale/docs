@@ -6,25 +6,21 @@ keywords: [backups, restore]
 tags: [recovery, failures]
 ---
 
-# Back up and recovery your $SERVICE_SHORTs
+# Back up and recover your $SERVICE_SHORTs
 
-$CLOUD_LONG automatically handles backup for your $SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform backups manually. What's more, with cross-region backup available, you are protected even if an entire AWS region goes down.
-
-In the event of a storage failure, a $SERVICE_SHORT automatically recovers from backup
-to the point of failure. In the event of a user error, where a point-in-time
-recovery needs to be done, you can create a PITR fork.
-
-## Automated same-region backup 
+$CLOUD_LONG automatically handles backup for your $SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform backups manually. What's more, with [cross-region backup][cross-region], you are protected even if an entire AWS region goes down.
 
 $CLOUD_LONG automatically creates one full backup every week, and
 incremental backups every day in the same region as your $SERVICE_SHORT. Additionally, all WAL ([Write-Ahead Log][wal])
 files are retained back to the oldest full backup. This means that you always
-have a full backup available for the current and previous week, and your $SERVICE_SHORT
-can be recovered to any point during this time period.
+have a full backup available for the current and previous week: 
 
 ![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
-## Cross-region backup 
+In the event of a storage failure, a $SERVICE_SHORT automatically recovers from backup
+to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, where a point-in-time recovery needs to be done, you can [create a PITR fork][create-fork].
+
+## Enable cross-region backup 
 
 <Availability products={['cloud']} price_plans={['enterprise']} />
 
@@ -58,18 +54,10 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 </Procedure>
 
-## Automated recovery 
 
-$SERVICE_SHORT_CAPs are automatically recovered from backup in case of storage failure. Compute failures [do not require][rapid-recovery] a full recovery from backup. 
+## Create a point-in-time recovery fork
 
-While minimal, recovering from backup still comes with downtime. For zero downtime, enable [high-availability replicas][ha-replicas].
-
-## Point-in-time recovery
-
-Point-in-time recovery enables you to recover your $SERVICE_SHORT from a destructive
-or unwanted action manually. You can recover a $SERVICE_SHORT to any point within the period [defined by your pricing plan][pricing-and-account-management].
-
-Initiating a point-in-time recovery of your $SERVICE_SHORT creates a fork of your $SERVICE_SHORT as of the specified recovery point. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time of recovery.
+You recover your $SERVICE_SHORT from a destructive or unwanted action by creating a point-in-time recovery fork. You can recover a $SERVICE_SHORT to any point within the period [defined by your pricing plan][pricing-and-account-management]. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time of recovery.
 
 Since the point-in-time recovery is done in a fork, to migrate your
 application to the point of recovery, change the connection
@@ -79,7 +67,7 @@ depending on the amount of WAL to be replayed.
 
 To avoid paying for compute for the recovery fork and the original $SERVICE_SHORT, pause the original to only pay storage costs.
 
-You initiate a point-in-time recovery in $CONSOLE_LONG:
+You initiate a point-in-time recovery from a same-region or cross-region backup in $CONSOLE_LONG:
 
 <Tabs label="Point-in-time recovery in Tiger Cloud Console">
 
@@ -96,7 +84,7 @@ You initiate a point-in-time recovery in $CONSOLE_LONG:
     add a connection pooler as part of this process. It is recommended to match
     the same configuration you had at the point you want to recover to.
 1.  Confirm by clicking `Fork service`.
-    A fork of the $SERVICE_SHORT is created to the point-in-time specified. The recovered $SERVICE_SHORT which $SERVICE_SHORT it has been forked from.
+    A fork of the $SERVICE_SHORT is created to the point-in-time specified. The recovered $SERVICE_SHORT shows in `Services` with a label specifying which $SERVICE_SHORT it has been forked from.
 1.  Update the connection strings in your app to use the fork.
 
 </Procedure>
@@ -119,4 +107,5 @@ You initiate a point-in-time recovery in $CONSOLE_LONG:
 [support]: https://www.timescale.com/contact/
 [pitr]: /use-timescale/:currentVersion:/backup-restore/point-in-time-recovery/
 [rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/#rapid-recovery
-
+[cross-region]: #enable-cross-region-backup
+[create-fork]: #create-a-point-in-time-recovery-fork
