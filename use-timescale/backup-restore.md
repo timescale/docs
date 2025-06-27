@@ -80,11 +80,13 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 1.  Navigate to `Operations` > `Backup & restore` and click `Create recovery fork`. 
 1.  Select the recovery point, ensuring the correct time zone (UTC offset).
 1.  Configure the fork. 
+
     You can add an HA replica, enable cross-region backup, change the compute resources, and
     add a connection pooler as part of this process. It is recommended to match
     the same configuration you had at the point you want to recover to.
 1.  Confirm by clicking `Fork service`.
-    A fork of the $SERVICE_SHORT is created to the point-in-time specified. The recovered $SERVICE_SHORT shows in `Services` with a label specifying which $SERVICE_SHORT it has been forked from.
+
+    A fork of the $SERVICE_SHORT is created. The recovered $SERVICE_SHORT shows in `Services` with a label specifying which $SERVICE_SHORT it has been forked from.
 1.  Update the connection strings in your app to use the fork.
 
 </Procedure>
