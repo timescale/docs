@@ -49,14 +49,14 @@ You use $LIVESYNC for data synchronization, rather than migration:
 
 <EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
 
-<Tabs label="Livesync">
+<Tabs label="Livesync" persistKey="sql-editor">
 
-<Tab title="Tiger Cloud Console">
+<Tab title="Tiger Cloud Console" label="datamode">
 
 <LivesyncConsole />
 
 </Tab>
-<Tab title="Self-hosted livesync">
+<Tab title="Self-hosted livesync" label="psql">
 
 <LivesyncTerminal />
 
