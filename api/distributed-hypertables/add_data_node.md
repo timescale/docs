@@ -61,7 +61,7 @@ after it is added.
 | Name                 | Description                                           |
 |----------------------|-------------------------------------------------------|
 | `database`           | Database name where remote hypertables are created. The default is the current database name. |
-| `port`               | Port to use on the remote data node. The default is the PostgreSQL port used by the access node on which the function is executed. |
+| `port`               | Port to use on the remote data node. The default is the $PG port used by the access node on which the function is executed. |
 | `if_not_exists`      | Do not fail if the data node already exists. The default is `FALSE`. |
 | `bootstrap`          | Bootstrap the remote data node. The default is `TRUE`. |
 | `password`           | Password for authenticating with the remote data node during bootstrapping or validation. A password only needs to be provided if the data node requires password authentication and a password for the user does not exist in a local password file on the access node. If password authentication is not used, the specified password is ignored. |

@@ -60,8 +60,8 @@ domains use to plan upgrades, set budgets, allocate resources, and more.
 In this tutorial, you complete three missions:
 
 *   **Mission 1: Gear up [5-15 minutes]** You learn how to setup and connect to a *TimescaleDB* instance and load data from a CSV file in your local terminal using *psql*.
-*   **Mission 2: Analysis [10 minutes]** You learn how to analyze a time-series dataset using TimescaleDB and *PostgreSQL*.
-*   **Mission 3: Monitoring [10 minutes]** You learn how to use TimescaleDB to monitor IoT devices. You'll also learn about using TimescaleDB in conjunction with other PostgreSQL extensions like *PostGIS*, for querying geospatial data.
+*   **Mission 2: Analysis [10 minutes]** You learn how to analyze a time-series dataset using TimescaleDB and *$PG*.
+*   **Mission 3: Monitoring [10 minutes]** You learn how to use TimescaleDB to monitor IoT devices. You'll also learn about using TimescaleDB in conjunction with other $PG extensions like *PostGIS*, for querying geospatial data.
 
 ### Mission 1: Gear up
 
@@ -128,7 +128,7 @@ tsdb=>
 ```
 
 To verify that TimescaleDB is installed, run the `\dx` command
-to list all installed extensions to your PostgreSQL database.
+to list all installed extensions to your $PG database.
 You should see something similar to the following output:
 
 ```sql
@@ -159,8 +159,8 @@ They collect the following data about each ride:
 To efficiently store that data, we're going to need three tables:
 
 1.  A [hypertable][hypertables] called `rides`, which stores all of the above data for each ride taken.
-2.  A regular Postgres table called `payment_types`, which maps the payment types to their English description.
-3.  A regular Postgres table called `rates`, which maps the numeric rate codes to their English description.
+2.  A regular $PG table called `payment_types`, which maps the payment types to their English description.
+3.  A regular $PG table called `rates`, which maps the numeric rate codes to their English description.
 
 The `nyc_data.sql` script defines the schema for our three tables. The script
 automatically configures your TimescaleDB instance with the appropriate
@@ -260,7 +260,7 @@ Next, let's upload the taxi cab data into your TimescaleDB instance.
 The data is in the file called `nyc_data_rides.csv` and we load it
 into the `rides` hypertable. To do this, we'll use the `psql` `\copy` command below.
 
->:WARNING: The PostgreSQL `\COPY` command is single-threaded and doesn't support batching
+>:WARNING: The Postgres `\COPY` command is single-threaded and doesn't support batching
 inserts into multiple transactions. With nearly 11 million rows of data this import can take
 10 minutes or more depending on your Internet connection.
 
@@ -420,7 +420,7 @@ AND pickup_datetime < '2016-01-08'
 GROUP BY day ORDER BY day;
 ```
 
->:TIP: Queries like the ones above execute up to 20x faster on large datasets with TimescaleDB vs. a vanilla PostgreSQL database, thanks to Timescale's automatic time and space partitioning.
+>:TIP: Queries like the ones above execute up to 20x faster on large datasets with TimescaleDB vs. a vanilla Postgres database, thanks to Timescale's automatic time and space partitioning.
 
 Your result should look like this:
 
@@ -484,7 +484,7 @@ SELECT rates.description, COUNT(vendor_id) AS num_trips,
   ORDER BY LOWER(rates.description);
 ```
 
->:TIP: This is a simple illustration of a powerful point: By allowing JOINs over hypertables and regular PostgreSQL tables, TimescaleDB allows you to combine your time-series data with your relational or business data to unearth powerful insights.
+>:TIP: This is a simple illustration of a powerful point: By allowing JOINs over hypertables and regular Postgres tables, TimescaleDB allows you to combine your time-series data with your relational or business data to unearth powerful insights.
 
 Your result should look like this, joining the information in the `rates` table
 with the query you ran earlier:
@@ -603,7 +603,7 @@ place. We can approximate that by counting the number of rides that were
 completed on the first day of 2016, in 5 minute intervals.
 
 While it's easy to count how many rides took place, there is no easy way
-to segment data by 5 minute time intervals in PostgreSQL. As a result, we
+to segment data by 5 minute time intervals in $PG. As a result, we
 need to use a query similar to the query below:
 
 ```sql
@@ -644,10 +644,10 @@ so this time would be in the 45&nbsp;min bucket. After extracting both the hours
 simple question!
 
 Segmentation by arbitrary time intervals is common in time-series analysis,
-but can sometimes be unwieldy in vanilla PostgreSQL. Thankfully,
+but can sometimes be unwieldy in vanilla $PG. Thankfully,
 TimescaleDB has many custom-built SQL functions to make time-series
 analysis quick and simple. For example, `time_bucket` is a more powerful
-version of the PostgreSQL `date_trunc` function. It allows for arbitrary
+version of the $PG `date_trunc` function. It allows for arbitrary
 time intervals, rather than the standard day, minute, hour provided by `date_trunc`.
 
 So when using TimescaleDB, the complex query above turns into a simpler
@@ -696,7 +696,7 @@ This requires that we make use of the pickup latitude and longitude columns
 in our `rides` hypertable. To use the pickup location, we'll need to get our
 hypertable ready for geospatial queries.
 
-The good news is that TimescaleDB is compatible with all other PostgreSQL
+The good news is that TimescaleDB is compatible with all other $PG
 extensions and, for geospatial data, we'll use [PostGIS][postgis]. This allows us
 to slice data by time and location with the speed and scale of TimescaleDB!
 

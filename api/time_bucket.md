@@ -16,7 +16,7 @@ products: [cloud, mst, self_hosted]
 
 # time_bucket()
 
-The `time_bucket` function is similar to the standard PostgreSQL `date_bin`
+The `time_bucket` function is similar to the standard $PG `date_bin`
 function. Unlike `date_bin`, it allows for arbitrary time intervals of months or
 longer. The return value is the bucket's start time.
 
@@ -29,7 +29,7 @@ daylight savings time boundaries can be either three hours or one hour.
 
 |Name|Type|Description|
 |-|-|-|
-|`bucket_width`|INTERVAL|A PostgreSQL time interval for how long each bucket is|
+|`bucket_width`|INTERVAL|A $PG time interval for how long each bucket is|
 |`ts`|DATE, TIMESTAMP, or TIMESTAMPTZ|The timestamp to bucket|
 
 If you use months as an interval for `bucket_width`, you cannot combine it with
@@ -42,7 +42,7 @@ bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
 |-|-|-|
 |`timezone`|TEXT|The timezone for calculating bucket start and end times. Can only be used with `TIMESTAMPTZ`. Defaults to UTC.|
 |`origin`|DATE, TIMESTAMP, or TIMESTAMPTZ|Buckets are aligned relative to this timestamp. Defaults to midnight on January 3, 2000, for buckets that don't include a month or year interval, and to midnight on January 1, 2000, for month, year, and century buckets.|
-|`offset`|INTERVAL|The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in PostgreSQL.|
+|`offset`|INTERVAL|The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG.|
 
 ## Required arguments for integer time inputs
 
@@ -55,7 +55,7 @@ bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
 
 |Name|Type|Description|
 |-|-|-|
-|`offset`|INTEGER|The amount to offset all buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in PostgreSQL.|
+|`offset`|INTEGER|The amount to offset all buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG.|
 
 ## Sample usage
 
@@ -89,7 +89,7 @@ GROUP BY five_min
 ORDER BY five_min DESC LIMIT 10;
 ```
 
-In this example, add the explicit cast to ensure that PostgreSQL chooses the
+In this example, add the explicit cast to ensure that $PG chooses the
 correct function.
 
 To shift the alignment of the buckets you can use the origin parameter passed as

@@ -66,8 +66,8 @@ Ultimately, for most cases, this is okay because:
 
 #### Available data soruces for Grafana alerts
 
-Only certain data sources are supported for Grafana alerts: PostgreSQL,
-Prometheus, and Cloudwatch. TimescaleDB is, of course, based on PostgreSQL,
+Only certain data sources are supported for Grafana alerts: $PG,
+Prometheus, and Cloudwatch. TimescaleDB is, of course, based on $PG,
 and is a valid data source for Grafana alerts.
 
 There are two parts of alerting in Grafana: **Alert Rules** and

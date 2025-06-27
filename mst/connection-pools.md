@@ -15,14 +15,14 @@ high numbers of connections, but keep your server resource use low. The more
 client connections you have to your database, the more useful connection pooling
 becomes.
 
-By default, PostgreSQL creates a separate backend process for each connection to
+By default, $PG creates a separate backend process for each connection to
 the server. Connection pooling uses a tool called PGBouncer to pool multiple
 connections to a single backend process. PGBouncer automatically interleaves the
 client queries to use a limited number of backend connections more efficiently,
 leading to lower resource use on the server and better total performance.
 
 Without connection pooling, the database connections are handled directly by
-PostgreSQL backend processes, one process per connection:
+$PG backend processes, one process per connection:
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/pgbouncer-pooling-none.webp"

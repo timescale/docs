@@ -65,7 +65,7 @@ module.exports = [
             title: "About Configuration",
             href: "about-configuration",
             excerpt:
-              "Overview of configuration options and methods for PostgreSQL and self-hosted TimescaleDB",
+              "Overview of configuration options and methods for Postgres and self-hosted TimescaleDB",
           },
           {
             title: "Using timescaledb-tune",
@@ -73,10 +73,10 @@ module.exports = [
             excerpt: "Configure self-hosted TimescaleDB using timescaledb-tune",
           },
           {
-            title: "Manual PostgreSQL configuration",
+            title: "Manual Postgres configuration",
             href: "postgres-config",
             excerpt:
-              "Configure self-hosted TimescaleDB using the PostgreSQL configuration file",
+              "Configure self-hosted TimescaleDB using the Postgres configuration file",
           },
           {
             title: "TimescaleDB configuration",
@@ -104,7 +104,7 @@ module.exports = [
           {
             title: "Logical backup",
             href: "logical-backup",
-            excerpt: "Back up and restore a hypertable or an entire database using native PostgreSQL commands",
+            excerpt: "Back up and restore a hypertable or an entire database using native Postgres commands",
           },
           {
             title: "Docker & WAL-E",
@@ -135,7 +135,7 @@ module.exports = [
           {
             title: "Migrate tables from the same database",
             href: "same-db",
-            excerpt: "Migrate data into a TimescaleDB hypertable from a regular PostgreSQL table",
+            excerpt: "Migrate data into a TimescaleDB hypertable from a regular Postgres table",
           },
           {
             title: "Migrate data to TimescaleDB from InfluxDB",
@@ -203,9 +203,9 @@ module.exports = [
               "Upgrade self-hosted TimescaleDB running in a Docker container to a new minor version",
           },
           {
-            title: "Upgrade PostgreSQL",
+            title: "Upgrade Postgres",
             href: "upgrade-pg",
-            excerpt: "Upgrade PostgreSQL to a new version",
+            excerpt: "Upgrade Postgres to a new version",
           },
           {
             title: "Downgrade TimescaleDB to a minor version",

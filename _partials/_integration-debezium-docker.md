@@ -33,7 +33,7 @@
    Check the output log to see that Kafka Connect is running.
 
 
-1. **Register the Debezium PostgreSQL source connector**
+1. **Register the Debezium $PG source connector**
 
    Update the `<properties>` for the `<debezium-user>` you created in your $SELF_LONG instance in the following command. 
    Then run the command in another Terminal window:

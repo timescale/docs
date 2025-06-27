@@ -17,7 +17,7 @@ hyperfunction:
 api_details:
   summary: >
     Calculate the y-intercept of a linear least-squares fit between gauge value
-    and time. This corresponds to the projected value at the PostgreSQL epoch
+    and time. This corresponds to the projected value at the Postgres epoch
     `(2000-01-01 00:00:00+00)`. You can use the y-intercept with the slope to plot
     a best-fit line.
   signatures:

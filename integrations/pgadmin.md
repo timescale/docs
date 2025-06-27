@@ -9,7 +9,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Integrate pgAdmin with $CLOUD_LONG
 
-[pgAdmin][pgadmin] is a feature-rich open-source administration and development platform for PostgreSQL. It is available for Chrome, Firefox, Edge, and
+[pgAdmin][pgadmin] is a feature-rich open-source administration and development platform for $PG. It is available for Chrome, Firefox, Edge, and
 Safari browsers, or can be installed on Microsoft Windows, Apple macOS, or various Linux flavors.
 
 ![Tiger Cloud pgadmin](https://assets.timescale.com/docs/images/timescale-cloud-pgadmin.png)

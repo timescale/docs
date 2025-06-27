@@ -35,7 +35,7 @@ automatically.
 With the signed certificate, you can switch your connections to a stricter SSL
 mode, such as `verify-ca` or `verify-full`.
 
-For more information on the different SSL modes, see the [PostgreSQL SSL mode
+For more information on the different SSL modes, see the [$PG SSL mode
 descriptions][ssl-modes].
 
 ## Connect to your database with a stricter SSL mode

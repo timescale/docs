@@ -1,16 +1,16 @@
 ---
-title: Migrate data to self-hosted TimescaleDB from the same PostgreSQL instance
-excerpt: Migrate data into a TimescaleDB hypertable from a regular PostgreSQL table
+title: Migrate data to self-hosted TimescaleDB from the same Postgres instance
+excerpt: Migrate data into a TimescaleDB hypertable from a regular Postgres table
 products: [self_hosted]
-keywords: [data migration, PostgreSQL]
+keywords: [data migration, Postgres]
 tags: [import]
 ---
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Migrate data to TimescaleDB from the same PostgreSQL instance
+# Migrate data to TimescaleDB from the same $PG instance
 
-You can migrate data into a $TIMESCALE_DB $HYPERTABLE from a regular PostgreSQL
+You can migrate data into a $TIMESCALE_DB $HYPERTABLE from a regular $PG
 table. This method assumes that you have $TIMESCALE_DB set up in the same database
 instance as your existing table.
 
