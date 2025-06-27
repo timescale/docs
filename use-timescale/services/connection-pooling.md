@@ -100,7 +100,7 @@ session or transaction. Each pool type uses a different mode to handle
 connections.
 
 Session pools allocate a connection from the pool until they are closed by the
-application, similar to a regular PostgreSQL connection. When the application
+application, similar to a regular $PG connection. When the application
 closes the connection, it is sent back to the pool.
 
 Transaction pool connections are allocated only for the duration of the

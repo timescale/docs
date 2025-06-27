@@ -28,7 +28,7 @@ designing your database for maximum compression effectiveness.
 
 ## Compressing data
 
-$TIMESCALE_DB is built on PostgreSQL which is, by nature, a row-based database.
+$TIMESCALE_DB is built on $PG which is, by nature, a row-based database.
 Because time-series data is accessed in order of time, when you enable
 compression, $TIMESCALE_DB converts many wide rows of data into a single row of
 data, called an array form. This means that each field of that new, wide row
@@ -52,7 +52,7 @@ You can convert this to a single row in array form, like this:
 |[12:00:01, 12:00:01, 12:00:02, 12:00:02, 12:00:03, 12:00:03]|[A, B, A, B, A, B]|[0, 0, 0, 0, 0, 4]|[70.11, 69.70, 70.12, 69.69, 70.14, 69.70]|
 
 Even before you compress any data, this format immediately saves storage by
-reducing the per-row overhead. PostgreSQL typically adds a small number of bytes
+reducing the per-row overhead. $PG typically adds a small number of bytes
 of overhead per row. So even without any compression, the schema in this example
 is now smaller on disk than the previous format.
 

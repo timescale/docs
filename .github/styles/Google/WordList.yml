@@ -45,7 +45,7 @@ swap:
   master: primary
   network IP address: internal IP address
   open-source: open source
-  Postgres: PostgreSQL
+  PostgreSQL: Postgres
   Promscale connector: Promscale Connector
   quickstart: quick start
   regex: regular expression

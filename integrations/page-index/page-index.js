@@ -102,9 +102,9 @@ module.exports = [
         excerpt: "Integrate pgAdmin with Tiger Cloud",
       },
       {
-        title: "PostgreSQL",
+        title: "Postgres",
         href: "postgresql",
-        excerpt: "Integrate PostgreSQL with Tiger Cloud",
+        excerpt: "Integrate Postgres with Tiger Cloud",
       },
       {
         title: "Prometheus",

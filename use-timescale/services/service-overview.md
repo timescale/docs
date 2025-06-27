@@ -37,7 +37,7 @@ cannot access the `postgres` user. There is no superuser access to $CLOUD_LONG d
 
 In your $SERVICE_SHORT, the `tsdbadmin` user can create another user
 with any other role. For a complete list of roles available, see the
-[PostgreSQL role attributes documentation][pg-roles-doc].
+[$PG role attributes documentation][pg-roles-doc].
 
 You cannot create multiple databases in a single $SERVICE_SHORT. If you need data isolation, use schemas or create additional $SERVICE_SHORTs.
 

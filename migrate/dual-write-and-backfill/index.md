@@ -46,7 +46,7 @@ Dual-write and backfill works well when:
 For more information, consult the step-by-step guide for your source database:
 
 - [Dual-write and backfill from $TIMESCALE_DB][from-timescaledb]
-- [Dual-write and backfill from PostgreSQL][from-postgres]
+- [Dual-write and backfill from $PG][from-postgres]
 - [Dual-write and backfill from other][from-other]
 
 <GettingHelp />

@@ -41,7 +41,7 @@ uses an origin date of January 1, 2000, for all bucket sizes.
 
 |Name|Type|Description|
 |---|---|---|
-| `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
+| `bucket_width` | INTERVAL | A $PG time interval for how long each bucket is |
 | `ts` | DATE, TIMESTAMP or TIMESTAMPTZ | The timestamp to bucket |
 
 ### Optional arguments

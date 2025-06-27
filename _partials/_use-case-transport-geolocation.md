@@ -2,7 +2,7 @@
 ### Set up your data for geospatial queries
 
 To add geospatial analysis to your ride count visualization, you need geospatial data to work out which trips 
-originated where. As $TIMESCALE_DB is compatible with all PostgreSQL extensions, use [PostGIS][postgis] to slice 
+originated where. As $TIMESCALE_DB is compatible with all $PG extensions, use [PostGIS][postgis] to slice 
 data by time and location.
 
 <Procedure>

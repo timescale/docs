@@ -37,16 +37,16 @@ not causing downtime to your customers.
 
 Ensure that you have:
 
-*   Installed the PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
+*   Installed the $PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
     utilities.
-*   Installed a client for connecting to PostgreSQL. These instructions use
+*   Installed a client for connecting to $PG. These instructions use
     [`psql`][psql], but any client works.
 *   Created a new empty database in $MST_LONG. For more
     information, see the [Install $MST_LONG][install-mst].
     Provision your database with enough space for all your data.
-*   Checked that you're running the same major version of PostgreSQL on both
+*   Checked that you're running the same major version of $PG on both
     $MST_LONG and your source database. For information
-    about upgrading PostgreSQL, see the [upgrade
+    about upgrading $PG, see the [upgrade
     instructions for $SELF_LONG][upgrading-postgresql-self-hosted]
     and [$MST_LONG][upgrading-postgresql].
 *   Checked that you're running the same major version of $TIMESCALE_DB on both

@@ -113,7 +113,7 @@ You can now manage your resources with Terraform. See more about [available reso
 
 <Tab title="Self-hosted TimescaleDB">
 
-You use the [`cyrilgdn/postgresql`][pg-provider] PostgreSQL provider to connect to your $SELF_LONG instance. 
+You use the [`cyrilgdn/postgresql`][pg-provider] $PG provider to connect to your $SELF_LONG instance. 
 
 Create a `main.tf` configuration file with the following content, using your [connection details][connection-info]:
 
