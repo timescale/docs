@@ -14,7 +14,7 @@ analytics, user behavior, financial metrics, and cryptocurrency.
 
 Some hyperfunctions are included by default in $TIMESCALE_DB. For
 additional hyperfunctions, you need to install the
-[$TOOLKIT_LONG][install-toolkit] PostgreSQL extension.
+[$TOOLKIT_LONG][install-toolkit] $PG extension.
 
 For more information, see the [hyperfunctions
 documentation][hyperfunctions-howto].

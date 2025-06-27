@@ -1,5 +1,5 @@
 ---
-title: Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
+title: Collecting metrics with the Postgres and TimescaleDB output plugin for Telegraf
 excerpt: Collect metrics with Telegraf (deprecated)
 products: [cloud, mst, self_hosted]
 keywords: [metrics, monitor, Telegraf]
@@ -23,7 +23,7 @@ external dependencies, or package management tools required.
 Telegraf is an open source tool. It contains over 200 plugins for gathering and
 writing different types of data written by people who work with that data.
 $COMPANY have built downloadable binaries of Telegraf with the plugin included.
-This tutorial runs through a couple of examples on how to use the PostgreSQL and
+This tutorial runs through a couple of examples on how to use the $PG and
 TimescaleDB output plugin for Telegraf.
 
 ## Installation
@@ -77,7 +77,7 @@ configuration file sets up:
 *   Global tags added to all collected metrics from all inputs
 *   Enabled outputs, processors, aggregators, inputs (and their respective configuration)
 
-A sample config file with PostgreSQL included as a plugin can be generated with
+A sample config file with $PG included as a plugin can be generated with
 this command:
 
 ```bash
@@ -85,7 +85,7 @@ telegraf --input-filter=cpu --output-filter=postgresql config > telegraf.conf
 ```
 
 This command generates a configuration file that enables a CPU input plugin that
-samples various metrics about CPU usage, and the PostgreSQL output plugin. The
+samples various metrics about CPU usage, and the $PG output plugin. The
 file also includes all available input, output, processor, and aggregator
 plugins, commented out, so you can enable them as required.
 
@@ -119,7 +119,7 @@ The `telegraf.conf` file you generated has a section (around line 80) headed wit
 ################################################
 ```
 
-Below this header, the default configuration for the PostgreSQL output plugin is
+Below this header, the default configuration for the $PG output plugin is
 shown. It looks like this:
 
 ```txt
@@ -177,7 +177,7 @@ From the configuration, you can see a few important things:
 
 The commented out parameters also show their default values.
 
-In the first example you'll set the connection parameter to a proper connection string to establish a connection to an instance of TimescaleDB or PostgreSQL.
+In the first example you'll set the connection parameter to a proper connection string to establish a connection to an instance of TimescaleDB or $PG.
 All the other parameters have their default values.
 
 ### Creating hypertables
@@ -213,7 +213,7 @@ telegraf --config telegraf.conf
 2019-05-23T13:48:09Z I! [agent] Config: Interval:10s, Quiet:false, Hostname:"local", Flush Interval:10s
 ```
 
-Now you can connect to the PostgreSQL instance and inspect the data:
+Now you can connect to the $PG instance and inspect the data:
 
 ```bash
 psql -U postgres -h localhost

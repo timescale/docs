@@ -57,7 +57,7 @@ administrative tasks are handled in a multi-node environment.
 ## Distributed role management
 
 In a multi-node environment, you need to manage roles on each
-PostgreSQL instance independently, because roles are instance-level
+$PG instance independently, because roles are instance-level
 objects that are shared across both distributed and non-distributed
 databases that each can be configured with a different set of data
 nodes or none at all. Therefore, an access node does not

@@ -16,11 +16,11 @@ and analyze blockchain data.
 ## Hyperfunctions for simplified statistical queries
 
 In some of the following queries you can find custom SQL functions that are
-not part of vanilla PostgreSQL. These queries are $TIMESCALE_DB
+not part of vanilla $PG. These queries are $TIMESCALE_DB
 [hyperfunctions][docs-hyperfunctions] and they are
 either part of the $TIMESCALE_DB extension or the Toolkit extension.
 Hyperfunctions is a series of SQL functions that make it easier to manipulate
-and analyze time-series data in PostgreSQL. You need to
+and analyze time-series data in $PG. You need to
 [install and enable the Toolkit extension][install-toolkit] to be able to use
 the whole set of hyperfunctions and successfully run the following queries.
 

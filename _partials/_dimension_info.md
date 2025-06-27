@@ -20,8 +20,8 @@ of the dimension build to extract a compatible data type. Look in the example se
 
 #### Custom partitioning
 
-By default, $TIMESCALE_DB calls PostgreSQL's internal hash function for the given type.
-You use a custom partitioning function for value types that do not have a native PostgreSQL hash function.
+By default, $TIMESCALE_DB calls $PG's internal hash function for the given type.
+You use a custom partitioning function for value types that do not have a native $PG hash function.
 
 You can specify a custom partitioning function for both range and hash partitioning. A partitioning function should 
 take a `anyelement` argument as the only parameter and return a positive `integer` hash value. This hash value is 

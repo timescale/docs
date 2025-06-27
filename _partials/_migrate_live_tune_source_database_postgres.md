@@ -7,12 +7,12 @@ a managed service, follow the instructions in the `From AWS RDS/Aurora` tab on t
 
    [Install wal2json][install-wal2json] on your source database.
 
-1. **Prevent PostgreSQL from treating the data in a snapshot as outdated**
+1. **Prevent $PG from treating the data in a snapshot as outdated**
 
    ```shell
    psql -X -d $SOURCE -c 'alter system set old_snapshot_threshold=-1'
    ```
-   This is not applicable if the source database is PostgreSQL 17 or later.
+   This is not applicable if the source database is $PG 17 or later.
 
 1. **Set the write-Ahead Log (WAL) to record the information needed for logical decoding**
    ```shell

@@ -19,7 +19,7 @@ This section shows you how to:
   engineering needs on $COMPANY's cloud-based $PG platform.
 - [Try the main features in $COMPANY products][test-drive]: rapidly implement the features in $CLOUD_LONG that 
   enable you to ingest and query data faster while keeping the costs low.
-- [Start coding with Timescale][start-coding]: quickly integrate $CLOUD_LONG and $TIMESCALE_DB into your apps using your favorite programming language.
+- [Start coding with $COMPANY][start-coding]: quickly integrate $CLOUD_LONG and $TIMESCALE_DB into your apps using your favorite programming language.
 - [Run queries from $CONSOLE][run-queries-from-console]: securely interact with your data in the $CONSOLE UI.
 
 <WhereNext />

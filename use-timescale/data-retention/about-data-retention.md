@@ -17,7 +17,7 @@ By [combining retention policies with continuous aggregates][retention-with-cagg
 ## Drop data by chunk
 
 $TIMESCALE_DB data retention works on chunks, not on rows. Deleting data
-row-by-row, for example, with the PostgreSQL `DELETE` command, can be slow. But
+row-by-row, for example, with the $PG `DELETE` command, can be slow. But
 dropping data by the chunk is faster, because it deletes an entire file from
 disk. It doesn't need garbage collection and defragmentation.
 

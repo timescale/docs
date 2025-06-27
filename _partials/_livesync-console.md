@@ -7,7 +7,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 <PrereqCloud />
 
-- Install the [PostgreSQL client tools][install-psql] on your sync machine.
+- Install the [$PG client tools][install-psql] on your sync machine.
 
 - Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
 
@@ -68,7 +68,7 @@ requires a direct connection to the database to function properly.
 
 ## Synchronize data to your Tiger Cloud service
 
-To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
+To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 <Procedure>
 
@@ -84,7 +84,7 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
    In `Livesync for Postgres`:
    1. Set the `Livesync Name`.
-   1. Connect to your database with the credentials or PostgreSQL connection string. This is the connection string for [`<livesync username>`][livesync-tune-source-db]. 
+   1. Connect to your database with the credentials or $PG connection string. This is the connection string for [`<livesync username>`][livesync-tune-source-db]. 
    1. Click `Continue`.
       $CONSOLE connects to the source database and retrieves the schema information.
 
@@ -107,7 +107,7 @@ To sync data from your PostgreSQL database to your $SERVICE_LONG using $CONSOLE:
 
 </Procedure>
 
-And that is it, you are using $LIVESYNC to synchronize all the data, or specific tables, from a PostgreSQL database 
+And that is it, you are using $LIVESYNC to synchronize all the data, or specific tables, from a $PG database 
 instance to your $SERVICE_LONG in real time.
 
 [install-psql]: /integrations/:currentVersion:/psql/

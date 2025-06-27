@@ -28,7 +28,7 @@ For more information about backups in $SELF_LONG, see the
 ## Storage redundancy
 
 Storage redundancy refers to having multiple copies of a database's data files.
-If the storage currently attached to a PostgreSQL instance corrupts or otherwise
+If the storage currently attached to a $PG instance corrupts or otherwise
 becomes unavailable, the system can replace its current storage with one of the
 copies.
 
@@ -47,26 +47,26 @@ multi-cloud solutions or protection from an AWS Regional failure.
 
 ## Replication
 
-$TIMESCALE_DB supports replication using PostgreSQL's built-in
+$TIMESCALE_DB supports replication using $PG's built-in
 [streaming replication][postgres-streaming-replication-docs]. Using
 [logical replication][postgres-logrep-docs] with $TIMESCALE_DB is not recommended,
 as it requires schema synchronization between the primary and replica nodes and
 replicating partition root tables, which are
 [not currently supported][postgres-partition-limitations].
 
-PostgreSQL achieves streaming replication by having replicas continuously stream
+$PG achieves streaming replication by having replicas continuously stream
 the WAL from the primary database. See the official
 [replication documentation](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION)
-for details. For more information about how PostgreSQL implements Write-Ahead
+for details. For more information about how $PG implements Write-Ahead
 Logging, see their
 [WAL Documentation](https://www.postgresql.org/docs/current/wal-intro.html).
 
 ## Failover
 
-PostgreSQL offers failover functionality where a replica is promoted to primary
+$PG offers failover functionality where a replica is promoted to primary
 in the event of a failure on the primary. This is done using
 [pg_ctl][pgctl-docs] or the `trigger_file`, but it does not provide
-out-of-the-box support for automatic failover. Read more in the PostgreSQL
+out-of-the-box support for automatic failover. Read more in the $PG
 [failover documentation][failover-docs]. [Patroni][patroni-github] offers a
 configurable high availability solution with automatic failover functionality.
 

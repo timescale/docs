@@ -9,7 +9,7 @@ tags: [write]
 # Write data
 
 Writing data in $TIMESCALE_DB works the same way as writing data to regular
-PostgreSQL. You can add and modify data in both regular tables and hypertables
+$PG. You can add and modify data in both regular tables and hypertables
 using `INSERT`, `UPDATE`, and `DELETE` statements.
 
 *   [Learn about writing data in $TIMESCALE_DB][about-writing-data]

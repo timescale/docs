@@ -11,7 +11,7 @@
   </li>
   <li>
     <p>
-      Choose if you want a Time-series or Dynamic PostgreSQL service.
+      Choose if you want a Time-series or Dynamic Postgres service.
     </p>
   </li>
   {props.demoData && (

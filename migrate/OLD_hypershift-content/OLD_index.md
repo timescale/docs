@@ -11,7 +11,7 @@ tags: [ingest, migrate, RDS]
 You can migrate data from another database into $CLOUD_LONG
 using Hypershift. You can also use hypershift to migrate your data
 from $MST_LONG, from a $SELF_LONG instance, or
-from another PostgreSQL database, including Amazon RDS.
+from another $PG database, including Amazon RDS.
 
 *   Understand how hypershift works before you begin using it.
 *   Migrate your data with hypershift.

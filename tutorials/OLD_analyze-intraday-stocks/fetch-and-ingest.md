@@ -210,7 +210,7 @@ when you run the script in the future.
 When you have the `fetch_stock_data` function working, and you can fetch the candlestick from the API, you can insert it into the database.
 
 To make the ingestion faster, use [pgcopy][pgcopy-docs] instead of ingesting
-data row by row. $TIMESCALE_DB is packaged as an extension to PostgreSQL, meaning all the PostgreSQL tools you know and
+data row by row. $TIMESCALE_DB is packaged as an extension to $PG, meaning all the $PG tools you know and
 love already work with $TIMESCALE_DB.
 
 ### Ingest data fast with pgcopy
