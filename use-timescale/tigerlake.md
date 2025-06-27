@@ -59,7 +59,7 @@ You set up the data lake table bucket and role ARNs, using one of the following 
    1. In `Review and create`, click `Submit`. and wait for the deployment to complete. 
        AWS deploys your stack and creates the S3 table bucket and IAM role.
    1. Click `Outputs`, then copy all four outputs.
-   
+
   Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket.
   $COMPANY uses the outputs to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is 
   ready to use. Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
@@ -239,15 +239,6 @@ The following partition intervals and specifications are supported, and the defi
 
 **TODO**
 What happens on fail over?
-
-## Query your data
-
-**TODO** add links to guides and build one to demostrate the querying part
-
-To execute queries against Iceberg, best practice is to use the following products:
-* [AWS Athena][aws-athena]: ensure that integration with the AWS analytics services is enabled for the table bucket.
-* [duckdb][duckdb]: support for S3 Tables is in preview. 
-* [Apache Spark][apache-spark]
 
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
