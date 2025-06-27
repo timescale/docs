@@ -184,6 +184,9 @@ You import your $SERVICE_LONG metrics into PostgreSQL Exporter, then configure P
        - job_name: 'postgresql'
          static_configs:
           - targets: ['<exporter-host>:9187'] 
+            labels:
+              service_id: '<your-service-id>'
+              project_id: '<your-project-id>'
        ```
 
        If `prometheus.yml` has not been created during installation, create it manually. If you are using Docker, you can
