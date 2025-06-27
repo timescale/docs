@@ -157,13 +157,13 @@ For example:
    special `PUBLICATION` config to `true`:
 
    ```sql
-   ALTER PUBLICATION analytics SET(publish_via_partition_root=true);
+   ALTER PUBLICATION <publication_name> SET(publish_via_partition_root=true);
    ```
 
 1. **Stop syncing a table in the `PUBLICATION` with a call to `DROP TABLE`**
 
    ```sql
-   ALTER PUBLICATION analytics DROP TABLE tags;
+   ALTER PUBLICATION <publication_name> DROP TABLE <table_name>;
    ```
 
 </Procedure>
@@ -181,7 +181,7 @@ instance to a $SERVICE_LONG:
    As you run $LIVESYNC continuously, best practice is to run it as a background process.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.1.16 run --publication <publication> --subscription <subscription> --source $SOURCE --target $TARGET
+   docker run -d --rm --name livesync timescale/live-sync:v0.1.16 run --publication <publication_name> --subscription <subscription> --source $SOURCE --target $TARGET
    ```
 
    Make sure to use the same `--publication` name as you created in the previous step. To use multiple publication repeat the `--publication` flag.
