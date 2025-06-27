@@ -8,7 +8,7 @@ tags: [recovery, failures]
 
 # Back up and recover your $SERVICE_SHORTs
 
-$CLOUD_LONG automatically handles backup for your $SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform backups manually. What's more, with [cross-region backup][cross-region], you are protected even if an entire AWS region goes down.
+$CLOUD_LONG automatically handles backup for your $SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform backups manually. What's more, with [cross-region backup][cross-region], you are protected when an entire AWS region goes down.
 
 $CLOUD_LONG automatically creates one full backup every week, and
 incremental backups every day in the same region as your $SERVICE_SHORT. Additionally, all WAL ([Write-Ahead Log][wal])
