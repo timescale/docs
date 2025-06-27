@@ -26,7 +26,7 @@ to the point of failure. If the whole availability zone goes down, your $SERVICE
 
 For added reliability, you can enable cross-region backup. In this case, you have two identical backups of your $SERVICE_SHORT at any time, but one of them is in a different AWS region.
 
-You enable cross-region backup when creating a $SERVICE_SHORT, or configure it for an existing $SERVICE_SHORT in $CONSOLE_LONG:
+You enable cross-region backup when you create a $SERVICE_SHORT, or configure it for an existing $SERVICE_SHORT in $CONSOLE_LONG:
 
 <Procedure>
 
