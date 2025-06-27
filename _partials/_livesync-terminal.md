@@ -130,7 +130,7 @@ EOF
 ## Specify the tables to synchronize
 
 After the schema is migrated, you [`CREATE PUBLICATION`][create-publication] on the source database that
-specify the list of tables which you intend to synchronize.
+specifies the tables to synchronize.
 
 For example:
 
