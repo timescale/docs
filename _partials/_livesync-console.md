@@ -19,7 +19,6 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 * The source $PG instance must be accessible from the Internet.
 
   Services hosted behind a firewall or VPC are not supported. This functionality is on the roadmap. 
-  roadmap to support this in the future.
 
 * Indexes (including Primary Key and Unique constraints) are not migrated by $SERVICE_LONG.
 
