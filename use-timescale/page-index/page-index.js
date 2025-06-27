@@ -644,7 +644,7 @@ module.exports = [
         ],
       },
       {
-        title: "Backup, restore, and PITR",
+        title: "Back up and recover your services",
         href: "backup-restore",
       },
       {
