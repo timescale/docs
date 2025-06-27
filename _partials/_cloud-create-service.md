@@ -1,17 +1,17 @@
 <Procedure>
 
-### Create a Timescale service
+### Create a $SERVICE_LONG
 
 <ol>
   <li>
     <p>
       Sign in to the{" "}
-      <a href="https://console.cloud.timescale.com/">Timescale portal</a> and click <code>Create service</code>.
+      <a href="https://console.cloud.timescale.com/">Tiger Cloud Console</a> and click <code>Create service</code>.
     </p>
   </li>
   <li>
     <p>
-      Choose if you want a Time-series or Dynamic PostgreSQL service.
+      Choose if you want a Time-series or Dynamic Postgres service.
     </p>
   </li>
   {props.demoData && (
@@ -26,7 +26,7 @@
         class="main-content__illustration"
         width={1375} height={944}
         src="https://assets.timescale.com/docs/images/tsc-create-service-demo.png"
-        alt="Create a new service in the Timescale portal"
+        alt="Create a new service in the Tiger Cloud Console"
       />
     </li>
   )}

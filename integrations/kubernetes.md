@@ -1,8 +1,8 @@
 ---
-title: Integrate Kubernetes with Timescale Cloud
-excerpt: Learn how to integrate Kubernetes with Timescale Cloud to enable seamless deployment and scaling of your PostgreSQL workloads
+title: Integrate Kubernetes with Tiger Cloud
+excerpt: Learn how to integrate Kubernetes with Tiger Cloud to enable seamless deployment and scaling of your Postgres workloads
 products: [cloud, self_hosted]
-keywords: [Kubernetes, Timescale Cloud, PostgreSQL, container orchestration]
+keywords: [Kubernetes, Tiger Cloud, PostgreSQL, container orchestration]
 ---
 
 import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx";
@@ -10,9 +10,9 @@ import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-
 
 # Integrate Kubernetes with $CLOUD_LONG
 
-[Kubernetes][kubernetes] is an open-source container orchestration system that automates the deployment, scaling, and management of containerized applications. You can deploy $CLOUD_LONG within your Kubernetes clusters.
+[Kubernetes][kubernetes] is an open-source container orchestration system that automates the deployment, scaling, and management of containerized applications. You can connect Kubernetes to $CLOUD_LONG, and deploy $TIMESCALE_DB within your Kubernetes clusters.
 
-This guide explains how to connect a Kubernetes cluster to $CLOUD_LONG, configure persistent storage, and manage deployments effectively.
+This guide explains how to connect a Kubernetes cluster to $CLOUD_LONG, configure persistent storage, and deploy $TIMESCALE_DB in your kubernetes cluster. 
 
 ## Prerequisites
 
@@ -20,11 +20,11 @@ To follow the steps on this page:
 
 <KubernetesPrereqs />
 
-## Integrate Timescale in a Kubernetes cluster 
+## Integrate $TIMESCALE_DB in a Kubernetes cluster 
 
 <Tabs>
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger Cloud">
 
 To connect your Kubernetes cluster to your $SERVICE_LONG:
 
@@ -32,7 +32,7 @@ To connect your Kubernetes cluster to your $SERVICE_LONG:
 
 1. **Create a default namespace for your $CLOUD_LONG components**
 
-   1. Create the Timescale namespace:
+   1. Create a namespace:
 
       ```shell
       kubectl create namespace timescale

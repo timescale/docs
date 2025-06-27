@@ -14,9 +14,9 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # compress_chunk() <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
 
-The `compress_chunk` function is used to compress (or recompress, if necessary) 
+The `compress_chunk` function is used for synchronous compression (or recompression, if necessary) of 
 a specific chunk. This is most often used instead of the
 [`add_compression_policy`][add_compression_policy] function, when a user
 wants more control over the scheduling of compression. For most users, we

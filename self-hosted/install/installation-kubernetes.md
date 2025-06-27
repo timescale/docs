@@ -10,7 +10,7 @@ import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx"
 import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-self-hosted.mdx";
 
 
-# Install TimescaleDB on Kubernetes
+# Install $TIMESCALE_DB on Kubernetes
 
 You can run TimescaleDB inside Kubernetes using the TimescaleDB Docker container images. 
 
@@ -22,17 +22,17 @@ To follow the steps on this page:
 
 <KubernetesPrereqs />
 
-## Integrate Timescale in a Kubernetes cluster
+## Integrate $TIMESCALE_DB in a Kubernetes cluster
 
 <KubernetesInstallSelf />
 
-## Install with PostgreSQL Kubernetes operators
+## Install with $PG Kubernetes operators
 
-You can also use PostgreSQL Kubernetes operators to simplify installation, configuration, and life cycle. The operators which our community members have 
+You can also use $PG Kubernetes operators to simplify installation, configuration, and life cycle. The operators which our community members have 
 told us work well are:
 
 - [StackGres][stackgres] (includes TimescaleDB images)
-- [Postgres Operator (Patroni)][patroni] 
+- [$PG Operator (Patroni)][patroni] 
 - [PGO][pgo]
 - [CloudNativePG][cnpg]
 

@@ -1,6 +1,6 @@
 ---
 title: Live migration
-excerpt: Migrate your entire database to Timescale Cloud with low downtime
+excerpt: Migrate your entire database to Tiger Cloud with low downtime
 products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
@@ -21,14 +21,14 @@ import Troubleshooting from "versionContent/_partials/_migrate_live_migrate_faq_
 
 # Live migration
 
-Live-migration is an end-to-end solution that copies the database schema and data to
-your target Timescale Cloud service, then replicates the database activity in your source database to the target service in real-time. Live-migration uses the PostgreSQL logical decoding functionality and leverages [pgcopydb].
+Live migration is an end-to-end solution that copies the database schema and data to
+your target $SERVICE_LONG, then replicates the database activity in your source database to the target service in real time. Live migration uses the $PG logical decoding functionality and leverages [pgcopydb].
 
-You use the live-migration Docker image to move 100GB-10TB+ of data to a Timescale Cloud service seamlessly with only a few minutes downtime.
+You use the live migration Docker image to move 100GB-10TB+ of data to a $SERVICE_LONG seamlessly with only a few minutes downtime.
 
 <DoNotRecommendForLargeMigration />
 
-Best practice is to use live-migration when:
+Best practice is to use live migration when:
 - Modifying your application logic to perform dual writes is a significant effort. 
 - The insert workload does not exceed 20,000 rows per second, and inserts are batched.
 
@@ -40,7 +40,7 @@ Best practice is to use live-migration when:
   - Has large, busy tables with primary keys.
   - Does not have many `UPDATE` or `DELETE` statements.
 
-This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using
+This page shows you how to move your data from a self-hosted database to a $SERVICE_LONG using
 the live-migration Docker image.  
 
 ## Prerequisites
@@ -51,21 +51,21 @@ the live-migration Docker image.
 
   This machine needs sufficient space to store the buffered changes that occur while your data is 
   being copied. This space is proportional to the amount of new uncompressed data being written to 
-  the Timescale Cloud service during migration. A general rule of thumb is between 100GB and 500GB.
-  The CPU specifications of this EC2 instance should match those of your Timescale Cloud instance for optimal performance. For example, if your Timescale Cloud instance has an 8-CPU configuration, then your EC2 instance should also have 8 CPUs.
+  the $SERVICE_LONG during migration. A general rule of thumb is between 100GB and 500GB.
+  The CPU specifications of this EC2 instance should match those of your $SERVICE_LONG for optimal performance. For example, if your $SERVICE_SHORT has an 8-CPU configuration, then your EC2 instance should also have 8 CPUs.
 
-- Before starting live-migration, read the [Frequently Asked Questions][FAQ].
+- Before starting live migration, read the [Frequently Asked Questions][FAQ].
 
-### Migrate to Timescale Cloud
+### Migrate to $CLOUD_LONG
 
-To move your data from a self-hosted database to a Timescale Cloud service:
+To move your data from a self-hosted database to a $SERVICE_LONG:
 
 <Tabs label="Live migration">
 
 <Tab title="From TimescaleDB">
 
-This section shows you how to move your data from self-hosted TimescaleDB to a Timescale Cloud service 
-using live-migration from Terminal.
+This section shows you how to move your data from $SELF_LONG to a $SERVICE_LONG 
+using live migration from Terminal.
 
 <MigrateSetupEnvironment />
 
@@ -74,10 +74,10 @@ using live-migration from Terminal.
 <ValidateDataInCloud />
 
 </Tab>
-<Tab title="From PostgreSQL">
+<Tab title="From Postgres">
 
-This section shows you how to move your data from self-hosted PostgreSQL to a Timescale Cloud service using 
-live-migration from Terminal.
+This section shows you how to move your data from self-hosted $PG to a $SERVICE_LONG using 
+live migration from Terminal.
 
 <MigrateSetupEnvironmentPostgres />
 
@@ -88,15 +88,15 @@ live-migration from Terminal.
 </Tab>
 <Tab title="From AWS RDS/Aurora">
 
-To migrate your data from an Amazon RDS/Aurora PostgreSQL instance to a Timescale Cloud service, you extract the data to an intermediary
-EC2 Ubuntu instance in the same AWS region as your RDS/Aurora instance. You then upload your data to a Timescale Cloud service.
+To migrate your data from an Amazon RDS/Aurora $PG instance to a $SERVICE_LONG, you extract the data to an intermediary
+EC2 Ubuntu instance in the same AWS region as your RDS/Aurora instance. You then upload your data to a $SERVICE_LONG.
 To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to
-rapidy extract and store your data before uploading to Timescale Cloud.
+rapidly extract and store your data before uploading to $CLOUD_LONG.
 
-Migration from RDS/Aurora gives you the opportunity to create [hypertables][about-hypertables] before copying the data. Once the migration is complete, you can manually enable Timescale Cloud features like [data compression][data-compression] or [data retention][data-retention].
+Migration from RDS/Aurora gives you the opportunity to create [hypertables][about-hypertables] before copying the data. Once the migration is complete, you can manually enable $CLOUD_LONG features like [data compression][data-compression] or [data retention][data-retention].
 
-This section shows you how to move your data from an Amazon RDS/Aurora instance to a Timescale Cloud service
-using live-migration.
+This section shows you how to move your data from an Amazon RDS/Aurora instance to a $SERVICE_LONG
+using live migration.
 
 
 <MigrateAWSRDSConnectIntermediary />
@@ -111,8 +111,8 @@ using live-migration.
 
 <Tab title="From MST">
 
-This section shows you how to move your data from a Managed Service for Timescale (MST) instance to a 
-Timescale Cloud service using live-migration from Terminal. 
+This section shows you how to move your data from a $MST_SHORT instance to a
+$SERVICE_LONG using live migration from Terminal. 
 
 <MigrateSetupEnvironmentMST />
 
@@ -123,11 +123,11 @@ Timescale Cloud service using live-migration from Terminal.
 </Tab>
 </Tabs>
 
-And you are done, your data is now in your Timescale Cloud service. 
+And you are done, your data is now in your $SERVICE_LONG. 
 
 ## Troubleshooting
 
-This section shows you how to workaround issues frequently seen issues using Live-migration.
+This section shows you how to work around frequently seen issues when using live migration.
 
 <Troubleshooting />
 

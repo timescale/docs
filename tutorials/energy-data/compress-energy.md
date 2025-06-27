@@ -1,6 +1,6 @@
 ---
 title: Energy consumption data tutorial - set up compression
-excerpt: Compress the sample dataset with Timescale Cloud to store the energy consumption data more efficiently
+excerpt: Compress the sample dataset with Tiger Cloud to store the energy consumption data more efficiently
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]
@@ -18,18 +18,18 @@ since this is mostly immutable you can compress it to save space and
 avoid incurring additional cost.
 
 It is possible to use disk-oriented compression like the support
-offered by ZFS and Btrfs but since TimescaleDB is build for handling
+offered by ZFS and Btrfs but since $TIMESCALE_DB is build for handling
 event-oriented data (such as time-series) it comes with support for
 compressing data in hypertables.
 
 TimescaleDB compression allows you to store the data in a vastly more
 efficient format allowing up to 20x compression ratio compared to a
-normal PostgreSQL table, but this is of course highly dependent on the
+normal $PG table, but this is of course highly dependent on the
 data and configuration.
 
-TimescaleDB compression is implemented natively in PostgreSQL and does
+TimescaleDB compression is implemented natively in $PG and does
 not require special storage formats. Instead it relies on features of
-PostgreSQL to transform the data into columnar format before
+$PG to transform the data into columnar format before
 compression. The use of a columnar format allows better compression
 ratio since similar data is stored adjacently. For more details on how
 the compression format looks, you can look at the [compression
@@ -43,7 +43,7 @@ memory.
 
 ## Compression setup
 
-1.  Connect to the Timescale database that contains the energy
+1.  Connect to the $SERVICE_LONG that contains the energy
     dataset using, for example `psql`.
 1.  Enable compression on the table and pick suitable segment-by and
     order-by column using the `ALTER TABLE` command:

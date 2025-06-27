@@ -6,12 +6,13 @@ keywords: [hypertables, indexes, chunks]
 ---
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import ChunkInterval from "versionContent/_partials/_chunk-interval.mdx";
 
 # Improve hypertable and query performance
 
-Hypertables are PostgreSQL tables that help you improve insert and query performance by automatically partitioning 
+Hypertables are $PG tables that help you improve insert and query performance by automatically partitioning 
 your data by time. Each hypertable is made up of child tables called chunks. Each chunk is assigned a range of time, 
-and only contains data from that range. When you run a query, Timescale Cloud identifies the correct chunk and runs 
+and only contains data from that range. When you run a query, $TIMESCALE_DB identifies the correct chunk and runs 
 the query on it, instead of going through the entire table. This page shows you how to tune hypertables to increase 
 performance even more.
 
@@ -27,11 +28,7 @@ Adjusting your hypertable chunk interval can improve performance in your databas
 
 1. **Choose an optimum chunk interval**
 
-   The default chunk interval is 7 days. You can set a custom interval when you create a hypertable.
-   Best practice is that prior to processing, one chunk of data takes up 25% of main memory, including the indexes
-   from each active hypertable. For example, if you write approximately 2 GB of data per day to a database with 64
-   GB of memory, set `chunk_interval` to 1 week. If you write approximately 10 GB of data per day on the same
-   machine, set the time interval to 1 day. For more information, see [best practices for time partitioning][best-practices].
+   <ChunkInterval />
 
    In the following example you create a table called `conditions` that stores time values in the
    `time` column and has chunks that store data for a `chunk_interval` of one day:
@@ -144,7 +141,7 @@ In the satellite example, the time of adding data to a database inevitably follo
 Sequential IDs and the creation timestamp for both entities also increase synchronously. This means those two 
 columns are correlated. 
 
-For a more in-depth look on chunk skipping, see [our blog post](https://www.timescale.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes/).
+For a more in-depth look on chunk skipping, see [our blog post](https://www.timescale.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes).
 
 ### Enable chunk skipping
 
@@ -159,10 +156,10 @@ For more details on how to implement chunk skipping, see the [API Reference][api
 
 ## Analyze your $HYPERTABLEs
 
-You can use the PostgreSQL `ANALYZE` command to query all chunks in your
+You can use the $PG `ANALYZE` command to query all chunks in your
 $HYPERTABLE. The statistics collected by the `ANALYZE` command are used by the
-PostgreSQL planner to create the best query plan. For more information about the
-`ANALYZE` command, see the [PostgreSQL documentation][pg-analyze].
+$PG planner to create the best query plan. For more information about the
+`ANALYZE` command, see the [$PG documentation][pg-analyze].
 
 [api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
 [best-practices]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning

@@ -1,6 +1,6 @@
 Running $TIMESCALE_DB on Kubernetes is similar to running $PG. This procedure outlines the steps for a non-distributed system. 
 
-To connect your Kubernetes cluster to self-hosted $TIMESCALE_DB running in the cluster:
+To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
 
 <Procedure>
 
@@ -41,7 +41,7 @@ To connect your Kubernetes cluster to self-hosted $TIMESCALE_DB running in the c
 
 1. **Deploy $TIMESCALE_DB as a StatefulSet**
 
-   By default, the [Timescale Docker image][timescale-docker-image] you are installing on Kubernetes uses the
+   By default, the [$TIMESCALE_DB Docker image][timescale-docker-image] you are installing on Kubernetes uses the
    default $PG database, user and password. To deploy $TIMESCALE_DB on Kubernetes, run the following command:
 
     ```yaml
@@ -156,13 +156,13 @@ To connect your Kubernetes cluster to self-hosted $TIMESCALE_DB running in the c
          -- sleep infinity
          ```
 
-    1. Launch the PostgreSQL interactive shell within the created `test-pod`:
+    1. Launch the $PG interactive shell within the created `test-pod`:
 
          ```shell
          kubectl exec -it test-pod -- bash -c "psql -h \$PGHOST -U \$PGUSER -d \$PGDATABASE"
          ```
 
-   You see the PostgreSQL interactive terminal.
+   You see the $PG interactive terminal.
 
 </Procedure>
 

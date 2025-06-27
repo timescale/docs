@@ -1,6 +1,6 @@
 ---
 title: Create a continuous aggregate
-excerpt: Create a continuous aggregate in your Timescale Cloud service and make sure you always have the latest aggregated data for your analytical queries
+excerpt: Learn to create a continuous aggregate and make sure you always have the latest aggregated data for your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
 ---
@@ -66,8 +66,8 @@ hypertable. Additionally, all functions and their arguments included in
 
 </Procedure>
 
-You can use most PostgreSQL aggregate functions in continuous aggregations. To
-see what PostgreSQL features are supported, check the
+You can use most $PG aggregate functions in continuous aggregations. To
+see what $PG features are supported, check the
 [function support table][cagg-function-support].
 
 ## Choosing an appropriate bucket interval
@@ -140,7 +140,7 @@ queries to run efficiently.
 
 ## Create a continuous aggregate with a JOIN
 
-In Timescale&nbsp;2.10 and later, with PostgreSQL&nbsp;12 or later, you can
+In $TIMESCALE_DB V2.10 and later, with $PG v12 or later, you can
 create a continuous aggregate with a query that also includes a `JOIN`. For
 example:
 
@@ -159,7 +159,7 @@ GROUP BY name, bucket;
 <Highlight type="note">
 For more information about creating a continuous aggregate with a `JOIN`,
 including some additional restrictions, see the
-[about continuous aggregates section](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause).
+[about continuous aggregates section](https://docs.tigerdata.com/use-timescale/latest/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause).
 </Highlight>
 
 ## Query continuous aggregates

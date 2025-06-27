@@ -8,9 +8,8 @@ tags: [manage]
 
 # User management
 
-You can add new users, and manage existing users, in the Managed Service for
-TimescaleDB console. New users can be added to an entire project, or a single
-service.
+You can add new users, and manage existing users, in $MST_CONSOLE_LONG. New users can be added to an entire project, or a single
+$MST_SERVICE_SHORT.
 
 ## Project members
 
@@ -32,7 +31,7 @@ and stop services permission.
 
 ### Adding project members
 
-1.  [Sign in][mst-login] to your Managed Service for TimescaleDB portal.
+1.  [Sign in][mst-login] to your $MST_CONSOLE_LONG.
 1.  Check that you are in the project that you want to change the members for,
     and click `Members`.
 1.  In the `Project members` page, type the email address of the member you want
@@ -55,7 +54,7 @@ This is the user that you use to connect to your new service.
 The `tsdbadmin` user is the owner of the database, but is not a superuser. To
 access features requiring a superuser, log in as the `postgres` user instead.
 
-On Managed Service for TimescaleDB services, the `tsdbadmin` user can:
+The `tsdbadmin` user for $MST_LONGs can:
 
 *   Create a database
 *   Create a role
@@ -64,17 +63,19 @@ On Managed Service for TimescaleDB services, the `tsdbadmin` user can:
 
 This allows you to use the `tsdbadmin` user to create another user with any
 other roles. For a complete list of roles available, see the
-[PostgreSQL role attributes documentation][pg-roles-doc].
+[$PG role attributes documentation][pg-roles-doc].
 
 <Highlight type="important">
+
 Your service must be running before you can manage users.
+
 </Highlight>
 
 <Procedure>
 
 ### Adding service users
 
-1.  [Sign in][mst-login] to your Managed Service for TimescaleDB portal. By
+1.  [Sign in][mst-login] to $MST_CONSOLE_LONG. By
     default, you start in the `Services` view, showing any services you
     currently have in your project.
 1.  Click the name of the service that you want to add users to.
@@ -98,12 +99,10 @@ Your service must be running before you can manage users.
 
 ## Multi-factor user authentication
 
-You can use multi-factor authentication (MFA) to log in to your Managed Service
-for TimescaleDB account. This requires an authentication code, provided by the
+You can use multi-factor authentication (MFA) to log in to $MST_CONSOLE_LONG. This requires an authentication code, provided by the
 Google Authenticator app on your mobile device.
 
-You can see which authentication method is in use by each member of your Managed
-Service for TimescaleDB project. From the dashboard, navigate to the `Members`
+You can see which authentication method is in use by each member of your $MST_LONG project. From the dashboard, navigate to the `Members`
 section. Each member is listed in the table with an authentication method of
 either `Password` or `Two-Factor`.
 
@@ -115,16 +114,15 @@ For more information, and installation instructions, see
 
 ### Configuring multi-factor authentication
 
-1.  [Sign in][mst-login] to your Managed Service for TimescaleDB portal.
+1.  [Sign in][mst-login] to $MST_CONSOLE_LONG.
 1.  Click the `User information` icon in the top-right of the dashboard to go to
     the `User profile` section.
 1.  In the `Authentication` tab, toggle `Two-factor authentication` to
     `Enabled`, and enter your password.
 1.  On your mobile device, open the Google Authenticator app, tap `+` and select
     `Scan a QR code`.
-1.  On your mobile device, scan the QR code provided by Managed Service for
-    TimescaleDB.
-1.  In your Managed Service for TimescaleDB dashboard, enter the confirmation
+1.  On your mobile device, scan the QR code provided by $MST_LONG.
+1.  In your $MST_SHORT dashboard, enter the confirmation
     code provided by the Google Authenticator app, and click
     `Enable Two-Factor Auth`.
 
@@ -132,7 +130,7 @@ For more information, and installation instructions, see
 
 <Highlight type="warning">
 If you lose access to the mobile device you use for multi-factor
-authentication, you cannot sign in to your Managed Service for TimescaleDB
+authentication, you cannot sign in to your $MST_LONG
 account. To regain access to your account, on the login screen, click
 `Forgot password?` and follow the step to reset your password. When you have
 regained access to your account, reconfigure multi-factor authentication.
@@ -140,14 +138,13 @@ regained access to your account, reconfigure multi-factor authentication.
 
 ## User authentication tokens
 
-Every time a registered user logs in, Managed Service for TimescaleDB creates a
+Every time a registered user logs in, $MST_LONG creates a
 new authentication token. This occurs for login events using the portal, and
 using the API. By default, authentication tokens expire after 30 days, but the
 expiry date is adjusted every time the token is used. This means that tokens can
 be used indefinitely, if the user logs in at least every 30 days.
 
-You can see the list of all current authentication tokens in the Managed Service
-for TimescaleDB dashboard. Sign in to your account, and click the
+You can see the list of all current authentication tokens in the $MST_LONG dashboard. Sign in to your account, and click the
 `User information` icon in the top-right of the dashboard to go to the
 `User profile` section. In the `Authentication` tab, the table lists all current
 authentication tokens.
@@ -161,8 +158,7 @@ individually, or click `Revoke all tokens` to revoke all current tokens.
 Additionally, you can click `Generate token` to create a new token. When you
 generate a token on this page, you can provide a description, maximum age, and
 an extension policy. Generating authentication tokens in this way allows you to
-use them with monitoring applications that make automatic API calls to Managed
-Service for TimescaleDB.
+use them with monitoring applications that make automatic API calls to $MST_LONG.
 
 <Highlight type="important">
 There is a limit to how many valid authentication tokens are allowed per user.

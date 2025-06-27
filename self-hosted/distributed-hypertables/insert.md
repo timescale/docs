@@ -14,7 +14,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # Insert data
 
 You can insert data into a distributed hypertable with an `INSERT` statement.
-The syntax looks the same as for a standard hypertable or PostgreSQL table. For
+The syntax looks the same as for a standard hypertable or $PG table. For
 example:
 
 ```sql

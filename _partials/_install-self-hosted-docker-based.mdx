@@ -1,18 +1,18 @@
 <Procedure>
 In Terminal:
 
-1.  **Run the TimescaleDB Docker image**
+1.  **Run the $TIMESCALE_DB Docker image**
 
-    The [TimescaleDB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker image offers the most complete TimescaleDB experience. It uses [Ubuntu][ubuntu], includes [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit), and support for PostGIS and Patroni. The latest release based on PostgreSQL 17 is `timescale/timescaledb-ha:pg17`:
+    The [TimescaleDB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker image offers the most complete $TIMESCALE_DB experience. It uses [Ubuntu][ubuntu], includes [$TOOLKIT_LONG](https://github.com/timescale/timescaledb-toolkit), and support for PostGIS and Patroni. The latest release based on $PG 17 is `timescale/timescaledb-ha:pg17`:
 
     ```bash
     docker pull timescale/timescaledb-ha:pg17
     ```
 
-    The lighter-weight [TimescaleDB](https://hub.docker.com/r/timescale/timescaledb) non-ha Docker image uses [Alpine][alpine]. The latest release based on PostgreSQL 17 is `timescale/timescaledb:latest-pg17`.
+    The lighter-weight [TimescaleDB](https://hub.docker.com/r/timescale/timescaledb) non-ha Docker image uses [Alpine][alpine]. The latest release based on $PG 17 is `timescale/timescaledb:latest-pg17`.
 
-    TimescaleDB is pre-created in the default PostgreSQL database in both the -ha and non-ha Docker images.
-    By default, TimescaleDB is added to any new database you create in these images.
+    $TIMESCALE_DB is pre-created in the default $PG database in both the -ha and non-ha Docker images.
+    By default, $TIMESCALE_DB is added to any new database you create in these images.
 
 1. **Run the container**
 
@@ -27,16 +27,16 @@ In Terminal:
     [override your UFW port binding settings](https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw/).
     To prevent this, add `DOCKER_OPTS="--iptables=false"` to `/etc/default/docker`.
 
-1. **Connect to a database on your PostgreSQL instance**
+1. **Connect to a database on your $PG instance**
 
     ```bash
     psql -d "postgres://postgres:password@localhost/postgres"
     ```
 
     The default user and database are both `postgres`. You set the password in
-    `POSTGRES_PASSWORD` in the previous step. The default command to connect to PostgreSQL in this image is:
+    `POSTGRES_PASSWORD` in the previous step. The default command to connect to $PG in this image is:
 
-1.  **Check that TimescaleDB is installed**
+1.  **Check that $TIMESCALE_DB is installed**
 
     ```sql
     \dx

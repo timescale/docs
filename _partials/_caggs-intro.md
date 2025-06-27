@@ -1,7 +1,7 @@
 import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
 
 In modern applications, data usually grows very quickly. This means that aggregating 
-it into useful summaries can become very slow. $CLOUD_LONG continuous aggregates make
+it into useful summaries can become very slow. Continuous aggregates in $TIMESCALE_DB make
 aggregating data lightning fast, accurate, and easy. 
 
 If you are collecting data very frequently, you might want to aggregate your
@@ -17,7 +17,7 @@ automatically updated in the background.
 
 You don't need to manually refresh your continuous aggregates, they are
 continuously and incrementally updated in the background. Continuous aggregates
-also have a much lower maintenance burden than regular PostgreSQL materialized
+also have a much lower maintenance burden than regular $PG materialized
 views, because the whole view is not created from scratch on each refresh. This
 means that you can get on with working your data instead of maintaining your
 database.

@@ -1,6 +1,6 @@
 ---
-title: Integrate Apache Airflow with Timescale Cloud
-excerpt: Apache Airflow is a platform to programmatically author, schedule, and monitor workflows. Integrate Apache Airflow with Timescale Cloud and create a data pipeline
+title: Integrate Apache Airflow with Tiger Cloud
+excerpt: Apache Airflow is a platform to programmatically author, schedule, and monitor workflows. Integrate Apache Airflow with Tiger Cloud and create a data pipeline
 products: [cloud, self_hosted]
 keywords: [connect, integrate, apache, airflow]
 ---
@@ -34,13 +34,13 @@ To install the Python libraries required to connect to $CLOUD_LONG:
 
 <Procedure>
 
-1. **Enable PostgreSQL connections between Airflow and $CLOUD_LONG**
+1. **Enable $PG connections between Airflow and $CLOUD_LONG**
 
     ```bash
     pip install psycopg2-binary
     ```
 
-1. **Enable PostgreSQL connection types in the Airflow UI**
+1. **Enable $PG connection types in the Airflow UI**
 
     ```bash
     pip install apache-airflow-providers-postgres
@@ -98,7 +98,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
              This could be any query. This example inserts data into the table
              you create in:
       
-             https://docs.timescale.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
+             https://docs.tigerdata.com/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
             """            
            cursor.execute("INSERT INTO crypto_assets (symbol, name) VALUES (%s, %s)",
             ('NEW/Asset','New Asset Name'))
@@ -120,15 +120,15 @@ To exchange data between Airflow and your $SERVICE_LONG:
            dag=dag,
        )
        ```
-      This DAG uses the `company` table created in [Create regular PostgreSQL tables for relational data][create-a-table-in-timescale].
+      This DAG uses the `company` table created in [Create regular $PG tables for relational data][create-a-table-in-timescale].
 
-   1.  In your browser, refresh the [Airflow UI][Airflow_UI].
+   1.  In your browser, refresh the Airflow UI.
    1.  In `Search DAGS`, type `timescale_dag` and press ENTER.  
    1.  Press the play icon and trigger the DAG:
        ![daily eth volume of assets](https://assets.timescale.com/docs/images/integrations-apache-airflow.png)
 1. **Verify that the data appears in $CLOUD_LONG** 
 
-   1. In [Timescale Console][console], navigate to your service and click `SQL editor`. 
+   1. In [$CONSOLE][console], navigate to your service and click `SQL editor`. 
    1. Run a query to view your data. For example: `SELECT symbol, name FROM company;`. 
    
       You see the new rows inserted in the table.

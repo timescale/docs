@@ -23,9 +23,9 @@ TimescaleDB using the OHLCV format.
 
 Before you begin, make sure you have:
 
-*   A TimescaleDB instance running locally or on the cloud.
+*   A $TIMESCALE_DB instance running locally or on the cloud.
   For more information, see [installation options][install-docs].
-*   [`psql`][psql], or any other PostgreSQL client.
+*   [`psql`][psql], or any other $PG client.
 
 ## Steps in this tutorial
 

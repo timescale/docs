@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting TimescaleDB
-excerpt: Troubleshoot common problems that occur when using Timescale Cloud and TimescaleDB
+excerpt: Troubleshoot common problems that occur when using TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [troubleshooting]
 ---
@@ -9,15 +9,15 @@ import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-
 
 # Troubleshooting
 
-If you run into problems when using TimescaleDB, there are a few things that you
+If you run into problems when using $TIMESCALE_DB, there are a few things that you
 can do. There are some solutions to common errors in this section as well as ways to
 output diagnostic information about your setup. If you need more guidance, you
-can join the community [Slack group][slack] or post an issue on the TimescaleDB
+can join the community [Slack group][slack] or post an issue on the $TIMESCALE_DB
 [GitHub][github].
 
 ## Common errors
 
-### Error updating TimescaleDB when using a third-party PostgreSQL administration tool
+### Error updating $TIMESCALE_DB when using a third-party $PG administration tool
 
 The `ALTER EXTENSION timescaledb UPDATE` command must be the first
 command executed upon connection to a database. Some administration tools
@@ -27,20 +27,20 @@ need to manually update the database with `psql`.  See the
 
 ### Log error: could not access file "timescaledb"
 
-If your PostgreSQL logs have this error preventing it from starting up, you
-should double check that the TimescaleDB files have been installed to the
-correct location. The installation methods use `pg_config` to get PostgreSQL's
-location. However if you have multiple versions of PostgreSQL installed on the
+If your $PG logs have this error preventing it from starting up, you
+should double-check that the $TIMESCALE_DB files have been installed to the
+correct location. The installation methods use `pg_config` to get $PG's
+location. However, if you have multiple versions of $PG installed on the
 same machine, the location `pg_config` points to may not be for the version you
-expect. To check which version TimescaleDB used:
+expect. To check which version of $TIMESCALE_DB is used:
 
 ```bash
 $ pg_config --version
 PostgreSQL 12.3
 ```
 
-If that is the correct version, double check that the installation path is
-the one you'd expect. For example, for PostgreSQL 11.0 installed via
+If that is the correct version, double-check that the installation path is
+the one you'd expect. For example, for $PG 11.0 installed via
 Homebrew on macOS it should be `/usr/local/Cellar/postgresql/11.0/bin`:
 
 ```bash
@@ -49,7 +49,7 @@ $ pg_config --bindir
 ```
 
 If either of those steps is not the version you are expecting, you need to
-either uninstall the incorrect version of PostgreSQL if you can, or update your
+either uninstall the incorrect version of $PG if you can, or update your
 `PATH` environmental variable to have the correct path of `pg_config` listed
 first, that is, by prepending the full path:
 
@@ -57,15 +57,15 @@ first, that is, by prepending the full path:
 export PATH = /usr/local/Cellar/postgresql/11.0/bin:$PATH
 ```
 
-Then, reinstall TimescaleDB and it should find the correct installation
+Then, reinstall $TIMESCALE_DB and it should find the correct installation
 path.
 
 ### ERROR: could not access file "timescaledb-\<version\>": No such file or directory
 
-If the error occurs immediately after updating your version of TimescaleDB and
+If the error occurs immediately after updating your version of $TIMESCALE_DB and
 the file mentioned is from the previous version, it is probably due to an
-incomplete update process. Within the greater PostgreSQL server instance, each
-database that has TimescaleDB installed needs to be updated with the SQL command
+incomplete update process. Within the greater $PG server instance, each
+database that has $TIMESCALE_DB installed needs to be updated with the SQL command
 `ALTER EXTENSION timescaledb UPDATE;` while connected to that database.
 Otherwise, the database looks for the previous version of the `timescaledb` files.
 
@@ -74,7 +74,7 @@ See [our update docs][update-db] for more info.
 ### Scheduled jobs stop running
 
 Your scheduled jobs might stop running for various reasons. On self-hosted
-TimescaleDB, you can fix this by restarting background workers:
+$TIMESCALE_DB, you can fix this by restarting background workers:
 
 ```sql
 SELECT _timescaledb_internal.restart_background_workers();
@@ -103,7 +103,7 @@ For more information, see the [worker configuration docs][worker-config].
 ### Cannot compress chunk
 
 You might see this error message when trying to compress a chunk if
-the permissions for the compressed hypertable is corrupt.
+the permissions for the compressed hypertable are corrupt.
 
 ```sql
 tsdb=> SELECT compress_chunk('_timescaledb_internal._hyper_65_587239_chunk');
@@ -111,11 +111,11 @@ ERROR: role 149910 was concurrently dropped
 ```
 
 This can be caused if you dropped a user for the hypertable before
-TimescaleDB 2.5. For this case, the user would be removed from
+$TIMESCALE_DB 2.5. For this case, the user would be removed from
 `pg_authid` but not revoked from the compressed table.
 
 As a result, the compressed table contains permission items that
-refers to numerical values rather than existing users (see below for
+refer to numerical values rather than existing users (see below for
 how to find the compressed hypertable from a normal hypertable):
 
 ```sql
@@ -166,13 +166,13 @@ tsdb->  where table_name = 'readings';
 
 ### EXPLAINing query performance
 
-PostgreSQL's EXPLAIN feature allows users to understand the underlying query
-plan that PostgreSQL uses to execute a query. There are multiple ways that
-PostgreSQL can execute a query: for example, a query might be fulfilled using a
+$PG's EXPLAIN feature allows users to understand the underlying query
+plan that $PG uses to execute a query. There are multiple ways that
+$PG can execute a query: for example, a query might be fulfilled using a
 slow sequence scan or a much more efficient index scan. The choice of plan
-depends on what indexes are created on the table, the statistics that PostgreSQL
+depends on what indexes are created on the table, the statistics that $PG
 has about your data, and various planner settings. The EXPLAIN output let's you
-know which plan PostgreSQL is choosing for a particular query. PostgreSQL has a
+know which plan $PG is choosing for a particular query. $PG has a
 [in-depth explanation][using explain] of this feature.
 
 To understand the query performance on a hypertable, we suggest first
@@ -189,11 +189,11 @@ can get even more information by enabling the
 [track\_io\_timing][track_io_timing] variable with `SET track_io_timing = 'on';`
 before running the above EXPLAIN.
 
-## Dump TimescaleDB meta data
+## Dump $TIMESCALE_DB meta data
 
 To help when asking for support and reporting bugs,
-TimescaleDB includes a SQL script that outputs metadata
-from the internal TimescaleDB tables as well as version information.
+$TIMESCALE_DB includes a SQL script that outputs metadata
+from the internal $TIMESCALE_DB tables as well as version information.
 The script is available in the source distribution in `scripts/`
 but can also be [downloaded separately][].
 To use it, run:
@@ -208,7 +208,7 @@ and then inspect `dump_file.txt` before sending it together with a bug report or
 
 By default, background workers do not print a lot of information about
 execution. The reason for this is to avoid writing a lot of debug
-information to the PostgreSQL log unless necessary.
+information to the $PG log unless necessary.
 
 To aid in debugging the background jobs, it is possible to increase
 the log level of the background workers without having to restart the
@@ -227,15 +227,14 @@ changed in the configuration file, it is used for
 `timescaledb.bgw_log_level` when starting the workers.
 
 <Highlight type="note">
-Both `ALTER SYSTEM` and `pg_reload_conf()` requires superuser
-privileges by default and that you need to grant `EXECUTE` permissions
+Both `ALTER SYSTEM` and `pg_reload_conf()` require superuser
+privileges by default. Grant `EXECUTE` permissions
 to `pg_reload_conf()` and `ALTER SYSTEM` privileges to
 `timescaledb.bgw_log_level` if you want this to work for a
 non-superuser.
 
-Since `ALTER SYSTEM` privileges only exist on PostgreSQL 15 and later,
-the necessary grants for executing these statements just exists on
-TimescaleDB Cloud for PostgreSQL 15 or later.
+Since `ALTER SYSTEM` privileges only exist on $PG 15 and later,
+the necessary grants for executing these statements only exist on $CLOUD_LONG for $PG 15 or later.
 </Highlight>
 
 ### Debug level 1
@@ -260,7 +259,7 @@ The amount of information printed at each level varies between jobs,
 but the information printed at `DEBUG2` is currently shown below.
 
 Note that all messages at level `DEBUG1` are also printed when you set
-the log level to `DEBUG2`, which is [normal PostgreSQL
+the log level to `DEBUG2`, which is [normal $PG
 behaviour][log_min_messages].
 
 | Source    | Event                              |
@@ -280,8 +279,8 @@ behaviour][log_min_messages].
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
 [github]: https://github.com/timescale/timescaledb/issues
 [slack]: https://slack.timescale.com/
-[track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
+[track_io_timing]: https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
 [update-db]: /self-hosted/:currentVersion:/upgrades/
-[using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
+[using explain]: https://www.postgresql.org/docs/current/using-explain.html
 [worker-config]: /self-hosted/latest/configuration/about-configuration/#workers
 [log_min_messages]: https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES

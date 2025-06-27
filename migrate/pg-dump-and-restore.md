@@ -1,6 +1,6 @@
 ---
 title: Migrate with downtime
-excerpt: Migrate a hypertable or an entire database to Timescale Cloud with native PostgreSQL commands. Use `pg_dump` and `pg_restore` to move less than 100GB of data
+excerpt: Migrate a hypertable or an entire database to Tiger Cloud with native Postgres commands. Use `pg_dump` and `pg_restore` to move less than 100GB of data
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
@@ -24,11 +24,10 @@ import MigrateAWSRDSMigrateData from "versionContent/_partials/_migrate_awsrds_m
 
 # Migrate with downtime
 
-You use downtime migration to move less than 100GB of data from self-hosted database to a Timescale Cloud 
-service.
+You use downtime migration to move less than 100GB of data from a self-hosted database to a $SERVICE_LONG.
 
-Downtime migration uses the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. 
-If you are migrating from self-hosted TimescaleDB, this method works for hypertables compressed into the columnstore without having 
+Downtime migration uses the native $PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands. 
+If you are migrating from $SELF_LONG, this method works for hypertables compressed into the columnstore without having 
 to convert the data back to the rowstore before you begin. 
 
 <DoNotRecommendForLargeMigration />
@@ -36,7 +35,7 @@ to convert the data back to the rowstore before you begin.
 However, downtime migration for large amounts of data takes a large amount of time. For more than 100GB of data, best
 practice is to follow [live migration].
 
-This page shows you how to move your data from a self-hosted database to a Timescale Cloud service using 
+This page shows you how to move your data from a self-hosted database to a $SERVICE_LONG using 
 shell commands.
 
 ## Prerequisites
@@ -44,7 +43,7 @@ shell commands.
 <MigrationPrerequisites />
 
 
-- Install the PostgreSQL client tools on your migration machine. 
+- Install the $PG client tools on your migration machine. 
 
   This includes `psql`, `pg_dump`, and `pg_dumpall`. 
 
@@ -54,69 +53,68 @@ shell commands.
   as GNU software, BSD sed returns `sed: illegal option -- -`.
 
 
-### Migrate to Timescale Cloud
+### Migrate to $CLOUD_LONG
 
-To move your data from a self-hosted database to a Timescale Cloud service:
+To move your data from a self-hosted database to a $SERVICE_LONG:
 
 <Tabs label="Migrate with downtime">
 
 <Tab title="From TimescaleDB">
 
-This section shows you how to move your data from self-hosted TimescaleDB to a Timescale Cloud service 
+This section shows you how to move your data from $SELF_LONG to a $SERVICE_LONG
 using `pg_dump` and `psql` from Terminal.
 
 <MigrateFromTimescaleDB />
 
-And that is it, you have migrated your data from a self-hosted instance running TimescaleDB to a Timescale Cloud service. 
+And that is it, you have migrated your data from a self-hosted instance running $TIMESCALE_DB to a $SERVICE_LONG. 
 
 </Tab>
-<Tab title="From PostgreSQL">
+<Tab title="From Postgres">
 
-This section shows you how to move your data from self-hosted PostgreSQL to a Timescale Cloud service
+This section shows you how to move your data from self-hosted $PG to a $SERVICE_LONG
 using `pg_dump` and `psql` from Terminal.
 
-Migration from PostgreSQL moves the data only. You must manually enable Timescale Cloud features like
-[hypertables][about-hypertables], [hypercore][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud 
-features while your database is offline.
+Migration from $PG moves the data only. You must manually enable $CLOUD_LONG features like
+[hypertables][about-hypertables], [hypercore][data-compression] or [data retention][data-retention] after the migration is complete. You enable $CLOUD_LONG features while your database is offline.
 
 
 <MigrateFromPostgres />
 
 
-And that is it, you have migrated your data from a self-hosted instance running PostgreSQL to a Timescale Cloud service.
+And that is it, you have migrated your data from a self-hosted instance running $PG to a $SERVICE_LONG.
 
 </Tab>
 
 <Tab title="From AWS RDS/Aurora">
 
-To migrate your data from an Amazon RDS/Aurora PostgreSQL instance to a Timescale Cloud service, you extract the data to an intermediary 
-EC2 Ubuntu instance in the same AWS region as your RDS/Aurora PostgreSQL instance. You then upload your data to a Timescale Cloud service. 
+To migrate your data from an Amazon RDS/Aurora $PG instance to a $SERVICE_LONG, you extract the data to an intermediary 
+EC2 Ubuntu instance in the same AWS region as your RDS/Aurora $PG instance. You then upload your data to a $SERVICE_LONG. 
 To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to 
-rapidy extract and store your data before uploading to Timescale Cloud.  
+rapidLy extract and store your data before uploading to $CLOUD_LONG.  
 
-Migration from RDS/Aurora PostgreSQL moves the data only. You must manually enable Timescale Cloud features like
-[hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable Timescale Cloud
+Migration from RDS/Aurora $PG moves the data only. You must manually enable $CLOUD_LONG features like
+[hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable $CLOUD_LONG
 features while your database is offline.
 
-This section shows you how to move your data from a PostgreSQL database running in an Amazon RDS/Aurora PostgreSQL instance to a 
-Timescale Cloud service using `pg_dump` and `psql` from Terminal.
+This section shows you how to move your data from a $PG database running in an Amazon RDS/Aurora $PG instance to a
+$SERVICE_LONG using `pg_dump` and `psql` from Terminal.
 
 
 <MigrateFromAWSRDS />
 
-And that is it, you have migrated your data from an RDS/Aurora PostgreSQL instance to a Timescale Cloud service.
+And that is it, you have migrated your data from an RDS/Aurora $PG instance to a $SERVICE_LONG.
 
 </Tab>
 
 
 <Tab title="From MST">
 
-This section shows you how to move your data from a Managed Service for Timescale (MST) instance to a 
-Timescale Cloud service using `pg_dump` and `psql` from Terminal.
+This section shows you how to move your data from a $MST_LONG instance to a
+$SERVICE_LONG using `pg_dump` and `psql` from Terminal.
 
 <MigrateFromMST />
 
-And that is it, you have migrated your data from a Managed Service for Timescale (MST) instance to a Timescale Cloud service.
+And that is it, you have migrated your data from a $MST_LONG instance to a $SERVICE_LONG.
 
 
 </Tab>
@@ -133,7 +131,7 @@ And that is it, you have migrated your data from a Managed Service for Timescale
 [dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
 [restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency 
 [long-running-pgdump]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks
-[Upgrade TimescaleDB]: https://docs.timescale.com/self-hosted/latest/upgrades/
+[Upgrade TimescaleDB]: https://docs.tigerdata.com/self-hosted/latest/upgrades/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/

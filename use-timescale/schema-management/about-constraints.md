@@ -1,6 +1,6 @@
 ---
 title: About constraints
-excerpt: Constraints are rules that apply to your table columns, preventing you from entering invalid data. Learn how constraints work for hypertables in Timescale Cloud
+excerpt: Constraints are rules that apply to your table columns, preventing you from entering invalid data. Learn how constraints work for hypertables in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [schemas, constraints]
 ---
@@ -14,7 +14,7 @@ from entering invalid data into your database. When you create, change, or
 delete constraints on your hypertables, the constraints are propagated to the
 underlying chunks, and to any indexes.
 
-Hypertables support all standard PostgreSQL constraint types. For foreign keys in particular, the following is supported: 
+Hypertables support all standard $PG constraint types. For foreign keys in particular, the following is supported: 
 
 - Foreign key constraints from a hypertable referencing a regular table
 - Foreign key constraints from a regular table referencing a hypertable
@@ -52,6 +52,6 @@ Time columns used for partitioning must not allow `NULL` values. A
 </Highlight>
 
 For more information on how to manage constraints, see the
-[PostgreSQL docs][postgres-createconstraint].
+[$PG docs][postgres-createconstraint].
 
-[postgres-createconstraint]: https://www.postgresql.org/docs/current/static/ddl-constraints.html
+[postgres-createconstraint]: https://www.postgresql.org/docs/current/ddl-constraints.html

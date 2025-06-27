@@ -84,7 +84,7 @@ window.
 
 1.  Use the returned ID to query for the watermark's timestamp:
 
-    For TimescaleDB >= 2.12:
+    For $TIMESCALE_DB >= 2.12:
 
     ```sql
     SELECT COALESCE(
@@ -93,7 +93,7 @@ window.
     );
     ```
 
-    For TimescaleDB < 2.12:
+    For $TIMESCALE_DB < 2.12:
 
     ```sql
     SELECT COALESCE(

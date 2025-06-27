@@ -1,26 +1,26 @@
 module.exports = [
   {
-    title: "AI  and Vector: pgai on Timescale",
+    title: "AI  and Vector: pgai on Tiger Cloud",
     href: "ai",
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Information about pgai on Timescale and how to use it.",
+      "Information about pgai on TigerData and how to use it.",
     children: [
       {
         title: "Key vector database concepts",
         href: "key-vector-database-concepts-for-understanding-pgvector",
-        excerpt: "Key concepts for working with pgvector data in PostgreSQL",
+        excerpt: "Key concepts for working with pgvector data in Postgres",
       },
       {
         title: "SQL interface",
         href: "sql-interface-for-pgvector-and-timescale-vector",
-        excerpt: "SQL interface for pgai, pgvector and pgvectorscale in PostgreSQL",
+        excerpt: "SQL interface for pgai, pgvector and pgvectorscale in Postgres",
       },
       /*{
         title: "Python interface",
         href: "python-interface-for-pgvector-and-timescale-vector",
-        excerpt: "Python interface for pgai, pgvector, and pgvectorscale in PostgreSQL",
+        excerpt: "Python interface for pgai, pgvector, and pgvectorscale in Postgres",
       },
       {
         title: "LangChain integration",
@@ -33,9 +33,9 @@ module.exports = [
         excerpt: "Integration of LlamaIndex with pgvector and pgvectorscale",
       },
       {
-        title: "Embed PostgreSQL data with PgVectorizer",
+        title: "Embed Postgres data with PgVectorizer",
         href: "pgvectorizer",
-        excerpt: "Create vector embeddings from PostgreSQL data with PgVectorizer",
+        excerpt: "Create vector embeddings from Postgres data with PgVectorizer",
       },*/
     ],
   },

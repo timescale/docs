@@ -5,9 +5,8 @@ import Deprecated2210 from "versionContent/_partials/_deprecated_2_21_0.mdx";
 
 ### `timescaledb.max_background_workers (int)`
 
-Max background worker processes allocated to TimescaleDB. Set to at least 1 +
-the number of databases loaded with the TimescaleDB extension in a PostgreSQL
-instance. Default value is 16.
+Max background worker processes allocated to $TIMESCALE_DB. Set to at least 1 +
+the number of databases loaded with the $TIMESCALE_DB extension in a $PG instance. Default value is 16.
 
 ## Hypercore features
 
@@ -39,7 +38,7 @@ Enable constraint exclusion
 Enable job execution logging
 
 ### `timescaledb.enable_optimizations (bool)`
-Enable TimescaleDB query optimizations
+Enable $TIMESCALE_DB  query optimizations
 
 ### `timescaledb.enable_ordered_append (bool)`
 Enable ordered append scans
@@ -65,7 +64,7 @@ Enable transparent decompression
 
 ### `timescaledb.restoring (bool)`
 Stop any background workers which could have been performing tasks. This is especially useful if you 
-migrate data to your [$SERVICE_LONG][pg-dump-and-restore] or [self-hosted database][migrate-entire].
+migrate data to your [$SERVICE_LONG][pg-dump-and-restore] or [$SELF_LONG][migrate-entire].
 
 ### `timescaledb.max_cached_chunks_per_hypertable (int)`
 Maximum cached chunks

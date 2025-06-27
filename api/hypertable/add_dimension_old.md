@@ -20,7 +20,7 @@ For information about the supported hypertable interface, see [add_dimension()][
 </Highlight>
 
 
-Add an additional partitioning dimension to a Timescale hypertable.
+Add an additional partitioning dimension to a $TIMESCALE_DB hypertable.
 The column selected as the dimension can either use interval
 partitioning (for example, for a second time partition) or hash partitioning.
 
@@ -70,7 +70,7 @@ Thus, users looking for parallel I/O have two options:
 single logical disk to the hypertable (that is, via a single tablespace).
 
 1.  For each physical disk, add a separate tablespace to the
-database. Timescale allows you to actually add multiple tablespaces
+database. $TIMESCALE_DB allows you to actually add multiple tablespaces
 to a *single* hypertable (although under the covers, a hypertable's
 chunks are spread across the tablespaces associated with that hypertable).
 
@@ -83,7 +83,7 @@ tablespace approach only supports the former. With a RAID setup,
 That said, when using space partitions, we recommend using 1
 space partition per disk.
 
-Timescale does *not* benefit from a very large number of space
+$TIMESCALE_DB does *not* benefit from a very large number of space
 partitions (such as the number of unique items you expect in partition
 field).  A very large number of such partitions leads both to poorer
 per-partition load balancing (the mapping of items to partitions using

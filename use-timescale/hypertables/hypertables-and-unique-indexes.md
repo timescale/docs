@@ -1,6 +1,6 @@
 ---
 title: Enforce constraints with unique indexes
-excerpt: Having a unique index on your hypertable simplifies lookup, speeds up aggregation, and makes JOINs more efficient. Learn to create a unique index in Timescale Cloud and what the related limitations are
+excerpt: Having a unique index on your hypertable simplifies lookup, speeds up aggregation, and makes JOINs more efficient. Learn to create a unique index in TimescaleDB and what the related limitations are
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, unique indexes, primary keys]
 ---
@@ -10,7 +10,7 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 # Enforce constraints with unique indexes
 
 You use unique indexes on a $HYPERTABLE to enforce [constraints][constraints]. If you have a primary key, 
-you have a unique index. In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
+you have a unique index. In $PG, a primary key is a unique index with a `NOT NULL` constraint.
 
 You do not need to have a unique index on your $HYPERTABLEs. When you create a unique index,
 it must contain all the partitioning columns of the $HYPERTABLE. 
@@ -28,7 +28,7 @@ To create a unique index on a $HYPERTABLE:
 
    $TIMESCALE_DB traditionally uses the following columns to partition $HYPERTABLEs:
 
-   *   The `time` column used to create the $HYPERTABLE. Every Timescale $HYPERTABLE
+   *   The `time` column used to create the $HYPERTABLE. Every $TIMESCALE_DB $HYPERTABLE
        is partitioned by time.
    *   Any space-partitioning columns. Space partitions are optional and not
        included in every $HYPERTABLE. 

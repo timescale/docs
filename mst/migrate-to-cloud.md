@@ -1,14 +1,13 @@
 ---
-title: Migrate your Managed Service for TimescaleDB data to Timescale
-excerpt: Migrate a service in Managed Service for TimescaleDB to Timescale Cloud
+title: Migrate your Managed Service for TimescaleDB data to Tiger Cloud
+excerpt: Migrate a service in Managed Service for TimescaleDB to Tiger Cloud
 products: [mst, cloud]
 keywords: [data migration]
 ---
 
-# Migrate your Managed Service for TimescaleDB data to Timescale
+# Migrate your $MST_LONG data to $CLOUD_LONG
 
-If you prefer Timescale's features, you can migrate your data from Managed
-Service for TimescaleDB to Timescale using the PostgreSQL `pg_backup` and
+If you prefer the features of $CLOUD_LONG, you can migrate your data from $MST_LONG to $CLOUD_LONG using the $PG `pg_backup` and
 `pg_restore` tools. To learn more about migration, see the
 [migration section][migration].
 

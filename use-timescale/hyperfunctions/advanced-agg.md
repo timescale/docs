@@ -1,15 +1,15 @@
 ---
 title: Percentile approximation advanced aggregation methods
-excerpt: Timescale Cloud uses uddsketch and tdigest to approximate percentiles on large datasets. Learn the difference between the two, to make the right choice for your analytical queries
+excerpt: TimescaleDB uses uddsketch and tdigest to approximate percentiles on large datasets. Learn the difference between the two, to make the right choice for your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles, uddsketch, tdigest]
 ---
 
 # Percentile approximation advanced aggregation methods
 
-Timescale uses approximation algorithms to calculate a percentile without
+$TIMESCALE_DB uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
-aggregates. By default, Timescale uses `uddsketch`, but you can also choose to
+aggregates. By default, $TIMESCALE_DB uses `uddsketch`, but you can also choose to
 use `tdigest`. This section describes the different methods, and helps you to
 decide which one you should use.
 
@@ -30,7 +30,7 @@ choosing an algorithm:
 
 Before you begin, it is important to understand that the formal definition for
 a percentile is imprecise, and there are different methods for determining what
-the true percentile actually is. In PostgreSQL, given a target percentile `p`,
+the true percentile actually is. In $PG, given a target percentile `p`,
 [`percentile_disc`][pg-percentile] returns the smallest element of a set, so
 that `p` percent of the set is less than that element. However,
 [`percentile_cont`][pg-percentile] returns an interpolated value between the two
@@ -51,7 +51,7 @@ the same underlying data, regardless of how it is ordered or re-aggregated. On
 the other hand,  `tdigest` builds up incremental buckets based on the average of
 nearby points, which can result in some subtle differences in estimates based on
 the same data unless the order and batching of the aggregation is strictly
-controlled, which is sometimes difficult to do in PostgreSQL. If stable
+controlled, which is sometimes difficult to do in $PG. If stable
 estimates are important to you, choose `uddsketch`.
 
 Calculating precise error bars for `tdigest` can be difficult, especially when

@@ -1,6 +1,6 @@
 ---
 title: Import data from CSV
-excerpt: Ingest data into your Timescale Cloud service from an external .csv file.
+excerpt: Ingest data into your Tiger Cloud service from an external .csv file.
 products: [cloud, self_hosted]
 keywords: [data migration]
 tags: [import, csv]
@@ -23,7 +23,7 @@ This page shows you how to import data into your $SERVICE_LONG from a CSV file.
 
 - Install [timescaledb-parallel-copy][install-parallel-copy]
   
-  [timescaledb-parallel-copy][parallel importer] Improves performance for large datasets by parallelizing the import
+  [timescaledb-parallel-copy][parallel importer] improves performance for large datasets by parallelizing the import
   process. It also preserves row order and uses a round-robin approach to optimize memory management and disk operations.
 
   To verify your installation, run `timescaledb-parallel-copy --version`.
@@ -39,7 +39,7 @@ To import data from a CSV file:
 
 <Procedure>
 
-1. **Setup your $SERVICE_SHORT connection string**
+1. **Set up your $SERVICE_SHORT connection string**
 
     <SetupConnectionString />
 

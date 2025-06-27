@@ -1,6 +1,6 @@
 ---
-title: Integrate Supabase with Timescale Cloud
-excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Timescale Cloud
+title: Integrate Supabase with Tiger Cloud
+excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---
@@ -8,7 +8,7 @@ keywords: [integrate]
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
-# Integrate Supabase with Timescale Cloud
+# Integrate Supabase with $CLOUD_LONG
 
 [Supabase][supabase] is an open source Firebase alternative. This page shows how to run real-time analytical queries 
 against a $SERVICE_LONG through Supabase using a foreign data wrapper (fdw) to bring aggregated data from your 
@@ -29,7 +29,7 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 1. **Optimize time-series data in hypertables**
 
    Time-series data represents how a system, process, or behavior changes over time. [Hypertables][hypertables-section]
-   are PostgreSQL tables that help you improve insert and query performance by automatically partitioning your data by
+   are $PG tables that help you improve insert and query performance by automatically partitioning your data by
    time.
 
    1. [Connect to your $SERVICE_LONG][connect] and create a table that will point to a Supabase database:
@@ -48,9 +48,9 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 
 1. **Optimize cooling data for analytics**
 
-   Hypercore is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for real-time analytics 
-   and powered by time-series data. The advantage of Hypercore is its ability to seamlessly switch between row-oriented 
-   and column-oriented storage. This flexibility enables $CLOUD_LONG to deliver the best of both worlds, solving the
+   Hypercore is the hybrid row-columnar storage engine in $TIMESCALE_DB, designed specifically for real-time analytics 
+   and powered by time-series data. The advantage of hypercore is its ability to seamlessly switch between row-oriented 
+   and column-oriented storage. This flexibility enables $TIMESCALE_DB to deliver the best of both worlds, solving the
    key challenges in real-time analytics.
 
    ```sql
@@ -62,7 +62,7 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
 1. **Create optimized analytical queries**
 
    Continuous aggregates are designed to make queries on very large datasets run
-   faster. Continuous aggregates in $CLOUD_LONG use PostgreSQL [materialized views][postgres-materialized-views] to 
+   faster. Continuous aggregates in $CLOUD_LONG use $PG [materialized views][postgres-materialized-views] to 
    continuously, and incrementally refresh a query in the background, so that when you run the query,
    only the data that has changed needs to be computed, not the entire dataset.
 

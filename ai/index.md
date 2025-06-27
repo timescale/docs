@@ -1,24 +1,26 @@
 ---
-title: Power your AI apps with PostgreSQL
-excerpt: Timescale pgai is a solution for building search, RAG, and AI agents with PostgreSQL. Learn more about pgai and how to use it
+title: Power your AI apps with Postgres
+excerpt: TigerData pgai is a solution for building search, RAG, and AI agents with Postgres. Learn more about pgai and how to use it
 products: [cloud, mst, self_hosted]
 keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]
 ---
 
 
-# Power your AI apps with pgai on Timescale
+# Power your AI apps with pgai on $CLOUD_LONG
 
-Pgai on Timescale is a cloud solution for building search, RAG, and AI agents with PostgreSQL. This suite of tools empowers you to deploy production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
+pgai on $CLOUD_LONG is a cloud solution for building search, RAG, and AI agents with $PG. This suite of tools empowers you to deploy production AI applications with $PG as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
 
 <Highlight type="cloud" header="Start building today" button="Try for free">
-Pgai on Timescale Cloud is comprised of three extensions: pgvector, pgvectorscale and pgai. pgvector provides the vector data type and HNSW search index. Pgvectorscale provides the StreamingDiskANN index to superpower embedding search and make vector queries performant.  Pgai allows you to easily call AI embedding and generation models from inside the database. All three extensions are installed in your Timescale Cloud instance by default.
+
+pgai on $CLOUD_LONG is comprised of three extensions: pgvector, pgvectorscale and pgai. pgvector provides the vector data type and HNSW search index. Pgvectorscale provides the StreamingDiskANN index to superpower embedding search and make vector queries performant.  pgai allows you to easily call AI embedding and generation models from inside the database. All three extensions are installed in your $CLOUD_LONG instance by default.
+
 </Highlight>
 
 <!-- vale Google.Headings = NO -->
 ## pgvectorscale ❤️ pgvector
 <!-- vale Google.Headings = Yes -->
-[Pgvector](https://github.com/pgvector/pgvector) is a popular open source extension for vector storage and similarity search in PostgreSQL and [pgvectorscale](https://github.com/timescale/pgvectorscale) adds advanced indexing capabilities to pgvector. Pgai on Timescale offers both extensions so you can use all the capabilities already available in pgvector (like HNSW and ivfflat indexes) and also make use of the StreamingDiskANN index in pgvectorscale to speed up vector search.
+[Pgvector](https://github.com/pgvector/pgvector) is a popular open source extension for vector storage and similarity search in $PG and [pgvectorscale](https://github.com/timescale/pgvectorscale) adds advanced indexing capabilities to pgvector. pgai on $CLOUD_LONG offers both extensions so you can use all the capabilities already available in pgvector (like HNSW and ivfflat indexes) and also make use of the StreamingDiskANN index in pgvectorscale to speed up vector search.
 
 This makes it easy to migrate your existing pgvector deployment and take advantage of the additional performance features in pgvectorscale. You also have the flexibility to create different index types suited to your needs. See the [vector search indexing][vector-search-indexing] section for more information.
 
@@ -56,7 +58,7 @@ Under the hood, embeddings are represented as a vector (a list of numbers) that 
 
 ## Embedding models
 
-pgai on Timescale works with the most popular embedding models that have output vectors of 2,000 dimensions or less.:
+pgai on $CLOUD_LONG works with the most popular embedding models that have output vectors of 2,000 dimensions or less.:
 
 - [OpenAI embedding models](https://platform.openai.com/docs/guides/embeddings/): text-embedding-ada-002 is OpenAI's recommended embedding generation model.
 - [Cohere representation models](https://docs.cohere.com/docs/models#representation): Cohere offers many models that can be used to generate embeddings from text in English or multiple languages.
@@ -65,7 +67,7 @@ pgai on Timescale works with the most popular embedding models that have output 
 And here are some popular choices for image embeddings:
 
 - [OpenAI CLIP](https://github.com/openai/CLIP): Useful for applications involving text and images.
-- [VGG](https://pytorch.org/vision/stable/models/vgg.html)
+- [VGG](https://docs.pytorch.org/vision/stable/models/vgg.html)
 - [Vision Transformer (ViT)](https://github.com/lukemelas/PyTorch-Pretrained-ViT)
 
 [vector-search-indexing]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/#vector-search-indexing-approximate-nearest-neighbor-search

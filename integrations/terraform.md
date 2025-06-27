@@ -1,6 +1,6 @@
 ---
-title: Integrate Terraform with Timescale Cloud
-excerpt: Manage your Timescale Cloud services with a Terraform provider
+title: Integrate Terraform with Tiger Cloud
+excerpt: Manage your Tiger Cloud services with a Terraform provider
 products: [cloud, self_hosted]
 keywords: [Terraform, configuration, deployment]
 tags: [integrate]
@@ -12,7 +12,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 [Terraform][terraform] is an infrastructure-as-code tool that enables you to safely and predictably provision and manage infrastructure. 
 
-This page explains how to configure Terraform to manage your $SERVICE_LONG or a self-hosted database. 
+This page explains how to configure Terraform to manage your $SERVICE_LONG or $SELF_LONG. 
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Configure Terraform based on your deployment type:
 
 <Tabs label="Configure Terraform for your service">
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger Cloud">
 
 You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE_LONGs:
 
@@ -34,7 +34,7 @@ You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE
 
 1. **Generate client credentials for programmatic use**
 
-   1. In [$CONSOLE][console], click `Timescale project` and save your `Project ID`, then click `Project settings`.
+   1. In [$CONSOLE][console], click `Projects` and save your `Project ID`, then click `Project settings`.
    
    1. Click `Create credentials`, then save `Public key` and `Secret key`.
 
@@ -52,7 +52,7 @@ You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE
          }
        }
 
-       # Authenticate using client credentials generated in Timescale Console.
+       # Authenticate using client credentials generated in Tiger Cloud Console.
        # When required, these credentials will change to a short-lived JWT to do the calls.
        provider "timescale" {
         project_id = var.ts_project_id
@@ -113,7 +113,7 @@ You can now manage your resources with Terraform. See more about [available reso
 
 <Tab title="Self-hosted TimescaleDB">
 
-You use the [`cyrilgdn/postgresql`][pg-provider] PostgreSQL provider to connect to your self-hosted $TIMESCALE_DB instance. 
+You use the [`cyrilgdn/postgresql`][pg-provider] $PG provider to connect to your $SELF_LONG instance. 
 
 Create a `main.tf` configuration file with the following content, using your [connection details][connection-info]:
 
@@ -144,7 +144,7 @@ You can now manage your database with Terraform.
 </Tabs>
 
 [terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
-[terraform]: https://www.terraform.io/
+[terraform]: https://developer.hashicorp.com/terraform
 [console]: https://console.cloud.timescale.com/dashboard/services
 [terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

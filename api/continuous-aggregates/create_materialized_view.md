@@ -49,7 +49,7 @@ Continuous aggregates have some limitations of what types of queries they can
 support. For more information, see the
 [continuous aggregates section][cagg-how-tos].
 
-For services running TimescaleDB v2.17.1 and greater, to dramatically decrease the amount
+$TIMESCALE_DB v2.17.1 and greater dramatically decrease the amount
 of data written on a continuous aggregate in the presence of a small number of changes,
 reduce the i/o cost of refreshing a continuous aggregate, and generate fewer Write-Ahead
 Logs (WAL), set the`timescaledb.enable_merge_on_cagg_refresh`

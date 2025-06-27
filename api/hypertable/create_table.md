@@ -93,7 +93,7 @@ The syntax is:
 
 ``` sql
 CREATE TABLE <table_name> (
-   -- Standard PostgreSQL syntax for CREATE TABLE  
+   -- Standard Postgres syntax for CREATE TABLE  
 ) 
 WITH (
    tsdb.hypertable = true | false

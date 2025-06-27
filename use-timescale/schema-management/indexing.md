@@ -1,6 +1,6 @@
 ---
 title: Indexing data
-excerpt: Adding an index can significantly speed up queries on your service. Learn which database indexes are created by default in Timescale Cloud, and best practice for creating them manually
+excerpt: Adding an index can significantly speed up queries on your service. Learn which database indexes are created by default in TimescaleDB, and best practice for creating them manually
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes]
 ---
@@ -8,8 +8,8 @@ keywords: [hypertables, indexes]
 # Indexing data
 
 You can use an index on your database to speed up read operations. You can
-create an index on any combination of columns. Timescale supports all table objects supported
-within PostgreSQL, including data types, indexes, and triggers.
+create an index on any combination of columns. $TIMESCALE_DB supports all table objects supported
+within $PG, including data types, indexes, and triggers.
 
 You can create an index using the `CREATE INDEX` command. For example, to create
 an index that sorts first by `location`, then by `time`, in descending order:
@@ -18,7 +18,7 @@ an index that sorts first by `location`, then by `time`, in descending order:
 CREATE INDEX ON conditions (location, time DESC);
 ```
 
-You can run this command before or after you convert a regular PostgreSQL table
+You can run this command before or after you convert a regular $PG table
 to a hypertable.
 
 ## Default indexes
@@ -33,9 +33,7 @@ is created on your data. If you want to manually create a time index, you can us
 CREATE INDEX ON conditions (time DESC);
 ```
 
-After you create a hypertable, you can specify an optional hash partition in addition to time. For example,
-`add_dimension('conditions', by_hash('location', 4))`. An additional index is created on the optional column 
-and time. For example:
+You can also create an additional index on another column and time. For example:
 
 ```sql
 CREATE INDEX ON conditions (location, time DESC);
@@ -44,7 +42,7 @@ CREATE INDEX ON conditions (location, time DESC);
 For more information about the order to use when declaring indexes, see the
 [about indexing][about-index] section.
 
-If you do not want to create these default indexes, you can set
+If you do not want to create default indexes, you can set
 `create_default_indexes` to `false` when you create a hypertable. For example:
 
 ```sql
@@ -92,12 +90,12 @@ than having to wait until index creation is complete.
 <Highlight type="note">
 
 You can also use the
-[PostgreSQL `WITH` clause](https://www.postgresql.org/docs/current/queries-with.html)
+[$PG `WITH` clause](https://www.postgresql.org/docs/current/queries-with.html)
 to perform indexing transactions on an individual chunk.
 
 </Highlight>
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
-[create-index]: https://docs.timescale.com/api/latest/hypertable/create_index/
+[create-index]: https://docs.tigerdata.com/api/latest/hypertable/create_index/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

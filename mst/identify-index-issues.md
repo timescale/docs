@@ -1,13 +1,13 @@
 ---
 title: Identify and resolve issues with indexes in Managed Service for TimescaleDB
-excerpt: Identify and resolve issues with PostgreSQL indexes in Managed Service for TimescaleDB
+excerpt: Identify and resolve issues with Postgres indexes in Managed Service for TimescaleDB
 products: [mst]
 keywords: [index, REINDEX]
 ---
 
-# Identify and repair issues with PostgreSQL indexes with `REINDEX`
+# Identify and repair issues with $PG indexes with `REINDEX`
 
-PostgreSQL indexes can be corrupted for a variety of reasons, including
+$PG indexes can be corrupted for a variety of reasons, including
 software bugs, hardware failures, or unexpected duplicated data. `REINDEX` allows
 you to rebuild the index in such situations.
 
@@ -16,7 +16,7 @@ you to rebuild the index in such situations.
 You can rebuild corrupted indexes that do not have `UNIQUE` in their definition.
 You can run the `REINDEX` command for all indexes of a table (`REINDEX TABLE`),
 and for all indexes in the entire database (`REINDEX DATABASE`).
-For more information on the `REINDEX` command, see the [PostgreSQL documentation][postgres-docs].
+For more information on the `REINDEX` command, see the [$PG documentation][postgres-docs].
 
 This command creates a new index that replaces the old one:
 
@@ -25,8 +25,10 @@ REINDEX INDEX <index-name>;
 ```
 
 <Highlight type="note">
+
 When you use `REINDEX`, the tables are locked and you may not be able to use the
 database, until the operation is complete.
+
 </Highlight>
 
 In some cases, you might need to manually build a second index concurrently

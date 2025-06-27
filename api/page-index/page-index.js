@@ -18,11 +18,11 @@ module.exports = [
             href: "create_table",
           },
           {
-            title: "create_hypertable (old API)",
+            title: "create_hypertable",
             href: "create_hypertable",
           },
           {
-            title: "create_hypertable (even older API)",
+            title: "create_hypertable (old API)",
             href: "create_hypertable_old",
           },
           {
@@ -556,7 +556,7 @@ module.exports = [
       },
       {
         href: "configuration",
-        excerpt: "Configure PostgreSQL and TimescaleDB",
+        excerpt: "Configure Postgres and TimescaleDB",
       },
       {
         title: "Administration Functions",
@@ -569,7 +569,7 @@ module.exports = [
         title: "API Reference Tag Overview",
         href: "api-tag-overview",
         description:
-          "An overview of what different tags represent in the API section of Timescale Documentation.",
+          "An overview of what different tags represent in the API section of TigerData Documentation.",
       },
       {
         title: "Compression (Old API, replaced by Hypercore)",

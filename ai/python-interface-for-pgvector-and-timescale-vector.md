@@ -2,20 +2,20 @@
 title: Python interface for pgvector and pgvectorscale
 excerpt: Working with pgvectorscale and pgvector in python
 products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector, pgvectorscale, python]
+keywords: [ai, vector, pgvector, TigerData vector, pgvectorscale, python]
 tags: [ai, vector, python]
 ---
 
 # Python interface for pgvector and pgvectorscale
 
-You use pgai on Timescale to power production grade AI applications. `timescale_vector` is the
- Python interface you use to interact with a pgai on Timescale service programmatically.
+You use pgai to power production grade AI applications. `timescale_vector` is the
+ Python interface you use to interact with a pgai on $SERVICE_LONG programmatically.
 
 Before you get started with `timescale_vector`:
 
-- [Sign up for pgai on Timescale](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try pgai on the Timescale cloud data platform. 
+- [Sign up for pgai on Tiger Cloud](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try pgai on $CLOUD_LONG. 
 - [Follow the Get Started Tutorial](https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html): 
-Learn how to use pgai on Timescale for semantic search on a real-world dataset.
+Learn how to use pgai on $CLOUD_LONG for semantic search on a real-world dataset.
 
 If you prefer to use an LLM development or data framework, see pgai's integrations with [LangChain](https://python.langchain.com/docs/integrations/vectorstores/timescalevector) and [LlamaIndex](https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html).
 
@@ -30,7 +30,7 @@ Before you install `timescale_vector`:
 
 ## Install
 
-To interact with pgai on Timescale using Python:
+To interact with pgai on $CLOUD_LONG using Python:
 
 1. Install `timescale_vector`: 
 
@@ -59,7 +59,7 @@ import uuid
 from datetime import datetime, timedelta
 ```
 
-Load up your PostgreSQL credentials, the safest way is with a `.env` file:
+Load up your $PG credentials, the safest way is with a `.env` file:
 
 ``` python
 _ = load_dotenv(find_dotenv(), override=True)
@@ -73,7 +73,7 @@ The client constructor takes three required arguments:
 
 | name           | description                                                                               |
 |----------------|-------------------------------------------------------------------------------------------|
-| `service_url`    | Timescale service URL / connection string                                                 |
+| `service_url`    | Tiger Cloud service URL / connection string                                               |
 | `table_name`     | Name of the table to use for storing the embeddings. Think of this as the collection name |
 | `num_dimensions` | Number of dimensions in the vector                                                        |
 
@@ -491,7 +491,7 @@ you store for every query). With an index, your queries are
 order-of-magnitude faster, but the results are approximate (because there
 are no known indexing techniques that are exact).
 
-Luckily, Timescale provides 3 excellent approximate indexing algorithms,
+Luckily, $TIMESCALE_DB provides 3 excellent approximate indexing algorithms,
 StreamingDiskANN, HNSW, and ivfflat.
 
 Below are the trade-offs between these algorithms:
@@ -705,7 +705,7 @@ you can:
 Step 1 makes the search a lot more efficient by filtering out whole
 swaths of data in one go.
 
-Timescale-vector supports time partitioning using TimescaleDB's
+Timescale-vector supports time partitioning using $TIMESCALE_DB's
 hypertables. To use this feature, simply indicate the length of time for
 each partition when creating the client:
 

@@ -1,13 +1,13 @@
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-You use PostgreSQL foreign data wrappers (FDWs) to query external data sources from a $SERVICE_LONG. These external data sources can be one of the following:
+You use $PG foreign data wrappers (FDWs) to query external data sources from a $SERVICE_LONG. These external data sources can be one of the following:
 
 - Other $SERVICE_LONGs
-- PostgreSQL databases outside of $CLOUD_LONG
+- $PG databases outside of $CLOUD_LONG
 
 If you are using $VPC peering, you can create FDWs in your Customer VPC to query a $SERVICE_SHORT in your $CLOUD_LONG project. However, you can't create FDWs in your $SERVICE_LONGs to query a data source in your Customer VPC. This is because $CLOUD_LONG $VPC peering uses AWS PrivateLink for increased security. See [VPC peering documentation][vpc-peering] for additional details.
 
-PostgreSQL FDWs are particularly useful if you manage multiple $SERVICE_LONGs with different capabilities, and need to seamlessly access and merge regular and time-series data.
+$PG FDWs are particularly useful if you manage multiple $SERVICE_LONGs with different capabilities, and need to seamlessly access and merge regular and time-series data.
 
 ## Prerequisites
 
@@ -19,9 +19,9 @@ To query another data source:
 
 <Tabs label="Query another data source">
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger Cloud">
 
-You create PostgreSQL FDWs with the `postgres_fdw` extension, which is enabled by default in $CLOUD_LONG.
+You create $PG FDWs with the `postgres_fdw` extension, which is enabled by default in $CLOUD_LONG.
 
 <Procedure>
 
@@ -89,7 +89,7 @@ You create PostgreSQL FDWs with the `postgres_fdw` extension, which is enabled b
 </Procedure>
 
 
-A user with the `tsdbadmin` role assigned already has the required `USAGE` permission to create PostgreSQL FDWs. You can enable another user, without the `tsdbadmin` role assigned, to query foreign data. To do so, explicitly grant the permission. For example, for a new `grafana` user:
+A user with the `tsdbadmin` role assigned already has the required `USAGE` permission to create $PG FDWs. You can enable another user, without the `tsdbadmin` role assigned, to query foreign data. To do so, explicitly grant the permission. For example, for a new `grafana` user:
 
 ```sql
 CREATE USER grafana;
@@ -117,7 +117,7 @@ IMPORT FOREIGN SCHEMA public
 
 <Tab title="Self-hosted TimescaleDB">
 
-You create PostgreSQL FDWs with the `postgres_fdw` extension. See [documenation][enable-fdw-docs] on how to enable it. 
+You create $PG FDWs with the `postgres_fdw` extension. See [documenation][enable-fdw-docs] on how to enable it. 
 
 <Procedure>
 

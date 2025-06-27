@@ -11,9 +11,9 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        
        This test dataset contains historical data from New York's yellow taxi network.
 
-       To import up to 100GB of data directly from your current PostgreSQL based database,
-       [migrate with downtime][migrate-with-downtime] using native PostgreSQL tooling. To seamlessly import 100GB-10TB+
-       of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-PostgreSQL
+       To import up to 100GB of data directly from your current $PG-based database,
+       [migrate with downtime][migrate-with-downtime] using native $PG tooling. To seamlessly import 100GB-10TB+
+       of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG
        data sources, see [Import and ingest data][data-ingest].
 
     1. In Terminal, navigate to `<local folder>` and update the following string with [your connection details][connection-info] 
@@ -114,11 +114,11 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 1.  **Have a quick look at your data**
 
-    You query $HYPERTABLEs in exactly the same way as you would a relational PostgreSQL table.
+    You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
        - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
        - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
-       - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted TimescaleDB deployment from Terminal.
+       - **psql**: easily run queries on your $SERVICE_LONGs or $SELF_LONG deployment from Terminal.
 
     For example:
     - Display the number of rides for each fare type:

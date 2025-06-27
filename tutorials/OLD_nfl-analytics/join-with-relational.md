@@ -1,15 +1,15 @@
 ---
 title: Join time-series data with relational data for deeper analysis
-excerpt: Join tables in TimescaleDB for richer anlysis
+excerpt: Join tables in $TIMESCALE_DB for richer anlysis
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, hyperfunctions, analytics]
 ---
 
 # Join time-series data with relational data for deeper analysis
 
-TimescaleDB is packaged as a PostgreSQL extension. As such, TimescaleDB is
-PostgreSQL with super-powers. You can do anything in TimescaleDB that you can
-in PostgreSQL, including joining tables and combining data for further analysis.
+$TIMESCALE_DB is packaged as a $PG extension. As such, $TIMESCALE_DB is
+$PG with super-powers. You can do anything in $TIMESCALE_DB that you can
+in $PG, including joining tables and combining data for further analysis.
 
 ### The Mile-High advantage
 
