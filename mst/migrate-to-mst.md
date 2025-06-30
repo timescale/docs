@@ -6,7 +6,7 @@ keywords: [data migration, database]
 tags: [ingest, backup, restore]
 ---
 
-# Migrate data from $SELF_LONG to a $MST_SERVICE_SHORT
+# Migrate data from $SELF_LONG to an $MST_SERVICE_SHORT
 
 You can migrate your data from $SELF_LONG to $MST_LONG and automate most of the common operational tasks.
 
@@ -31,8 +31,8 @@ downtime to your customers.
 
 </Highlight>
 
-If you prefer the features of $CLOUD_LONG, you can easily [migrate your data][migrate-live] from a $MST_SERVICE_SHORT to a
-$SERVICE_LONG.
+If you prefer the features of $CLOUD_LONG, you can easily [migrate your data][migrate-live] from an $MST_SERVICE_SHORT 
+to a $SERVICE_LONG.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ machine:
 
 <Procedure>
 
-1. **Take the applications that connect to the source $SELF_LONG instance offline**
+1. **Take offline the applications that connect to the source $SELF_LONG instance**
 
    The duration of migration is proportional to the amount of data stored in your database. By
    disconnecting your app from your database, you avoid possible data loss.
