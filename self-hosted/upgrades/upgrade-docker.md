@@ -7,17 +7,17 @@ keywords: [upgrades, Docker]
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
-# Upgrade TimescaleDB running in Docker
+# Upgrade $TIMESCALE_DB running in Docker
 
-If you originally installed TimescaleDB using Docker, you can upgrade from within the Docker 
-container. This allows you to upgrade to the latest TimescaleDB version while retaining your data.
+If you originally installed $TIMESCALE_DB using Docker, you can upgrade from within the Docker 
+container. This allows you to upgrade to the latest $TIMESCALE_DB version while retaining your data.
 
 The `timescale/timescaledb-ha*` images have the files necessary to run previous versions. Patch releases 
 only contain bugfixes so should always be safe. Non-patch releases may rarely require some extra steps.
-These steps are mentioned in the [release notes][relnotes] for the version of TimescaleDB 
+These steps are mentioned in the [release notes][relnotes] for the version of $TIMESCALE_DB 
 that you are upgrading to.
 
-After you upgrade the docker image, you run `ALTER EXTENSION` for all databases using TimescaleDB.
+After you upgrade the docker image, you run `ALTER EXTENSION` for all databases using $TIMESCALE_DB.
 
 <ConsiderCloud />
 
@@ -35,34 +35,34 @@ mounts, or bind mounts.
 
 <Procedure>
 
-### Determining the mount point type
-
-1.  Work out what type of mount your Docker container uses by running this
-    command, which returns either `volume` or `bind`:
+1.  Find the mount type used by your Docker container: 
 
     ```bash
     docker inspect timescaledb --format='{{range .Mounts }}{{.Type}}{{end}}'
     ```
+    This returns either `volume` or `bind`.
 
-1.  Get the current name or mount path with this command, and record it to use
-    when you perform the upgrade. Make sure you copy the correct command, based
-    on your mount point type.
+1.  Note the volume or bind used by your container. 
 
     <Terminal>
 
-    <tab label='Volume mount'>
+    <tab label='Volume'>
 
     ```bash
     docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
+    
+    You see something like this:
     069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c
     ```
 
     </tab>
 
-    <tab label='Bind mount'>
+    <tab label='bind'>
 
     ```bash
     docker inspect timescaledb --format='{{range .Mounts }}{{.Source}}{{end}}'
+    
+    You see something like this:
     /path/to/data
     ```
 
@@ -70,26 +70,41 @@ mounts, or bind mounts.
 
     </Terminal>
 
+    You use this value when you perform the upgrade.
+
 </Procedure>
 
-## Upgrade TimescaleDB within Docker
+## Upgrade $TIMESCALE_DB within Docker
 
-To upgrade TimescaleDB within Docker, you need to download the upgraded image,
+To upgrade $TIMESCALE_DB within Docker, you need to download the upgraded image,
 stop the old container, and launch the new container pointing to your existing
 data.
 
 <Procedure>
 
-### Upgrading TimescaleDB within Docker
+1.  Pull the latest $TIMESCALE_DB image. 
 
-1.  Pull the latest TimescaleDB image. This command pulls the image for
-    TimescaleDB 2.17.x running on PostgreSQL 17. If you're using another PostgreSQL version, 
-    look for the relevant tag in the
-    [TimescaleDB HA Docker Hub repository](https://hub.docker.com/r/timescale/timescaledb-ha/tags).
+    This command pulls the latest version of $TIMESCALE_DB running on $PG 17. 
 
-    ```bash
-    docker pull timescale/timescaledb-ha:pg17
-    ```
+  <Terminal>
+
+    <tab label='TimescaleDB HA'>
+
+       docker pull timescale/timescaledb-ha:pg17
+
+    </tab>
+
+    <tab label='TimescaleDB light'>
+
+        docker pull timescale/timescaledb:latest-pg17
+
+    </tab>
+
+  </Terminal>
+
+  If you're using another version of $PG, look for the relevant tag in the 
+  [$TIMESCALE_DB HA](https://hub.docker.com/r/timescale/timescaledb-ha/tags) or  
+  [TimescaleDB light](https://hub.docker.com/r/timescale/timescaledb) repositories on Docker Hub.
 
 1.  Stop the old container, and remove it:
 
@@ -98,18 +113,20 @@ data.
     docker rm timescaledb
     ```
 
-1.  Launch a new container with the upgraded Docker image, pointing to the
-    existing mount point. Make sure you copy the correct command, based on your
-    mount point type.
+1. Launch a new container with the upgraded Docker image: 
 
-    For volume mounts:
+   The containers store the $PG `<data folder>` in the following locations:
 
+   - timescaledb-ha:`/home/postgres/pgdata/data`
+   - timescaledb: `/var/lib/postgresql/data`
+
+   Update the following command, based on your mount point type to point to the correct data folder:
     <Terminal>
 
     <tab label='Volume mount'>
 
     ```bash
-    docker run -v 069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c:/var/lib/postgresql/data \
+    docker run -v <>:<data folder> \
       -d --name timescaledb -p 5432:5432 timescale/timescaledb-ha
     ```
 
@@ -118,13 +135,15 @@ data.
     <tab label='Bind mount'>
 
     ```bash
-    docker run -v /path/to/data:/var/lib/postgresql/data -d --name timescaledb \
+    docker run -v /bind/path/recovered/earlier:<data folder> -d --name timescaledb \
       -p 5432:5432 timescale/timescaledb-ha
     ```
 
     </tab>
 
     </Terminal>
+   
+    If you are running $TIMESCALE_DB light, update the command to run `timescale/timescaledb`.   
 
 1.  Connect to the upgraded instance using `psql` with the `-X` flag:
 
@@ -134,18 +153,24 @@ data.
 
 1.  At the psql prompt, use the `ALTER` command to upgrade the extension:
 
-    ```sql
-    ALTER EXTENSION timescaledb UPDATE;
-    ```
+  <Terminal>
 
-1.  Update the [$TOOLKIT_LONG][toolkit] extension. $TOOLKIT_SHORT is packaged
-    with TimescaleDB's HA Docker image, and includes additional hyperfunctions
-    to help you with queries and data analysis:
+    <tab label='TimescaleDB HA'>
 
-    ```sql
-    CREATE EXTENSION IF NOT EXISTS timescaledb_toolkit;
-    ALTER EXTENSION timescaledb_toolkit UPDATE;
-    ```
+       ALTER EXTENSION timescaledb UPDATE;
+       CREATE EXTENSION IF NOT EXISTS timescaledb_toolkit;
+       ALTER EXTENSION timescaledb_toolkit UPDATE;
+    </tab>
+
+    <tab label='TimescaleDB light'>
+
+        ALTER EXTENSION timescaledb UPDATE;
+    </tab>
+
+  </Terminal>
+
+  The [$TOOLKIT_LONG][toolkit] extension is packaged with $TIMESCALE_DB HA, it includes additional 
+  hyperfunctions  to help you with queries and data analysis:
 
 <Highlight type="note">
 If you have multiple databases, you need to update each database separately.
