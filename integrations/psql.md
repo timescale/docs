@@ -121,7 +121,7 @@ Install using MacPorts. `libpqxx` is the official C++ client API for $PG.
 
 </Tab>
   
-<Tab title="Debian and Ubuntu" label="debian" label="ubuntu">
+<Tab title="Debian and Ubuntu" label="ubuntu">
 
 Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
