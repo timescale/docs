@@ -51,13 +51,13 @@ To keep your current $PG installation, [Install from source][install-from-source
 
 </Tab>
 
-<Tab title="Red Hat, Fedora">
+<Tab title="Red Hat, Fedora" label="redhat" label="fedora">
 
 <SelfHostedRedhatBased />
 
 </Tab>
 
-<Tab title="ArchLinux">
+<Tab title="ArchLinux" label="archlinux">
 
 <SelfHostedArchLinuxBased />
 
