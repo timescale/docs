@@ -38,9 +38,9 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 
 ## Tune your source database
 
-<Tabs label="Live migration">
+<Tabs label="Live migration" persistKey="source-database">
 
-<Tab title="From AWS RDS/Aurora">
+<Tab title="From AWS RDS/Aurora" label="aws-rds">
 
 <Procedure>
 
@@ -50,7 +50,7 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 
 </Tab>
 
-<Tab title="From PostgreSQL">
+<Tab title="From PostgreSQL" label="postgres">
 <Procedure>
 
 <LivesyncConfigureSourceDatabase />

@@ -50,9 +50,9 @@ If you already have the latest version of `psql` installed, proceed to the [Conn
 
 If there is no existing installation, take the following steps to install `psql`:
     
-<Tabs label="Install psql">
+<Tabs label="Install psql" persistKey="os">
     
-<Tab title="MacOS Homebrew">
+<Tab title="MacOS Homebrew" label="macos">
 
 Install using Homebrew. `libpqxx` is the official C++ client API for $PG.
 
@@ -91,7 +91,7 @@ On Intel chips, the symbolic link is added to `/usr/local/bin`. On Apple Silicon
 
 </Tab>
 
-<Tab title="MacOS MacPorts">
+<Tab title="MacOS MacPorts" label="macos-macports">
 
 Install using MacPorts. `libpqxx` is the official C++ client API for $PG.
 
@@ -121,7 +121,7 @@ Install using MacPorts. `libpqxx` is the official C++ client API for $PG.
 
 </Tab>
   
-<Tab title="Debian and Ubuntu">
+<Tab title="Debian and Ubuntu" label="debian" label="ubuntu">
 
 Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
@@ -143,7 +143,7 @@ Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
 </Tab>
 
-<Tab title="Windows">
+<Tab title="Windows" label="windows">
 
 `psql` is installed by default when you install $PG. This procedure uses the interactive installer provided by $PG and EnterpriseDB.
 

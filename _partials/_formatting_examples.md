@@ -116,15 +116,15 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
 Syntax:
 
-    <Tabs label="Tabs label for accessibility">
+    <Tabs label="Tabs label for accessibility" persistKey="keyfromlistinprocedure.md">
     
-    <Tab title="First tab title">
+    <Tab title="First tab title" label="labelfromlistinprocedure.md">
     
     First tab content
     
     </Tab>
 
-    <Tab title="Second tab title">
+    <Tab title="Second tab title" label="otherlabelfromlistinprocedure.md">
     
     Second tab content
     

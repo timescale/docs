@@ -76,9 +76,9 @@ relational and time-series data from external files.
        performance by tuning $CHUNK intervals and enabling chunk skipping, see 
        [the $HYPERTABLEs documentation][hypertables-section]. 
     
-       <Tabs label="Upload data">
+       <Tabs label="Upload data" persistKey="sql-editor">
 
-       <Tab title="Tiger Cloud Console">
+       <Tab title="Tiger Cloud Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Upload CSV`.
@@ -95,7 +95,7 @@ relational and time-series data from external files.
 
        </Tab>
         
-       <Tab title="psql">
+       <Tab title="psql" label="psql">
 
        1. In Terminal, navigate to `<local folder>` and connect to your $SERVICE_SHORT.
           ```bash
@@ -228,9 +228,9 @@ query.
 This section shows you how to run fast analytical queries using $TIME_BUCKETs and $CAGG in
 $CONSOLE. You can also do this using psql. 
 
-<Tabs label="Upload data to ">
+<Tabs label="Upload data to " persistKey="sql-editor">
 
-<Tab title="Data mode">
+<Tab title="Data mode" label="data-mode">
 
 <Procedure>
 
@@ -284,7 +284,7 @@ $CONSOLE. You can also do this using psql.
 
 </Tab>
 
-<Tab title="Continuous aggregate wizard">
+<Tab title="Continuous aggregate wizard" label="cagg-wizard">
 
 <Procedure>
 

@@ -17,9 +17,9 @@ To connect to your $SERVICE_LONG or $SELF_LONG, you need at least the following:
 
 Find the connection details based on your deployment type:
 
-<Tabs label="Connection details">
+<Tabs label="Connection details" persistKey="source-database">
 
-<Tab title="Tiger Cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
 
 ## Connect to your service
 
@@ -55,7 +55,7 @@ To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LON
 
 </Tab>
 
-<Tab title="Self-hosted TimescaleDB">
+<Tab title="Self-hosted TimescaleDB" label="self-hosted">
 
 Find the connection details in the [$PG configuration file][postgres-config] or by asking your database administrator. The `postgres` superuser, created during $PG installation, has all the permissions required to run procedures in this documentation. However, it is recommended to create other users and assign permissions on the need-only basis. 
 
