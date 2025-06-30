@@ -32,7 +32,7 @@ downtime to your customers.
 </Highlight>
 
 If you prefer the features of $CLOUD_LONG, you can easily [migrate your data][migrate-live] from a $MST_LONG to a
-$SERVICE_LONG
+$SERVICE_LONG.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ machine:
 1. **Take the applications that connect to the source $SELF_LONG instance offline**
 
    The duration of migration is proportional to the amount of data stored in your database. By
-   disconnection your app from your database, you avoid possible data loss.
+   disconnecting your app from your database, you avoid possible data loss.
 
 1. **Set your connection strings**
 
