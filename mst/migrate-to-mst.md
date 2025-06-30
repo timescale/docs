@@ -1,17 +1,17 @@
 ---
-title: Migrate from self-hosted TimescaleDB to a Managed Service for TimescaleDB
+title: Migrate from self-hosted TimescaleDB to Managed Service for TimescaleDB
 excerpt: Migrate a self-hosted TimescaleDB database to Managed Service for TimescaleDB
 products: [mst, self_hosted]
 keywords: [data migration, database]
 tags: [ingest, backup, restore]
 ---
 
-# Migrate data from $SELF_LONG to a $MST_LONG
+# Migrate data from $SELF_LONG to a $MST_SERVICE_SHORT
 
-You can migrate your data from $SELF_LONG to a $MST_LONG and automate most of the common operational tasks.
+You can migrate your data from $SELF_LONG to $MST_LONG and automate most of the common operational tasks.
 
-A $MST_LONG has a database named `defaultdb` and a default user account named `tsdbadmin`. You use the 
-$MST_CONSOLE_LONG to create additional users and databases using the `Users` and `Databases` tabs.
+Each $MST_SERVICE_SHORT has a database named `defaultdb`, and a default user account named `tsdbadmin`. You use 
+$MST_CONSOLE_SHORT to create additional users and databases using the `Users` and `Databases` tabs.
 
 You can switch between different plan sizes in $MST_LONG.
 However, during the migration process, choose a plan size that has the same
@@ -31,14 +31,14 @@ downtime to your customers.
 
 </Highlight>
 
-If you prefer the features of $CLOUD_LONG, you can easily [migrate your data][migrate-live] from a $MST_LONG to a
+If you prefer the features of $CLOUD_LONG, you can easily [migrate your data][migrate-live] from a $MST_SERVICE_SHORT to a
 $SERVICE_LONG.
 
 ## Prerequisites
 
 Before you migrate your data, do the following:
 
-* Setup the migration machine:
+* Set up the migration machine:
 
    You run the migration commands on the migration machine. It must have enough disk space to hold the dump file.
    * Install the $PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] utilities on a migration machine.
@@ -47,12 +47,12 @@ Before you migrate your data, do the following:
 
       These instructions use [`psql`][psql], but any client works.
 
-*  Create a target $MST_LONG:
+*  Create a target $MST_SERVICE_SHORT:
 
-    For more information, see the [Install $MST_LONG][install-mst]. Provision your target $MST_LONG with enough 
+    For more information, see the [Install $MST_LONG][install-mst]. Provision your target $MST_SERVICE_SHORT with enough 
     space for all your data.
 
-*  On the source $SELF_LONG and the target $MST_LONG, ensure that you are running:
+*  On the source $SELF_LONG and the target $MST_SERVICE_SHORT, ensure that you are running:
    *  The same major version of $PG. 
 
       For information, see [upgrade $PG][upgrading-postgresql-self-hosted].
@@ -61,9 +61,9 @@ Before you migrate your data, do the following:
 
       For more information, see [Upgrade $TIMESCALE_DB to a major version][upgrading-timescaledb].
 
-## Migrate your data to a $MST_LONG
+## Migrate your data to a $MST_SERVICE_SHORT
 
-To move your data from $SELF_LONG instance to a $MST_LONG, run the following commands from your migration 
+To move your data from $SELF_LONG instance to a $MST_SERVICE_SHORT, run the following commands from your migration 
 machine:
 
 <Procedure>
@@ -75,7 +75,7 @@ machine:
 
 1. **Set your connection strings**
 
-   These variables hold the connection information for the source $SELF_LONG instance and the target $MST_LONG:
+   These variables hold the connection information for the source $SELF_LONG instance and the target $MST_SERVICE_SHORT:
 
    ```bash
    export SOURCE="postgres://<user>:<password>@<source host>:<source port>/<db_name>"
@@ -88,20 +88,20 @@ machine:
     pg_dump -d "$SOURCE" --no-owner -Fc -v -f dump.bak 
     ```
 
-1. **Put your target $MST_LONG in the right state for restoring**
+1. **Put your target $MST_SERVICE_SHORT in the right state for restoring**
 
    ```bash 
    psql -d "$TARGET" -c "SELECT timescaledb_pre_restore();"
    ```
    
-1. **Upload your data to the target $MST_LONG** 
+1. **Upload your data to the target $MST_SERVICE_SHORT** 
 
     ```bash
     pg_restore -d "$TARGET" --jobs 4 -Fc dump.bak
     ```
    The `--jobs`  option specifies the number of CPUs to use to dump and restore the database concurrently.
 
-1. **Return your target $MST_LONG to normal operations**
+1. **Return your target $MST_SERVICE_SHORT to normal operations**
 
    ```bash 
    psql -d "$TARGET" -c "SELECT timescaledb_post_restore();"
