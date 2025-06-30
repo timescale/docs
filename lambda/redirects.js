@@ -386,6 +386,10 @@ module.exports = [
   },
   { from: "/mst", to: "https://docs.tigerdata.com/mst/latest/" },
   {
+    from: "/mst/latest/migrate-to-cloud/",
+    to: "https://docs.tigerdata.com/migrate/latest/live-migration/",
+  },
+  {
     from: "/promscale",
     to: "https://promscale-legacy-docs.timescale.com/",
   },
