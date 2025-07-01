@@ -80,48 +80,35 @@ To upgrade $TIMESCALE_DB within Docker, you need to download the upgraded image,
 stop the old container, and launch the new container pointing to your existing
 data.
 
+<Tabs label="Upgrade TimescaleDB in Docker">
+
+<Tab title="TimescaleDB-HA">
+
 <Procedure>
 
-1.  Pull the latest $TIMESCALE_DB image. 
+1.  **Pull the latest $TIMESCALE_DB image**
 
-    This command pulls the latest version of $TIMESCALE_DB running on $PG 17. 
+    This command pulls the latest version of $TIMESCALE_DB running on $PG 17:
 
-  <Terminal>
+    ```
+    docker pull timescale/timescaledb-ha:pg17
+    ```
 
-    <tab label='TimescaleDB HA'>
+    If you're using another version of $PG, look for the relevant tag in the [$TIMESCALE_DB HA](https://hub.docker.com/r/timescale/timescaledb-ha/tags) repository on Docker Hub.
 
-       docker pull timescale/timescaledb-ha:pg17
-
-    </tab>
-
-    <tab label='TimescaleDB light'>
-
-        docker pull timescale/timescaledb:latest-pg17
-
-    </tab>
-
-  </Terminal>
-
-  If you're using another version of $PG, look for the relevant tag in the 
-  [$TIMESCALE_DB HA](https://hub.docker.com/r/timescale/timescaledb-ha/tags) or  
-  [TimescaleDB light](https://hub.docker.com/r/timescale/timescaledb) repositories on Docker Hub.
-
-1.  Stop the old container, and remove it:
+1.  **Stop the old container, and remove it**
 
     ```bash
     docker stop timescaledb
     docker rm timescaledb
     ```
 
-1. Launch a new container with the upgraded Docker image: 
+1. **Launch a new container with the upgraded Docker image**
 
-   The containers store the $PG `<data folder>` in the following locations:
-
-   - timescaledb-ha:`/home/postgres/pgdata/data`
-   - timescaledb: `/var/lib/postgresql/data`
+   The container stores the $PG `<data folder>` at `/home/postgres/pgdata/data`
 
    Update the following command, based on your mount point type to point to the correct data folder:
-    <Terminal>
+   <Terminal>
 
     <tab label='Volume mount'>
 
@@ -142,41 +129,105 @@ data.
     </tab>
 
     </Terminal>
-   
-    If you are running $TIMESCALE_DB light, update the command to run `timescale/timescaledb`.   
 
-1.  Connect to the upgraded instance using `psql` with the `-X` flag:
+1.  **Connect to the upgraded instance using `psql` with the `-X` flag**
 
     ```bash
     docker exec -it timescaledb psql -U postgres -X
     ```
 
-1.  At the psql prompt, use the `ALTER` command to upgrade the extension:
+1.  **At the psql prompt, use the `ALTER` command to upgrade the extension**
 
-  <Terminal>
+    ```
+    ALTER EXTENSION timescaledb UPDATE;
+    CREATE EXTENSION IF NOT EXISTS timescaledb_toolkit;
+    ALTER EXTENSION timescaledb_toolkit UPDATE;
+    ```
 
-    <tab label='TimescaleDB HA'>
-
-       ALTER EXTENSION timescaledb UPDATE;
-       CREATE EXTENSION IF NOT EXISTS timescaledb_toolkit;
-       ALTER EXTENSION timescaledb_toolkit UPDATE;
-    </tab>
-
-    <tab label='TimescaleDB light'>
-
-        ALTER EXTENSION timescaledb UPDATE;
-    </tab>
-
-  </Terminal>
-
-  The [$TOOLKIT_LONG][toolkit] extension is packaged with $TIMESCALE_DB HA, it includes additional 
-  hyperfunctions  to help you with queries and data analysis:
+The [$TOOLKIT_LONG][toolkit] extension is packaged with $TIMESCALE_DB HA, it includes additional
+hyperfunctions to help you with queries and data analysis.
 
 <Highlight type="note">
-If you have multiple databases, you need to update each database separately.
+
+If you have multiple databases, update each database separately.
+
 </Highlight>
 
 </Procedure>
+    
+</Tab>
+
+<Tab title="TimescaleDB light">
+
+<Procedure>
+
+1.  **Pull the latest $TIMESCALE_DB image**
+
+    This command pulls the latest version of $TIMESCALE_DB running on $PG 17.
+
+    ```
+    docker pull timescale/timescaledb:latest-pg17
+    ```
+
+    If you're using another version of $PG, look for the relevant tag in the [TimescaleDB light](https://hub.docker.com/r/timescale/timescaledb) repository on Docker Hub.
+
+1.  **Stop the old container, and remove it**
+
+    ```bash
+    docker stop timescaledb
+    docker rm timescaledb
+    ```
+
+1. **Launch a new container with the upgraded Docker image**
+
+   The container stores the $PG `<data folder>` in `/var/lib/postgresql/data`. Update the following command, based on your mount point type, to point to the correct data folder:
+
+   <Terminal>
+
+    <tab label='Volume mount'>
+
+    ```bash
+    docker run -v <>:<data folder> \
+      -d --name timescaledb -p 5432:5432 timescaledb:latest-pg17
+    ```
+
+    </tab>
+
+    <tab label='Bind mount'>
+
+    ```bash
+    docker run -v /bind/path/recovered/earlier:<data folder> -d --name timescaledb \
+      -p 5432:5432 timescaledb:latest-pg17
+    ```
+
+    </tab>
+
+    </Terminal>
+
+1.  **Connect to the upgraded instance using `psql` with the `-X` flag**
+
+    ```bash
+    docker exec -it timescaledb psql -U postgres -X
+    ```
+
+1.  **At the psql prompt, use the `ALTER` command to upgrade the extension**
+
+    ```sql
+    ALTER EXTENSION timescaledb UPDATE;
+    ```
+
+<Highlight type="note">
+
+If you have multiple databases, you need to update each database separately.
+
+</Highlight>
+
+</Procedure>
+    
+</Tab>
+
+</Tabs>
+
 
 [toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [relnotes]: https://github.com/timescale/timescaledb/releases

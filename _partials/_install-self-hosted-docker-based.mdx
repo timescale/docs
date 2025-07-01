@@ -1,106 +1,255 @@
-<Procedure>
+<Tabs label="Install TimescaleDB with Docker">
 
-In Terminal:
+<Tab title="TimescaleDB-HA">
+
+<Procedure>
 
 1.  **Run the $TIMESCALE_DB Docker image**
 
     The [$TIMESCALE_DB HA](https://hub.docker.com/r/timescale/timescaledb-ha) Docker image offers the most complete
     $TIMESCALE_DB experience. It uses [Ubuntu][ubuntu], includes
     [$TOOLKIT_LONG](https://github.com/timescale/timescaledb-toolkit), and support for PostGIS and Patroni.
-    The lighter-weight [TimescaleDB](https://hub.docker.com/r/timescale/timescaledb) non-ha Docker image uses
-    [Alpine][alpine].
 
-  To install the latest release based on PostgreSQL 17:
+    To install the latest release based on PostgreSQL 17:
 
-  <Terminal>
+    ```
+    docker pull timescale/timescaledb-ha:pg17
+    ```
 
-    <tab label='TimescaleDB HA'>
+    $TIMESCALE_DB is pre-created in the default $PG database and is added by default to any new database you create in this image.
 
-       docker pull timescale/timescaledb-ha:pg17
+1.  **Run the container**
 
-    </tab>
+    ```
+    docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
+    ```
 
-    <tab label='TimescaleDB light'>
+    If you are running multiple container instances, change the port each Docker instance runs on.
 
-        docker pull timescale/timescaledb:latest-pg17
+    On UNIX-based systems, Docker modifies Linux IP tables to bind the container. If your system uses Linux Uncomplicated Firewall (UFW), Docker may
+    [override your UFW port binding settings][override-binding]. To prevent this, add `DOCKER_OPTS="--iptables=false"` to `/etc/default/docker`.
 
-    </tab>
+1.  **Connect to a database on your $PG instance**
 
-  </Terminal>
+    The default user and database are both `postgres`. You set the password in `POSTGRES_PASSWORD` in the previous step. The default command to connect to $PG in this image is:
 
-  $TIMESCALE_DB is pre-created in the default PostgreSQL database in both the -ha and non-ha Docker images.
-  By default, $TIMESCALE_DB is added to any new database you create in these images.
-
-1. **Run the container**
-
-  <Terminal>
-
-    <tab label='TimescaleDB HA' >
-
-        docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
-
-    </tab>
-
-    <tab label='TimescaleDB light' >
-
-        docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
-
-    </tab>
-
-  </Terminal>
-
-  If you are running multiple container instances remember to change the port each Docker instance runs on.
-
-  On UNIX based systems, Docker modifies Linux IP tables to bind the container. If your system uses
-  Linux Uncomplicated Firewall (UFW), Docker may
-  [override your UFW port binding settings](https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw/).
-  To prevent this, add `DOCKER_OPTS="--iptables=false"` to `/etc/default/docker`.
-
-1. **Connect to a database on your PostgreSQL instance**
-
-  ```bash
-  psql -d "postgres://postgres:password@localhost/postgres"
-  ```
-
-  The default user and database are both `postgres`. You set the password in
-  `POSTGRES_PASSWORD` in the previous step. The default command to connect to PostgreSQL in this image is:
+    ```bash
+    psql -d "postgres://postgres:password@localhost/postgres"
+    ```
 
 1.  **Check that $TIMESCALE_DB is installed**
 
-  ```sql
-  \dx
-  ```
+    ```sql
+    \dx
+    ```
 
-  You see the list of installed extensions:
+    You see the list of installed extensions:
 
-  <Terminal>
+     ```sql
+     Name         | Version |   Schema   |                                      Description
+     ---------------------+---------+------------+---------------------------------------------------------------------------------------
+     plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
+     timescaledb         | 2.20.3  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+     timescaledb_toolkit | 1.19.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
+     (3 rows)
+     ```
 
-    <tab label='TimescaleDB HA' >
-
-            Name         | Version |   Schema   |                                      Description
-            ---------------------+---------+------------+---------------------------------------------------------------------------------------
-            plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
-            timescaledb         | 2.20.3  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
-            timescaledb_toolkit | 1.19.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
-            (3 rows)
-
-    </tab>
-
-    <tab label='TimescaleDB light' >
-
-            Name         | Version |   Schema   |                                      Description
-            ---------------------+---------+------------+---------------------------------------------------------------------------------------
-            plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
-            timescaledb         | 2.20.3  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
-
-    </tab>
-
-  </Terminal>
-
-  Press q to exit the list of extensions.
+    Press `q` to exit the list of extensions.
 
 </Procedure>
+
+## More Docker options
+
+If you want to run the image directly from the container, you can use this
+command:
+
+```bash
+docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
+```
+
+The `-p` flag binds the container port to the host port. This means that
+anything that can access the host port can also access your $TIMESCALE_DB container,
+so it's important that you set a $PG password using the
+`POSTGRES_PASSWORD` environment variable. Without that variable, the Docker
+container disables password checks for all database users.
+
+If you want to access the container from the host but avoid exposing it to the
+outside world, you can bind to `127.0.0.1` instead of the public interface, using this command:
+
+```bash
+docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
+-e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
+```
+
+If you don't want to install `psql` and other $PG client tools locally,
+or if you are using a Microsoft Windows host system, you can connect using the
+version of `psql` that is bundled within the container with this command:
+
+```bash
+docker exec -it timescaledb psql -U postgres
+```
+
+Existing containers can be stopped using `docker stop` and started again with
+`docker start` while retaining their volumes and data. When you create a new
+container using the `docker run` command, by default you also create a new data
+volume. When you remove a Docker container with `docker rm`, the data volume
+persists on disk until you explicitly delete it. You can use the `docker volume
+ls` command to list existing docker volumes. If you want to store the data from
+your Docker container in a host directory, or you want to run the Docker image
+on top of an existing data directory, you can specify the directory to mount a
+data volume using the `-v` flag:
+
+```bash
+docker run -d --name timescaledb -p 5432:5432 \
+-v /your/data/dir:/home/postgres/pgdata/data \
+-e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
+```
+
+When you install $TIMESCALE_DB using a Docker container, the $PG settings
+are inherited from the container. In most cases, you do not need to adjust them.
+However, if you need to change a setting, you can add `-c setting=value` to your
+Docker `run` command. For more information, see the
+[Docker documentation][docker-postgres].
+
+The link provided in these instructions is for the latest version of $TIMESCALE_DB
+on $PG 16. To find other Docker tags you can use, see the [Dockerhub repository][dockerhub].
+
+## View logs in Docker
+
+If you have $TIMESCALE_DB installed in a Docker container, you can view your logs
+using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
+information, see the [Docker documentation on logs][docker-logs].
+
+</Tab>
+
+<Tab title="TimescaleDB light">
+
+<Procedure>
+
+1.  **Run the $TIMESCALE_DB Docker image**
+
+    The light-weight [TimescaleDB](https://hub.docker.com/r/timescale/timescaledb) Docker image uses [Alpine][alpine] and does not contain [$TOOLKIT_LONG](https://github.com/timescale/timescaledb-toolkit) or support for PostGIS and Patroni.
+
+    To install the latest release based on $PG 17:
+
+    ```
+    docker pull timescale/timescaledb:latest-pg17
+    ```
+
+    $TIMESCALE_DB is pre-created in the default $PG database and added by default to any new database you create in this image.
+
+
+1.  **Run the container**
+
+    ```
+    docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
+    ```
+
+    If you are running multiple container instances, change the port each Docker instance runs on.
+
+    On UNIX-based systems, Docker modifies Linux IP tables to bind the container. If your system uses Linux Uncomplicated Firewall (UFW), Docker may [override your UFW port binding settings][override-binding]. To prevent this, add `DOCKER_OPTS="--iptables=false"` to `/etc/default/docker`.
+
+1.  **Connect to a database on your $PG instance**
+
+    The default user and database are both `postgres`. You set the password in `POSTGRES_PASSWORD` in the previous step. The default command to connect to $PG in this image is:
+
+    ```bash
+    psql -d "postgres://postgres:password@localhost/postgres"
+    ```
+
+1.  **Check that $TIMESCALE_DB is installed**
+
+    ```sql
+    \dx
+    ```
+
+   You see the list of installed extensions:
+
+    ```sql
+    Name         | Version |   Schema   |                                      Description
+    ---------------------+---------+------------+---------------------------------------------------------------------------------------
+    plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
+    timescaledb         | 2.20.3  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+    ```
+
+    Press `q` to exit the list of extensions.
+
+## More Docker options
+
+If you want to run the image directly from the container, you can use this
+command:
+
+```bash
+docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
+```
+
+The `-p` flag binds the container port to the host port. This means that
+anything that can access the host port can also access your $TIMESCALE_DB container,
+so it's important that you set a $PG password using the
+`POSTGRES_PASSWORD` environment variable. Without that variable, the Docker
+container disables password checks for all database users.
+
+If you want to access the container from the host but avoid exposing it to the
+outside world, you can bind to `127.0.0.1` instead of the public interface, using this command:
+
+```bash
+docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
+-e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
+```
+
+If you don't want to install `psql` and other $PG client tools locally,
+or if you are using a Microsoft Windows host system, you can connect using the
+version of `psql` that is bundled within the container with this command:
+
+```bash
+docker exec -it timescaledb psql -U postgres
+```
+
+Existing containers can be stopped using `docker stop` and started again with
+`docker start` while retaining their volumes and data. When you create a new
+container using the `docker run` command, by default you also create a new data
+volume. When you remove a Docker container with `docker rm`, the data volume
+persists on disk until you explicitly delete it. You can use the `docker volume
+ls` command to list existing docker volumes. If you want to store the data from
+your Docker container in a host directory, or you want to run the Docker image
+on top of an existing data directory, you can specify the directory to mount a
+data volume using the `-v` flag:
+
+```bash
+docker run -d --name timescaledb -p 5432:5432 \
+-v /your/data/dir:/home/postgres/pgdata/data \
+-e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
+```
+
+When you install $TIMESCALE_DB using a Docker container, the $PG settings
+are inherited from the container. In most cases, you do not need to adjust them.
+However, if you need to change a setting, you can add `-c setting=value` to your
+Docker `run` command. For more information, see the
+[Docker documentation][docker-postgres].
+
+The link provided in these instructions is for the latest version of $TIMESCALE_DB
+on $PG 16. To find other Docker tags you can use, see the [Dockerhub repository][dockerhub].
+
+## View logs in Docker
+
+If you have $TIMESCALE_DB installed in a Docker container, you can view your logs
+using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
+information, see the [Docker documentation on logs][docker-logs].
+
+</Procedure>
+
+</Tab>
+
+</Tabs>
 
 [config]: /self-hosted/:currentVersion:/configuration/
 [alpine]: https://alpinelinux.org/
 [ubuntu]: https://ubuntu.com
+[override-binding]: https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw/
+[alpine]: https://alpinelinux.org/
+[config]: /self-hosted/:currentVersion:/configuration/
+[docker-postgres]: https://hub.docker.com/_/postgres
+[dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
+[ubuntu]: https://ubuntu.com
+[docker-logs]: https://docs.docker.com/engine/logging/
+[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
