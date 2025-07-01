@@ -17,7 +17,7 @@ import MigrationValidateRestartApp from "versionContent/_partials/_migrate_valid
 
 </Procedure>
 
-## Migrate the roles from$TIMESCALE_DB to your $SERVICE_LONG
+## Migrate the roles from $TIMESCALE_DB to your $SERVICE_LONG
 
 Roles manage database access permissions. To migrate your role-based security hierarchy to your $SERVICE_LONG:
 <Procedure>
