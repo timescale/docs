@@ -74,15 +74,15 @@ You set up the data lake table bucket and role ARNs, using one of the following 
 
 1. **Create your CloudFormation stack** 
    Replace the following values in the command, then run it from the terminal:
-   
-      * `StackName`: the name for this CloudFormation stack
-      * `BucketName`: The name of the S3 table bucket to crate
-      * `ProjectID`: enter your $SERVICE_LONG [connection details][get-project-id] 
-      * `ServiceID`: enter your $SERVICE_LONG [connection details][get-project-id]
+
+  * `StackName`: the name for this CloudFormation stack
+  * `BucketName`: The name of the S3 table bucket to crate
+  * `ProjectID`: enter your $SERVICE_LONG [connection details][get-project-id] 
+  * `ServiceID`: enter your $SERVICE_LONG [connection details][get-project-id]
    
    ```shell
    aws cloudformation create-stack \
-     --capabilities <CapabilityIAM> \
+     --capabilities CapabilityIAM \
      --template-url https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml \
      --stack-name <StackName> \
      --parameters \
