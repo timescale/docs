@@ -76,7 +76,7 @@ You set up the data lake table bucket and role ARNs, using one of the following 
    Replace the following values in the command, then run it from the terminal:
 
   * `StackName`: the name for this CloudFormation stack
-  * `BucketName`: The name of the S3 table bucket to crate
+  * `BucketName`: The name of the S3 table bucket to create
   * `ProjectID`: enter your $SERVICE_LONG [connection details][get-project-id] 
   * `ServiceID`: enter your $SERVICE_LONG [connection details][get-project-id]
    
