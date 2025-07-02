@@ -9,13 +9,19 @@ cloud_ui:
     - [members]
 ---
 
+import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
+
 # Control user access to Tiger Cloud projects
 
-When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a $PROJECT_SHORT with built-in role-based access. This includes the following roles: 
+When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a $PROJECT_SHORT with built-in role-based access.
+
+This includes the following roles: 
 
 - **Owner**: $CLOUD_LONG assigns this role to you when your $PROJECT_SHORT is created. As the Owner, you can add and delete other users, transfer project ownership, administer $SERVICE_SHORTs, and edit $PROJECT_SHORT settings. 
-- **Admin**: the Owner assigns this role to other users in the $PROJECT_SHORT. A user with the Admin role has the same scope of rights as the Owner but cannot transfer project ownership.
-- **Viewer**: the Owner and Admins assign this role to other users in the $PROJECT_SHORT. A Viewer has limited, read-only access to $CONSOLE_LONG. This means that a Viewer cannot modify $SERVICE_SHORTs and their configurations in any way. A Viewer has no access to the $DATA_MODE and has read-queries-only access to $SQL_EDITOR. 
+- **Admin**: the Owner assigns this role to other users in the $PROJECT_SHORT. A user with the Admin role has the same scope of rights as the Owner but cannot transfer project ownership. 
+- **Viewer**: the Owner and Admins assign this role to other users in the $PROJECT_SHORT. A Viewer has limited, read-only access to $CONSOLE_LONG. This means that a Viewer cannot modify $SERVICE_SHORTs and their configurations in any way. A Viewer has no access to the $DATA_MODE and has read-queries-only access to $SQL_EDITOR.
+
+<EarlyAccessGeneral />
 
 ![Project users in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-project-users-overview.png)
 
