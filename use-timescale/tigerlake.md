@@ -194,8 +194,8 @@ statement:
 
 ```sql
 ALTER TABLE <table_name> SET (
-   tigerlake.iceberg_sync = true | false,
-   tigerlake.iceberg_partitionby = '<partition_specification>'
+  tigerlake.iceberg_sync = true | false,
+  tigerlake.iceberg_partitionby = '<partition_specification>'
 )
 ```
 
@@ -234,12 +234,7 @@ The following partition intervals and specifications are supported, and the defi
 * The `TRUNCATE` statement is not supported, and will not truncate data in the corresponding Iceberg table.
 * The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synched.
 * Renaming a table in Postgres is not reflected in Iceberg table and can lead sync issues.
-
-## Replicas
-
-**TODO**
-What happens on fail over?
-
+* The service must be restarted, to use Tiger Lake.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
