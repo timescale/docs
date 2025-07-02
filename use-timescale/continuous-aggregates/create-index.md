@@ -37,7 +37,7 @@ CREATE MATERIALIZED VIEW conditions_daily
 
 ## Manually create and drop indexes
 
-You can use a regular PostgreSQL statement to create or drop an index on a
+You can use a regular $PG statement to create or drop an index on a
 continuous aggregate.
 
 For example, to create an index on `avg_temp` for a materialized hypertable

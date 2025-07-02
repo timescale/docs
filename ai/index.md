@@ -1,6 +1,6 @@
 ---
-title: Power your AI apps with PostgreSQL
-excerpt: TigerData pgai is a solution for building search, RAG, and AI agents with PostgreSQL. Learn more about pgai and how to use it
+title: Power your AI apps with Postgres
+excerpt: TigerData pgai is a solution for building search, RAG, and AI agents with Postgres. Learn more about pgai and how to use it
 products: [cloud, mst, self_hosted]
 keywords: [ai, vector, pgvector, pgvectorscale, pgai]
 tags: [ai, vector]
@@ -9,7 +9,7 @@ tags: [ai, vector]
 
 # Power your AI apps with pgai on $CLOUD_LONG
 
-pgai on $CLOUD_LONG is a cloud solution for building search, RAG, and AI agents with PostgreSQL. This suite of tools empowers you to deploy production AI applications with PostgreSQL as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
+pgai on $CLOUD_LONG is a cloud solution for building search, RAG, and AI agents with $PG. This suite of tools empowers you to deploy production AI applications with $PG as your vector database, storing both vector embeddings, relational data (for example, related metadata), and time-based data in the same database.
 
 <Highlight type="cloud" header="Start building today" button="Try for free">
 
@@ -20,7 +20,7 @@ pgai on $CLOUD_LONG is comprised of three extensions: pgvector, pgvectorscale an
 <!-- vale Google.Headings = NO -->
 ## pgvectorscale ❤️ pgvector
 <!-- vale Google.Headings = Yes -->
-[Pgvector](https://github.com/pgvector/pgvector) is a popular open source extension for vector storage and similarity search in PostgreSQL and [pgvectorscale](https://github.com/timescale/pgvectorscale) adds advanced indexing capabilities to pgvector. pgai on $CLOUD_LONG offers both extensions so you can use all the capabilities already available in pgvector (like HNSW and ivfflat indexes) and also make use of the StreamingDiskANN index in pgvectorscale to speed up vector search.
+[Pgvector](https://github.com/pgvector/pgvector) is a popular open source extension for vector storage and similarity search in $PG and [pgvectorscale](https://github.com/timescale/pgvectorscale) adds advanced indexing capabilities to pgvector. pgai on $CLOUD_LONG offers both extensions so you can use all the capabilities already available in pgvector (like HNSW and ivfflat indexes) and also make use of the StreamingDiskANN index in pgvectorscale to speed up vector search.
 
 This makes it easy to migrate your existing pgvector deployment and take advantage of the additional performance features in pgvectorscale. You also have the flexibility to create different index types suited to your needs. See the [vector search indexing][vector-search-indexing] section for more information.
 

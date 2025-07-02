@@ -8,7 +8,7 @@ keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 # Install and update $TIMESCALE_DB Toolkit
 
 Some hyperfunctions are included by default in $TIMESCALE_DB. For additional
-hyperfunctions, you need to install the $TOOLKIT_LONG PostgreSQL
+hyperfunctions, you need to install the $TOOLKIT_LONG $PG
 extension.
 
 If you're using [$CLOUD_LONG][cloud], the $TOOLKIT_LONG is already installed.
@@ -157,7 +157,7 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
 ### Install Toolkit on Windows
 
 $TOOLKIT_LONG isn't currently supported on Windows. As a workaround, you
-can run PostgreSQL in a Docker container.
+can run $PG in a Docker container.
 
 ## Update Toolkit on self-hosted TimescaleDB
 

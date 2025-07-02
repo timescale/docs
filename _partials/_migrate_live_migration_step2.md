@@ -13,7 +13,7 @@ your instance, as shown on [Configure database parameters][configure-instance-pa
 </Highlight>
 
 It's important to ensure that the `old_snapshot_threshold` value is set to the
-default value of `-1` in your source database. This prevents PostgreSQL from
+default value of `-1` in your source database. This prevents $PG from
 treating the data in a snapshot as outdated. If this value is set other than
 `-1`, it might affect the existing data migration step.
 

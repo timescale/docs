@@ -26,7 +26,7 @@ This tutorial has a few main steps:
 *   $TIMESCALE_DB (see [installation options][install-timescale])
 *   Alpha Vantage API key ([get one for free][alpha-vantage-apikey])
 *   Virtualenv (installation: `pip install virtualenv`)
-*   [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
+*   [Psql][psql-install] or any other $PG client (for example, DBeaver)
 
 ## Get started: create a virtual environment
 

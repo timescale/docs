@@ -11,10 +11,10 @@ import ConfigCloudSelf from "versionContent/_partials/_cloud_self_configuration.
 
 # TimescaleDB configuration and tuning
 
-Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of configuration
+Just as you can tune settings in $PG, TimescaleDB provides a number of configuration
 settings that may be useful to your specific installation and performance needs. These can
 also be set within the `postgresql.conf` file or as command-line parameters
-when starting PostgreSQL.
+when starting $PG.
 
 ## Query Planning and Execution
 
@@ -41,7 +41,7 @@ in the presence of a small number of changes, reduce the i/o cost of refreshing 
 ### `timescaledb.max_background_workers (int)`
 
 Max background worker processes allocated to TimescaleDB. Set to at least 1 +
-the number of databases loaded with a TimescaleDB extension in a PostgreSQL
+the number of databases loaded with a TimescaleDB extension in a $PG
 instance. Default value is 16.
 
 <ConfigCloudSelf />
@@ -105,7 +105,7 @@ can be either `copy`, `cursor`, or `auto`. The default is `auto`.
 
 Specifies the path used to search user certificates and keys when
 connecting to data nodes using certificate authentication. Defaults to
-`timescaledb/certs` under the PostgreSQL data directory.
+`timescaledb/certs` under the $PG data directory.
 
 ### `timescaledb.passfile (string)` [
 

@@ -28,11 +28,11 @@ To follow the steps on this page:
 
 ## Install with $PG Kubernetes operators
 
-You can also use PostgreSQL Kubernetes operators to simplify installation, configuration, and life cycle. The operators which our community members have 
+You can also use $PG Kubernetes operators to simplify installation, configuration, and life cycle. The operators which our community members have 
 told us work well are:
 
 - [StackGres][stackgres] (includes TimescaleDB images)
-- [Postgres Operator (Patroni)][patroni] 
+- [$PG Operator (Patroni)][patroni] 
 - [PGO][pgo]
 - [CloudNativePG][cnpg]
 

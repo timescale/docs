@@ -20,11 +20,11 @@ tags: [install, configuration]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-If your PostgreSQL logs have this error preventing it from starting up,
+If your $PG logs have this error preventing it from starting up,
 you should double check that the $TIMESCALE_DB files have been installed
 to the correct location. Our installation methods use `pg_config` to
-get PostgreSQL's location. However if you have multiple versions of
-PostgreSQL installed on the same machine, the location `pg_config`
+get $PG's location. However if you have multiple versions of
+$PG installed on the same machine, the location `pg_config`
 points to may not be for the version you expect. To check which
 version TimescaleDB used:
 
@@ -34,7 +34,7 @@ PostgreSQL 12.3
 ```
 
 If that is the correct version, double check that the installation path is
-the one you'd expect. For example, for PostgreSQL 11.0 installed via
+the one you'd expect. For example, for $PG 11.0 installed via
 Homebrew on macOS it should be `/usr/local/Cellar/postgresql/11.0/bin`:
 
 ```bash
@@ -43,7 +43,7 @@ $ pg_config --bindir
 ```
 
 If either of those steps is not the version you are expecting, you need
-to either (a) uninstall the incorrect version of PostgreSQL if you can or
+to either (a) uninstall the incorrect version of $PG if you can or
 (b) update your `PATH` environmental variable to have the correct
 path of `pg_config` listed first, that is, by prepending the full path:
 

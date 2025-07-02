@@ -28,8 +28,8 @@ FROM t;
 ### Parallelism and ordering
 
 Time-weighted average calculations are not strictly parallelizable, as defined
-by PostgreSQL. These calculations require inputs to be strictly ordered, but
-in general, PostgreSQL parallelizes by assigning rows randomly to workers.
+by $PG. These calculations require inputs to be strictly ordered, but
+in general, $PG parallelizes by assigning rows randomly to workers.
 
 However, the algorithm can be parallelized if it is guaranteed that all rows
 within some time range go to the same worker. This is the case for both
@@ -62,7 +62,7 @@ FROM t;
 ### Parallelism in multi-node
 
 The time-weighted average functions are not strictly parallelizable in the
-PostgreSQL sense. PostgreSQL requires that parallelizable functions accept
+$PG sense. $PG requires that parallelizable functions accept
 potentially overlapping input. As explained above, the time-weighted functions
 do not. However, they do support partial aggregation and partition-wise
 aggregation in multi-node setups.

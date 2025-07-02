@@ -6,8 +6,7 @@ import Deprecated2210 from "versionContent/_partials/_deprecated_2_21_0.mdx";
 ### `timescaledb.max_background_workers (int)`
 
 Max background worker processes allocated to $TIMESCALE_DB. Set to at least 1 +
-the number of databases loaded with the $TIMESCALE_DB extension in a PostgreSQL
-instance. Default value is 16.
+the number of databases loaded with the $TIMESCALE_DB extension in a $PG instance. Default value is 16.
 
 ## Hypercore features
 

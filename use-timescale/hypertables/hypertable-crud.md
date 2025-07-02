@@ -1,6 +1,6 @@
 ---
 title: Optimize time-series data in hypertables
-excerpt: Hypertables are PostgreSQL tables designed for real-time analytics. See how to create, alter, and drop a hypertable. 
+excerpt: Hypertables are Postgres tables designed for real-time analytics. See how to create, alter, and drop a hypertable. 
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, create]
 ---
@@ -65,7 +65,7 @@ You can also manually [convert chunks][convert_to_columnstore] in a $HYPERTABLE 
 
 ## Alter a hypertable
 
-You can alter a hypertable, for example to add a column, by using the PostgreSQL
+You can alter a hypertable, for example to add a column, by using the $PG
 [`ALTER TABLE`][postgres-altertable] command. This works for both regular and
 distributed hypertables.
 
@@ -98,7 +98,7 @@ ALTER TABLE conditions
 
 ## Drop a hypertable
 
-Drop a hypertable using a standard PostgreSQL [`DROP TABLE`][postgres-droptable]
+Drop a hypertable using a standard $PG [`DROP TABLE`][postgres-droptable]
 command:
 
 ```sql

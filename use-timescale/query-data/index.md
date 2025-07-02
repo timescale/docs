@@ -7,7 +7,7 @@ keywords: [queries]
 
 # Query data
 
-Hypertables in $TIMESCALE_DB are PostgreSQL tables. That means you can query them
+Hypertables in $TIMESCALE_DB are $PG tables. That means you can query them
 with standard SQL commands. 
 
 *   [About querying data][about-querying-data]

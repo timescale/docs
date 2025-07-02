@@ -1,6 +1,6 @@
 ---
 title: Configuring Hypershift
-excerpt: Migrate an existing PostgreSQL database to a self-hosted TimescaleDB instance in a single step
+excerpt: Migrate an existing Postgres database to a self-hosted TimescaleDB instance in a single step
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]

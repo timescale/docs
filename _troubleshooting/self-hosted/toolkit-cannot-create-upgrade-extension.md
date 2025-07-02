@@ -26,7 +26,7 @@ with the above error.
 This occurs if the list of available extensions does not include the version you
 are trying to upgrade to, and it can occur if the package was not installed
 correctly in the first place. To correct the problem, install the upgrade
-package, restart PostgreSQL, verify the version, and then attempt the update
+package, restart $PG, verify the version, and then attempt the update
 again.
 
 <Procedure>
@@ -39,7 +39,7 @@ again.
     the installation guides:
     *   [Linux installation guide][linux-install]
 1.  Update your local repository list with `apt update` or `yum update`.
-1.  Restart your PostgreSQL service.
+1.  Restart your $PG service.
 1.  Check that the right version of Toolkit is among your available extensions:
 
     ```sql

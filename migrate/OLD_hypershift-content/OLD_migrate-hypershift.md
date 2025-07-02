@@ -1,6 +1,6 @@
 ---
 title: Migrate to Tiger Cloud with Hypershift
-excerpt: Migrate an existing PostgreSQL database to Tiger Cloud using Hypershift
+excerpt: Migrate an existing Postgres database to Tiger Cloud using Hypershift
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]

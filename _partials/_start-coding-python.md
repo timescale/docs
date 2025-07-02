@@ -12,7 +12,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 ## Connect to TimescaleDB
 
 In this section, you create a connection to $TIMESCALE_DB using the `psycopg2`
-library. This library is one of the most popular PostgreSQL libraries for
+library. This library is one of the most popular $PG libraries for
 Python. It allows you to execute raw SQL queries efficiently and safely, and
 prevents common attacks such as SQL injection.
 
@@ -235,7 +235,7 @@ from pgcopy import CopyManager
 <Procedure>
 
 1.  Generate some random sensor data using the `generate_series` function
-    provided by PostgreSQL. This example inserts a total of 480 rows of data (4
+    provided by $PG. This example inserts a total of 480 rows of data (4
     readings, every 5 minutes, for 24 hours). In your application, this would be
     the query that saves your time-series data into the hypertable:
 

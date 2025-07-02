@@ -11,7 +11,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 ## Connect to your $SERVICE_LONG
 
 In this section, you create a connection to $CLOUD_LONG using the PGX driver.
-PGX is a toolkit designed to help Go developers work directly with PostgreSQL.
+PGX is a toolkit designed to help Go developers work directly with $PG.
 You can use it to help your Go application interact directly with TimescaleDB.
 
 <Procedure>
@@ -354,7 +354,7 @@ to insert multiple rows of data, instead:
 
 <Procedure>
 
-1.  This example uses PostgreSQL to generate some sample time-series to insert
+1.  This example uses $PG to generate some sample time-series to insert
     into the `sensor_data` hypertable. Define the SQL statement to generate the
     data, called `queryDataGeneration`. Then use the `.Query()` function to
     execute the statement and return the sample data. The data returned by the
