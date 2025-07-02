@@ -16,13 +16,13 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 ## Limitations
 
-* Indexes (including Primary Key and Unique constraints) are not migrated by $SERVICE_LONG.
+* The source $PG instance must be accessible from the Internet.
 
-  We recommend that you create only the necessary indexes on the target $SERVICE_LONG depending on your query patterns.
+  Services hosted behind a firewall or VPC are not supported. This functionality is on the roadmap. 
 
-* Tables with user-defined types are not migrated by $SERVICE_LONG.
+* Indexes, including the primary key and unique constraints, are not migrated to the target $SERVICE_LONG.
 
-  You need to create the user defined types on the target $SERVICE_LONG before syncing the table.
+  We recommend that, depending on your query patterns, you create only the necessary indexes on the target $SERVICE_LONG.
 
 <LivesyncLimitations />
 
