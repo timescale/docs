@@ -10,7 +10,7 @@
     $TIMESCALE_DB experience. It uses [Ubuntu][ubuntu], includes
     [$TOOLKIT_LONG](https://github.com/timescale/timescaledb-toolkit), and support for PostGIS and Patroni.
 
-    To install the latest release based on PostgreSQL 17:
+    To install the latest release based on $PG 17:
 
     ```
     docker pull timescale/timescaledb-ha:pg17
@@ -31,7 +31,7 @@
 
 1.  **Connect to a database on your $PG instance**
 
-    The default user and database are both `postgres`. You set the password in `POSTGRES_PASSWORD` in the previous step. The default command to connect to $PG in this image is:
+    The default user and database are both `postgres`. You set the password in `POSTGRES_PASSWORD` in the previous step. The default command to connect to $PG is:
 
     ```bash
     psql -d "postgres://postgres:password@localhost/postgres"
@@ -128,7 +128,7 @@ information, see the [Docker documentation on logs][docker-logs].
 
 1.  **Run the $TIMESCALE_DB Docker image**
 
-    The light-weight [TimescaleDB](https://hub.docker.com/r/timescale/timescaledb) Docker image uses [Alpine][alpine] and does not contain [$TOOLKIT_LONG](https://github.com/timescale/timescaledb-toolkit) or support for PostGIS and Patroni.
+    The light-weight [$TIMESCALE_DB](https://hub.docker.com/r/timescale/timescaledb) Docker image uses [Alpine][alpine] and does not contain [$TOOLKIT_LONG](https://github.com/timescale/timescaledb-toolkit) or support for PostGIS and Patroni.
 
     To install the latest release based on $PG 17:
 

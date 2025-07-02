@@ -12,8 +12,8 @@ import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-d
 
 # Install $TIMESCALE_DB from a Docker container
 
-TimescaleDB is a [PostgreSQL extension](https://www.postgresql.org/docs/current/external-extensions.html) for
-time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB 
+$TIMESCALE_DB is a [$PG extension](https://www.postgresql.org/docs/current/external-extensions.html) for
+time series and demanding workloads that ingest and query high volumes of data. You can install a $TIMESCALE_DB 
 instance on any local system from a pre-built Docker container. 
 
 This section shows you how to 
@@ -23,7 +23,7 @@ This section shows you how to
 
 ### Prerequisites
 
-To run, and connect to a PostgreSQL installation on Docker, you need to install:
+To run, and connect to a $PG installation on Docker, you need to install:
 
 - [Docker][docker-install]
 - [psql][install-psql]
@@ -31,7 +31,7 @@ To run, and connect to a PostgreSQL installation on Docker, you need to install:
 
 ## Install and configure $TIMESCALE_DB on $PG
 
-This section shows you how to install the latest version of PostgreSQL and
+This section shows you how to install the latest version of $PG and
 $TIMESCALE_DB on a [supported platform](#supported-platforms) using containers supplied by $COMPANY.
 
 <SelfHostedDocker />
