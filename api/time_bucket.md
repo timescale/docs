@@ -20,7 +20,7 @@ The `time_bucket` function is similar to the standard $PG `date_bin`
 function. Unlike `date_bin`, it allows for arbitrary time intervals of months or
 longer. The return value is the bucket's start time.
 
-The time bucket size (`bucket_width`) can be set as INTERVAL or INTEGER. By default, buckets are aligned to start at midnight in UTC+0. You can change the time zone with the optional `timezone` parameter. In this case, the buckets are realigned to start at midnight in the time zone you specify.
+Buckets are aligned to start at midnight in UTC+0. The time bucket size (`bucket_width`) can be set as INTERVAL or INTEGER. For INTERVAL-type `bucket_width`, you can change the time zone with the optional `timezone` parameter. In this case, the buckets are realigned to start at midnight in the time zone you specify.
 
 Note that during shifts to and from daylight savings, the amount of data
 aggregated into the corresponding buckets can be irregular. For example, if the
@@ -39,11 +39,11 @@ bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
 
 ## Optional arguments for interval time inputs
 
-|Name|Type|Description|
-|-|-|-|
-|`timezone`|TEXT|The timezone for calculating bucket start and end times. Can only be used with `TIMESTAMPTZ`. Defaults to UTC.|
-|`origin`|DATE, TIMESTAMP, or TIMESTAMPTZ|Buckets are aligned relative to this timestamp. Defaults to midnight on January 3, 2000, for buckets that don't include a month or year interval, and to midnight on January 1, 2000, for month, year, and century buckets.|
-|`offset`|INTERVAL|The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG.|
+|Name|Type| Description                                                                                                                                                                                                                                                                                    |
+|-|-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`timezone`|TEXT| The time zone for calculating bucket start and end times. Can only be used with `TIMESTAMPTZ`. Defaults to UTC+0.                                                                                                                                                                              |
+|`origin`|DATE, TIMESTAMP, or TIMESTAMPTZ| Buckets are aligned relative to this timestamp. Defaults to midnight on January 3, 2000, for buckets that don't include a month or year interval, and to midnight on January 1, 2000, for month, year, and century buckets.                                                                    |
+|`offset`|INTERVAL| The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG. |
 
 ## Required arguments for integer time inputs
 
@@ -112,7 +112,7 @@ can be before, during, or after the data being analyzed. All buckets are
 calculated relative to this origin. So, in this example, any Sunday could have
 been used. Note that because `time < TIMESTAMPTZ '2018-01-03'` is used in this
 example, the last bucket would have only 4 days of data. This cast to TIMESTAMP
-converts the time to local time according to the server's timezone setting.
+converts the time to local time according to the server's time zone setting.
 
 ```sql
 SELECT time_bucket(INTERVAL '2 hours', timetz::TIMESTAMP)
@@ -123,7 +123,7 @@ ORDER BY five_min DESC LIMIT 10;
 ```
 
 Bucket temperature values to calculate the average monthly temperature. Set the
-timezone to 'Europe/Berlin' so bucket start and end times are aligned to
+time zone to 'Europe/Berlin' so bucket start and end times are aligned to
 midnight in Berlin.
 
 ```sql
