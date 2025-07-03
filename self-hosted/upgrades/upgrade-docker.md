@@ -42,7 +42,7 @@ mounts, or bind mounts.
     ```
     This returns either `volume` or `bind`.
 
-1.  Note the volume or bind used by your container. 
+1.  Note the volume or bind used by your container:
 
     <Terminal>
 
@@ -50,8 +50,10 @@ mounts, or bind mounts.
 
     ```bash
     docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
-    
-    You see something like this:
+    ```
+    Docker returns the `<volume ID>`. You see something like this: 
+
+    ```
     069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c
     ```
 
@@ -61,8 +63,11 @@ mounts, or bind mounts.
 
     ```bash
     docker inspect timescaledb --format='{{range .Mounts }}{{.Source}}{{end}}'
-    
-    You see something like this:
+    ```
+
+    Docker returns the `<bind path>`. You see something like this: 
+
+    ```
     /path/to/data
     ```
 
@@ -105,16 +110,15 @@ data.
 
 1. **Launch a new container with the upgraded Docker image**
 
-   The container stores the $PG `<data folder>` at `/home/postgres/pgdata/data`
+   Launch based on your mount point type:
 
-   Update the following command, based on your mount point type to point to the correct data folder:
    <Terminal>
 
     <tab label='Volume mount'>
 
     ```bash
-    docker run -v <>:<data folder> \
-      -d --name timescaledb -p 5432:5432 timescale/timescaledb-ha
+    docker run -v <volume ID>:/home/postgres/pgdata/data
+      -d --name timescaledb -p 5432:5432 timescale/timescaledb-ha:pg17
     ```
 
     </tab>
@@ -180,7 +184,7 @@ If you have multiple databases, update each database separately.
 
 1. **Launch a new container with the upgraded Docker image**
 
-   The container stores the $PG `<data folder>` in `/var/lib/postgresql/data`. Update the following command, based on your mount point type, to point to the correct data folder:
+   Launch based on your mount point type:
 
    <Terminal>
 
