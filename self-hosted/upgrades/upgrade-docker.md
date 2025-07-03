@@ -187,7 +187,7 @@ If you have multiple databases, update each database separately.
     <tab label='Volume mount'>
 
     ```bash
-    docker run -v <>:<data folder> \
+    docker run -v  <volume ID>:/var/lib/postgresql/data \
       -d --name timescaledb -p 5432:5432 timescaledb:latest-pg17
     ```
 
