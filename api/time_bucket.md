@@ -20,10 +20,11 @@ The `time_bucket` function is similar to the standard $PG `date_bin`
 function. Unlike `date_bin`, it allows for arbitrary time intervals of months or
 longer. The return value is the bucket's start time.
 
-Note that daylight savings time boundaries means that the amount of data
-aggregated into a bucket after such a cast can be irregular. For example, if the
-`bucket_width` is 2 hours, the number of UTC hours bucketed by local time on
-daylight savings time boundaries can be either three hours or one hour.
+The time bucket size (`bucket_width`) can be set as INTERVAL or INTEGER. By default, buckets are aligned to start at midnight in UTC+0. You can change the time zone with the optional `timezone` parameter. In this case, the buckets are realigned to start at midnight in the time zone you specify.
+
+Note that during shifts to and from daylight savings, the amount of data
+aggregated into the corresponding buckets can be irregular. For example, if the
+`bucket_width` is 2 hours, the number of bucketed hours is either three hours or one hour.
 
 ## Required arguments for interval time inputs
 
@@ -59,7 +60,7 @@ bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
 
 ## Sample usage
 
-Simple five minute averaging:
+Simple five-minute averaging:
 
 ```sql
 SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
@@ -79,7 +80,7 @@ ORDER BY five_min DESC LIMIT 10;
 ```
 
 For rounding, move the alignment so that the middle of the bucket is at the
-five minute mark, and report the middle of the bucket:
+five-minute mark, and report the middle of the bucket:
 
 ```sql
 SELECT time_bucket('5 minutes', time, '-2.5 minutes'::INTERVAL) + '2.5 minutes'
@@ -92,7 +93,7 @@ ORDER BY five_min DESC LIMIT 10;
 In this example, add the explicit cast to ensure that $PG chooses the
 correct function.
 
-To shift the alignment of the buckets you can use the origin parameter passed as
+To shift the alignment of the buckets, you can use the origin parameter passed as
 a timestamp, timestamptz, or date type. This example shifts the start of the
 week to a Sunday, instead of the default of Monday:
 
