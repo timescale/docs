@@ -123,7 +123,7 @@ data.
 
     ```bash
     docker run -v /bind/path/recovered/earlier:<data folder> -d --name timescaledb \
-      -p 5432:5432 timescale/timescaledb-ha
+      -p 5432:5432 timescale/timescaledb-ha:pg17
     ```
 
     </tab>
