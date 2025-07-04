@@ -20,8 +20,8 @@ Updating parameters on a $PG instance will cause an outage. Choose a time that w
       - **Parameter group family** - the same as `DB instance parameter group` in your `Configuration`.
    1. In `Parameter groups`, select the parameter group you created, then click `Edit`.
    1. Update the following parameters, then click `Save changes`.
-      - `old_snapshot_threshold` set to `-1`: prevent $PG from treating the data in a snapshot as outdated.
       - `rds.logical_replication` set to `1`: record the information needed for logical decoding.
+      - `wal_sender_timeout` set to `0`: disable the timeout for the sender process.
 
    1. In RDS, navigate back to your [databases][databases], select the RDS instance to migrate, and click `Modify`.  
 
