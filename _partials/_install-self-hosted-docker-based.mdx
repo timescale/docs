@@ -20,10 +20,11 @@
 
 1.  **Run the container**
 
+    Replace `</a/local/data/folder>` with the path to the folder you want to keep your data in the following command.
     ```
-    docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
+    docker run -d --name timescaledb -p 5432:5432  -v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
     ```
-
+        
     If you are running multiple container instances, change the port each Docker instance runs on.
 
     On UNIX-based systems, Docker modifies Linux IP tables to bind the container. If your system uses Linux Uncomplicated Firewall (UFW), Docker may
@@ -50,7 +51,7 @@
      ---------------------+---------+------------+---------------------------------------------------------------------------------------
      plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
      timescaledb         | 2.20.3  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
-     timescaledb_toolkit | 1.19.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
+     timescaledb_toolkit | 1.21.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
      (3 rows)
      ```
 
