@@ -61,25 +61,12 @@
 
 ## More Docker options
 
-If you want to run the image directly from the container, you can use this
-command:
-
-```bash
-docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
-```
-
-The `-p` flag binds the container port to the host port. This means that
-anything that can access the host port can also access your $TIMESCALE_DB container,
-so it's important that you set a $PG password using the
-`POSTGRES_PASSWORD` environment variable. Without that variable, the Docker
-container disables password checks for all database users.
-
 If you want to access the container from the host but avoid exposing it to the
 outside world, you can bind to `127.0.0.1` instead of the public interface, using this command:
 
 ```bash
 docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
--e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
+-v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
 ```
 
 If you don't want to install `psql` and other $PG client tools locally,
@@ -90,22 +77,6 @@ version of `psql` that is bundled within the container with this command:
 docker exec -it timescaledb psql -U postgres
 ```
 
-Existing containers can be stopped using `docker stop` and started again with
-`docker start` while retaining their volumes and data. When you create a new
-container using the `docker run` command, by default you also create a new data
-volume. When you remove a Docker container with `docker rm`, the data volume
-persists on disk until you explicitly delete it. You can use the `docker volume
-ls` command to list existing docker volumes. If you want to store the data from
-your Docker container in a host directory, or you want to run the Docker image
-on top of an existing data directory, you can specify the directory to mount a
-data volume using the `-v` flag:
-
-```bash
-docker run -d --name timescaledb -p 5432:5432 \
--v /your/data/dir:/home/postgres/pgdata/data \
--e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
-```
-
 When you install $TIMESCALE_DB using a Docker container, the $PG settings
 are inherited from the container. In most cases, you do not need to adjust them.
 However, if you need to change a setting, you can add `-c setting=value` to your
@@ -113,7 +84,7 @@ Docker `run` command. For more information, see the
 [Docker documentation][docker-postgres].
 
 The link provided in these instructions is for the latest version of $TIMESCALE_DB
-on $PG 16. To find other Docker tags you can use, see the [Dockerhub repository][dockerhub].
+on $PG 17. To find other Docker tags you can use, see the [Dockerhub repository][dockerhub].
 
 ## View logs in Docker
 
@@ -176,19 +147,6 @@ information, see the [Docker documentation on logs][docker-logs].
     Press `q` to exit the list of extensions.
 
 ## More Docker options
-
-If you want to run the image directly from the container, you can use this
-command:
-
-```bash
-docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
-```
-
-The `-p` flag binds the container port to the host port. This means that
-anything that can access the host port can also access your $TIMESCALE_DB container,
-so it's important that you set a $PG password using the
-`POSTGRES_PASSWORD` environment variable. Without that variable, the Docker
-container disables password checks for all database users.
 
 If you want to access the container from the host but avoid exposing it to the
 outside world, you can bind to `127.0.0.1` instead of the public interface, using this command:
