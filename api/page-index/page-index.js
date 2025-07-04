@@ -50,6 +50,14 @@ module.exports = [
             href: "move_chunk",
           },
           {
+            title: "detach_chunk",
+            href: "detach_chunk",
+          },
+          {
+            title: "attach_chunk",
+            href: "attach_chunk",
+          },
+          {
             title: "add_reorder_policy",
             href: "add_reorder_policy",
           },
