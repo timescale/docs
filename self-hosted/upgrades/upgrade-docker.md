@@ -1,5 +1,5 @@
 ---
-title: Upgrade within a Docker container
+title: Upgrade TimescaleDB running in Docker
 excerpt: Upgrade self-hosted TimescaleDB running in a Docker container to a new minor version
 products: [self_hosted]
 keywords: [upgrades, Docker]
@@ -160,6 +160,7 @@ If you have multiple databases, update each database separately.
 </Procedure>
     
 </Tab>
+
 
 <Tab title="TimescaleDB light">
 
