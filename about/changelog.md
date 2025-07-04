@@ -9,16 +9,18 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to $COMPANY products.
 
-## 👀 Super useful docs updates
-<Label type="date">July 3, 2025</Label>
+## 👀 Super useful doc updates
+<Label type="date">July 4, 2025</Label>
 
-### Updates to instructions for LiveSync
-In the docs have clarified the step-by-step procedure for setting up your LiveSync from self-hosted by: 
-- Adding definitions for some flags when running your Docker container
-- Including more detailed examples of output from the table synchronization list
+### Updates to instructions for livesync
 
-### New optional argument for add_continuous_aggregate_policy API 
-The `refresh_newest_first` optional argument has been added to docs.   It controls the order of incremental refreshes
+In the Console UI, we have clarified the step-by-step procedure for setting up your livesync from self-hosted installations by: 
+- Adding definitions for some flags when running your Docker container.
+- Including more detailed examples of the output from the table synchronization list.
+
+### New optional argument for add_continuous_aggregate_policy API
+
+Added the new `refresh_newest_first` optional argument that controls the order of incremental refreshes.
 
 ## 🚀 Multi-command queries in SQL editor, improved job page experience, multiple AWS Transit Gateways, and a new service creation flow
 <Label type="date">June 20, 2025</Label>
