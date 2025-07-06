@@ -129,11 +129,11 @@ Render the GUCs to file
 """
 def render(gucs: dict, filename: str):
     with open(filename, "w") as f:
-        f.write("| Name | Type | Default | Short Description | Long Description |\n")
-        f.write("| --- | --- | --- | --- | --- |\n")
+        f.write("| Name | Type | Default | Long Description |\n")
+        f.write("| -- | -- | -- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n")
         for guc in gucs.values():
             f.write("| `%s` | `%s` | `%s` | %s | %s |\n" % (
-                guc["name"], guc["type"], guc["value"], guc["short_desc"], guc["long_desc"]
+                guc["name"], guc["type"], guc["value"], guc["long_desc"]
             ))
     logging.info("rendering completed to %s" % filename)
 
