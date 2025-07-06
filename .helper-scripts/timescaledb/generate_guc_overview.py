@@ -132,7 +132,7 @@ def render(gucs: dict, filename: str):
         f.write("| Name | Type | Default | Long Description |\n")
         f.write("| -- | -- | -- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n")
         for guc in gucs.values():
-            f.write("| `%s` | `%s` | `%s` | %s | %s |\n" % (
+            f.write("| `%s` | `%s` | `%s` | %s |\n" % (
                 guc["name"], guc["type"], guc["value"], guc["long_desc"]
             ))
     logging.info("rendering completed to %s" % filename)
