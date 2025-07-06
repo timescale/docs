@@ -68,14 +68,14 @@ def unwrap(gucs: list, guc_type: str) -> dict:
         # sanitize elements
         name = re.sub(r"[\"\(\)]*", "", it[0])
         short_desc = sanitize_description(it[1])
-        long_desc = it[1] if it[2].lower() == "null" else sanitize_description(it[2])
+        long_desc = short_desc if it[2].lower() == "null" else sanitize_description(it[2])
 
         # Exclude GUCs (if specified)
         if name not in EXCLUDE:
             map[name] = {
                 "name": name,
-                "short_desc": extract_gettext_noop_string(short_desc),
-                "long_desc": extract_gettext_noop_string(long_desc),
+                "short_desc": short_desc,
+                "long_desc": long_desc,
                 "value": get_value(guc_type, it),
                 "type": guc_type,
                 "scopes": [], # assigned later during scope discovery
@@ -90,7 +90,7 @@ def sanitize_description(text) -> str:
 
 def strip_comment_pattern(text) -> str:
     pattern = r'/\*\s*[a-zA-Z0-9_]*=\s*\*/'
-    return re.sub(pattern, '', text)
+    return re.sub(pattern, '', extract_gettext_noop_string(text))
 
 def extract_gettext_noop_string(text):
     pattern = r'gettext_noop\s*\(\s*"([^"]*(?:\\.[^"]*)*)"\s*\)'
@@ -102,8 +102,11 @@ def get_value(type: str, parts: list) -> str:
     Get the value of the GUC based on the type
     """
     if type == "BOOLEAN":
-        return strip_comment_pattern(parts[5]).strip()
-    return parts[5]
+        if parts[5].upper()[0:4] == "PGC_":
+            return strip_comment_pattern(parts[4]).strip()
+        else:
+            return strip_comment_pattern(parts[5]).strip()
+    return strip_comment_pattern(parts[5]).strip()
 
 """
 Parse GUCs and prepare them for rendering
