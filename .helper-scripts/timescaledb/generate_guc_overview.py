@@ -67,26 +67,43 @@ def unwrap(gucs: list, guc_type: str) -> dict:
 
         # sanitize elements
         name = re.sub(r"[\"\(\)]*", "", it[0])
-        short_desc = it[1].strip("\"")
-        long_desc = it[1] if it[2].lower() == "null" else re.sub(r"[\"\"]*", "", it[2].strip("\""))
-        value = it[4]
-
-        # TODO: clean up /* Value= */ from strings
-        # 
+        short_desc = sanitize_description(it[1])
+        long_desc = it[1] if it[2].lower() == "null" else sanitize_description(it[2])
 
         # Exclude GUCs (if specified)
         if name not in EXCLUDE:
             map[name] = {
                 "name": name,
-                "short_desc": short_desc,
-                "long_desc": long_desc,
-                "value": value,
+                "short_desc": extract_gettext_noop_string(short_desc),
+                "long_desc": extract_gettext_noop_string(long_desc),
+                "value": get_value(guc_type, it),
                 "type": guc_type,
                 "scopes": [], # assigned later during scope discovery
             }
 
     logging.info("registered %d GUCs of type: %s" % (len(map), guc_type))
     return map
+
+def sanitize_description(text) -> str:
+    # Remove all quotes and normalize whitespace to single line
+    return ' '.join(text.replace('"', '').split()).strip()
+
+def strip_comment_pattern(text) -> str:
+    pattern = r'/\*\s*[a-zA-Z0-9_]*=\s*\*/'
+    return re.sub(pattern, '', text)
+
+def extract_gettext_noop_string(text):
+    pattern = r'gettext_noop\s*\(\s*"([^"]*(?:\\.[^"]*)*)"\s*\)'
+    match = re.search(pattern, text, re.DOTALL)
+    return match.group(1) if match else text
+
+def get_value(type: str, parts: list) -> str:
+    """
+    Get the value of the GUC based on the type
+    """
+    if type == "BOOLEAN":
+        return strip_comment_pattern(parts[5]).strip()
+    return parts[5]
 
 """
 Parse GUCs and prepare them for rendering
@@ -112,11 +129,11 @@ Render the GUCs to file
 """
 def render(gucs: dict, filename: str):
     with open(filename, "w") as f:
-        f.write("| Name | Type | Short Description | Short Description | Value |\n")
+        f.write("| Name | Type | Default | Short Description | Long Description |\n")
         f.write("| --- | --- | --- | --- | --- |\n")
         for guc in gucs.values():
-            f.write("| `%s` | `%s` | %s | %s | `%s` |\n" % (
-                guc["name"], guc["type"], guc["short_desc"], guc["long_desc"], guc["value"]
+            f.write("| `%s` | `%s` | `%s` | %s | %s |\n" % (
+                guc["name"], guc["type"], guc["value"], guc["short_desc"], guc["long_desc"]
             ))
     logging.info("rendering completed to %s" % filename)
 
