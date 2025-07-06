@@ -233,7 +233,6 @@ The following partition intervals and specifications are supported, and the defi
 * Certain columnstore optimizations must be disabled in $HYPERTABLEs in order to collect correlating WAL events.
 * The `TRUNCATE` statement is not supported, and will not truncate data in the corresponding Iceberg table.
 * The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synched.
-* Renaming a table in Postgres is not reflected in Iceberg table and can lead sync issues.
 * The service must be restarted, to use Tiger Lake.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
