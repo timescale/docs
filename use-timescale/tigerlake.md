@@ -225,6 +225,28 @@ The following partition intervals and specifications are supported, and the defi
 | `month`       | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
 | `year`        | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
 | `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options] | `integer`, `smallint`, `bigint` || 
+##Examples
+This SQL enables iceberg sync on my_hypertable and sets up a daily partitioning scheme on the hypertable’s time column.  (i.e. equivalent to “day(ts_column)” ). 
+
+
+ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true)
+
+
+
+You can explicitly specify the partitioning scheme using:
+
+
+ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true,
+                                                          tigerlake.iceberg_partitionby =  ‘hour(ts_column)’
+
+                                                          );
+
+
+You can also setup Iceberg sync for any Postgres table.
+
+ALTER TABLE my_postgres_table SET ( tigerlake.iceberg_sync = true);
+
+
 
 ## Limitations
 
