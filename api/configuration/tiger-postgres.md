@@ -9,7 +9,6 @@ tags: [tune]
 ---
 
 import TimescaleDBConfig from "versionContent/_partials/_timescaledb-config.mdx";
-import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
 
 # $TIGER_POSTGRES configuration and tuning
 

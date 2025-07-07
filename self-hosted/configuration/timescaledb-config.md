@@ -17,22 +17,6 @@ also be set within the `postgresql.conf` file or as command-line parameters
 when starting $PG.
 when starting $PG.
 
-## Query Planning and Execution
-
-### `timescaledb.enable_chunkwise_aggregation (bool)`
-If enabled, aggregations are converted into partial aggregations during query
-planning. The first part of the aggregation is executed on a per-chunk basis.
-Then, these partial results are combined and finalized. Splitting aggregations
-decreases the size of the created hash tables and increases data locality, which
-speeds up queries.
-
-### `timescaledb.vectorized_aggregation (bool)`
-Enables or disables the vectorized optimizations in the query executor. For
-example, the `sum()` aggregation function on compressed chunks can be optimized
-in this way.
-
-### `timescaledb.enable_merge_on_cagg_refresh  (bool)`
-
 <TimescaleDBConfig />
 
 ## Distributed hypertables
@@ -94,31 +78,5 @@ connecting to data nodes using certificate authentication. Defaults to
 
 Specifies the name of the file where passwords are stored and when
 connecting to data nodes using password authentication.
-
-## Administration
-
-### `timescaledb.restoring (bool)`
-
-Set TimescaleDB in restoring mode. It is disabled by default.
-
-### `timescaledb.license (string)`
-
-Change access to features based on the TimescaleDB license in use. For example,
-setting `timescaledb.license` to `apache` limits TimescaleDB to features that
-are implemented under the Apache 2 license. The default value is `timescale`,
-which allows access to all features.
-
-### `timescaledb.telemetry_level (enum)`
-
-Telemetry settings level. Level used to determine which telemetry to
-send. Can be set to `off` or `basic`. Defaults to `basic`.
-
-### `timescaledb.last_tuned (string)`
-
-Records last time `timescaledb-tune` ran.
-
-### `timescaledb.last_tuned_version (string)`
-
-Version of `timescaledb-tune` used to tune when it runs.
 
 [continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
