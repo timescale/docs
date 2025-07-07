@@ -17,6 +17,8 @@ import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short
 
 <HCConversionOverview />
 
+For an in-depth explanation of how $HYPERTABLEs and $HYPERCORE work, see the [Data model][data-model].
+
 This page shows you how to get the best results when you set a policy to automatically convert $CHUNKs in a $HYPERTABLE 
 from the $ROWSTORE to the $COLUMNSTORE.
 
@@ -78,3 +80,4 @@ repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is us
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
 [modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
 [cardinality-blog]: https://www.timescale.com/blog/what-is-high-cardinality
+[data-model]: /about/:currentVersion:/whitepaper/#data-model
