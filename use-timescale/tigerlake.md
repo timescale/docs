@@ -226,29 +226,6 @@ The following partition intervals and specifications are supported, and the defi
 | `year`        | Extract a date or timestamp day, as days from epoch.                | `date`, `timestamp`, `timestamptz` | 
 | `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options]     |
 
-## Examples
-
-This SQL enables iceberg sync on my_hypertable and sets up a daily partitioning scheme on the hypertable’s time column.  (i.e. equivalent to “day(ts_column)” ).
-
-
-ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true)
-
-
-
-You can explicitly specify the partitioning scheme using:
-
-
-ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true,
-tigerlake.iceberg_partitionby =  ‘hour(ts_column)’
-
-                                                          );
-
-
-You can also setup Iceberg sync for any Postgres table.
-
-ALTER TABLE my_postgres_table SET ( tigerlake.iceberg_sync = true);
-
-
 ## Limitations
 
 * Only Postgres 17 is supported.
@@ -256,7 +233,6 @@ ALTER TABLE my_postgres_table SET ( tigerlake.iceberg_sync = true);
 * Certain columnstore optimizations must be disabled in $HYPERTABLEs in order to collect deletes made to compressed data.
 * The `TRUNCATE` statement is not supported, and will not truncate data in the corresponding Iceberg table.
 * The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synced.
-* The service must be restarted, to use Tiger Lake.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
