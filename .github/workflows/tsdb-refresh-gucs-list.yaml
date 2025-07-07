@@ -26,12 +26,12 @@ jobs:
         run: |
           pip install -r ./helper-scripts/timescaledb/requirements.txt
           python ./helper-scripts/timescaledb/generate_guc_overview.py "${{ github.event.inputs.tag }}" ./_partials/_timescaledb-gucs.md
-          mv gucs.md 
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
-          add-paths: _partials/_timescaledb-gucs.md
+          add-paths: |
+            _partials/_timescaledb-gucs.md
           delete-branch: true
           title: "Updated list of GUCs from TimescaleDB ${{ github.event.inputs.tag }}"
