@@ -35,8 +35,8 @@ You set up the data lake table bucket and role ARNs, using one of the following 
 
 <Procedure >
 
-1. **Set the AWS Region to host your table bucket**
-   1. In [AWS CloudFormation][cmc], select the current AWS Region at the top-right of the page.
+1. **Set the AWS region to host your table bucket**
+   1. In [AWS CloudFormation][cmc], select the current AWS region at the top-right of the page.
    2. Set it to the Region to create your table bucket in. 
 
    **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for 
@@ -76,7 +76,7 @@ You set up the data lake table bucket and role ARNs, using one of the following 
    Replace the following values in the command, then run it from the terminal:
 
   * `StackName`: the name for this CloudFormation stack
-  * `BucketName`: The name of the S3 table bucket to create
+  * `BucketName`: the name of the S3 table bucket to create
   * `ProjectID`: enter your $SERVICE_LONG [connection details][get-project-id] 
   * `ServiceID`: enter your $SERVICE_LONG [connection details][get-project-id]
    
@@ -105,8 +105,8 @@ You set up the data lake table bucket and role ARNs, using one of the following 
 
 1. **Create a S3 Bucket** 
 
-   1. Set the AWS Region to host your table bucket
-      1. In [Amazon S3 console][s3-console], select the current AWS Region at the top-right of the page.
+   1. Set the AWS region to host your table bucket
+      1. In [Amazon S3 console][s3-console], select the current AWS region at the top-right of the page.
       2. Set it to the Region to create your table bucket in.
 
       **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for
