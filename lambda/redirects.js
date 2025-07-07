@@ -1057,4 +1057,8 @@ module.exports = [
     from: '/use-timescale/latest/metrics-logging/insights/',
     to: 'https://docs.tigerdata.com/use-timescale/latest/metrics-logging/monitoring/#insights',
   }
+  {
+    from: '/use-timescale/latest/members/',
+    to: 'https://docs.tigerdata.com/use-timescale/latest/security/members/',
+  }
 ];
