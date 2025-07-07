@@ -46,7 +46,7 @@ See the [API reference][api-reference] for the full list of required and optiona
 
 ### Changing a refresh policy to use a `NULL` `start_offset`
 
-1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
+1.  At the `psql` prompt, create a new policy on `conditions_summary_hourly`
     that keeps the continuous aggregate up to date, and runs every hour:
 
     ```sql
@@ -78,7 +78,7 @@ refresh the dropped data.
 
 ### Changing a refresh policy to keep removed data
 
-1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
+1.  At the `psql` prompt, create a new policy on `conditions_summary_hourly`
     that keeps data removed from the hypertable in the continuous aggregate, and
     runs every hour:
 
@@ -101,6 +101,40 @@ retention policy that removes all data older than two weeks, the continuous
 aggregate policy will only have data for the last two weeks.
 
 </Highlight>
+
+## Add concurrent refresh policies
+
+You can add concurrent refresh policies on each continuous aggregate, as long as their start and end offsets don't overlap. One use case for this would be if you expect to backfill data into older chunks. You can set up a policy that refreshes recent data, and another that refreshes backfilled data.
+
+<Procedure>
+
+### Add concurrent continuous aggregate refresh policies
+
+1.  At the `psql` prompt, create a new policy on `conditions_summary_daily` 
+    to refresh the continuous aggregate with recently inserted data which runs 
+    hourly:
+
+    ```sql
+    SELECT add_continuous_aggregate_policy('conditions_summary_daily',
+      start_offset => INTERVAL '1 day',
+      end_offset => INTERVAL '1 h',
+      schedule_interval => INTERVAL '1 h');
+    ```
+
+2.  At the `psql` prompt, create a concurrent policy on 
+    `conditions_summary_daily` to refresh the continuous aggregate with 
+    backfilled data:
+   
+    ```sql
+    SELECT add_continuous_aggregate_policy('conditions_summary_daily',
+      start_offset => NULL
+      end_offset => INTERVAL '1 day',
+      schedule_interval => INTERVAL '1 hour');
+    ```
+
+</Procedure>
+
+The first policy in this example is used to keep the continuous aggregate up to date with data that was inserted in the past day. Any data that was inserted or updated for previous days will be refreshed by the second policy.
 
 ## Manually refresh a continuous aggregate
 
