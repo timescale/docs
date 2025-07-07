@@ -7,13 +7,13 @@ keywords: [security]
 
 # Security
 
-Learn how your $SERVICE_LONG is secured to protect your data and
-privacy.
+Learn how $CLOUD_LONG protects your data and privacy.
 
 *   Learn about [security in $CLOUD_LONG][overview]
+*   Restrict access to your [$PROJECT_SHORT][console-rbac]
+*   Restrict access to the [data in your $SERVICE_SHORT][read-only]
 *   Set up [multifactor][mfa] and [SAML][saml] authentication
 *   Generate multiple [client credentials][client-credentials] instead of using your username and password
-*   Grant [read-only access][read-only] to your data
 *   Connect with a [stricter SSL mode][ssl]
 *   Secure your $SERVICE_SHORTs with [VPC peering][vpc-peering]
 *   Connect to your $SERVICE_SHORTs from any cloud with [AWS Transit Gateway][transit-gateway]
@@ -28,3 +28,4 @@ privacy.
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
 [transit-gateway]: /use-timescale/:currentVersion:/security/transit-gateway/
+[console-rbac]: /use-timescale/:currentVersion:/security/members/
