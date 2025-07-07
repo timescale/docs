@@ -1,7 +1,7 @@
 <Highlight type="cloud" header="Development and production environments" button="Try for free">
 
 The following instructions are for development and testing installations. For a production environment, we strongly recommend 
-that you implement the following, many of which you can achieve using PostgreSQL tooling.
+that you implement the following, many of which you can achieve using $PG tooling.
 
 - Incremental backup and database snapshots, with efficient point-in-time recovery.
 - High availability replication, ideally with nodes across multiple availability zones.

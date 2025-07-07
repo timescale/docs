@@ -18,7 +18,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 This tutorial uses a dataset that contains historical data from the New York City Taxi and Limousine 
 Commission [NYC TLC][nyc-tlc], in a hypertable named `rides`. It also includes a separate
-tables of payment types and rates, in a regular PostgreSQL table named
+tables of payment types and rates, in a regular $PG table named
 `payment_types`, and `rates`.
 
 ## Prerequisites

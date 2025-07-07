@@ -10,7 +10,7 @@
 
 1. Enable any $CLOUD_LONG features you want to use.
 
-   Migration from PostgreSQL moves the data only. Now manually enable $CLOUD_LONG features like
+   Migration from $PG moves the data only. Now manually enable $CLOUD_LONG features like
    [hypertables][about-hypertables], [hypercore][data-compression] or [data retention][data-retention]
    while your database is offline.
 

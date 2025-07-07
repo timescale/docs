@@ -107,7 +107,7 @@ Your configuration should look like this:
 
 At this point, data should be flowing into our Worldmap visualization, like so:
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_results.png" alt="Visualizing time series data in PostgreSQL using the Grafana Worldmap"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_results.png" alt="Visualizing time series data in Postgres using the Grafana Worldmap"/>
 
 You should be able to edit the time filter at the top of your visualization to see trip pickup data
 for different timeframes.

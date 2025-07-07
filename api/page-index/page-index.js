@@ -18,11 +18,11 @@ module.exports = [
             href: "create_table",
           },
           {
-            title: "create_hypertable (old API)",
+            title: "create_hypertable",
             href: "create_hypertable",
           },
           {
-            title: "create_hypertable (even older API)",
+            title: "create_hypertable (old API)",
             href: "create_hypertable_old",
           },
           {
@@ -48,6 +48,14 @@ module.exports = [
           {
             title: "move_chunk",
             href: "move_chunk",
+          },
+          {
+            title: "detach_chunk",
+            href: "detach_chunk",
+          },
+          {
+            title: "attach_chunk",
+            href: "attach_chunk",
           },
           {
             title: "add_reorder_policy",
@@ -557,6 +565,7 @@ module.exports = [
       {
         title: "Service configuration",
         href: "configuration",
+        excerpt: "Configure Tiger Postgres",
         children: [
           {
             title: "Tiger Postgres configuration",

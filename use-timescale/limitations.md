@@ -8,7 +8,7 @@ products: [cloud, mst, self_hosted]
 # Limitations
 
 While $TIMESCALE_DB generally offers capabilities that go beyond what
-PostgreSQL offers, there are some limitations to using hypertables. 
+$PG offers, there are some limitations to using hypertables. 
 
 ## Hypertable limitations
 

@@ -18,7 +18,7 @@ This page explains how to integrate Azure Data Studio with $CLOUD_LONG.
 <IntegrationPrereqs />
 
 *   Download and install [Azure Data Studio][ms-azure-data-studio].
-*   Install the [PostgreSQL extension for Azure Data Studio][postgresql-azure-data-studio].
+*   Install the [$PG extension for Azure Data Studio][postgresql-azure-data-studio].
 
 ## Connect to your $SERVICE_LONG with Azure Data Studio
 

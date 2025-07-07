@@ -1,4 +1,4 @@
-1. Ensure that the $SERVICE_LONG is running the PostgreSQL extensions used in your source database.
+1. Ensure that the $SERVICE_LONG is running the $PG extensions used in your source database.
 
     1. Check the extensions on the source database:
        ```bash

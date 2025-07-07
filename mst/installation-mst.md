@@ -53,7 +53,7 @@ cloud provider, which you can install your database on.
 
 When you have a $MST_SERVICE_SHORT up and running, you can connect to it from your local
 system using the `psql` command-line utility. This is the same tool you might
-have used to connect to PostgreSQL before, but if you haven't installed it yet,
+have used to connect to $PG before, but if you haven't installed it yet,
 check out the [installing psql][install-psql] section.
 
 <Procedure>
@@ -86,7 +86,7 @@ check out the [installing psql][install-psql] section.
 
 ## Check that you have the $TIMESCALE_DB extension
 
-$TIMESCALE_DB is provided as an extension to your PostgreSQL database, and it is
+$TIMESCALE_DB is provided as an extension to your $PG database, and it is
 enabled by default when you create a new service on $MST_LONG You can check that the $TIMESCALE_DB extension is installed by using
 the `\dx` command at the `psql` prompt. It looks like this:
 

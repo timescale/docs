@@ -59,7 +59,7 @@ import uuid
 from datetime import datetime, timedelta
 ```
 
-Load up your PostgreSQL credentials, the safest way is with a `.env` file:
+Load up your $PG credentials, the safest way is with a `.env` file:
 
 ``` python
 _ = load_dotenv(find_dotenv(), override=True)

@@ -28,19 +28,19 @@ Timescale. To avoid this problem, see [Live migration][live-migration].
 
 Before you begin, check that you have:
 
-*   Installed the PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
+*   Installed the $PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
     utilities.
-*   Installed a client for connecting to PostgreSQL. These instructions use
+*   Installed a client for connecting to $PG. These instructions use
     [`psql`][psql], but any client works.
 *   Created a new empty database in your $SELF_LONG instance. For more information, see
     [Install $TIMESCALE_DB][install-selfhosted-timescale]. Provision
     your database with enough space for all your data.
-*   Checked that any other PostgreSQL extensions you use are compatible with
+*   Checked that any other $PG extensions you use are compatible with
     Timescale. For more information, see the [list of compatible
-    extensions][extensions]. Install your other PostgreSQL extensions.
-*   Checked that you're running the same major version of PostgreSQL on both
+    extensions][extensions]. Install your other $PG extensions.
+*   Checked that you're running the same major version of $PG on both
     your target and source databases. For information about upgrading
-    PostgreSQL on your source database, see the
+    $PG on your source database, see the
     [upgrade instructions for $SELF_LONG][upgrading-postgresql-self-hosted].
 *   Checked that you're running the same major version of $TIMESCALE_DB on both
     your target and source databases. For more information, see

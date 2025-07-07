@@ -1,5 +1,5 @@
 
-- Install the PostgreSQL client tools on your migration machine. This includes `psql`, and `pg_dump`.
+- Install the $PG client tools on your migration machine. This includes `psql`, and `pg_dump`.
 - Read [the release notes][relnotes] for the version of $TIMESCALE_DB that you are upgrading to.
 - [Perform a backup][backup] of your database. While $TIMESCALE_DB
     upgrades are performed in-place, upgrading is an intrusive operation. Always

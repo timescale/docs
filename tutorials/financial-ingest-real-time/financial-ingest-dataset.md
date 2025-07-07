@@ -18,7 +18,7 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 This tutorial uses a dataset that contains second-by-second stock-trade data for
 the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
 also includes a separate table of company symbols and company names, in a
-regular PostgreSQL table named `company`.
+regular $PG table named `company`.
 
 ## Prerequisites
 

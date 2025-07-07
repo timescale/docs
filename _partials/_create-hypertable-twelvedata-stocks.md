@@ -36,10 +36,10 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 </Procedure>
 
-## Create standard PostgreSQL tables for relational data
+## Create standard $PG tables for relational data
 
 When you have other relational data that enhances your time-series data, you can
-create standard PostgreSQL tables just as you would normally. For this dataset,
+create standard $PG tables just as you would normally. For this dataset,
 there is one other table of data called `company`.
 
 <Procedure>
@@ -56,6 +56,6 @@ there is one other table of data called `company`.
 </Procedure>
 
 You now have two tables in your $SERVICE_LONG. One hypertable
-named `stocks_real_time`, and one regular PostgreSQL table named `company`.
+named `stocks_real_time`, and one regular $PG table named `company`.
 
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

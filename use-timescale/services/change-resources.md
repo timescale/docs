@@ -65,7 +65,7 @@ If you run intensive queries on your $SERVICE_SHORTs, you might
 encounter out of memory (OOM) errors. This occurs if your query consumes more
 memory than is available.
 
-When this happens, an `OOM killer` process shuts down PostgreSQL processes using
+When this happens, an `OOM killer` process shuts down $PG processes using
 `SIGKILL` commands until the memory usage falls below the upper limit. Because
 this kills the entire server process, it usually requires a restart. 
 

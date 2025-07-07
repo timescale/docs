@@ -1,99 +1,129 @@
 ---
-title: Migrating from self-hosted TimescaleDB to Managed Service for TimescaleDB
+title: Migrate from self-hosted TimescaleDB to Managed Service for TimescaleDB
 excerpt: Migrate a self-hosted TimescaleDB database to Managed Service for TimescaleDB
 products: [mst, self_hosted]
 keywords: [data migration, database]
 tags: [ingest, backup, restore]
 ---
 
-# Migrate the entire database to $MST_LONG
+# Migrate data from $SELF_LONG to an $MST_SERVICE_SHORT
 
-You can migrate your data from $SELF_LONG to $MST_LONG and automate most of your most common operational tasks.
+You can migrate your data from $SELF_LONG to $MST_LONG and automate most of the common operational tasks.
 
-$MST_LONG creates a database named `defaultdb` and a
-default user account named `tsdbadmin`. You can use the $MST_CONSOLE_LONG to create
-additional users and databases using the `Users` and `Databases` tabs.
+Each $MST_SERVICE_SHORT has a database named `defaultdb`, and a default user account named `tsdbadmin`. You use 
+$MST_CONSOLE_SHORT to create additional users and databases using the `Users` and `Databases` tabs.
 
 You can switch between different plan sizes in $MST_LONG.
-However, during the dumping process choose a plan size that has the same
+However, during the migration process, choose a plan size that has the same
 storage size or slightly larger than the currently allocated plan. This allows
-you to limit the downtime during the migration process and have a sufficiently
-powerful plan.
+you to limit the downtime during the migration process and have sufficient compute and storage resources.
 
-<Highlight type="warning">
+<Highlight type="information">
 
 Depending on your database size and network speed, migration can take a very
-long time. During this time, any new writes that happen during the dumping
+long time. During this time, any new writes that happen during the migration
 process are not included. To prevent data loss, turn off all the
-writes to the old database server before you start the dumping process. Try to
-migrate as a cold run without turning off writes on your previous server and
-running the dump concurrently. This gives you an estimate of the time the dump
-process takes. It also helps you in practicing the actual operation when it's
-not causing downtime to your customers.
+writes to the source $SELF_LONG database before you start migration. 
+
+Before migrating for production, do a cold run without turning off writes to the source $SELF_LONG database. 
+This gives you an estimate of the time the migration process takes, and helps you to practice migrating without causing 
+downtime to your customers.
 
 </Highlight>
 
-## Before you begin
+If you prefer the features of $CLOUD_LONG, you can easily [migrate your data][migrate-live] from an $MST_SERVICE_SHORT 
+to a $SERVICE_LONG.
 
-Ensure that you have:
+## Prerequisites
 
-*   Installed the PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
-    utilities.
-*   Installed a client for connecting to PostgreSQL. These instructions use
-    [`psql`][psql], but any client works.
-*   Created a new empty database in $MST_LONG. For more
-    information, see the [Install $MST_LONG][install-mst].
-    Provision your database with enough space for all your data.
-*   Checked that you're running the same major version of PostgreSQL on both
-    $MST_LONG and your source database. For information
-    about upgrading PostgreSQL, see the [upgrade
-    instructions for $SELF_LONG][upgrading-postgresql-self-hosted]
-    and [$MST_LONG][upgrading-postgresql].
-*   Checked that you're running the same major version of $TIMESCALE_DB on both
-    $MST_LONG and your source database. For more
-    information, see the [upgrading section][upgrading-timescaledb].
+Before you migrate your data, do the following:
+
+* Set up the migration machine:
+
+   You run the migration commands on the migration machine. It must have enough disk space to hold the dump file.
+   * Install the $PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] utilities on a migration machine.
+
+   * Install a client to connect to $SELF_LONG and $MST_LONG. 
+
+      These instructions use [`psql`][psql], but any client works.
+
+*  Create a target $MST_SERVICE_SHORT:
+
+    For more information, see the [Install $MST_LONG][install-mst]. Provision your target $MST_SERVICE_SHORT with enough 
+    space for all your data.
+
+*  On the source $SELF_LONG and the target $MST_SERVICE_SHORT, ensure that you are running:
+   *  The same major version of $PG. 
+
+      For information, see [upgrade $PG][upgrading-postgresql-self-hosted].
+
+   *  The same major version of $TIMESCALE_DB
+
+      For more information, see [Upgrade $TIMESCALE_DB to a major version][upgrading-timescaledb].
+
+## Migrate your data to a $MST_SERVICE_SHORT
+
+To move your data from $SELF_LONG instance to a $MST_SERVICE_SHORT, run the following commands from your migration 
+machine:
 
 <Procedure>
 
-### Migrating the database
+1. **Take offline the applications that connect to the source $SELF_LONG instance**
 
-1.  Dump all the data from your source database into a `dump.bak` file, using
-    your source database connection details. If you are prompted for a password,
-    use your source database credentials, and to avoid permissions errors,
-    include the `--no-owner` flag:
+   The duration of migration is proportional to the amount of data stored in your database. By
+   disconnecting your app from your database, you avoid possible data loss.
 
-    ```bash
-    pg_dump -U <SOURCE_DB_USERNAME> -W \
-    -h <SOURCE_DB_HOST> -p <SOURCE_DB_PORT> --no-owner -Fc -v \
-    -f dump.bak <SOURCE_DB_NAME>
-    ```
+1. **Set your connection strings**
 
-1.  At the command prompt, restore the dumped data from the `dump.bak` file into
-    your $MST_SERVICE_LONG, using your $MST_SHORT connection details. To migrate from multiple databases you
-    repeat the process of dumping or loading one database after another. The
-    `--jobs`  option specifies the number of CPUs to use to dump and restore the
-    database concurrently.
+   These variables hold the connection information for the source $SELF_LONG instance and the target $MST_SERVICE_SHORT:
+
+   ```bash
+   export SOURCE="postgres://<user>:<password>@<source host>:<source port>/<db_name>"
+   export TARGET="postgres://tsdbadmin:<password>@<host>:<port>/defaultdb?sslmode=require"
+   ```
+
+1. **Dump the data from your source $SERVICE_LONG**
 
     ```bash
-    pg_restore -d 'postgres://CLICK_TO:REVEAL_PASSWORD@demo.demoproject.timescaledb.io:19335/defaultdb?sslmode=require' --jobs 4 dump.bak
+    pg_dump -d "$SOURCE" --no-owner -Fc -v -f dump.bak 
     ```
+
+1. **Put your target $MST_SERVICE_SHORT in the right state for restoring**
+
+   ```bash 
+   psql -d "$TARGET" -c "SELECT timescaledb_pre_restore();"
+   ```
+   
+1. **Upload your data to the target $MST_SERVICE_SHORT** 
+
+    ```bash
+    pg_restore -d "$TARGET" --jobs 4 -Fc dump.bak
+    ```
+   The `--jobs`  option specifies the number of CPUs to use to dump and restore the database concurrently.
+
+1. **Return your target $MST_SERVICE_SHORT to normal operations**
+
+   ```bash 
+   psql -d "$TARGET" -c "SELECT timescaledb_post_restore();"
+   ```
 
 1.  Connect to your new database and update your table statistics by running
     [`ANALYZE`]   [analyze] on your entire dataset:
 
     ```sql
-    psql 'postgres://CLICK_TO:REVEAL_PASSWORD@demo.demoproject.timescaledb.io:19335/defaultdb?sslmode=require'
-    defaultdb=> ANALYZE;
+    psql -d "$TARGET" defaultdb=> ANALYZE;
     ```
 
 </Procedure>
 
+To migrate from multiple databases, you repeat this migration procedure one database after another. 
+
 ## Troubleshooting
 
-If you see these errors during the migration process, you can safely ignore
-them. The migration still occurs successfully.
+If you see the following errors during migration, you can safely ignore them. The migration still runs 
+successfully.
 
-1.  Error when using `pg_dump`:
+-  For `pg_dump`:
 
     ```bash
     pg_dump: warning: there are circular foreign-key constraints on this table:
@@ -105,7 +135,7 @@ them. The migration still occurs successfully.
     HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypertable, or copy each chunk individually.
     ```
 
-1.  Error when using `pg_restore`:
+- For `pg_restore`:
 
    ```bash
    pg_restore: while PROCESSING TOC:
@@ -124,3 +154,7 @@ them. The migration still occurs successfully.
 [upgrading-postgresql]: https://docs.timescale.com/mst/latest/
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
+[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
+[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
+[migration]: /migrate/:currentVersion:/
+[migrate-live]: /migrate/:currentVersion:/live-migration/

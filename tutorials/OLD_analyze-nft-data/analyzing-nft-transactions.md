@@ -36,7 +36,7 @@ OpenSea API.
 ## Speeding up queries with continuous aggregates
 
 $TIMESCALE_DB continuous aggregates speed up workloads that need to process large
-amounts of data. They look like PostgreSQL materialized views, but have a
+amounts of data. They look like $PG materialized views, but have a
 built-in refresh policy that makes sure that the data is up to date as new
 data comes in. Additionally, the refresh procedure is careful to only refresh
 data in the materialized view that actually needs to be changed, thereby
@@ -495,7 +495,7 @@ bucket             |nft           |mean_price         |median_price        |
 2021-10-17 22:00:00|Zero [Genesis]|             0.0775| 0.09995839119153871|
 2021-10-17 21:30:00|Zero [Genesis]|             0.0555| 0.05801803032917102|
 
-This is a more complex query which uses PostgreSQL Common Table Expressions (CTE)
+This is a more complex query which uses $PG Common Table Expressions (CTE)
 to first create a sub-table of the data from the past day, called `one_day`.
 Then you use the hyperfunction time_bucket to create 30-minute buckets of our data
 and use the [percentile_agg hyperfunction][percentile-agg] to find the mean and
@@ -631,7 +631,7 @@ for visualizing your data analysis
 Check out these resources for more about using $TIMESCALE_DB with crypto data:
 
 *   [Analyze cryptocurrency market data][analyze-cryptocurrency]
-*   [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and $TIMESCALE_DB][analyze-bitcoin]
+*   [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using $PG and $TIMESCALE_DB][analyze-bitcoin]
 *   [Learn how $TIMESCALE_DB user Messari uses data to open the crypto economy to everyone][messari]
 *   [How one $TIMESCALE_DB user built a successful crypto trading bot][trading-bot]
 

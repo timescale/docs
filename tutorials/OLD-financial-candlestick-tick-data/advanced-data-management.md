@@ -33,7 +33,7 @@ work. For more information, see the
 ## Hypertable chunk time intervals and automation policies
 
 $TIMESCALE_DB uses hypertables to provide a high-level and familiar abstraction
-layer to interact with PostgreSQL tables. You just need to access one
+layer to interact with $PG tables. You just need to access one
 hypertable to access all of your time-series data.
 
 Under the hood, $TIMESCALE_DB creates chunks based on the timestamp column.

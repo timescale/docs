@@ -36,8 +36,8 @@ Create a table in $SERVICE_LONG to store time-series data.
 
 1. **Create a hypertable to store sensor data**
 
-   [Hypertables][about-hypertables] are PostgreSQL tables that automatically partition your data by time. You interact
-   with hypertables in the same way as regular PostgreSQL tables, but with extra features that make managing your
+   [Hypertables][about-hypertables] are $PG tables that automatically partition your data by time. You interact
+   with hypertables in the same way as regular $PG tables, but with extra features that make managing your
    time-series data much easier.
 
    ```sql
@@ -67,7 +67,7 @@ Write an AWS Lambda function in a Node.js project that processes and inserts tim
    npm init -y
    ```
 
-1. **Install the PostgreSQL client library in your project**
+1. **Install the $PG client library in your project**
 
    ```shell
    npm install pg

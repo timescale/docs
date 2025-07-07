@@ -25,7 +25,7 @@ entire multi-node cluster can be restored to a consistent state. The function
 returns the write-ahead log locations for all nodes where the marker record was
 written.
 
-This function is similar to the PostgreSQL function
+This function is similar to the $PG function
 [`pg_create_restore_point`][pg-create-restore-point], but it has been modified
 to work with a distributed database.
 

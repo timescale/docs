@@ -18,9 +18,9 @@ This page describes the hypertable API supported prior to TimescaleDB v2.13. Bes
 
 </Highlight>
 
-Creates a TimescaleDB hypertable from a PostgreSQL table (replacing the latter),
+Creates a TimescaleDB hypertable from a $PG table (replacing the latter),
 partitioned on time and with the option to partition on one or more other
-columns. The PostgreSQL table cannot be an already partitioned table
+columns. The $PG table cannot be an already partitioned table
 (declarative partitioning or inheritance). In case of a non-empty table, it is
 possible to migrate the data during hypertable creation using the `migrate_data`
 option, although this might take a long time and has certain limitations when
@@ -86,7 +86,7 @@ to insert data into tables that are referenced in the foreign key constraints
 and into the converting table itself. The deadlock can be prevented by manually
 obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling
 `create_hypertable` in the same transaction, see
-[PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-lock.html)
+[$PG documentation](https://www.postgresql.org/docs/current/sql-lock.html)
 for the syntax.
 
 ## Units
@@ -123,9 +123,9 @@ The units of `chunk_time_interval` should be set as follows:
 In case of hash partitioning (in other words, if `number_partitions` is greater
 than zero), it is possible to optionally specify a custom partitioning function.
 If no custom partitioning function is specified, the default partitioning
-function is used. The default partitioning function calls PostgreSQL's internal
+function is used. The default partitioning function calls $PG's internal
 hash function for the given type, if one exists. Thus, a custom partitioning
-function can be used for value types that do not have a native PostgreSQL hash
+function can be used for value types that do not have a native $PG hash
 function. A partitioning function should take a single `anyelement` type
 argument and return a positive `integer` hash value. Note that this hash value
 is *not* a partition ID, but rather the inserted value's position in the
