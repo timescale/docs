@@ -24,7 +24,7 @@ running in AWS [S3 Tables][s3-tables] in your AWS account and relational tables 
 
 To connect a $SERVICE_LONG to the AWS S3 Tables that make up your data lake, you need the following:
 
-- The ARN of the data lake table bucket
+- The ARN of the S3Table bucket
 - The ARN of a role with permissions to write to the table bucket
 
 You set up the data lake table bucket and role ARNs, using one of the following methods:
@@ -202,7 +202,7 @@ ALTER TABLE <table_name> SET (
 * `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming, or `false` to stop the stream. A stream 
   **cannot** resume after being stopped. 
 * `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the 
-  partitioning specification of the $HYPERTABLE is used. Streamed $PG tables can have a partition specification 
+   the Iceberg table is partitioned as day(<time-column of $HYPERTABLE>). This default behavior is applicable only to hypertables. 
   for the Iceberg table, if intentially defined. Please refer to [partitioning](#partitioning) for more details.
 
 Only tables or $HYPERTABLEs with primary keys are supported, this includes composite primary keys as well. 
@@ -213,8 +213,8 @@ The write throughput is ranging at approximately 40.000 records / second, for la
 
 ### Partitioning
 
-By default, the partition interval for an Iceberg table is the same as the one from a $HYPERTABLE.
-The sync of a Postgres table does not enable any partitioning in Iceberg, but can be set through the [API](#api) with `tigerlake.iceberg_partitionby`.
+By default, the partition interval for an Iceberg table is day(time-column) for a $HYPERTABLE, 
+The sync of a Postgres table does not enable any partitioning in Iceberg for non-hypertables, but can be set through the [API](#api) with `tigerlake.iceberg_partitionby`.
 
 The following partition intervals and specifications are supported, and the define behavior of [Iceberg partition specification][iceberg-partition-spec].
 
@@ -224,15 +224,15 @@ The following partition intervals and specifications are supported, and the defi
 | `day`         | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
 | `month`       | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
 | `year`        | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
-| `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options] | `int`, `long`, `decimal`, `string`, `binary` | `int` |
+| `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options] | `integer`, `smallint`, `bigint` || 
 
 ## Limitations
 
 * Only Postgres 17 is supported.
 * Only the S3 Tables REST Iceberg catalog is supported.
-* Certain columnstore optimizations must be disabled in $HYPERTABLEs in order to collect correlating WAL events.
+* Certain columnstore optimizations must be disabled in $HYPERTABLEs in order to collect deletes made to compressed data.
 * The `TRUNCATE` statement is not supported, and will not truncate data in the corresponding Iceberg table.
-* The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synched.
+* The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synced.
 * The service must be restarted, to use Tiger Lake.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
