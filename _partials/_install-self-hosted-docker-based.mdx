@@ -114,7 +114,8 @@ information, see the [Docker documentation on logs][docker-logs].
 1.  **Run the container**
 
     ```
-    docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
+    docker run -v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata \
+        -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
     ```
 
     If you are running multiple container instances, change the port each Docker instance runs on.
@@ -152,8 +153,9 @@ If you want to access the container from the host but avoid exposing it to the
 outside world, you can bind to `127.0.0.1` instead of the public interface, using this command:
 
 ```bash
-docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
--e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
+docker run -v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata \
+  -d --name timescaledb -p 127.0.0.1:5432:5432 \
+  -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
 ```
 
 If you don't want to install `psql` and other $PG client tools locally,
@@ -176,7 +178,7 @@ data volume using the `-v` flag:
 
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
--v /your/data/dir:/home/postgres/pgdata/data \
+-v </your/data/dir>:/pgdata -e PGDATA=/pgdata \
 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
 ```
 
@@ -192,7 +194,7 @@ on $PG 16. To find other Docker tags you can use, see the [Dockerhub repository]
 ## View logs in Docker
 
 If you have $TIMESCALE_DB installed in a Docker container, you can view your logs
-using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
+using Docker, instead of looking in `/var/log`. For more
 information, see the [Docker documentation on logs][docker-logs].
 
 </Procedure>

@@ -117,7 +117,7 @@ data.
     <tab label='Volume mount'>
 
     ```bash
-    docker run -v <volume ID>:/home/postgres/pgdata/data
+    docker run -v <volume ID>:/pgdata -e PGDATA=/pgdata
       -d --name timescaledb -p 5432:5432 timescale/timescaledb-ha:pg17
     ```
 
@@ -126,7 +126,7 @@ data.
     <tab label='Bind mount'>
 
     ```bash
-    docker run -v <bind path>:/home/postgres/pgdata/data -d --name timescaledb \
+    docker run -v <bind path>:/pgdata -e PGDATA=/pgdata -d --name timescaledb \
       -p 5432:5432 timescale/timescaledb-ha:pg17
     ```
 
@@ -192,7 +192,7 @@ If you have multiple databases, update each database separately.
     <tab label='Volume mount'>
 
     ```bash
-    docker run -v  <volume ID>:/var/lib/postgresql/data \
+    docker run -v  <volume ID>:/pgdata -e PGDATA=/pgdata \
       -d --name timescaledb -p 5432:5432 timescale/timescaledb:latest-pg17
     ```
 
@@ -201,7 +201,7 @@ If you have multiple databases, update each database separately.
     <tab label='Bind mount'>
 
     ```bash
-    docker run -v <bind path>:<data folder> -d --name timescaledb \
+    docker run -v <bind path>:/pgdata -e PGDATA=/pgdata -d --name timescaledb \
       -p 5432:5432 timescale/timescaledb:latest-pg17
     ```
 
