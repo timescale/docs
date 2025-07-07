@@ -10,68 +10,73 @@ api:
 products: [cloud, self_hosted, mst]
 ---
 
+import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
+
 # ALTER MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>
 
-`ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH`
+You use the `ALTER MATERIALIZED VIEW` statement to modify some of the `WITH`
 clause [options][create_materialized_view] for the continuous aggregate view.
 `ALTER MATERIALIZED VIEW` statement also supports the following
-[$PG clauses][postgres-alterview] on the
-continuous aggregate view:
+[$PG clauses][postgres-alterview] on the continuous aggregate view:
 
-*   `RENAME TO` clause to rename the continuous aggregate view
-*   `RENAME [COLUMN]` clause to rename the continuous aggregate column
-*   `SET SCHEMA` clause to set the new schema for the continuous aggregate view
-*   `SET TABLESPACE` clause to move the materialization of the continuous
-  aggregate view to the new tablespace
-*   `OWNER TO` clause to set new owner for the continuous aggregate view
+*   `RENAME TO`: rename the continuous aggregate view
+*   `RENAME [COLUMN]`: rename the continuous aggregate column
+*   `SET SCHEMA`: set the new schema for the continuous aggregate view
+*   `SET TABLESPACE`: move the materialization of the continuous aggregate view to the new tablespace
+*   `OWNER TO`: set a new owner for the continuous aggregate view
+
+## Arguments
+
+The syntax is:
 
 ``` sql
-ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<option> =  <value> [, ... ] )
+ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<argument> =  <value> [, ... ] )
 ```
 
-## Parameters
+| Name                                       | Type     | Default                                              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|--------------------------------------------|----------|------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `view_name`                                | TEXT     | -                                                    | ✖        | The name  of the continuous aggregate view to be altered.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `timescaledb.materialized_only`            | BOOLEAN  | `true`                                               | ✖        | Enable real-time aggregation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `timescaledb.enable_columnstore`           | BOOLEAN  | `true`                                               | ✖        | <Since2180 /> Enable columnstore.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 
+| `timescaledb.compress`                     | TEXT     | Disabled.                                            | ✖        | Enable compression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |    
+| `timescaledb.orderby`                      | TEXT     | Descending order on the time column in `table_name`. | ✖        | <Since2180 /> Set the order in which items are used in the columnstore. Specified in the same way as an `ORDER BY` clause in a `SELECT` query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `timescaledb.compress_orderby`             | TEXT     | Descending order on the time column in `table_name`. | ✖        | Set the order used by compression. Specified in the same way as the `ORDER BY` clause in a `SELECT` query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `timescaledb.segmentby`                    | TEXT     | No segementation by column.                          | ✖        | <Since2180 /> Set the list of columns used to segment data in the columnstore for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `timescaledb.compress_segmentby`           | TEXT      | No segementation by column.                          | ✖        | Set the list of columns used to segment the compressed data. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `column_name`                              | TEXT     | -                                                    | ✖        | Set the name of the column to order by or segment by.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `timescaledb.compress_chunk_time_interval` | TEXT     | -                                                    | ✖        | EXPERIMENTAL <ul><li> Set the compressed chunk time interval used to roll compressed chunks into. This parameter compresses every chunk, and then merges it into a previous adjacent chunk if possible, to reduce the total number of chunks in the hypertable. It should be set to a multiple of the current chunk interval. This option can be changed independently of other compression settings and does not require the `timescaledb.compress` argument.</li><li> <Since2180 />: reduce the total number of chunks in the columnstore for `table`. If you set `compress_chunk_time_interval`, chunks added to the columnstore are merged with the previous adjacent chunk within `chunk_time_interval` whenever possible. These chunks are irreversibly merged. If you call [convert_to_rowstore][convert_to_rowstore], merged chunks are not split up. You can call `compress_chunk_time_interval` independently of other compression settings; `timescaledb.enable_columnstore` is not required.</li></ul> |
+| `timescaledb.enable_cagg_window_functions` | BOOLEAN   | `false` |    ✖      | EXPERIMENTAL: enable window functions on continuous aggregates. Support is experimental, as there is a risk of data inconsistency. For example, in backfill scenarios, buckets could be missed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-|Name|Type|Description|
-|---|---|---|
-|`<view_name>`|TEXT|Name (optionally schema-qualified) of continuous aggregate view to be created.|
+## Samples
 
-## Options
+- Enable real-time aggregates for a continuous aggregate:
 
-| Name                                       | Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|--------------------------------------------|-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `timescaledb.materialized_only`            | TEXT                                    |Enable and disable real-time aggregation |
-| `timescaledb.compress`                     | TEXT                                    |Enable and disable compression           |
-| `timescaledb.compress_orderby`             | TEXT                                    | Order used by compression, specified in the same way as the `ORDER BY` clause in a `SELECT` query. The default is the descending order of the hypertable's time column.                                                                                                                                                                                                                                                                            |
-| `timescaledb.compress_segmentby`           | TEXT                                    | Column list on which to key the compressed segments. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate. The default is no `segment by` columns.                                                                                                                                                                                                                                       |
-| `timescaledb.compress_chunk_time_interval` | TEXT                                    | EXPERIMENTAL: set compressed chunk time interval used to roll compressed chunks into. This parameter compresses every chunk, and then merges it into a previous adjacent chunk if possible, to reduce the total number of chunks in the hypertable. It should be set to a multiple of the current chunk interval. This option can be changed independently of other compression settings and does not require the `timescaledb.compress` argument. |
-| `timescaledb.enable_cagg_window_functions` | BOOLEAN                                 | EXPERIMENTAL: enable window functions on continuous aggregates. Support is experimental, as there is a risk of data inconsistency if the user is not careful. For example, in backfill scenarios, buckets could be missed. |
+   ```sql
+   ALTER MATERIALIZED VIEW contagg_view SET (timescaledb.materialized_only = false);
+   ```
 
+- Enable hypercore for a continuous aggregate <Since2180 />:
 
-## Sample usage
+   ```sql
+    ALTER MATERIALIZED VIEW contagg_view SET (
+     timescaledb.enable_columnstore = true,
+     timescaledb.segmentby = 'symbol' );
+   ```
 
-To disable real-time aggregates for a
-continuous aggregate:
+- Rename a column for a continuous aggregate:
 
-```sql
-ALTER MATERIALIZED VIEW contagg_view SET (timescaledb.materialized_only);
-```
+   ```sql
+   ALTER MATERIALIZED VIEW contagg_view RENAME COLUMN old_name TO new_name;
+   ```
 
-To enable compression for a continuous aggregate:
-
-```sql
-ALTER MATERIALIZED VIEW contagg_view SET (timescaledb.compress);
-```
-
-To rename a column for a continuous aggregate:
-
-```sql
-ALTER MATERIALIZED VIEW contagg_view RENAME COLUMN old_name TO new_name;
-```
-
-The only options that currently can be modified with `ALTER
-MATERIALIZED VIEW` are `materialized_only` and `compress`. The other options
-`continuous` and `create_group_indexes` can only be set when creating
-the continuous aggregate.
+The `continuous` and `create_group_indexes` options can only be set when you [create a continuous aggregate][create_materialized_view].
 
 [create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
 [postgres-alterview]: https://www.postgresql.org/docs/current/sql-alterview.html
+[create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
+[postgres-alterview]: https://www.postgresql.org/docs/current/sql-alterview.html
+[create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
+[default_table_access_method]: https://www.postgresql.org/docs/17/runtime-config-client.html#GUC-DEFAULT-TABLE-ACCESS-METHOD
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+
+

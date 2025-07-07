@@ -133,11 +133,6 @@ module.exports = [
         href: "hypercore",
         children: [
           {
-            title: "ALTER MATERIALIZED VIEW",
-            href: "alter_materialized_view",
-            excerpt: "Enable the columnstore for a materialized view.",
-          },
-          {
             title: "ALTER TABLE",
             href: "alter_table",
             excerpt: "Enable the columnstore for a hypertable.",
