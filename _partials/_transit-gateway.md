@@ -8,15 +8,16 @@
 
        ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-cloud.png)
 
-       Your $SERVICE_SHORT and Peering $VPC must be in the same AWS region. The number of Peering $VPCs you can create in your project depends on your [price tier][pricing-plans]. If you need another Peering $VPC, either contact [support@tigerdata.com](mailto:support@tigerdata.com) or change your tier in [$CONSOLE][console-login].
+       Your $SERVICE_SHORT and Peering $VPC must be in the same AWS region. The number of Peering $VPCs you can create in your project depends on your [pricing plan][pricing-plans]. If you need another Peering $VPC, either contact [support@tigerdata.com](mailto:support@tigerdata.com) or change your plan in [$CONSOLE][console-login].
 
    1.  Add a peering connection:
 
        1. In the `VPC Peering` column, click `Add`.
-       1. Provide your AWS account ID, Transit Gateway ID, CIDR ranges, and AWS region.
+       1. Provide your AWS account ID, Transit Gateway ID, CIDR ranges, and AWS region. $CLOUD_LONG creates a new isolated connection for every unique Transit Gateway ID. 
+       
+         ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-cloud.png)
+ 
        1. Click `Add connection`.
-
-       ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-cloud.png)
 
 1. **Accept and configure peering connection in your AWS account**
 
@@ -24,7 +25,7 @@
 
    1. Accept the peering request coming from $CLOUD_LONG. The request can take up to 5 min to arrive. Within 5 more minutes after accepting, the peering should appear as `Connected` in $CONSOLE.
 
-   1. Configure at least the following in yur AWS account networking:
+   1. Configure at least the following in your AWS account networking:
 
       - Your subnet route table to route traffic to your Transit Gateway for the Peering VPC CIDRs.
       - Your Transit Gateway route table to route traffic to the newly created Transit Gateway peering attachment for the Peering VPC CIDRs.
