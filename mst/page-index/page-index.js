@@ -128,10 +128,6 @@ module.exports = [
         href: "migrate-to-mst",
       },
       {
-        title: "Migrate your data",
-        href: "migrate-to-cloud",
-      },
-      {
         title: "Using the REST API",
         href: "restapi",
       },

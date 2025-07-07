@@ -6,6 +6,7 @@ keywords: [hypertables]
 ---
 
 import HypertableIntro from 'versionContent/_partials/_hypertable-intro.mdx';
+import ChunkInterval from "versionContent/_partials/_chunk-interval.mdx";
 
 # Hypertables
 
@@ -63,11 +64,9 @@ to fit into memory so you can insert and query recent data without
 reading from disk. However, having too many small and sparsely filled chunks can
 affect query planning time and compression.
 
-Best practice is to set `chunk_interval` so that prior to processing, one chunk of data
-takes up 25% of main memory, including the indexes from each active $HYPERTABLE.
-For example, if you write approximately 2 GB of data per day to a database with 64 GB of
-memory, set `chunk_interval` to 1 week. If you write approximately 10 GB of data per day
-on the same machine, set the time interval to 1 day.
+<ChunkInterval />
+
+
 
 For a detailed analysis of how to optimize your chunk sizes, see the
 [blog post on chunk time intervals][blog-chunk-time]. To learn how
