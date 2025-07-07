@@ -10,8 +10,8 @@ import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prere
 
 # Integrate data lakes with $CLOUD_LONG
 
-$LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. $LAKE_LONG enables you to build 
-real-time applications alongside efficient data pipeline management within a single system.
+$LAKE_LONG enables you to build real-time applications alongside efficient data pipeline management within a single 
+system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. 
 
 This experimental release is a native integration enabling synchronization between a $SERVICE_LONG and Iceberg tables
 running in AWS [S3 Tables][s3-tables] in your AWS account and relational tables and $HYPERTABLEs in $CLOUD_LONG. 
