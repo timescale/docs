@@ -13,7 +13,7 @@ import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prere
 $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. $LAKE_LONG enables you to build 
 real-time applications alongside efficient data pipeline management within a single system.
 
-This experimental release is a native integration enabling continuous replication between managed Iceberg and catalog 
+This experimental release is a native integration enabling synchronization between a $SERVICE_LONG and Iceberg tables
 running in AWS [S3 Tables][s3-tables] in your AWS account and relational tables and $HYPERTABLEs in $CLOUD_LONG. 
 
 ## Prerequisites
@@ -218,13 +218,13 @@ The sync of a Postgres table does not enable any partitioning in Iceberg for non
 
 The following partition intervals and specifications are supported, and the define behavior of [Iceberg partition specification][iceberg-partition-spec].
 
-| Interval      | Description | Source types | Result type |
-| ------------- | --- | --- | --- |
-| `hour`        | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
-| `day`         | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
-| `month`       | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
-| `year`        | Extract a date or timestamp day, as days from 1970-01-01 | `date`, `timestamp`, `timestamptz` | `int` |
-| `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options] | `integer`, `smallint`, `bigint` || 
+| Interval      | Description                                                             | Source types | 
+| ------------- |-------------------------------------------------------------------------| --- | 
+| `hour`        | Extract a date or timestamp day, as days from epoch. That is 1970-01-01 | `date`, `timestamp`, `timestamptz` | 
+| `day`         | Extract a date or timestamp day, as days from epoch.            | `date`, `timestamp`, `timestamptz` | 
+| `month`       | Extract a date or timestamp day, as days from epoch.                | `date`, `timestamp`, `timestamptz` | 
+| `year`        | Extract a date or timestamp day, as days from epoch.                | `date`, `timestamp`, `timestamptz` | 
+| `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options]     |  
 
 ## Limitations
 
@@ -237,7 +237,6 @@ The following partition intervals and specifications are supported, and the defi
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
-[duckdb]: https://duckdb.org/docs/stable/extensions/iceberg/amazon_s3_tables
 [apache-spark]: https://spark.apache.org/
 [s3-tables]: https://aws.amazon.com/s3/features/tables/
 [aws-console]: https://console.aws.amazon.com/
