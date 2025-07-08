@@ -27,9 +27,6 @@ see the [hypertable section][hypertable-docs].
 |`num_dimensions`|SMALLINT|Number of dimensions|
 |`num_chunks`|BIGINT|Number of chunks|
 |`compression_enabled`|BOOLEAN|Is compression enabled on the hypertable?|
-|`is_distributed`|BOOLEAN|Is the hypertable distributed?|
-|`replication_factor`|SMALLINT|Replication factor for a distributed hypertable|
-|`data_nodes`|TEXT|Nodes on which hypertable is distributed|
 |`tablespaces`|TEXT|Tablespaces attached to the hypertable |
 
 ## Sample usage
