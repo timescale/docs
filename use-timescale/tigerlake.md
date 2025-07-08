@@ -254,6 +254,12 @@ ALTER TABLE my_postgres_table SET (
 );
 ```
 
+Stopping a sync for a hypertable or Postgres table:
+
+```sql
+ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = false);
+```
+
 ## Limitations
 
 * Only Postgres 17 is supported.
