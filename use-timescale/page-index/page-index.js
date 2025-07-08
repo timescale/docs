@@ -82,7 +82,7 @@ module.exports = [
             href: "hierarchical-continuous-aggregates",
           },
           {
-            title: "Refresh policies for continuous aggregates",
+            title: "Refresh continuous aggregates",
             href: "refresh-policies",
             excerpt: "Manage refresh policies for continuous aggregates",
           },
