@@ -67,6 +67,21 @@ Gray bars indicate that metrics have not been collected for the period shown.
 
 ![Metrics not collected](https://assets.timescale.com/docs/images/tsc-metrics_graybar.webp)
 
+## Understanding High Memory Usage
+It's common to observe high overall memory usage on TimescaleDB instances, especially in environments with active read or write workloads. However, it's important to distinguish between actual memory pressure and normal memory utilization patterns—particularly due to the Linux page cache.
+
+What is the Page Cache?
+The page cache is a feature of the Linux kernel that stores file-backed data in memory to speed up read operations. PostgreSQL—and by extension, TimescaleDB—relies heavily on disk I/O for accessing tables, WALs, and indexes. When these files are read, the kernel caches them in memory, improving performance for future access.
+
+These page cache entries are not "locked" memory: they are evictable and will be automatically reclaimed by the kernel if actual memory pressure arises. Therefore, high memory usage shown in monitoring dashboards is often not due to PostgreSQL’s own allocations but rather this harmless and beneficial caching behavior.
+
+What You Should Do
+High memory usage does not necessarily mean a problem, especially on read replicas or after periods of activity. It may just be page cache.
+
+Look at PostgreSQL-specific metrics, such as shared_buffers or memory context breakdowns, for a more accurate view of database memory consumption.
+
+In short, high memory usage is often expected and even desirable, as it means your system is optimizing performance through caching. Only take action if you see signs of real memory pressure—such as OOM (Out Of Memory) events or degraded performance.
+
 ## Logs
 
 $CLOUD_LONG shows you detailed logs for your $SERVICE_SHORT, which you can filter by type, date, and time. 
