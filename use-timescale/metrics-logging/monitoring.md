@@ -67,20 +67,23 @@ Gray bars indicate that metrics have not been collected for the period shown.
 
 ![Metrics not collected](https://assets.timescale.com/docs/images/tsc-metrics_graybar.webp)
 
-## Understanding High Memory Usage
-It's common to observe high overall memory usage on TimescaleDB instances, especially in environments with active read or write workloads. However, it's important to distinguish between actual memory pressure and normal memory utilization patterns—particularly due to the Linux page cache.
+## Understand high memory usage
 
-What is the Page Cache?
-The page cache is a feature of the Linux kernel that stores file-backed data in memory to speed up read operations. PostgreSQL—and by extension, TimescaleDB—relies heavily on disk I/O for accessing tables, WALs, and indexes. When these files are read, the kernel caches them in memory, improving performance for future access.
+It is normal to observe high overall memory usage for your $SERVICE_LONGs, especially for workloads with active 
+read and write. $SERVICE_LONG run on Linux, and high memory usage is a particularity of the Linux page cache. 
+The Linux kernel stores file-backed data in memory to speed up read operations. $PG, and by extension, 
+$SERVICE_LONGs rely heavily on disk I/O to access tables, WALs, and indexes. When your $SERVICE_SHORT reads these
+files, the kernel caches them in memory to improve performance for future access. 
+    
+Page cache entries are not _locked_ memory: they are evictable and are automatically reclaimed by the kernel when 
+actual memory pressure arises. Therefore, high memory usage shown in the monitoring dashboards is often not due to 
+$SERVICE_SHORT memory allocation, but the beneficial caching behavior in the Linux kernel. The trick is to distinguish
+between normal memory utilization and memory pressure.
 
-These page cache entries are not "locked" memory: they are evictable and will be automatically reclaimed by the kernel if actual memory pressure arises. Therefore, high memory usage shown in monitoring dashboards is often not due to PostgreSQL’s own allocations but rather this harmless and beneficial caching behavior.
-
-What You Should Do
-High memory usage does not necessarily mean a problem, especially on read replicas or after periods of activity. It may just be page cache.
-
-Look at PostgreSQL-specific metrics, such as shared_buffers or memory context breakdowns, for a more accurate view of database memory consumption.
-
-In short, high memory usage is often expected and even desirable, as it means your system is optimizing performance through caching. Only take action if you see signs of real memory pressure—such as OOM (Out Of Memory) events or degraded performance.
+High memory usage does not necessarily mean a problem, especially on read replicas or after periods of activity.
+For a more accurate view of database memory consumption, look at $PG-specific metrics, such as shared_buffers or memory 
+context breakdowns. Only take action if you see signs of real memory pressure—such as OOM (Out Of Memory) events 
+or degraded performance.
 
 ## Logs
 
