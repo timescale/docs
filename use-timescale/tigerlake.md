@@ -211,6 +211,44 @@ A primary key is necessary for Iceberg to perform update or delete statements.
 When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
 The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
 
+### Sample code
+
+- Sync to a data lake from a $HYPERTABLE:
+
+  The default chunk interval is daily, partitioned on the `ts_column` column.
+    ```sql
+    ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true);
+    ```
+
+  The partitioning scheme is equivalent to the `day(ts_column)` for a $HYPERTABLE.
+
+- Override the derived partitioning scheme using `tigerlake.iceberg_partitionby`:
+
+  For example, to sync to a data lake using hour rather than day chunks on `ts_column`:
+
+    ```sql
+    ALTER TABLE my_hypertable SET (
+      tigerlake.iceberg_sync = true,
+      tigerlake.iceberg_partitionby = 'hour(ts_column)'
+    );
+    ```
+
+- Explicitly state a partitioning scheme `tigerlake.iceberg_partitionby`:
+
+    ```sql
+    ALTER TABLE my_postgres_table SET (
+      tigerlake.iceberg_sync = true,
+      tigerlake.iceberg_partitionby = 'day(timestamp_col)'
+    );
+    ```
+  $PG relational tables do not define a partitioning scheme by default.
+
+- Stop sync to a data lake for either a $HYPERTABLE or a $PG relational table:
+
+    ```sql
+    ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = false);
+    ```
+
 ### Partitioning
 
 By default, the partition interval for an Iceberg table is day(time-column) for a $HYPERTABLE, 
@@ -226,39 +264,6 @@ The following partition intervals and specifications are supported, and the defi
 | `year`        | Extract a date or timestamp day, as days from epoch.                    | `date`, `timestamp`, `timestamptz` | 
 | `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options]     |
 
-## Examples
-
-Start the sync to Iceberg off a hypertable `my_hypertable`, with a daily chunk interval, and partitioning column `ts_column`:
-
-```sql
-ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true);
-```
-
-The Iceberg partitioning scheme is equivalent by the hypertable: `day(ts_column)`. 
-Overriding the derived partitioning scheme, can be accomplished by defining `tigerlake.iceberg_partitionby` in the SQL statement. 
-The following example illustrates, the same table with an hourly partitioning in Iceberg:
-
-```sql
-ALTER TABLE my_hypertable SET (
-  tigerlake.iceberg_sync = true,
-  tigerlake.iceberg_partitionby = 'hour(ts_column)'
-);
-```
-
-Postgres tables do not define a partitioning scheme in Iceberg, if required it must explicitly stated with `tigerlake.iceberg_partitionby`.
-
-```sql
-ALTER TABLE my_postgres_table SET (
-  tigerlake.iceberg_sync = true,
-  tigerlake.iceberg_partitionby = 'day(timestamp_col)'
-);
-```
-
-Stopping a sync for a hypertable or Postgres table:
-
-```sql
-ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = false);
-```
 
 ## Limitations
 
