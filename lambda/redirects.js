@@ -1052,13 +1052,5 @@ module.exports = [
   {
     from: '/use-timescale/latest/metrics-logging/insights/',
     to: 'https://docs.tigerdata.com/use-timescale/latest/metrics-logging/monitoring/#insights',
-  },
-  {
-    from: '/use-timescale/latest/backup-restore/point-in-time-recovery/',
-    to: '/use-timescale/latest/backup-restore/',
-  },
-  {
-    from: '/use-timescale/latest/backup-restore/backup-restore-cloud/',
-    to: '/use-timescale/latest/backup-restore/',
   }
 ];

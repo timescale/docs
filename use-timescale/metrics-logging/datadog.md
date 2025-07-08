@@ -42,4 +42,4 @@ This section shows you how to attach, monitor, edit, and delete a data exporter.
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
-[projects]: /use-timescale/:currentVersion:/members/
+[projects]: /use-timescale/:currentVersion:/security/members/

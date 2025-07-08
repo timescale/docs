@@ -10,6 +10,7 @@ cloud_ui:
 ---
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 
 # Pricing plans and account management
 
@@ -152,7 +153,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | **Storage and performance**                                   |                                   |                                                |                                                |
 | IOPS                                                          | 	3,000 - 5,000	                   | 5,000 - 8,000                                  | 5,000 - 8,000                                  | 
 | Bandwidth (autoscales)	                                       | 125 - 250 Mbps                    | 	250 - 500 Mbps                                | 	Up to 500 mbps                                | 
-| I/O boost	                                                    |                                   | 	Add-on: <br/>Up to 16K IOPS, 4000 Mbps BW	    | Add-on: <br/>Up to 32K IOPS, 4000 Mbps BW      | 
+| I/O boost	                                                    |                                   | 	Add-on: <br/>Up to 16K IOPS, 1000 Mbps BW	    | Add-on: <br/>Up to 32K IOPS, 4000 Mbps BW      | 
 | **Availability and monitoring**                               |                                   |                                                |                                                |
 | High-availability replicas <br/>(Automated multi-AZ failover) | ✓                                 | ✓                                              | ✓                                              |
 | Read replicas		                                               |                                   | ✓                                              | ✓                                              |
@@ -161,6 +162,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | Performance insights                                          | ✓                                 | ✓                                              | ✓                                              |
 | Metrics and log exporters	                                    |                                   | ✓                                              | ✓                                              |
 | **Security and compliance**                                   |                                   |                                                |                                                |
+| Role-based access <EarlyAccessGeneral />                                           | ✓                                 | ✓                                              | ✓                                              |
 | End-to-end encryption                                         | ✓                                 | ✓                                              | ✓                                              |
 | Private Networking (VPC)                                      | 1 multi-attach VPC	               | Unlimited multi-attach VPCs                    | 	Unlimited multi-attach VPCs                   | 
 | AWS Transit Gateway                                           |                                   | ✓                                              | ✓                                              |
