@@ -221,32 +221,38 @@ The following partition intervals and specifications are supported, and the defi
 | Interval      | Description                                                             | Source types | 
 | ------------- |-------------------------------------------------------------------------| --- | 
 | `hour`        | Extract a date or timestamp day, as days from epoch. That is 1970-01-01 | `date`, `timestamp`, `timestamptz` | 
-| `day`         | Extract a date or timestamp day, as days from epoch.            | `date`, `timestamp`, `timestamptz` | 
-| `month`       | Extract a date or timestamp day, as days from epoch.                | `date`, `timestamp`, `timestamptz` | 
-| `year`        | Extract a date or timestamp day, as days from epoch.                | `date`, `timestamp`, `timestamptz` | 
+| `day`         | Extract a date or timestamp day, as days from epoch.                    | `date`, `timestamp`, `timestamptz` | 
+| `month`       | Extract a date or timestamp day, as days from epoch.                    | `date`, `timestamp`, `timestamptz` | 
+| `year`        | Extract a date or timestamp day, as days from epoch.                    | `date`, `timestamp`, `timestamptz` | 
 | `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options]     |
-##Examples
-This SQL enables iceberg sync on my_hypertable and sets up a daily partitioning scheme on the hypertable’s time column.  (i.e. equivalent to “day(ts_column)” ). 
 
+## Examples
 
-ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true)
+Start the sync to Iceberg off a hypertable `my_hypertable`, with a daily chunk interval, and partitioning column `ts_column`:
 
+```sql
+ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true);
+```
 
+The Iceberg partitioning scheme is equivalent by the hypertable: `day(ts_column)`. 
+Overriding the derived partitioning scheme, can be accomplished by defining `tigerlake.iceberg_partitionby` in the SQL statement. 
+The following example illustrates, the same table with an hourly partitioning in Iceberg:
 
-You can explicitly specify the partitioning scheme using:
+```sql
+ALTER TABLE my_hypertable SET (
+  tigerlake.iceberg_sync = true,
+  tigerlake.iceberg_partitionby = 'hour(ts_column)'
+);
+```
 
+Postgres tables do not define a partitioning scheme in Iceberg, if required it must explicitly stated with `tigerlake.iceberg_partitionby`.
 
-ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true,
-                                                          tigerlake.iceberg_partitionby =  ‘hour(ts_column)’
-
-                                                          );
-
-
-You can also setup Iceberg sync for any Postgres table.
-
-ALTER TABLE my_postgres_table SET ( tigerlake.iceberg_sync = true);
-
-
+```sql
+ALTER TABLE my_postgres_table SET (
+  tigerlake.iceberg_sync = true,
+  tigerlake.iceberg_partitionby = 'day(timestamp_col)'
+);
+```
 
 ## Limitations
 
@@ -255,6 +261,7 @@ ALTER TABLE my_postgres_table SET ( tigerlake.iceberg_sync = true);
 * Certain columnstore optimizations must be disabled in $HYPERTABLEs in order to collect deletes made to compressed data.
 * The `TRUNCATE` statement is not supported, and will not truncate data in the corresponding Iceberg table.
 * The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synced.
+* Renaming a table in Postgres will stop the syncing to Iceberg.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
