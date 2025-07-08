@@ -23,7 +23,7 @@ to the point of failure. If the whole availability zone goes down, your $SERVICE
 
 <Availability products={['cloud']} price_plans={['enterprise']} />
 
-For added reliability, you can enable cross-region backup. In this case, you have two identical backups of your $SERVICE_SHORT at any time, but one of them is in a different AWS region.
+For added reliability, you can enable cross-region backup. This protects your data when an entire AWS region goes down. In this case, you have two identical backups of your $SERVICE_SHORT at any time, but one of them is in a different AWS region. Cross-region backups are updated daily and weekly in the same way as a regular backup. You can have one cross-region backup for a $SERVICE_SHORT.
 
 You enable cross-region backup when you create a $SERVICE_SHORT, or configure it for an existing $SERVICE_SHORT in $CONSOLE_LONG:
 
