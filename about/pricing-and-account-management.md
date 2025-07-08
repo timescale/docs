@@ -10,6 +10,7 @@ cloud_ui:
 ---
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 
 # Pricing plans and account management
 
@@ -160,6 +161,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | Performance insights                                          | ✓                                 | ✓                                              | ✓                                              |
 | Metrics and log exporters	                                    |                                   | ✓                                              | ✓                                              |
 | **Security and compliance**                                   |                                   |                                                |                                                |
+| Role-based access <EarlyAccessGeneral />                                           | ✓                                 | ✓                                              | ✓                                              |
 | End-to-end encryption                                         | ✓                                 | ✓                                              | ✓                                              |
 | Private Networking (VPC)                                      | 1 multi-attach VPC	               | Unlimited multi-attach VPCs                    | 	Unlimited multi-attach VPCs                   | 
 | AWS Transit Gateway                                           |                                   | ✓                                              | ✓                                              |
