@@ -75,7 +75,7 @@ You have successfully added an IP allow list for querying your $SERVICE_SHORT in
 [console]: https://console.cloud.timescale.com/dashboard/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
-[members]: /use-timescale/:currentVersion:/members/
+[members]: /use-timescale/:currentVersion:/security/members/
 [modes]: /getting-started/:currentVersion:/services/
 
 
