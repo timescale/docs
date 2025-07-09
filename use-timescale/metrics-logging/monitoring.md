@@ -28,19 +28,23 @@ To view recommendations, select your $SERVICE_SHORT in $CONSOLE, then click `Mon
 
 ## Jobs
 
-$CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along with their details like type, target object, and status. This includes native $CLOUD_LONG $JOBs as well as custom $JOBs you configure based on your specific needs. 
+$CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along with their details like type, target object, and status. This includes native $CLOUD_LONG $JOBs as well as custom $JOBs you configure based on your specific needs.
 
-To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
+<Procedure>
 
-![Jobs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-jobs.png)
+1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
 
-Click on a $JOB ID in the list to view its config and run history:
+   ![Jobs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-jobs.png)
 
-![Job details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-job-details.png)
+1. Click a $JOB ID in the list to view its config and run history:
 
-Click on the pencil icon to edit the $JOB config:
+   ![Job details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-job-details.png)
 
-![Update job config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-edit-job.png)
+1. Click the pencil icon to edit the $JOB config:
+
+   ![Update job config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-edit-job.png)
+
+</Procedure>
 
 ## Connections
 
