@@ -43,6 +43,8 @@ the current time in queries, enable [real-time aggregation](/use-timescale/:curr
 
 </Highlight>
 
+You can add [concurrent refresh policies](/use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/) on each continuous aggregate, as long as the `start_offset` and `end_offset` does not overlap with another policy on the same continuous aggregate.
+
 ## Optional arguments
 
 |Name|Type|Description|
