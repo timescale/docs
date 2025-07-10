@@ -10,6 +10,33 @@ products: [cloud, self_hosted]
 All the latest features and updates to $COMPANY products.
 
 ## 👀 Super useful doc updates
+<Label type="date">July 11, 2025</Label>
+
+### ✏️  Editable jobs in the Console
+
+You can now edit jobs directly in the Console! We've added a handy pencil icon in the top right corner of any job view. Click on a job, hit the edit button, and make your changes - it works for all jobs, even user-defined ones. Timescale jobs come with custom wizards to guide you through the right inputs. This means you can spot and fix issues without leaving the UI - a small change that makes a big difference!
+
+<img width="2350" height="1187" alt="image (19)" src="https://github.com/user-attachments/assets/22e359f7-1da1-483b-b08d-56c147f8e711" />
+
+### 📊 Connection History in the Connections Tab
+
+Now you can see your historical connection counts right in the Connections tab! This helps spot those pesky connection management bugs before they impact your app. We're logging max connections every hour (sampled every 5 mins) and might adjust based on your feedback. Just another way we're making the Console more powerful for troubleshooting.
+
+<img width="1892" height="1108" alt="image (20)" src="https://github.com/user-attachments/assets/c4a9348c-f564-42d0-8fb5-1ada8eccecb2" />
+
+### 🔐 New in Public Beta: Read-Only Access via RBAC
+
+We’ve just launched Read/Viewer-only access for Timescale projects into Public Beta!
+
+This means you can now invite users with view-only permissions — perfect for folks who need to see dashboards, metrics, and query results, without the ability to make changes.
+
+This has been one of our most requested RBAC features, and it's a big step forward in making Timescale more secure and collaborative.
+
+No write access. No config changes. Just visibility.
+
+Go to Project Settings → Users & Roles to try it out, and let us know what you think!
+
+## 👀 Super useful doc updates
 <Label type="date">July 4, 2025</Label>
 
 ### Updates to instructions for livesync
