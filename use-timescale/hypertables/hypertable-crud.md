@@ -44,7 +44,18 @@ CREATE TABLE conditions (
 <OldCreateHypertable />
 
 To convert an existing table with data in it, call `create_hypertable` on that table with
-[`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time. 
+[`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time.
+
+## Speed up data ingestion:
+ 
+When you set `timescaledb.enable_direct_compress_copy` your data is compressed when it is ingested into memory
+during `COPY` and `INSERT` calls. This means that WAL records are written for the compressed batches rather 
+than the individual tuples. Also, the [columnstore policy][add_columnstore_policy] you set is less important, 
+`INSERT` already produces compressed chunks. 
+
+```sql
+SET timescaledb.enable_direct_compress_copy;
+```       
 
 ## Optimize cooling data in the $COLUMNSTORE
 
@@ -126,3 +137,4 @@ All data chunks belonging to the hypertable are deleted.
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
