@@ -28,23 +28,33 @@ To view recommendations, select your $SERVICE_SHORT in $CONSOLE, then click `Mon
 
 ## Jobs
 
-$CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along with their details like type, target object, and status. This includes native $CLOUD_LONG $JOBs as well as custom $JOBs you configure based on your specific needs. 
+$CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along with their details like type, target object, and status. This includes native $CLOUD_LONG $JOBs as well as custom $JOBs you configure based on your specific needs.
 
-To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
+<Procedure>
 
-![Jobs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-jobs.png)
+1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
 
-Click on a $JOB ID in the list to view its config and run history:
+   ![Jobs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-jobs.png)
 
-![Job details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-job-details.png)
+1. Click a $JOB ID in the list to view its config and run history:
+
+   ![Job details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-job-details.png)
+
+1. Click the pencil icon to edit the $JOB config:
+
+   ![Update job config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-edit-job.png)
+
+</Procedure>
 
 ## Connections
 
-$CLOUD_LONG lists current connections to your $SERVICE_SHORT. This includes details like the corresponding query, connecting application, connection status, start time, and duration. 
+$CLOUD_LONG lists current and past connections to your $SERVICE_SHORT. This includes details like the corresponding query, connecting application, username, connection status, start time, and duration. 
 
-To view connections, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Connections`. Click on a query name in the list to see the SQL:
+To view connections, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Connections`. Expand the query underneath each connection to see the full SQL.
 
 ![Connections](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-service-connections.png)
+
+Click the trash icon next to a connection in the list to terminate it. A lock icon means that a connection cannot be terminated; hover over the icon to see the reason. 
 
 ## Metrics
 
