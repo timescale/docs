@@ -290,6 +290,7 @@ The following partition intervals and specifications are supported, and the defi
 * The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synced.
 * Renaming a table in Postgres will stop the syncing to Iceberg.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket to service mapping is one to one at the moment.
+* The retention policy for Iceberg snapshots is set to 12 hours, we do not recommend increasing the duration at this point in time.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
