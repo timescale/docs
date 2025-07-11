@@ -22,13 +22,7 @@ running in AWS [S3 Tables][s3-tables] in your AWS account and relational tables 
 
 ## Integrate a data lake with your $SERVICE_LONG
 
-Open $CONSOLE_LONG, navigate to the $SERVICE_SHORT you want to integrate with AWS S3 Tables and open the Connectors tab.
-Select the destination connector for Apache Iceberg and follow the instructions requiring you to provide the following:
-
-- The ARN of the S3Table bucket
-- The ARN of a role with permissions to write to the table bucket
-
-You set up the data lake table bucket and role ARNs, using one of the following methods:
+To connect a $SERVICE_LONG to your data lake:
 
 <Tabs label="Install TimescaleDB">
 
@@ -61,9 +55,16 @@ You set up the data lake table bucket and role ARNs, using one of the following 
        AWS deploys your stack and creates the S3 table bucket and IAM role.
    1. Click `Outputs`, then copy all four outputs.
 
-  Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket.
-  $COMPANY uses the outputs to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is 
-  ready to use. Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+1. **Connect your $SERVICE_SHORT to the data lake**
+
+   1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to integrate with AWS S3 Tables, then 
+      click `Connectors`.
+   
+   1. Select the Apache Iceberg connector and supply the:
+      - ARN of the S3Table bucket
+      - ARN of a role with permissions to write to the table bucket   
+
+      Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
 
 </Procedure>
 
@@ -92,9 +93,16 @@ You set up the data lake table bucket and role ARNs, using one of the following 
        ParameterKey=ServiceID,ParameterValue="<ServiceID>"
    ```
 
-  Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket.
-  $COMPANY uses the outputs to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is 
-  ready to use. Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+1. **Connect your $SERVICE_SHORT to the data lake**
+
+   1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to integrate with AWS S3 Tables, then
+      click `Connectors`.
+
+   1. Select the Apache Iceberg connector and supply the:
+      - ARN of the S3Table bucket
+      - ARN of a role with permissions to write to the table bucket
+
+      Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
 
 </Procedure>
 
@@ -178,9 +186,16 @@ You set up the data lake table bucket and role ARNs, using one of the following 
    1. Replace `<S3TABLE_BUCKET_ARN>` with the `Amazon Resource Name (ARN)` for the table bucket you just created.
    1. Click `Next`, then give the inline policy a name and click `Create policy`.
 
-   Provide $COMPANY with the ARN of this role, the ARN of the S3 table bucket.
-  $COMPANY uses the outputs to spin up your $LAKE_LONG services, then let you know when the $SERVICE_SHORT is 
-  ready to use. Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+1. **Connect your $SERVICE_SHORT to the data lake**
+
+   1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to integrate with AWS S3 Tables, then
+      click `Connectors`.
+
+   1. Select the Apache Iceberg connector and supply the:
+      - ARN of the S3Table bucket
+      - ARN of a role with permissions to write to the table bucket
+
+      Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
 
 </Procedure>
 
@@ -289,3 +304,4 @@ The following partition intervals and specifications are supported, and the defi
 [setup-console]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-aws-management-console
 [setup-cli]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-the-aws-cloudformation-cli
 [setup-manual]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-manually
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
