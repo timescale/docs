@@ -22,7 +22,8 @@ running in AWS [S3 Tables][s3-tables] in your AWS account and relational tables 
 
 ## Integrate a data lake with your $SERVICE_LONG
 
-To connect a $SERVICE_LONG to the AWS S3 Tables that make up your data lake, you need the following:
+Open $CONSOLE_LONG, navigate to the $SERVICE_SHORT you want to integrate with AWS S3 Tables and open the Connectors tab.
+Select the destination connector for Apache Iceberg and follow the instructions requiring you to provide the following:
 
 - The ARN of the S3Table bucket
 - The ARN of a role with permissions to write to the table bucket
@@ -269,10 +270,11 @@ The following partition intervals and specifications are supported, and the defi
 
 * Only Postgres 17 is supported.
 * Only the S3 Tables REST Iceberg catalog is supported.
-* Certain columnstore optimizations must be disabled in $HYPERTABLEs in order to collect deletes made to compressed data.
+* Certain columnstore optimizations will be disabled in $HYPERTABLEs in order to collect deletes made to compressed data.
 * The `TRUNCATE` statement is not supported, and will not truncate data in the corresponding Iceberg table.
 * The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synced.
 * Renaming a table in Postgres will stop the syncing to Iceberg.
+* Writing to the same S3 table bucket from multiple services is not supported, bucket to service mapping is one to one at the moment.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
