@@ -22,7 +22,7 @@ running in AWS [S3 Tables][s3-tables] in your AWS account and relational tables 
 
 ## Integrate a data lake with your $SERVICE_LONG
 
-To connect a $SERVICE_LONG to the AWS S3 Tables that make up your data lake:
+To connect a $SERVICE_LONG to your data lake:
 
 <Tabs label="Install TimescaleDB">
 
