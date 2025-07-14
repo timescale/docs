@@ -24,7 +24,9 @@ $COLUMNSTORE is enabled, [bloom filters][bloom-filters] are enabled by default, 
 If you moved chunks to $COLUMNSTORE using $TIMESCALE_DB v2.19.3 or below, to enable bloom filters on that data you have 
 to convert those chunks to the $ROWSTORE, then convert them back to the $COLUMNSTORE. 
 
-Bloom indexes are not retrofitted, meaning that the existing chunks need to be fully recompressed to have the bloom indexes present. Please check out the PR description for more in-depth explanations of how bloom filters in TimescaleDB work.
+Bloom indexes are not retrofitted, meaning that the existing chunks need to be fully recompressed to have the bloom 
+indexes present. Please check out the PR description for more in-depth explanations of how bloom filters in 
+TimescaleDB work.
 
 To view the policies that you set or the policies that already exist,
 see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy].
@@ -99,6 +101,16 @@ To create a $COLUMNSTORE job:
        INTERVAL '8 weeks', 
        hypercore_use_access_method => true);
      ```
+   * Control the time your policy runs:
+   
+     When you create a policy, $TIMESCALE_DB sets `initial_start` to the time of first execution. This value is used to 
+     compute the next start time. To fully control the moment your policy runs, you need to set `initial_start` to the 
+     start time to base computations on, in addition to `next_start`.
+   
+     ``` sql
+     select * from alter_job(1000, fixed_schedule => true, initial_start => '2025-07-11 10:00:15', next_start => '2025-07-11 10:42:15');
+     ```
+
 
 1. **View the policies that you set or the policies that already exist** 
 
@@ -127,7 +139,6 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 | `timezone`          |TEXT| UTC. However, daylight savings time(DST) changes may shift this alignment. | ✖ | Set to a valid time zone to mitigate DST shifting. If `initial_start` is set, subsequent executions of this policy are aligned on `initial_start`.                                                                                                                                                                                                                                                                                                                          |
 | `if_not_exists`     |BOOLEAN| `false` | ✖ | Set to `true` so this job fails with a warning rather than an error if a $COLUMNSTORE policy already exists on `hypertable`                                                                                                                                                                                                                                                                                                                                                 |
 | `hypercore_use_access_method`         | BOOLEAN | `NULL` | ✖ | Set to `true` to use $HYPERCORE table access method. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`.                                                                                                                                                                                                                                                                                                                         |
-
 
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
