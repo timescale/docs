@@ -18,9 +18,10 @@ Create a [$HYPERTABLE][hypertable-docs] partitioned on a single dimension with [
 create a standard $PG relational table. 
 
 A $HYPERTABLE is a specialized $PG table that automatically partitions your data by time. All actions that work on a 
-$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select].
-
-$HYPERTABLE to $HYPERTABLE foreign keys are not allowed, all other combinations are permitted.
+$PG table, work on $HYPERTABLEs. For example, [ALTER TABLE][alter_table_hypercore] and [SELECT][sql-select]. By default, 
+a $HYPERTABLE is partitioned on the time dimension. To add secondary dimensions to a $HYPERTABLE, call 
+[add_dimension][add-dimension]. To convert an existing relational table into a $HYPERTABLE, call 
+[create_hypertable][create_hypertable].
 
 As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data 
 is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast 
@@ -29,10 +30,7 @@ In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by more than 9
 large-scale queries. This columnar format enables fast scanning and aggregation, optimizing performance for analytical 
 workloads. You can also manually [convert chunks][convert_to_columnstore] in a $HYPERTABLE to the $COLUMNSTORE.
 
-By default, a $HYPERTABLE is partitioned on the time dimension. To add secondary dimensions to a $HYPERTABLE, 
-call [add_dimension][add-dimension]. 
-
-To convert an existing relational table into a $HYPERTABLE, call [create_hypertable][create_hypertable].
+$HYPERTABLE to $HYPERTABLE foreign keys are not allowed, all other combinations are permitted.
 
 `CREATE TABLE` extends the standard $PG [CREATE TABLE][pg-create-table]. This page explains the features and 
 arguments specific to $TIMESCALE_DB. 
@@ -41,9 +39,9 @@ arguments specific to $TIMESCALE_DB.
 
 ## Samples
 
-- Create a hypertable partitioned on the time dimension and enable $COLUMNSTORE:
+- **Create a $HYPERTABLE partitioned on the time dimension and enable $COLUMNSTORE**:
 
-   1. Create the hypertable:
+   1. Create the $HYPERTABLE:
 
      ```sql
      CREATE TABLE crypto_ticks (
@@ -64,7 +62,7 @@ arguments specific to $TIMESCALE_DB.
       CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
       ```
 
-- Create a hypertable partitioned on the time with fewer chunks based on time interval:
+- **Create a $HYPERTABLE partitioned on the time with fewer chunks based on time interval**:
 
    ```sql
    CREATE TABLE IF NOT EXISTS hypertable_control_chunk_interval(
@@ -78,7 +76,29 @@ arguments specific to $TIMESCALE_DB.
    );
    ```
 
-- Create a $PG relational table
+- **Enable data compression during ingestion**:
+
+    When you set `timescaledb.enable_direct_compress_copy` your data is compressed when it is ingested into memory 
+    during `COPY` and `INSERT` calls. This means that WAL records are written for the compressed batches rather than the
+    individual tuples. Also, the [columnstore policy][add_columnstore_policy] you set is less important, `INSERT` 
+    already produces compressed chunks.
+
+    1. Create a $HYPERTABLE:
+     ```sql
+     CREATE TABLE t(time timestamptz, device text, value float) WITH (tsdb.hypertable,tsdb.partition_column='time');
+     ```
+   1. Enable direct compression copy:
+     ```sql   
+     SET timescaledb.enable_direct_compress_copy;
+     ```
+   1. Copy data into the $HYPERTABLE:
+     You achieve the highest insert rate using binary format. CSV and text format are also supported.
+     ```sql
+     COPY t FROM '/tmp/t.binary' WITH (format binary);
+     ```
+   
+
+- **Create a $PG relational table**:
    ```sql
    CREATE TABLE IF NOT EXISTS relational_table(
     device text, 
@@ -151,3 +171,4 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/

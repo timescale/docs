@@ -44,6 +44,24 @@ Gray bars indicate that metrics have not been collected for the period shown:
 
 ![Metrics not collected](https://assets.timescale.com/docs/images/tsc-metrics_graybar.webp)
 
+## Understand high memory usage
+
+It is normal to observe high overall memory usage for your $SERVICE_LONGs, especially for workloads with active 
+read and write. $SERVICE_LONG run on Linux, and high memory usage is a particularity of the Linux page cache. 
+The Linux kernel stores file-backed data in memory to speed up read operations. $PG, and by extension, 
+$SERVICE_LONGs rely heavily on disk I/O to access tables, WALs, and indexes. When your $SERVICE_SHORT reads these
+files, the kernel caches them in memory to improve performance for future access. 
+    
+Page cache entries are not [locked memory][locked-memory]: they are evictable and are automatically reclaimed by the kernel when 
+actual memory pressure arises. Therefore, high memory usage shown in the monitoring dashboards is often not due to 
+$SERVICE_SHORT memory allocation, but the beneficial caching behavior in the Linux kernel. The trick is to distinguish
+between normal memory utilization and memory pressure.
+
+High memory usage does not necessarily mean a problem, especially on read replicas or after periods of activity.
+For a more accurate view of database memory consumption, look at $PG-specific metrics, such as shared_buffers or memory 
+context breakdowns. Only [take action][memory-settings] if you see signs of real memory pressure—such as OOM (Out Of Memory) events 
+or degraded performance. 
+
 ## Logs
 
 $CLOUD_LONG shows you detailed logs for your $SERVICE_SHORT, which you can filter by type, date, and time.
@@ -203,3 +221,5 @@ For more examples and detailed explanations, see the [blog post on identifying p
 [metrics]: #metrics
 [logs]: #logs
 [insights]: #insights
+[locked-memory]: https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html
+[memory-settings]: https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-MEMORY
