@@ -42,7 +42,7 @@ information about how long a server takes to respond to API calls.
     ninety-fifth percentile:
 
     ```sql
-    SELECT approx_percentile(0.95, percentile_agg(percentile_agg)) as threshold
+    SELECT approx_percentile(0.95, percentile_agg) as threshold
     FROM response_times_daily
     WHERE bucket >= time_bucket('1 day'::interval, now() - '30 days'::interval);
     ```
