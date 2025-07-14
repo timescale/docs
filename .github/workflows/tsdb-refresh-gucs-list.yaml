@@ -2,6 +2,7 @@ name: "TimescaleDB: Update GUCs list"
 
 on:
   workflow_call:
+  workflow_dispatch:
     inputs:
       tag:
         description: 'Tag to refesh list from'
