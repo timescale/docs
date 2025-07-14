@@ -137,6 +137,16 @@ relational and time-series data from external files.
               name TEXT NOT NULL
              );
             ```
+       1. Speed up data ingestion:
+       
+          When you set `timescaledb.enable_direct_compress_copy` your data is compressed when it is ingested into memory
+          during `COPY` and `INSERT` calls. This means that WAL records are written for the compressed batches rather 
+          than the individual tuples. Also, the [columnstore policy][add_columnstore_policy] you set is less important, 
+          `INSERT` already produces compressed chunks. 
+       
+          ```sql
+          SET timescaledb.enable_direct_compress_copy;
+          ```       
 
        3. Upload the dataset to your $SERVICE_SHORT:
        

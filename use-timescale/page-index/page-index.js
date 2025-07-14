@@ -82,7 +82,7 @@ module.exports = [
             href: "hierarchical-continuous-aggregates",
           },
           {
-            title: "Refresh policies for continuous aggregates",
+            title: "Refresh continuous aggregates",
             href: "refresh-policies",
             excerpt: "Manage refresh policies for continuous aggregates",
           },
@@ -172,11 +172,6 @@ module.exports = [
             type: "placeholder",
           },
         ],
-      },
-      {
-        title: "Control user access to Tiger Cloud projects",
-        href: "members",
-        excerpt: "User management in Tiger Cloud",
       },
       {
         title: "Write data",
@@ -702,6 +697,16 @@ module.exports = [
             excerpt: "Get an overview of Tiger Cloud security",
           },
           {
+            title: "Control user access to projects",
+            href: "members",
+            excerpt: "Project and user role management in Tiger Cloud",
+          },
+          {
+            title: "Manage data security in your service",
+            href: "read-only-role",
+            excerpt: "Restrict access to your data with roles",
+          },
+          {
             title: "SAML authentication",
             href: "saml",
             excerpt: "SAML / SSO authentication for your Tiger Cloud account",
@@ -716,11 +721,6 @@ module.exports = [
             href: "client-credentials",
             excerpt:
               "Client credentials to programmatically access your Tiger Cloud account",
-          },
-          {
-            title: "Read only role",
-            href: "read-only-role",
-            excerpt: "Create a read-only role to access your database",
           },
           {
             title: "Connect with a stricter SSL mode",
