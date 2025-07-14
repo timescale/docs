@@ -138,4 +138,3 @@ And that is it, you have migrated your data from a $MST_LONG instance to a $SERV
 [data-compression]: /use-timescale/:currentVersion:/hypercore/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
 [live migration]: /migrate/:currentVersion:/live-migration
-[space-partitioning]: /use-timescale/:currentVersion:/hypertables/about-hypertables#space-partitioning
