@@ -20,11 +20,17 @@ parser.add_argument('destination', type=str, help='file name to add output')
 args = parser.parse_args()
 
 TYPES = {
-    "DefineCustomBoolVariable": "BOOLEAN",
-    "DefineCustomIntVariable": "INTEGER",
-    "DefineCustomEnumVariable": "ENUM",
+    "DefineCustomBoolVariable"  : "BOOLEAN",
+    "DefineCustomIntVariable"   : "INTEGER",
+    "DefineCustomEnumVariable"  : "ENUM",
     "DefineCustomStringVariable": "STRING",
-    "DefineCustomRealVariable": "REAL",
+    "DefineCustomRealVariable"  : "REAL",
+}
+
+SCOPES = {
+    "PG16_GE"      : "Postgres 16 or greater",
+    "TS_DEBUG"     : "Debug mode",
+    "USE_TELEMETRY": "Telemetry enabled", 
 }
 
 # List of GUCs to exclude from the docs
@@ -63,8 +69,22 @@ def unwrap(gucs: list, guc_type: str) -> dict:
     map = {}
 
     for guc in gucs:
-        # sanitize data
-        it = [re.sub(r"[\n\t]*", "", v).strip() for v in guc.split(",")]
+        # unwrap element 
+        # first split on new line, then join on ,
+        lines = [re.sub(r"[\n\t]*", "", v).strip() for v in guc.split("\n")]
+        it = []
+        lst = []
+        for line in lines:
+            # ends with "," --> take all preceding values from the list
+            # concatenate them with this element minus the trailing ","
+            # and reset the list again
+            if line[-1:] == ",":
+                val = "".join(lst) + line[:-1]
+                lst = []
+                it.append(val)
+            else:
+                # add the line to the list to concatenate later
+                lst.append(line)
 
         # sanitize elements
         name = re.sub(r"[\"\(\)]*", "", it[0])
@@ -74,12 +94,13 @@ def unwrap(gucs: list, guc_type: str) -> dict:
         # Exclude GUCs (if specified)
         if name not in EXCLUDE:
             map[name] = {
-                "name": name,
+                "name"      : name,
                 "short_desc": short_desc,
-                "long_desc": long_desc,
-                "value": get_value(guc_type, it),
-                "type": guc_type,
-                "scopes": [], # assigned later during scope discovery
+                "long_desc" : long_desc,
+                "value"     : get_value(guc_type, it),
+                "meta"      : get_meta_data(guc_type, it),
+                "type"      : guc_type,
+                "scopes"    : [], # assigned later during scope discovery
             }
 
     logging.info("registered %d GUCs of type: %s" % (len(map), guc_type))
@@ -102,12 +123,21 @@ def get_value(type: str, parts: list) -> str:
     """
     Get the value of the GUC based on the type
     """
+    # ENUM needs different handling, finding the struct and the strings
+    # identifying the options
+
+    # Every other type
+    return strip_comment_pattern(parts[4]).strip()
+
+def get_meta_data(type: str, parts: list) -> str:
+    """
+    Build any meta data if present based on the type
+    """
     if type == "BOOLEAN":
-        if parts[5].upper()[0:4] == "PGC_":
-            return strip_comment_pattern(parts[4]).strip()
-        else:
-            return strip_comment_pattern(parts[5]).strip()
-    return strip_comment_pattern(parts[5]).strip()
+        return ""
+    if type in ["INTEGER", "REAL"]:
+        return "min: `%s`, max: `%s`" % (strip_comment_pattern(parts[5]).strip(), strip_comment_pattern(parts[6]).strip())
+    return ""
 
 """
 Parse GUCs and prepare them for rendering
@@ -123,7 +153,7 @@ def prepare(content: str) -> dict:
 
     # TODO: find scopes
     # https://github.com/timescale/timescaledb/blob/2.19.x/src/guc.c#L797
-
+    # SCOPES
 
     # Return dict with alphabetically sorted keys
     return {i: map[i] for i in sorted(map.keys())}
@@ -133,11 +163,11 @@ Render the GUCs to file
 """
 def render(gucs: dict, filename: str):
     with open(filename, "w") as f:
-        f.write("| Name | Type | Default | Long Description |\n")
-        f.write("| -- | -- | -- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n")
+        f.write("| Name | Type | Default | -- | Long Description |\n")
+        f.write("| -- | -- | -- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n")
         for guc in gucs.values():
-            f.write("| `%s` | `%s` | `%s` | %s |\n" % (
-                guc["name"], guc["type"], guc["value"], guc["long_desc"]
+            f.write("| `%s` | `%s` | `%s` | %s | %s |\n" % (
+                guc["name"], guc["type"], guc["value"], guc["meta"], guc["long_desc"]
             ))
     logging.info("rendering completed to %s" % filename)
 
@@ -145,7 +175,11 @@ def render(gucs: dict, filename: str):
 Main
 """
 if __name__ == "__main__":
-    content = get_content("https://raw.githubusercontent.com/timescale/timescaledb/refs/tags/%s/src/guc.c" % args.tag)
+    #content = get_content("https://raw.githubusercontent.com/timescale/timescaledb/refs/tags/%s/src/guc.c" % args.tag)
+
+    h = open("../timescaledb-philkra/src/guc.c", "r+")
+    content = h.read()
+
     logging.info("fetched guc.c file for version: %s" % args.tag)
     gucs = prepare(content)
     render(gucs, args.destination)
