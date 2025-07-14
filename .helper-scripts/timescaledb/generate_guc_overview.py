@@ -24,6 +24,7 @@ TYPES = {
     "DefineCustomIntVariable": "INTEGER",
     "DefineCustomEnumVariable": "ENUM",
     "DefineCustomStringVariable": "STRING",
+    "DefineCustomRealVariable": "REAL",
 }
 
 # List of GUCs to exclude from the docs
