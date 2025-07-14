@@ -31,40 +31,37 @@ To connect a $SERVICE_LONG to your data lake:
 <Procedure >
 
 1. **Set the AWS region to host your table bucket**
-   1. In [AWS CloudFormation][cmc], select the current AWS region at the top-right of the page.
-   2. Set it to the Region to create your table bucket in. 
+  1. In [AWS CloudFormation][cmc], select the current AWS region at the top-right of the page.
+  2. Set it to the Region to create your table bucket in. 
 
-   **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for 
-   cross-region data transfer.
+  **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for cross-region data transfer.
 
 1. **Create your CloudFormation stack**
-   1. Click `Create stack`, then select `With new resources (standard)`.
-   1. In `Amazon S3 URL`, paste the following URL, then click `Next`.
+  1. Click `Create stack`, then select `With new resources (standard)`.
+  2. In `Amazon S3 URL`, paste the following URL, then click `Next`.
    
-      ```http request
-      https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml
-      ```
+    ```http request
+    https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml
+    ```
    
-   1. In `Specify stack details`, enter the following details, then click `Next`:
-      * `Stack Name`: a name for this CloudFormation stack
-      * `BucketName`: a name for this S3 table bucket
-      * `ProjectID` and `ServiceID`: enter the [connection details][get-project-id] for your $LAKE_LONG $SERVICE_SHORT.
-   1. In `Configure stack options` check `I acknowledge that AWS CloudFormation might create IAM resources`, then 
-      click `Next`.
-   1. In `Review and create`, click `Submit`. and wait for the deployment to complete. 
-       AWS deploys your stack and creates the S3 table bucket and IAM role.
-   1. Click `Outputs`, then copy all four outputs.
+  3. In `Specify stack details`, enter the following details, then click `Next`:
+    * `Stack Name`: a name for this CloudFormation stack
+    * `BucketName`: a name for this S3 table bucket
+    * `ProjectID` and `ServiceID`: enter the [connection details][get-project-id] for your $LAKE_LONG $SERVICE_SHORT.
+  4. In `Configure stack options` check `I acknowledge that AWS CloudFormation might create IAM resources`, then click `Next`.
+  5. In `Review and create`, click `Submit`. and wait for the deployment to complete. 
+      AWS deploys your stack and creates the S3 table bucket and IAM role.
+  6. Click `Outputs`, then copy all four outputs.
 
 1. **Connect your $SERVICE_SHORT to the data lake**
 
-   1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to integrate with AWS S3 Tables, then 
-      click `Connectors`.
+  1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to integrate with AWS S3 Tables, then click `Connectors`.
    
-   1. Select the Apache Iceberg connector and supply the:
-      - ARN of the S3Table bucket
-      - ARN of a role with permissions to write to the table bucket   
+  2. Select the Apache Iceberg connector and supply the:
+    - ARN of the S3Table bucket
+    - ARN of a role with permissions to write to the table bucket   
 
-      Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+    Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
 
 </Procedure>
 
@@ -75,34 +72,35 @@ To connect a $SERVICE_LONG to your data lake:
 <Procedure >
 
 1. **Create your CloudFormation stack** 
-   Replace the following values in the command, then run it from the terminal:
+  Replace the following values in the command, then run it from the terminal:
 
   * `StackName`: the name for this CloudFormation stack
   * `BucketName`: the name of the S3 table bucket to create
   * `ProjectID`: enter your $SERVICE_LONG [connection details][get-project-id] 
   * `ServiceID`: enter your $SERVICE_LONG [connection details][get-project-id]
    
-   ```shell
-   aws cloudformation create-stack \
-     --capabilities CapabilityIAM \
-     --template-url https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml \
-     --stack-name <StackName> \
-     --parameters \
-       ParameterKey=BucketName,ParameterValue="<BucketName>" \
-       ParameterKey=ProjectID,ParameterValue="<ProjectID>" \
-       ParameterKey=ServiceID,ParameterValue="<ServiceID>"
-   ```
+  ```shell
+  aws cloudformation create-stack \
+    --capabilities CapabilityIAM \
+    --template-url https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml \
+    --stack-name <StackName> \
+    --parameters \
+      ParameterKey=BucketName,ParameterValue="<BucketName>" \
+      ParameterKey=ProjectID,ParameterValue="<ProjectID>" \
+      ParameterKey=ServiceID,ParameterValue="<ServiceID>"
+  ```
+
+  Setting up the integration through the Console in CLOUD_LONG, provides a conveniant copy-paste option with the placeholders populated.
 
 1. **Connect your $SERVICE_SHORT to the data lake**
 
-   1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to integrate with AWS S3 Tables, then
-      click `Connectors`.
+  1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to integrate with AWS S3 Tables, then click `Connectors`.
 
-   1. Select the Apache Iceberg connector and supply the:
-      - ARN of the S3Table bucket
-      - ARN of a role with permissions to write to the table bucket
+  1. Select the Apache Iceberg connector and supply the:
+    - ARN of the S3Table bucket
+    - ARN of a role with permissions to write to the table bucket
 
-      Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+    Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
 
 </Procedure>
 
@@ -188,14 +186,13 @@ To connect a $SERVICE_LONG to your data lake:
 
 1. **Connect your $SERVICE_SHORT to the data lake**
 
-   1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to integrate with AWS S3 Tables, then
-      click `Connectors`.
+  1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to integrate with AWS S3 Tables, then click `Connectors`.
 
-   1. Select the Apache Iceberg connector and supply the:
-      - ARN of the S3Table bucket
-      - ARN of a role with permissions to write to the table bucket
+  1. Select the Apache Iceberg connector and supply the:
+    - ARN of the S3Table bucket
+    - ARN of a role with permissions to write to the table bucket
 
-      Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+    Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
 
 </Procedure>
 
@@ -227,44 +224,6 @@ A primary key is necessary for Iceberg to perform update or delete statements.
 When a stream is started, the full table is synchronized to Iceberg, this means that all prior records are imported first.
 The write throughput is ranging at approximately 40.000 records / second, for larger tables a full import can take some time.
 
-### Sample code
-
-- Sync to a data lake from a $HYPERTABLE:
-
-  The default chunk interval is daily, partitioned on the `ts_column` column.
-    ```sql
-    ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true);
-    ```
-
-  The partitioning scheme is equivalent to the `day(ts_column)` for a $HYPERTABLE.
-
-- Override the derived partitioning scheme using `tigerlake.iceberg_partitionby`:
-
-  For example, to sync to a data lake using hour rather than day chunks on `ts_column`:
-
-    ```sql
-    ALTER TABLE my_hypertable SET (
-      tigerlake.iceberg_sync = true,
-      tigerlake.iceberg_partitionby = 'hour(ts_column)'
-    );
-    ```
-
-- Explicitly state a partitioning scheme `tigerlake.iceberg_partitionby`:
-
-    ```sql
-    ALTER TABLE my_postgres_table SET (
-      tigerlake.iceberg_sync = true,
-      tigerlake.iceberg_partitionby = 'day(timestamp_col)'
-    );
-    ```
-  $PG relational tables do not define a partitioning scheme by default.
-
-- Stop sync to a data lake for either a $HYPERTABLE or a $PG relational table:
-
-    ```sql
-    ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = false);
-    ```
-
 ### Partitioning
 
 By default, the partition interval for an Iceberg table is day(time-column) for a $HYPERTABLE, 
@@ -280,15 +239,51 @@ The following partition intervals and specifications are supported, and the defi
 | `year`        | Extract a date or timestamp day, as days from epoch.                    | `date`, `timestamp`, `timestamptz` | 
 | `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options]     |
 
+### Sample code
+
+A $HYPERTABLE with a one-day chunk interval on the `ts_column` column.
+
+The following statement, will start the sync of the $HYPERTABLE and forward the one-day chunk interval as partitioning scheme to the Iceberg table, which is equivalent to `day(ts_column)`.
+
+```sql
+ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true);
+```
+
+The property `tigerlake.iceberg_partitionby` specifies a different partitioning scheme for the Iceberg table at sync start.
+For example, with the same $HYPERTABLE, to enforce an hourly partition scheme rather than the daily one from the  chunks on `ts_column`:
+
+```sql
+ALTER TABLE my_hypertable SET (
+  tigerlake.iceberg_sync = true,
+  tigerlake.iceberg_partitionby = 'hour(ts_column)'
+);
+```
+
+$PG tables do not forward a partitioning scheme to Iceberg, therefore must be explicitly stated with `tigerlake.iceberg_partitionby` when starting the sync.
+For example, the $PG table `my_postgres_table` has column of type `TIMESTAMP` acting as partitioning column.
+The following statement starts the sync to the Iceberg table with a daily partitioning.
+
+```sql
+ALTER TABLE my_postgres_table SET (
+  tigerlake.iceberg_sync = true,
+  tigerlake.iceberg_partitionby = 'day(timestamp_col)'
+);
+```
+
+Stop sync to an Iceberg table, for either a $HYPERTABLE or a $PG relational table:
+
+```sql
+ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = false);
+```
 
 ## Limitations
 
-* Only Postgres 17 is supported.
-* Only the S3 Tables REST Iceberg catalog is supported.
-* Certain columnstore optimizations will be disabled in $HYPERTABLEs in order to collect deletes made to compressed data.
+* Only Postgres 17.4 is supported. A service running on Postgres 17.5, will be downgraded to 17.4.
+* Ony S3 Tables REST Iceberg catalog is supported.
+* Certain columnstore optimizations will be disabled in $HYPERTABLEs in order to collect deletes made to columstore.
 * The `TRUNCATE` statement is not supported, and will not truncate data in the corresponding Iceberg table.
 * The [tiered data](/use-timescale/latest/data-tiering/) of a $HYPERTABLE will not be synced.
-* Renaming a table in Postgres will stop the syncing to Iceberg.
+* Renaming a table in Postgres will stop the syncing to Iceberg, causing unexpected behavior.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket to service mapping is one to one at the moment.
 * The retention policy for Iceberg snapshots is set to 12 hours, we do not recommend increasing the duration at this point in time.
 
