@@ -102,8 +102,6 @@ def unwrap(gucs: list, guc_type: str) -> dict:
                 "type"      : guc_type,
                 "scopes"    : [], # assigned later during scope discovery
             }
-
-    logging.info("registered %d GUCs of type: %s" % (len(map), guc_type))
     return map
 
 def sanitize_description(text) -> str:
@@ -149,11 +147,24 @@ def prepare(content: str) -> dict:
 
     # Find all GUCs based on patterns and prepare them in a dict
     for pattern, val in TYPES.items():
+        # Run twice to find variants, e.g. 
+        # - DefineCustomStringVariable(MAKE_EXTOPTION(
+        # - DefineCustomStringVariable(/* name= */ MAKE_EXTOPTION(
         map.update(unwrap(re.findall(r"%s\(MAKE_EXTOPTION(.*?)\);" % pattern, content, re.DOTALL), val))
+        map.update(unwrap(re.findall(r"%s\(\/\* name= \*\/ MAKE_EXTOPTION(.*?)\);" % pattern, content, re.DOTALL), val))
 
     # TODO: find scopes
     # https://github.com/timescale/timescaledb/blob/2.19.x/src/guc.c#L797
     # SCOPES
+
+    # print summary
+    summary = {}
+    for v in map.values():
+        if v["type"] not in summary.keys():
+            summary[v["type"]] = 0
+        summary[v["type"]] += 1
+    for k, v in summary.items():
+        logging.info("registered %d GUCs of type: %s" % (v, k))
 
     # Return dict with alphabetically sorted keys
     return {i: map[i] for i in sorted(map.keys())}
@@ -161,7 +172,7 @@ def prepare(content: str) -> dict:
 """
 Render the GUCs to file
 """
-def render(gucs: dict, filename: str):
+def render(gucs: dict, filename: str, version: str):
     with open(filename, "w") as f:
         f.write("| Name | Type | Default | -- | Long Description |\n")
         f.write("| -- | -- | -- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n")
@@ -169,19 +180,15 @@ def render(gucs: dict, filename: str):
             f.write("| `%s` | `%s` | `%s` | %s | %s |\n" % (
                 guc["name"], guc["type"], guc["value"], guc["meta"], guc["long_desc"]
             ))
+        f.write("\n")
+        f.write("Version: [%s](https://github.com/timescale/timescaledb/releases/tag/%s)" % (version, version))
     logging.info("rendering completed to %s" % filename)
 
 """
 Main
 """
 if __name__ == "__main__":
-    #content = get_content("https://raw.githubusercontent.com/timescale/timescaledb/refs/tags/%s/src/guc.c" % args.tag)
-
-    h = open("../timescaledb-philkra/src/guc.c", "r+")
-    content = h.read()
-
+    content = get_content("https://raw.githubusercontent.com/timescale/timescaledb/refs/tags/%s/src/guc.c" % args.tag)
     logging.info("fetched guc.c file for version: %s" % args.tag)
     gucs = prepare(content)
-    render(gucs, args.destination)
-
-#    print(gucs)
+    render(gucs, args.destination, args.tag)
