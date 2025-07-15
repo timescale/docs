@@ -59,7 +59,7 @@ the number of chunks you see when inspecting it.
 Best practices for maintaining a high performance when scaling include:
 
 - Limit the number of $HYPERTABLEs in your $SERVICE_SHORT; having tens of thousands of $HYPERTABLEs is not recommended. 
-- Choosing a strategic chunk size. 
+- Choose a strategic chunk size. 
 
 Chunk size affects insert and query performance. You want a chunk small enough
 to fit into memory so you can insert and query recent data without
