@@ -103,12 +103,14 @@ To create a $COLUMNSTORE job:
      ```
    * Control the time your policy runs:
    
-     When you create a policy, $TIMESCALE_DB sets `initial_start` to the time of first execution. This value is used to 
-     compute the next start time. To fully control the moment your policy runs, you need to set `initial_start` to the 
-     start time to base computations on, in addition to `next_start`.
+When you use a policy with a fixed schedule, `initial_start` time is used to compute the next start time when it ends execution. It will then pick the next available time that is on the schedule, skipping any candidate start times that has already passed.
+
+When you set the `next_start` time  it will only change the start time of the next immediate execution, but not change the computations of the next scheduled time after the next execution. This means that if you want to change the schedule for the policy to start at a specific time, you need to change the `initial_start` time, but to change the next immediate execution, you need to change the `next_start` time.
+
+For example, if you want to modify a policy to execute on a fixed schedule 15 minutes past the hour, and every hour, you need to set both `initial_start` and `next_start` using `alter_job`:
    
      ``` sql
-     select * from alter_job(1000, fixed_schedule => true, initial_start => '2025-07-11 10:00:15', next_start => '2025-07-11 10:42:15');
+     select * from alter_job(1000, fixed_schedule => true, initial_start => '2025-07-11 10:15:00', next_start => '2025-07-11 11:15:00');
      ```
 
 
