@@ -11,50 +11,12 @@ tags: [telemetry, monitor]
 
 $CONSOLE offers you a quick, convenient way to see how your $SERVICE_SHORTs are performing, and see how to make them run more efficiently. This includes:
 
-- **Recommendations**: tips to ensure your $SERVICE_SHORT is set up to achieve the best performance. 
-- **Jobs**: a list of all the jobs scheduled for your $SERVICE_SHORT and their status. 
-- **Connections**: a list of all current connections to your $SERVICE_SHORT. You can terminate any process in the list. 
-- **Metrics**: CPU, memory, and storage usage over time. 
-- **Logs**: your $SERVICE_SHORT logs with filtering and timeframe selection. 
-- **Insights**: an in-depth look into your query performance. 
-
-## Recommendations
-
-$CLOUD_LONG offers specific tips on configuring your $SERVICE_SHORT. This includes a wide range of actions—from finishing $ACCOUNT_SHORT setup to tuning your $SERVICE_SHORT for the best performance. For example, $CLOUD_LONG may recommend a more suitable $CHUNK interval or draw your attention to consistently failing $JOBs. 
-
-To view recommendations, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Recommendations`:
-
-![Recommendations](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-recommendations.png)
-
-## Jobs
-
-$CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along with their details like type, target object, and status. This includes native $CLOUD_LONG $JOBs as well as custom $JOBs you configure based on your specific needs.
-
-<Procedure>
-
-1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
-
-   ![Jobs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-jobs.png)
-
-1. Click a $JOB ID in the list to view its config and run history:
-
-   ![Job details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-job-details.png)
-
-1. Click the pencil icon to edit the $JOB config:
-
-   ![Update job config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-edit-job.png)
-
-</Procedure>
-
-## Connections
-
-$CLOUD_LONG lists current and past connections to your $SERVICE_SHORT. This includes details like the corresponding query, connecting application, username, connection status, start time, and duration. 
-
-To view connections, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Connections`. Expand the query underneath each connection to see the full SQL.
-
-![Connections](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-service-connections.png)
-
-Click the trash icon next to a connection in the list to terminate it. A lock icon means that a connection cannot be terminated; hover over the icon to see the reason. 
+- [**Metrics**][metrics]: CPU, memory, and storage usage over time. 
+- [**Logs**][logs]: your $SERVICE_SHORT logs with filtering and timeframe selection. 
+- [**Jobs**][monitoring-jobs]: a list of all the jobs scheduled for your $SERVICE_SHORT and their status.
+- [**Insights**][insights]: an in-depth look into your query performance. 
+- [**Connections**][connections]: a list of all current connections to your $SERVICE_SHORT. You can terminate any process in the list.
+- [**Recommendations**][recommendations]: tips to ensure your $SERVICE_SHORT is set up to achieve the best performance.
 
 ## Metrics
 
@@ -68,12 +30,17 @@ The following metrics are represented by graphs:
 - CPU, in mCPU
 - Memory, in GiB
 - Storage used, in GiB
-- Storage IO, in ops/sec
+- Storage I/O, in ops/sec
 - Storage bandwidth, in MiB/sec
+
+When you hit the limits:
+
+- **For CPU and memory**: provision more for your $SERVICE_SHORT in `Operations` > `Compute and storage`.
+- **For storage, I/O, and bandwidth**: these resources depend on your storage type and $IO_BOOST settings. The standard high-performance storage gives you 16TB of compressed data on a single server, regardless of the number of hypertables in your $SERVICE_SHORT. See [About storage tiers][about-storage] for how to change the available storage, I/O, and bandwidth.
 
 Hover over the graph to view metrics for a specific time point. Select an area in the graph to zoom into a specific period.
 
-Gray bars indicate that metrics have not been collected for the period shown.
+Gray bars indicate that metrics have not been collected for the period shown:
 
 ![Metrics not collected](https://assets.timescale.com/docs/images/tsc-metrics_graybar.webp)
 
@@ -97,11 +64,31 @@ or degraded performance.
 
 ## Logs
 
-$CLOUD_LONG shows you detailed logs for your $SERVICE_SHORT, which you can filter by type, date, and time. 
+$CLOUD_LONG shows you detailed logs for your $SERVICE_SHORT, which you can filter by type, date, and time.
 
 To access logs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Logs`:
 
 ![Find logs faster](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-service-logs.png)
+
+## Jobs
+
+$CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along with their details like type, target object, and status. This includes native $CLOUD_LONG $JOBs as well as custom $JOBs you configure based on your specific needs.
+
+<Procedure>
+
+1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
+
+   ![Jobs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-jobs.png)
+
+1. Click a $JOB ID in the list to view its config and run history:
+
+   ![Job details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-job-details.png)
+
+1. Click the pencil icon to edit the $JOB config:
+
+   ![Update job config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-edit-job.png)
+
+</Procedure>
 
 ## Insights
 
@@ -154,6 +141,24 @@ This view includes the following graphs:
 - `Shared buffers hit and miss`: shared buffers play a critical role in $PG's performance by caching data in memory. A shared buffer hit occurs when the required data block is found in the shared buffer memory, while a miss indicates that $PG couldn't locate the block in memory. A miss doesn't necessarily mean a disk read, because $PG may retrieve the data from the operating system's disk pages cache. If you observe a high number of shared buffer misses, your current shared buffers setting might be insufficient. Increasing the shared buffer size can improve cache hit rates and query speed.
 - `Cache hit ratio`: measures how much of your query's data is read from shared buffers. A 100% value indicates that all the data required by the query was found in the shared buffer, while a 0% value means none of the necessary data blocks were in the shared buffers. This metric provides a clear understanding of how efficiently your query leverages shared buffers, helping you optimize data access and database performance.
 
+## Connections
+
+$CLOUD_LONG lists current and past connections to your $SERVICE_SHORT. This includes details like the corresponding query, connecting application, username, connection status, start time, and duration.
+
+To view connections, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Connections`. Expand the query underneath each connection to see the full SQL.
+
+![Connections](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-service-connections.png)
+
+Click the trash icon next to a connection in the list to terminate it. A lock icon means that a connection cannot be terminated; hover over the icon to see the reason.
+
+## Recommendations
+
+$CLOUD_LONG offers specific tips on configuring your $SERVICE_SHORT. This includes a wide range of actions—from finishing $ACCOUNT_SHORT setup to tuning your $SERVICE_SHORT for the best performance. For example, $CLOUD_LONG may recommend a more suitable $CHUNK interval or draw your attention to consistently failing $JOBs.
+
+To view recommendations, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Recommendations`:
+
+![Recommendations](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-recommendations.png)
+
 ## Query-level statistics with `pg_stat_statements`
 
 <Availability products={['cloud', 'self_hosted', 'mst']} />
@@ -200,15 +205,20 @@ ORDER BY rel_std_dev DESC
 LIMIT 5;
 ```
 
-For more examples and detailed explanations, see the [blog post on identifying
-performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
+For more examples and detailed explanations, see the [blog post on identifying performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 
 [jobs]: /use-timescale/:currentVersion:/jobs/
-[metrics-dashboard]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
 [pg-stat]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/#query-level-statistics-with-pg_stat_statements
 [blog-pg_stat_statements]: <https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/>
 [psql]: /integrations/:currentVersion:/psql/
 [connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [pg-statement-docs]: https://www.postgresql.org/docs/current/pgstatstatements.html
+[about-storage]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
+[recommendations]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#recommendations
+[monitoring-jobs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#jobs
+[connections]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#connections 
+[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
+[logs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#logs
+[insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [locked-memory]: https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html
 [memory-settings]: https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-MEMORY

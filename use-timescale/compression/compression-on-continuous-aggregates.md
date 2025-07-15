@@ -16,7 +16,7 @@ and never modified, you can compress the aggregate to save on storage.
 
 <Highlight type="warning">
 Before version
-[2.11.0](/about/latest/release-notes/#timescaledb-2110-on-2023-05-22), you can't
+[2.18.1](https://github.com/timescale/timescaledb/releases/tag/2.18.1), you can't
 refresh the compressed regions of a continuous aggregate. To avoid conflicts
 between compression and refresh, make sure you set `compress_after` to a larger
 interval than the `start_offset` of your [refresh
