@@ -15,7 +15,7 @@ import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 # ALTER MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>
 
 You use the `ALTER MATERIALIZED VIEW` statement to modify some of the `WITH`
-clause [options][create_materialized_view] for the continuous aggregate view. The `continuous` and `create_group_indexes` options can only be set when you [create a continuous aggregate][create_materialized_view]. `ALTER MATERIALIZED VIEW` statement also supports the following
+clause [options][create_materialized_view] for a continuous aggregate view. You can only set the `continuous` and `create_group_indexes` options when you [create a continuous aggregate][create_materialized_view]. `ALTER MATERIALIZED VIEW` also supports the following
 [$PG clauses][postgres-alterview] on the continuous aggregate view:
 
 *   `RENAME TO`: rename the continuous aggregate view
