@@ -56,7 +56,7 @@ to view and set your chunk time intervals, see how to
 
 ## Partition by dimension
 
-Partitioning on time is the most common use case for a $HYPERTABLE, but it may not be enough for your needs. For example,
+Partitioning on time is the most common use case for $HYPERTABLE, but it may not be enough for your needs. For example,
 you may need to scan for the latest readings that match a certain condition without locking a critical $HYPERTABLE.
 Best practice to optimize ingest and query performance is to add a partitioning dimension on a non-time column such as
 location or device UUID, and specify a number of partitions.
@@ -64,10 +64,7 @@ location or device UUID, and specify a number of partitions.
 You add a partitioning dimension at the same time as you create the hypertable, when the table is empty. The good news 
 is that although you select the number of partitions at creation time, as your data grows you can change the number of 
 partitions later and improve query performance. Changing the number of partitions only effects chunks created after the 
-change, not existing chunks.
-
-You can always set the number of partitions for a hash dimension using `set_number_partitions`.
-
+change, not existing chunks. To set the number of partitions for a partitioning dimension, call `set_number_partitions`. 
 For example:
 
 <Procedure>
@@ -88,14 +85,14 @@ For example:
    select * from create_hypertable('conditions', by_range('time', '1 day'::interval));
    ``` 
 
-1. **Add a partition on a non-time column**
+1. **Add a hash partition on a non-time column**
 
    ```sql
    select * from add_dimension('conditions', by_hash('device_id', 3));
    ``` 
    Now use your $HYPERTABLE as usual, but you can also ingest and query efficiently by the `device_id` column.
 
-1. **Change the number of partitions as your data grows**
+1. **Change the number of partitions as you data grows**
 
    ```sql
    select set_number_partitions('conditions', 5, 'device_id');
