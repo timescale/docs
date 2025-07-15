@@ -90,14 +90,14 @@ metrics about your $SERVICE_LONGs.
 
 1. **Connect Datadog to your $SERVICE_LONG**
 
-   1. Open the datadog agent $PG configuration file, usually located at:
+   1. Configure the [Datadog Agent $PG configuration file][datadog-config]; it is usually located on the Datadog Agent host at:
       - **Linux**: `/etc/datadog-agent/conf.d/postgres.d/conf.yaml`
       - **MacOS**: `/opt/datadog-agent/etc/conf.d/postgres.d/conf.yaml`
       - **Windows**: `C:\ProgramData\Datadog\conf.d\postgres.d\conf.yaml`
 
-   1. Integrate Datadog Agent with your $SERVICE_LONG
+   1. Integrate Datadog Agent with your $SERVICE_LONG:
 
-      Use your [connection details][connection-info] to update the following and add it to the datadog agent $PG
+      Use your [connection details][connection-info] to update the following and add it to the Datadog Agent $PG
       configuration file:
 
       ```yaml
@@ -148,3 +148,4 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[datadog-config]: https://docs.datadoghq.com/database_monitoring/setup_postgres/selfhosted?tab=postgres15
