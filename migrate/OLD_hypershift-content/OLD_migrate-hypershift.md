@@ -40,9 +40,9 @@ plain index before you run the Hypershift migration.
 
 ## Download the Hypershift container
 
-<Tabs label="Download Hypershift">
+<Tabs label="Download Hypershift" persistKey="os">
 
-<Tab title="MacOS">
+<Tab title="MacOS" label="macos">
 
 <Procedure>
 
@@ -60,7 +60,7 @@ plain index before you run the Hypershift migration.
 
 </Tab>
 
-<Tab title="Linux">
+<Tab title="Linux" label="ubuntu">
 
 <Procedure>
 

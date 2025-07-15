@@ -24,9 +24,9 @@ To follow the steps on this page:
 
 To export your data, do the following:
 
-<Tabs label="Export metrics to Prometheus">
+<Tabs label="Export metrics to Prometheus" persistKey="source-database">
 
-<Tab title="Tiger Cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
 
 <Procedure>
 
@@ -108,7 +108,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
 </Tab>
 
-<Tab title="Self-hosted TimescaleDB">
+<Tab title="Self-hosted TimescaleDB" label="self-hosted">
 
 <Procedure>
 
