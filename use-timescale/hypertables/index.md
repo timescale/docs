@@ -23,7 +23,7 @@ a range of time, and only contains data from that range.
 ### Time partitioning
 
 By default, each $HYPERTABLE chunk holds data for 7 days. You can change this to better suit your
-needs. For example, if you set `chunk_interval` to 1 day, each chunk stores data for the same day.
+needs. For example, if you set `chunk_interval` to 1 day, each chunk stores data for a single day.
 
 The following figure shows the difference in structure between a relational table and a hypertable:
 
@@ -58,13 +58,13 @@ to view and set your chunk time intervals, see how to
 
 Partitioning on time is the most common use case for a $HYPERTABLE, but it may not be enough for your needs. For example,
 you may need to scan for the latest readings that match a certain condition without locking a critical $HYPERTABLE.
-Best practice to optimize ingest and query performance is to create a hash partition on a non-time column, such as a
-location or device UUID.
+Best practice to optimize ingest and query performance is to add a partitioning dimension on a non-time column such as
+location or device UUID, and specify a number of partitions.
 
-Hash partitions effect chunks created after the partition is created. It does not affect existing chunks in your
-hypertable. Best practice is to make the hash partition at the same time as you create the hypertable, when the
-table is empty. The good news is that although you select the number of partitions at creation time, as your data grows
-you can change the number of partitions later and improve query performance.
+You add a partitioning dimension at the same time as you create the hypertable, when the table is empty. The good news 
+is that although you select the number of partitions at creation time, as your data grows you can change the number of 
+partitions later and improve query performance. Changing the number of partitions only effects chunks created after the 
+change, not existing chunks.
 
 You can always set the number of partitions for a hash dimension using `set_number_partitions`.
 
