@@ -60,9 +60,9 @@ the live-migration Docker image.
 
 To move your data from a self-hosted database to a $SERVICE_LONG:
 
-<Tabs label="Live migration">
+<Tabs label="Live migration" persistKey="source-database" >
 
-<Tab title="From TimescaleDB">
+<Tab title="From TimescaleDB" label="self-hosted">
 
 This section shows you how to move your data from $SELF_LONG to a $SERVICE_LONG 
 using live migration from Terminal.
@@ -74,7 +74,7 @@ using live migration from Terminal.
 <ValidateDataInCloud />
 
 </Tab>
-<Tab title="From Postgres">
+<Tab title="From Postgres" label="postgres">
 
 This section shows you how to move your data from self-hosted $PG to a $SERVICE_LONG using 
 live migration from Terminal.
@@ -86,7 +86,7 @@ live migration from Terminal.
 <ValidateDataInCloud />
 
 </Tab>
-<Tab title="From AWS RDS/Aurora">
+<Tab title="From AWS RDS/Aurora" label="aws-rds">
 
 To migrate your data from an Amazon RDS/Aurora $PG instance to a $SERVICE_LONG, you extract the data to an intermediary
 EC2 Ubuntu instance in the same AWS region as your RDS/Aurora instance. You then upload your data to a $SERVICE_LONG.
@@ -109,7 +109,7 @@ using live migration.
 
 </Tab>
 
-<Tab title="From MST">
+<Tab title="From MST" label="mst">
 
 This section shows you how to move your data from a $MST_SHORT instance to a
 $SERVICE_LONG using live migration from Terminal. 
