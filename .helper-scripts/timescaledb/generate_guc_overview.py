@@ -134,7 +134,7 @@ def get_meta_data(type: str, parts: list) -> str:
     if type == "BOOLEAN":
         return ""
     if type in ["INTEGER", "REAL"]:
-        return "min: `%s`, max: `%s`" % (strip_comment_pattern(parts[5]).strip(), strip_comment_pattern(parts[6]).strip())
+        return "min: `%s`\nmax: `%s`" % (strip_comment_pattern(parts[5]).strip(), strip_comment_pattern(parts[6]).strip())
     return ""
 
 """
@@ -175,12 +175,13 @@ Render the GUCs to file
 """
 def render(gucs: dict, filename: str, version: str):
     with open(filename, "w") as f:
-        f.write("| Name | Type | Default | -- | Description |\n")
+        f.write("| Name | Type | Default | Description |\n")
         f.write("| -- | -- | -- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n")
         for guc in gucs.values():
-            f.write("| `%s` | `%s` | `%s` | %s | %s |\n" % (
-                guc["name"], guc["type"], guc["value"], guc["meta"], guc["long_desc"]
-            ))
+            desc = guc["long_desc"]
+            if guc["meta"] != "":
+                desc += "\n\n" + guc["meta"] 
+            f.write("| `%s` | `%s` | `%s` | %s |\n" % (guc["name"], guc["type"], guc["value"], desc))
         f.write("\n")
         f.write("Version: [%s](https://github.com/timescale/timescaledb/releases/tag/%s)" % (version, version))
     logging.info("rendering completed to %s" % filename)
