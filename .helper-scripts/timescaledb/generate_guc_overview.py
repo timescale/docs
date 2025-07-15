@@ -106,7 +106,7 @@ def unwrap(gucs: list, guc_type: str) -> dict:
 
 def sanitize_description(text) -> str:
     # Remove all quotes and normalize whitespace to single line
-    return ' '.join(text.replace('"', '').split()).strip()
+    return strip_comment_pattern(' '.join(text.replace('"', '').split()).strip())
 
 def strip_comment_pattern(text) -> str:
     pattern = r'/\*\s*[a-zA-Z0-9_]*=\s*\*/'
@@ -147,7 +147,8 @@ def prepare(content: str) -> dict:
 
     # Find all GUCs based on patterns and prepare them in a dict
     for pattern, val in TYPES.items():
-        # Run twice to find variants, e.g. 
+        # Run twice to find variants, e.g., there is a nicer way with one regex to do this
+        # but this is not time sensitive nor consuming, so we're good
         # - DefineCustomStringVariable(MAKE_EXTOPTION(
         # - DefineCustomStringVariable(/* name= */ MAKE_EXTOPTION(
         map.update(unwrap(re.findall(r"%s\(MAKE_EXTOPTION(.*?)\);" % pattern, content, re.DOTALL), val))
