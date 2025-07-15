@@ -20,6 +20,7 @@ import ChunkInterval from "versionContent/_partials/_chunk-interval.mdx";
 Each $HYPERTABLE is partitioned into child $HYPERTABLEs called chunks. Each chunk is assigned
 a range of time, and only contains data from that range.
 
+
 ### Time partitioning
 
 By default, each $HYPERTABLE chunk holds data for 7 days. You can change this to better suit your
@@ -39,13 +40,18 @@ might be a time gap between the start time and the earliest timestamp. This
 doesn't affect your usual interactions with your $HYPERTABLE, but might affect
 the number of chunks you see when inspecting it.
 
+## Best practices for scaling and partitioning
 
-### Best practices for time partitioning
+Best practices for maintaining a high performance when scaling include:
+
+- Limit the number of $HYPERTABLEs in your $SERVICE_SHORT; having tens of thousands of $HYPERTABLEs is not recommended. 
+- Choose a strategic chunk size. 
 
 Chunk size affects insert and query performance. You want a chunk small enough
 to fit into memory so you can insert and query recent data without
 reading from disk. However, having too many small and sparsely filled chunks can
-affect query planning time and compression.
+affect query planning time and compression. The more chunks in the system, the slower that process becomes, even more so 
+when all those chunks are part of a single hypertable. 
 
 <ChunkInterval />
 
