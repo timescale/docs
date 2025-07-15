@@ -13,7 +13,7 @@ $CONSOLE offers you a quick, convenient way to see how your $SERVICE_SHORTs are 
 
 - [**Metrics**][metrics]: CPU, memory, and storage usage over time. 
 - [**Logs**][logs]: your $SERVICE_SHORT logs with filtering and timeframe selection. 
-- [**Jobs**][jobs]: a list of all the jobs scheduled for your $SERVICE_SHORT and their status.
+- [**Jobs**][monitoring-jobs]: a list of all the jobs scheduled for your $SERVICE_SHORT and their status.
 - [**Insights**][insights]: an in-depth look into your query performance. 
 - [**Connections**][connections]: a list of all current connections to your $SERVICE_SHORT. You can terminate any process in the list.
 - [**Recommendations**][recommendations]: tips to ensure your $SERVICE_SHORT is set up to achieve the best performance.
@@ -208,18 +208,17 @@ LIMIT 5;
 For more examples and detailed explanations, see the [blog post on identifying performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 
 [jobs]: /use-timescale/:currentVersion:/jobs/
-[metrics-dashboard]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/
 [pg-stat]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/#query-level-statistics-with-pg_stat_statements
 [blog-pg_stat_statements]: <https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/>
 [psql]: /integrations/:currentVersion:/psql/
 [connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [pg-statement-docs]: https://www.postgresql.org/docs/current/pgstatstatements.html
 [about-storage]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
-[recommendations]: #recommendations
-[jobs]: #jobs
-[connections]: #connections 
-[metrics]: #metrics
-[logs]: #logs
-[insights]: #insights
+[recommendations]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#recommendations
+[monitoring-jobs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#jobs
+[connections]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#connections 
+[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
+[logs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#logs
+[insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [locked-memory]: https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html
 [memory-settings]: https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-MEMORY
