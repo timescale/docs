@@ -305,7 +305,7 @@ data lake:
 * Data in a $HYPERTABLE that has been moved to the [low-cost object storage tier][data-tiering] is not synced.
 * Renaming a table in $PG stops the sync to Iceberg and causes unexpected behavior.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
-* The retention policy for Iceberg snapshots is set to 12 hours, we do not recommend increasing the duration.
+* Iceberg snapshots are pruned automatically if the amount exceeds 2500.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
