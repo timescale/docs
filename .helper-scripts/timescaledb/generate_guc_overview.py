@@ -174,7 +174,7 @@ Render the GUCs to file
 """
 def render(gucs: dict, filename: str, version: str):
     with open(filename, "w") as f:
-        f.write("| Name | Type | Default | -- | Long Description |\n")
+        f.write("| Name | Type | Default | -- | Description |\n")
         f.write("| -- | -- | -- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n")
         for guc in gucs.values():
             f.write("| `%s` | `%s` | `%s` | %s | %s |\n" % (
