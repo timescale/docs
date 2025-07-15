@@ -4,6 +4,7 @@
 | `bgw_log_level` | `ENUM` | `WARNING` | Log level for the scheduler and workers of the background worker subsystem. Requires configuration reload to change. |
 | `compress_truncate_behaviour` | `ENUM` | `COMPRESS_TRUNCATE_ONLY` | Defines how truncate behaves at the end of compression. 'truncate_only' forces truncation. 'truncate_disabled' deletes rows instead of truncate. 'truncate_or_delete' allows falling back to deletion. |
 | `compression_batch_size_limit` | `INTEGER` | `1000` | Setting this option to a number between 1 and 999 will force compression to limit the size of compressed batches to that amount of uncompressed tuples.Setting this to 0 defaults to the max batch size of 1000.
+
 min: `1`
 max: `1000` |
 | `compression_orderby_default_function` | `STRING` | `"_timescaledb_functions.get_orderby_defaults"` | Function to use for calculating default order_by setting for compression |
@@ -11,6 +12,7 @@ max: `1000` |
 | `current_timestamp_mock` | `STRING` | `NULL` |  this is for debugging purposes |
 | `debug_allow_cagg_with_deprecated_funcs` | `BOOLEAN` | `false` |  this is for debugging/testing purposes |
 | `debug_bgw_scheduler_exit_status` | `INTEGER` | `0` |  this is for debugging purposes
+
 min: `0`
 max: `255` |
 | `debug_compression_path_info` | `BOOLEAN` | `false` |  this is for debugging/information purposes |
@@ -19,6 +21,7 @@ max: `255` |
 | `debug_require_vector_agg` | `ENUM` | `DRO_Allow` |  this is for debugging purposes |
 | `debug_require_vector_qual` | `ENUM` | `DRO_Allow` | this is for debugging purposes, to let us check if the vectorized quals are used or not. EXPLAIN differs after PG15 for custom nodes, and using the test templates is a pain |
 | `debug_toast_tuple_target` | `INTEGER` | `/* bootValue = */ 128` |  this is for debugging purposes
+
 min: `/* minValue = */ 1`
 max: `/* maxValue = */ 65535` |
 | `default_hypercore_use_access_method` | `BOOLEAN` | `false` | gettext_noop(Sets the global default for using Hypercore TAM when compressing chunks.) |
@@ -72,6 +75,7 @@ max: `/* maxValue = */ 65535` |
 | `enable_tss_callbacks` | `BOOLEAN` | `true` | Enable ts_stat_statements callbacks |
 | `enable_vectorized_aggregation` | `BOOLEAN` | `true` | Enable vectorized aggregation for compressed data |
 | `hypercore_arrow_cache_max_entries` | `INTEGER` | `25000` | The max number of decompressed arrow segments that can be cached before entries are evicted. This mainly affects the performance of index scans on the Hypercore TAM when segments are accessed in non-sequential order.
+
 min: `1`
 max: `INT_MAX` |
 | `hypercore_copy_to_behavior` | `ENUM` | `HYPERCORE_COPY_NO_COMPRESSED_DATA` | Set to 'all_data' to return both compressed and uncompressed data via the Hypercore table when using COPY TO. Set to 'no_compressed_data' to skip compressed data. |
@@ -80,20 +84,25 @@ max: `INT_MAX` |
 | `last_tuned_version` | `STRING` | `NULL` |  version of timescaledb-tune used to tune |
 | `license` | `STRING` | `TS_LICENSE_DEFAULT` |  Determines which features are enabled |
 | `materializations_per_refresh_window` | `INTEGER` | `10` | The maximal number of individual refreshes per cagg refresh. If more refreshes need to be performed, they are merged into a larger single refresh.
+
 min: `0`
 max: `INT_MAX` |
 | `max_cached_chunks_per_hypertable` | `INTEGER` | `1024` | Maximum number of chunks stored in the cache
+
 min: `0`
 max: `65536` |
 | `max_open_chunks_per_insert` | `INTEGER` | `1024` | Maximum number of open chunk tables per insert
+
 min: `0`
 max: `PG_INT16_MAX` |
 | `max_tuples_decompressed_per_dml_transaction` | `INTEGER` | `100000` | If the number of tuples exceeds this value, an error will be thrown and transaction rolled back. Setting this to 0 sets this value to unlimited number of tuples decompressed.
+
 min: `0`
 max: `2147483647` |
 | `restoring` | `BOOLEAN` | `false` | In restoring mode all timescaledb internal hooks are disabled. This mode is required for restoring logical dumps of databases with timescaledb. |
 | `shutdown_bgw_scheduler` | `BOOLEAN` | `false` |  this is for debugging purposes |
 | `skip_scan_run_cost_multiplier` | `REAL` | `1.0` | Default is 1.0 i.e. regularly estimated SkipScan run cost, 0.0 will make SkipScan to have run cost = 0
+
 min: `0.0`
 max: `1.0` |
 | `telemetry_level` | `ENUM` | `TELEMETRY_DEFAULT` | Level used to determine which telemetry to send |

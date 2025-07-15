@@ -180,7 +180,7 @@ def render(gucs: dict, filename: str, version: str):
         for guc in gucs.values():
             desc = guc["long_desc"]
             if guc["meta"] != "":
-                desc += "\n\n" + guc["meta"] 
+                desc += "\n" + guc["meta"] 
             f.write("| `%s` | `%s` | `%s` | %s |\n" % (guc["name"], guc["type"], guc["value"], desc))
         f.write("\n")
         f.write("Version: [%s](https://github.com/timescale/timescaledb/releases/tag/%s)" % (version, version))
