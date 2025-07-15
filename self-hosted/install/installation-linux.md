@@ -43,21 +43,21 @@ To keep your current $PG installation, [Install from source][install-from-source
 
 </Highlight>
 
-<Tabs label="Install TimescaleDB">
+<Tabs label="Install TimescaleDB" persistKey="os">
 
-<Tab title="Debian, Ubuntu">
+<Tab title="Debian, Ubuntu" label="ubuntu">
 
 <SelfHostedDebianBased />
 
 </Tab>
 
-<Tab title="Red Hat, Fedora">
+<Tab title="Red Hat, Fedora" label="redhat">
 
 <SelfHostedRedhatBased />
 
 </Tab>
 
-<Tab title="ArchLinux">
+<Tab title="ArchLinux" label="archlinux">
 
 <SelfHostedArchLinuxBased />
 

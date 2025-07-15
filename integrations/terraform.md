@@ -24,9 +24,9 @@ This page explains how to configure Terraform to manage your $SERVICE_LONG or $S
 
 Configure Terraform based on your deployment type:
 
-<Tabs label="Configure Terraform for your service">
+<Tabs label="Configure Terraform for your service" persistKey="source-database">
 
-<Tab title="Tiger Cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
 
 You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE_LONGs:
 
@@ -111,7 +111,7 @@ You can now manage your resources with Terraform. See more about [available reso
 
 </Tab>
 
-<Tab title="Self-hosted TimescaleDB">
+<Tab title="Self-hosted TimescaleDB" label="self-hosted">
 
 You use the [`cyrilgdn/postgresql`][pg-provider] $PG provider to connect to your $SELF_LONG instance. 
 

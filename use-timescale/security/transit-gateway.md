@@ -31,9 +31,9 @@ To configure this secure connection, you:
 
 AWS Transit Gateway enables you to connect from almost any environment, this page provides examples for the most common use cases. 
 
-<Tabs label="Connect from any cloud">
+<Tabs label="Connect from any cloud" persistKey="source-cloud" >
 
-<Tab title="Amazon Web Services">
+<Tab title="Amazon Web Services" label="aws">
 
 <Procedure>
 
@@ -43,7 +43,7 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 
 </Tab>
 
-<Tab title="Microsoft Azure">
+<Tab title="Microsoft Azure" label="ms-azure">
 
 <Procedure>
 
@@ -57,7 +57,7 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 
 </Tab>
 
-<Tab title="Google Cloud">
+<Tab title="Google Cloud" label="google-cloud">
 
 <Procedure>
 
@@ -71,7 +71,7 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 
 </Tab>
 
-<Tab title="On-premise">
+<Tab title="On-premise" label="on-premise">
 
 <Procedure>
 
