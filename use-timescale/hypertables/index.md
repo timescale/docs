@@ -56,7 +56,7 @@ to view and set your chunk time intervals, see how to
 
 ## Partition by dimension
 
-Partitioning on time is the most common use case for $HYPERTABLE, but it may not be enough for your needs. For example,
+Partitioning on time is the most common use case for a $HYPERTABLE, but it may not be enough for your needs. For example,
 you may need to scan for the latest readings that match a certain condition without locking a critical $HYPERTABLE.
 Best practice to optimize ingest and query performance is to create a hash partition on a non-time column, such as a
 location or device UUID.
@@ -95,7 +95,7 @@ For example:
    ``` 
    Now use your $HYPERTABLE as usual, but you can also ingest and query efficiently by the `device_id` column.
 
-1. **Change the number of partitions as you data grows**
+1. **Change the number of partitions as your data grows**
 
    ```sql
    select set_number_partitions('conditions', 5, 'device_id');
