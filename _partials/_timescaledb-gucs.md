@@ -38,9 +38,6 @@
 | `enable_decompression_sorted_merge` | `BOOLEAN` | `true` | Enable the merge of compressed batches to preserve the compression order by |
 | `enable_delete_after_compression` | `BOOLEAN` | `false` | Delete all rows after compression instead of truncate |
 | `enable_deprecation_warnings` | `BOOLEAN` | `true` | Enable warnings when using deprecated functionality |
-| `enable_direct_compress_copy` | `BOOLEAN` | `false` | Enable experimental support for direct compression during COPY |
-| `enable_direct_compress_copy_client_sorted` | `BOOLEAN` | `false` | Correct handling of data sorting by the user is required for this option. |
-| `enable_direct_compress_copy_sort_batches` | `BOOLEAN` | `true` | Enable batch sorting during direct compress COPY |
 | `enable_dml_decompression` | `BOOLEAN` | `true` | Enable DML decompression when modifying compressed hypertable |
 | `enable_dml_decompression_tuple_filtering` | `BOOLEAN` | `true` | Recheck tuples during DML decompression to only decompress batches with matching tuples |
 | `enable_event_triggers` | `BOOLEAN` | `false` | Enable event triggers for chunks creation |
@@ -80,4 +77,4 @@
 | `skip_scan_run_cost_multiplier` | `REAL` | `1.0` | Default is 1.0 i.e. regularly estimated SkipScan run cost, 0.0 will make SkipScan to have run cost = 0<br />min: `0.0`, max: `1.0` |
 | `telemetry_level` | `ENUM` | `TELEMETRY_DEFAULT` | Level used to determine which telemetry to send |
 
-Version: [2.21.0](https://github.com/timescale/timescaledb/releases/tag/2.21.0)
+Version: [2.20.3](https://github.com/timescale/timescaledb/releases/tag/2.20.3)
