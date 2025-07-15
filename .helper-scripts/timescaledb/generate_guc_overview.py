@@ -134,7 +134,7 @@ def get_meta_data(type: str, parts: list) -> str:
     if type == "BOOLEAN":
         return ""
     if type in ["INTEGER", "REAL"]:
-        return "min: `%s`\nmax: `%s`" % (strip_comment_pattern(parts[5]).strip(), strip_comment_pattern(parts[6]).strip())
+        return "min: `%s`, max: `%s`" % (strip_comment_pattern(parts[5]).strip(), strip_comment_pattern(parts[6]).strip())
     return ""
 
 """
@@ -180,7 +180,7 @@ def render(gucs: dict, filename: str, version: str):
         for guc in gucs.values():
             desc = guc["long_desc"]
             if guc["meta"] != "":
-                desc += "\n" + guc["meta"] 
+                desc += "<br />" + guc["meta"] 
             f.write("| `%s` | `%s` | `%s` | %s |\n" % (guc["name"], guc["type"], guc["value"], desc))
         f.write("\n")
         f.write("Version: [%s](https://github.com/timescale/timescaledb/releases/tag/%s)" % (version, version))
