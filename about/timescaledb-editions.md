@@ -169,16 +169,16 @@ You can access a hosted version of $TDB_COMMUNITY through
     <td>✅</td>
   </tr>
   <tr>
-    <td colspan="3"><strong>Distributed hypertables</strong>: This feature is <a href="https://github.com/timescale/timescaledb/blob/2.14.0/docs/MultiNodeDeprecation.md">deprecated in all editions</a> after TimescaleDB v2.13.</td>
+    <td><a href="https://docs.tigerdata.com/use-timescale/latest/query-data/skipscan/">SkipScan</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td colspan="3"><strong>Distributed hypertables</strong>: This feature is <a href="https://github.com/timescale/timescaledb/blob/2.14.0/docs/MultiNodeDeprecation.md">sunsetted in all editions</a> in TimescaleDB v2.14.x</td>
   </tr>
 
   <tr>
     <td><strong>Hypercore</strong>  <Since2180 /></td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hypercore/alter_materialized_view/">ALTER MATERIALIZED VIEW (Hypercore)</a></td>
-    <td>❌</td>
-    <td>✅</td>
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a></td>
