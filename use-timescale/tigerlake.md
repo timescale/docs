@@ -250,6 +250,9 @@ These partitions define the behavior of the [Iceberg partition specification][ic
 
 ### Sample code
 
+The following samples show you how to tune data sync from a $HYPERTABLE or a $PG relational table to your
+data lake:
+
 - **Sync a $HYPERTABLE with the default one-day partitioning interval on the `ts_column` column**
 
    To start syncing data from a $HYPERTABLE to your data lake using the default one-day chunk interval as partitioning 
