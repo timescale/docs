@@ -69,7 +69,7 @@ location or device UUID, and specify a number of partitions.
 
 You add a partitioning dimension at the same time as you create the hypertable, when the table is empty. The good news 
 is that although you select the number of partitions at creation time, as your data grows you can change the number of 
-partitions later and improve query performance. Changing the number of partitions only effects chunks created after the 
+partitions later and improve query performance. Changing the number of partitions only affects chunks created after the 
 change, not existing chunks. To set the number of partitions for a partitioning dimension, call `set_number_partitions`. 
 For example:
 
