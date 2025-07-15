@@ -181,11 +181,6 @@ You can access a hosted version of $TDB_COMMUNITY through
     <td><strong>Hypercore</strong>  <Since2180 /></td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hypercore/alter_materialized_view/">ALTER MATERIALIZED VIEW (Hypercore)</a></td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-  <tr>
     <td><a href="https://docs.timescale.com/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a></td>
     <td>❌</td>
     <td>✅</td>
