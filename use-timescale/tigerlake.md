@@ -14,7 +14,7 @@ $LAKE_LONG enables you to build real-time applications alongside efficient data 
 system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. 
 
 This experimental release is a native integration enabling synchronization between $HYPERTABLEs and relational tables
-running in $SERVICE_LONGs, and Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
+running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ To connect a $SERVICE_LONG to your data lake:
 
 1. **Set the AWS region to host your table bucket**
    1. In [AWS CloudFormation][cmc], select the current AWS region at the top-right of the page.
-   1. Set it to the Region to create your table bucket in. 
+   1. Set it to the Region you want to create your table bucket in. 
 
    **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for 
    cross-region data transfer.
@@ -48,7 +48,7 @@ To connect a $SERVICE_LONG to your data lake:
    1. In `Specify stack details`, enter the following details, then click `Next`:
       * `Stack Name`: a name for this CloudFormation stack
       * `BucketName`: a name for this S3 table bucket
-      * `ProjectID` and `ServiceID`: enter the [connection details][get-project-id] for your $LAKE_LONG $SERVICE_SHORT.
+      * `ProjectID` and `ServiceID`: enter the [connection details][get-project-id] for your $LAKE_LONG $SERVICE_SHORT
    1. In `Configure stack options` check `I acknowledge that AWS CloudFormation might create IAM resources`, then 
       click `Next`.
    1. In `Review and create`, click `Submit`, then wait for the deployment to complete. 
@@ -94,7 +94,7 @@ To connect a $SERVICE_LONG to your data lake:
       ParameterKey=ServiceID,ParameterValue="<ServiceID>"
    ```
 
-  Setting up the integration through the Console in $CLOUD_LONG, provides a convenient copy-paste option with the 
+  Setting up the integration through $CONSOLE in $CLOUD_LONG, provides a convenient copy-paste option with the 
   placeholders populated.
 
 1. **Connect your $SERVICE_SHORT to the data lake**
@@ -120,7 +120,7 @@ To connect a $SERVICE_LONG to your data lake:
 
    1. Set the AWS region to host your table bucket
       1. In [Amazon S3 console][s3-console], select the current AWS region at the top-right of the page.
-      2. Set it to the Region to create your table bucket in.
+      2. Set it to the Region your you want to create your table bucket in.
 
       **This must match the region your $SERVICE_LONG is running in**: if the regions do not match AWS charges you for
       cross-region data transfer.
@@ -210,7 +210,7 @@ To connect a $SERVICE_LONG to your data lake:
 ## Stream data from your $SERVICE_LONG to your data lake
 
 When you start streaming, all data in the table is synchronized to Iceberg. Records are imported in time order, from
-oldest to youngest. The write throughput is approximately 40.000 records / second. For larger tables a full import can 
+oldest to youngest. The write throughput is approximately 40.000 records / second. For larger tables, a full import can 
 take some time.
 
 For Iceberg to perform update or delete statements, your $HYPERTABLE or relational table must have a primary key. 
@@ -229,7 +229,7 @@ ALTER TABLE <table_name> SET (
 * `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming, or `false` to stop the stream. A stream 
   **cannot** resume after being stopped. 
 * `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the 
-   the Iceberg table is partitioned as `day(<time-column of $HYPERTABLE>)`. This default behavior is only applicable  
+   Iceberg table is partitioned as `day(<time-column of $HYPERTABLE>)`. This default behavior is only applicable  
    to $HYPERTABLEs. For more information, see [partitioning][partitioning].
 
 ### Partitioning intervals
@@ -246,7 +246,7 @@ $PG table sync does not enable any partitioning in Iceberg for non-hypertables. 
 | `year`        | Extract a date or timestamp day, as days from epoch.                      | `date`, `timestamp`, `timestamptz` | 
 | `truncate[W]` | Value truncated to width W, see [options][iceberg-truncate-options]       |
 
-These partitions define the behavior of the [Iceberg partition specification][iceberg-partition-spec]:
+These partitions define the behavior using the [Iceberg partition specification][iceberg-partition-spec]:
 
 ### Sample code
 
@@ -255,8 +255,8 @@ data lake:
 
 - **Sync a $HYPERTABLE with the default one-day partitioning interval on the `ts_column` column**
 
-   To start syncing data from a $HYPERTABLE to your data lake using the default one-day chunk interval as partitioning 
-   scheme to the Iceberg table, run the following statement: 
+   To start syncing data from a $HYPERTABLE to your data lake using the default one-day chunk interval as the 
+   partitioning scheme to the Iceberg table, run the following statement: 
    
    ```sql
    ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = true);
