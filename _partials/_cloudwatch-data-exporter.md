@@ -18,9 +18,9 @@
 
     ![Add CloudWatch authentication](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-integrations-cloudwatch-authentication.png)
 
-    <Tabs label="Authentication methods">
+    <Tabs label="Authentication methods" persistKey="authentication">
 
-    <Tab title="IAM role">
+    <Tab title="IAM role" label="iam">
 
     <Procedure>
     
@@ -104,7 +104,7 @@
 
     </Tab>
 
-    <Tab title="CloudWatch credentials">
+    <Tab title="CloudWatch credentials" label="cloudwatch">
 
     <Procedure>
 
