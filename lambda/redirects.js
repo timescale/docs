@@ -1060,5 +1060,9 @@ module.exports = [
   {
     from: "/use-timescale/latest/members/",
     to: "https://docs.tigerdata.com/use-timescale/latest/security/members/"
+  },
+  {
+    from: "/api/latest/hypercore/alter_materialized_view/",
+    to: "https://docs.tigerdata.com/api/latest/continuous-aggregates/alter_materialized_view/"
   }
 ];
