@@ -134,7 +134,7 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 
 
 [compression_alter-table]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/

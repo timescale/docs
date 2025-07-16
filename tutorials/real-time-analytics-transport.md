@@ -129,7 +129,7 @@ your data.
 [use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
 [job]: /api/:currentVersion:/actions/add_job/
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
