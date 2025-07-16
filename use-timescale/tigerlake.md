@@ -7,6 +7,7 @@ keywords: [data lake, lakehouse, s3, iceberg]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
+import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 
 # Integrate data lakes with $CLOUD_LONG
 
@@ -15,6 +16,8 @@ system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data la
 
 This experimental release is a native integration enabling synchronization between $HYPERTABLEs and relational tables
 running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
+
+<EarlyAccessGeneral /> 
 
 ## Prerequisites
 
