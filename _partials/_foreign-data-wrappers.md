@@ -17,9 +17,9 @@ $PG FDWs are particularly useful if you manage multiple $SERVICE_LONGs with diff
 
 To query another data source: 
 
-<Tabs label="Query another data source">
+<Tabs label="Query another data source" persistKey="source-database">
 
-<Tab title="Tiger Cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
 
 You create $PG FDWs with the `postgres_fdw` extension, which is enabled by default in $CLOUD_LONG.
 
@@ -115,7 +115,7 @@ IMPORT FOREIGN SCHEMA public
 
 </Tab>
 
-<Tab title="Self-hosted TimescaleDB">
+<Tab title="Self-hosted TimescaleDB" label="self-hosted">
 
 You create $PG FDWs with the `postgres_fdw` extension. See [documenation][enable-fdw-docs] on how to enable it. 
 

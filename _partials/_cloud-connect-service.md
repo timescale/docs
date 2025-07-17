@@ -11,9 +11,9 @@
 
    Connect using data mode or SQL editor in $CONSOLE, or psql in the command line:
 
-   <Tabs label="Connect to your Tiger Cloud service">
+   <Tabs label="Connect to your Tiger Cloud service" persistKey="sql-editor">
 
-   <Tab title="Data mode in Console">
+   <Tab title="Data mode in Console" label="data-mode">
 
    <Procedure>
 
@@ -37,7 +37,7 @@
 
    </Tab>
    
-   <Tab title="SQL editor in Console">
+   <Tab title="SQL editor in Console" label="sql-editor">
 
    <Procedure>
 
@@ -61,7 +61,7 @@
 
    </Tab>
    
-   <Tab title="psql on the command line">
+   <Tab title="psql on the command line" label="psql">
 
    <Procedure>
 

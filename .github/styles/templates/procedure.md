@@ -76,9 +76,9 @@ You have \<what the user will do in this section>.
 Intro sentence. This section shows how to use tabs to show multiple implementations
 of the same thing:
 
-<Tabs label="Install TimescaleDB">
+<Tabs label="Install TimescaleDB" persistKey="os">
 
-<Tab title="Platform, product or reason ">
+<Tab title="Platform, product or reason " label="windows">
 
 1. **Do this**
 
@@ -88,7 +88,7 @@ of the same thing:
    Code example or procedure
 </Tab>
 
-<Tab title="Platform, product or reason">
+<Tab title="Platform, product or reason" label="debian">
 
 <SelfHostedDebianBased />
 
