@@ -20,7 +20,7 @@ attack vector surface and improves security.
 The data isolation architecture that ensures a highly secure connection between your apps and 
 $CLOUD_LONG is:
 
-![$CLOUD_LONG isolation architecture](https://assets.timescale.com/docs/images/tsc-vpc-architecture.svg)
+![$CLOUD_LONG isolation architecture](https://assets.timescale.com/docs/images/tsc-vpc-architecture.png)
 
 Your customer apps run inside your AWS Customer $VPC, your $SERVICE_LONGs always run 
 inside the secure $CLOUD_LONG $VPC. You control secure communication between apps in
