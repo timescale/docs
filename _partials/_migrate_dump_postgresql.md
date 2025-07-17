@@ -11,6 +11,7 @@ import MigrationValidateRestartApp from "versionContent/_partials/_migrate_valid
 </Procedure>
 
 ## Align the extensions on the source and target
+
 <Procedure>
 
 <MigrationSetupDBConnectionPostgresql />
@@ -20,9 +21,10 @@ import MigrationValidateRestartApp from "versionContent/_partials/_migrate_valid
 ## Migrate the roles from $TIMESCALE_DB to your $SERVICE_LONG
 
 Roles manage database access permissions. To migrate your role-based security hierarchy to your $SERVICE_LONG:
+
 <Procedure>
 
-<MigrationProcedureDumpSchemaPostgres />
+<MigrationProcedureDumpSchemaPostgreSQL />
 
 </Procedure>
 
