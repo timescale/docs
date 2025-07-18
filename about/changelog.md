@@ -9,6 +9,13 @@ products: [cloud, self_hosted]
 
 All the latest features and updates to $COMPANY products.
 
+## Iceberg Destination Connector (TigerLake)
+<Label type="date">July 18, 2025</Label>
+
+We have released a beta Iceberg destination connector that enables Scale and Enterprise users to integrate Tiger Cloud services with Amazon S3 tables. This enables you to connect Tiger Cloud to data lakes seamlessly. We are actively developing several improvements that will make the overall data lake integration process even smoother.
+
+To use this feature, select your service in Tiger Cloud Console, then navigate to `Connectors` and select the `Amazon S3 Tables` destination connector. Integrate the connector to your S3 table bucket by providing the ARN roles, then simply select the tables that you want to sync into S3 tables. See the [documentation](https://docs.tigerdata.com/use-timescale/latest/tigerlake/) for details. 
+
 ## 🔆Console just got better
 <Label type="date">July 11, 2025</Label>
 
