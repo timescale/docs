@@ -11,7 +11,7 @@ import TsdbGucsList from "versionContent/_partials/_timescaledb-gucs.mdx";
 You use the following Grand Unified Configuration (GUC) parameters to optimize the behavior of your $SERVICE_LONG.
 
 The namespace of each GUC is `timescaledb`. 
-Setting a GUC, requires specifing the GUC name with the namespace, as follows:
+To set a GUC you specify `<namespace>.<GUC name>`. For example:
 
 ```sql
 SET timescaledb.enable_tiered_reads = true;
