@@ -1,7 +1,6 @@
 ---
 title: Multi-node administration
 excerpt: Sunsetted v2.14.x. Administer your multi-node TimescaleDB cluster directly from the access node
-products: [self_hosted]
 keywords: [multi-node, admin]
 tags: [manage]
 seo:
@@ -14,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 
 # Multi-node administration
 
-Multi-node TimescaleDB allows you to administer your cluster directly
+Multi-node $TIMESCALE_DB allows you to administer your cluster directly
 from the access node. When your environment is set up, you do not
 need to log directly into the data nodes to administer your database.
 
@@ -58,7 +57,7 @@ administrative tasks are handled in a multi-node environment.
 ## Distributed role management
 
 In a multi-node environment, you need to manage roles on each
-PostgreSQL instance independently, because roles are instance-level
+$PG instance independently, because roles are instance-level
 objects that are shared across both distributed and non-distributed
 databases that each can be configured with a different set of data
 nodes or none at all. Therefore, an access node does not

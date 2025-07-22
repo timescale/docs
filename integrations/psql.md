@@ -1,7 +1,7 @@
 ---
-title: Connect to a Timescale Cloud service with psql 
-excerpt: psql enables you to type in queries interactively, issue them to Postgres, and see the query results. Connect to your Timescale Cloud service using psql
-products: [cloud, mst, self_hosted]
+title: Connect to a Tiger Cloud service with psql 
+excerpt: psql enables you to type in queries interactively, issue them to Postgres, and see the query results. Connect to your Tiger Cloud service using psql
+products: [cloud, self_hosted]
 keywords: [connect, psql]
 ---
 
@@ -9,7 +9,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Connect with psql
 
-[`psql`][psql-docs] is a terminal-based frontend to PostgreSQL that enables you to type in queries interactively, issue them to Postgres, and see the query results. 
+[`psql`][psql-docs] is a terminal-based frontend to $PG that enables you to type in queries interactively, issue them to Postgres, and see the query results. 
 
 This page shows you how to use the `psql` command line tool to interact with your $SERVICE_LONG.
 
@@ -50,11 +50,11 @@ If you already have the latest version of `psql` installed, proceed to the [Conn
 
 If there is no existing installation, take the following steps to install `psql`:
     
-<Tabs label="Install psql">
+<Tabs label="Install psql" persistKey="os">
     
-<Tab title="MacOS Homebrew">
+<Tab title="MacOS Homebrew" label="macos">
 
-Install using Homebrew. `libpqxx` is the official C++ client API for PostgreSQL.
+Install using Homebrew. `libpqxx` is the official C++ client API for $PG.
 
 <Procedure>
 
@@ -91,9 +91,9 @@ On Intel chips, the symbolic link is added to `/usr/local/bin`. On Apple Silicon
 
 </Tab>
 
-<Tab title="MacOS MacPorts">
+<Tab title="MacOS MacPorts" label="macos-macports">
 
-Install using MacPorts. `libpqxx` is the official C++ client API for PostgreSQL.
+Install using MacPorts. `libpqxx` is the official C++ client API for $PG.
 
 <Procedure>
 
@@ -121,7 +121,7 @@ Install using MacPorts. `libpqxx` is the official C++ client API for PostgreSQL.
 
 </Tab>
   
-<Tab title="Debian and Ubuntu">
+<Tab title="Debian and Ubuntu" label="ubuntu">
 
 Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
@@ -143,13 +143,13 @@ Install `psql` on Debian and Ubuntu with the `apt` package manager.
 
 </Tab>
 
-<Tab title="Windows">
+<Tab title="Windows" label="windows">
 
-`psql` is installed by default when you install PostgreSQL. This procedure uses the interactive installer provided by PostgreSQL and EnterpriseDB.
+`psql` is installed by default when you install $PG. This procedure uses the interactive installer provided by $PG and EnterpriseDB.
 
 <Procedure>
 
-1.  Download and run the PostgreSQL installer from [www.enterprisedb.com][windows-installer].
+1.  Download and run the $PG installer from [www.enterprisedb.com][windows-installer].
  
 1. In the `Select Components` dialog, check `Command Line Tools`, along with any other components you want to install, and click `Next`.
 
@@ -200,7 +200,7 @@ When you start using `psql`, these are the commands you are likely to use most f
 |`\di`|List all indexes from all tables|
 |`\dn`|List all schemas in the current database|
 |`\dt`|List available tables|
-|`\du`|List PostgreSQL database roles|
+|`\du`|List $PG database roles|
 |`\dv`|List views in current schema|
 |`\dv+`|List all views with more details|
 |`\dx`|Show all installed extensions|
@@ -218,7 +218,7 @@ For more on `psql` commands, see the [$COMPANY psql cheat sheet][psql-cheat-shee
 
 ## Save query results to a file
 
-When you run queries in `psql`, the results are shown in the console by default.
+When you run queries in `psql`, the results are shown in the terminal by default.
 If you are running queries that have a lot of results, you might like to save
 the results into a comma-separated `.csv` file instead. You can do this using
 the `COPY` command. For example:
@@ -240,7 +240,7 @@ SELECT public.alter_job(j.id, scheduled=>true)
 FROM _timescaledb_config.bgw_job j
 JOIN _timescaledb_catalog.hypertable h ON h.id = j.hypertable_id
 WHERE j.proc_schema IN ('_timescaledb_internal', '_timescaledb_functions')
-AND j.proc_name = 'policy_compression'
+AND j.proc_name = 'policy_columnstore'
 AND j.id >= 1000
 AND format('%I.%I', h.schema_name, h.table_name)::text::regclass = :'hypertable'::text::regclass;
 EOF

@@ -6,13 +6,14 @@ tags: [background jobs, scheduled jobs, automation framework, scheduled views]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.job_history
 
 Shows information about the $JOBs run by the automation framework.
 This includes custom $JOBs and $JOBs run by policies
-created to manage data retention, continuous aggregates, compression, and
+created to manage data retention, continuous aggregates, columnstore, and
 other automation policies. For more information about automation policies,
 see [$JOBs][jobs].
 
@@ -29,7 +30,7 @@ see [$JOBs][jobs].
 |`start_time`|TIMESTAMP WITH TIME ZONE| The time the job started|
 |`finish_time`|TIMESTAMP WITH TIME ZONE| The time when the error was reported|
 |`config`|JSONB| The job configuration at the moment of execution|
-|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
+|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official $PG documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
 |`err_message`|TEXT|The detailed error message|
 
 ## Sample usage
@@ -79,7 +80,7 @@ check_schema      | _timescaledb_functions
 check_name        | policy_job_stat_history_retention_check
 ```
 
-On Timescale and Managed Service for TimescaleDB, the owner of the job history
+On $TIMESCALE_DB and $MST_LONG, the owner of the job history
 retention job is `tsdbadmin`. In an on-premise installation, the owner of the
 job is the same as the extension owner.
 The owner of the retention job can alter it and delete it.

@@ -7,6 +7,7 @@ tags: [materialized view, hypertables]
 api:
   license: community
   type: command
+products: [cloud, self_hosted, mst]
 ---
 
 # CREATE MATERIALIZED VIEW (Continuous Aggregate) <Tag type="community">Community</Tag>
@@ -48,11 +49,11 @@ Continuous aggregates have some limitations of what types of queries they can
 support. For more information, see the
 [continuous aggregates section][cagg-how-tos].
 
-For services running TimescaleDB v2.17.1 and greater, to dramatically decrease the amount
+$TIMESCALE_DB v2.17.1 and greater dramatically decrease the amount
 of data written on a continuous aggregate in the presence of a small number of changes,
 reduce the i/o cost of refreshing a continuous aggregate, and generate fewer Write-Ahead
 Logs (WAL), set the`timescaledb.enable_merge_on_cagg_refresh`
-[configuration parameter][modify-parameters] to `TRUE`. This enables continuous aggregate
+configuration parameter to `TRUE`. This enables continuous aggregate
 refresh to use merge instead of deleting old materialized data and re-inserting.
 
 For more settings for continuous aggregates, see [timescaledb_information.continuous_aggregates][info-views].
@@ -74,11 +75,12 @@ Required `WITH` clause options:
 
 Optional `WITH` clause options:
 
-|Name|Type|Description|Default value|
-|-|-|-|-|
-|`timescaledb.materialized_only`|BOOLEAN|Return only materialized data when querying the continuous aggregate view|`TRUE`|
-|`timescaledb.create_group_indexes`|BOOLEAN|Create indexes on the continuous aggregate for columns in its `GROUP BY` clause. Indexes are in the form `(<GROUP_BY_COLUMN>, time_bucket)`|`TRUE`|
-|`timescaledb.finalized`|BOOLEAN|In TimescaleDB 2.7 and above, use the new version of continuous aggregates, which stores finalized results for aggregate functions. Supports all aggregate functions, including ones that use `FILTER`, `ORDER BY`, and `DISTINCT` clauses.|`TRUE`|
+|Name|Type| Description                                                                                                                                                                                                                                |Default value|
+|-|-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-|
+|`timescaledb.chunk_interval`|INTERVAL| Set the chunk interval. The default value is 10x the original hypertable.                                                                                                     |
+|`timescaledb.create_group_indexes`|BOOLEAN| Create indexes on the continuous aggregate for columns in its `GROUP BY` clause. Indexes are in the form `(<GROUP_BY_COLUMN>, time_bucket)`                                                                                                |`TRUE`|
+|`timescaledb.finalized`|BOOLEAN| In TimescaleDB 2.7 and above, use the new version of continuous aggregates, which stores finalized results for aggregate functions. Supports all aggregate functions, including ones that use `FILTER`, `ORDER BY`, and `DISTINCT` clauses. |`TRUE`|
+|`timescaledb.materialized_only`|BOOLEAN| Return only materialized data when querying the continuous aggregate view                                                                                                                                                                  |`TRUE`|
 
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 

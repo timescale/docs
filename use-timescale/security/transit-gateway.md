@@ -1,7 +1,8 @@
 ---
-title: Peer your Timescale Cloud services with AWS Transit Gateway
-excerpt: Securely connect to your Timescale Cloud services from AWS, GCP, Azure, or any other cloud or on-premise environment 
+title: Peer your Tiger Cloud services with AWS Transit Gateway
+excerpt: Securely connect to your Tiger Cloud services from AWS, GCP, Azure, or any other cloud or on-premise environment 
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [AWS, transit gateway]
 tags: [aws]
 cloud_ui:
@@ -19,6 +20,8 @@ You use AWS Transit Gateway as a traffic controller for your network. Instead of
 
 You can then create a peering connection between your $SERVICE_LONGs and AWS Transit Gateway in $CLOUD_LONG. This means that, no matter how big or complex your infrastructure is, you can connect securely to your $SERVICE_LONGs. 
 
+For enhanced security, you can add peering connections to multiple Transit Gateways with overlapping CIDRs—$CLOUD_LONG creates a new isolated connection for every unique Transit Gateway ID. Otherwise, the existing connection is reused for your $SERVICE_SHORTs in the same project and region. 
+
 To configure this secure connection, you:
 
 1. Connect your infrastructure to AWS Transit Gateway.
@@ -26,13 +29,11 @@ To configure this secure connection, you:
 1. Accept and configure the peering connection on your side.
 1. Attach individual $SERVICE_SHORTs to the Peering $VPC.
 
-The AWS Transit Gateway feature is available for Scale and Enterprise [pricing plans][pricing-plans].
+AWS Transit Gateway enables you to connect from almost any environment, this page provides examples for the most common use cases. 
 
-AWS Transit Gateway enable you to connect from almost any environment, this page provides examples for the most common use cases. 
+<Tabs label="Connect from any cloud" persistKey="source-cloud" >
 
-<Tabs label="Connect from any cloud">
-
-<Tab title="Amazon Web Services">
+<Tab title="Amazon Web Services" label="aws">
 
 <Procedure>
 
@@ -42,7 +43,7 @@ AWS Transit Gateway enable you to connect from almost any environment, this page
 
 </Tab>
 
-<Tab title="Microsoft Azure">
+<Tab title="Microsoft Azure" label="ms-azure">
 
 <Procedure>
 
@@ -56,7 +57,7 @@ AWS Transit Gateway enable you to connect from almost any environment, this page
 
 </Tab>
 
-<Tab title="Google Cloud">
+<Tab title="Google Cloud" label="google-cloud">
 
 <Procedure>
 
@@ -70,7 +71,7 @@ AWS Transit Gateway enable you to connect from almost any environment, this page
 
 </Tab>
 
-<Tab title="On-premise">
+<Tab title="On-premise" label="on-premise">
 
 <Procedure>
 

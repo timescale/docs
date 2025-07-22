@@ -1,7 +1,8 @@
 ---
 title: Replicas and forks with tiered data
-excerpt: While having replicas of your Timescale Cloud service usually entails additional storage costs, tiering data to object storage means your replicas come for free. Learn how this works under the hood
-product: [cloud]
+excerpt: While having replicas of your Tiger Cloud service usually entails additional storage costs, tiering data to object storage means your replicas come for free. Learn how this works under the hood
+products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [tiered storage]
 tags: [storage, data management]
 ---
@@ -10,7 +11,7 @@ tags: [storage, data management]
 
 There is one more thing that makes Tiered Storage even more amazing: when you keep data in the low-cost object storage tier,
 you pay for this data only once, regardless of whether you have a [high-availability replica][ha-replica]
-or [read replicas][read-replica] running in your service. We call this the savings multiplication effect of Tiered Storage.
+or [read replicas][read-replica] running in your $SERVICE_SHORT. We call this the savings multiplication effect of Tiered Storage.
 
 The same applies to [forks][operations-forking], which you can use, for example, for running tests or creating dev environments.
 When creating one (or more) forks, you won't be billed for data shared with the primary in the low-cost storage.

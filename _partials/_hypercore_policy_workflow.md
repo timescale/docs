@@ -1,51 +1,65 @@
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 <Procedure>
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your $SERVICE_SHORT using [psql][connect-using-psql].
 
-1. **Enable columnstore on a hypertable**
+1. **Enable $COLUMNSTORE on a $HYPERTABLE**
 
-   Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a specific time interval. 
-   By default, your table is `orderedby` the time column. For efficient queries on columnstore data, remember to
-   `segmentby` the column you will use most often to filter your data:
+   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
+   use most often to filter your data. For example:
 
-   * [Use `ALTER TABLE` for a hypertable][alter_table_hypercore]
+   * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]
+
      ```sql
-     ALTER TABLE crypto_ticks SET (
-        timescaledb.enable_columnstore = true, 
-        timescaledb.segmentby = 'symbol');
+     CREATE TABLE crypto_ticks (
+        "time" TIMESTAMPTZ,
+        symbol TEXT,
+        price DOUBLE PRECISION,
+        day_volume NUMERIC
+     ) WITH (
+       tsdb.hypertable,
+       tsdb.partition_column='time',
+       tsdb.segmentby='symbol', 
+       tsdb.orderby='time DESC'
+     );
      ```
-   * [Use ALTER MATERIALIZED VIEW for a continuous aggregate][compression_continuous-aggregate]
+     <OldCreateHypertable />
+   
+   * [Use `ALTER MATERIALIZED VIEW` for a $CAGG][compression_continuous-aggregate]
      ```sql
      ALTER MATERIALIZED VIEW assets_candlestick_daily set (
         timescaledb.enable_columnstore = true, 
         timescaledb.segmentby = 'symbol' );
      ``` 
-     Before you say `huh`, a continuous aggregate is a specialized hypertable.
+     Before you say `huh`, a $CAGG is a specialized $HYPERTABLE.
  
-1. **Add a policy to convert chunks to the columnstore at a specific time interval**
+1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
 
-   For example, move yesterday's crypto trading data to the columnstore:
+   Create a [columnstore_policy][add_columnstore_policy] that automatically converts $CHUNKs in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval. For example, convert yesterday's crypto trading data to the $COLUMNSTORE:
    ``` sql
    CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
    ```
-   See [add_columnstore_policy][add_columnstore_policy].
-   
-1. **Check the columstore policy**
+
+   $TIMESCALE_DB is optimized for fast updates on compressed data in the $COLUMNSTORE. To modify data in the 
+   $COLUMNSTORE, use standard SQL.
+
+1. **Check the $COLUMNSTORE policy**
 
    1. View your data space saving:
    
-      When you convert data to the columnstore, as well as being optimized for analytics, it is compressed by more than 
-      90%. This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space 
+      When you convert data to the $COLUMNSTORE, as well as being optimized for analytics, it is compressed by more than 
+      90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space 
       saved:
 
       ``` sql
       SELECT 
         pg_size_pretty(before_compression_total_bytes) as before,
         pg_size_pretty(after_compression_total_bytes) as after
-      FROM hypertable_compression_stats('crypto_ticks');
+      FROM hypertable_columnstore_stats('crypto_ticks');
       ```
       You see something like:
    
@@ -61,11 +75,7 @@
       ```
       See [timescaledb_information.jobs][informational-views].
 
-1. **Pause a columnstore policy**
-
-   If you need to modify or add a lot of data to a chunk in the columnstore, best practice is to stop any jobs moving 
-   chunks to the columnstore, [convert the chunk back to the rowstore][convert_to_rowstore], then modify the data. 
-   After the update, [convert the chunk to the columnstore][convert_to_columnstore] and restart the jobs. 
+1. **Pause a $COLUMNSTORE policy**
 
    ``` sql
    SELECT * FROM timescaledb_information.jobs where 
@@ -77,24 +87,24 @@
    ```
    See [alter_job][alter_job].
 
-1. **Restart a columnstore policy**
+1. **Restart a $COLUMNSTORE policy**
 
    ``` sql
    SELECT alter_job(JOB_ID, scheduled => true);
    ```
    See [alter_job][alter_job].
 
-1. **Remove a columnstore policy**
+1. **Remove a $COLUMNSTORE policy**
 
    ``` sql
    CALL remove_columnstore_policy('crypto_ticks');
    ```
    See [remove_columnstore_policy][remove_columnstore_policy].
 
-1. **Disable columnstore**
+1. **Disable $COLUMNSTORE**
 
-   If your table has chunks in the columnstore, you have to
-   [convert the chunks back to the rowstore][convert_to_rowstore] before you disable the columnstore.
+   If your table has $CHUNKs in the $COLUMNSTORE, you have to
+   [convert the $CHUNKs back to the $ROWSTORE][convert_to_rowstore] before you disable the $COLUMNSTORE.
    ``` sql
    ALTER TABLE crypto_ticks SET (timescaledb.enable_columnstore = false);
    ```
@@ -104,7 +114,7 @@
 
 [job]: /api/:currentVersion:/actions/add_job/
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
@@ -116,3 +126,7 @@
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

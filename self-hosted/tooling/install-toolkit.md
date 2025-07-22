@@ -1,36 +1,36 @@
 ---
 title: Install and update TimescaleDB Toolkit
 excerpt: Install the TimescaleDB Toolkit extension to access more hyperfunctions and function pipelines
-products: [mst, self_hosted]
+products: [self_hosted]
 keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 ---
 
-# Install and update TimescaleDB Toolkit
+# Install and update $TIMESCALE_DB Toolkit
 
-Some hyperfunctions are included by default in Timescale. For additional
-hyperfunctions, you need to install the TimescaleDB Toolkit PostgreSQL
+Some hyperfunctions are included by default in $TIMESCALE_DB. For additional
+hyperfunctions, you need to install the $TOOLKIT_LONG $PG
 extension.
 
-If you're using [Timescale][cloud], the Toolkit is already installed.
+If you're using [$CLOUD_LONG][cloud], the $TOOLKIT_LONG is already installed.
 
-## Install and update Toolkit on Managed Service for TimescaleDB
+## Install and update TimescaleDB Toolkit on Managed Service for TimescaleDB
 
-On [Managed Service for TimescaleDB][mst], run this command on each database you
-want to use the Toolkit with:
+On [$MST_LONG][mst], run this command on each database you
+want to use the $TOOLKIT_SHORT with:
 
 ```sql
 CREATE EXTENSION timescaledb_toolkit;
 ```
 
-Update an installed version of the Toolkit using this command:
+Update an installed version of the $TOOLKIT_SHORT using this command:
 
 ```sql
 ALTER EXTENSION timescaledb_toolkit UPDATE;
 ```
 
-## Install Toolkit on self-hosted TimescaleDB
+## Install TimescaleDB Toolkit on self-hosted TimescaleDB
 
-If you're hosting your own TimescaleDB database, you can install Toolkit by:
+If you're hosting the $TIMESCALE_DB extension on your self-hosted database, you can install $TOOLKIT_SHORT by:
 
 *   Using the TimescaleDB high-availability Docker image
 *   Using a package manager such as `yum`, `apt`, or `brew` on platforms where
@@ -39,9 +39,9 @@ If you're hosting your own TimescaleDB database, you can install Toolkit by:
 
 ### Install Docker image
 
-The recommended way to install the Toolkit is to use the
+The recommended way to install the $TOOLKIT_SHORT is to use the
 [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
-To get Toolkit, use the high availability image, `timescaledb-ha`:
+To get $TOOLKIT_SHORT, use the high availability image, `timescaledb-ha`:
 
 ```bash
 docker pull timescale/timescaledb-ha:pg17
@@ -69,14 +69,14 @@ Enterprise Linux and Fedora.
     yum update
     ```
 
-1.  Install TimescaleDB Toolkit:
+1.  Install $TOOLKIT_LONG:
 
     ```bash
     yum install timescaledb-toolkit-postgresql-16
     ```
 
-1.  Connect to the database where you want to use Toolkit.
-1.  Create the Toolkit extension in the database:
+1.  Connect to the database where you want to use $TOOLKIT_SHORT.
+1.  Create the $TOOLKIT_SHORT extension in the database:
 
     ```sql
     CREATE EXTENSION timescaledb_toolkit;
@@ -108,8 +108,8 @@ and may also work on other Debian-based systems.
     apt install timescaledb-toolkit-postgresql-16
     ```
 
-1.  Connect to the database where you want to use Toolkit.
-1.  Create the Toolkit extension in the database:
+1.  Connect to the database where you want to use $TOOLKIT_SHORT.
+1.  Create the $TOOLKIT_SHORT extension in the database:
 
     ```sql
     CREATE EXTENSION timescaledb_toolkit;
@@ -126,8 +126,8 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
 
 #### Installing Toolkit on macOS
 
-1.  Tap the Timescale formula repository, which also contains formulae for
-    TimescaleDB and `timescaledb-tune`.
+1.  Tap the $COMPANY formula repository, which also contains formulae for
+    $TIMESCALE_DB and `timescaledb-tune`.
 
     ```bash
     brew tap timescale/tap
@@ -139,14 +139,14 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
     brew update
     ```
 
-1.  Install TimescaleDB Toolkit:
+1.  Install $TOOLKIT_LONG:
 
     ```bash
     brew install timescaledb-toolkit
     ```
 
-1.  Connect to the database where you want to use Toolkit.
-1.  Create the Toolkit extension in the database:
+1.  Connect to the database where you want to use $TOOLKIT_SHORT.
+1.  Create the $TOOLKIT_SHORT extension in the database:
 
     ```sql
     CREATE EXTENSION timescaledb_toolkit;
@@ -156,12 +156,12 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
 
 ### Install Toolkit on Windows
 
-TimescaleDB Toolkit isn't currently supported on Windows. As a workaround, you
-can run PostgreSQL in a Docker container.
+$TOOLKIT_LONG isn't currently supported on Windows. As a workaround, you
+can run $PG in a Docker container.
 
 ## Update Toolkit on self-hosted TimescaleDB
 
-Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
+Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENSION`.
 
 <Procedure>
 
@@ -197,7 +197,7 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
     </Terminal>
 
-1.  Install the latest version of TimescaleDB Toolkit:
+1.  Install the latest version of $TOOLKIT_LONG:
 
     <Terminal>
 
@@ -227,23 +227,25 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
     </Terminal>
 
-1.  Connect to the database where you want to use the new version of Toolkit.
-1.  Update the Toolkit extension in the database:
+1.  Connect to the database where you want to use the new version of $TOOLKIT_SHORT.
+1.  Update the $TOOLKIT_SHORT extension in the database:
 
     ```sql
     ALTER EXTENSION timescaledb_toolkit UPDATE;
     ```
 
 <Highlight type="note">
-For some Toolkit versions, you might need to disconnect and reconnect active
+
+For some $TOOLKIT_SHORT versions, you might need to disconnect and reconnect active
 sessions.
+
 </Highlight>
 
 </Procedure>
 
 ### Build Toolkit from source
 
-You can build Toolkit from source. For more information, see the [Toolkit
+You can build $TOOLKIT_SHORT from source. For more information, see the [$TOOLKIT_SHORT
 developer documentation][toolkit-gh-docs].
 
 [brew-install]: https://brew.sh

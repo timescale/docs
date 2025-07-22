@@ -1,6 +1,6 @@
 <Procedure>
 
-### Restoring data into Timescale with timescaledb-parallel-copy
+### Restoring data into a $SERVICE_LONG with timescaledb-parallel-copy
 
 1.  At the command prompt, install `timescaledb-parallel-copy`:
 
@@ -9,7 +9,7 @@
     ```
 
 1.  Use `timescaledb-parallel-copy` to import data into 
-    your Timescale database. Set `<NUM_WORKERS>` to twice the number of CPUs in your
+    your $SERVICE_LONG. Set `<NUM_WORKERS>` to twice the number of CPUs in your
     database. For example, if you have 4 CPUs, `<NUM_WORKERS>` should be `8`.
 
     ```bash
@@ -17,8 +17,9 @@
     --connection "host=<HOST> \
     user=tsdbadmin password=<PASSWORD> \
     port=<PORT> \
-    sslmode=require" \
-    --db-name tsdb \
+    dbname=tsdb \
+    sslmode=require
+    " \
     --table <TABLE_NAME> \
     --file <FILE_NAME>.csv \
     --workers <NUM_WORKERS> \

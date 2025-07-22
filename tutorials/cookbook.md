@@ -1,27 +1,24 @@
 ---
-title: Timescale cookbook
-excerpt: Browse code examples from the Timescale Cloud community that resolve common issues and provide solutions for non-standard tasks
-product: [cloud, mst, self_hosted] 
+title: TigerData cookbook
+excerpt: Browse code examples from the Tiger Cloud community that resolve common issues and provide solutions for non-standard tasks
+products: [cloud, self_hosted, mst]
 ---
 
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import Hypertables from "versionContent/_partials/_cookbook-hypertables.mdx";
 import IOT from "versionContent/_partials/_cookbook-iot.mdx";
 
 
-# Timescale community cookbook
 
-This page contains suggestions from the [TimescaleDB Community](https://timescaledb.slack.com/) about how to resolve 
+# $COMPANY community cookbook
+
+This page contains suggestions from the [$COMPANY Community](https://timescaledb.slack.com/) about how to resolve 
 common issues. Use these code examples as guidance to work with your own data. 
 
 
 ## Prerequisites
 
-To follow the examples in this page, you need a:
-
-- [Target Timescale Cloud service][create-a-service]
-- [Connection to your service][connect-to-service]
-
- 
+<IntegrationPrereqs />
 
 <Hypertables />
 

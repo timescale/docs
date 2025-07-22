@@ -1,7 +1,7 @@
 ---
-title: Integrate pgAdmin with Timescale Cloud
-excerpt: pgAdmin is a feature-rich open-source administration and development platform for PostgreSQL. Integrate pgadmin with Timescale Cloud
-products: [cloud, mst, self_hosted]
+title: Integrate pgAdmin with Tiger Cloud
+excerpt: pgAdmin is a feature-rich open-source administration and development platform for PostgreSQL. Integrate pgadmin with Tiger Cloud
+products: [cloud, self_hosted]
 keywords: [integrate]
 ---
 
@@ -9,10 +9,10 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Integrate pgAdmin with $CLOUD_LONG
 
-[pgAdmin][pgadmin] is a feature-rich open-source administration and development platform for PostgreSQL. It is available for Chrome, Firefox, Edge, and
+[pgAdmin][pgadmin] is a feature-rich open-source administration and development platform for $PG. It is available for Chrome, Firefox, Edge, and
 Safari browsers, or can be installed on Microsoft Windows, Apple macOS, or various Linux flavors.
 
-![Timescale Cloud pgadmin](https://assets.timescale.com/docs/images/timescale-cloud-pgadmin.png)
+![Tiger Cloud pgadmin](https://assets.timescale.com/docs/images/timescale-cloud-pgadmin.png)
 
 This page explains how to integrate pgAdmin with your $SERVICE_LONG.
 

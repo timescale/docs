@@ -1,22 +1,25 @@
 ---
 title: SAML (Security Assertion Markup Language)
-excerpt: SAML is a standard for exchanging authentication and authorization data. Timescale Cloud offers SAML authentication as part of its security suite.
+excerpt: SAML is a standard for exchanging authentication and authorization data. Tiger Cloud offers SAML authentication as part of its security suite
 products: [cloud]
+price_plans: [enterprise]
 keywords: [saml, sso, enterprise, accounts, admin]
 tags: [saml, sso]
 ---
 
 # SAML authentication
 
-Timescale offers SAML authentication as part of its [Enterprise Tier][enterprise-tier] offering. SAML (Security Assertion Markup Language) is an open standard for exchanging authentication and authorization data between parties. With SAML enabled Timescale customers will be able to log into their Timescale account using their existing SSO service provider credentials. 
+$CLOUD_LONG offers SAML authentication as part of its [Enterprise][enterprise-tier] offering. SAML (Security Assertion Markup Language) is an open standard for exchanging authentication and authorization data between parties. With SAML enabled $CLOUD_LONG customers can log into their $ACCOUNT_LONG using their existing SSO service provider credentials. 
 
 <Highlight type="note">
-Timescale supports most SAML providers that can handle IDP-initiated login
+
+$CLOUD_LONG supports most SAML providers that can handle IDP-initiated login
+
 </Highlight>
 
 ### SAML offers many benefits for the Enterprise including:
-- Improved security: SAML centralizes user authentication with an identity provider (IdP). This makes it more difficult for attackers to gain access to user accounts.
-- Reduced IT costs: SAML can help companies reduce IT costs by eliminating the need to manage multiple user accounts and passwords.
+- Improved security: SAML centralizes user authentication with an identity provider (IdP). This makes it more difficult for attackers to gain access to user $ACCOUNT_SHORTs.
+- Reduced IT costs: SAML can help companies reduce IT costs by eliminating the need to manage multiple user $ACCOUNT_SHORTs and passwords.
 - Improved user experience: SAML makes it easier for users to access multiple applications and resources.
 
 <Procedure>

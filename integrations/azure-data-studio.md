@@ -1,7 +1,7 @@
 ---
-title: Integrate Azure Data Studio with Timescale Cloud
-excerpt: Azure Data Studio is an open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape. Integrate Azure Data Studio with Timescale Cloud
-products: [cloud, mst, self_hosted]
+title: Integrate Azure Data Studio with Tiger Cloud
+excerpt: Azure Data Studio is an open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape. Integrate Azure Data Studio with Tiger Cloud
+products: [cloud, self_hosted]
 keywords: [integrate]
 ---
 
@@ -18,7 +18,7 @@ This page explains how to integrate Azure Data Studio with $CLOUD_LONG.
 <IntegrationPrereqs />
 
 *   Download and install [Azure Data Studio][ms-azure-data-studio].
-*   Install the [PostgreSQL extension for Azure Data Studio][postgresql-azure-data-studio].
+*   Install the [$PG extension for Azure Data Studio][postgresql-azure-data-studio].
 
 ## Connect to your $SERVICE_LONG with Azure Data Studio
 
@@ -46,8 +46,8 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated Azure Data Studio with $CLOUD_LONG.
 
-[ms-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16#install-azure-data-studio
-[postgresql-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/extensions/postgres-extension?view=sql-server-ver16
+[ms-azure-data-studio]: https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?view=sql-server-ver16#install-azure-data-studio
+[postgresql-azure-data-studio]: https://learn.microsoft.com/en-us/azure-data-studio/extensions/postgres-extension?view=sql-server-ver16
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [azure-data-studio]: https://azure.microsoft.com/en-us/products/data-studio
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/

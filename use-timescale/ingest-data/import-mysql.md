@@ -1,7 +1,7 @@
 ---
 title: Import data from MySQL
-excerpt: Ingest data into your Timescale Cloud service from a MySQL database
-products: [cloud]
+excerpt: Ingest data into your Tiger Cloud service from a MySQL database
+products: [cloud, self_hosted]
 keywords: [data migration]
 tags: [import, mysql]
 ---

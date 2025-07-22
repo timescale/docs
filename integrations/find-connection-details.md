@@ -1,13 +1,13 @@
 ---
 title: Find your connection details
-excerpt: You connect to Timescale Cloud or self-hosted TimescaleDB using your connection details. Learn where to find them
+excerpt: You connect to Tiger Cloud or self-hosted TimescaleDB using your connection details. Learn where to find them
 products: [cloud, mst, self_hosted]
 keywords: [connect, Managed Service for TimescaleDB, Timescale]
 ---
 
 # Find your connection details 
 
-To connect to your $SERVICE_SHORT or self-hosted database, you need at least the following:
+To connect to your $SERVICE_LONG or $SELF_LONG, you need at least the following:
 
 - Hostname
 - Port
@@ -17,9 +17,11 @@ To connect to your $SERVICE_SHORT or self-hosted database, you need at least the
 
 Find the connection details based on your deployment type:
 
-<Tabs label="Connection details">
+<Tabs label="Connection details" persistKey="source-database">
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
+
+## Connect to your service
 
 Retrieve the connection details for your $SERVICE_LONG:
 
@@ -29,15 +31,33 @@ Retrieve the connection details for your $SERVICE_LONG:
 
 - **In $CONSOLE**:
 
-   Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in the `Connect to your service` widget. If necessary, click `Forgot your password?` to get a new one.
+   Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in `Service info` > `Connection info` > `More details`. If necessary, click `Forgot your password?` to get a new one.
 
-   ![Timescale service connection details](https://assets.timescale.com/docs/images/timescale-service-connection-details.png)
+   ![Tiger Cloud service connection details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-service-connection-details.png)
+
+## Find your project and service ID
+
+To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LONG:
+
+<Procedure>
+
+1. **Retreive your project ID**:
+
+   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Copy` next to the project ID.
+   ![Retrive the project id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-project-id.png)
+
+1. **Retrieve your service ID**:
+
+   Click the dots next to the service, then click `Copy` next to the service ID.
+   ![Retrive the service id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-service-id.png)
+
+</Procedure>
 
 </Tab>
 
-<Tab title="Self-hosted TimescaleDB">
+<Tab title="Self-hosted TimescaleDB" label="self-hosted">
 
-Find the connection details in the [PostgreSQL configuration file][postgres-config] or by asking your database administrator. The `postgres` superuser, created during PostgreSQL installation, has all the permissions required to run procedures in this documentation. However, it is recommended to create other users and assign permissions on the need-only basis. 
+Find the connection details in the [$PG configuration file][postgres-config] or by asking your database administrator. The `postgres` superuser, created during $PG installation, has all the permissions required to run procedures in this documentation. However, it is recommended to create other users and assign permissions on the need-only basis. 
 
 </Tab>
 

@@ -7,6 +7,7 @@ tags: [migrate]
 api:
   license: community
   type: procedure
+products: [cloud, self_hosted, mst]
 ---
 
 # cagg_migrate() <Tag type="community" content="Community" />
@@ -36,8 +37,10 @@ new format.
 For more information, see the [migration how-to guide][how-to-migrate].
 
 <Highlight type="warning">
-There are known issues with `cagg_migrate()` in version 2.8.0.
+
+There are known issues with `cagg_migrate()` in version $TIMESCALE_DB 2.8.0.
 Upgrade to version 2.8.1 or above before using it.
+
 </Highlight>
 
 ## Required arguments

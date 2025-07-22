@@ -1,13 +1,14 @@
 ---
-title: Integrate Amazon CloudWatch with Timescale Cloud
-excerpt: Amazon CloudWatch is a monitoring and observability service. Export telemetry data from your Timescale Cloud service with time-series and analytics capability to Amazon CloudWatch
-products: [cloud, mst, self_hosted]
+title: Integrate Amazon CloudWatch with Tiger Cloud
+excerpt: Amazon CloudWatch is a monitoring and observability service. Export telemetry data from your Tiger Cloud service with time-series and analytics capability to Amazon CloudWatch
+products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-data-exporter.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 
 # Integrate Amazon CloudWatch with $CLOUD_LONG
 
@@ -32,7 +33,8 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 
 <ManageDataExporter />
 
-[projects]: /use-timescale/:currentVersion:/members/
+[projects]: /use-timescale/:currentVersion:/security/members/
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-signup]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GettingSetup.html
+

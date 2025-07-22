@@ -1,6 +1,6 @@
 ---
-title: Migrate to Timescale with Hypershift
-excerpt: Migrate an existing PostgreSQL database to Timescale using Hypershift
+title: Migrate to Tiger Cloud with Hypershift
+excerpt: Migrate an existing Postgres database to Tiger Cloud using Hypershift
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
@@ -16,7 +16,7 @@ import HypershiftIntro from "versionContent/_partials/_hypershift-intro.mdx";
 
 Before you begin, make sure you have:
 
-*   Signed up for your [free Timescale account][cloud-install].
+*   Signed up for your [free Tiger Cloud account][cloud-install].
 *   Installed [Docker][docker-install].
 
 Before you begin the migration, it is recommended that you create an index on
@@ -40,9 +40,9 @@ plain index before you run the Hypershift migration.
 
 ## Download the Hypershift container
 
-<Tabs label="Download Hypershift">
+<Tabs label="Download Hypershift" persistKey="os">
 
-<Tab title="MacOS">
+<Tab title="MacOS" label="macos">
 
 <Procedure>
 
@@ -60,7 +60,7 @@ plain index before you run the Hypershift migration.
 
 </Tab>
 
-<Tab title="Linux">
+<Tab title="Linux" label="ubuntu">
 
 <Procedure>
 
@@ -91,7 +91,7 @@ to be converted to hypertables, and which tables need to be compressed during
 the migration. Hypertables must have a unique column labelled `time`.
 
 Hypershift uses a YAML configuration file to determine how to set up your new
-Timescale database. For more information about creating a Hypershift
+$SELF_LONG database. For more information about creating a Hypershift
 configuration file, see the
 [Hypershift configuration section][hypershift-config].
 

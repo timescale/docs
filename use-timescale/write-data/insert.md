@@ -1,6 +1,6 @@
 ---
 title: Insert data
-excerpt: Insert single and multiple rows and return data in your Timescale Cloud service with SQL
+excerpt: Insert single and multiple rows and return data in TimescaleDB with SQL
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [insert, write, hypertables]
@@ -38,10 +38,11 @@ INSERT INTO conditions
 ```
 
 <Highlight type="note">
+
 You can insert multiple rows belonging to different
-chunks within the same `INSERT` statement. Behind the scenes, the Timescale
-engine batches the rows by chunk, and writes to each chunk in a single
+chunks within the same `INSERT` statement. Behind the scenes, $TIMESCALE_DB batches the rows by chunk, and writes to each chunk in a single
 transaction.
+
 </Highlight>
 
 ## Insert and return data
@@ -64,4 +65,4 @@ time                          | location | temperature | humidity
 (1 row)
 ```
 
-[postgres-insert]: https://www.postgresql.org/docs/current/static/sql-insert.html
+[postgres-insert]: https://www.postgresql.org/docs/current/sql-insert.html

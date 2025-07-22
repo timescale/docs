@@ -1,40 +1,40 @@
 ---
 title: Inserting or modifying data in compressed chunks
-excerpt: In Timescale Cloud, compressed data can still be modified. Learn to insert data into compressed chunks and modify data in compressed rows
+excerpt: In TimescaleDB, compressed data can still be modified. Learn to insert data into compressed chunks and modify data in compressed rows
 products: [cloud, mst, self_hosted]
 keywords: [compression, backfilling, hypertables]
 ---
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 
 # Insert and modify compressed data
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/modify-data-in-hypercore">Modify your data in Hypercore</a>.
-
-In TimescaleDB&nbsp;2.11 and later, you can insert data into compressed chunks,
+In $TIMESCALE_DB v2.11 and later, you can insert data into compressed chunks,
 and modify data in compressed rows.
 
 <Highlight type="warning">
-This feature requires PostgreSQL 14 or later
+
+This feature requires $PG 14 or later
+
 </Highlight>
 
 ## Insert data into compressed chunks
 
 <Tabs>
 
-<Tab title="TimescaleDB&nbsp;2.11 and later">
+<Tab title="TimescaleDB v2.11 and later">
 
-In TimescaleDB v2.11 and later, you can insert data into compressed chunks.
+In $TIMESCALE_DB v2.11 and later, you can insert data into compressed chunks.
 This works even if the data you are inserting has unique constraints, and those
 constraints are preserved during the insert operation. This is done by using a
-PostgreSQL function that decompresses relevant data during the insert to check
+$PG function that decompresses relevant data during the insert to check
 if the new data breaks unique checks. This means that any time you insert data
 into a compressed chunk, a small amount of data is decompressed to allow a
 speculative insertion, and block any inserts which could violate constraints.
 
-For TimescaleDB v2.17.0 and later there is improved delete performance on compressed 
+For $TIMESCALE_DB v2.17.0 and later, there is improved delete performance on compressed 
 hypertables when a large amount of data is affected. When you delete whole segments of 
 data, filter your deletes by `segment_by` column(s) instead of separate deletes. 
-This considerably increase performance by skipping the decompression step. 
+This considerably increases performance by skipping the decompression step. 
 
 
 

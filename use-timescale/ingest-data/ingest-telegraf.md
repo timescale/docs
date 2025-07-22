@@ -1,7 +1,7 @@
 ---
 title: Ingest data using Telegraf
-excerpt: Ingest data into a Timescale Cloud service using using the Telegraf plugin
-products: [cloud, mst, self_hosted]
+excerpt: Ingest data into a Tiger Cloud service using using the Telegraf plugin
+products: [cloud, self_hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
 ---
@@ -29,13 +29,13 @@ $SERVICE_LONG.
 - [Install Telegraf][install-telegraf]
 
 
-## Link Telegraf to your service
+## Link Telegraf to your $SERVICE_SHORT
 
 <Procedure>
 
 To create a Telegraf configuration that exports data to a hypertable in your $SERVICE_SHORT:
 
-1. **Setup your $SERVICE_SHORT connection string**
+1. **Set up your $SERVICE_SHORT connection string**
 
     <SetupConnectionString />
 
@@ -48,7 +48,7 @@ To create a Telegraf configuration that exports data to a hypertable in your $SE
     ```
 
     `telegraf.conf` configures a CPU input plugin that samples
-    various metrics about CPU usage, and the PostgreSQL output plugin. `telegraf.conf`
+    various metrics about CPU usage, and the $PG output plugin. `telegraf.conf`
     also includes all available input, output, processor, and aggregator
     plugins. These are commented out by default.
 
@@ -73,7 +73,7 @@ To create a Telegraf configuration that exports data to a hypertable in your $SE
     > cpu,cpu=cpu2,host=localhost usage_guest=0,usage_guest_nice=0,usage_idle=91.99999999982538,usage_iowait=0,usage_irq=0,usage_nice=0,usage_softirq=0,usage_steal=0,usage_system=3.999999999996362,usage_user=3.999999999996362 1669640025000000000
     ```
 
-1. **Configure the PostgreSQL output plugin**
+1. **Configure the $PG output plugin**
 
    1.  In `telegraf.conf`, in the `[[outputs.postgresql]]` section, set `connection` to
       the value of $TARGET.
@@ -155,8 +155,8 @@ see the [PostgreQL output plugin][output-plugin].
 
 
 [output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
-[install-telegraf]: https://docs.influxdata.com/telegraf/v1.21/introduction/installation/
+[install-telegraf]: https://docs.influxdata.com/telegraf/v1/introduction/installation/
 [create-service]: /getting-started/latest/
 [connect-timescaledb]: /integrations/:currentVersion:/find-connection-details/
 [grafana]: /integrations/:currentVersion:/grafana/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[about-hypertables]: /use-timescale/:currentVersion:/hypertables/

@@ -1,8 +1,7 @@
 ---
-title: Create your first Timescale service
-excerpt: Timescale Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Timescale Console
+title: Create your first Tiger Cloud service
+excerpt: Tiger Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Cloud Console
 products: [cloud]
-layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
@@ -12,7 +11,7 @@ import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Create your first $SERVICE_LONG
+# Create a $SERVICE_LONG
 
 <CloudIntro />
 
@@ -20,7 +19,7 @@ import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
 To start using $CLOUD_LONG for your data:
 
-1. [Create a $COMPANY account][create-an-account]: register to get access to $CONSOLE as a centralized point to administer and interact with your data.
+1. [Create a $ACCOUNT_LONG][create-an-account]: register to get access to $CONSOLE as a centralized point to administer and interact with your data.
 1. [Create a $SERVICE_LONG][create-a-service]: that is, a $PG database instance, powered by [$TIMESCALE_DB][timescaledb], built for production, and extended with cloud features like transparent data tiering to object storage.
 1. [Connect to your $SERVICE_LONG][connect-to-your-service]: to run queries, add and migrate your data from other sources.
 
@@ -28,13 +27,13 @@ To start using $CLOUD_LONG for your data:
 
 ## Create a $SERVICE_LONG
 
-Now that you have an active $CLOUD_LONG account, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
+Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
 
 <Procedure>
 
-1. In the [$SERVICE_SHORT creation page][create-service], choose the $PG capability or add `Time-series and analytics` and `AI and Vector` capabilities. Click `Save and continue`.
+1. In the [$SERVICE_SHORT creation page][create-service], choose the capability to match your business needs: `Real-time analytics`, `AI-focused`, or `Hybrid applications`. 
 
-   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/create-timescale-service.png)
+   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
 
 1. Follow the next steps in `Create a service` to configure the region, compute size, environment, availability, connectivity, and $SERVICE_SHORT name. Then click `Create service`.
 
@@ -69,6 +68,6 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
-[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
-[timescaledb]: https://docs.timescale.com/#TimescaleDB
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
+[timescaledb]: https://docs.tigerdata.com/#TimescaleDB
 

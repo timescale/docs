@@ -1,7 +1,7 @@
 ---
 title: Compare TimescaleDB editions
 excerpt: See the difference between the TimescaleDB Community and TimescaleDB Apache 2 editions
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted]
 keywords: [Apache, community, license]
 tags: [learn, contribute]
 ---
@@ -9,55 +9,53 @@ tags: [learn, contribute]
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
-# TimescaleDB Apache 2 and TimescaleDB Community Edition
+# $TIMESCALE_DB editions
 
-There are two versions of TimescaleDB available:
+The following versions of $TIMESCALE_DB are available:
 
-*   TimescaleDB Apache 2 Edition
-*   TimescaleDB Community Edition
+*   $TDB_APACHE
+*   $TDB_COMMUNITY
 
-The TimescaleDB Apache 2 Edition is the version of TimescaleDB that is available
-under the [Apache 2.0 license][apache-license]. This is a classic open source license,
-meaning that it is completely unrestricted - anyone can take this code and offer it
-as a service.
+## $TDB_APACHE
 
-## TimescaleDB Apache 2 Edition
+$TDB_APACHE is available under the [Apache 2.0 license][apache-license]. This is a classic open source license,
+meaning that it is completely unrestricted - anyone can take this code and offer it as a service.
 
-You can install TimescaleDB Apache 2 Edition on your own on-premises or cloud
+You can install $TDB_APACHE on your own on-premises or cloud
 infrastructure and run it for free.
 
-You can sell TimescaleDB Apache 2 Edition as a service, even if you're not the
+You can sell $TDB_APACHE as a service, even if you're not the
 main contributor.
 
-You can modify the TimescaleDB Apache 2 Edition source code and run it for
+You can modify the $TDB_APACHE source code and run it for
 production use.
 
-## TimescaleDB Community Edition
+## 	$TDB_COMMUNITY
 
-TimescaleDB Community Edition is the advanced, best, and most feature complete 
-version of TimescaleDB, available under the terms of the
-[Timescale License (TSL)][timescale-license].
+$TDB_COMMUNITY is the advanced, best, and most feature complete 
+version of $TIMESCALE_DB, available under the terms of the
+[$COMPANY License (TSL)][timescale-license].
 
-For more information about the Timescale license, see [this blog post][license-blog].
+For more information about the $COMPANY license, see [this blog post][license-blog].
 
-Many of the most recent features of TimescaleDB are only available in
-TimescaleDB Community Edition.
+Many of the most recent features of $TIMESCALE_DB are only available in
+$TDB_COMMUNITY.
 
-You can install TimescaleDB Community Edition in your own on-premises or cloud
-infrastructure and run it for free. TimescaleDB Community Edition is completely
+You can install $TDB_COMMUNITY in your own on-premises or cloud
+infrastructure and run it for free. $TDB_COMMUNITY is completely
 free if you manage your own service.
 
-You cannot sell TimescaleDB Community Edition as a service, even if you are the
+You cannot sell $TDB_COMMUNITY as a service, even if you are the
 main contributor.
 
-You can modify the TimescaleDB Community Edition source code and run it for
-production use. Developers using TimescaleDB Community Edition have the "right
+You can modify the $TDB_COMMUNITY source code and run it for
+production use. Developers using $TDB_COMMUNITY have the "right
 to repair" and make modifications to the source code and run it in their own
 on-premises or cloud infrastructure. However, you cannot make modifications to
-the TimescaleDB Community Edition source code and offer it as a service.
+the $TDB_COMMUNITY source code and offer it as a service.
 
-You can access a hosted version of TimescaleDB Community Edition through
-[Timescale][timescale-cloud], which is a cloud-native platform for time-series.
+You can access a hosted version of $TDB_COMMUNITY through
+[$CLOUD_LONG][timescale-cloud], a cloud-native platform for time-series and real-time analytics.
 
 ## Feature comparison
 
@@ -69,6 +67,11 @@ You can access a hosted version of TimescaleDB Community Edition through
   </tr>
   <tr>
     <td><strong>Hypertables and chunks</strong></td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/hypertable/create_table/">CREATE TABLE</a></td>
+    <td>✅</td>
+    <td>✅</td>
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hypertable/create_hypertable/">create_hypertable</a></td>
@@ -83,6 +86,11 @@ You can access a hosted version of TimescaleDB Community Edition through
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hypertable/drop_chunks/">drop_chunks</a></td>
     <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><a href="https://docs.timescale.com/api/latest/hypertable/split_chunk/">split_chunk</a></td>
+    <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
@@ -161,16 +169,16 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td>✅</td>
   </tr>
   <tr>
-    <td colspan="3"><strong>Distributed hypertables</strong>: This feature is <a href="https://github.com/timescale/timescaledb/blob/2.14.0/docs/MultiNodeDeprecation.md">deprecated in all editions</a> after TimescaleDB v2.13.</td>
+    <td><a href="https://docs.tigerdata.com/use-timescale/latest/query-data/skipscan/">SkipScan</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td colspan="3"><strong>Distributed hypertables</strong>: This feature is <a href="https://github.com/timescale/timescaledb/blob/2.14.0/docs/MultiNodeDeprecation.md">sunsetted in all editions</a> in TimescaleDB v2.14.x</td>
   </tr>
 
   <tr>
     <td><strong>Hypercore</strong>  <Since2180 /></td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hypercore/alter_materialized_view/">ALTER MATERIALIZED VIEW (Hypercore)</a></td>
-    <td>❌</td>
-    <td>✅</td>
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a></td>
@@ -267,22 +275,22 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td><strong>Jobs and automation</strong></td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/actions/add_job/">add_job</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/jobs-automation/add_job/">add_job</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/actions/alter_job/">alter_job</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/jobs-automation/alter_job/">alter_job</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/actions/delete_job/">delete_job</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/jobs-automation/delete_job/">delete_job</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/actions/run_job/">run_job</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/jobs-automation/run_job/">run_job</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -325,7 +333,7 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill#locf">locf</a></td>
+    <td><a href="https://docs.tigerdata.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill#locf">locf</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -395,7 +403,7 @@ You can access a hosted version of TimescaleDB Community Edition through
     <td>✅</td>
   </tr>
    <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight#rollup">rollup</a></td>
+    <td><a href="https://docs.tigerdata.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight#rollup">rollup</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -512,7 +520,7 @@ You can access a hosted version of TimescaleDB Community Edition through
 
 <!-- vale Google.Units = NO -->
 
-[license-blog]: https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/
+[license-blog]: https://www.tigerdata.com/blog/how-we-are-building-a-self-sustaining-open-source-business-in-the-cloud-era
 [mst]: /mst/:currentVersion:
 [timescale-cloud]: /use-timescale/:currentVersion:/services/
 [timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE

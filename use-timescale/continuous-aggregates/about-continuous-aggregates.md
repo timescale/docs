@@ -1,6 +1,6 @@
 ---
 title: About continuous aggregates
-excerpt: A Timescale continuous aggregate combines your data into analytic summaries and is refreshed in the background when new data is added. Learn how continuous aggregates work and how to use them
+excerpt: A TimescaleDB continuous aggregate combines your data into analytic summaries and is refreshed in the background when new data is added. Learn how continuous aggregates work and how to use them
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
@@ -20,7 +20,7 @@ import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
 ## Continuous aggregates on continuous aggregates
 
 You can create a continuous aggregate on top of another continuous aggregate.
-This allows you to summarize data at different granularities. For example, you
+This allows you to summarize data at different granularity. For example, you
 might have a raw hypertable that contains second-by-second data. Create a
 continuous aggregate on the hypertable to calculate hourly data. To calculate
 daily data, create a continuous aggregate on top of your hourly continuous
@@ -31,25 +31,25 @@ For more information, see the documentation about
 
 ## Continuous aggregates with a `JOIN` clause
 
-Continuous aggregates supports the following JOIN features: 
+Continuous aggregates support the following JOIN features: 
 
 | Feature | TimescaleDB < 2.10.x | TimescaleDB <= 2.15.x | TimescaleDB >= 2.16.x| 
 |-|-|-|-|
 |INNER JOIN|&#10060;|&#9989;|&#9989;|
 |LEFT JOIN|&#10060;|&#10060;|&#9989;|
 |LATERAL JOIN|&#10060;|&#10060;|&#9989;|
-|Joins between **ONE** hypertable and **ONE** standard PostgreSQL table|&#10060;|&#9989;|&#9989;|
-|Joins between **ONE** hypertable and **MANY** standard PostgreSQL tables|&#10060;|&#10060;|&#9989;|
+|Joins between **ONE** hypertable and **ONE** standard $PG table|&#10060;|&#9989;|&#9989;|
+|Joins between **ONE** hypertable and **MANY** standard $PG tables|&#10060;|&#10060;|&#9989;|
 |Join conditions must be equality conditions, and there can only be **ONE** `JOIN` condition|&#10060;|&#9989;|&#9989;|
 |Any join conditions|&#10060;|&#10060;|&#9989;|
 
 
-JOINS in TimescaleDB must that meet the following conditions:
+JOINS in TimescaleDB must meet the following conditions:
 
-*   Only changes to the hypertable are tracked, they are updated in the
+*   Only the changes to the hypertable are tracked, and they are updated in the
     continuous aggregate when it is refreshed. Changes to standard
-    PostgreSQL table are not tracked.
-*   You can use an `INNER`, `LEFT` and `LATERAL` joins, no other join type is supported.
+    $PG table are not tracked.
+*   You can use an `INNER`, `LEFT`, and `LATERAL` joins; no other join type is supported.
 *   Joins on the materialized hypertable of a continuous aggregate are not supported.
 *   Hierarchical continuous aggregates can be created on top of a continuous
     aggregate with a `JOIN` clause, but cannot themselves have a `JOIN` clauses.
@@ -60,26 +60,27 @@ Given the following schema:
 
 ```sql
 CREATE TABLE locations (
-    id TEXT PRIMARY KEY,
-    name TEXT
+  id TEXT PRIMARY KEY,
+  name TEXT
 );
 
 CREATE TABLE devices (
-    id SERIAL PRIMARY KEY,
-    location_id TEXT,
-    name TEXT
+  id SERIAL PRIMARY KEY,
+  location_id TEXT,
+  name TEXT
 );
 
 CREATE TABLE conditions (
-    "time" TIMESTAMPTZ,
-    device_id INTEGER,
-    temperature FLOAT8
+  "time" TIMESTAMPTZ,
+  device_id INTEGER,
+  temperature FLOAT8
+) WITH (
+  tsdb.hypertable,
+  tsdb.partition_column='time'
 );
-
-SELECT create_hypertable('conditions', by_range('time'));
 ```
 
-See the following `JOIN` examples on Continuous Aggregates:
+See the following `JOIN` examples on continuous aggregates:
 
 - `INNER JOIN` on a single equality condition, using the `ON` clause:
 
@@ -140,7 +141,7 @@ See the following `JOIN` examples on Continuous Aggregates:
     ```
     TimescaleDB v2.16.x and higher.
 
-- `INNER JOIN` between an hypertable and multiple Postgres tables:
+- `INNER JOIN` between an hypertable and multiple $PG tables:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
@@ -153,7 +154,7 @@ See the following `JOIN` examples on Continuous Aggregates:
     ```
    TimescaleDB v2.16.x and higher.
 
-- `LEFT JOIN` between an hypertable and a Postgres table:
+- `LEFT JOIN` between an hypertable and a $PG table:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
@@ -179,22 +180,22 @@ See the following `JOIN` examples on Continuous Aggregates:
 
 ## Function support
 
-In TimescaleDB 2.7 and later, continuous aggregates support all PostgreSQL
+In $TIMESCALE_DB v2.7 and later, continuous aggregates support all $PG
 aggregate functions. This includes both parallelizable aggregates, such as `SUM`
 and `AVG`, and non-parallelizable aggregates, such as `RANK`.
 
-In TimescaleDB&nbsp;2.10.0 and later, the `FROM` clause supports `JOINS`, with
+In $TIMESCALE_DB v2.10.0 and later, the `FROM` clause supports `JOINS`, with
 some restrictions. For more information, see the [`JOIN` support section][caggs-joins].
 
-In older versions of Timescale, continuous aggregates only support
-[aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
+In older versions of $TIMESCALE_DB, continuous aggregates only support
+[aggregate functions that can be parallelized by $PG][postgres-parallel-agg].
 You can work around this by aggregating the other parts of your query in the
 continuous aggregate, then
 [using the window function to query the aggregate][cagg-window-functions].
 
 <CaggsFunctionSupport />
 
-If you want the old behavior in later versions of TimescaleDB, set the
+If you want the old behavior in later versions of $TIMESCALE_DB, set the
 `timescaledb.finalized` parameter to `false` when you create your continuous
 aggregate.
 
@@ -224,7 +225,7 @@ Using the same temperature example, the materialization table looks like this:
 |2021/01/02|New York|2||
 |2021/01/02|Stockholm|2|69|
 
-The materialization table is stored as a Timescale hypertable, to take
+The materialization table is stored as a $TIMESCALE_DB hypertable, to take
 advantage of the scaling and query optimizations that hypertables offer.
 Materialization tables contain a column for each group-by clause in the query,
 and an `aggregate` column for each aggregate in the query.

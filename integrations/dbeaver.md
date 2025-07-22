@@ -1,7 +1,7 @@
 ---
-title: Integrate DBeaver with Timescale Cloud
-excerpt: DBeaver is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. Integrate DBeaver with Timescale Cloud
-products: [cloud, mst, self_hosted]
+title: Integrate DBeaver with Tiger Cloud
+excerpt: DBeaver is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. Integrate DBeaver with Tiger Cloud
+products: [cloud, self_hosted]
 keywords: [integrate]
 ---
 

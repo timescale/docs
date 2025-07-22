@@ -7,6 +7,7 @@ tags: [delete, drop]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
@@ -14,7 +15,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 # remove_compression_policy() <Tag type="community" content="community" />
 
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/remove_columnstore_policy/">remove_columnstore_policy()</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/remove_columnstore_policy/">remove_columnstore_policy()</a>.
 
 If you need to remove the compression policy. To restart policy-based
 compression you need to add the policy again. To view the policies that

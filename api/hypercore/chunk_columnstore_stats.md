@@ -7,20 +7,21 @@ tags: [disk space, schemas, size]
 api:
   license: community
   type: procedure
+products: [cloud, self_hosted]
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # chunk_columnstore_stats() <Tag type="community">Community</Tag>
 
-Retrieve statistics about the chunks in the columnstore
+Retrieve statistics about the chunks in the $COLUMNSTORE
 
-`chunk_columnstore_stats` returns the size of chunks in the columnstore, these values are computed when you call either:
-- [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a
+`chunk_columnstore_stats` returns the size of chunks in the $COLUMNSTORE, these values are computed when you call either:
+- [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the $COLUMNSTORE at a
   specific time interval.
-- [convert_to_columnstore][convert_to_columnstore]: manually add a specific chunk in a hypertable to the columnstore.
+- [convert_to_columnstore][convert_to_columnstore]: manually add a specific chunk in a hypertable to the $COLUMNSTORE.
 
 
-Inserting into a chunk in the columnstore does not change the chunk size. For more information about how to compute 
+Inserting into a chunk in the $COLUMNSTORE does not change the chunk size. For more information about how to compute 
 chunk sizes, see [chunks_detailed_size][chunks_detailed_size].
 
 <Since2180 />

@@ -1,14 +1,14 @@
 module.exports = [
   {
-    title: "Migrate your data to Timescale Cloud",
+    title: "Migrate and sync data to Tiger Cloud",
     href: "migrate",
-    excerpt: "Migrating your data to Timescale",
+    excerpt: "Migrating your data to Tiger Cloud",
     children: [
       {
         title: "Migrate with downtime",
         href: "pg-dump-and-restore",
         excerpt:
-          "Migrate a hypertable or entire database with native PostgreSQL commands",
+          "Migrate a hypertable or entire database with native Postgres commands",
       },
       {
         title: "Live migration",
@@ -16,9 +16,14 @@ module.exports = [
         excerpt: "Migrate a large database with low downtime",
       },
       {
-        title: "Livesync from PostgreSQL to Timescale Cloud",
-        href: "livesync",
-        excerpt: "Synchronize updates to a primary postgres database instance to Timescale Cloud service in real-time",
+        title: "Livesync from Postgres",
+        href: "livesync-for-postgresql",
+        excerpt: "Synchronize updates to a primary postgres database instance to Tiger Cloud service in real-time",
+      },
+      {
+        title: "Livesync from S3",
+        href: "livesync-for-s3",
+        excerpt: "Synchronize data from S3 to a Tiger Cloud service in real time",
       },
       {
         title: "Dual-write and backfill",
@@ -32,10 +37,10 @@ module.exports = [
               "Migrate from TimescaleDB using dual-write and backfill",
           },
           {
-            title: "Dual-write from PostgreSQL",
+            title: "Dual-write from Postgres",
             href: "dual-write-from-postgres",
             excerpt:
-              "Migrate from PostgreSQL using dual-write and backfill",
+              "Migrate from Postgres using dual-write and backfill",
           },
           {
             title: "Dual-write from other databases",

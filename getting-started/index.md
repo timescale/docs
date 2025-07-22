@@ -1,29 +1,31 @@
 ---
-title: Get started with Timescale
-excerpt: Supercharge your real-time analytics on time-series data with Timescale Cloud. Create a free account, launch your first service, and use some of the advanced features
+title: Get started with TigerData
+excerpt: Supercharge your real-time analytics on time-series data with Tiger Cloud. Create a free account, launch your first service, and use some of the advanced features
 products: [cloud]
-layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import CloudIntroShort from "versionContent/_partials/_cloud-intro-short.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Get started with $CLOUD_LONG
+# Get started with $COMPANY
 
-<CloudIntro />
+<CloudIntroShort />
 
 This section shows you how to:
 
-1.  [Create and connect to a $SERVICE_LONG][services-create]: choose the capabilities that match your business and engineering needs on $COMPANY's cloud-based $PG platform. 
-1.  [Run queries from $CONSOLE][run-queries-from-console]: securely interact with your data in the $CONSOLE UI. 
-1.  [Try the main features in $COMPANY products][test-drive]: rapidly implement the features in $CLOUD_LONG that enable you to ingest and query data faster while keeping the costs low.
+- [Create and connect to a $SERVICE_LONG][services-create]: choose the capabilities that match your business and 
+  engineering needs on $COMPANY's cloud-based $PG platform.
+- [Try the main features in $COMPANY products][test-drive]: rapidly implement the features in $CLOUD_LONG that 
+  enable you to ingest and query data faster while keeping the costs low.
+- [Start coding with $COMPANY][start-coding]: quickly integrate $CLOUD_LONG and $TIMESCALE_DB into your apps using your favorite programming language.
+- [Run queries from $CONSOLE][run-queries-from-console]: securely interact with your data in the $CONSOLE UI.
 
 <WhereNext />
 
 [tutorials]: /tutorials/:currentVersion:/
-[connect-with-code]: /quick-start/:currentVersion:/
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [integrations]: /integrations/:currentVersion:/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
@@ -31,5 +33,6 @@ This section shows you how to:
 [services-connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [test-drive]: /getting-started/:currentVersion:/try-key-features-timescale-products/
 [run-queries-from-console]: /getting-started/:currentVersion:/run-queries-from-console/
+[start-coding]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
 

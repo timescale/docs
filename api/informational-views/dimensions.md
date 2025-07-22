@@ -7,6 +7,7 @@ tags: [dimensions, partitions]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.dimensions
@@ -46,8 +47,10 @@ and `integer_now_func` columns are defined.
 |`num_partitions`|SMALLINT|Number of partitions for the dimension|
 
 <Highlight type="note">
+
 The `time_interval` and `integer_interval` columns are not applicable for space
 based dimensions.
+
 </Highlight>
 
 ## Sample usage
@@ -88,7 +91,9 @@ num_partitions    | 2
 ```
 
 <Highlight type="note">
-The `by_range` and `by_hash` dimension builders are an addition to TimescaleDB 2.13.
+
+The `by_range` and `by_hash` dimension builders are an addition to $TIMESCALE_DB 2.13.
+
 </Highlight>
 
 Get information about dimensions of a hypertable that has two time-based dimensions.

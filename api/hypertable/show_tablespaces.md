@@ -7,6 +7,7 @@ tags: [show, get]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # show_tablespaces()

@@ -6,12 +6,13 @@ keywords: [chunks, hypertables, reorder]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # reorder_chunk() <Tag type="community">Community</Tag>
 
 Reorder a single chunk's heap to follow the order of an index. This function
-acts similarly to the [PostgreSQL CLUSTER command][postgres-cluster] , however
+acts similarly to the [$PG CLUSTER command][postgres-cluster] , however
 it uses lower lock levels so that, unlike with the CLUSTER command,  the chunk
 and hypertable are able to be read for most of the process. It does use a bit
 more disk space during the operation.

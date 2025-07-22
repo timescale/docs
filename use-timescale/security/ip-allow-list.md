@@ -1,7 +1,7 @@
 ---
 title: IP allow list
-excerpt: You can grant selective access to your service administration and data. See how to create IP whitelists for the different modes available in Timescale Console
-product: cloud
+excerpt: You can grant selective access to your service administration and data. See how to create IP whitelists for the different modes available in Tiger Cloud Console
+products: [cloud]
 keywords: [ip allow list, security]
 tags: [ip allow list]
 ---
@@ -14,7 +14,7 @@ For a more fine-grained control, you create separate IP allow lists for [the ops
 
 ## Create and attach an IP allow list in the ops mode
 
-You create an IP allow list at the [project level][members], then attach your $SERVICE_SHORT to it. 
+You create an IP allow list at the [$PROJECT_SHORT level][members], then attach your $SERVICE_SHORT to it. 
 
 <Highlight type="important">
 You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot attach a $SERVICE_SHORT to a $VPC and an IP allow list at the same time.
@@ -24,13 +24,13 @@ You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot
 
 1. **In [$CONSOLE][console], select `Security` > `IP Allow List`, then click `Create IP Allow List`** 
 
-   ![Create IP allow list](https://assets.timescale.com/docs/images/create-ip-allow-list.png)
+   ![Create IP allow list](https://assets.timescale.com/docs/images/tiger-cloud-console/create-ip-allow-list-tiger-cloud-console.png)
 
 1. **Enter your trusted IP addresses**
 
    The number of IP addresses that you can include in one list depends on your [pricing plan][pricing-plans]. 
 
-   ![Add IP addresses to allow list](https://assets.timescale.com/docs/images/add-ip-addresses-to-allow-list.png)
+   ![Add IP addresses to allow list](https://assets.timescale.com/docs/images/tiger-cloud-console/add-ip-addresses-to-allow-list-tiger-cloud-console.png)
 
 1. **Name your allow list and click `Create IP Allow List`**
 
@@ -38,7 +38,7 @@ You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot
 
 1. **Select a $SERVICE_LONG, then click `Operations` > `Security` > `IP Allow List`**
 
-   ![Attach IP allow list](https://assets.timescale.com/docs/images/attach-ip-allow-list.png)
+   ![Attach IP allow list](https://assets.timescale.com/docs/images/tiger-cloud-console/attach-ip-allow-list-tiger-cloud.png)
 
 1. **Select the list in the drop-down and click `Apply`** 
 
@@ -56,7 +56,7 @@ You create an IP allow list in the data mode settings.
 
 1. **In [$CONSOLE][console], toggle `Data`**
 
-1. **Click the project name in the upper left corner, then select `Settings`** 
+1. **Click the $PROJECT_SHORT name in the upper left corner, then select `Settings`** 
 
 1. **Scroll down and toggle `IP Allowlist`**
 
@@ -75,7 +75,7 @@ You have successfully added an IP allow list for querying your $SERVICE_SHORT in
 [console]: https://console.cloud.timescale.com/dashboard/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
-[members]: /use-timescale/:currentVersion:/members/
+[members]: /use-timescale/:currentVersion:/security/members/
 [modes]: /getting-started/:currentVersion:/services/
 
 

@@ -6,6 +6,7 @@ keywords: [hypertables, indexes, chunks, create]
 api:
   license: apache
   type: command
+products: [cloud, mst, self_hosted]
 ---
 
 # CREATE INDEX (Transaction Per Chunk)
@@ -20,25 +21,25 @@ using a single transaction for the entire hypertable. This allows `INSERT`s, and
 other operations to be performed concurrently during most of the duration of the
 `CREATE INDEX` command. While the index is being created on an individual chunk,
 it functions as if a regular `CREATE INDEX` were called on that chunk, however
-other chunks are completely un-blocked.
+other chunks are completely unblocked.
 
-<Highlight type="note">
 This version of `CREATE INDEX` can be used as an alternative to
 `CREATE INDEX CONCURRENTLY`, which is not currently supported on hypertables.
-</Highlight>
 
 <Highlight type="warning">
-If the operation fails partway through, indexes might not be created on all
+
+- Not supported for `CREATE UNIQUE INDEX`.
+- If the operation fails partway through, indexes might not be created on all
 hypertable chunks. If this occurs, the index on the root table of the hypertable
 is marked as invalid. You can check this by running `\d+` on the hypertable. The
 index still works, and is created on new chunks, but if you want to ensure all
 chunks have a copy of the index, drop and recreate it.
 
-You can also use the following query to find all invalid indexes:
+   You can also use the following query to find all invalid indexes:
 
-```SQL
-SELECT * FROM pg_index i WHERE i.indisvalid IS FALSE;
-```
+   ```SQL
+   SELECT * FROM pg_index i WHERE i.indisvalid IS FALSE;
+   ```
 
 </Highlight>
 

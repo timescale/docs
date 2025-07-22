@@ -5,18 +5,24 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, refresh, policies]
 ---
 
+import PrereqCloudSelf from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
+
 # Refresh continuous aggregates
 
 Continuous aggregates can have a range of different refresh policies. In
 addition to refreshing the continuous aggregate automatically using a policy,
 you can also refresh it manually.
 
+## Prerequisites
+
+<PrereqCloudSelf />
+
 ## Change the refresh policy
 
 Continuous aggregates require a policy for automatic refreshing. You can adjust
 this to suit different use cases. For example, you can have the continuous
 aggregate and the hypertable stay in sync, even when data is removed from the
-hypertable, or you could keep source data in the continuous aggregate even after
+hypertable. Alternatively, you could keep source data in the continuous aggregate even after
 it is removed from the hypertable.
 
 You can change the way your continuous aggregate is refreshed by calling 
@@ -30,26 +36,36 @@ Among others, `add_continuous_aggregate_policy` takes the following arguments:
 *   `schedule_interval`: the refresh interval in minutes or hours. Defaults to
     24 hours.
 
-If you set the `start_offset` or `end_offset` to `NULL`, the range is open-ended
-and extends to the beginning or end of time. However, it's recommended to set
-the `end_offset` so that at least the most recent time bucket is excluded. For
-time-series data that mostly contains writes that occur in time stamp order, the
-time buckets that see lots of writes quickly have out-of-date aggregates. You
-get better performance by excluding the time buckets that are getting a lot of
-writes.
+Note the following:
 
-In addition, materializing the most recent bucket might interfere with
-[real-time aggregation][future-watermark].
+- If you set the `start_offset` or `end_offset` to `NULL`, the range is open-ended and extends to the beginning or end of time. 
+- If you set `end_offset` within the current time bucket, this bucket is excluded from materialization. This is done for the following reasons:
 
-See the [API reference][api-reference]
-for the full list of required and optional arguments and use examples.
+  - The current bucket is incomplete and can't be refreshed. 
+  - The current bucket gets a lot of writes in the timestamp order, and its aggregate becomes outdated very quickly. Excluding it improves performance. 
+
+  To include the latest raw data in queries, enable [real-time aggregation][future-watermark]. 
+
+See the [API reference][api-reference] for the full list of required and optional arguments and use examples.
+
+The policy in the following example ensures that all data in the continuous aggregate is up to date with the hypertable, except for data written within the last hour of wall-clock time. The policy also does not refresh the last time bucket of the continuous aggregate.
+
+Since the policy in this example runs once every hour (`schedule_interval`) while also excluding data within the most recent hour (`end_offset`), it takes up to 2 hours for data written to the hypertable to be reflected in the continuous aggregate. Backfills, which are usually outside the most recent hour of data, will be visible after up to 1 hour depending on when the policy last ran when the data was written.
+
+Because it has an open-ended `start_offset` parameter, any data that is removed
+from the table, for example with a `DELETE` or with `drop_chunks`, is also removed
+from the continuous aggregate view. This means that the continuous aggregate
+always reflects the data in the underlying hypertable.
+
+To changing a refresh policy to use a `NULL` `start_offset`:
 
 <Procedure>
 
-### Changing a refresh policy to use a `NULL` `start_offset`
+1. **Connect to your $SERVICE_LONG**
 
-1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
-    that keeps the continuous aggregate up to date, and runs every hour:
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your $SERVICE_SHORT using [psql][connect-using-psql].
+
+1. Create a new policy on `conditions_summary_hourly` that keeps the continuous aggregate up to date, and runs every hour:
 
     ```sql
     SELECT add_continuous_aggregate_policy('conditions_summary_hourly',
@@ -60,14 +76,6 @@ for the full list of required and optional arguments and use examples.
 
 </Procedure>
 
-The policy in this example ensures that all the data in the continuous aggregate
-is up to date with the hypertable except for anything written in the last hour.
-It also does not refresh the last time bucket of the continuous aggregate.
-Because it has an open-ended `start_offset` parameter, any data that is removed
-from the table, for example with a DELETE or with `drop_chunks`, is also removed
-from the continuous aggregate view. This means that the continuous aggregate
-always reflects the data in the underlying hypertable.
-
 If you want to keep data in the continuous aggregate even if it is removed from
 the underlying hypertable, you can set the `start_offset` to match the
 [data retention policy][sec-data-retention] on the source hypertable. For example,
@@ -77,9 +85,11 @@ refresh the dropped data.
 
 <Procedure>
 
-### Changing a refresh policy to keep removed data
+1. Connect to your $SERVICE_LONG.
 
-1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your $SERVICE_SHORT using [psql][connect-using-psql].
+
+1. Create a new policy on `conditions_summary_hourly`
     that keeps data removed from the hypertable in the continuous aggregate, and
     runs every hour:
 
@@ -93,13 +103,55 @@ refresh the dropped data.
 </Procedure>
 
 <Highlight type="note">
+
 It is important to consider your data retention policies when you're setting up
 continuous aggregate policies. If the continuous aggregate policy window covers
 data that is removed by the data retention policy, the data will be removed when
 the aggregates for those buckets are refreshed. For example, if you have a data
 retention policy that removes all data older than two weeks, the continuous
 aggregate policy will only have data for the last two weeks.
+
 </Highlight>
+
+## Add concurrent refresh policies
+
+You can add concurrent refresh policies on each continuous aggregate, as long as their 
+start and end offsets don't overlap. For example, to backfill data into older chunks you 
+set up one policy that refreshes recent data, and another that refreshes backfilled data.
+
+The first policy in this example is keeps the continuous aggregate up to date with data that was
+inserted in the past day. Any data that was inserted or updated for previous days is refreshed by
+the second policy.
+
+<Procedure>
+
+1. Connect to your $SERVICE_LONG.
+
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your $SERVICE_SHORT using [psql][connect-using-psql].
+
+1. Create a new policy on `conditions_summary_daily` 
+    to refresh the continuous aggregate with recently inserted data which runs 
+    hourly:
+
+    ```sql
+    SELECT add_continuous_aggregate_policy('conditions_summary_daily',
+      start_offset => INTERVAL '1 day',
+      end_offset => INTERVAL '1 h',
+      schedule_interval => INTERVAL '1 h');
+    ```
+
+2.  At the `psql` prompt, create a concurrent policy on 
+    `conditions_summary_daily` to refresh the continuous aggregate with 
+    backfilled data:
+   
+    ```sql
+    SELECT add_continuous_aggregate_policy('conditions_summary_daily',
+      start_offset => NULL
+      end_offset => INTERVAL '1 day',
+      schedule_interval => INTERVAL '1 hour');
+    ```
+
+</Procedure>
 
 ## Manually refresh a continuous aggregate
 
@@ -119,36 +171,28 @@ The `refresh` command takes three arguments:
 *   The timestamp of the beginning of the refresh window
 *   The timestamp of the end of the refresh window
 
-Only buckets that are wholly within the range specified are refreshed. For
+Only buckets that are wholly within the specified range are refreshed. For
 example, if you specify `2021-05-01', '2021-06-01` the only buckets that are
 refreshed are those up to but not including 2021-06-01. It is possible to
-specify NULL in a manual refresh to get an open-ended range, but we do not
+specify `NULL` in a manual refresh to get an open-ended range, but we do not
 recommend using it, because you could inadvertently materialize a large amount
 of data, slow down your performance, and have unintended consequences on other
 policies like data retention.
 
-<Procedure>
+To manually refresh a continuous aggregate, use the `refresh` command:
 
-### Manually refreshing a continuous aggregate
+```sql
+CALL refresh_continuous_aggregate('example', '2021-05-01', '2021-06-01');
+```
 
-1.  To manually refresh a continuous aggregate, use the `refresh` command:
 
-    ```sql
-    CALL refresh_continuous_aggregate('example', '2021-05-01', '2021-06-01');
-    ```
-
-</Procedure>
-
-Avoid refreshing time intervals that are likely to have a lot of writes. In
-general, this means you should never refresh the most recent time bucket.
-Because the of constant change in the underlying data, they are unlikely to
-produce accurate aggregates. Additionally, refreshing this data slows down the
-ingest rate of the hypertable due to write amplification. If you want to include
-the latest bucket in your queries,
-use [real-time aggregation][real-time-aggregates] instead.
+Follow the logic used by automated refresh policies and avoid refreshing time buckets that are likely to have a lot of writes. This means that you should generally not refresh the latest incomplete time bucket. To include the latest raw data in your queries, use [real-time aggregation][real-time-aggregates] instead.
 
 [cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
 [future-watermark]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
 [real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
 [sec-data-retention]: /use-timescale/:currentVersion:/data-retention
 [api-reference]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service

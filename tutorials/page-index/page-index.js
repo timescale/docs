@@ -20,7 +20,7 @@ module.exports = [
         excerpt: "Simulate and query an IoT sensor dataset",
       },
       {
-        title: "Timescale community cookbook",
+        title: "TigerData community cookbook",
         href: "cookbook",
         excerpt: "Code examples from the community that help you with loads of common conundrums.",
       },
@@ -41,7 +41,7 @@ module.exports = [
             excerpt: "Query the Bitcoin blockchain dataset",
           },
           {
-            title: "Bonus: set up compression",
+            title: "Compress your data using hypercore",
             href: "blockchain-compress",
             excerpt:
               "Compress the dataset so you can store the Bitcoin blockchain more efficiently",
@@ -51,7 +51,7 @@ module.exports = [
       {
         title: "Analyze the Bitcoin blockchain",
         href: "blockchain-analyze",
-        excerpt: "Analyze the Bitcoin blockchain with Timescale hyperfunctions",
+        excerpt: "Analyze the Bitcoin blockchain with TimescaleDB hyperfunctions",
         children: [
           {
             title: "Ingest data into a service",
@@ -62,14 +62,14 @@ module.exports = [
           {
             title: "Analyse the data",
             href: "analyze-blockchain-query",
-            excerpt: "Analyze the Bitcoin blockchain dataset with Timescale hyperfunctions",
+            excerpt: "Analyze the Bitcoin blockchain dataset with TimescaleDB hyperfunctions",
           },
         ],
       },
       {
         title: "Analyze financial tick data ",
         href: "financial-tick-data",
-        excerpt: "Use Timescale to store financial tick data",
+        excerpt: "Use Tiger Cloud to store financial tick data",
         children: [
           {
             title: "Ingest data into a service",
@@ -82,7 +82,7 @@ module.exports = [
             excerpt: "Query and visualize financial tick data",
           },
           {
-            title: "Bonus: set up compression",
+            title: "Compress your data using hypercore",
             href: "financial-tick-compress",
             excerpt:
               "Compress the dataset so you can store the data more efficiently",

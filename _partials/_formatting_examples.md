@@ -1,6 +1,6 @@
 # Formatting examples 
 
-This page illustrates and provides examples of the formatting available for Timescale documentation. Note that for most elements, spacing is important. 
+This page illustrates and provides examples of the formatting available for $COMPANY documentation. Note that for most elements, spacing is important. 
 
 ## Procedure
 
@@ -106,7 +106,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
       <Highlight type="cloud">
     
-      A note dealing specifically with Timescale Cloud.
+      A note dealing specifically with Tiger Cloud.
     
       </Highlight>
 
@@ -116,15 +116,15 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
 Syntax:
 
-    <Tabs label="Tabs label for accessibility">
+    <Tabs label="Tabs label for accessibility" persistKey="keyfromlistinprocedure.md">
     
-    <Tab title="First tab title">
+    <Tab title="First tab title" label="labelfromlistinprocedure.md">
     
     First tab content
     
     </Tab>
 
-    <Tab title="Second tab title">
+    <Tab title="Second tab title" label="otherlabelfromlistinprocedure.md">
     
     Second tab content
     
@@ -214,7 +214,7 @@ Syntax:
 
    See a [use example][time-bucket] in the docs.
 
-- Toolkit
+- $TOOLKIT_LONG
  
   ![Tooklit tag](https://assets.timescale.com/docs/images/tag-toolkit.png)
 

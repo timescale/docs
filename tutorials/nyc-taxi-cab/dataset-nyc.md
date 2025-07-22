@@ -1,6 +1,6 @@
 ---
 title: Query time-series data tutorial - set up dataset
-excerpt: Inject and set up a dataset in Timescale Cloud so you can query and visualize time-series data
+excerpt: Inject and set up a dataset in Tiger Cloud so you can query and visualize time-series data
 products: [cloud]
 keywords: [beginner, tutorials, create, dataset]
 layout_components: [next_prev_large]
@@ -18,7 +18,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 This tutorial uses a dataset that contains historical data from the New York City Taxi and Limousine 
 Commission [NYC TLC][nyc-tlc], in a hypertable named `rides`. It also includes a separate
-tables of payment types and rates, in a regular PostgreSQL table named
+tables of payment types and rates, in a regular $PG table named
 `payment_types`, and `rates`.
 
 ## Prerequisites

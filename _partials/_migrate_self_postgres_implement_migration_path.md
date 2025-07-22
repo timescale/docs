@@ -1,6 +1,6 @@
 <Procedure>
 
-You cannot upgrade TimescaleDB and PostgreSQL at the same time. You upgrade each product in
+You cannot upgrade $TIMESCALE_DB and $PG at the same time. You upgrade each product in
 the following steps:
 
 1. **Upgrade TimescaleDB**
@@ -9,12 +9,12 @@ the following steps:
    psql -X -d $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version number>';"
    ```
 
-1. **If your migration path dictates it, upgrade PostgreSQL**
+1. **If your migration path dictates it, upgrade $PG**
 
-   Follow the procedure in [Upgrade PostgreSQL][upgrade-pg]. The version of TimescaleDB installed
-   in your PostgreSQL deployment must be the same before and after the PostgreSQL upgrade.
+   Follow the procedure in [Upgrade $PG][upgrade-pg]. The version of $TIMESCALE_DB installed
+   in your $PG deployment must be the same before and after the $PG upgrade.
 
-1. **If your migration path dictates it, upgrade TimescaleDB again**
+1. **If your migration path dictates it, upgrade $TIMESCALE_DB again**
 
     ```sql
    psql -X -d $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version number>';"
@@ -25,7 +25,7 @@ the following steps:
     ```sql
     psql -X -d $SOURCE -c "\dx timescaledb;"
     ```
-    PostgreSQL returns something like:
+   $PG returns something like:
     ```shell
     Name     | Version | Schema |                                      Description                                      
     -------------+---------+--------+---------------------------------------------------------------------------------------

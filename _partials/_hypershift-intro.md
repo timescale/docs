@@ -1,10 +1,9 @@
-You can use hypershift to migrate existing PostgreSQL databases in one step, and
+You can use hypershift to migrate existing $PG databases in one step, and
 enable compression and create hypertables instantly.
 
-Use Hypershift to migrate your data to Timescale from these sources:
+Use Hypershift to migrate your data to a $SERVICE_LONG from these sources:
 
-*   Standard PostgreSQL databases
+*   Standard $PG databases
 *   Amazon RDS databases
-*   Other Timescale databases, including Managed Service for TimescaleDB, and
-    self-hosted TimescaleDB
+*   Other $COMPANY databases, including $MST_LONG and $SELF_LONG
 

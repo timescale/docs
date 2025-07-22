@@ -1,7 +1,6 @@
 ---
 title: Multi-node configuration
 excerpt: Sunsetted v2.14.x. Configure the main settings in your multi-node TimescaleDB instance
-products: [self_hosted]
 keywords: [configuration, settings, multi-node]
 seo:
   robots: noindex
@@ -14,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # Multi-node configuration
 
 In addition to the
-[regular TimescaleDB configuration][timescaledb-configuration], it is recommended
+[regular $TIMESCALE_DB configuration][timescaledb-configuration], it is recommended
 that you also configure additional settings specific to multi-node operation.
 
 ## Update settings
@@ -56,7 +55,7 @@ distributed queries. However, you can enable JIT on the data nodes successfully.
 
 On the data nodes, disable `statement_timeout`. If you need to enable this,
 enable and configure it on the access node only. This setting is disabled by
-default in PostgreSQL, but can be useful if your specific environment is suited.
+default in $PG, but can be useful if your specific environment is suited.
 
 ### `wal_level`
 

@@ -7,6 +7,7 @@ tags: [schemas, tablespaces, data nodes, time ranges]
 api:
   license: apache
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.chunks
@@ -45,8 +46,10 @@ If the chunk's primary dimension is of a time datatype, `range_start` and
 Get information about the chunks of a hypertable.
 
 <Highlight type="note">
+
 Dimension builder `by_range` was introduced in TimescaleDB 2.13.
 The `chunk_creation_time` metadata was introduced in TimescaleDB 2.13.
+
 </Highlight>
 
 ```sql

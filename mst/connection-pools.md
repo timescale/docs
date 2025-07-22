@@ -1,6 +1,6 @@
 ---
 title: Connection pools
-excerpt: Pool client connections to your TimescaleDB database to use less server resources
+excerpt: Pool client connections to your service in Managed Service for TimescaleDB to use less server resources
 products: [mst]
 keywords: [connect]
 tags: [connection pools, pgbouncer]
@@ -15,14 +15,14 @@ high numbers of connections, but keep your server resource use low. The more
 client connections you have to your database, the more useful connection pooling
 becomes.
 
-By default, PostgreSQL creates a separate backend process for each connection to
+By default, $PG creates a separate backend process for each connection to
 the server. Connection pooling uses a tool called PGBouncer to pool multiple
 connections to a single backend process. PGBouncer automatically interleaves the
 client queries to use a limited number of backend connections more efficiently,
 leading to lower resource use on the server and better total performance.
 
 Without connection pooling, the database connections are handled directly by
-PostgreSQL backend processes, one process per connection:
+$PG backend processes, one process per connection:
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/pgbouncer-pooling-none.webp"
@@ -82,8 +82,7 @@ front-end proxies.
 
 ## Set up a connection pool
 
-You can set up a connection pool from the Managed Service for TimescaleDB
-portal. Make sure you have already created a service that you want to add
+You can set up a connection pool from the $MST_CONSOLE_LONG. Make sure you have already created a $MST_SERVICE_SHORT that you want to add
 connection pooling to.
 
 <Procedure>
@@ -91,8 +90,8 @@ connection pooling to.
 ### Setting up a connection pool
 
 
-1.  In [MST Portal][mst-login], navigate to the `Services` list, and click the name of
-    the service you want to add connection pooling to.
+1.  In [$MST_CONSOLE_SHORT][mst-login], navigate to the `Services` list, and click the name of
+    the $MST_SERVICE_SHORT you want to add connection pooling to.
 1.  In the `Service overview` page, navigate to the `Pools` tab. When you have
     created some pools, they are shown here.
 1.  Click `Add Pool` to create a new pool.
@@ -115,8 +114,10 @@ connection pooling to.
 </Procedure>
 
 <Highlight type="note">
+
 Pooled servers use a different port number than regular servers. This allows you
 to use both pooled and un-pooled connections at the same time.
+
 </Highlight>
 
 

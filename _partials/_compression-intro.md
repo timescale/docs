@@ -13,7 +13,7 @@ speed up your queries.
 For example, if you had a table with data that looked a bit like this:
 
 |Timestamp|Device ID|Device Type|CPU|Disk IO|
-|-|-|-|-|
+|-|-|-|-|-|
 |12:00:01|A|SSD|70.11|13.4|
 |12:00:01|B|HDD|69.70|20.5|
 |12:00:02|A|SSD|70.12|13.2|

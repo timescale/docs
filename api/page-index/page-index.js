@@ -10,15 +10,19 @@ module.exports = [
       "Jobs allow you to run functions and procedures implemented in a language of your choice on a schedule within TimescaleDB. This allows...",
     children: [
       {
-        title: "Hypertables & chunks",
+        title: "Hypertables and chunks",
         href: "hypertable",
         children: [
+          {
+            title: "CREATE TABLE",
+            href: "create_table",
+          },
           {
             title: "create_hypertable",
             href: "create_hypertable",
           },
           {
-            title: "create_hypertable (old interface)",
+            title: "create_hypertable (old API)",
             href: "create_hypertable_old",
           },
           {
@@ -34,12 +38,24 @@ module.exports = [
             href: "reorder_chunk",
           },
           {
+            title: "split_chunk",
+            href: "split_chunk",
+          },
+          {
             title: "merge_chunks",
             href: "merge_chunks",
           },
           {
             title: "move_chunk",
             href: "move_chunk",
+          },
+          {
+            title: "detach_chunk",
+            href: "detach_chunk",
+          },
+          {
+            title: "attach_chunk",
+            href: "attach_chunk",
           },
           {
             title: "add_reorder_policy",
@@ -124,11 +140,6 @@ module.exports = [
         excerpt: "Seamlessly switch between fast row-oriented storage and efficient column-oriented storage",
         href: "hypercore",
         children: [
-          {
-            title: "ALTER MATERIALIZED VIEW",
-            href: "alter_materialized_view",
-            excerpt: "Enable the columnstore for a materialized view.",
-          },
           {
             title: "ALTER TABLE",
             href: "alter_table",
@@ -547,8 +558,21 @@ module.exports = [
         ],
       },
       {
+        title: "Service configuration",
         href: "configuration",
-        excerpt: "Configure PostgreSQL and TimescaleDB",
+        excerpt: "Configure Tiger Postgres",
+        children: [
+          {
+            title: "Tiger Postgres configuration",
+            href: "tiger-postgres",
+            excerpt: "Configure PostgreSQL and TimescaleDB",
+          },
+          {
+            title: "Grand Unified Configuration (GUC) parameters",
+            href: "gucs",
+            excerpt: "Change the behaviour of TimescaleDB using GUCs",
+          },
+          ],
       },
       {
         title: "Administration Functions",
@@ -561,7 +585,7 @@ module.exports = [
         title: "API Reference Tag Overview",
         href: "api-tag-overview",
         description:
-          "An overview of what different tags represent in the API section of Timescale Documentation.",
+          "An overview of what different tags represent in the API section of TigerData Documentation.",
       },
       {
         title: "Compression (Old API, replaced by Hypercore)",

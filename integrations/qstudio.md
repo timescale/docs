@@ -1,7 +1,7 @@
 ---
-title: Integrate qStudio with Timescale Cloud
-excerpt: qStudio is a modern free SQL editor that provides syntax highlighting, code-completion, excel export, charting, and much more. Integrate qStudio with Timescale Cloud
-products: [cloud, mst, self_hosted]
+title: Integrate qStudio with Tiger Cloud
+excerpt: qStudio is a modern free SQL editor that provides syntax highlighting, code-completion, excel export, charting, and much more. Integrate qStudio with Tiger Cloud
+products: [cloud, self_hosted]
 keywords: [integrate]
 ---
 
@@ -48,6 +48,6 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated qStudio with $CLOUD_LONG.
 
-[qstudio]: https://www.timestored.com/qstudio
+[qstudio]: https://www.timestored.com/qstudio/
 [qstudio-downloads]: https://www.timestored.com/qstudio/download
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

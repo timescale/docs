@@ -7,13 +7,14 @@ tags: [dimensions, chunks]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 
 # add_dimension()
 
-Add an additional partitioning dimension to a Timescale hypertable. You can only execute this `add_dimension` command 
+Add an additional partitioning dimension to a $TIMESCALE_DB hypertable. You can only execute this `add_dimension` command 
 on an empty hypertable. To convert a normal table to a hypertable, call [create hypertable][create_hypertable].
 
 The column you select as the dimension can use either:
@@ -21,14 +22,14 @@ The column you select as the dimension can use either:
 - [Interval partitions][range-partition]: for example, for a second range partition.
 - [hash partitions][hash-partition]: to enable parallelization across multiple disks.
 
-<Highlight type="cloud" header="These instructions are for self-hosted TimescaleDB deployments" button="Try Timescale Cloud">
+<Highlight type="cloud" header="These instructions are for self-hosted TimescaleDB deployments" button="Try Tiger Cloud">
 
-Best practice is to not use additional dimensions. However, Timescale Cloud transparently provides seamless storage
+Best practice is to not use additional dimensions. However, $CLOUD_LONG transparently provides seamless storage
 scaling, both in terms of storage capacity and available storage IOPS/bandwidth.
 
 </Highlight>
 
-This page describes the generalized hypertable API introduced in [TimescaleDB v2.13.0][rn-2130].
+This page describes the generalized hypertable API introduced in [$TIMESCALE_DB v2.13.0][rn-2130].
 For information about the deprecated interface, see [add_dimension(), deprecated interface][add-dimension-old].
 
 ## Samples
@@ -43,7 +44,9 @@ SELECT add_dimension('conditions', by_hash('location', 4));
 ```
 
 <Highlight type="note">
-The `by_range` and `by_hash` dimension builders are an addition to TimescaleDB 2.13.
+
+The `by_range` and `by_hash` dimension builders are an addition to $TIMESCALE_DB 2.13.
+
 </Highlight>
 
 Convert table `conditions` to hypertable with range partitioning on
@@ -81,7 +84,7 @@ SELECT add_dimension('conditions', by_hash('device_id', 2), if_not_exists => tru
 
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#space-partitioning
+[distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/
 [distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/
 [add-dimension-old]: /api/:currentVersion:/hypertable/add_dimension_old/

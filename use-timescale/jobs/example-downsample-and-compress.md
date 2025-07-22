@@ -7,23 +7,23 @@ keywords: [jobs, compression, downsample]
 
 # Use a $JOB to downsample and compress $CHUNKs
 
-Timescale lets you downsample and compress $CHUNKs by combining a
-[$CAGG refresh policy][cagg-refresh] with a
-[compression policy][compression].
+$TIMESCALE_DB lets you downsample and compress $CHUNKs by combining a [$CAGG refresh policy][cagg-refresh] with 
+[$HYPERCORE][hypercore]. If you want to implement features not supported by those policies, you can write
+a $JOB to downsample and convert $CHUNKs to columnstore instead.
 
-If you want to implement features not supported by those policies, you can write
-a $JOB to downsample and compress $CHUNKs instead. The following
-example downsamples raw data to an average over hourly data. This is an
-illustrative example, which can be done more simply with a $CAGG
-policy. But you can make the query arbitrarily complex.
+The following example downsamples raw data to an average over hourly data. This is an
+illustrative example, which can be done more simply with a $CAGG policy. But you can make the query 
+arbitrarily complex.
 
 <Procedure>
 
-1.  Create a procedure that first queries the $CHUNKs of a $HYPERTABLE to
+1.  **Create a procedure to downsample chunks and convert them to columnstore**
+
+    This procedure that first queries the $CHUNKs of a $HYPERTABLE to
     determine if they are older than the `lag` parameter. The $HYPERTABLE in this
     example is named `metrics`. If the $CHUNK is not already compressed,
-    downsample it by taking the average of the raw data. Then compress it. A
-    temporary table is used to store the data while calculating the average.
+    downsample it by taking the average of the raw data. Then compress by converting to
+    the columnstore. This procedure uses a temporary table to store the data while calculating the average.
 
     ```sql
     CREATE OR REPLACE PROCEDURE downsample_compress (job_id int, config jsonb)
@@ -70,7 +70,7 @@ policy. But you can make the query arbitrarily complex.
         -- drop temp table
         EXECUTE format('DROP TABLE %I;', tmp_name);
 
-        PERFORM compress_chunk (chunk);
+        PERFORM convert_to_columnstore (chunk);
 
         COMMIT;
       END LOOP;
@@ -78,8 +78,9 @@ policy. But you can make the query arbitrarily complex.
     $$;
     ```
 
-1.  Register the $JOB to run daily. In the `config`, set `lag` to 12 months
-    to drop $CHUNKs containing data older than 12 months.
+1. **Register the $JOB to run daily** 
+
+    In the `config`, set `lag` to 12 months to drop $CHUNKs containing data older than 12 months.
 
     ```sql
     SELECT add_job('downsample_compress','1d', config => '{"lag":"12 month"}');
@@ -87,5 +88,7 @@ policy. But you can make the query arbitrarily complex.
 
 </Procedure>
 
+
 [cagg-refresh]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
 [compression]: /use-timescale/:currentVersion:/compression/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/

@@ -10,9 +10,9 @@ import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # Backup and restore
 
-TimescaleDB takes advantage of the reliable backup and restore functionality
-provided by PostgreSQL. There are a few different mechanisms you can use to
-backup your self-hosted TimescaleDB database:
+$TIMESCALE_DB takes advantage of the reliable backup and restore functionality
+provided by $PG. There are a few different mechanisms you can use to
+back up your $SELF_LONG database:
 
 *   [Logical backup][logical-backups] with pg_dump and pg_restore.
 *   [Physical backup][physical-backups] with `pg_basebackup` or another tool.

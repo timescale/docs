@@ -1,7 +1,6 @@
 ---
 title: About distributed hypertables
 excerpt: Sunsetted v2.14.x. Distributed hypertables are hypertables that span multiple nodes 
-products: [self_hosted]
 keywords: [distributed hypertables, multi-node]
 seo:
   robots: noindex
@@ -45,7 +44,7 @@ also be partitioned by space. This allows you to balance inserts and queries
 between data nodes, similar to traditional sharding. Without space partitioning,
 all data in the same time range would write to the same chunk on a single node.
 
-By default, Timescale creates as many space partitions as there are data
+By default, $TIMESCALE_DB creates as many space partitions as there are data
 nodes. You can change this number, but having too many space partitions degrades
 performance. It increases planning time for some queries, and leads to poorer
 balancing when mapping items to partitions.
@@ -193,7 +192,7 @@ for several reasons:
     New chunks for `device_B` are now stored on node 4. If you query across the
     repartitioning boundary, a final aggregate for `device_B` cannot be
     calculated on node 3 or node 4 alone. Partially processed data must be sent
-    to the access node for final aggregation. The Timescale query planner
+    to the access node for final aggregation. The $TIMESCALE_DB query planner
     dynamically detects such overlapping chunks and reverts to the appropriate
     partial aggregation plan. This means that you can add data nodes and
     repartition your data to achieve elasticity without worrying about query
@@ -208,7 +207,7 @@ for several reasons:
 *   The query includes a $JOB function. The access node assumes the
     function doesn't exist on the data nodes, and doesn't push it down.
 
-Timescale uses several optimizations to avoid these limitations, and push down
+$TIMESCALE_DB uses several optimizations to avoid these limitations, and push down
 as many queries as possible. For example, `now()` is a non-immutable function.
 The database converts it to a constant on the access node and pushes down the
 constant timestamp to the data nodes.
@@ -216,11 +215,56 @@ constant timestamp to the data nodes.
 ## Combine distributed hypertables and standard hypertables
 
 You can use distributed hypertables in the same database as standard hypertables
-and standard PostgreSQL tables. This mostly works the same way as having
+and standard $PG tables. This mostly works the same way as having
 multiple standard tables, with a few differences. For example, if you `JOIN` a
 standard table and a distributed hypertable, the access node needs to fetch the
 raw data from the data nodes and perform the `JOIN` locally.
 
+## Limitations
+
+All the limitations of regular hypertables also apply to distributed
+hypertables. In addition, the following limitations apply specifically
+to distributed hypertables:
+
+*   Distributed scheduling of background jobs is not supported. Background jobs
+    created on an access node are scheduled and executed on this access node
+    without distributing the jobs to data nodes.
+*   Continuous aggregates can aggregate data distributed across data nodes, but
+    the continuous aggregate itself must live on the access node. This could
+    create a limitation on how far you can scale your installation, but because
+    continuous aggregates are downsamples of the data, this does not usually
+    create a problem.
+*   Reordering chunks is not supported.
+*   Tablespaces cannot be attached to a distributed hypertable on the access
+    node. It is still possible to attach tablespaces on data nodes.
+*   Roles and permissions are assumed to be consistent across the nodes of a
+    distributed database, but consistency is not enforced.
+*   Joins on data nodes are not supported. Joining a distributed hypertable with
+    another table requires the other table to reside on the access node. This
+    also limits the performance of joins on distributed hypertables.
+*   Tables referenced by foreign key constraints in a distributed hypertable
+    must be present on the access node and all data nodes. This applies also to
+    referenced values.
+*   Parallel-aware scans and appends are not supported.
+*   Distributed hypertables do not natively provide a consistent restore point
+    for backup and restore across nodes. Use the
+    [`create_distributed_restore_point`][create_distributed_restore_point]
+    command, and make sure you take care when you restore individual backups to
+    access and data nodes.
+*   For native replication limitations, see the
+    [native replication section][native-replication].
+*   User defined functions have to be manually installed on the data nodes so
+    that the function definition is available on both access and data nodes.
+    This is particularly relevant for functions that are registered with
+    `set_integer_now_func`.
+
+Note that these limitations concern usage from the access node. Some
+currently unsupported features might still work on individual data nodes,
+but such usage is neither tested nor officially supported. Future versions
+of $TIMESCALE_DB might remove some of these limitations.
+
+[native-replication]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#replicating-distributed-hypertables
+[create_distributed_restore_point]: /api/:currentVersion:/distributed-hypertables/create_distributed_restore_point/
 [limitations]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#query-push-down/
 [hypertables]: /use-timescale/:currentVersion:/hypertables/
 [limitations-pushing-down]: #limitations-of-query-push-down

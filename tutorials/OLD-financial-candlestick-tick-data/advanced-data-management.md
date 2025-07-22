@@ -8,7 +8,7 @@ tags: [candlestick]
 # Advanced data management
 
 The final part of this tutorial shows you some more advanced techniques
-to efficiently manage your tick and candlestick data long-term. TimescaleDB
+to efficiently manage your tick and candlestick data long-term. $TIMESCALE_DB
 is equipped with multiple features that help you manage your data lifecycle
 and reduce your disk storage needs as your data grows.
 
@@ -24,7 +24,7 @@ automatically:
 <!-- vale Google.LyHyphens = YES -->
 
 Before you implement any of these automation policies, it's important to have
-a high-level understanding of chunk time intervals in TimescaleDB
+a high-level understanding of chunk time intervals in $TIMESCALE_DB
 hypertables and continuous aggregates. The chunk time interval you set
 for your tick data table directly affects how these automation policies
 work. For more information, see the
@@ -32,18 +32,18 @@ work. For more information, see the
 
 ## Hypertable chunk time intervals and automation policies
 
-TimescaleDB uses hypertables to provide a high-level and familiar abstraction
-layer to interact with PostgreSQL tables. You just need to access one
+$TIMESCALE_DB uses hypertables to provide a high-level and familiar abstraction
+layer to interact with $PG tables. You just need to access one
 hypertable to access all of your time-series data.
 
-Under the hood, TimescaleDB creates chunks based on the timestamp column.
+Under the hood, $TIMESCALE_DB creates chunks based on the timestamp column.
 Each chunk size is determined by the [`chunk_time_interval`][interval]
 parameter. You can provide this parameter when creating the hypertable, or you can change
 it afterwards. If you don't provide this optional parameter, the
 chunk time interval defaults to 7 days. This means that each of the
 chunks in the hypertable contains 7 days' worth of data.
 
-Knowing your chunk time interval is important. All of the TimescaleDB automation
+Knowing your chunk time interval is important. All of the $TIMESCALE_DB automation
 policies described in this section depend on this information, and the chunk
 time interval fundamentally affects how these policies impact your data.
 
@@ -59,7 +59,7 @@ aggregations. In this scenario, you can decide to remove tick data
 automatically from your hypertable after it gets older than a certain time
 interval.
 
-TimescaleDB has a built-in way to automatically remove raw data after a
+$TIMESCALE_DB has a built-in way to automatically remove raw data after a
 specific time. You can set up this automation using a
 [data retention policy][retention]:
 
@@ -100,7 +100,7 @@ Deleting older raw tick data from your hypertable while retaining aggregate
 views for longer periods is a common way of minimizing disk utilization.
 However, deleting older candlestick data from the continuous aggregates can
 provide another method for further control over long-term disk use.
-TimescaleDB allows you to create data retention policies on continuous
+$TIMESCALE_DB allows you to create data retention policies on continuous
 aggregates as well.
 
 <Highlight type="note">
@@ -120,7 +120,7 @@ SELECT add_retention_policy('one_min_candle', INTERVAL '70 days');
 ```
 
 This data retention policy removes chunks from the continuous aggregate
-that are older than 70 days. In TimescaleDB, this is determined by the
+that are older than 70 days. In $TIMESCALE_DB, this is determined by the
 `range_end` property of a hypertable, or in the case of a continuous
 aggregate, the materialized hypertable. In practice, this means that if
 you were to
@@ -132,8 +132,8 @@ original hypertable.
 
 ## Automatically compress tick data
 
-TimescaleDB allows you to keep your tick data in the hypertable
-but still save on storage costs with TimescaleDB's native compression.
+$TIMESCALE_DB allows you to keep your tick data in the hypertable
+but still save on storage costs with $TIMESCALE_DB's native compression.
 You need to enable compression on the hypertable and set up a compression
 policy to automatically compress old data.
 
@@ -159,7 +159,7 @@ For more information, see the [compression][compression] section.
 
 ## Automatically compress candlestick data
 
-Beginning with [TimescaleDB 2.6][release-blog], you can also set up a
+Beginning with [$TIMESCALE_DB 2.6][release-blog], you can also set up a
 compression policy on your continuous aggregates. This is a useful feature
 if you store a lot of historical candlestick data that consumes significant
 disk space, but you still want to retain it for longer periods.
@@ -185,7 +185,7 @@ be set so that actively refreshed time intervals are not compressed.
 [Read more about compressing continuous aggregates.][caggs-compress]
 
 [caggs-compress]: /use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates/
-[chunks]: /use-timescale/:currentVersion:/hypertables/about-hypertables/
+[chunks]: /use-timescale/:currentVersion:/hypertables/
 [compression]: /use-timescale/:currentVersion:/compression/
 [interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [release-blog]: https://www.timescale.com/blog/increase-your-storage-savings-with-timescaledb-2-6-introducing-compression-for-continuous-aggregates/

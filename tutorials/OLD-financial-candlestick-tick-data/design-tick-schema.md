@@ -1,6 +1,6 @@
 ---
 title: Design schema and ingest tick data
-excerpt: Ingest and store real-time cryptocurrency or stock data in TimescaleDB
+excerpt: Ingest and store real-time cryptocurrency or stock data in $TIMESCALE_DB
 keywords: [finance, analytics]
 tags: [candlestick]
 ---
@@ -8,9 +8,9 @@ tags: [candlestick]
 # Design schema and ingest tick data
 
 This tutorial shows you how to store real-time cryptocurrency or stock
-tick data in TimescaleDB. The initial schema provides the foundation to
+tick data in $TIMESCALE_DB. The initial schema provides the foundation to
 store tick data only. Once you begin to store individual transactions, you can
-calculate the candlestick values using TimescaleDB continuous aggregates
+calculate the candlestick values using $TIMESCALE_DB continuous aggregates
 based on the raw tick data. This means that our initial schema doesn't need to
 specifically store candlestick data.
 
@@ -63,13 +63,13 @@ SELECT create_hypertable('crypto_ticks', 'time');
 ```
 
 This is an important step in order to efficiently store your time-series
-data in TimescaleDB.
+data in $TIMESCALE_DB.
 
 ### Using TIMESTAMP data types
 
 It is best practice to store time values using the `TIMESTAMP WITH TIME ZONE` (`TIMESTAMPTZ`)
 data type. This makes it easier to query your data
-using different time zones. TimescaleDB
+using different time zones. $TIMESCALE_DB
 stores `TIMESTAMPTZ` values in UTC internally and makes the necessary
 conversions for your queries.
 
@@ -77,7 +77,7 @@ conversions for your queries.
 
 With the hypertable and relational table created, download the sample files
 containing crypto assets and tick data from the last three weeks. Insert the data
-into your TimescaleDB instance.
+into your $TIMESCALE_DB instance.
 
 <Procedure>
 

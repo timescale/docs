@@ -1,6 +1,6 @@
 ---
 title: About time buckets
-excerpt: Learn how time buckets help you aggregate data by time interval for efficient and simple real-time analytics in Timescale Cloud
+excerpt: Learn how time buckets help you aggregate data by time interval for efficient and simple real-time analytics in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [time buckets]
 ---
@@ -8,7 +8,7 @@ keywords: [time buckets]
 # About time buckets
 
 Time bucketing is essential for real-time analytics. The [`time_bucket`][time_bucket] function enables you to aggregate data in a [hypertable][create-hypertable] into buckets of time. For example, 5 minutes, 1 hour, or 3 days. 
-It's similar to PostgreSQL's [`date_bin`][date_bin] function, but it gives you more
+It's similar to $PG's [`date_bin`][date_bin] function, but it gives you more
 flexibility in the bucket size and start time.
 
 You can use it to roll up data for analysis or downsampling. For example, you can calculate
@@ -99,4 +99,4 @@ parameter.
 [origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
-[create-hypertable]: /use-timescale/:currentVersion:/hypertables/create/
+[create-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable

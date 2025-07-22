@@ -11,11 +11,12 @@ api:
   deprecated: true
 hyperfunction:
   type: bucket
+products: [cloud, mst, self_hosted]
 ---
 
 import DeprecationNotice from "versionContent/_partials/_deprecated.mdx";
 
-## timescaledb_experimental.time_bucket_ng() <Tag type="experimental">Experimental</Tag>
+# timescaledb_experimental.time_bucket_ng() <Tag type="experimental">Experimental</Tag>
 
 The `time_bucket_ng()` function is an experimental version of the
 [`time_bucket()`][time_bucket] function. It introduced some new capabilities,
@@ -40,7 +41,7 @@ uses an origin date of January 1, 2000, for all bucket sizes.
 
 |Name|Type|Description|
 |---|---|---|
-| `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
+| `bucket_width` | INTERVAL | A $PG time interval for how long each bucket is |
 | `ts` | DATE, TIMESTAMP or TIMESTAMPTZ | The timestamp to bucket |
 
 ### Optional arguments

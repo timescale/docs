@@ -1,7 +1,7 @@
 ---
 title: Ingest real-time financial websocket data - Query the data
-excerpt: Create candlestick views and query financial tick data to analyze price changes with Timescale Cloud
-products: [cloud]
+excerpt: Create candlestick views and query financial tick data to analyze price changes with Tiger Cloud
+products: [cloud, self_hosted, mst]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]
 layout_components: [next_prev_large]
@@ -21,7 +21,7 @@ the last two hours' worth of data.
 
 ## Creating a continuous aggregate
 
-1.  Connect to the Timescale database `tsdb` that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG `tsdb` that contains the Twelve Data
     stocks dataset.
 
 1.  At the psql prompt, create the continuous aggregate to aggregate data every
@@ -65,7 +65,7 @@ OHLCV values.
 
 ### Querying the continuous aggregate
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG that contains the Twelve Data
     stocks dataset.
 
 1.  At the psql prompt, use this query to select all `AAPL` OHLCV data for the

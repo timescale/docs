@@ -1,15 +1,15 @@
 ---
-title: Indexing data
+title: About indexes
 excerpt: A database index is a data structure that improves the speed of data retrieval operations. Learn how indexing works and how it improves the performance of your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [schemas, indexes]
 ---
 
-# Indexing data
+# About indexes
 
 Because looking up data can take a long time, especially if you have a lot of
 data in your hypertable, you can use an index to speed up read operations from
-non-compressed chunks (which use their [own columnar indexes][about-compression]).
+non-compressed chunks in the rowstore (which use their [own columnar indexes][about-compression]).
 
 You can create an index on any combination of columns. To define an index as a `UNIQUE` or `PRIMARY KEY` index, it must include the partitioning column (this is usually the time column). 
 
@@ -17,7 +17,7 @@ Which column you choose to create your
 index on depends on what kind of data you have stored.
 When you create a hypertable, set the datatype for the `time` column as
 `timestamptz` and not `timestamp`.
-For more information, see [PostgreSQL timestamp][postgresql-timestamp].
+For more information, see [$PG timestamp][postgresql-timestamp].
 
 <Highlight type="note">
 While it is possible to add an index that does not include the `time` column,

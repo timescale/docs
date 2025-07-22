@@ -1,7 +1,6 @@
 ---
 title: Multi-node authentication
 excerpt: Sunsetted v2.14.x. Configure authentication between access nodes and data nodes in a multi-node TimescaleDB installation
-products: [self_hosted]
 keywords: [multi-node, authenticate]
 tags: [admin]
 seo:
@@ -142,7 +141,7 @@ data node in your cluster.
 
 This section sets up your password authentication using SCRAM SHA-256 password
 authentication. For other password authentication methods, see the
-[PostgreSQL authentication documentation][auth-password].
+[$PG authentication documentation][auth-password].
 
 Before you start, check that you can use the `postgres` username to log in to
 your access node.

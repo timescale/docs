@@ -1,7 +1,6 @@
 ---
 title: Create distributed hypertables
 excerpt: Sunsetted v2.14.x. Create a distributed hypertable in a self-hosted multi-node TimescaleDB instance
-products: [self_hosted]
 keywords: [distributed hypertables, multi-node, create]
 seo:
   robots: noindex
@@ -14,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # Create distributed hypertables
 
 If you have a [multi-node environment][multi-node], you can create a distributed
-hypertable across your data nodes. First create a standard PostgreSQL table, and
+hypertable across your data nodes. First create a standard $PG table, and
 then convert it into a distributed hypertable.
 
 <Highlight type="important">
@@ -28,7 +27,7 @@ hypertable. To set up multi-node, see the
 ### Creating a distributed hypertable
 
 1.  On the access node of your multi-node cluster, create a standard
-    [PostgreSQL table][postgres-createtable]:
+    [$PG table][postgres-createtable]:
 
     ```sql
     CREATE TABLE conditions (

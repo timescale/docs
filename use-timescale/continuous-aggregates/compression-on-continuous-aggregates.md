@@ -1,87 +1,75 @@
 ---
 title: Compress continuous aggregates
-excerpt: Compressing a continuous aggregate can save you storage space while making sure the data is still available for your analytical workloads. Learn to compress continuous aggregates in Timescale Cloud
+excerpt: Compressing a continuous aggregate can save you storage space while making sure the data is still available for your analytical workloads
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, compression]
 ---
 
-# Compress continuous aggregates
+import Since2200 from "versionContent/_partials/_since_2_20_0.mdx";
 
-Continuous aggregates are often used to downsample historical data. If the data
-is only used for analytical queries and never modified, you can compress the
-aggregate to save on storage.
+# Convert continuous aggregates to the columnstore
 
-<Highlight type="warning">
-Before version
-[2.11.0](/about/latest/release-notes/#timescaledb-2110-on-2023-05-22), you can't
-refresh the compressed regions of a continuous aggregate. To avoid conflicts
-between compression and refresh, make sure you set `compress_after` to a larger
-interval than the `start_offset` of your [refresh
-policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
-</Highlight>
+To save on storage costs, you use $HYPERCORE to downsample historical data stored in $CAGGs. After you 
+[enable columnstore][compression_continuous-aggregate] on a `MATERIALIZED VIEW`, you set a 
+[columnstore policy][add_columnstore_policy]. This policy defines the intervals when chunks in a $CAGG
+are compressed as they are converted from the $ROWSTORE to the $COLUMNSTORE.
 
-Compression on continuous aggregates works similarly to [compression on
-hypertables][compression]. When compression is enabled and no other options are
-provided, the `segment_by` value will be automatically set to the group by
-columns of the continuous aggregate and the `time_bucket` column will be used as
-the `order_by` column in the compression configuration.
+$COLUMNSTORE_CAP works in the same way on [$HYPERTABLEs and $CAGGs][hypercore]. When you enable
+$COLUMNSTORE with no other options, your data is [segmented by][alter_materialized_view_arguments] the `groupby` columns 
+in the $CAGG, and [ordered by][alter_materialized_view_arguments] the time column. [Real-time aggregation][real-time-aggregates]
+is disabled by default.
 
-## Enable compression on continuous aggregates
+<Since2200 /> For the old API, see <a href="https://docs.tigerdata.com/use-timescale/latest/compression/compression-on-continuous-aggregates/">Compress continuous aggregates</a>.
 
-You can enable and disable compression on continuous aggregates by setting the
-`compress` parameter when you alter the view.
+## Configure $COLUMNSTORE on $CAGGs
+
+For an [existing $CAGG][create-cagg]:
 
 <Procedure>
 
-### Enabling and disabling compression on continuous aggregates
+1. **Enable $COLUMNSTORE on a $CAGG**
 
-1.  For an existing continuous aggregate, at the `psql` prompt, enable
-    compression:
+   To enable the $COLUMNSTORE compression on a $CAGG, set `timescaledb.enable_columnstore = true` when you alter the view:
 
-    ```sql
-    ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = true);
-    ```
+   ```sql
+   ALTER MATERIALIZED VIEW <cagg_name> set (timescaledb.enable_columnstore = true,);
+   ```
+   To disable the $COLUMNSTORE compression, set  `timescaledb.enable_columnstore = false`:
 
-1.  Disable compression:
+1. **Set $COLUMNSTORE policies on the $CAGG**
 
-    ```sql
-    ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = false);
-    ```
+   Before you set up a $COLUMNSTORE policy on a $CAGG, you first set the [refresh policy][refresh-policy]. To 
+   prevent refresh policies from failing, you set the $COLUMNSTORE policy interval so that actively 
+   refreshed regions are not compressed. For example: 
+
+   1. **Set the refresh policy**
+
+      ```sql
+      SELECT add_continuous_aggregate_policy('<cagg_name>',
+        start_offset => INTERVAL '30 days',
+        end_offset => INTERVAL '1 day',
+        schedule_interval => INTERVAL '1 hour');
+      ```
+
+   1. **Set the columnstore policy**
+
+      For this refresh policy, the `after` parameter must be greater than the value of 
+      `start_offset` in the refresh policy:
+
+      ```sql
+      CALL add_columnstore_policy('<cagg_name>', after => INTERVAL '45 days');
+      ```
 
 </Procedure>
 
-Disabling compression on a continuous aggregate fails if there are compressed
-chunks associated with the continuous aggregate. In this case, you need to
-decompress the chunks, and then drop any compression policy on the continuous
-aggregate, before you disable compression. For more detailed information, see
-the [decompress chunks][decompress-chunks] section:
 
-```sql
-SELECT decompress_chunk(c, true) FROM show_chunks('cagg_name') c;
-```
-
-## Compression policies on continuous aggregates
-
-Before setting up a compression policy on a continuous aggregate, you should set
-up a [refresh policy][refresh-policy]. The compression policy interval should be
-set so that actively refreshed regions are not compressed. This is to prevent
-refresh policies from failing. For example, consider a refresh policy like this:
-
-```sql
-SELECT add_continuous_aggregate_policy('cagg_name',
-  start_offset => INTERVAL '30 days',
-  end_offset => INTERVAL '1 day',
-  schedule_interval => INTERVAL '1 hour');
-```
-
-With this kind of refresh policy, the compression policy needs the
-`compress_after` parameter greater than the `start_offset` parameter of the
-continuous aggregate policy:
-
-```sql
-SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
-```
-
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
+[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[timescaledb-211]: https://github.com/timescale/timescaledb/releases/tag/2.11.0
 [compression]: /use-timescale/:currentVersion:/compression/
 [decompress-chunks]:  /use-timescale/:currentVersion:/compression/decompress-chunks
 [refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
+[alter_materialized_view_arguments]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/#arguments
+[create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
+[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/

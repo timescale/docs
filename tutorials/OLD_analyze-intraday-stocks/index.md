@@ -9,7 +9,7 @@ tags: [candlestick]
 # Analyze historical intraday stock data
 
 This tutorial is a step-by-step guide on how to collect, store, and analyze intraday stock data
-with TimescaleDB.
+with $TIMESCALE_DB.
 
 This tutorial has a few main steps:
 
@@ -23,10 +23,10 @@ This tutorial has a few main steps:
 ## Prerequisites
 
 *   Python 3
-*   TimescaleDB (see [installation options][install-timescale])
+*   $TIMESCALE_DB (see [installation options][install-timescale])
 *   Alpha Vantage API key ([get one for free][alpha-vantage-apikey])
 *   Virtualenv (installation: `pip install virtualenv`)
-*   [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
+*   [Psql][psql-install] or any other $PG client (for example, DBeaver)
 
 ## Get started: create a virtual environment
 

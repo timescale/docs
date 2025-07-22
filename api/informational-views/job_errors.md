@@ -6,13 +6,14 @@ tags: [background jobs, scheduled jobs, automation framework, scheduled views]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 
 # timescaledb_information.job_errors
 
 Shows information about runtime errors encountered by $JOBs run by the automation framework.
 This includes custom $JOBs and $JOBs run by policies
-created to manage data retention, continuous aggregates, compression, and
+created to manage data retention, continuous aggregates, columnstore, and
 other automation policies. For more information about automation policies,
 see the [policies][jobs] section.
 
@@ -26,7 +27,7 @@ see the [policies][jobs] section.
 |`pid`|INTEGER|The process ID of the background worker executing the job. This is `NULL` in the case of a job crash|
 |`start_time`|TIMESTAMP WITH TIME ZONE|Start time of the job|
 |`finish_time`|TIMESTAMP WITH TIME ZONE|Time when error was reported|
-|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
+|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official $PG documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
 |`err_message`|TEXT|The detailed error message|
 
 ## Sample usage
@@ -74,7 +75,7 @@ timezone          |
 
 ```
 
-On Timescale and Managed Service for TimescaleDB, the owner of the error
+On $TIMESCALE_DB and $MST_LONG, the owner of the error
 retention job is `tsdbadmin`. In an on-premise installation, the owner of the
 job is the same as the extension owner.
 The owner of the retention job can alter it and delete it.

@@ -1,7 +1,7 @@
 ---
 title: Analyze financial tick data - Set up the dataset
-excerpt: Ingest and set up a financial dataset in Timescale Cloud to run real-time analytical queries on it
-products: [cloud, mst, self_hosted]
+excerpt: Ingest and set up a financial dataset in Tiger Cloud to run real-time analytical queries on it
+products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
 layout_components: [next_prev_large]
@@ -17,7 +17,7 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 This tutorial uses a dataset that contains second-by-second trade data for
 the most-traded crypto-assets. You optimize this time-series data in a a hypertable called `assets_real_time`. 
-You also create a separate table of asset symbols in a regular PostgreSQL table named `assets`.
+You also create a separate table of asset symbols in a regular $PG table named `assets`.
 
 The dataset is updated on a nightly basis and contains data from the last four
 weeks, typically around 8 million rows of data. Trades are recorded in

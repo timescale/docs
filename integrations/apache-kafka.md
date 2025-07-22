@@ -1,11 +1,13 @@
 ---
-title: Integrate Apache Kafka with Timescale Cloud 
-excerpt: Apache Kafka is a distributed event streaming platform used for high-performance data pipelines. Learn how to integrate Apache Kafka with Timescale Cloud to manage and analyze streaming data
+title: Integrate Apache Kafka with Tiger Cloud 
+excerpt: Apache Kafka is a distributed event streaming platform used for high-performance data pipelines. Learn how to integrate Apache Kafka with Tiger Cloud to manage and analyze streaming data
 products: [cloud, self_hosted]
 keywords: [Apache Kafka, integrations]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import IntegrationApacheKafka from "versionContent/_partials/_integration-apache-kafka-install.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 # Integrate Apache Kafka with $CLOUD_LONG
 
@@ -29,62 +31,7 @@ To install and configure Apache Kafka:
 
 <Procedure>
 
-1. **Extract the Kafka binaries to a local folder**
-
-    ```bash
-    curl https://dlcdn.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz | tar -xzf - 
-    cd kafka_2.13-3.9.0
-    ```
-   From now on, the folder where you extracted the Kafka binaries is called `<KAFKA_HOME>`.
-   
-1. **Configure and run Apache Kafka**
-
-   ```bash
-   KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
-   ./bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/kraft/reconfig-server.properties
-   ./bin/kafka-server-start.sh config/kraft/reconfig-server.properties
-   ```
-    Use the `-daemon` flag to run this process in the background.
-   
-1. **Create Kafka topics**
-
-   In another Terminal window, navigate to <KAFKA_HOME>, then call `kafka-topics.sh` and create the following topics:
-   - `accounts`: publishes JSON messages that are consumed by the timescale-sink connector and inserted into your $SERVICE_LONG. 
-   - `deadletter`: stores messages that cause errors and that Kafka Connect workers cannot process. 
-
-   ```bash
-   ./bin/kafka-topics.sh \
-        --create \
-        --topic accounts \
-        --bootstrap-server localhost:9092 \
-        --partitions 10
-        
-   ./bin/kafka-topics.sh \
-        --create \
-        --topic deadletter \
-        --bootstrap-server localhost:9092 \
-        --partitions 10
-   ```
-   
-1. **Test that your topics are working correctly**
-   1. Run `kafka-console-producer` to send messages to the `accounts` topic:
-      ```bash
-      bin/kafka-console-producer.sh --topic accounts --bootstrap-server localhost:9092
-      ```
-   1. Send some events. For example, type the following:
-      ```bash
-      >Timescale Cloud
-      >How Cool
-      ```
-   2. In another Terminal window, navigate to <KAFKA_HOME>, then run `kafka-console-consumer` to consume the events you just sent:
-      ```bash
-      bin/kafka-console-consumer.sh --topic accounts --from-beginning --bootstrap-server localhost:9092
-      ```
-      You see
-      ```bash
-      Timescale Cloud
-      How Cool
-     ```
+<IntegrationApacheKafka />
    
 </Procedure>
 
@@ -96,9 +43,9 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 
 <Procedure>
 
-1. **Install the PostgreSQL connector**
+1. **Install the $PG connector**
 
-   In another Terminal window, navigate to <KAFKA_HOME>, then download and configure the PostgreSQL sink and driver.
+   In another Terminal window, navigate to <KAFKA_HOME>, then download and configure the $PG sink and driver.
    ```bash
    mkdir -p "plugins/camel-postgresql-sink-kafka-connector"
    curl https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-postgresql-sink-kafka-connector/3.21.0/camel-postgresql-sink-kafka-connector-3.21.0-package.tar.gz \
@@ -136,21 +83,21 @@ To prepare your $SERVICE_LONG for Kafka integration:
 
 <Procedure>
 
-1. ** [Connect][connect] to your $SERVICE_LONG **
+1. **[Connect][connect] to your $SERVICE_LONG**
 
-1. **Create a table to ingest Kafka events**
+1. **Create a hypertable to ingest Kafka events**
 
    ```sql
-   CREATE TABLE accounts (created_at TIMESTAMPTZ DEFAULT NOW(),
+   CREATE TABLE accounts (
+    created_at TIMESTAMPTZ DEFAULT NOW(),
     name TEXT,
-    city TEXT);
+    city TEXT
+   ) WITH (
+     tsdb.hypertable,
+     tsdb.partition_column='created_at'
+   );
    ```
-
-1. **Turn the table into a hypertable**
-
-   ```sql
-   SELECT create_hypertable('accounts', 'created_at');
-   ```
+   <OldCreateHypertable />   
 
 </Procedure>
 

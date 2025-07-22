@@ -7,6 +7,7 @@ tags: [chunks, attach]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # attach_tablespace()
@@ -16,7 +17,7 @@ Attach a tablespace to a hypertable and use it to store chunks. A
 that allows control over where individual tables and indexes are
 stored on the filesystem. A common use case is to create a tablespace
 for a particular storage disk, allowing tables to be stored
-there. To learn more, see the [PostgreSQL documentation on
+there. To learn more, see the [$PG documentation on
 tablespaces][postgres-tablespaces].
 
 TimescaleDB can manage a set of tablespaces for each hypertable,

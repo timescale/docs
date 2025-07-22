@@ -7,11 +7,12 @@ tags: [columns, ranges, min-max, chunks]
 api:
   license: apache
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 # disable_chunk_skipping()
 
-Disable range tracking for a specific column in a **compressed** hypertable.
+Disable range tracking for a specific column in a hypertable **in the columnstore**.
 
 ## Required arguments
 

@@ -7,11 +7,12 @@ tags: [delete, drop]
 api:
   license: community
   type: function
+products: [cloud, self_hosted, mst]
 ---
 
 # remove_continuous_aggregate_policy() <Tag type="community">Community</Tag>
 
-Remove the refresh policy from a continuous aggregate.
+Remove all refresh policies from a continuous aggregate.
 
 ```sql
 remove_continuous_aggregate_policy(
@@ -30,7 +31,7 @@ To view the existing continuous aggregate policies, see the [policies informatio
 
 |Name|Type|Description|
 |-|-|-|
-|`continuous_aggregate`|`REGCLASS`|Name of the continuous aggregate the policy should be removed from|
+|`continuous_aggregate`|`REGCLASS`|Name of the continuous aggregate the policies should be removed from|
 
 ## Optional arguments
 
@@ -40,7 +41,7 @@ To view the existing continuous aggregate policies, see the [policies informatio
 
 ## Sample usage
 
-Remove the refresh policy from the `cpu_view` continuous aggregate:
+Remove all refresh policies from the `cpu_view` continuous aggregate:
 
 ``` sql
 SELECT remove_continuous_aggregate_policy('cpu_view');

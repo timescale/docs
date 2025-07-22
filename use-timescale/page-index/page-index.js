@@ -1,51 +1,31 @@
 module.exports = [
   {
-    title: "Use Timescale",
+    title: "Use TigerData products",
     href: "use-timescale",
     defaultOpen: true,
     filePath: "index.md",
     pageComponents: ["content-list"],
     excerpt:
-      "How to connect to Timescale, administer, and configure the database.",
+      "How to connect to Tiger Cloud, administer, and configure the database.",
     children: [
       {
         title: "Hypertables",
         href: "hypertables",
         children: [
           {
-            title: "About hypertables",
-            href: "about-hypertables",
-            excerpt: "Learn about hypertables in Timescale",
-          },
-          {
-            title: "Create hypertables",
-            href: "create",
+            title: "Optimize time-series data in hypertables",
+            href: "hypertable-crud",
             excerpt: "Create hypertables",
           },
           {
-            title: "Change hypertable chunk intervals",
-            href: "change-chunk-intervals",
-            excerpt: "Change and view chunk time intervals for a hypertable",
+            title: "Improve hypertable and query performance",
+            href: "improve-query-performance",
+            excerpt: "Tune hypertables to increase performance",
           },
           {
-            title: "Alter hypertables",
-            href: "alter",
-            excerpt: "Alter hypertables",
-          },
-          {
-            title: "Create unique indexes on hypertables",
+            title: "Enforce constraints with unique indexes",
             href: "hypertables-and-unique-indexes",
             excerpt: "Create hypertables with unique indexes",
-          },
-          {
-            title: "Improve query performance",
-            href: "improve-query-performance",
-            excerpt: "Skip chunks",
-          },
-          {
-            title: "Drop hypertables",
-            href: "drop",
-            excerpt: "Drop hypertables",
           },
           {
             title: "Troubleshoot hypertables",
@@ -67,17 +47,17 @@ module.exports = [
             excerpt: "Automate",
           },
           {
-            title: "Modify data in Hypercore",
-            href: "modify-data-in-hypercore",
-            excerpt: "Update data stored in the columnstore",
-          },
-          {
             title: "Improve query and upsert performance",
             href: "secondary-indexes",
             excerpt: "Automate",
           },
+           {
+             title: "Compression methods in hypercore",
+             href: "compression-methods",
+             excerpt: "Learn about the different compression methods",
+           },
           {
-            title: "Troubleshooting",
+            title: "Troubleshoot hypercore",
             href: "troubleshooting",
             type: "placeholder",
           },
@@ -102,7 +82,7 @@ module.exports = [
             href: "hierarchical-continuous-aggregates",
           },
           {
-            title: "Refresh policies for continuous aggregates",
+            title: "Refresh continuous aggregates",
             href: "refresh-policies",
             excerpt: "Manage refresh policies for continuous aggregates",
           },
@@ -113,7 +93,7 @@ module.exports = [
               "Manage automatic index creation and manually create additional indexes",
           },
           {
-            title: "Time in continuous aggregates",
+            title: "Time and continuous aggregates",
             href: "time",
             excerpt: "Manage time in continuous aggregates",
           },
@@ -128,12 +108,12 @@ module.exports = [
             excerpt: "Manage materialized hypertables in continuous aggregates",
           },
           {
-            title: "Real time aggregates",
+            title: "Real-time aggregates",
             href: "real-time-aggregates",
             excerpt: "Manage real time aggregates in continuous aggregates",
           },
           {
-            title: "Compress continuous aggregates",
+            title: "Convert continuous aggregates to the columnstore",
             href: "compression-on-continuous-aggregates",
             excerpt: "Compress continuous aggregates",
           },
@@ -141,7 +121,7 @@ module.exports = [
             title: "Migrate a continuous aggregate to the new form",
             href: "migrate",
             excerpt:
-              "Migrate old continuous aggregates to the new form introduced in Timescale 2.7",
+              "Migrate old continuous aggregates to the new form introduced in TimescaleDB 2.7",
           },
           {
             title: "Troubleshoot continuous aggregates",
@@ -152,29 +132,29 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale Cloud regions",
+        title: "Tiger Cloud regions",
         href: "regions",
-        excerpt: "Timescale AWS regions",
+        excerpt: "Tiger Cloud AWS regions",
       },
       {
-        title: "Timescale Cloud services",
+        title: "Tiger Cloud services",
         href: "services",
-        excerpt: "About Timescale Cloud services",
+        excerpt: "About Tiger Cloud services",
         children: [
           {
             title: "Services overview",
             href: "service-overview",
-            excerpt: "Timescale services overview",
+            excerpt: "Tiger services overview",
           },
           {
             title: "Service explorer",
             href: "service-explorer",
-            excerpt: "Timescale services explorer",
+            excerpt: "Tiger Cloud services explorer",
           },
           {
             title: "Service management",
             href: "service-management",
-            excerpt: "Timescale services operations, Service management tab",
+            excerpt: "Tiger Cloud services operations, Service management tab",
           },
           {
             title: "Manually change resources",
@@ -184,23 +164,14 @@ module.exports = [
           {
             title: "Connection pooling",
             href: "connection-pooling",
-            excerpt: "Using a connection pool with your Timescale services",
+            excerpt: "Using a connection pool with your Tiger Cloud services",
           },
           {
-            title: "I/O boost",
-            href: "i-o-boost",
-          },
-          {
-            title: "Troubleshooting Timescale services",
+            title: "Troubleshooting Tiger Cloud services",
             href: "troubleshooting",
             type: "placeholder",
           },
         ],
-      },
-      {
-        title: "Control user access to Timescale Cloud projects",
-        href: "members",
-        excerpt: "User management in Timescale Cloud",
       },
       {
         title: "Write data",
@@ -240,7 +211,7 @@ module.exports = [
           {
             title: "About querying data",
             href: "about-query-data",
-            excerpt: "Learn how to query data in Timescale",
+            excerpt: "Learn how to query data in Tiger Cloud",
           },
           {
             title: "SELECT data",
@@ -272,7 +243,7 @@ module.exports = [
           {
             title: "About time buckets",
             href: "about-time-buckets",
-            excerpt: "Learn how time buckets work in Timescale.",
+            excerpt: "Learn how time buckets work in TimescaleDB.",
           },
           {
             title: "Use time buckets to group time-series data",
@@ -302,6 +273,11 @@ module.exports = [
             excerpt: "About schema indexes",
           },
           {
+            title: "Indexing data",
+            href: "indexing",
+            excerpt: "Create an index on a hypertable",
+          },
+          {
             title: "About tablespaces",
             href: "about-tablespaces",
             excerpt: "About schema tablespaces",
@@ -315,11 +291,6 @@ module.exports = [
             title: "Alter hypertables",
             href: "alter",
             excerpt: "Change the schema of a hypertable",
-          },
-          {
-            title: "Index",
-            href: "indexing",
-            excerpt: "Create an index on a hypertable",
           },
           {
             title: "Triggers",
@@ -345,24 +316,24 @@ module.exports = [
       {
         title: "Configuration",
         href: "configuration",
-        excerpt: "Configure your Timescale Cloud service",
+        excerpt: "Configure your Tiger Cloud service",
         children: [
           {
             title: "About Configuration",
             href: "about-configuration",
             excerpt:
-              "Overview of configuration options and methods for PostgreSQL and Timescale",
+              "Overview of configuration options and methods for Postgres and Tiger Cloud",
           },
           {
             title: "Customize configuration",
             href: "customize-configuration",
-            excerpt: "Customize your Timescale database configuration",
+            excerpt: "Customize your Tiger Cloud database configuration",
           },
           {
             title: "Advanced parameters",
             href: "advanced-parameters",
             excerpt:
-              "Configure advanced database parameters for your Timescale service",
+              "Configure advanced database parameters for your Tiger Cloud service",
           },
           {
             title: "Troubleshooting",
@@ -375,44 +346,44 @@ module.exports = [
         title: "Import and ingest data",
         href: "ingest-data",
         excerpt:
-          "Ingest data into a Timescale Cloud service from third-party sources",
+          "Ingest data into a Tiger Cloud service from third-party sources",
         children: [
           {
             title: "Import data from CSV",
             href: "import-csv",
             excerpt:
-              "Import data into a Timescale Cloud service from an external .csv file",
+              "Import data into a Tiger Cloud service from an external .csv file",
           },
           {
             title: "Import data from MySQL",
             href: "import-mysql",
             excerpt:
-              "Import data into a Timescale Cloud service from a MySQL instance",
+              "Import data into a Tiger Cloud service from a MySQL instance",
           },
           {
             title: "Import data from Parquet",
             href: "import-parquet",
             excerpt:
-              "Import data into a Timescale Cloud service from a Parquet file",
+              "Import data into a Tiger Cloud service from a Parquet file",
           },
           {
             title: "Ingest data with Kafka",
             href: "ingest-kafka",
             excerpt:
-              "Import data into a Timescale Cloud service using the PostgreSQL Kafka connector",
+              "Import data into a Tiger Cloud service using the Postgres Kafka connector",
           },
           {
             title: "Ingest metrics with Telegraf",
             href: "ingest-telegraf",
             excerpt:
-              "Ingest metrics into a Timescale Cloud service using the Telegraf plugin",
+              "Ingest metrics into a Tiger Cloud service using the Telegraf plugin",
           },
         ],
       },
       {
         title: "Alerting",
         href: "alerting",
-        excerpt: "Configure alerting within Timescale",
+        excerpt: "Configure alerting in Tiger Cloud",
       },
       {
         title: "Data retention",
@@ -422,7 +393,7 @@ module.exports = [
           {
             title: "About data retention",
             href: "about-data-retention",
-            excerpt: "Learn about data retention in Timescale",
+            excerpt: "Learn about data retention in TimescaleDB",
           },
           {
             title: "About data retention with continuous aggregates",
@@ -454,7 +425,7 @@ module.exports = [
           "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
         children: [
           {
-            title: "About the object storage tier",
+            title: "About storage tiers",
             href: "about-data-tiering",
             excerpt:
               "Learn how the object storage tier helps you save on storage costs",
@@ -499,7 +470,7 @@ module.exports = [
             title: "About hyperfunctions",
             href: "about-hyperfunctions",
             excerpt:
-              "Learn about Timescale hyperfunctions for additional analysis",
+              "Learn about TimescaleDB hyperfunctions for additional analysis",
           },
           {
             title: "Function pipelines",
@@ -568,15 +539,7 @@ module.exports = [
           {
             title: "Counter aggregation",
             href: "counter-aggregation",
-            type: "directory",
             excerpt: "Calculate statistics from gauges and counters",
-            children: [
-              {
-                title: "Counter aggregates",
-                href: "counter-aggs",
-                excerpt: "Learn about the counter aggregate hyperfunction",
-              },
-            ],
           },
           {
             title: "Time-weighted averages",
@@ -607,28 +570,22 @@ module.exports = [
       {
         title: "Metrics and logging",
         href: "metrics-logging",
-        excerpt: "Timescale metrics and logging",
+        excerpt: "Tiger Cloud metrics and logging",
         children: [
           {
-            title: "Service metrics",
-            href: "service-metrics",
-            excerpt: "Timescale services metrics",
+            title: "Monitor Tiger Cloud services",
+            href: "monitoring",
+            excerpt: "Tiger Cloud service monitoring",
           },
           {
-            title: "Service logs",
-            href: "service-logs",
-            excerpt: "Timescale services logs",
+            title: "Export to Amazon Cloudwatch",
+            href: "aws-cloudwatch",
+            excerpt: "Export telemetry data to Amazon Cloudwatch",
           },
           {
-            title: "Insights",
-            href: "insights",
-            excerpt: "Query-level performance insights",
-          },
-          {
-            title: "Third-party monitoring for Timescale Cloud Services",
-            href: "integrations",
-            excerpt:
-              "Export telemetry data to a third-party monitoring service",
+            title: "Export to Datadog",
+            href: "datadog",
+            excerpt: "Export telemetry data to Datadog",
           },
           {
             title: "Export to Prometheus",
@@ -638,46 +595,46 @@ module.exports = [
         ],
       },
       {
-        title: "High availability and read replication",
+        title: "High availability and read scaling",
         href: "ha-replicas",
-        excerpt: "Timescale high availability and read replication",
+        excerpt: "Tiger Cloud high availability and read scaling",
         children: [
           {
             title: "Manage high availability",
             href: "high-availability",
-            excerpt: "Set up HA replicas on Timescale for high availability",
+            excerpt: "Set up HA replicas on Tiger Cloud for high availability",
           },
           {
-            title: "Manage read replication",
+            title: "Read scaling",
             href: "read-scaling",
-            excerpt: "Understand how read scaling works in Timescale",
+            excerpt: "Understand how read scaling works in Tiger Cloud",
           },
         ],
       },
       {
         title: "Maintenance and upgrades",
         href: "upgrades",
-        excerpt: "Keep your Timescale Cloud service up-to-date",
+        excerpt: "Keep your Tiger Cloud service up-to-date",
       },
       {
-        title: "PostgreSQL extensions",
+        title: "Tiger Cloud Postgres extensions",
         href: "extensions",
-        excerpt: "Timescale PostgreSQL extensions",
+        excerpt: "The Postgres extensions installed in each Tiger Cloud service",
         children: [
           {
-            title: "pgvector extension",
+            title: "Create a chatbot using pgvector",
             href: "pgvector",
-            excerpt: "Using the pgvector PostgreSQL extension",
+            excerpt: "Using the pgvector Postgres extension",
           },
           {
-            title: "pgcrypto extension",
+            title: "Encrypt data using pgcrypto",
             href: "pgcrypto",
-            excerpt: "Using the pgcrypto PostgreSQL extension",
+            excerpt: "Using the pgcrypto Postgres extension",
           },
           {
-            title: "postgis extension",
+            title: "Analyse geospatial data using postgis",
             href: "postgis",
-            excerpt: "Using the postgis PostgreSQL extension",
+            excerpt: "Using the postgis Postgres extension",
           },
         ],
       },
@@ -688,12 +645,12 @@ module.exports = [
           {
             title: "Backup and restore",
             href: "backup-restore-cloud",
-            excerpt: "Timescale backup and restore",
+            excerpt: "Tiger Cloud backup and restore",
           },
           {
             title: "Point-in-time recovery",
             href: "point-in-time-recovery",
-            excerpt: "PITR on Timescale services",
+            excerpt: "PITR on Tiger Cloud services",
           },
         ],
       },
@@ -732,51 +689,56 @@ module.exports = [
       {
         title: "Security",
         href: "security",
-        excerpt: "Learn how your Timescale instance is secured",
+        excerpt: "Learn how your Tiger Cloud instance is secured",
         children: [
           {
             title: "Security overview",
             href: "overview",
-            excerpt: "Get an overview of Timescale security",
+            excerpt: "Get an overview of Tiger Cloud security",
+          },
+          {
+            title: "Control user access to projects",
+            href: "members",
+            excerpt: "Project and user role management in Tiger Cloud",
+          },
+          {
+            title: "Manage data security in your service",
+            href: "read-only-role",
+            excerpt: "Restrict access to your data with roles",
           },
           {
             title: "SAML authentication",
             href: "saml",
-            excerpt: "SAML / SSO authentication for your Timescale account",
+            excerpt: "SAML / SSO authentication for your Tiger Cloud account",
           },
           {
             title: "Multi-factor authentication",
             href: "multi-factor-authentication",
-            excerpt: "Multi-factor authentication for your Timescale account",
+            excerpt: "Multi-factor authentication for your Tiger Cloud account",
           },
           {
             title: "Client credentials",
             href: "client-credentials",
             excerpt:
-              "Client credentials to programmatically access your Timescale account",
-          },
-          {
-            title: "Read only role",
-            href: "read-only-role",
-            excerpt: "Create a read-only role to access your database",
+              "Client credentials to programmatically access your Tiger Cloud account",
           },
           {
             title: "Connect with a stricter SSL mode",
             href: "strict-ssl",
             excerpt:
-              "Connect to Timescale with a stricter SSL mode of verify-ca or verify-full",
+              "Connect to Tiger Cloud with a stricter SSL mode of verify-ca or verify-full",
           },
           {
             title: "Connect securely from any cloud",
             href: "transit-gateway",
             excerpt:
-              "Peer your Timescale Cloud service with AWS Transit Gateway",
+              "Peer your Tiger Cloud service with AWS Transit Gateway",
           },
           {
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
             excerpt:
-              "Secure your Timescale Service with VPC peering and AWS PrivateLink",
+              "Secure your Tiger Cloud services with VPC peering and AWS PrivateLink",
           },
           {
             title: "IP allow list",
@@ -787,17 +749,22 @@ module.exports = [
         ],
       },
       {
-        title: "Timescale limitations",
+        title: "Limitations",
         href: "limitations",
-        excerpt: "Current limitations of Timescale features",
+        excerpt: "Current limitations of TigerData product features",
       },
       {
-        title: "Troubleshoot Timescale",
+        title: "Integrate data lakes with Tiger Cloud",
+        href: "tigerlake",
+        excerpt: "Unifies the Tiger Cloud operational architecture with the data lake (S3 + Iceberg) architectures",
+      },
+      {
+        title: "Troubleshoot TigerData products",
         href: "troubleshoot-timescaledb",
-        excerpt: "Troubleshooting Timescale",
+        excerpt: "Troubleshooting Tiger Cloud and TimescaleDB",
       },
       {
-        title: "Compression (Old API, replaced by Hypercore)",
+        title: "Compression (Old API, replaced by hypercore)",
         href: "compression",
         children: [
           {
@@ -808,12 +775,7 @@ module.exports = [
           {
             title: "Compression design",
             href: "compression-design",
-            excerpt: "The design of TimescaleDB compression",
-          },
-          {
-            title: "About compression methods",
-            href: "compression-methods",
-            excerpt: "Learn about the different compression methods",
+            excerpt: "How compression is designed in TimescaleDB",
           },
           {
             title: "Enable a compression policy",
@@ -824,6 +786,11 @@ module.exports = [
             title: "Manual compression",
             href: "manual-compression",
             excerpt: "Compress data chunks",
+          },
+          {
+            title: "Compress continuous aggregates",
+            href: "compression-on-continuous-aggregates",
+            excerpt: "Compress continuous aggregates",
           },
           {
             title: "Modify compressed data",

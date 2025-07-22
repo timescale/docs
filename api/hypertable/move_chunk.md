@@ -8,6 +8,7 @@ api:
   type: function
 seo:
   robots: noindex
+products: [cloud, mst, self_hosted]
 ---
 
 # move_chunk() <Tag type="community">Community</Tag>
@@ -16,9 +17,9 @@ TimescaleDB allows you to move data and indexes to different tablespaces. This
 allows you to move data to more cost-effective storage as it ages.
 
 The `move_chunk` function acts like a combination of the
-[PostgreSQL CLUSTER command][postgres-cluster] and
-[PostgreSQL ALTER TABLE...SET TABLESPACE][postgres-altertable] commands. Unlike
-these PostgreSQL commands, however, the `move_chunk` function uses lower lock
+[$PG CLUSTER command][postgres-cluster] and
+[$PG ALTER TABLE...SET TABLESPACE][postgres-altertable] commands. Unlike
+these $PG commands, however, the `move_chunk` function uses lower lock
 levels so that the chunk and hypertable are able to be read for most of the
 process. This comes at a cost of slightly higher disk usage during the
 operation. For a more detailed discussion of this capability, see the
