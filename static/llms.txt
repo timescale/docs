@@ -197,6 +197,7 @@ This repository contains the complete documentation for TigerData products avail
 - [Apache Kafka](https://docs.tigerdata.com/integrations/latest/apache-kafka/): Kafka streaming integration
 - [Apache Airflow](https://docs.tigerdata.com/integrations/latest/apache-airflow/): Workflow orchestration
 - [Debezium](https://docs.tigerdata.com/integrations/latest/debezium/): Change data capture
+- [Decodable](https://docs.tigerdata.com/integrations/latest/decodable/): Real-time stream processing
 - [Fivetran](https://docs.tigerdata.com/integrations/latest/fivetran/): Data pipeline automation
 - [PostgreSQL](https://docs.tigerdata.com/integrations/latest/postgresql/): PostgreSQL compatibility
 
@@ -221,6 +222,11 @@ This repository contains the complete documentation for TigerData products avail
 - [Kubernetes](https://docs.tigerdata.com/integrations/latest/kubernetes/): Container orchestration
 - [Terraform](https://docs.tigerdata.com/integrations/latest/terraform/): Infrastructure as code
 - [Supabase](https://docs.tigerdata.com/integrations/latest/supabase/): Backend-as-a-service
+- [Corporate Data Center](https://docs.tigerdata.com/integrations/latest/corporate-data-center/): On-premises connectivity
+
+### Connection Details
+- [Find connection details](https://docs.tigerdata.com/integrations/latest/find-connection-details/): Service connection information
+- [Troubleshooting](https://docs.tigerdata.com/integrations/latest/troubleshooting/): Integration troubleshooting guide
 
 ## Migration and Sync
 
