@@ -310,6 +310,7 @@ data lake:
 * Renaming a table in $PG stops the sync to Iceberg and causes unexpected behavior.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
+* The Iceberg namespace is hard coded to `timescaledb`, a custom namespace value is work in progress.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
