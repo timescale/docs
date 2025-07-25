@@ -10,7 +10,7 @@ import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 
 # Import data into your $SERVICE_SHORT using $CONSOLE_LONG
 
-You can import data into your $SERVICE_SHORT using $CONSOLE_LONG. This page explains how to import CSV, Parquet, and TXT files, from your local machine and from an S3 bucket.
+You can import data into your $SERVICE_SHORT using $CONSOLE_LONG. This page explains how to import CSV, Parquet, and text files, from your local machine and from an S3 bucket.
 
 <Tabs label="Import files using Tiger Cloud Console">
 
@@ -34,24 +34,22 @@ To upload a CSV file to your $SERVICE_SHORT:
 
 1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import data` > `Upload .CSV`**
 
-   ![Import from CSV into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-data-console-import-csv.png)
+   ![Import from CSV into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-csv.png)
 
 1. **Click to browse, or drag and drop the file to import**
 1. **Configure the import**
 
-   Configure the following:
-
-   1. Set a delimiter.
-   1. Toggle to skip or keep the header.
-   1. Select to ingest the data into an existing table or create a new one. 
-   1. Provide the new or existing table name. 
-   1. For a new table with a time column, toggle the time column to create a hypertable instead of a regular table. 
-
    ![Configure the CSV import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-csv-import.png)
+
+   - Set a delimiter.
+   - Toggle to skip or keep the header.
+   - Select to ingest the data into an existing table or create a new one. 
+   - Provide the new or existing table name. 
+   - <Optional /> For a new table with a time column, toggle the time column to create a hypertable instead of a regular table.
 
 1. **Click `Process CSV file`**
 
-   Find your data uploaded to a new or existing table in `Explorer`. 
+   When the processing is finished, find your data imported to a new or existing table in `Explorer`. 
 
 </Procedure>
 
@@ -65,47 +63,45 @@ To upload a Parquet file to your $SERVICE_SHORT:
 
 1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import data` > `Upload Parquet`**
 
-   ![Import from Parquet into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-data-console-import-parquet.png)
+   ![Import from Parquet into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-parquet.png)
 
 1. **Click to browse, or drag and drop the file to import**
 1. **Configure the import**
 
-   Configure the following:
-
-   1. Select to ingest the data into an existing table or create a new one.
-   1. Provide the new or existing table name.
-   1. For a new table with a time column, toggle the time column to create a hypertable instead of a regular table.
-
    ![Configure the Parquet import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-parquet-import.png)
 
+   - Select to ingest the data into an existing table or create a new one.
+   - Provide the new or existing table name.
+   - <Optional /> For a new table with a time column, toggle the time column to create a hypertable instead of a regular table.
+   
 1. **Click `Process Parquet file`**
 
-   Find your data uploaded to a new or existing table in `Explorer`.
+   When the processing is finished, find your data imported to a new or existing table in `Explorer`.
 
 </Procedure>
 
 </Tab>
 
-<Tab title="From TXT">
+<Tab title="From a text file">
 
-To upload a TXT file to your $SERVICE_SHORT:
+To upload a TXT or MD file to your $SERVICE_SHORT:
 
 <Procedure>
 
 1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import data` > `Upload text files`**
 
-   ![Import from TXT into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-data-console-import-txt.png)
+   ![Import from a text file into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-txt.png)
 
 1. **Click to browse, or drag and drop the file to import**
 1. **Configure the import**
 
    Provide a name to create a new table, or select an existing table to add data to. 
 
-   ![Configure the TXT import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-txt-import.png)
+   ![Configure the text file import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-txt-import.png)
 
 1. **Click `Upload files`**
 
-   Find your data uploaded to a new or existing table in `Explorer`.
+   When the upload is finished, find your data imported to a new or existing table in `Explorer`.
 
 </Procedure>
 
@@ -122,32 +118,89 @@ $CONSOLE_LONG enables you to upload CSV and Parquet files, including compressed 
 ## Prerequisites
 
 <ImportPrerequisitesCloudNoConnection />
+
 - Ensure access to a standard Amazon S3 bucket containing your data files.
-- Configure access credentials for the S3 bucket.  
-  The following credentials are supported:
+- Configure access credentials for the S3 bucket. The following credentials are supported:
    - [IAM Role][credentials-iam].
    - [Public anonymous user][credentials-public].
 
-To import your files from S3:
+<Tabs label="Import files from S3">
+
+<Tab title="Import from CSV">
+
+    
+To import a CSV file from an S3 bucket:
 
 <Procedure>
 
 1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import from S3`**
 
+1. **Point to your file in the S3 bucket**
+
+   ![Import CSV from S3 in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-csv-from-s3.png)
+
+   1. Provide your file path.
+   1. Select `CSV` in the file type dropdown.
+   1. Select the authentication method: `IAM role` or `Public`. For `IAM role`, provide the role.
+   1. Click `Continue`.
+
 1. **Configure the import**
 
-   1. Provide your bucket address.
-   1. Select the file type.
-   1. Select the authentication method: `IAM role` or `Public`. For `IAM role`, provide the role. 
-   1. Click `Continue`. 
+   ![Configure CSV import from S3 in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-csv-import-from-s3.png)
+
+   - Set a delimiter.
+   - Toggle to skip or keep the header.
+   - Select to ingest the data into an existing table or create a new one.
+   - Provide the new or existing table name.
+   - <Optional /> For a new table with a time column, toggle the time column to create a hypertable instead of a regular table.
+
+1. **Click `Process CSV file`**
+
+   When the processing is finished, find your data imported to a new or existing table in `Explorer`.
 
 </Procedure>
+    
+</Tab>
+
+<Tab title="Import from Parquet">
+
+To import a Parquet file from an S3 bucket:
+
+<Procedure>
+
+1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import from S3`**
+
+1. **Point to your file in the S3 bucket**
+
+   ![Import Parquet from S3 in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-parquet-from-s3.png)
+
+   1. Provide your file path.
+   1. Select `Parquet` in the file type dropdown.
+   1. Select the authentication method: `IAM role` or `Public`. For `IAM role`, provide the role.
+   1. Click `Continue`.
+
+1. **Configure the import**
+
+   - Select to ingest the data into an existing table or create a new one.
+   - Provide the new or existing table name.
+   - <Optional /> For a new table with a time column, toggle the time column to create a hypertable instead of a regular table.
+
+1. **Click `Process Parquet file`**
+
+   When the processing is finished, find your data imported to a new or existing table in `Explorer`.
+
+</Procedure>
+
+</Tab>
+
+</Tabs>
     
 </Tab>
 
 </Tabs>
 
 
+And that is it, you have imported your data to your $SERVICE_LONG.
 
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
