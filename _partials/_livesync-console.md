@@ -81,7 +81,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect the source database and target $SERVICE_SHORT**
 
-   ![Livesync wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-livesync-wizard-tiger-cloud.png)
+   ![Postgres connector wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-livesync-wizard-tiger-cloud.png)
 
    In `Livesync for Postgres`:
    1. Set the `Livesync Name`.

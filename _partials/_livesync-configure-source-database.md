@@ -15,7 +15,7 @@ import EnableReplication from "versionContent/_partials/_migrate_live_setup_enab
 
    This will require a restart of the $PG source database.
 
-1. **Create a user for $LIVESYNC and assign permissions**
+1. **Create a user for the connector and assign permissions**
 
    1. Create `<livesync username>`:
 

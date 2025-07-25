@@ -25,7 +25,7 @@ The $CLOUD_LONG $PG connector leverages the well-established $PG logical replica
 $CLOUD_LONG ensures compatibility, familiarity, and a broader knowledge base—making it easier for you to adopt the connector
 and integrate your data.
 
-You use the $PG connector for data synchronization, rather than migration:
+You use the $PG connector for data synchronization, rather than migration. This includes:
 
 * Copy existing data from a $PG instance to a $SERVICE_LONG:
   - Copy data at up to 150 GB/hr.
@@ -48,7 +48,7 @@ You use the $PG connector for data synchronization, rather than migration:
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
-<EarlyAccessNoRelease />: the $PG connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
+<EarlyAccessNoRelease />: the Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
 
 <Tabs label="Postgres connector" persistKey="source-database">
 
