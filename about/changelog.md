@@ -12,7 +12,7 @@ All the latest features and updates to Tiger Cloud.
 ## TimescaleDB v2.21 and 
 <Label type="date">July 25, 2025</Label>
 
-### TimescaleDB v2.21 - Ingest millions of rows/second and faster columnstore upserts and deletes
+### 🏎️ TimescaleDB v2.21 - Ingest millions of rows/second and faster columnstore upserts and deletes
    
 TimescaleDB v2.21 was released on July 8th and is now available to all developers on Tiger Cloud.
 
@@ -22,13 +22,13 @@ Highlighted features in TimescaleDB v2.21 include:
 - Faster data deletion: DELETE operations on non-segmentby columns are 42x faster, reducing I/O and bloat.
 - Reduced bloat after recompression: Optimized recompression processes lead to less bloat and more efficient storage.
 - Enhanced continuous aggregates:
-  - Concurrent refresh policies enable multiple CAggs to update concurrently.
+  - Concurrent refresh policies enable multiple continuous aggregates to update concurrently.
   - Batched refreshes are now enabled by default for more efficient processing.
-- Complete chunk management: Full support for splitting rowstore chunks, complementing existing merge capabilities.
+- Complete chunk management: Full support for splitting columnstore chunks, complementing existing merge capabilities.
 
 For a comprehensive list of changes, please refer to the [TimescaleDB 2.21 release notes](https://github.com/timescale/timescaledb/releases/tag/2.21.0).
 
-### 🔬Catalog objects available in the Console Explorer
+### 🔬 Catalog objects available in the Console Explorer
 
 We have added a feature that allows you to look at catalog objects in the explorer.  You can check out the internal schemas for PostgreSQL and for TimescaleDB to better understand the inner workings of your database.  To turn on/off visibility, just click the toggle next to the "Objects" title in Service > Explorer.
 
