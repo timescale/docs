@@ -742,6 +742,11 @@ module.exports = [
         excerpt: "Current limitations of TigerData product features",
       },
       {
+        title: "Integrate data lakes with Tiger Cloud",
+        href: "tigerlake",
+        excerpt: "Unifies the Tiger Cloud operational architecture with the data lake (S3 + Iceberg) architectures",
+      },
+      {
         title: "Troubleshoot TigerData products",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Tiger Cloud and TimescaleDB",

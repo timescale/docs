@@ -82,7 +82,7 @@ Chunks in the $COLUMNSTORE have the following limitations:
 *   `ROW LEVEL SECURITY` is not supported on chunks in the columnstore.
 
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/

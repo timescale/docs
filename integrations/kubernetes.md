@@ -22,9 +22,9 @@ To follow the steps on this page:
 
 ## Integrate $TIMESCALE_DB in a Kubernetes cluster 
 
-<Tabs>
+<Tabs persistKey="source-database">
 
-<Tab title="Tiger Cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
 
 To connect your Kubernetes cluster to your $SERVICE_LONG:
 
@@ -129,7 +129,7 @@ To connect your Kubernetes cluster to your $SERVICE_LONG:
 
 </Tab>
 
-<Tab title="Self-hosted TimescaleDB">
+<Tab title="Self-hosted TimescaleDB" label="self-hosted">
 
 <KubernetesInstallSelf />
 

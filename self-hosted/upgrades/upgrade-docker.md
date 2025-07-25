@@ -85,9 +85,9 @@ To upgrade $TIMESCALE_DB within Docker, you need to download the upgraded image,
 stop the old container, and launch the new container pointing to your existing
 data.
 
-<Tabs label="Upgrade TimescaleDB in Docker">
+<Tabs label="Upgrade TimescaleDB in Docker" persistKey="docker-image">
 
-<Tab title="TimescaleDB-HA">
+<Tab title="TimescaleDB-HA" label="ha" >
 
 <Procedure>
 
@@ -162,7 +162,7 @@ If you have multiple databases, update each database separately.
 </Tab>
 
 
-<Tab title="TimescaleDB light">
+<Tab title="TimescaleDB light" label="light" >
 
 <Procedure>
 

@@ -10,6 +10,8 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
+import Sunsetted2140 from "versionContent/_partials/_sunsetted_2_14_0.mdx";
+
 # timescaledb_information.hypertables
 
 Get metadata information about hypertables.
@@ -19,18 +21,18 @@ see the [hypertable section][hypertable-docs].
 
 ## Available columns
 
-|Name|Type|Description|
-|-|-|-|
-|`hypertable_schema`|TEXT|Schema name of the hypertable|
-|`hypertable_name`|TEXT|Table name of the hypertable|
-|`owner`|TEXT|Owner of the hypertable|
-|`num_dimensions`|SMALLINT|Number of dimensions|
-|`num_chunks`|BIGINT|Number of chunks|
-|`compression_enabled`|BOOLEAN|Is compression enabled on the hypertable?|
-|`is_distributed`|BOOLEAN|Is the hypertable distributed?|
-|`replication_factor`|SMALLINT|Replication factor for a distributed hypertable|
-|`data_nodes`|TEXT|Nodes on which hypertable is distributed|
-|`tablespaces`|TEXT|Tablespaces attached to the hypertable |
+|Name|Type| Description                                                       |
+|-|-|-------------------------------------------------------------------|
+|`hypertable_schema`|TEXT| Schema name of the hypertable                                     |
+|`hypertable_name`|TEXT| Table name of the hypertable                                      |
+|`owner`|TEXT| Owner of the hypertable                                           |
+|`num_dimensions`|SMALLINT| Number of dimensions                                              |
+|`num_chunks`|BIGINT| Number of chunks                                                  |
+|`compression_enabled`|BOOLEAN| Is compression enabled on the hypertable?                         |
+|`is_distributed`|BOOLEAN| <Sunsetted2140 /> Is the hypertable distributed?                  |
+|`replication_factor`|SMALLINT| <Sunsetted2140 /> Replication factor for a distributed hypertable |
+|`data_nodes`|TEXT| <Sunsetted2140 /> Nodes on which hypertable is distributed        |
+|`tablespaces`|TEXT| Tablespaces attached to the hypertable                            |
 
 ## Sample usage
 

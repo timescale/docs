@@ -17,29 +17,29 @@ import StartCodingJava from "versionContent/_partials/_start-coding-java.mdx";
 Easily integrate your app with $CLOUD_LONG or $SELF_LONG. Use your favorite programming language to connect to your
 $SERVICE_LONG, create and manage hypertables, then ingest and query data.
 
-<Tabs label="Start coding with TigerData">
+<Tabs label="Start coding with TigerData" persistKey="language">
 
-<Tab title="Ruby">
+<Tab title="Ruby" label="ruby">
 
 <StartCodingRuby />
 
 </Tab>
-<Tab title="Python">
+<Tab title="Python" label="python">
 
 <StartCodingPython />
 
 </Tab>
-<Tab title="Node.js">
+<Tab title="Node.js" label="node.js">
 
 <StartCodingNode />
 
 </Tab>
-<Tab title="Go">
+<Tab title="Go" label="go">
 
 <StartCodingGoLang />
 
 </Tab>
-<Tab title="Java">
+<Tab title="Java" label="java">
 
 <StartCodingJava />
 
