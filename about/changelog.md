@@ -26,7 +26,7 @@ Highlighted features in TimescaleDB v2.21 include:
   - Batched refreshes are now enabled by default for more efficient processing.
 - **Complete chunk management**: full support for splitting columnstore chunks, complementing the existing merge capabilities.
 
-For a comprehensive list of changes, refer to the [TimescaleDB 2.21 release notes](https://github.com/timescale/timescaledb/releases/tag/2.21.0).
+For a comprehensive list of changes, refer to the [TimescaleDB v2.21 release notes](https://github.com/timescale/timescaledb/releases/tag/2.21.0).
 
 ### 🔬 Catalog objects available in the Console Explorer
 
