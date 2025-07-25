@@ -45,7 +45,7 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
   
   Directory buckets are not supported.
 - Configure access credentials for the S3 bucket.  
-  - The following credentials are supported: 
+  The following credentials are supported: 
     - [IAM Role][credentials-iam].
     
       - Configure the trust policy. Set the: 
