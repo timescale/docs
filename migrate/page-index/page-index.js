@@ -1,29 +1,43 @@
 module.exports = [
   {
-    title: "Migrate and sync data to Tiger Cloud",
+    title: "Import and connect",
     href: "migrate",
-    excerpt: "Migrating your data to Tiger Cloud",
+    excerpt: "Import, ingest, migrate data, and connect to Tiger Cloud",
     children: [
+      {
+        title: "Import data using Console",
+        href: "import-data-using-console",
+        excerpt: "Import data into a Tiger Cloud service using Console",
+      },
+      {
+        title: "Import data using the terminal",
+        href: "import-data-using-terminal",
+        excerpt: "Import data into a Tiger Cloud service using the terminal",
+      },
+      {
+        title: "Connect to Postgres",
+        href: "livesync-for-postgresql",
+        excerpt: "Synchronize updates to a primary Postgres database instance with a Tiger Cloud service in real time",
+      },
+      {
+        title: "Connect to S3",
+        href: "livesync-for-s3",
+        excerpt: "Synchronize data from S3 with a Tiger Cloud service in real time",
+      },
+      {
+        title: "Ingest metrics with Telegraf",
+        href: "ingest-telegraf",
+        excerpt: "Ingest metrics into a Tiger Cloud service using the Telegraf plugin",
+      },
       {
         title: "Migrate with downtime",
         href: "pg-dump-and-restore",
-        excerpt:
-          "Migrate a hypertable or entire database with native Postgres commands",
+        excerpt: "Migrate a hypertable or entire database with native Postgres commands",
       },
       {
         title: "Live migration",
         href: "live-migration",
         excerpt: "Migrate a large database with low downtime",
-      },
-      {
-        title: "Livesync from Postgres",
-        href: "livesync-for-postgresql",
-        excerpt: "Synchronize updates to a primary postgres database instance to Tiger Cloud service in real-time",
-      },
-      {
-        title: "Livesync from S3",
-        href: "livesync-for-s3",
-        excerpt: "Synchronize data from S3 to a Tiger Cloud service in real time",
       },
       {
         title: "Dual-write and backfill",
@@ -61,7 +75,7 @@ module.exports = [
         title: "FAQ and troubleshooting",
         href: "troubleshooting",
         excerpt:
-          "Troubleshooting known issues in database migrations",
+          "Troubleshooting known issues in data import and connection",
       },
     ],
   }

@@ -1,5 +1,5 @@
 ---
-title: Livesync from Postgres to Tiger Cloud
+title: Connect Postgres to Tiger Cloud
 excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
@@ -12,30 +12,31 @@ import LivesyncConsole from "versionContent/_partials/_livesync-console.mdx"
 import LivesyncTerminal from "versionContent/_partials/_livesync-terminal.mdx"
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
-# Livesync from $PG to $CLOUD_LONG
+# Connect $PG to $CLOUD_LONG
 
-You use $LIVESYNC to synchronize all the data, or specific tables, from a $PG database instance to your 
-$SERVICE_LONG in real time. You run $LIVESYNC continuously, turning $PG into a primary database with your 
-$SERVICE_LONG as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on 
+You use the $PG source connector in $CLOUD_LONG to synchronize all data or specific tables from a $PG database instance to your 
+$SERVICE_SHORT, in real time. You run the connector continuously, turning $PG into a primary database with your 
+$SERVICE_SHORT as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on 
 your replica data.
 
 ![livesync view status](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-livesync-view-status-tiger-cloud.png)
 
-$LIVESYNC_CAP leverages the well-established $PG logical replication protocol. By relying on this protocol,
-$LIVESYNC ensures compatibility, familiarity, and a broader knowledge base. Making it easier for you to adopt $LIVESYNC
+The $CLOUD_LONG $PG connector leverages the well-established $PG logical replication protocol. By relying on this protocol,
+$CLOUD_LONG ensures compatibility, familiarity, and a broader knowledge base—making it easier for you to adopt the connector
 and integrate your data.
 
-You use $LIVESYNC for data synchronization, rather than migration:
+You use the $PG connector for data synchronization, rather than migration:
+
 * Copy existing data from a $PG instance to a $SERVICE_LONG:
   - Copy data at up to 150 GB/hr.
   
-    You need at least a 4 CPU/16GB source database, and a 4 CPU/16GB target $SERVICE_SHORT.
+    You need at least a 4 CPU/16 GB source database, and a 4 CPU/16 GB target $SERVICE_SHORT.
   - Copy the publication tables in parallel. 
   
     Large tables are still copied using a single connection. Parallel copying is in the backlog.
   - Forget foreign key relationships. 
   
-     $LIVESYNC_CAP disables foreign key validation during the sync. For example, if a `metrics` table refers to 
+     The connector disables foreign key validation during the sync. For example, if a `metrics` table refers to 
     the `id` column on the `tags` table, you can still sync only the `metrics` table without worrying about their 
     foreign key relationships.
   - Track progress. 
@@ -47,16 +48,16 @@ You use $LIVESYNC for data synchronization, rather than migration:
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
-<EarlyAccessNoRelease />: livesync is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
+<EarlyAccessNoRelease />: the $PG connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
 
-<Tabs label="Livesync" persistKey="source-database">
+<Tabs label="Postgres connector" persistKey="source-database">
 
 <Tab title="Tiger Cloud Console" label="tiger-cloud">
 
 <LivesyncConsole />
 
 </Tab>
-<Tab title="Self-hosted livesync" label="self-hosted">
+<Tab title="Self-hosted Postgres connector" label="self-hosted">
 
 <LivesyncTerminal />
 

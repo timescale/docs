@@ -1,15 +1,14 @@
 ---
-title: Migrate your data to Tiger Cloud
-excerpt: Migrate your existing database to Tiger Cloud - with downtime, live, with dual-write and backfill, or with livesync
-products: [cloud]
-keywords: [data migration, Postgres, RDS]
-tags: [ingest, migrate, RDS]
+title: Import, ingest, migrate, and connect your data to Tiger Cloud
+excerpt: In Tiger Cloud, you can easily import individual files, ingest data in bulk, migrate from other databases, or connect directly so that your data from another source is continuously synced 
+products: [cloud, self_hosted]
+keywords: [import, ingest, connect, migrate, RDS]
+tags: [import, ingest, connect, migrate, RDS]
 ---
 
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 
-
-# Migrate and sync data to $CLOUD_LONG
+# Import and connect 
 
 You have chosen to migrate or sync your data to $CLOUD_LONG, thank you. 
 

@@ -11,7 +11,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 - Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
 
-  $LIVESYNC_CAP does not create extensions on the target. If the table uses column types from an extension,
+  The $PG connector does not create extensions on the target. If the table uses column types from an extension,
     first create the extension on the target $SERVICE_LONG before syncing the table.
 
 ## Limitations
@@ -28,7 +28,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 ## Set your connection string
 
-This variable holds the connection information for the source database. In Terminal on your migration machine, 
+This variable holds the connection information for the source database. In the terminal on your migration machine, 
 set the following:
 
 ```bash
@@ -36,8 +36,10 @@ export SOURCE="postgres://<user>:<password>@<source host>:<source port>/<db_name
 ```
 
 <Highlight type="important">
+
 Avoid using connection strings that route through connection poolers like PgBouncer or similar tools. This tool 
 requires a direct connection to the database to function properly.
+
 </Highlight>
 
 
@@ -65,7 +67,7 @@ requires a direct connection to the database to function properly.
 </Tab>
 </Tabs>
 
-## Synchronize data to your Tiger Cloud service
+## Synchronize data to your $SERVICE_LONG
 
 To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
@@ -74,8 +76,8 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 1. **Connect to your $SERVICE_LONG**
 
    In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to sync live data to. 
-1. **Start $LIVESYNC**
-   1. Click `Actions` > `Livesync for PostgreSQL`.
+1. **Start the connection**
+   1. Click `Connectors` > `PostgreSQL`.
 
 1. **Connect the source database and target $SERVICE_SHORT**
 
