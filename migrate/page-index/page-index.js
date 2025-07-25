@@ -5,16 +5,6 @@ module.exports = [
     excerpt: "Import, ingest, migrate data, and connect to Tiger Cloud",
     children: [
       {
-        title: "Import data using Console",
-        href: "import-data-using-console",
-        excerpt: "Import data into a Tiger Cloud service using Console",
-      },
-      {
-        title: "Import data using the terminal",
-        href: "import-data-using-terminal",
-        excerpt: "Import data into a Tiger Cloud service using the terminal",
-      },
-      {
         title: "Connect to Postgres",
         href: "livesync-for-postgresql",
         excerpt: "Synchronize updates to a primary Postgres database instance with a Tiger Cloud service in real time",
@@ -25,9 +15,14 @@ module.exports = [
         excerpt: "Synchronize data from S3 with a Tiger Cloud service in real time",
       },
       {
-        title: "Ingest metrics with Telegraf",
-        href: "ingest-telegraf",
-        excerpt: "Ingest metrics into a Tiger Cloud service using the Telegraf plugin",
+        title: "Import data using Console",
+        href: "import-data-using-console",
+        excerpt: "Import data into a Tiger Cloud service using Console",
+      },
+      {
+        title: "Import data using the terminal",
+        href: "import-data-using-terminal",
+        excerpt: "Import data into a Tiger Cloud service using the terminal",
       },
       {
         title: "Migrate with downtime",
@@ -70,6 +65,11 @@ module.exports = [
           },
 
         ],
+      },
+      {
+        title: "Ingest metrics with Telegraf",
+        href: "ingest-telegraf",
+        excerpt: "Ingest metrics into a Tiger Cloud service using the Telegraf plugin",
       },
       {
         title: "FAQ and troubleshooting",

@@ -1,5 +1,5 @@
 ---
-title: Import, ingest, migrate, and connect your data to Tiger Cloud
+title: Connect, import, ingest, and migrate your data to Tiger Cloud
 excerpt: In Tiger Cloud, you can easily import individual files, ingest data in bulk, migrate from other databases, or connect directly so that your data from another source is continuously synced 
 products: [cloud, self_hosted]
 keywords: [import, ingest, connect, migrate, RDS]
@@ -10,11 +10,33 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 # Import and connect 
 
-You have chosen to migrate or sync your data to $CLOUD_LONG, thank you. 
+In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from other sources. This includes:
+
+- Connecting directly so that your data from another source is continuously synced to your $SERVICE_SHORT
+- Importing individual files via $CONSOLE_LONG and the command line
+- Migrating data from other databases
+- Ingesting metrics from Telegraf
+
+
+## Connect to $PG or S3
+
+You use $LIVESYNC to synchronize all or some of your data to your $SERVICE_LONG in real time. You run $LIVESYNC
+continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you
+to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica data.
+
+| $LIVESYNC_CAP options                      |  Downtime requirements |
+|--------------------------------------------|-----------------------|
+| [$LIVESYNC_CAP for $PG][livesync-postgres] | None                  |
+| [$LIVESYNC_CAP for S3][livesync-s3]        | None                  |
+
+
+## Import individual files
+
+You can [import individual files via $CONSOLE_SHORT][import-console], from your local machine or S3. This includes CSV, Parquet, TXT, and MD files. Alternatively, [import data in the terminal][import-terminal].
 
 ## Migrate your data 
 
-Depending on the amount of data you need to migrate, and the amount of downtime you can afford. $COMPANY offers 
+Depending on the amount of data you need to migrate, and the amount of downtime you can afford, $COMPANY offers 
 the following ways to migrate your data:
 
 | Migration strategy                         | Use when                                                                                                                    | Downtime requirements |
@@ -34,17 +56,9 @@ If you're migrating your data from another source database type, best practice i
 a `.csv` file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][parallel-copy]. For other ingestion methods, 
 see [Ingest data from other sources][data-ingest].
 
-## Livesync your data
+## Ingest data
 
-You use $LIVESYNC to synchronize all or some of your data to your $SERVICE_LONG in real time. You run $LIVESYNC 
-continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you 
-to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica data.
-
-| $LIVESYNC_CAP options                      |  Downtime requirements |
-|--------------------------------------------|-----------------------|
-| [$LIVESYNC_CAP for $PG][livesync-postgres] | None                  |
-| [$LIVESYNC_CAP for S3][livesync-s3]        | None                  |
-
+Telegraf is a server-based agent that collects and sends metrics and events from databases, systems, and IoT sensors. You can [view metrics][ingest-telegraf] gathered by Telegraf and stored in a hypertable in a $SERVICE_LONG.
 
 
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
