@@ -59,4 +59,4 @@ CREATE INDEX ON conditions USING brin(time, location)
     WITH (timescaledb.transaction_per_chunk);
 ```
 
-[postgres-createindex]: https://www.postgresql.org/docs/current/manage-ag-tablespaces.html
+[postgres-createindex]: https://www.postgresql.org/docs/current/sql-createindex.html
