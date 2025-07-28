@@ -2,12 +2,37 @@
 title: Changelog
 excerpt: Get a weekly summary of the latest changes to TigerData products with links to detailed documentation
 keywords: [changelog, upgrades, updates, releases]
-products: [cloud, self_hosted]
+products: [cloud]
 ---
 
 # Changelog
 
-All the latest features and updates to $COMPANY products.
+All the latest features and updates to $CLOUD_LONG.
+
+## TimescaleDB v2.21 and catalog objects in the Console Explorer
+<Label type="date">July 25, 2025</Label>
+
+### 🏎️ TimescaleDB v2.21—ingest millions of rows/second and faster columnstore UPSERTs and DELETEs
+   
+TimescaleDB v2.21 was released on July 8 and is now available to all developers on Tiger Cloud.
+
+Highlighted features in TimescaleDB v2.21 include:
+- **High-scale ingestion performance (tech preview)**: introducing a new approach that compresses data directly into the columnstore during ingestion, demonstrating over 1.2M rows/second in tests with bursts over 50M rows/second. We are actively seeking design partners for this feature.
+- **Faster data updates (UPSERTs)**: columnstore UPSERTs are now 2.5x faster for heavily constrained tables, building on the 10x improvement from v2.20.
+- **Faster data deletion**: DELETE operations on non-segmentby columns are 42x faster, reducing I/O and bloat.
+- **Reduced bloat after recompression**: optimized recompression processes lead to less bloat and more efficient storage.
+- **Enhanced continuous aggregates**:
+  - Concurrent refresh policies enable multiple continuous aggregates to update concurrently.
+  - Batched refreshes are now enabled by default for more efficient processing.
+- **Complete chunk management**: full support for splitting columnstore chunks, complementing the existing merge capabilities.
+
+For a comprehensive list of changes, refer to the [TimescaleDB v2.21 release notes](https://github.com/timescale/timescaledb/releases/tag/2.21.0).
+
+### 🔬 Catalog objects available in the Console Explorer
+
+You can now view catalog objects in the Console Explorer. Check out the internal schemas for PostgreSQL and TimescaleDB to better understand the inner workings of your database. To turn on/off visibility, select your service in Tiger Cloud Console, then click `Explorer` and toggle `Show catalog objects`. 
+
+![Explore catalog objects](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-explorer-catalog-objects.png)
 
 ## Iceberg Destination Connector (Tiger Lake)
 <Label type="date">July 18, 2025</Label>
