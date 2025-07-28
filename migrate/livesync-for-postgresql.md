@@ -1,5 +1,5 @@
 ---
-title: Connect Postgres to Tiger Cloud
+title: Connect Postgres to stream to Tiger Cloud
 excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
@@ -14,18 +14,18 @@ import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
 # Connect $PG to $CLOUD_LONG
 
-You use the $PG source connector in $CLOUD_LONG to synchronize all data or specific tables from a $PG database instance to your 
+You use the $PG_CONNECTOR in $CLOUD_LONG to synchronize all data or specific tables from a $PG database instance to your 
 $SERVICE_SHORT, in real time. You run the connector continuously, turning $PG into a primary database with your 
 $SERVICE_SHORT as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on 
 your replica data.
 
-![livesync view status](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-livesync-view-status-tiger-cloud.png)
+![Tiger Cloud connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-connector-overview.png)
 
-The $CLOUD_LONG $PG connector leverages the well-established $PG logical replication protocol. By relying on this protocol,
+The $PG_CONNECTOR in $CLOUD_LONG leverages the well-established $PG logical replication protocol. By relying on this protocol,
 $CLOUD_LONG ensures compatibility, familiarity, and a broader knowledge base—making it easier for you to adopt the connector
 and integrate your data.
 
-You use the $PG connector for data synchronization, rather than migration. This includes:
+You use the $PG_CONNECTOR for data synchronization, rather than migration. This includes:
 
 * Copy existing data from a $PG instance to a $SERVICE_LONG:
   - Copy data at up to 150 GB/hr.
@@ -36,7 +36,7 @@ You use the $PG connector for data synchronization, rather than migration. This 
     Large tables are still copied using a single connection. Parallel copying is in the backlog.
   - Forget foreign key relationships. 
   
-     The connector disables foreign key validation during the sync. For example, if a `metrics` table refers to 
+    The connector disables foreign key validation during the sync. For example, if a `metrics` table refers to 
     the `id` column on the `tags` table, you can still sync only the `metrics` table without worrying about their 
     foreign key relationships.
   - Track progress. 
@@ -48,9 +48,9 @@ You use the $PG connector for data synchronization, rather than migration. This 
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
-<EarlyAccessNoRelease />: the Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
+<EarlyAccessNoRelease />: the source Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
 
-<Tabs label="Postgres connector" persistKey="source-database">
+<Tabs label="Postgres source connector" persistKey="source-database">
 
 <Tab title="Tiger Cloud Console" label="tiger-cloud">
 

@@ -9,7 +9,7 @@
 
 * Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
 
-  The $PG connector does not create extensions on the target. If the table uses
+  The $PG_CONNECTOR does not create extensions on the target. If the table uses
   column types from an extension, first create the extension on the
   target $SERVICE_LONG before syncing the table.
 

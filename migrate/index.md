@@ -12,22 +12,20 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from other sources. This includes:
 
-- Connecting directly so that your data from another source is continuously synced to your $SERVICE_SHORT
-- Importing individual files via $CONSOLE_LONG and the command line
-- Migrating data from other databases
-- Ingesting metrics from Telegraf
-
+- Connecting directly, so that your data from another source is continuously synced to your $SERVICE_SHORT.
+- Importing individual files via $CONSOLE_LONG and the command line.
+- Migrating data from other databases.
+- Ingesting metrics from Telegraf.
 
 ## Connect to $PG or S3
 
-You use $LIVESYNC to synchronize all or some of your data to your $SERVICE_LONG in real time. You run $LIVESYNC
-continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you
+$CLOUD_LONG provides source connectors for Postgres and S3, which you can use to synchronize all or some of your data to your $SERVICE_LONG in real time. You run the connectors continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you
 to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica data.
 
-| $LIVESYNC_CAP options                      |  Downtime requirements |
-|--------------------------------------------|-----------------------|
-| [$LIVESYNC_CAP for $PG][livesync-postgres] | None                  |
-| [$LIVESYNC_CAP for S3][livesync-s3]        | None                  |
+| Connector options                      |  Downtime requirements |
+|----------------------------------------|-----------------------|
+| [$PG_CONNECTOR_CAP][livesync-postgres] | None                  |
+| [$S3_CONNECTOR_CAP][livesync-s3]       | None                  |
 
 
 ## Import individual files
