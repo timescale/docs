@@ -11,7 +11,7 @@ Real-time analytics applications require more than fast inserts and analytical q
 when retrieving individual records, enforcing constraints, or performing upserts, something that OLAP/columnar databases
 lack. This pages explains how to improve performance by segmenting and ordering data.
 
-To improve query performance using indexes for a production environment, see [About indexes][about-index] and [Indexing data][create-index].
+To improve query performance using indexes, see [About indexes][about-index] and [Indexing data][create-index].
 
 ## Segmenting and ordering data
 
