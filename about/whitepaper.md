@@ -4,6 +4,9 @@ excerpt: A whitepaper detailing the architectural choices and optimizations for 
 products: [cloud, mst, self_hosted]
 keywords: [real-time analytics, tiger cloud, timescaledb, time-series, whitepaper]
 ---
+
+import Deprecated2210 from "versionContent/_partials/_deprecated_2_21_0.mdx";
+
 # $COMPANY architecture for real-time analytics
 
 $COMPANY has created a powerful application database for real-time analytics on time-series data. It integrates seamlessly 
@@ -250,6 +253,9 @@ Min/max metadata allows queries filtering on correlated dimensions (e.g., `order
 
 
 #### $PG indexes (row and columnar)
+
+
+<Deprecated2210 /> Hypercore TAM, including support for B-tree indexes, is sunsetted in TimescaleDB v2.22.0.
 
 Unlike many databases, $TIMESCALE_DB supports standard $PG indexes on columnstore data (B-tree and hash currently, when using the hypercore table access method), allowing queries to efficiently locate specific values within both row-based and compressed columnar storage. These indexes enable fast lookups, range queries, and filtering operations that further reduce unnecessary data scans.
 

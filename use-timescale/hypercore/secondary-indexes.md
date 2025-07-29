@@ -11,12 +11,10 @@ import EarlyAccess from "versionContent/_partials/_early_access.mdx";
 # Improve query and upsert performance
 
 Real-time analytics applications require more than fast inserts and analytical queries. They also need high performance
-when retrieving individual records, enforcing constraints, or performing upserts, something that OLAP/columnar databases
-lack.
+when retrieving individual records, enforcing constraints, or performing upserts—something that OLAP/columnar databases
+lack. This page explains how to improve performance by segmenting and ordering your data.
 
-* [Segmenting and ordering data][segmenting-and-ordering] - improve performance by controlling the way data is physically stored.  
-
-To improve query performance using indexes for a production environment, see [About indexes][about-index] and [Indexing data][create-index].
+To improve query performance using indexes, see [About indexes][about-index] and [Indexing data][create-index].
 
 ## Segmenting and ordering data
 
@@ -130,11 +128,9 @@ The number of rows that are compressed together in a single batch (like the ones
 If your chunk does not contain enough data to create big enough batches, your compression ratio will be reduced.
 This needs to be taken into account when you define your $COLUMNSTORE settings.
 
+## B-tree and hash indexes in hypercore TAM
 
-
-## B-tree and hash indexes: **experimental support**
-
-<Deprecated2210 /> This feature is sunsetted in TimescaleDB v2.22.0.
+<Deprecated2210 /> Hypercore TAM, including support for B-tree and hash indexes, is sunsetted in TimescaleDB v2.22.0.
 
 $TIMESCALE_DB supports and accelerates real-time analytics using [$HYPERCORE][hypercore] without missing out on important  
 $PG features, including support for standard $PG indexes. $HYPERCORE_CAP is a hybrid storage engine 

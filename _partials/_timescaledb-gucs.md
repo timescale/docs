@@ -1,3 +1,5 @@
+import Deprecated2210 from "versionContent/_partials/_deprecated_2_21_0.mdx";
+
 | Name | Type | Default | Description |
 | -- | -- | -- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `auto_sparse_indexes` | `BOOLEAN` | `true` | The hypertable columns that are used as index keys will have suitable sparse indexes when compressed. Must be set at the moment of chunk compression, e.g. when the `compress_chunk()` is called. |
@@ -6,16 +8,16 @@
 | `compression_batch_size_limit` | `INTEGER` | `1000` | Setting this option to a number between 1 and 999 will force compression to limit the size of compressed batches to that amount of uncompressed tuples.Setting this to 0 defaults to the max batch size of 1000.<br />min: `1`, max: `1000` |
 | `compression_orderby_default_function` | `STRING` | `"_timescaledb_functions.get_orderby_defaults"` | Function to use for calculating default order_by setting for compression |
 | `compression_segmentby_default_function` | `STRING` | `"_timescaledb_functions.get_segmentby_defaults"` | Function to use for calculating default segment_by setting for compression |
-| `current_timestamp_mock` | `STRING` | `NULL` |  this is for debugging purposes |
+| `current_timestamp_mock` | `STRING` | `NULL` |  For debugging purposes |
 | `debug_allow_cagg_with_deprecated_funcs` | `BOOLEAN` | `false` |  this is for debugging/testing purposes |
-| `debug_bgw_scheduler_exit_status` | `INTEGER` | `0` |  this is for debugging purposes<br />min: `0`, max: `255` |
-| `debug_compression_path_info` | `BOOLEAN` | `false` |  this is for debugging/information purposes |
-| `debug_have_int128` | `BOOLEAN` | `#ifdef HAVE_INT128 true` |  this is for debugging purposes |
-| `debug_require_batch_sorted_merge` | `BOOLEAN` | `false` |  this is for debugging purposes |
-| `debug_require_vector_agg` | `ENUM` | `DRO_Allow` |  this is for debugging purposes |
-| `debug_require_vector_qual` | `ENUM` | `DRO_Allow` | this is for debugging purposes, to let us check if the vectorized quals are used or not. EXPLAIN differs after PG15 for custom nodes, and using the test templates is a pain |
-| `debug_toast_tuple_target` | `INTEGER` | `/* bootValue = */ 128` |  this is for debugging purposes<br />min: `/* minValue = */ 1`, max: `/* maxValue = */ 65535` |
-| `default_hypercore_use_access_method` | `BOOLEAN` | `false` | gettext_noop(Sets the global default for using Hypercore TAM when compressing chunks.) |
+| `debug_bgw_scheduler_exit_status` | `INTEGER` | `0` |  for debugging purposes<br />min: `0`, max: `255` |
+| `debug_compression_path_info` | `BOOLEAN` | `false` |  For debugging/information purposes |
+| `debug_have_int128` | `BOOLEAN` | `#ifdef HAVE_INT128 true` |  For debugging purposes |
+| `debug_require_batch_sorted_merge` | `BOOLEAN` | `false` |  For debugging purposes |
+| `debug_require_vector_agg` | `ENUM` | `DRO_Allow` |  For debugging purposes |
+| `debug_require_vector_qual` | `ENUM` | `DRO_Allow` | For debugging purposes, to let us check if the vectorized quals are used or not. EXPLAIN differs after PG15 for custom nodes, and using the test templates is a pain |
+| `debug_toast_tuple_target` | `INTEGER` | `/* bootValue = */ 128` |  For debugging purposes<br />min: `/* minValue = */ 1`, max: `/* maxValue = */ 65535` |
+| `default_hypercore_use_access_method` | `BOOLEAN` | `false` | gettext_noop (Sets the global default for using hypercore TAM when compressing chunks). **Hypercore TAM is deprecated since 2.21.0 and is sunsetted in 2.22.0**. |
 | `enable_bool_compression` | `BOOLEAN` | `true` | Enable bool compression |
 | `enable_bulk_decompression` | `BOOLEAN` | `true` | Increases throughput of decompression, but might increase query memory usage |
 | `enable_cagg_reorder_groupby` | `BOOLEAN` | `true` | Enable group by clause reordering for continuous aggregates |
@@ -65,7 +67,7 @@
 | `enable_transparent_decompression` | `ENUM` | `1` | Enable transparent decompression when querying hypertable |
 | `enable_tss_callbacks` | `BOOLEAN` | `true` | Enable ts_stat_statements callbacks |
 | `enable_vectorized_aggregation` | `BOOLEAN` | `true` | Enable vectorized aggregation for compressed data |
-| `hypercore_arrow_cache_max_entries` | `INTEGER` | `25000` | The max number of decompressed arrow segments that can be cached before entries are evicted. This mainly affects the performance of index scans on the Hypercore TAM when segments are accessed in non-sequential order.<br />min: `1`, max: `INT_MAX` |
+| `hypercore_arrow_cache_max_entries` | `INTEGER` | `25000` | The max number of decompressed arrow segments that can be cached before entries are evicted. This mainly affects the performance of index scans on the hypercore TAM when segments are accessed in non-sequential order. **Hypercore TAM is deprecated since 2.21.0 and is sunsetted in 2.22.0** <br />min: `1`, max: `INT_MAX` |
 | `hypercore_copy_to_behavior` | `ENUM` | `HYPERCORE_COPY_NO_COMPRESSED_DATA` | Set to 'all_data' to return both compressed and uncompressed data via the Hypercore table when using COPY TO. Set to 'no_compressed_data' to skip compressed data. |
 | `hypercore_indexam_whitelist` | `STRING` | `"btree,hash"` | gettext_noop(List of index access method names supported by hypercore.) |
 | `last_tuned` | `STRING` | `NULL` |  records last time timescaledb-tune ran |
