@@ -128,9 +128,9 @@ The number of rows that are compressed together in a single batch (like the ones
 If your chunk does not contain enough data to create big enough batches, your compression ratio will be reduced.
 This needs to be taken into account when you define your $COLUMNSTORE settings.
 
-## B-tree and hash indexes in hypercore TAM
+## B-tree and hash indexes 
 
-<Deprecated2210 /> Hypercore TAM, including support for B-tree and hash indexes, is sunsetted in TimescaleDB v2.22.0.
+<Deprecated2210 /> Hypercore TAM, including support for B-tree indexes, is sunsetted in TimescaleDB v2.22.0.
 
 $TIMESCALE_DB supports and accelerates real-time analytics using [$HYPERCORE][hypercore] without missing out on important  
 $PG features, including support for standard $PG indexes. $HYPERCORE_CAP is a hybrid storage engine 
