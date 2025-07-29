@@ -39,7 +39,6 @@ CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
 | `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the $COLUMNSTORE.                                                                                                      |
 | `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the $COLUMNSTORE.                                    |
 | `recompress`         | BOOLEAN | `false` |✖| Set to `true` to add a chunk that had more data inserted after being added to the $COLUMNSTORE.                                                    |
-| `hypercore_use_access_method`         | BOOLEAN | `NULL` |✖| Set to `true` to use $HYPERCORE table access method. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`. |
 
 ## Returns
 
