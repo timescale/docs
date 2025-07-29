@@ -17,7 +17,9 @@ hyperfunction:
 api_details:
   summary: >
     Calculate the time-weighted average. Equal to [`integral`](#integral)
-    divided by the elapsed time.
+    divided by the elapsed time. Note that there is a key difference to
+    `avg()`: If there is exactly one value, `avg()` would return that
+    value, but `average()` returns `NULL`.
   signatures:
     - language: sql
       code: |
