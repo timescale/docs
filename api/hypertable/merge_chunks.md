@@ -22,7 +22,6 @@ dimensions.
 
 Chunk merging has the following limitations. You cannot:
 
-* Merge chunks using an unsupported table access method
 * Merge chunks with tiered data
 * Read or write from the chunks while they are being merged
 

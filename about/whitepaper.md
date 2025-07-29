@@ -251,7 +251,7 @@ Min/max metadata allows queries filtering on correlated dimensions (e.g., `order
 
 #### $PG indexes (row and columnar)
 
-Unlike many databases, $TIMESCALE_DB supports standard $PG indexes on columnstore data (B-tree and hash currently, when using the hypercore table access method), allowing queries to efficiently locate specific values within both row-based and compressed columnar storage. These indexes enable fast lookups, range queries, and filtering operations that further reduce unnecessary data scans.
+Unlike many databases, $TIMESCALE_DB supports sparse indexes on columnstore data, allowing queries to efficiently locate specific values within both row-based and compressed columnar storage. These indexes enable fast lookups, range queries, and filtering operations that further reduce unnecessary data scans.
 
 
 <center>
