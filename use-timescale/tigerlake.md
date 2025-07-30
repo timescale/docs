@@ -81,6 +81,7 @@ To connect a $SERVICE_LONG to your data lake:
 
    Replace the following values in the command, then run it from the terminal:
 
+   * `Region`: region of the S3 table bucket
    * `StackName`: the name for this CloudFormation stack
    * `BucketName`: the name of the S3 table bucket to create
    * `ProjectID`: enter your $SERVICE_LONG [connection details][get-project-id] 
@@ -90,6 +91,7 @@ To connect a $SERVICE_LONG to your data lake:
    aws cloudformation create-stack \
     --capabilities CapabilityIAM \
     --template-url https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml \
+    --region <Region> \
     --stack-name <StackName> \
     --parameters \
       ParameterKey=BucketName,ParameterValue="<BucketName>" \
@@ -302,6 +304,7 @@ data lake:
 ## Limitations
 
 * Only $PG 17.4 is supported. Services running $PG 17.5 are downgraded to 17.4.
+* Consistent ingestion rates of over 50000 records / second can lead to a lost replication slot.
 * [Amazon S3 Tables Iceberg REST][aws-s3-tables] catalog only is supported.
 * In order to collect deletes made to data in the columstore, certain columnstore optimizations are disabled for $HYPERTABLEs.
 * The `TRUNCATE` statement is not supported, and does not truncate data in the corresponding Iceberg table.
@@ -309,6 +312,7 @@ data lake:
 * Renaming a table in $PG stops the sync to Iceberg and causes unexpected behavior.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
+* The Iceberg namespace is hard coded to `timescaledb`, a custom namespace value is work in progress.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
