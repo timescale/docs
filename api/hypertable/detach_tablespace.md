@@ -23,6 +23,22 @@ detached tablespace since existing data is not cleared from a detached
 tablespace. A detached tablespace can be reattached if desired to once
 again be considered for chunk placement.
 
+## Samples
+
+Detach the tablespace `disk1` from the hypertable `conditions`:
+
+```sql
+SELECT detach_tablespace('disk1', 'conditions');
+SELECT detach_tablespace('disk2', 'conditions', if_attached => true);
+```
+
+Detach the tablespace `disk1` from all hypertables that the current
+user has permissions for:
+
+```sql
+SELECT detach_tablespace('disk1');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -46,18 +62,4 @@ When specifying a specific hypertable, the tablespace is only
 detached from the given hypertable and thus may remain attached to
 other hypertables.
 
-## Sample usage
 
-Detach the tablespace `disk1` from the hypertable `conditions`:
-
-```sql
-SELECT detach_tablespace('disk1', 'conditions');
-SELECT detach_tablespace('disk2', 'conditions', if_attached => true);
-```
-
-Detach the tablespace `disk1` from all hypertables that the current
-user has permissions for:
-
-```sql
-SELECT detach_tablespace('disk1');
-```

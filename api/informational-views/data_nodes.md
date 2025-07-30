@@ -19,15 +19,7 @@ TimescaleDB in a multi-node setup.
 
 <MultiNodeDeprecation />
 
-### Available columns
-
-|Name|Type|Description|
-|---|---|---|
-| `node_name` | TEXT | Data node name. |
-| `owner` | REGCLASS | Oid of the user, who added the data node. |
-| `options` | JSONB | Options used when creating the data node. |
-
-### Sample usage
+### Samples
 
 Get metadata related to data nodes.
 
@@ -40,6 +32,15 @@ SELECT * FROM timescaledb_information.data_nodes;
  dn2         | postgres   | {host=localhost,port=15432,dbname=test} 
 (2 rows)
 ```
+
+### Available columns
+
+|Name|Type|Description|
+|---|---|---|
+| `node_name` | TEXT | Data node name. |
+| `owner` | REGCLASS | Oid of the user, who added the data node. |
+| `options` | JSONB | Options used when creating the data node. |
+
 
 ## timescaledb_information.hypertables
 
