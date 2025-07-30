@@ -51,21 +51,22 @@ in the [community slack](https://timescaledb.slack.com/signup#/domain-signup), t
 <OpenSupportRequest />
 
 If you're migrating your data from another source database type, best practice is export the data from your source database as 
-a `.csv` file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][parallel-copy]. For other ingestion methods, 
-see [Ingest data from other sources][data-ingest].
+a CSV file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][parallel-copy]. 
 
 ## Ingest data
 
 Telegraf is a server-based agent that collects and sends metrics and events from databases, systems, and IoT sensors. You can [view metrics][ingest-telegraf] gathered by Telegraf and stored in a hypertable in a $SERVICE_LONG.
 
-
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
 [dual-write]: /migrate/:currentVersion:/dual-write-and-backfill/
 [pg-dump-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
-[parallel-copy]: /use-timescale/:currentVersion:/ingest-data/import-csv/
+[parallel-copy]: /migrate/:currentVersion:/import-data-using-terminal/
 [livesync-postgres]: /migrate/:currentVersion:/livesync-for-postgresql/
 [livesync-s3]: /migrate/:currentVersion:/livesync-for-s3/
 [troubleshooting]: /migrate/:currentVersion:/troubleshooting/
 [live-migration]: /migrate/:currentVersion:/live-migration/
 [pgcopydb]: https://github.com/dimitri/pgcopydb
 [playbooks]: /migrate/:currentVersion:/playbooks/
+[import-console]: /migrate/:currentVersion:/import-data-using-console/
+[import-terminal]: /migrate/:currentVersion:/import-data-using-terminal/
+[ingest-telegraf]: /migrate/:currentVersion:/ingest-telegraf/

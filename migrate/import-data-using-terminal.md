@@ -48,28 +48,36 @@ To import data from a CSV file:
 
 1. **Create a [hypertable][hypertable-docs] to hold your data**
 
-    1.  Create a new empty table with a schema that is compatible with the data in your parquet file.
+   Create a hypertable with a schema that is compatible with the data in your parquet file. For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types`TIMESTAMP`, `STRING`, and `DOUBLE`:
 
-        For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types
-        `TIMESTAMP`, `STRING`, and `DOUBLE`:
+   - $TIMESCALE_DB v2.20 and above:
 
-        ```sql
-        psql $TARGET -c  "CREATE TABLE <TABLE_NAME> ( \
-           ts          TIMESTAMPTZ         NOT NULL,  \
-           location    TEXT                NOT NULL,  \
-           temperature DOUBLE PRECISION    NULL  \
-        );"
-        ```
-        If you prefer using a secure UI to the command line, use [Data mode in $CONSOLE][data-mode].
+     ```sql
+     psql $TARGET -c "CREATE TABLE <TABLE_NAME> ( \
+     ts          TIMESTAMPTZ         NOT NULL, \
+     location    TEXT                NOT NULL, \
+     temperature DOUBLE PRECISION    NULL \
+     ) WITH (timescaledb.hypertable, timescaledb.partition_column = 'ts');"
+   
+   - $TIMESCALE_DB v2.19.3 and below:
 
-    1.  Convert the empty table to a hypertable:
+     1.  Create a new regular table:
 
-        In the following command, replace `<TABLE NAME>` with the name of the table you just created, and `<COLUMN_NAME>`
-        with the partitioning column in `<TABLE NAME>`.
-        ```sql
-        psql $TARGET -c  "SELECT create_hypertable('<TABLE_NAME>', by_range('<COLUMN_NAME>'))"
-        ```
+         ```sql
+         psql $TARGET -c  "CREATE TABLE <TABLE_NAME> ( \
+            ts          TIMESTAMPTZ         NOT NULL,  \
+            location    TEXT                NOT NULL,  \
+            temperature DOUBLE PRECISION    NULL  \
+         );"
+         ```
 
+     1.  Convert the empty table to a hypertable:
+
+         In the following command, replace `<TABLE NAME>` with the name of the table you just created, and `<COLUMN_NAME>` with the partitioning column in `<TABLE NAME>`.
+         ```sql
+         psql $TARGET -c  "SELECT create_hypertable('<TABLE_NAME>', by_range('<COLUMN_NAME>'))"
+         ```
+         
 1. **Import your data**
 
    In the folder containing your CSV files, either:
@@ -195,27 +203,35 @@ To import data from a Parquet file:
 
 1. **Create a [hypertable][hypertable-docs] to hold your data**
 
-    1.  Create a new empty table with a schema that is compatible with the data in your parquet file.
+   Create a hypertable with a schema that is compatible with the data in your parquet file. For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types`TIMESTAMP`, `STRING`, and `DOUBLE`:
 
-        For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types
-        `TIMESTAMP`, `STRING`, and `DOUBLE`:
+    - $TIMESCALE_DB v2.20 and above:
 
-        ```sql
-        psql $TARGET -c  "CREATE TABLE <TABLE_NAME> ( \
-            ts          TIMESTAMPTZ         NOT NULL,  \
-            location    TEXT                NOT NULL,  \
-            temperature DOUBLE PRECISION    NULL  \
-        );"
-        ```
-        If you prefer using a secure UI to the command line, use [Data mode in $CONSOLE][data-mode].
+      ```sql
+      psql $TARGET -c "CREATE TABLE <TABLE_NAME> ( \
+      ts          TIMESTAMPTZ         NOT NULL, \
+      location    TEXT                NOT NULL, \
+      temperature DOUBLE PRECISION    NULL \
+      ) WITH (timescaledb.hypertable, timescaledb.partition_column = 'ts');"
 
-    1.  Convert the empty table to a hypertable:
+    - $TIMESCALE_DB v2.19.3 and below:
 
-        In the following command, replace `<TABLE NAME>` with the name of the table you just created, and `<COLUMN_NAME>`
-        with the partitioning column in `<TABLE NAME>`.
-        ```sql
-        psql $TARGET -c  "SELECT create_hypertable('<TABLE_NAME>', by_range('<COLUMN_NAME>'))"
-        ```
+        1.  Create a new regular table:
+
+            ```sql
+            psql $TARGET -c  "CREATE TABLE <TABLE_NAME> ( \
+               ts          TIMESTAMPTZ         NOT NULL,  \
+               location    TEXT                NOT NULL,  \
+               temperature DOUBLE PRECISION    NULL  \
+            );"
+            ```
+
+        1.  Convert the empty table to a hypertable:
+
+            In the following command, replace `<TABLE NAME>` with the name of the table you just created, and `<COLUMN_NAME>` with the partitioning column in `<TABLE NAME>`.
+            ```sql
+            psql $TARGET -c  "SELECT create_hypertable('<TABLE_NAME>', by_range('<COLUMN_NAME>'))"
+            ```
 
 1. **Set up a DuckDB connection to your $SERVICE_SHORT**
 
@@ -250,7 +266,7 @@ To import data from a Parquet file:
 
 1. **Verify the data was imported correctly into your $SERVICE_SHORT**
 
-   In your `psql` session, or using [Data mode in $CONSOLE][data-mode], view the data in <TABLE_NAME>
+   In your `psql` session, view the data in `<TABLE_NAME>`:
    ```sql
    SELECT * FROM <TABLE_NAME>;
    ```
