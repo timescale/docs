@@ -30,7 +30,9 @@ In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by more than 9
 large-scale queries. This columnar format enables fast scanning and aggregation, optimizing performance for analytical 
 workloads. You can also manually [convert chunks][convert_to_columnstore] in a $HYPERTABLE to the $COLUMNSTORE.
 
-$HYPERTABLE to $HYPERTABLE foreign keys are not allowed, all other combinations are permitted.
+$HYPERTABLE_CAP to $HYPERTABLE foreign keys are not allowed, all other combinations are permitted.
+
+The [$COLUMNSTORE][hypercore] settings are applied on a per-chunk basis. You can change them by calling [ALTER TABLE][alter_table_hypercore] without converting the entire $HYPERTABLE back to the [$ROWSTORE][hypercore] first. The new settings apply only to the new chunks, the existing chunks in the $COLUMNSTORE do not change. Similarly, if you [remove an existing columnstore policy][remove_columnstore_policy] and then [add a new one][add_columnstore_policy], the new policy applies only to the new chunks. This means that chunks with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE. 
 
 `CREATE TABLE` extends the standard $PG [CREATE TABLE][pg-create-table]. This page explains the features and 
 arguments specific to $TIMESCALE_DB. 
@@ -172,3 +174,4 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/

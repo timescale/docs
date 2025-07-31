@@ -15,7 +15,7 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
 # ALTER TABLE ($HYPERCORE)<Tag type="community" content="community" />
 
-Enable the $COLUMNSTORE for a hypertable.  
+Enable the $COLUMNSTORE or change the $COLUMNSTORE settings for a hypertable. The settings are applied on a per-chunk basis. You don't need to convert the entire $HYPERTABLE back to the $ROWSTORE before changing the settings. The new settings apply only to the new chunks, the existing chunks in the $COLUMNSTORE do not change. This means that chunks with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE.
 
 After you have enabled the $COLUMNSTORE, either: 
 - [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the $COLUMNSTORE at a
