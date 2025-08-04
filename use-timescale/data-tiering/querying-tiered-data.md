@@ -58,8 +58,13 @@ All future queries within a session can be enabled to use the object storage tie
 
     All future queries in that session are configured to read from tiered data and locally stored data.    
 
-</Procedure>
+1. List the hypertables that have tiering enabled:
 
+   ```sql
+   select * from timescaledb_osm.tiered_hypertables;
+   ```
+
+</Procedure>
 
 ## Enable querying tiered data in all future sessions
 
@@ -75,7 +80,14 @@ You can also enable queries to read from tiered data always by following these s
 
    In all future created sessions, `timescaledb.enable_tiered_reads` initializes with `enabled`. 
 
+1. List the hypertables that have tiering enabled:
+
+   ```sql
+   select * from timescaledb_osm.tiered_hypertables;
+   ```
+
 </Procedure>
+
 
 ## Query data in the object storage tier
 
