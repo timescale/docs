@@ -93,14 +93,6 @@ To create a $COLUMNSTORE job:
      CALL add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks');
      ```
 
-   * Older than eight weeks and using the $HYPERCORE table access method:
-
-     ``` sql
-     CALL add_columnstore_policy(
-       'cpu_weekly', 
-       INTERVAL '8 weeks', 
-       hypercore_use_access_method => true);
-     ```
    * Control the time your policy runs:
    
       When you use a policy with a fixed schedule, $TIMESCALE_DB uses the `initial_start` time to compute the 
@@ -147,7 +139,6 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 | `next_start`                  |TIMESTAMPTZ| -|  ✖       | Set the start time of the next immediate execution. It does not change the computation of the next scheduled time after the next execution.  |
 | `timezone`                    |TEXT| UTC. However, daylight savings time(DST) changes may shift this alignment.                                                   | ✖        | Set to a valid time zone to mitigate DST shifting. If `initial_start` is set, subsequent executions of this policy are aligned on `initial_start`.                                                                                                                                                                                                                                                                                                                         |
 | `if_not_exists`               |BOOLEAN| `false`                                                                                                                      | ✖        | Set to `true` so this job fails with a warning rather than an error if a $COLUMNSTORE policy already exists on `hypertable`                                                                                                                                                                                                                                                                                                                                                |
-| `hypercore_use_access_method` | BOOLEAN | `NULL`                                                                                                                       | ✖        | Set to `true` to use $HYPERCORE table access method. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`.                                                                                                                                                                                                                                                                                                                        |
 
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->

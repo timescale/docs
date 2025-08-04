@@ -26,8 +26,7 @@ timescaledb_experimental.add_policies(
      refresh_start_offset "any" = NULL,
      refresh_end_offset "any" = NULL,
      compress_after "any" = NULL,
-     drop_after "any" = NULL,
-     hypercore_use_access_method BOOL = NULL)
+     drop_after "any" = NULL)
 ) RETURNS BOOL
 ```
 
@@ -54,7 +53,6 @@ If you would like to set this add your policies manually (see [`add_continuous_a
 |`refresh_end_offset`|`INTERVAL` or `INTEGER`|The end of the continuous aggregate refresh window, expressed as an offset from the policy run time. Must be greater than `refresh_start_offset`.|
 |`compress_after`|`INTERVAL` or `INTEGER`|Continuous aggregate chunks are compressed if they exclusively contain data older than this interval.|
 |`drop_after`|`INTERVAL` or `INTEGER`|Continuous aggregate chunks are dropped if they exclusively contain data older than this interval.|
-| `hypercore_use_access_method`         | BOOLEAN | `NULL` | Set to `true` to use hypercore table access metod. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`. |
 
 For arguments that could be either an `INTERVAL` or an `INTEGER`, use an
 `INTERVAL` if your time bucket is based on timestamps. Use an `INTEGER` if your
