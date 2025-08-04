@@ -12,9 +12,9 @@ All the latest features and updates to $CLOUD_LONG.
 ## Viewer role GA, EXPLAIN plans, and chunk index sizes in Explorer
 <Label type="date">July 31, 2025</Label>
 
-### RBAC Viewer Role GA Release
+### GA release of the viewer role in role-based access
 
-The Viewer role is now **generally available** for all projects and
+The viewer role is now **generally available** for all projects and
 organizations. It provides **read-only access** to services, metrics, and logs
 without modify permissions. Viewers **cannot** create, update, or delete
 resources, nor manage users or billing. It's ideal for auditors, analysts, and
@@ -22,13 +22,13 @@ cross-functional collaborators who need visibility but not control.
 
 ### EXPLAIN plans in Insights
 
-Users can now find automatically generated EXPLAIN plans on queries that take
+You can now find automatically generated EXPLAIN plans on queries that take
 longer than 10 seconds within Insights. EXPLAIN plans can be very useful to
-determine how they may be able to increase the performance of their queries.
+determine how you may be able to increase the performance of your queries.
 
 ### Chunk index size in Explorer
 
-Users can now find the index size of chunks for hypertables in the Explorer.
+Find the index size of hypertable chunks in the Explorer.
 This information can be very valuable to determine if a hypertable's chunk size
 is properly configured.
 
