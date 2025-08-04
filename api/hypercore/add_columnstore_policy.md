@@ -31,7 +31,7 @@ TimescaleDB work.
 To view the policies that you set or the policies that already exist,
 see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy]. 
 
-A $COLUMNSTORE policy is applied on a per-chunk basis. If you remove an existing policy and then add a new one, the new policy applies only to the new chunks. The existing chunks in the $COLUMNSTORE remain unchanged. This means that chunks with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE.
+A $COLUMNSTORE policy is applied on a per-chunk basis. If you remove an existing policy and then add a new one, the new policy applies only to the chunks which have not been converted to $COLUMNSTORE. The existing chunks in the $COLUMNSTORE remain unchanged. This means that chunks with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE.
 
 <Since2180 />
 
