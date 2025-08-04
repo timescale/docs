@@ -37,7 +37,7 @@ as the data is not stored locally on the high-performance storage tier. See [Per
   This queries data from all chunks including tiered chunks and non tiered chunks: 
   
      ```sql
-     ||count|
+     |count|
      |---|
      |1000|
      ```
@@ -93,8 +93,13 @@ You can also enable queries to read from tiered data always by following these s
 
 This section illustrates how querying tiered storage works.
 
-Consider a simple database with a standard `devices` table and a `metrics` hypertable. After enabling tiered storage, you can see which chunks are tiered to the object storage tier:
+Consider a simple database with a standard `devices` table and a `metrics` hypertable. After enabling 
+tiered storage, query for the hypertable chunks in the object storage tier:
 
+```sql
+select * from timescaledb_osm.tiered_hypertables;
+```
+You see something like the following:
 ```sql
     chunk_name    |      range_start       |       range_end        
 ------------------+------------------------+------------------------
