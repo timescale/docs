@@ -14,7 +14,7 @@ tags: [compression, hypertables, chunks]
 ---
 
 
-By default the columnstore policy attempts to move all uncompressed chunks on the columnstore. 
+By default, columnstore policies move all uncompressed chunks to the columnstore. 
 In case of a larger backlog of chunks on the rowstore, before converting these to the columnstore 
 it is recommended to limit to amount of chunks via the `maxchunks_to_compress` configuration. 
 
