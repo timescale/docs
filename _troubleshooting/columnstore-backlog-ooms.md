@@ -22,4 +22,4 @@ best practice is to set `maxchunks_to_compress` and limit to amount of chunks to
 SELECT alter_job(job_id, config.maxchunks_to_compress => 10);
 ```
 
-After all chunks are on the columnstore, it is recommended to reset the parameter back to `0` which is equal to unlimited.
+When all chunks have been converted to the columnstore, set `maxchunks_to_compress` to `0`, unlimited.
