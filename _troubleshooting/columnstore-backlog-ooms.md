@@ -16,7 +16,7 @@ tags: [compression, hypertables, chunks]
 
 By default, columnstore policies move all uncompressed chunks to the columnstore. 
 However, before converting a large backlog of chunks from the rowstore to the columnstore, 
-it is recommended to limit to amount of chunks via the `maxchunks_to_compress` configuration. 
+best practice is to set `maxchunks_to_compress` and limit to amount of chunks to be converted.  For example:
 
 ```sql
 SELECT alter_job(job_id, config.maxchunks_to_compress => 10);
