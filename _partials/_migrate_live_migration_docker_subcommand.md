@@ -1,4 +1,4 @@
-Next, download the live migration docker image:
+Next, download the live-migration docker image:
 
 ```sh
 docker run --rm -it --name live-migration \
@@ -6,9 +6,9 @@ docker run --rm -it --name live-migration \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.21 --help
+    timescale/live-migration:latest --help
 
-Live migration moves your PostgreSQL/TimescaleDB to Timescale Cloud with minimal downtime.
+Live migration moves your PostgreSQL/$TIMESCALE_DB to your $SERVICE_LONG with minimal downtime.
 
 options:
   -h, --help            Show this help message and exit
@@ -29,7 +29,7 @@ Live-migration contains 3 subcommands:
 
 On a high-level,
 
-the `snapshot` subcommand creates a Postgres snapshot connection to the source
+the `snapshot` subcommand creates a $PG snapshot connection to the source
 database along with a replication slot. This is pre-requisite before running
 the `migrate` subcommand.
 
@@ -53,7 +53,7 @@ docker run --rm -it --name live-migration-snapshot \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.21 snapshot
+    timescale/live-migration:latest snapshot
 ```
 
 In addition to creating a snapshot, this process also validates prerequisites on the source and target to ensure the database instances are ready for replication.
@@ -77,7 +77,8 @@ docker run --rm -it --name live-migration-migrate \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.21 migrate --help
+    timescale/live-migration:latest migrate --help
+    
 usage: main.py migrate [-h] [--dir DIR] [--resume] [--skip-roles] [--table-jobs TABLE_JOBS] [--index-jobs INDEX_JOBS]
                        [--skip-extensions [SKIP_EXTENSIONS ...]] [--skip-table-data SKIP_TABLE_DATA [SKIP_TABLE_DATA ...]]
 
@@ -107,11 +108,13 @@ docker run --rm -it --name live-migration-migrate \
     -e PGCOPYDB_TARGET_PGURI=$TARGET \
     --pid=host \
     -v ~/live-migration:/opt/timescale/ts_cdc \
-    timescale/live-migration:v0.0.21 migrate
+    timescale/live-migration:latest migrate
 ```
 <Highlight type="note">
+
 If the migrate command stops for any reason during execution, you can resume
 the migration from where it left off by adding a `--resume` flag. This is only
 possible if the `snapshot` command is intact and if a volume mount, such
 as `~/live-migration`, is utilized.
+
 </Highlight>

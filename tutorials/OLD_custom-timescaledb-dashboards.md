@@ -9,9 +9,9 @@ keywords: [visualizations, analytics, hasura]
 
 To help you understand what is going on in your database, you can create your
 own custom visualizations and dashboards. TimescaleDB allows you to create
-custom dashboards for your data, using the full functionality of PostgreSQL
+custom dashboards for your data, using the full functionality of $PG
 monitoring. Of course, you can always use other commercial tools to monitor
-TimescaleDB, just as you can with PostgreSQL, but custom dashboards give you the
+TimescaleDB, just as you can with $PG, but custom dashboards give you the
 most flexibility.
 
 This tutorial shows you how to build a custom visualization that shows how
@@ -293,7 +293,7 @@ INSERT INTO conditions
 
 When you write a backend application, you need to protect the database and
 expose only the required information to an authorized user. The Hasura GraphQL
-Engine does this by providing GraphQL APIs over new or existing PostgreSQL
+Engine does this by providing GraphQL APIs over new or existing $PG
 databases. This allows you to create permission rules and dynamically expand
 your database resources.
 
@@ -370,7 +370,7 @@ $$ LANGUAGE SQL VOLATILE;
 ```
 
 The next step is to go to the Hasura cloud and connect the database as a new
-data source. In the data panel, set up the PostgreSQL URI of your database, and
+data source. In the data panel, set up the $PG URI of your database, and
 then you can track each function as a query or mutation. This is an example of
 the `compress_chunk_named` function. In our case, the subscription goes to the
 `chunks_with_compression` function. You can also track `decompress_chunk_named`
@@ -394,7 +394,7 @@ As a summary, the front-end:
 ## Summary
 
 TimescaleDB is a powerful relational database for time-series data, bringing the
-full spectrum of tools and dashboards available for PostgreSQL.
+full spectrum of tools and dashboards available for $PG.
 
 In this tutorial you learned how to collect hypertables metadata from
 TimescaleDB internals. Expose it through GraphQL and fetch the data using a
@@ -420,5 +420,5 @@ this tutorial, drop us a line on our [community Slack channel][timescale-slack].
 [hypertables]: /use-timescale/:currentVersion:/hypertables/
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
 [timescale-install]: /getting-started/latest/
-[timescale-signup]: https://www.timescale.com/timescale-signup
+[timescale-signup]: http://console.cloud.timescale.com/signup
 [timescale-slack]: https://slack.timescale.com

@@ -11,12 +11,12 @@ import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # Ongoing physical backups with Docker & WAL-E
 
-When you run TimescaleDB in a containerized environment, you can use
+When you run $TIMESCALE_DB in a containerized environment, you can use
 [continuous archiving][pg archiving] with a [WAL-E][wale official] container.
 These containers are sometimes referred to as sidecars, because they run
 alongside the main container. A [WAL-E sidecar image][wale image]
-works with TimescaleDB as well as regular PostgreSQL. In this section, you
-can set up archiving to your local filesystem with a main TimescaleDB
+works with $TIMESCALE_DB as well as regular $PG. In this section, you
+can set up archiving to your local filesystem with a main $TIMESCALE_DB
 container called `timescaledb`, and a WAL-E sidecar called `wale`. When you are
 ready to implement this in your production deployment, you can adapt the
 instructions here to do archiving against cloud providers such as AWS S3, and
@@ -24,22 +24,22 @@ run it in an orchestration framework such as Kubernetes.
 
 <ConsiderCloud />
 
-## Run the TimescaleDB container in Docker
+## Run the $TIMESCALE_DB container in Docker
 
-To make TimescaleDB use the WAL-E sidecar for archiving, the two containers need
+To make $TIMESCALE_DB use the WAL-E sidecar for archiving, the two containers need
 to share a network. To do this, you need to create a Docker  network and then
-launch TimescaleDB with archiving turned on, using the newly created network.
-When you launch TimescaleDB, you need to explicitly set the location of the
+launch $TIMESCALE_DB with archiving turned on, using the newly created network.
+When you launch $TIMESCALE_DB, you need to explicitly set the location of the
 write-ahead log (`POSTGRES_INITDB_WALDIR`) and data directory (`PGDATA`) so that
 you can share them with the WAL-E sidecar. Both must reside in a Docker volume,
 by default a volume is created for `/var/lib/postgresql/data`. When you have
-started TimescaleDB, you can log in and create tables and data.
+started $TIMESCALE_DB, you can log in and create tables and data.
 
 <Deprecation />
 
 <Procedure>
 
-### Running the TimescaleDB container in Docker
+### Running the $TIMESCALE_DB container in Docker
 
 1.  Create the docker container:
 
@@ -47,7 +47,7 @@ started TimescaleDB, you can log in and create tables and data.
     docker network create timescaledb-net
     ```
 
-1.  Launch TimescaleDB, with archiving turned on:
+1.  Launch $TIMESCALE_DB, with archiving turned on:
 
     ```bash
     docker run \
@@ -76,7 +76,7 @@ started TimescaleDB, you can log in and create tables and data.
 ## Perform the backup using the WAL-E sidecar
 
 The [WAL-E Docker image][wale image] runs a web endpoint that accepts WAL-E
-commands across an HTTP API. This allows PostgreSQL to communicate with the
+commands across an HTTP API. This allows $PG to communicate with the
 WAL-E sidecar over the internal network to trigger archiving. You can also use
 the container to invoke WAL-E directly. The Docker image accepts standard WAL-E
 environment variables to configure the archiving backend, so you can issue
@@ -192,7 +192,7 @@ backup. Then you can relaunch the sidecar and the database.
     sh -c 'echo "local all postgres trust" > /var/lib/postgresql/data/pg_data/pg_hba.conf'
     ```
 
-1.  Create a `recovery.conf` file that tells PostgreSQL how to recover:
+1.  Create a `recovery.conf` file that tells $PG how to recover:
 
     ```bash
     docker run -it --rm  \
@@ -246,7 +246,7 @@ database, and check that recovery was successful.
 
     Don't worry if you see some archive recovery errors in the log at this
     stage. This happens because the recovery is not completely finalized until
-    no more files can be found in the archive. See the PostgreSQL documentation
+    no more files can be found in the archive. See the $PG documentation
     on [continuous archiving][pg archiving] for more information.
 
 </Procedure>

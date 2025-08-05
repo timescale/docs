@@ -1,9 +1,10 @@
 ---
 title: Grow and shrink multi-node
-excerpt: Add and remove data nodes from a multi-node cluster
-products: [self_hosted]
+excerpt: Sunsetted v2.14.x. Add and remove data nodes from your self-hosted multi-node TimescaleDB cluster
 keywords: [multi-node, data nodes]
 tags: [add, remove]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

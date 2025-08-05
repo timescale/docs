@@ -1,7 +1,8 @@
 ---
-title: About the object storage tier
-excerpt: Learn how the object storage tier helps you save on storage costs
-product: [cloud]
+title: About Tiger Cloud storage tiers 
+excerpt: Learn how Tiger Cloud helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
+products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
@@ -9,81 +10,122 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 
-# About the object storage tier
+import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
 
-The tiered storage architecture complements Timescale's standard high-performance storage tier with a low-cost object storage tier.
+# About storage tiers
 
-You can move your hypertable data across the different storage tiers to get the best price performance.
-You can use the standard high-performance storage tier for data that requires quick access,
-and the low-cost object storage tier for rarely used historical data. 
-Regardless of where your data is stored, you can still query it with
-[standard SQL][querying-tiered-data].
+The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier. You use the high-performance tier for data that requires quick access, and the object tier for rarely used historical data. Tiering policies move older data asynchronously and periodically from high-performance to low-cost storage, sparing you the need to do it manually. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. 
 
+## High-performance storage 
 
-## Benefits of the object storage tier
+High-performance storage is where your data is stored by default, until you [enable tiered storage][manage-tiering] and [move older data to the low-cost tier][move-data]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] available in this tier is designed specifically for real-time analytics. It enables you to compress the data in the high-performance storage by up to 90%, while improving performance. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
 
-The object storage tier is more than an archiving solution:
+$CLOUD_LONG high-performance storage comes in the following types: 
 
-*   **Cost effective.** Store high volumes of data cost-efficiently.
-    You pay only for what you store, with no extra cost for queries.
+- **Standard** (default): based on [AWS EBS gp3][aws-gp3] and designed for general workloads. Provides up to 16 TB of storage and 16,000 IOPS.
+- **Enhanced**: based on [EBS io2][ebs-io2] and designed for high-scale, high-throughput workloads. Provides up to 64 TB of storage and 32,000 IOPS.
 
-*   **Scalable.**  Scale past the restrictions imposed by storage that can be attached
-    directly to a Timescale service (currently 16 TB).
+[See the differences][aws-storage-types] in the underlying AWS storage. You [enable enhanced storage][enable-enhanced] as needed in $CONSOLE. 
 
-*   **Online.**  Your data is always there and can be [queried when needed][querying-tiered-data]. 
+## Low-cost storage
 
-## Architecture
+Once you [enable tiered storage][manage-tiering], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
 
-The tiered storage backend works by periodically and asynchronously moving older chunks to the object storage tier;
-an object store built on Amazon S3.
-There, it's stored in the Apache Parquet format, which is a compressed
-columnar format well-suited for S3. Data remains accessible both during and after the migration.
+Apache Parquet allows for more efficient scans across longer time periods, and $CLOUD_LONG uses other metadata and query optimizations to reduce the amount of data that needs to be fetched to satisfy a query, such as: 
 
-By default, tiered data is not included when querying from a Timescale service. 
-However, it is possible to access tiered data by [enabling tiered reads][querying-tiered-data] for a session, query, or even for all sessions.   
+- **Chunk skipping**: exclude the chunks that fall outside the query time window.
+- **Row group skipping**: identify the row groups within the Parquet object that satisfy the query.
+- **Column skipping**: fetch only columns that are requested by the query.
 
-With tiered reads enabled, when you run regular SQL queries, a behind-the-scenes process transparently
-pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.
-Various SQL optimizations limit what needs to be read from S3:
+The following query is against a tiered dataset and illustrates the optimizations:
 
-*   Chunk exclusion avoids processing chunks that fall outside the query's time window
-*   The database uses metadata about row groups and columnar offsets, so only
-    part of an object needs to be read from S3
+```sql
+EXPLAIN ANALYZE 
+SELECT count(*) FROM
+( SELECT device_uuid,  sensor_id FROM public.device_readings 
+  WHERE observed_at > '2023-08-28 00:00+00' and observed_at < '2023-08-29 00:00+00' 
+  GROUP BY device_uuid,  sensor_id ) q;
+            QUERY PLAN                                                                  
+           
+-------------------------------------------------------------------------------------------------
+ Aggregate  (cost=7277226.78..7277226.79 rows=1 width=8) (actual time=234993.749..234993.750 rows=1 loops=1)
+   ->  HashAggregate  (cost=4929031.23..7177226.78 rows=8000000 width=68) (actual time=184256.546..234913.067 rows=1651523 loops=1)
+         Group Key: osm_chunk_1.device_uuid, osm_chunk_1.sensor_id
+         Planned Partitions: 128  Batches: 129  Memory Usage: 20497kB  Disk Usage: 4429832kB
+         ->  Foreign Scan on osm_chunk_1  (cost=0.00..0.00 rows=92509677 width=68) (actual time=345.890..128688.459 rows=92505457 loops=1)
+               Filter: ((observed_at > '2023-08-28 00:00:00+00'::timestamp with time zone) AND (observed_at < '2023-08-29 00:00:00+00'::timestamp with t
+ime zone))
+               Rows Removed by Filter: 4220
+               Match tiered objects: 3
+               Row Groups:
+                 _timescaledb_internal._hyper_1_42_chunk: 0-74
+                 _timescaledb_internal._hyper_1_43_chunk: 0-29
+                 _timescaledb_internal._hyper_1_44_chunk: 0-71
+               S3 requests: 177
+               S3 data: 224423195 bytes
+ Planning Time: 6.216 ms
+ Execution Time: 235372.223 ms
+(16 rows)
+```
 
-The result is transparent queries across standard PostgreSQL storage and S3
-storage, so your queries fetch the same data as before.
+`EXPLAIN` illustrates which chunks are being pulled in from the object storage tier:
 
-## Limitations
+1. Fetch data from chunks 42, 43, and 44 from the object storage tier.
+1. Skip row groups and limit the fetch to a subset of the offsets in the
+   Parquet object that potentially match the query filter. Only fetch the data
+   for `device_uuid`, `sensor_id`, and `observed_at` as the query needs only these 3 columns.
 
-*   **Limited schema modifications.** Some schema modifications are not allowed
+The object storage tier is more than an archiving solution. It is also:
+
+- **Cost-effective:** store high volumes of data at a lower cost. You pay only for what you store, with no extra cost for queries.
+- **Scalable:** scale past the restrictions of even the enhanced high-performance storage tier.
+- **Online:** your data is always there and can be [queried when needed][querying-tiered-data].
+
+By default, tiered data is not included when you query from a $SERVICE_LONG. To access tiered data, you [enable tiered reads][querying-tiered-data] for a query, a session, or even for all sessions. After you enable tiered reads, when you run regular SQL queries, a behind-the-scenes process transparently pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.  You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well.
+
+<TieredStorageBilling />
+
+The low-cost storage tier comes with the following limitations:
+
+- **Limited schema modifications**: some schema modifications are not allowed
     on hypertables with tiered chunks.
 
     _Allowed_ modifications include: renaming the hypertable, adding columns
     with `NULL` defaults, adding indexes, changing or renaming the hypertable
     schema, and adding `CHECK` constraints. For `CHECK` constraints, only
     untiered data is verified.
+    Columns can also be deleted, but you cannot subsequently add a new column
+    to a tiered hypertable with the same name as the now-deleted column.
 
     _Disallowed_ modifications include: adding a column with non-`NULL`
-    defaults, renaming a column, deleting a column, changing the data type of a
+    defaults, renaming a column, changing the data type of a
     column, and adding a `NOT NULL` constraint to the column.
 
-*   **Limited data changes.** You cannot insert data into, update, or delete a
+-  **Limited data changes**: you cannot insert data into, update, or delete a
     tiered chunk. These limitations take effect as soon as the chunk is
-    scheduled for tiering.
+    scheduled for tiering. 
 
-*   **Inefficient query planner filtering for non-native data types.** The query
+-   **Inefficient query planner filtering for non-native data types**: the query
     planner speeds up reads from our object storage tier by using metadata
     to filter out columns and row groups that don't satisfy the query. This works for all
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
-*   **Latency.** S3 has higher access latency than local storage. This can affect the
+*   **Latency**: S3 has higher access latency than local storage. This can affect the
     execution time of queries in latency-sensitive environments, especially
     lighter queries.
 
-*   **Number of dimensions.** You cannot use tiered storage with hypertables
+*   **Number of dimensions**: you cannot use tiered storage with hypertables
     partitioned on more than one dimension. Make sure your hypertables are
     partitioned on time only, before you enable tiered storage.
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
+[parquet]: https://parquet.apache.org/
+[manage-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#enable-tiered-storage
+[move-data]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
+[hypercore]: /use-timescale/:currentVersion:/hypercore
+[aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
+[ebs-io2]: https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express
+[enable-enhanced]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
+[aws-storage-types]: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html#vol-type-ssd

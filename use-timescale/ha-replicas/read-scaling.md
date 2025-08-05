@@ -1,100 +1,138 @@
 ---
 title: Read scaling
-excerpt: Understand how read scaling works in Timescale
-product: cloud
+excerpt: For read-intensive apps, Tiger Cloud enables you to create read-only replica sets that take over read queries. Create read-only replica sets with automated load balancing in Tiger Cloud Console
+products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [replicas, scaling]
 tags: [replicas, scaling, ha]
 ---
 
 # Read scaling
 
-Read replicas are read-only copies of a database that allow you to safely scale
-beyond the limits of your service. You can create as many read replicas as you
-need. Read replicas can power your read-intensive application, business
-intelligence tool, or both. Each read replica appears as its own service. The
-replica uses a unique connection string that is different from the parent and
-any HA replicas.
+You use $READ_REPLICA sets in $CLOUD_LONG for horizontal read scaling, to power your read-intensive apps and business intelligence tooling. Additionally, using the replica sets to serve reads for your app unloads the primary data instance and enables your $SERVICE_SHORT to improve ingest performance. 
+This is particularly useful when read traffic is very spiky and risks impacting ingest performance, or where reads have 
+a lower priority to writes.
 
-Queries on read replicas have minimal impact on the performance of the
-parent, or primary, service, making them ideal for creating isolated
-instances with up-to-date production data for analysis or scaling out
-reads.
+This page shows you how to create and manage $READ_REPLICA sets in $CONSOLE.
 
-<Highlight type="important">
-Using a separate read replica for read-only access provides both security and
-resource isolation. This means that users with read-only permissions can't access the main
-database directly. If you need to restrict the access of a read-only user but do not
-want to isolate the resource, you can create a read-only role in your database
-instead. For more information, see the
-[security](/use-timescale/latest/security/read-only-role/) section.
-</Highlight>
+## What is read replication?
 
-## Analytics
+A $READ_REPLICA is a read-only copy of your primary database instance. Queries on $READ_REPLICAs have minimal impact on the performance of the primary instance. This enables you to interact with up-to-date production data for analysis, or to scale out reads beyond the limits of your primary instance. $READ_REPLICA_CAPs can be short-lived and deleted when a session of data analysis is complete, or long-running to power an application or a business intelligence tool. 
 
-Read replicas can create an isolated environment for a business analyst to run
-heavy analytical queries, rather than running them on a production instance, and
-risk impacting performance. The read replica can be short-lived and deleted when
-the analysis is complete, or long-running to power a business intelligence (BI)
-tool.
+A $READ_REPLICA set in $CLOUD_LONG is a group of one or more $READ_REPLICA nodes that are accessed through the same endpoint. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you.
 
-When creating a read replica for analytics, it is recommended that you also
-create a new read-only user for the person using the replica. Users must
-be created on the primary, they are then propagated to the read replica.
-Read replicas are read-only and have their own connection string. Since
-credentials are the same for both, having a read-only user creates an
-additional layer of safety in case you accidentally use the
-wrong connection string to connect.
+![Read scaling in Timescale](https://assets.timescale.com/docs/images/read-scaling-timescale.png)
 
-Read replicas can also have a different configuration to the primary.
-Analytics environments can benefit from higher CPU for heavy queries, or
-lower CPU to power long-running dashboards to save on costs.
+You can create as many $READ_REPLICA sets as you need. For security and resource isolation, each $READ_REPLICA set has unique connection details.
 
-## Read replicas
+You use $READ_REPLICA sets for horizontal **read** scaling. To limit data loss for your $SERVICE_LONGs, use [$HA_REPLICAs][ha].
 
-Read replicas can be used to serve reads for an application. This removes load
-from the primary, and allows the primary to improve ingest performance. Doing
-this can be particularly useful in environments where read traffic is very spiky
-and risks impacting ingest performance, or where reads should always be lower
-priority than writes.
+## Prerequisites
 
-One consideration for using this approach is that read replicas use
-asynchronous replication. This can cause slight lag on the parent service,
-which is acceptable in certain circumstances. Allowable lag can be
-reduced significantly by adjusting the `max_standby_streaming_delay`,
-and `max_standby_archive_delay` parameters. That said, it is not
-recommended that you use this approach where changes must be immediately
-represented, such as for user credentials.
+To follow this procedure:
 
-## Create a read replica
+- Create a target $SERVICE_LONG.
+- Create a [read-only user][read-only-role] on the primary data instance. 
+
+  A user with read-only permissions cannot make changes in the primary database. This user is propagated to the $READ_REPLICA set when you create it.
+
+## Create a $READ_REPLICA set
+
+To create a secure $READ_REPLICA set for your read-intensive apps: 
 
 <Procedure>
 
-### Creating a read replica
+1. **In [$CONSOLE][timescale-console-services], select your target $SERVICE_SHORT**
 
-1.  [Log in to your Timescale account][cloud-login] and click the service
-    you want to replicate.
-1.  Navigate to the `Operations` tab, and select `Read scaling`.
-1.  Click `Add read replica`. Select the configuration you want for your read
-    replica and click `Add read replica`.
-1.  To see the read replicas for a service, click the service name, navigate to
-    the `Operations` tab, and select `Read scaling`. Read replicas are also
-    shown in the `Services` section.
-1.  You can see connection information for the read replica in the same way as a
-    regular service.
+1. **Click `Operations` > `Read scaling` > `Add a read replica set`**
+
+1. **Configure your replica set** 
+
+    Configure the number of nodes, compute size, connection pooling, and the name for your replica, then click `Create read replica set`.
+
+   ![Create a read replica set in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/create-read-replica-set-tiger-cloud-console.png)
+
+1. **Save the connection information**
+
+   The username and password of a read replica set are the same as the primary $SERVICE_SHORT. They cannot be changed independently. 
+
+   The connection information for each $READ_REPLICA set is unique. You can add or remove nodes from an existing set and the connection information of that set will remain the same. To find the connection information for an existing $READ_REPLICA set: 
+
+     1. Select the primary $SERVICE_SHORT in $CONSOLE.
+    
+     1. Click `Operations` > `Read scaling`.
+
+     1. Click the 🔗 icon next to the replica set in the list. 
+
+    
 
 </Procedure>
 
-## High availability replicas
+## Edit a $READ_REPLICA set
 
-HA replicas automatically come with a read-only endpoint that can be used to
-serve read queries. Queries against this endpoint can impact the performance of
-the primary, unlike read replicas. Primaries hold any WAL that would impact a
-query currently being executed on an HA replica, potentially causing performance
-degradation. By default, the query timeout on HA replicas is low, around 30
-seconds, which can help mitigate this risk. This approach is likely allowable
-for simple read queries, but heavier read queries risk timing out or causing
-performance degradation on the primary. For more information, see the
-[high availability][ha] section.
+You can edit an existing $READ_REPLICA set to better handle your reads. This includes changing the number of nodes, compute size, storage, and IOPS, as well as configuring $VPC and other features. 
+
+<Procedure>
+
+To change the compute and storage configuration of your $READ_REPLICA set: 
+
+1. **In [$CONSOLE][timescale-console-services], expand and click the $READ_REPLICA set under your primary $SERVICE_SHORT**
+
+   ![Read replicas in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-sets-tiger-cloud-console.png)
+
+1. **Click `Operations` > `Compute and storage`**
+
+   ![Read replica compute and storage in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-set-config.png)
+
+1. **Change the replica configuration and click `Apply`**
+
+
+</Procedure>
+
+## Manage data lag for your $READ_REPLICA sets
+
+$READ_REPLICA_CAP sets use asynchronous replication. This can cause a slight lag in data to the primary database instance. The lag
+is measured in bytes, against the current state of the primary instance. To check the status and lag for your $READ_REPLICA set:
+
+<Procedure>
+
+1. **In [$CONSOLE][timescale-console-services], select your primary $SERVICE_SHORT**
+   
+1. **Click `Operations` > `Read scaling`**
+
+   You see a list of configured $READ_REPLICA sets for this $SERVICE_SHORT, including their status and lag:
+
+   ![Read replica sets](https://assets.timescale.com/docs/images/tiger-cloud-console/configured-replica-set-tiger-cloud.png)
+
+1. **Configure the allowable lag**
+
+    1. Select the replica set in the list. 
+    1. Click `Operations` > `Database parameters`. 
+    1. Adjust `max_standby_streaming_delay` and `max_standby_archive_delay`.
+
+       This is not recommended for cases where changes must be immediately represented, for example, for user credentials.
+
+</Procedure> 
+
+
+## Delete a $READ_REPLICA set
+
+To delete a replica set:
+
+<Procedure>
+
+1. **In [$CONSOLE][timescale-console-services], select your primary $SERVICE_SHORT**
+
+1. **Click `Operations` > `Read scaling`**
+
+1. **Click the trash icon next to a replica set**
+
+   Confirm the deletion when prompted.
+
+</Procedure> 
+
 
 [cloud-login]: https://console.cloud.timescale.com
 [ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[read-only-role]: /use-timescale/:currentVersion:/security/read-only-role/#create-a-read-only-user
+[timescale-console-services]: https://console.cloud.timescale.com/dashboard/services

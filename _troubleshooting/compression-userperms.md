@@ -1,8 +1,8 @@
 ---
-title: User permissions do not allow chunks to be compressed or decompressed
+title: User permissions do not allow chunks to be converted to columnstore or rowstore
 section: troubleshooting
 products: [cloud, mst, self_hosted]
-topics: [hypertables, compression, configuration]
+topics: [hypertables, compression, configuration, hypercore]
 errors:
   - language: text
     message: |-
@@ -23,9 +23,8 @@ tags: [hypertables, compression, indexes, security, users]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-If you attempt to compress or decompress a chunk with a non-privileged user
-account, you might get this error. To compress or decompress a chunk, your user
-account must have permissions that allow it to perform `CREATE INDEX` on the
+You might get this error if you attempt to compress a chunk into the columnstore, or decompress it back into rowstore with a non-privileged user
+account. To compress or decompress a chunk, your user account must have permissions that allow it to perform `CREATE INDEX` on the
 chunk. You can check the permissions of the current user with this command at
 the `psql` command prompt:
 
@@ -43,6 +42,6 @@ GRANT PRIVILEGES
 ```
 
 For more information about the `GRANT` command, see the
-[PostgreSQL documentation][pg-grant].
+[$PG documentation][pg-grant].
 
 [pg-grant]: https://www.postgresql.org/docs/current/sql-grant.html

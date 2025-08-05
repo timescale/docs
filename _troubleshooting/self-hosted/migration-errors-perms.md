@@ -25,6 +25,6 @@ tags: [migration, pg_dump]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-The `pg_restore` function tries to apply the TimescaleDB extension when it
+The `pg_restore` function tries to apply the $TIMESCALE_DB extension when it
 copies your schema. This can cause a permissions error. If you already have the
-TimescaleDB extension installed, you can safely ignore this.
+$TIMESCALE_DB extension installed, you can safely ignore this.

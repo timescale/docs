@@ -1,34 +1,28 @@
 module.exports = [
   {
-    title: "About Timescale",
+    title: "About TigerData products",
     href: "about",
+    defaultOpen: true,
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Additional information about Timescale, including how to contribute, and release notes",
+      "Additional information about TigerData, including how to contribute, and release notes",
     children: [
+      {
+        title: "TigerData architecture for real-time analytics",
+        href: "whitepaper",
+        excerpt:
+          "A whitepaper detailing the architectural choices and optimizations for real-time analytics that power TigerData products",
+      },
+      {
+        title: "Pricing plans and account management",
+        href: "pricing-and-account-management",
+        excerpt: "Pricing plans for Tiger Cloud services",
+      },
       {
         title: "Changelog",
         href: "changelog",
-        excerpt: "A summary of the latest changes to all Timescale products.",
-      },
-      {
-        title: "Release notes",
-        href: "release-notes",
-        excerpt: "Release information for TimescaleDB v2.0.0 - v2.15.1",
-        children: [
-          {
-            title: "Release notes for TimescaleDB 2.0.0 to 2.9.3",
-            href: "past-releases",
-            excerpt: "Release notes for TimescaleDB 2.0.0 to 2.9.3",
-          },
-          {
-            title: "Changes in TimescaleDB 2.0",
-            href: "changes-in-timescaledb-2",
-            excerpt:
-              "An overview of major changes between TimescaleDB 1.0 and 2.0",
-          },
-        ],
+        excerpt: "A summary of the latest changes to all TigerData products.",
       },
       {
         title: "Supported platforms",
@@ -41,14 +35,14 @@ module.exports = [
         excerpt: "Discover the different TimescaleDB editions and licences",
       },
       {
-        title: "Contribute to Timescale",
+        title: "Contribute to TigerData",
         href: "contribute-to-timescale",
-        excerpt: "Contribute to the Timescale codebase",
+        excerpt: "Contribute to the codebase and documentation of TigerData products",
       },
       {
-        title: "Contribute to Timescale documentation",
-        href: "contribute-to-docs",
-        excerpt: "Contribute to Timescale documentation",
+        title: "Release notes",
+        href: "release-notes",
+        excerpt: "Release information for TimescaleDB v2.0.0 - v2.15.1",
       },
     ],
   },

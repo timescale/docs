@@ -1,0 +1,20 @@
+name: Deploy redirects to lambda
+on:
+  push:
+    paths:
+      - lambda/**
+
+permissions: {}
+
+jobs:
+  trigger:
+    name: Update changed lambda redirects
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588
+        with:
+          token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
+          repository: timescale/web-documentation
+          event-type: build-lambda
+          client-payload: '{ "branch": "${{ github.ref_name }}" }'

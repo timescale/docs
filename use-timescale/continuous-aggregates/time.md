@@ -1,9 +1,11 @@
 ---
 title: Time and continuous aggregates
-excerpt: How to work with timezones and continuous aggregates
+excerpt: Learn to work with timezones and continuous aggregates in Tiger Cloud
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 ---
+
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 # Time and continuous aggregates
 
@@ -21,8 +23,6 @@ The most common method of working with timezones is to declare an explicit
 timezone in the view query.
 
 <Procedure>
-
-### Declaring an explicit timezone
 
 1.  At the `psql`prompt, create the view and declare the timezone:
 
@@ -52,7 +52,7 @@ timezone in the view query.
 ## Integer-based time
 
 Date and time is usually expressed as year-month-day and hours:minutes:seconds.
-Most Timescale databases use a [date/time-type][postgres-date-time] column to
+Most $TIMESCALE_DB databases use a [date/time-type][postgres-date-time] column to
 express the date and time. However, in some cases, you might need to convert
 these common time and date formats to a format that uses an integer. The most
 common integer time is Unix epoch time, which is the number of seconds since the
@@ -67,9 +67,7 @@ provide the chunk time interval. In this case, each chunk is 10 minutes.
 
 <Procedure>
 
-### Creating a table with a custom integer-based time column
-
-1.  At the `psql` prompt, create a table and define the integer-based time column:
+1.  At the `psql` prompt, create a hypertable and define the integer-based time column and chunk time interval:
 
     ```sql
     CREATE TABLE devices(
@@ -77,14 +75,14 @@ provide the chunk time interval. In this case, each chunk is 10 minutes.
       cpu_usage INTEGER,  -- Total CPU usage
       disk_usage INTEGER, -- Total disk usage
       PRIMARY KEY (time)
+    ) WITH (
+      tsdb.hypertable,
+      tsdb.partition_column='time',
+      tsdb.chunk_interval='10'
     );
     ```
 
-1.  Define the chunk time interval:
-
-    ```sql
-    SELECT create_hypertable('devices', by_range('time', 10));
-    ```
+    <OldCreateHypertable />
 
 </Procedure>
 
@@ -92,15 +90,13 @@ To define a continuous aggregate on a hypertable that uses integer-based time,
 you need to have a function to get the current time in the correct format, and
 set it for the hypertable. You can do this with the
 [`set_integer_now_func`][api-set-integer-now-func]
-function. It can be defined as a regular PostgreSQL function, but needs to be
+function. It can be defined as a regular $PG function, but needs to be
 [`STABLE`][pg-func-stable],
 take no arguments, and return an integer value of the same type as the time
 column in the table. When you have set up the time-handling, you can create the
 continuous aggregate.
 
 <Procedure>
-
-### Creating a continuous aggregate with integer-based time
 
 1.  At the `psql` prompt, set up a function to convert the time to the Unix epoch:
 
@@ -161,5 +157,5 @@ continuous aggregate.
 </Procedure>
 
 [api-set-integer-now-func]: /api/:currentVersion:/hypertable/set_integer_now_func
-[pg-func-stable]: https://www.postgresql.org/docs/current/static/sql-createfunction.html
+[pg-func-stable]: https://www.postgresql.org/docs/current/sql-createfunction.html
 [postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html

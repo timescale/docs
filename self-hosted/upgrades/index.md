@@ -1,43 +1,28 @@
 ---
 title: Upgrade TimescaleDB
-excerpt: Upgrade your self-hosted TimescaleDB installation in-place
+excerpt: Upgrade your self-hosted TimescaleDB installation to a minor or major version in-place, or revert to the previous minor
 products: [self_hosted]
 keywords: [upgrades]
 ---
 
 import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
-# Upgrade TimescaleDB
+# Upgrade $TIMESCALE_DB
 
-You can upgrade your on-premise TimescaleDB installation in-place.
-
-A major upgrade is when you upgrade from one major version of TimescaleDB, to
-the next major version. For example, when you upgrade from TimescaleDB&nbsp;1,
-to TimescaleDB&nbsp;2.
-
-A minor upgrade is when you upgrade within your current major version of
-TimescaleDB. For example, when you upgrade from TimescaleDB&nbsp;2.5, to
-TimescaleDB&nbsp;2.6.
-
-If you originally installed TimescaleDB using Docker, you can upgrade from
-within the Docker container. For more information, and instructions, see the
-[Upgrading with Docker section][upgrade-docker].
-
-You can also downgrade your TimescaleDB installation to a previous version, if
-you need to.
-
-*   [Learn about upgrades][about-upgrades] to understand how it works
-    before you begin your upgrade.
-*   Upgrade to the next [minor version][upgrade-minor] of TimescaleDB.
-*   Upgrade to the next [major version][upgrade-major] of TimescaleDB.
-*   [Downgrade][downgrade] to a previous version of TimescaleDB.
-*   Upgrade TimescaleDB using [Docker][upgrade-docker].
-*   Upgrade the version of [PostgreSQL][upgrade-pg] your TimescaleDB
-    installation uses.
+A major upgrade is when you update from TimescaleDB `X.<minor version>` to `Y.<minor version>`.
+A minor upgrade is when you update from TimescaleDB `<major version>.x`, to TimescaleDB `<major version>.y`.
+You upgrade your $SELF_LONG installation in-place.
 
 <ConsiderCloud />
 
-[about-upgrades]: /self-hosted/:currentVersion:/upgrades/about-upgrades/
+This section shows you how to:
+
+* Upgrade $SELF_LONG to a new [minor version][upgrade-minor].
+* Upgrade $SELF_LONG to a new [major version][upgrade-major].
+* Upgrade $SELF_LONG running in a [Docker container][upgrade-docker] to a new minor version.
+* Upgrade [$PG][upgrade-pg] to a new version.
+* Downgrade $SELF_LONG to the [previous minor version][downgrade].
+
 [downgrade]: /self-hosted/:currentVersion:/upgrades/downgrade/
 [upgrade-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
 [upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

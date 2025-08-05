@@ -1,16 +1,12 @@
 ## Load financial data
 
 This tutorial uses real-time stock trade data, also known as tick data, from
-[Twelve Data][twelve-data].
-
-## Ingest the dataset
+[Twelve Data][twelve-data]. A direct download link is provided below.
 
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
 
 <Procedure>
-
-#### Ingesting the dataset
 
 1.  Download the `real_time_stock_data.zip` file. The file contains two `.csv`
     files; one with company information, and one with real-time stock trades for
@@ -27,7 +23,7 @@ dataset and copy the data to your database.
     ```
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    Timescale instance. If the `.csv` files aren't in your current directory,
+    $SERVICE_LONG. If the `.csv` files aren't in your current directory,
     specify the file paths in these commands:
 
     ```sql

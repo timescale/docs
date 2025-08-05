@@ -5,25 +5,23 @@ products: [mst]
 keywords: [Prometheus, monitor, integration]
 ---
 
-# Set up a Prometheus endpoint for a Managed Service for TimescaleDB database
+# Set up a Prometheus endpoint for your $MST_SERVICE_LONG
 
-You can get more insights into the performance of your Managed Service for TimescaleDB
-database by monitoring it using [Prometheus][get-prometheus], a popular
+You can get more insights into the performance of your $MST_SERVICE_LONG by monitoring it using [Prometheus][get-prometheus], a popular
 open source metrics-based systems monitoring solution.
 
 ## Prerequisites
 
 Before you begin, make sure you have:
 
-*   Created a service in your Managed Service for TimescaleDB account.
-*   Made a note of the `Port`and `Host` for your service.
+*   Created a $MST_SERVICE_LONG.
+*   Made a note of the `Port` and `Host` for your $MST_SERVICE_SHORT.
 
 <Procedure>
 
 ### Enabling Prometheus service integration
 
-1.  Sign in to your Managed Service for TimescaleDB portal, and
-    navigate to `Integration Endpoints`.
+1.  In [$MST_CONSOLE_SHORT][mst-login], choose a project and navigate to `Integration Endpoints`.
 1.  In the `Integration endpoints` page, navigate to `Prometheus`, and click
     `Create new`.
 1.  In the `Create new Prometheus endpoint` dialog, complete these fields:
@@ -34,12 +32,11 @@ Before you begin, make sure you have:
       *   Click `Create` to create the endpoint.
 
     These details are used when setting up your Prometheus installation, in the
-    `prometheus.yml` configuration file. This allows you to make this Managed
-    Service for TimescaleDB endpoint a target for Prometheus to scrape.
+    `prometheus.yml` configuration file. This allows you to make this $MST_LONG endpoint a target for Prometheus to scrape.
 
 1.  Use this sample configuration file to set up your Prometheus installation,
     by substituting `<PORT>`, `<HOST>`, `<USER>`, and `<PASSWORD>` with those of
-    your Managed Service for TimescaleDB instance:
+    your $MST_SERVICE_LONG:
 
    ```yaml
     global:
@@ -61,8 +58,8 @@ Before you begin, make sure you have:
      - url: "http://<HOST>:9201/read"
    ```
 
-1.  In the Managed Service for TimescaleDB portal, navigate to `Services` and
-    select the service you want to monitor.
+1.  In the $MST_CONSOLE_SHORT, navigate to `Services` and
+    select the $MST_SERVICE_SHORT you want to monitor.
 1.  In the `Integrations` tab, go to `External integrations` section and select
     `Prometheus`.
 1.  In the `Prometheus integrations` dialog, select the Prometheus endpoint
@@ -70,8 +67,9 @@ Before you begin, make sure you have:
 1.  Click `Enable`.
 
     The Prometheus endpoint is listed under `Enabled integrations` for the
-    Managed Service for TimescaleDB instance.
+    $MST_SERVICE_LONG.
 
 </Procedure>
 
 [get-prometheus]: https://prometheus.io
+[mst-login]:https://portal.managed.timescale.com/login

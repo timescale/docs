@@ -41,12 +41,12 @@ SQL state: 0A000
 ```
 
 Continuous aggregates are supported for most aggregate functions that can be
-[parallelized by PostgreSQL][postgres-parallel-agg], including the standard
+[parallelized by $PG][postgres-parallel-agg], including the standard
 aggregates like `SUM` and `AVG`. You can also use more complex expressions on
 top of the aggregate functions, for example `max(temperature)-min(temperature)`.
 
 However, aggregates using `ORDER BY` and `DISTINCT` cannot be used with
 continuous aggregates since they cannot be parallelized with
-PostgreSQL. TimescaleDB does not support `FILTER` or `JOIN` clauses,
+$PG. TimescaleDB does not support `FILTER` or `JOIN` clauses,
 or window functions in continuous aggregates.
 ```

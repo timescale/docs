@@ -1,55 +1,38 @@
 ---
 title: Query the Bitcoin blockchain
-excerpt: Query the Bitcoin blockchain
-products: [cloud]
+excerpt: Learn to use Tiger Cloud to query and analyze transactions on a blockchain as you would any other time-series data. In this tutorial, you use Tiger Cloud to ingest, store, and analyze transactions
+products: [cloud, self_hosted, mst]
 keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]
 content_group: Query the Bitcoin blockchain
 ---
 
+import FinancialIndustry from "versionContent/_partials/_financial-industry-data-analysis.mdx";
+
 # Query the Bitcoin blockchain
+
+<FinancialIndustry />
+
+In this tutorial, you use $CLOUD_LONG to ingest, store, and analyze transactions
+on the Bitcoin blockchain. 
 
 [Blockchains][blockchain-def] are, at their essence, a distributed database. The
 [transactions][transactions-def] in a blockchain are an example of time-series data. You can use
-Timescale to query transactions on a blockchain, in exactly the same way as you
+$TIMESCALE_DB to query transactions on a blockchain, in exactly the same way as you
 might query time-series transactions in any other database.
-
-In this tutorial, you use Timescale to ingest, store, and analyze transactions
-on the Bitcoin blockchain. You can use these skills to query any data on a
-blockchain, including other cryptocurrencies, smart contracts, or health data.
-
-## Prerequisites
-
-Before you begin, make sure you have:
-
-*   Signed up for a [free Timescale account][cloud-install].
 
 ## Steps in this tutorial
 
 This tutorial covers:
 
-1.  [Setting up your dataset][blockchain-dataset]
-1.  [Querying your dataset][blockchain-query]
-1.  [Bonus: Store data efficiently][blockchain-compress]
+1.  [Ingest data into a $SERVICE_SHORT][blockchain-dataset]: set up and connect to a $SERVICE_LONG, create tables and $HYPERTABLEs, and ingest data.  
+1.  [Query your data][blockchain-query]: obtain information, including finding the most recent transactions on the blockchain, and 
+   gathering information about the transactions using aggregation functions.
+1.  [Compress your data using $HYPERCORE][blockchain-compress]: compress data that is no longer needed for highest performance queries, but is still accessed regularly
+    for real-time analytics.
 
-## About querying the Bitcoin blockchain with Timescale
-
-This tutorial uses a sample Bitcoin dataset to show you how to construct queries
-for blockchain data. The queries you do in this tutorial is used to do things
-like determine if a cryptocurrency is performing as expected, graph currency
-values over time, and compare currencies.
-
-It starts by teaching you how to set up and connect to a Timescale database,
-create tables, and load data into the tables using `psql`.
-
-You then learn how to conduct analysis on your dataset. It walks you through
-using PostgreSQL queries to obtain information, including finding the most
-recent transactions on the blockchain, and gathering information about the
-transactions using aggregation functions.
-
-When you've completed this tutorial, you can use the same dataset to complete
-the [advanced blockchain tutorial][analyze-blockchain], which shows you how to
-analyze the blockchain data using Timescale hyperfunctions.
+When you've completed this tutorial, you can use the same dataset to  [Analyze the Bitcoin data][analyze-blockchain], 
+using $TIMESCALE_DB hyperfunctions.
 
 [cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [blockchain-dataset]: /tutorials/:currentVersion:/blockchain-query/blockchain-dataset/
@@ -57,4 +40,4 @@ analyze the blockchain data using Timescale hyperfunctions.
 [blockchain-compress]: /tutorials/:currentVersion:/blockchain-query/blockchain-compress/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
-[analyze-blockchain]: /tutorials/:currentVersion:/blockchain-analyze/
+[analyze-blockchain]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/

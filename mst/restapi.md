@@ -1,25 +1,22 @@
 ---
 title: Using REST API in Managed Service for TimescaleDB
-excerpt: Use REST API in Managed Service for TimescaleDB for integration and automation
+excerpt: Use REST API for integration and automation in Managed Service for TimescaleDB
 products: [mst]
 keywords: [REST API, API, integration]
 ---
 
-# Using REST API in Managed Service for TimescaleDB
+# Using the REST API in $MST_LONG
 
-Managed Service for TimescaleDB has an API for integration and automation tasks.
+$MST_LONG has an API for integration and automation tasks.
 For information about using the endpoints, see the [API Documentation][aiven-api].
-MST offers an HTTP API with token authentication and JSON-formatted data. You
-can use the API for all the tasks that can be performed using the web console.
+$MST_SHORT offers an HTTP API with token authentication and JSON-formatted data. You
+can use the API for all the tasks that can be performed using the $MST_CONSOLE_SHORT.
 To get started you need to first create an authentication token, and then use
 the token in the header to use the API endpoints.
 
 <Procedure>
 
-## Creating an authentication token in Managed Service for TimescaleDB
-
-1.  Sign in to your Managed Service for TimescaleDB portal.
-1.  Click `User Information` in the top right corner.
+1.  In [$MST_LONG][mst-login], click `User Information` in the top right corner.
 1.  In the `User Profile` page, navigate to the `Authentication`tab.
 1.  Click `Generate Token`.
 1.  In the `Generate access token` dialog, type a descriptive name for the
@@ -69,3 +66,4 @@ the token in the header to use the API endpoints.
 </Procedure>
 
 [aiven-api]: https://api.aiven.io/doc/
+[mst-login]:https://portal.managed.timescale.com/login

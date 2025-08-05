@@ -1,6 +1,6 @@
 ---
 title: Migrate the entire database at once
-excerpt: Migrate an entire Timescale database to self-hosted TimescaleDB in one go
+excerpt: Migrate a small database to self-hosted TimescaleDB in one go with `pg_dump` and `pg_restore`
 products: [self_hosted]
 keywords: [data migration]
 tags: [ingest]
@@ -9,7 +9,7 @@ tags: [ingest]
 # Migrate the entire database at once
 
 Migrate smaller databases by dumping and restoring the entire database at once.
-This method works best on databases smaller than 100&nbsp;GB. For larger
+This method works best on databases smaller than 100 GB. For larger
 databases, consider [migrating your schema and data
 separately][migrate-separately].
 
@@ -28,30 +28,30 @@ Timescale. To avoid this problem, see [Live migration][live-migration].
 
 Before you begin, check that you have:
 
-*   Installed the PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
+*   Installed the $PG [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
     utilities.
-*   Installed a client for connecting to PostgreSQL. These instructions use
+*   Installed a client for connecting to $PG. These instructions use
     [`psql`][psql], but any client works.
-*   Created a new empty database in Timescale. For more information, see
-    the [Install Timescale section][install-selfhosted-timescale]. Provision
+*   Created a new empty database in your $SELF_LONG instance. For more information, see
+    [Install $TIMESCALE_DB][install-selfhosted-timescale]. Provision
     your database with enough space for all your data.
-*   Checked that any other PostgreSQL extensions you use are compatible with
+*   Checked that any other $PG extensions you use are compatible with
     Timescale. For more information, see the [list of compatible
-    extensions][extensions]. Install your other PostgreSQL extensions.
-*   Checked that you're running the same major version of PostgreSQL on both
+    extensions][extensions]. Install your other $PG extensions.
+*   Checked that you're running the same major version of $PG on both
     your target and source databases. For information about upgrading
-    PostgreSQL on your source database, see the
-    [upgrade instructions for self-hosted TimescaleDB][upgrading-postgresql-self-hosted].
-*   Checked that you're running the same major version of Timescale on both
-    your target and source databases. For more information, see the
-    [upgrading Timescale section][upgrading-timescaledb].
+    $PG on your source database, see the
+    [upgrade instructions for $SELF_LONG][upgrading-postgresql-self-hosted].
+*   Checked that you're running the same major version of $TIMESCALE_DB on both
+    your target and source databases. For more information, see
+    [upgrade $SELF_LONG][upgrading-timescaledb].
 
 <Highlight type="note">
 
-To speed up migration, compress your data. You can compress any chunks where
-data is not being currently inserted, updated, or deleted. When you finish the
-migration, you can decompress chunks as needed for normal operation. For more
-information about compression and decompression, see [Compression][compression].
+To speed up migration, compress your data into the columnstore. You can compress any chunks where
+data is not currently inserted, updated, or deleted. When you finish the
+migration, you can decompress chunks back to the rowstore as needed for normal operation. For more
+information about the rowstore and columnstore compression, see [hypercore][compression].
 
 </Highlight>
 
@@ -69,15 +69,13 @@ information about compression and decompression, see [Compression][compression].
     -f dump.bak <SOURCE_DB_NAME>
     ```
 
-1.  Connect to your Timescale database using your Timescale
-    connection details. When you are prompted for a password, use your Timescale
-    credentials:
+1.  Connect to your $SELF_LONG instance using your connection details:
 
     ```bash
-    psql “postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require”
+    psql “postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABASE>?sslmode=require”
     ```
 
-1.  Prepare your Timescale database for data restoration by using
+1.  Prepare your $SELF_LONG instance for data restoration by using
     [`timescaledb_pre_restore`][timescaledb_pre_restore] to stop background
     workers:
 
@@ -86,8 +84,7 @@ information about compression and decompression, see [Compression][compression].
     ```
 
 1.  At the command prompt, restore the dumped data from the `dump.bak` file into
-    your Timescale database, using your Timescale connection
-    details. To avoid permissions errors, include the `--no-owner` flag:
+    your $SELF_LONG instance, using your connection details. To avoid permissions errors, include the `--no-owner` flag:
 
     ```bash
     pg_restore -U tsdbadmin -W \
@@ -95,7 +92,7 @@ information about compression and decompression, see [Compression][compression].
     -Fc -v -d tsdb dump.bak
     ```
 
-1.  At the `psql` prompt, return your Timescale database to normal
+1.  At the `psql` prompt, return your $SELF_LONG instance to normal
     operations by using the
     [`timescaledb_post_restore`][timescaledb_post_restore] command:
 
@@ -118,10 +115,10 @@ information about compression and decompression, see [Compression][compression].
 [migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[psql]: /use-timescale/:currentVersion:/integrations/query-admin/about-psql/
+[psql]: /integrations/:currentVersion:/psql/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
 [timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
 [live-migration]: /migrate/:currentVersion:/live-migration/
-[compression]: /use-timescale/:currentVersion:/compression/
+[compression]: /use-timescale/:currentVersion:/hypercore/

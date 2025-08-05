@@ -1,6 +1,6 @@
 ---
 title: About writing data
-excerpt: How to write data to Timescale
+excerpt: Writing data in TimescaleDB works the same way as writing data to regular Postgres tables. Learn the basics of inserting, updating, upserting, and deleting data in your database using SQL
 products: [cloud, mst, self_hosted]
 keywords: [ingest]
 tags: [write]
@@ -8,14 +8,16 @@ tags: [write]
 
 # About writing data
 
-Timescale supports writing data in the same way as PostgreSQL, using `INSERT`,
+$TIMESCALE_DB supports writing data in the same way as $PG, using `INSERT`,
 `UPDATE`, `INSERT ... ON CONFLICT`, and `DELETE`.
 
 <Highlight type="note">
-Because Timescale is a time-series database, hypertables are optimized for
+
+$TIMESCALE_DB is optimized for running real-time analytics workloads on time-series data. For this reason, hypertables are optimized for
 inserts to the most recent time intervals. Inserting data with recent time
 values gives
-[excellent performance](https://www.timescale.com/blog/timescaledb-vs-6a696248104e/).
+[excellent performance](https://www.timescale.com/blog/postgresql-timescaledb-1000x-faster-queries-90-data-compression-and-much-more).
 However, if you need to make frequent updates to older time intervals, you
 might see lower write throughput.
+
 </Highlight>

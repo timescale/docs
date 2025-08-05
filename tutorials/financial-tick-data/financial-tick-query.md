@@ -1,7 +1,7 @@
 ---
 title: Analyze financial tick data - Query the data
-excerpt: Create candlestick views and query financial tick data to analyze price changes
-products: [cloud, mst, self_hosted]
+excerpt: Create candlestick views and query financial tick data to perform real-time analysis of price changes in Tiger Cloud
+products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
 layout_components: [next_prev_large]
@@ -13,21 +13,21 @@ import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 # Query the data
 
 Turning raw, real-time tick data into aggregated candlestick views is a common
-task for users who work with financial data. TimescaleDB includes
+task for users who work with financial data. $TIMESCALE_DB includes
 [hyperfunctions][hyperfunctions]
 that you can use to store and query your financial data more easily.
-Hyperfunctions are SQL functions within TimescaleDB that make it easier to
-manipulate and analyze time-series data in PostgreSQL with fewer lines of code.
+Hyperfunctions are SQL functions within $TIMESCALE_DB that make it easier to
+manipulate and analyze time-series data in $PG with fewer lines of code.
 
 There are three hyperfunctions that are essential for calculating candlestick
 values: [`time_bucket()`][time-bucket], [`FIRST()`][first], and [`LAST()`][last].
 The `time_bucket()` hyperfunction helps you aggregate records into buckets of
 arbitrary time intervals based on the timestamp value. `FIRST()` and `LAST()`
 help you calculate the opening and closing prices. To calculate highest and
-lowest prices, you can use the standard PostgreSQL aggregate functions `MIN` and
+lowest prices, you can use the standard $PG aggregate functions `MIN` and
 `MAX`.
 
-In TimescaleDB, the most efficient way to create candlestick views is to use
+In $TIMESCALE_DB, the most efficient way to create candlestick views is to use
 [continuous aggregates][caggs].
 In this tutorial, you create a continuous aggregate for a candlestick time
 bucket, and then query the aggregate with different refresh policies. Finally,
@@ -44,7 +44,7 @@ the last two days' worth of data.
 
 ### Creating a continuous aggregate
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG that contains the Twelve Data
     cryptocurrency dataset.
 
 1.  At the psql prompt, create the continuous aggregate to aggregate data every
@@ -61,7 +61,7 @@ the last two days' worth of data.
             MIN(price) AS low,
             LAST(price, time) AS "close",
             LAST(day_volume, time) AS day_volume
-        FROM stocks_real_time
+        FROM crypto_ticks
         GROUP BY bucket, symbol;
     ```
 
@@ -88,7 +88,7 @@ OHLCV values.
 
 ### Querying the continuous aggregate
 
-1.  Connect to the Timescale database that contains the Twelve Data
+1.  Connect to the $SERVICE_LONG that contains the Twelve Data
     cryptocurrency dataset.
 
 1.  At the psql prompt, use this query to select all Bitcoin OHLCV data for the
@@ -117,7 +117,7 @@ OHLCV values.
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[intraday-tutorial]: /tutorials/:currentVersion:/analyze-intraday-stocks/
+[intraday-tutorial]: /tutorials/:currentVersion:/
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [lag]: https://www.postgresqltutorial.com/postgresql-lag-function/

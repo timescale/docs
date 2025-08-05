@@ -1,7 +1,7 @@
 ---
 title: Analyze the Bitcoin blockchain - query the data
-excerpt: Analyze the Bitcoin blockchain with Timescale hyperfunctions
-products: [cloud]
+excerpt: Use TimescaleDB hyperfunctions to construct advanced analytical queries and run them on blockchain transaction data
+products: [cloud, self_hosted, mst]
 keywords: [intermediate, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]
 content_group: Analyze the Bitcoin blockchain
@@ -11,8 +11,8 @@ content_group: Analyze the Bitcoin blockchain
 
 When you have your dataset loaded, you can create some continuous aggregates,
 and start constructing queries to discover what your data tells you. This
-tutorial uses [Timescale hyperfunctions][about-hyperfunctions] to construct
-queries that are not possible in standard PostgreSQL.
+tutorial uses [$TIMESCALE_DB hyperfunctions][about-hyperfunctions] to construct
+queries that are not possible in standard $PG.
 
 In this section, you learn how to write queries that answer these questions:
 
@@ -36,7 +36,7 @@ time buckets.
 
 ### Continuous aggregate: transactions
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, create a continuous aggregate called
     `one_hour_transactions`. This view holds aggregated data about each hour of
     transactions:
@@ -148,7 +148,7 @@ fees to decrease.
 
 ### Finding a connection between the number of transactions and the transaction fees
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to average transaction volume and the
     fees from the `one_hour_transactions` continuous aggregate:
 
@@ -158,20 +158,20 @@ fees to decrease.
      tx_count as "tx volume",
      average(stats_fee_sat) as fees
     FROM one_hour_transactions
-    WHERE bucket > NOW() - INTERVAL '2 days'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-2 days')
     ORDER BY 1;
     ```
 
 1.  The data you get back looks a bit like this:
 
     ```sql
-              time          | tx volume |        fees
+            time          | tx volume |        fees
     ------------------------+-----------+--------------------
-     2023-06-13 08:00:00+00 |     20063 |  7075.682450281613
-     2023-06-13 09:00:00+00 |     16984 |   7302.61716910033
-     2023-06-13 10:00:00+00 |     15856 |  9682.086402623612
-     2023-06-13 11:00:00+00 |     24967 |  5631.992550166219
-     2023-06-13 12:00:00+00 |      8575 |  17594.24256559767
+    2023-11-20 01:00:00+00 |      2602 | 105963.45810914681
+    2023-11-20 02:00:00+00 |     33037 | 26686.814117504615
+    2023-11-20 03:00:00+00 |     42077 | 22875.286546094067
+    2023-11-20 04:00:00+00 |     46021 | 20280.843180287262
+    2023-11-20 05:00:00+00 |     20828 | 24694.472969080085
     ...
     ```
 
@@ -202,7 +202,7 @@ transaction volume, along with the BTC to US Dollar conversion rate.
 
 ### Finding the transaction volume and the BTC-USD rate
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the trading volume and the BTC
     to US Dollar exchange rate:
 
@@ -212,7 +212,7 @@ transaction volume, along with the BTC to US Dollar conversion rate.
      tx_count as "tx volume",
      total_fee_usd / (total_fee_sat*0.00000001) AS "btc-usd rate"
     FROM one_hour_transactions
-    WHERE bucket > NOW() - INTERVAL '2 days'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-2 days')
     ORDER BY 1;
     ```
 
@@ -258,7 +258,7 @@ transactions in a block, the higher the mining fee becomes.
 
 ## Finding if more transactions in a block mean the block is more expensive to mine
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the number of transactions in a
     block, compared to the mining fee:
 
@@ -268,7 +268,7 @@ transactions in a block, the higher the mining fee becomes.
      avg(tx_count) AS transactions,
      avg(block_fee_sat)*0.00000001 AS "mining fee"
     FROM one_hour_blocks
-    WHERE bucket > now() - INTERVAL '5 day'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
     GROUP BY bucket
     ORDER BY 1;
     ```
@@ -315,7 +315,7 @@ units, in which case it's impossible for a block to include more transactions.
 
 ### Finding if higher block weight means the block is more expensive to mine
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the block weight, compared to
     the mining fee:
 
@@ -325,7 +325,7 @@ units, in which case it's impossible for a block to include more transactions.
      avg(block_weight) as "block weight",
      avg(block_fee_sat*0.00000001) as "mining fee"
     FROM one_hour_blocks
-    WHERE bucket > now() - INTERVAL '5 day'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
     group by bucket
     ORDER BY 1;
     ```
@@ -376,14 +376,14 @@ few percentage points of overall revenue.
 
 ### Finding what percentage of the average miner's revenue comes from fees compared to block rewards
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return coinbase transactions, along
     with the block fees and rewards:
 
     ```sql
     WITH coinbase AS (
        SELECT block_id, output_total AS coinbase_tx FROM transactions
-       WHERE is_coinbase IS TRUE and time > NOW() - INTERVAL '5 days'
+       WHERE is_coinbase IS TRUE and time > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
     )
     SELECT
        bucket as "time",
@@ -441,7 +441,7 @@ grow for individual blocks, and they could include even more transactions.
 
 ### Finding how block weight affects miner fees
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return block weight, along with the
     block fees and rewards:
 
@@ -451,7 +451,7 @@ grow for individual blocks, and they could include even more transactions.
            bucket,
            stats_agg(block_weight, block_fee_sat) AS block_stats
        FROM one_hour_blocks
-       WHERE bucket > NOW() - INTERVAL '5 days'
+       WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
        GROUP BY bucket
     )
     SELECT
@@ -502,7 +502,7 @@ increase the time range.
 
 ### Finding the average miner revenue per block
 
-1.  Connect to the Timescale database that contains the Bitcoin dataset.
+1.  Connect to the $SERVICE_LONG that contains the Bitcoin dataset.
 1.  At the psql prompt, use this query to return the average miner revenue per
     block, with a 12-hour moving average:
 
@@ -512,7 +512,7 @@ increase the time range.
        average_y(rolling(stats_miner_revenue) OVER (ORDER BY bucket RANGE '12 hours' PRECEDING))*0.00000001 AS "revenue in BTC",
         average_x(rolling(stats_miner_revenue) OVER (ORDER BY bucket RANGE '12 hours' PRECEDING)) AS "revenue in USD"
     FROM one_hour_coinbase
-    WHERE bucket > NOW() - INTERVAL '5 days'
+    WHERE bucket > date_add('2023-11-22 00:00:00+00', INTERVAL '-5 days')
     ORDER BY 1;
     ```
 
@@ -546,4 +546,4 @@ increase the time range.
 </Procedure>
 
 [docs-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
-[about-hyperfunctions]: https://docs.timescale.com/use-timescale/latest/hyperfunctions/about-hyperfunctions/
+[about-hyperfunctions]: https://docs.tigerdata.com/use-timescale/latest/hyperfunctions/about-hyperfunctions/

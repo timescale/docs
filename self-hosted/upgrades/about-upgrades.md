@@ -1,6 +1,6 @@
 ---
 title: About upgrades
-excerpt: About major and minor upgrades, and best practices for upgrading
+excerpt: Learn about major and minor upgrades of your self-hosted TimescaleDB installation, and best practices for upgrading
 products: [self_hosted]
 keywords: [upgrades]
 ---
@@ -32,10 +32,12 @@ within the Docker container. For more information, and instructions, see the
 <PlanUpgrade />
 
 <Highlight type="note">
-If you use the Timescale Toolkit, ensure the `timescaledb_toolkit` extension is on
+
+If you use the $TOOLKIT_LONG, ensure the `timescaledb_toolkit` extension is on
 version 1.6.0, then upgrade the `timescaledb` extension. If required, you
 can then later upgrade the `timescaledb_toolkit` extension to the most
 recent version.
+
 </Highlight>
 
 ## Check your version

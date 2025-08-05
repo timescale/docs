@@ -7,28 +7,28 @@ keywords: [logging, Loggly, integration]
 
 # Logging
 
-There are a number of different ways to review logs and metrics for your Managed
-Service for TimescaleDB services. You can use the native logging tool
-in the web console, retrieve details logs using the Aiven CLI tool, or
+There are a number of different ways to review logs and metrics for your $MST_SERVICE_LONGs. You can use the native logging tool
+in $MST_CONSOLE_SHORT, retrieve details logs using the Aiven CLI tool, or
 integrate a third-party service, such as [SolarWinds Loggly][loggly-site].
 
 ## Native logging
 
-To see the most recent logged events for your service, in the `Services` tab,
-find the service you want to review, and check it is marked as `Running`.
-Navigate to the `Logs` tab to see a constantly updated list of logged events.
+To see the most recent logged events for your $MST_SERVICE_SHORT. 
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/mst-view-logs.webp"
-alt="Managed Service for TimescaleDB native logging"/>
+1. In [$MST_CONSOLE_SHORT][mst-login], in the `Services` tab, find the $MST_SERVICE_SHORT you want to review, and check it is 
+   marked as `Running`.
+2. Navigate to the `Logs` tab to see a constantly updated list of logged events.
+
+    <img class="main-content__illustration"
+    src="https://assets.timescale.com/docs/images/mst/view-logs.png"
+    alt="Managed Service for TimescaleDB native logging"/>
 
 ## Dump logs to a text file with the Aiven CLI
 
-If you want to dump your Managed Service for TimescaleDB logs to a text file or
+If you want to dump your $MST_LONG logs to a text file or
 an archive for use later on, you can use the Aiven CLI.
 
-Sign in to your Managed Service for TimescaleDB account from the Aiven CLI tool,
+Sign in to your $MST_LONG account from the Aiven CLI tool,
 and use this command to dump your logs to a text file called `tslogs.txt`:
 
 ```bash
@@ -40,13 +40,11 @@ For more information about the Aiven CLI tool, see the
 
 ## Logging integrations
 
-If you need to access logs for your services regularly, or if you need more
-detailed logging than Managed Service for TimescaleDB can provide in the web
-console, you can connect your Managed Service for TimescaleDB to a logging
+If you need to access logs for your $MST_SERVICE_SHORTs regularly, or if you need more
+detailed logging than $MST_LONG can provide in $MST_CONSOLE_SHORT, you can connect your $MST_LONG to a logging
 service such as [SolarWinds Loggly][loggly-site].
 
-This section covers how to create a service integration to Loggly with Managed
-Service for TimescaleDB.
+This section covers how to create a service integration to Loggly with $MST_LONG.
 
 <Procedure>
 
@@ -57,7 +55,7 @@ Service for TimescaleDB.
     `Customer Tokens` from the top menu bar.
 1.  On the `Customer Tokens` page, click `Add New` to create a new token. Give your
     token a name, and click `Save`. Copy your new token to your clipboard.
-1.  Log in to your Managed Service for TimescaleDB account, and navigate
+1.  Log in to your $MST_LONG account, and navigate
     to `Service Integrations`.
 1.  In the `Service Integrations` page, navigate to `Syslog`, and click
     `Add new endpoint`.
@@ -89,3 +87,5 @@ Service for TimescaleDB.
 
 [loggly-site]: https://www.loggly.com/
 [aiven-cli]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client
+
+[mst-login]:https://portal.managed.timescale.com/login

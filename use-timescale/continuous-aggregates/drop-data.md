@@ -1,6 +1,6 @@
 ---
 title: Dropping data
-excerpt: Drop raw data from a continuous aggregate or its underlying hypertable
+excerpt: Drop a view or raw data from a continuous aggregate or its underlying hypertable 
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, hypertables, delete]
 tags: [drop]

@@ -19,10 +19,10 @@ and visualize data.
 
 Before you begin, make sure you have:
 
-*   [Installed TimescaleDB][install-timescale].
+*   [Installed $TIMESCALE_DB][install-timescale].
 *   Set up Grafana.
 
-When your installation of TimescaleDB and Grafana are complete, ingest the data
+When your installation of $TIMESCALE_DB and Grafana are complete, ingest the data
 found in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
 to that database.
 

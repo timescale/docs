@@ -10,7 +10,7 @@ content_group: Analyze the Bitcoin blockchain
 # Insert and query Bitcoin transactions
 
 This section of the tutorial provides an example database schema that you can
-use to ingest and store Bitcoin blockchain data in TimescaleDB. The schema
+use to ingest and store Bitcoin blockchain data in $TIMESCALE_DB. The schema
 consists of only one table called `transactions`.
 
 ## Bitcoin transaction data fields
@@ -60,7 +60,7 @@ analyses.
 Turn the table into a hypertable by using the
 [`create_hypertable()`][create_hypertable] function.
 A hypertable gives you performance improvements by using
-TimescaleDB's chunking feature behind the scenes.
+$TIMESCALE_DB's chunking feature behind the scenes.
 This function needs two
 parameters: the name of the table and the name of the TIMESTAMP
 column. In this case, the names are `transactions` and `time`.
@@ -74,7 +74,7 @@ the hypertable. This optimizes execution of later SQL queries.
 
 ## Create indexes
 
-When you create a hypertable, TimescaleDB automatically adds a B-tree index
+When you create a hypertable, $TIMESCALE_DB automatically adds a B-tree index
 on the timestamp column. This improves queries
 where you filter by the time column.
 
@@ -103,9 +103,8 @@ CREATE UNIQUE INDEX time_hash_idx ON public.transactions (time, hash)
 
 You created the hypertable and added proper indexes.
 Next, ingest some Bitcoin transactions. The sample data file
-contains Bitcoin transactions from the past five days. This CSV file is
-updated daily so you always download recent Bitcoin transactions.
-Insert this dataset into your TimescaleDB instance.
+contains around 1.5 million Bitcoin transactions, the trades for five days.
+Insert this dataset into your $TIMESCALE_DB instance.
 
 <Procedure>
 
@@ -198,6 +197,6 @@ block_id|transaction_count|block_weight|block_value_usd   |
 
 At this point, you have Bitcoin blockchain data in your database and you've made
 your first SQL queries. In the next section, dig deeper into the blockchain and use
-TimescaleDB hyperfunctions to generate insights!
+$TIMESCALE_DB hyperfunctions to generate insights!
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/

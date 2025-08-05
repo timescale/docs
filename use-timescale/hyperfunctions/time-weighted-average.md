@@ -1,13 +1,13 @@
 ---
 title: Time-weighted average
-excerpt: Calculate a time-weighted average
+excerpt: A time-weighted average in TimescaleDB is an aggregate that weights each value using LOCF or interpolation. Construct and run a sample time-weighted average query
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, time-weighted]
 ---
 
 # Time-weighted average
 
-Timescale's time weighted average is implemented as an aggregate that
+Time weighted average in $TIMESCALE_DB is implemented as an aggregate that
 weights each value using last observation carried forward (LOCF), or linear
 interpolation. The aggregate is not parallelizable, but it is supported with
 [continuous aggregation][caggs].

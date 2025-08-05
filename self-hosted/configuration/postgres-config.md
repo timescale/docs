@@ -1,40 +1,54 @@
 ---
-title: Manual PostgreSQL configuration and tuning
-excerpt: How to manually configure your PostgreSQL instance
+title: Manual Postgres configuration and tuning
+excerpt: Manually configure your self-hosted database using the Postgres configuration file
 products: [self_hosted]
 keywords: [configuration, settings]
 tags: [tune]
 ---
 
-# Manual PostgreSQL configuration and tuning
+# Manual $PG configuration and tuning
 
 If you prefer to tune settings yourself, or for settings not covered by
 `timescaledb-tune`, you can manually configure your installation using the
-PostgreSQL configuration file.
+$PG configuration file.
 
 For some common configuration settings you might want to adjust, see the
 [about-configuration][about-configuration] page.
 
-For more information about the PostgreSQL configuration page, see the
-[PostgreSQL documentation][pg-config].
+For more information about the $PG configuration page, see the
+[$PG documentation][pg-config].
 
-## Editing the PostgreSQL configuration file
+## Edit the $PG configuration file
 
-The location of the PostgreSQL configuration file depends on your operating
-system and installation. You can find the location by querying the database as
-the `postgres` user, from the psql prompt:
+The location of the $PG configuration file depends on your operating
+system and installation. 
 
-```sql
-SHOW config_file;
-```
+1. **Find the location of the config file for your $PG instance**
+   1. Connect to your database:
+      ```shell
+      psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+      ```
+   1. Retrieve the database file location from the database internal configuration.
+      ```sql
+      SHOW config_file;
+      ```
+      $PG returns the path to your configuration file. For example:
+      ```sql
+      --------------------------------------------
+      /home/postgres/pgdata/data/postgresql.conf
+      (1 row)
+      ```
 
-The configuration file requires one parameter per line. Blank lines are ignored,
-and you can use a `#` symbol at the beginning of a line to denote a comment.
+1. **Open the config file, then [edit your $PG configuration][pg-config]** 
+   ```shell
+   vi /home/postgres/pgdata/data/postgresql.conf
+   ```
+   
+1. **Save your updated configuration**
 
-When you have made changes to the configuration file, the new configuration is
-not applied immediately. The configuration file is reloaded whenever the server
-receives a `SIGHUP` signal, or you can manually reload the file uses the
-`pg_ctl` command.
+   When you have saved the changes you make to the configuration file, the new configuration is
+   not applied immediately. The configuration file is automatically reloaded when the server
+   receives a `SIGHUP` signal. To manually reload the file, use the `pg_ctl` command.
 
 ## Setting parameters at the command prompt
 

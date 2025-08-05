@@ -43,13 +43,13 @@ CREATE TABLE public.stocks_intraday (
 );
 ```
 
-This creates a regular PostgreSQL table with all the columns needed to ingest candlestick data records.
+This creates a regular $PG table with all the columns needed to ingest candlestick data records.
 
 # Create hypertable
 
-To use TimescaleDB features, you need to enable TimescaleDB, and create a hypertable from the `stocks_intraday` table.
+To use $TIMESCALE_DB features, you need to enable $TIMESCALE_DB, and create a hypertable from the `stocks_intraday` table.
 
-**Enable TimescaleDB extension:**
+**Enable $TIMESCALE_DB extension:**
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb;

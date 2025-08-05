@@ -63,7 +63,7 @@ api_details:
           The `TimeWeightSummary` from the prior interval, used to interpolate
           the value at `start`. If NULL, the first timestamp in `tws` is used for
           the starting value. The prior interval can be determined from the
-          PostgreSQL [`lag()`](https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW-TABLE)
+          Postgres [`lag()`](https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW-TABLE)
           function.
       - name: next
         type: TimeWeightSummary
@@ -71,7 +71,7 @@ api_details:
           The `TimeWeightSummary` from the next interval, used to interpolate
           the value at `start` + `interval`. If NULL, the first timestamp in
           `tws` is used for the starting value. The next interval can be
-          determined from the PostgreSQL
+          determined from the Postgres
           [`lead()`](https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW-TABLE)
           function.
       - name: unit
@@ -79,7 +79,7 @@ api_details:
         description: >
           The unit of time to express the integral in. Can be `microsecond`,
           `millisecond`, `second`, `minute`, `hour`, or any alias for those units
-          supported by PostgreSQL. Defaults to `second`.
+          supported by Postgres. Defaults to `second`.
     returns:
       - column: integral
         type: DOUBLE PRECISION

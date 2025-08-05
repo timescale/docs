@@ -9,7 +9,7 @@ tags: [cloud image]
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
 
-# Install TimescaleDB from a pre-built cloud image
+# Install $TIMESCALE_DB from a pre-built cloud image
 
 You can install TimescaleDB on a cloud hosting provider,
 from a pre-built, publicly available machine image. These instructions show you
@@ -37,7 +37,7 @@ supports public AMIs.
 
 <Procedure>
 
-## Installing TimescaleDB from a pre-build cloud image
+## Installing $TIMESCALE_DB from a pre-build cloud image
 
 1.  Make sure you have an [Amazon Web Services account][aws-signup], and are
     signed in to [your EC2 dashboard][aws-dashboard].
@@ -60,21 +60,21 @@ with the `timescaledb-tools` package. For more information, see the
 [configuration][config] section.
 
 <Highlight type="note">
-After running the `timescaledb-tune` script, you need to restart the PostgreSQL
+
+After running the `timescaledb-tune` script, you need to restart the $PG
 service for the configuration changes to take effect. To restart the service,
 run `sudo systemctl restart postgresql.service`.
+
 </Highlight>
 
-## Set up the TimescaleDB extension
+## Set up the $TIMESCALE_DB extension
 
-When you have PostgreSQL and TimescaleDB installed, connect to your instance and
+When you have $PG and TimescaleDB installed, connect to your instance and
 set up the TimescaleDB extension.
 
 <Procedure>
 
-### Setting up the TimescaleDB extension
-
-1.  On your instance, at the command prompt, connect to the PostgreSQL
+1.  On your instance, at the command prompt, connect to the $PG
     instance as the `postgres` superuser:
 
     ```bash

@@ -39,8 +39,8 @@ Cryptocurrency tutorial.
 Locate the `host`, `port`, and `password` of your TimescaleDB instance.
 
 Connecting your TimescaleDB instance to Tableau takes just a few clicks, thanks
-to Tableau's  built-in Postgres connector. To connect to your database add a new
-connection and under the  'to a server' section, select PostgreSQL as the
+to Tableau's  built-in $PG connector. To connect to your database add a new
+connection and under the  'to a server' section, select $PG as the
 connection type. Then enter your database  credentials.
 
 ### Step 2: Run a simple query in Tableau
@@ -109,6 +109,6 @@ stored in TimescaleDB. This tutorial only scratched the surface of the kinds of
 data you can visualize using Tableau.
 
 [crypto-tutorial]: /tutorials/:currentVersion:/blockchain-analyze/
-[get-tableau]: https://www.tableau.com/products/trial/
+[get-tableau]: https://www.tableau.com/products/trial
 [install-timescale]: /getting-started/latest/
 [timescale-products]: https://www.timescale.com/products/

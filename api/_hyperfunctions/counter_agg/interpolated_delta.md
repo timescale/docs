@@ -6,9 +6,10 @@ api:
   license: community
   type: function
   toolkit: true
-  experimental: true
+  experimental: false
   version:
     experimental: 1.8.0
+    stable: 1.14.0
 hyperfunction:
   family: counters and gauges
   type: accessor

@@ -5,22 +5,22 @@ products: [mst]
 keywords: [security]
 ---
 
-# Security in Managed Service for TimescaleDB
+# Security in $MST_LONG
 
-This section covers how Timescale handles security of your data while it is
+This section covers how $MST_LONG handles security of your data while it is
 stored.
 
 ## Cloud provider accounts
 
-Managed Service for TimescaleDB services are hosted by cloud provider
-accounts controlled by Timescale. These accounts are managed only by Timescale
+$MST_SERVICE_LONGs are hosted by cloud provider
+accounts controlled by $COMPANY. These accounts are managed only by $COMPANY
 and Aiven operations personnel. Members of the public cannot directly access the
 cloud provider account resources.
 
 ## Virtual machines
 
-Your Managed Service for TimescaleDB services are located on one or more virtual
-machines. Each virtual machine is dedicated to a single customer, and are never
+Your $MST_SERVICE_SHORTs are located on one or more virtual
+machines. Each virtual machine is dedicated to a single customer, and is never
 multi-tenanted. Customer data never leaves the virtual machine, except when
 uploaded to an offsite backup location.
 
@@ -43,24 +43,22 @@ or delete your service.
 
 ## Project security
 
-Every Managed Service for TimescaleDB project has its own certificate authority.
+Every $MST_LONG project has its own certificate authority.
 This certificate authority is used to sign certificates used internally by your
 services to communicate between different cluster nodes and to management
 systems.
 
-You can download your project certificate authority in the Managed Service for
-TimescaleDB portal. In the `Services` tab, click the service you want to find
+You can download your project certificate authority in $MST_CONSOLE_LONG. In the `Services` tab, click the service you want to find
 the certificate for. In the service `Overview` tab, under `Connection
 information`, locate the `CA Certificate` section, and click `Show` to see the
 certificate. It is recommended that you set up your browser or client to trust
 that certificate.
 
-All server certificates are signed by the Managed Service for TimescaleDB
-project certificate authority.
+All server certificates are signed by the project certificate authority OF $MST_CONSOLE_LONG.
 
 ## Data encryption
 
-Managed Service for TimescaleDB at-rest data encryption covers both active
+$MST_LONG at-rest data encryption covers both active
 service instances as well as service backups in cloud object storage.
 
 Service instances and the underlying virtual machines use full volume
@@ -87,7 +85,7 @@ ensures that third-parties can't eavesdrop or modify the data while it's in
 transit between your service and the clients accessing your service. You cannot
 use unencrypted plain text connections.
 
-Communication between virtual machines within Managed Service for TimescaleDB is
+Communication between virtual machines within $MST_LONG is
 secured with either TLS or IPsec. You cannot use unencrypted plaintext
 connections.
 
@@ -105,24 +103,18 @@ services.
 
 ### Configure allowed incoming IP addresses for your service
 
-1.  Sign in to your Managed Service for TimescaleDB portal.
-1.  In the `Services` tab, find the service you want to configure, and check
-    it is marked as `Running`.
-1.  In the service `Overview` tab, under `Connection information`, locate the
-    port number. This is the port that you are managing inbound access for.
-1.  Scroll down and locate the `Allowed IP addresses` section. By default, this
-    is set to `0.0.0.0/0`, which accepts incoming access from all sources.
-1.  Click `Change`, and type the CIDR value for your incoming source traffic.
-    For example, if you enter a value of `192.168.1.15/32` only traffic from
-    this IP address is allowed, and all other traffic is blocked. Alternatively,
-    you could enter an address block to allow all traffic from within the block.
-    Click `+` to add the address to the allowed list. Click `Save changes`.
-1.  Check that the new allowed addresses are shown correctly in the
-    `Allowed IP addresses` section.
+1.  In [$MST_CONSOLE_SHORT][mst-login], select the service to update.
+1.  In `Overview` check the `Port` number.
+
+    This is the port that you are managing inbound access for.
+1.  In `Network`, check `IP filters`. The default value is `Open for all.
+
+1. Click the ellipsis (...) to the right of Network, then select `Set public IP filters`.  
+
+1. Set the `Allowed inbound IP addresses`:
 
    <img class="main-content__illustration"
-   width={1375} height={944}
-   src="https://assets.timescale.com/docs/images/mst-allowed-incomingip.webp"
+   src="https://assets.timescale.com/docs/images/mst/set-allowed-ip-addresses.png"
    alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
 
 </Procedure>
@@ -135,26 +127,25 @@ but they can only be connected to from your peered VPC network using private
 network addresses.
 
 The virtual machines providing your service are hosted by cloud provider
-accounts controlled by Timescale.
+accounts controlled by $COMPANY.
 
 ## Customer data privacy
 
-Customer data privacy is of utmost importance at Timescale. Timescale works with
-Aiven to provide Managed Service for TimescaleDB.
+Customer data privacy is of utmost importance at $COMPANY. $COMPANY works with
+Aiven to provide $MST_LONG.
 
 In most cases, all the resources required for providing your services are
-automatically created, maintained, and terminated by the Managed Service for
-TimescaleDB infrastructure, with no manual operator intervention required.
+automatically created, maintained, and terminated by the $MST_LONG infrastructure, with no manual operator intervention required.
 
-The Timescale Operations Team are able to securely log in to your service
-Virtual Machines, for the purposes of troubleshooting, as required. Timescale
+The $COMPANY Operations Team are able to securely log in to your service
+Virtual Machines, for the purposes of troubleshooting, as required. $COMPANY
 operators never access customer data unless you explicitly request them to do
 so, to troubleshoot a technical issue. This access is logged and audited.
 
 There is no ability for any customer or member of the public to access any
-virtual machines used in Managed Service for TimescaleDB.
+virtual machines used in $MST_LONG.
 
-Managed Service for TimescaleDB services are periodically assessed and penetration
+$MST_LONG services are periodically assessed and penetration
 tested for any security issues by an independent professional cyber-security vendor.
 
 <!---
@@ -167,10 +158,11 @@ This link is currently timing out.
 Aiven is fully GDPR-compliant, and has executed data processing agreements
 (DPAs) with relevant cloud infrastructure providers. If you require a DPA, or if
 you want more information about information security policies,
-[contact Timescale][timescale-support].
+[contact $COMPANY][timescale-support].
 
 <!---
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
 -->
 
 [timescale-support]: https://www.timescale.com/contact/
+[mst-login]:https://portal.managed.timescale.com/login

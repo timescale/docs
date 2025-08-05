@@ -1,39 +1,38 @@
 ---
-title: Get started with Timescale
-excerpt: Getting started with your first Timescale instance
+title: Get started with TigerData
+excerpt: Supercharge your real-time analytics on time-series data with Tiger Cloud. Create a free account, launch your first service, and use some of the advanced features
 products: [cloud]
-layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import CloudIntroShort from "versionContent/_partials/_cloud-intro-short.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Get started with Timescale
+# Get started with $COMPANY
 
-<CloudIntro />
-
-Each database instance in Timescale is called a service.
+<CloudIntroShort />
 
 This section shows you how to:
 
-1.  [Create and connect to a Timescale service][services-create]
-1.  [Ingest some real financial data into your database][ingest-data]
-1.  [Construct some interesting queries][queries] <FeaturedCTA href="/getting-started/latest/queries/#try-it-out-code-block-1" data-tracking="cta-try-out-queries">Try out some <b>live queries</b></FeaturedCTA>
-1.  [Create and query a continuous aggregates][caggs]
+- [Create and connect to a $SERVICE_LONG][services-create]: choose the capabilities that match your business and 
+  engineering needs on $COMPANY's cloud-based $PG platform.
+- [Try the main features in $COMPANY products][test-drive]: rapidly implement the features in $CLOUD_LONG that 
+  enable you to ingest and query data faster while keeping the costs low.
+- [Start coding with $COMPANY][start-coding]: quickly integrate $CLOUD_LONG and $TIMESCALE_DB into your apps using your favorite programming language.
+- [Run queries from $CONSOLE][run-queries-from-console]: securely interact with your data in the $CONSOLE UI.
 
-Already know the basics? See the
-[more advanced tutorials][tutorials], or see how to
-[Use Timescale][use-timescale].
+<WhereNext />
 
 [tutorials]: /tutorials/:currentVersion:/
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[integrations]: /integrations/:currentVersion:/
+[use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
 [services-create]: /getting-started/:currentVersion:/services#create-your-timescale-account
 [services-connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
-[ingest-data]: /getting-started/:currentVersion:/time-series-data/
-[queries]: /getting-started/:currentVersion:/queries/
-[caggs]: /getting-started/:currentVersion:/aggregation/
+[test-drive]: /getting-started/:currentVersion:/try-key-features-timescale-products/
+[run-queries-from-console]: /getting-started/:currentVersion:/run-queries-from-console/
+[start-coding]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
+

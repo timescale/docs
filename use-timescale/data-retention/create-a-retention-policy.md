@@ -1,6 +1,6 @@
 ---
 title: Create a data retention policy
-excerpt: Create a data retention policy to automatically drop historical data
+excerpt: Create a data retention policy to automatically drop historical data from your hypertables when it reaches a certain age. TimescaleDB enables you to save on storage while speeding up your queries
 products: [cloud, mst, self_hosted]
 keywords: [data retention, policies]
 tags: [drop, delete]
@@ -9,7 +9,7 @@ tags: [drop, delete]
 # Create a data retention policy
 
 Automatically drop data once its time value ages past a certain interval. When
-you create a data retention policy, Timescale automatically schedules a
+you create a data retention policy, $TIMESCALE_DB automatically schedules a
 background job to drop old chunks.
 
 ## Add a data retention policy

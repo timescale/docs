@@ -1,42 +1,27 @@
 ---
 title: TimescaleDB configuration and tuning
-excerpt: How to change configuration settings for TimescaleDB
+excerpt: Configure the TimescaleDB settings related to policies, query planning and execution, distributed hypertables, and administration
 products: [self_hosted]
 keywords: [configuration, settings]
 tags: [tune]
 ---
 
-# TimescaleDB configuration and tuning
+import TimescaleDBConfig from "versionContent/_partials/_timescaledb-config.mdx";
+import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
 
-Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of configuration
+# $TIGER_POSTGRES configuration and tuning
+
+Just as you can tune settings in $PG, $TIMESCALE_DB provides a number of configuration
 settings that may be useful to your specific installation and performance needs. These can
 also be set within the `postgresql.conf` file or as command-line parameters
-when starting PostgreSQL.
+when starting $PG.
+when starting $PG.
 
-## Policies
-
-### `timescaledb.max_background_workers (int)`
-
-Max background worker processes allocated to TimescaleDB. Set to at least 1 +
-the number of databases loaded with a TimescaleDB extension in a PostgreSQL
-instance. Default value is 16.
-
-## Query Planning and Execution
-
-### `timescaledb.enable_chunkwise_aggregation (bool)`
-If enabled, aggregations are converted into partial aggregations during query
-planning. The first part of the aggregation is executed on a per-chunk basis.
-Then, these partial results are combined and finalized. Splitting aggregations
-decreases the size of the created hash tables and increases data locality, which
-speeds up queries.
- 
-
-### `timescaledb.vectorized_aggregation (bool)`
-Enables or disables the vectorized optimizations in the query executor. For
-example, the `sum()` aggregation function on compressed chunks can be optimized
-in this way.
+<TimescaleDBConfig />
 
 ## Distributed hypertables
+
+<MultiNodeDeprecation />
 
 ### `timescaledb.enable_2pc (bool)`
 
@@ -87,35 +72,11 @@ can be either `copy`, `cursor`, or `auto`. The default is `auto`.
 
 Specifies the path used to search user certificates and keys when
 connecting to data nodes using certificate authentication. Defaults to
-`timescaledb/certs` under the PostgreSQL data directory.
+`timescaledb/certs` under the $PG data directory.
 
 ### `timescaledb.passfile (string)` [
 
 Specifies the name of the file where passwords are stored and when
 connecting to data nodes using password authentication.
 
-## Administration
-
-### `timescaledb.restoring (bool)`
-
-Set TimescaleDB in restoring mode. It is disabled by default.
-
-### `timescaledb.license (string)`
-
-Change access to features based on the TimescaleDB license in use. For example,
-setting `timescaledb.license` to `apache` limits TimescaleDB to features that
-are implemented under the Apache 2 license. The default value is `timescale`,
-which allows access to all features.
-
-### `timescaledb.telemetry_level (enum)`
-
-Telemetry settings level. Level used to determine which telemetry to
-send. Can be set to `off` or `basic`. Defaults to `basic`.
-
-### `timescaledb.last_tuned (string)`
-
-Records last time `timescaledb-tune` ran.
-
-### `timescaledb.last_tuned_version (string)`
-
-Version of `timescaledb-tune` used to tune when it runs.
+[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/

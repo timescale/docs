@@ -1,6 +1,6 @@
 ---
 title: Create an index on a continuous aggregate
-excerpt: How to create and drop indexes on a continuous aggregate
+excerpt: Adding an index to your continuous aggregate can make your analytical queries lightning fast. Learn when and how to create and drop indexes from continuous aggregates
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, indexes]
 ---
@@ -37,7 +37,7 @@ CREATE MATERIALIZED VIEW conditions_daily
 
 ## Manually create and drop indexes
 
-You can use a regular PostgreSQL statement to create or drop an index on a
+You can use a regular $PG statement to create or drop an index on a
 continuous aggregate.
 
 For example, to create an index on `avg_temp` for a materialized hypertable
@@ -57,10 +57,10 @@ DROP INDEX _timescaledb_internal.avg_temp_idx
 
 ### Limitations on created indexes
 
-In Timescale&nbsp;2.7 and later, you can create an index on any column in the
+In $TIMESCALE_DB v2.7 and later, you can create an index on any column in the
 materialized view. This includes aggregated columns, such as those storing sums
-and averages. In earlier versions of TimescaleDB, you can't create an index on
+and averages. In earlier versions of $TIMESCALE_DB, you can't create an index on
 an aggregated column.
 
 You can't create unique indexes on a continuous aggregate, in any of the
-Timescale versions.
+$TIMESCALE_DB versions.

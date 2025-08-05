@@ -1,10 +1,9 @@
-Timescale charges based on how much storage you use, so you don't need to choose
-and pay for a fixed storage size when you create a new service. This means that
-you also don't need to worry about scaling your disk size as your data grows.
-You are only charged for the storage space that you actually use. Make sure you use
-[compression][compression], a [data retention policy][data-retention], and
-[tiered storage][data-tiering], to help you manage costs.
+$CLOUD_LONG charges are based on the amount of storage you use. You don't pay for 
+fixed storage size, and you don't need to worry about scaling disk size as your 
+data grows—we handle it all for you. To reduce your data costs further, 
+combine [$HYPERCORE][hypercore], a [data retention policy][data-retention], and
+[tiered storage][data-tiering].
 
-[compression]: /use-timescale/:currentVersion:/compression/about-compression
+[hypercore]: /api/:currentVersion:/hypercore/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/

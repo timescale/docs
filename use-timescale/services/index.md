@@ -1,6 +1,6 @@
 ---
-title: Timescale services
-excerpt: Learn more about Timescale services
+title: About Tiger Cloud services
+excerpt: A Tiger Cloud service is a 100% Postgres database instance that you use as is, or extend with capabilities specific to your business needs. Learn more about services and available features
 products: [cloud]
 keywords: [services]
 cloud_ui:
@@ -10,15 +10,14 @@ cloud_ui:
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
-# Timescale services
+# About $SERVICE_LONGs
 
 <CloudIntro />
 
-## Learn more about Timescale
+## Learn more about $CLOUD_LONG
 
-Read about Timescale features in the documentation:
+Read about $CLOUD_LONG features in the documentation:
 
-*   Determine if you want a time-series or [Dynamic PostgreSQL][dynamic-pg] database
 *   Create your first [hypertable][hypertable-info].
 *   Run your first query using [time_bucket()][time-bucket-info].
 *   Trying more advanced time-series functions, starting with
@@ -26,9 +25,9 @@ Read about Timescale features in the documentation:
 
 ## Keep testing during your free trial
 
-You're now on your way to a great start with Timescale.
+You're now on your way to a great start with $CLOUD_LONG.
 
-You have an unthrottled, 30-day free trial with Timescale to continue to
+You have an unthrottled, 30-day free trial with $CLOUD_LONG to continue to
 test your use case. Before the end of your trial, make sure you add your credit
 card information. This ensures a smooth transition after your trial period
 concludes.
@@ -39,18 +38,20 @@ or [contact us][contact-timescale] directly.
 
 ## Advanced configuration
 
-Timescale is a versatile hosting service that provides a growing list of
-advanced features for your PostgreSQL and time-series data workloads.
+$CLOUD_LONG is a versatile hosting service that provides a growing list of
+advanced features for your $PG and time-series data workloads.
 
 For more information about customizing your database configuration, see the
 [Configuration section][configuration].
 
 <Highlight type="note">
-The [Timescale Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest/)
-provides configuration management resources for Timescale. You can use it to
-create, rename, resize, delete, and import service. For more information about
-the supported service configurations and operations, see the
-[Timescale Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
+
+The [$TIMESCALE_DB Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest/)
+provides configuration management resources for $CLOUD_LONG. You can use it to
+create, rename, resize, delete, and import $SERVICE_SHORTs. For more information about
+the supported $SERVICE_SHORT configurations and operations, see the
+[Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
+
 </Highlight>
 
 [aggregates-info]: /use-timescale/:currentVersion:/continuous-aggregates/
@@ -62,4 +63,3 @@ the supported service configurations and operations, see the
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
 [terraform-provider-docs]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/
-[dynamic-pg]: /use-timescale/:currentVersion:/services/dynamic-postgresql/

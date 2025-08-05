@@ -1,6 +1,6 @@
 ---
 title: Update data
-excerpt: Update data in a hypertable
+excerpt: Update single and multiple rows in a hypertable in your TimescaleDB database with SQL
 products: [cloud, mst, self_hosted]
 keywords: [updates, hypertables]
 ---
@@ -37,4 +37,4 @@ UPDATE conditions
     AND time < '2017-07-28 11:50';
 ```
 
-[postgres-update]: https://www.postgresql.org/docs/current/static/sql-update.html
+[postgres-update]: https://www.postgresql.org/docs/current/sql-update.html

@@ -37,7 +37,7 @@ api_details:
         description: >
           The unit of time to express the integral in. Can be `microsecond`,
           `millisecond`, `second`, `minute`, `hour`, or any alias for those units
-          supported by PostgreSQL. Defaults to `second`.
+          supported by Postgres. Defaults to `second`.
     returns:
       - column: integral
         type: DOUBLE PRECISION

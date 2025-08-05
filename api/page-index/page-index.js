@@ -7,19 +7,22 @@ module.exports = [
     excerpt:
       "The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension",
     description:
-      "User-defined actions allow you to run functions and procedures implemented in a language of your choice on a schedule within TimescaleDB. This allows...",
+      "Jobs allow you to run functions and procedures implemented in a language of your choice on a schedule within TimescaleDB. This allows...",
     children: [
       {
-        title: "Hypertables & chunks",
-        type: "directory",
+        title: "Hypertables and chunks",
         href: "hypertable",
         children: [
+          {
+            title: "CREATE TABLE",
+            href: "create_table",
+          },
           {
             title: "create_hypertable",
             href: "create_hypertable",
           },
           {
-            title: "create_hypertable (old interface)",
+            title: "create_hypertable (old API)",
             href: "create_hypertable_old",
           },
           {
@@ -35,8 +38,24 @@ module.exports = [
             href: "reorder_chunk",
           },
           {
+            title: "split_chunk",
+            href: "split_chunk",
+          },
+          {
+            title: "merge_chunks",
+            href: "merge_chunks",
+          },
+          {
             title: "move_chunk",
             href: "move_chunk",
+          },
+          {
+            title: "detach_chunk",
+            href: "detach_chunk",
+          },
+          {
+            title: "attach_chunk",
+            href: "attach_chunk",
           },
           {
             title: "add_reorder_policy",
@@ -79,6 +98,14 @@ module.exports = [
             href: "add_dimension_old",
           },
           {
+            title: "enable_chunk_skipping",
+            href: "enable_chunk_skipping",
+          },
+          {
+            title: "disable_chunk_skipping",
+            href: "disable_chunk_skipping",
+          },
+          {
             title: "create_index (transaction per chunk)",
             href: "create_index",
           },
@@ -106,115 +133,62 @@ module.exports = [
             title: "chunks_detailed_size",
             href: "chunks_detailed_size",
           },
-          {
-            title: "dimension builders",
-            href: "dimension_info",
-          },
         ],
       },
       {
-        title: "Distributed hypertables",
-        type: "directory",
-        href: "distributed-hypertables",
+        title: "Hypercore",
+        excerpt: "Seamlessly switch between fast row-oriented storage and efficient column-oriented storage",
+        href: "hypercore",
         children: [
           {
-            title: "create_distributed_hypertable",
-            href: "create_distributed_hypertable",
+            title: "ALTER TABLE",
+            href: "alter_table",
+            excerpt: "Enable the columnstore for a hypertable.",
           },
           {
-            title: "add_data_node",
-            href: "add_data_node",
+            title: "add_columnstore_policy",
+            href: "add_columnstore_policy",
+            excerpt: "Automatically convert chunks in the hypertable rowstore to the columnstore after a specific time interval",
           },
           {
-            title: "attach_data_node",
-            href: "attach_data_node",
+            title: "remove_columnstore_policy",
+            href: "remove_columnstore_policy",
+            excerpt: "Remove a columnstore policy from a hypertable or continuous aggregate",
           },
           {
-            title: "alter_data_node",
-            href: "alter_data_node",
+            title: "convert_to_columnstore",
+            href: "convert_to_columnstore",
+            excerpt: "Manually convert a specific chunk in the hypertable rowstore to the columnstore",
           },
           {
-            title: "detach_data_node",
-            href: "detach_data_node",
+            title: "convert_to_rowstore",
+            href: "convert_to_rowstore",
+            excerpt: "Manually convert a specific chunk in the hypertable columnstore to the rowstore",
           },
           {
-            title: "delete_data_node",
-            href: "delete_data_node",
+            title: "hypertable_columnstore_settings",
+            href: "hypertable_columnstore_settings",
+            excerpt: "Retrieve information about the settings for all hypertables in the columnstore",
           },
           {
-            title: "distributed_exec",
-            href: "distributed_exec",
+            title: "hypertable_columnstore_stats",
+            href: "hypertable_columnstore_stats",
+            excerpt: "Retrieve compression statistics for the columnstore",
           },
           {
-            title: "set_number_partitions",
-            href: "set_number_partitions",
+            title: "chunk_columnstore_settings",
+            href: "chunk_columnstore_settings",
+            excerpt: "Retrieve the compression settings for each chunk in the columnstore",
           },
           {
-            title: "set_replication_factor",
-            href: "set_replication_factor",
-          },
-          {
-            title: "copy_chunk",
-            href: "copy_chunk_experimental",
-          },
-          {
-            title: "move_chunk",
-            href: "move_chunk_experimental",
-          },
-          {
-            title: "cleanup_copy_chunk_operation",
-            href: "cleanup_copy_chunk_operation_experimental",
-          },
-          {
-            title: "create_distributed_restore_point",
-            href: "create_distributed_restore_point",
-          },
-        ],
-      },
-      {
-        title: "Compression",
-        type: "directory",
-        href: "compression",
-        description:
-          "We highly recommend reading the blog post and tutorial about compression before trying to set it up for the first time.",
-        children: [
-          {
-            title: "ALTER TABLE (Compression)",
-            href: "alter_table_compression",
-          },
-          {
-            title: "add_compression_policy",
-            href: "add_compression_policy",
-          },
-          {
-            title: "remove_compression_policy",
-            href: "remove_compression_policy",
-          },
-          {
-            title: "compress_chunk",
-            href: "compress_chunk",
-          },
-          {
-            title: "decompress_chunk",
-            href: "decompress_chunk",
-          },
-          {
-            title: "recompress_chunk",
-            href: "recompress_chunk",
-          },
-          {
-            title: "hypertable_compression_stats",
-            href: "hypertable_compression_stats",
-          },
-          {
-            title: "chunk_compression_stats",
-            href: "chunk_compression_stats",
+            title: "chunk_columnstore_stats",
+            href: "chunk_columnstore_stats",
+            excerpt: "Retrieve statistics about the chunks in the columnstore",
           },
         ],
       },
       {
         title: "Continuous aggregates",
-        type: "redirect-to-child-page",
         href: "continuous-aggregates",
         children: [
           {
@@ -277,7 +251,6 @@ module.exports = [
       },
       {
         title: "Data retention",
-        type: "directory",
         href: "data-retention",
         children: [
           {
@@ -291,9 +264,8 @@ module.exports = [
         ],
       },
       {
-        title: "Actions and automation",
-        type: "directory",
-        href: "actions",
+        title: "Jobs and automation",
+        href: "jobs-automation",
         children: [
           {
             title: "add_job",
@@ -529,7 +501,6 @@ module.exports = [
       },
       {
         title: "Informational views",
-        type: "directory",
         href: "informational-views",
         children: [
           {
@@ -587,8 +558,21 @@ module.exports = [
         ],
       },
       {
+        title: "Service configuration",
         href: "configuration",
-        excerpt: "Configure PostgreSQL and TimescaleDB",
+        excerpt: "Configure Tiger Postgres",
+        children: [
+          {
+            title: "Tiger Postgres configuration",
+            href: "tiger-postgres",
+            excerpt: "Configure PostgreSQL and TimescaleDB",
+          },
+          {
+            title: "Grand Unified Configuration (GUC) parameters",
+            href: "gucs",
+            excerpt: "Change the behaviour of TimescaleDB using GUCs",
+          },
+          ],
       },
       {
         title: "Administration Functions",
@@ -601,7 +585,105 @@ module.exports = [
         title: "API Reference Tag Overview",
         href: "api-tag-overview",
         description:
-          "An overview of what different tags represent in the API section of Timescale Documentation.",
+          "An overview of what different tags represent in the API section of TigerData Documentation.",
+      },
+      {
+        title: "Compression (Old API, replaced by Hypercore)",
+        href: "compression",
+        description:
+          "We highly recommend reading the blog post and tutorial about compression before trying to set it up for the first time.",
+        children: [
+          {
+            title: "ALTER TABLE (Compression)",
+            href: "alter_table_compression",
+          },
+          {
+            title: "add_compression_policy",
+            href: "add_compression_policy",
+          },
+          {
+            title: "remove_compression_policy",
+            href: "remove_compression_policy",
+          },
+          {
+            title: "compress_chunk",
+            href: "compress_chunk",
+          },
+          {
+            title: "decompress_chunk",
+            href: "decompress_chunk",
+          },
+          {
+            title: "recompress_chunk",
+            href: "recompress_chunk",
+          },
+          {
+            title: "hypertable_compression_stats",
+            href: "hypertable_compression_stats",
+          },
+          {
+            title: "chunk_compression_stats",
+            href: "chunk_compression_stats",
+          },
+        ],
+      },
+      {
+        title: "Distributed hypertables (Sunsetted v2.14.x)",
+        href: "distributed-hypertables",
+        children: [
+          {
+            title: "create_distributed_hypertable",
+            href: "create_distributed_hypertable",
+          },
+          {
+            title: "add_data_node",
+            href: "add_data_node",
+          },
+          {
+            title: "attach_data_node",
+            href: "attach_data_node",
+          },
+          {
+            title: "alter_data_node",
+            href: "alter_data_node",
+          },
+          {
+            title: "detach_data_node",
+            href: "detach_data_node",
+          },
+          {
+            title: "delete_data_node",
+            href: "delete_data_node",
+          },
+          {
+            title: "distributed_exec",
+            href: "distributed_exec",
+          },
+          {
+            title: "set_number_partitions",
+            href: "set_number_partitions",
+          },
+          {
+            title: "set_replication_factor",
+            href: "set_replication_factor",
+          },
+          {
+            title: "copy_chunk",
+            href: "copy_chunk_experimental",
+          },
+          {
+            title: "move_chunk",
+            href: "move_chunk_experimental",
+          },
+          {
+            title: "cleanup_copy_chunk_operation",
+            href: "cleanup_copy_chunk_operation_experimental",
+          },
+          {
+            title: "create_distributed_restore_point",
+            href: "create_distributed_restore_point",
+          },
+        ],
       },
     ],
   },

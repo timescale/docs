@@ -1,6 +1,6 @@
 ---
 title: Time-weighted averages and integrals
-excerpt: Calculate time-weighted averages and integrals for unevenly sampled data
+excerpt: Time-weighted averages and integrals are useful for time-series data that is not evenly sampled. Learn how to use time-weighted averages in your real-time analytics workloads in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, time-weighted]
 ---
@@ -36,5 +36,5 @@ CPU-hours used by a user over a given time period.
 *   For more information about time-weighted average API calls, see the
     [hyperfunction API documentation][hyperfunctions-api-timeweight].
 
-[blog-timeweight]: https://blog.timescale.com/blog/what-time-weighted-averages-are-and-why-you-should-care/
+[blog-timeweight]: https://www.tigerdata.com/blog/what-time-weighted-averages-are-and-why-you-should-care
 [hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-calculations/time_weight/

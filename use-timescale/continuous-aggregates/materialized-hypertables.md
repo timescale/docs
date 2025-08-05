@@ -1,6 +1,6 @@
 ---
 title: Materialized hypertables
-excerpt: Work with the materialized hypertables that underly continuous aggregates
+excerpt: Continuous aggregates summarize raw data for your analytical queries and store it in materialized hypertables. Learn how to manage those materialized hypertables
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates]
 tags: [materialized views]
@@ -9,7 +9,7 @@ tags: [materialized views]
 # Materialized hypertables
 
 Continuous aggregates take raw data from the original hypertable, aggregate it,
-and store the intermediate state in a materialization hypertable. You can modify
+and store the aggregated data in a materialization hypertable. You can modify
 this materialized hypertable in the same way as any other hypertable.
 
 ## Discover the name of a materialized hypertable

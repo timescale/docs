@@ -1,0 +1,22 @@
+name: PR preview cleanup
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  remove-rpeview:
+    runs-on: ubuntu-latest
+    name: Remove preview
+    steps:
+      - name: Set variables
+        id: timescale
+        run: |
+          echo "DEV_FOLDER=$(echo ${GITHUB_HEAD_REF})" >> $GITHUB_OUTPUT
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588
+        with:
+          token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
+          repository: timescale/web-documentation
+          event-type: remove-docs-content
+          client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "pr_number": "${{ env.PR_NUMBER }}"}'

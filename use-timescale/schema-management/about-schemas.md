@@ -1,6 +1,6 @@
 ---
 title: Table management
-excerpt: How to manage tables in Timescale
+excerpt: A database schema defines how the tables and indexes are organized in your database. Learn more about schemas and why they are important for efficient real-time analytics
 products: [cloud, mst, self_hosted]
 keywords: [schemas, hypertables, indexes]
 ---
@@ -14,15 +14,15 @@ can result in significant performance degradation.
 
 If you are working with semi-structured data, such as readings from IoT sensors
 that collect varying measurements, you might need a flexible schema. In this
-case, you can use PostgreSQL JSON and JSONB data types.
+case, you can use $PG JSON and JSONB data types.
 
-Timescale supports all table objects supported within PostgreSQL, including
+$TIMESCALE_DB supports all table objects supported within $PG, including
 data types, indexes, and triggers. However, when you create a hypertable, set the
 datatype for the `time` column as `timestamptz` and not `timestamp`. For more
-information, see [PostgreSQL timestamp][postgresql-timestamp].
+information, see [$PG timestamp][postgresql-timestamp].
 
 This section explains how to design your schema, how indexing and tablespaces
-work, and how to use PostgreSQL constraint types. It also includes examples to
+work, and how to use $PG constraint types. It also includes examples to
 help you create your own schema, and learn how to use JSON and JSONB for
 semi-structured data.
 

@@ -1,11 +1,13 @@
 <Highlight
   type="cloud"
-  header="Timescale or Managed Service for TimescaleDB (MST)?"
+  header="Tiger Cloud or MST?"
 >
 
-If you need to run TimescaleDB on GCP or Azure, you're in the right place — keep reading. 
+$CLOUD_LONG is a high-performance developer focused cloud that provides $PG services enhanced 
+with our blazing fast vector search. You can securely integrate $CLOUD_LONG with your AWS, GCS or Azure 
+infrastructure. [Create a $SERVICE_LONG][timescale-service] and try for free.
 
-If you want Timescale to manage our own software on AWS for you, [Create a Timescale Service][timescale-service]. 
+If you need to run $TIMESCALE_DB on GCP or Azure, you're in the right place — keep reading.
 
 </Highlight>
 

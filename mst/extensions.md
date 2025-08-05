@@ -1,13 +1,13 @@
 ---
-title: Supported PostgreSQL extensions in Managed Service for TimescaleDB
-excerpt: Learn how to add an extension and see a list of available extensions
+title: Supported Postgres extensions in Managed Service for TimescaleDB
+excerpt: Add an extension and see a list of available extensions in Managed Service for TimescaleDB
 products: [mst]
 tags: [extensions]
 ---
 
-# Supported PostgreSQL extensions
+# Supported $PG extensions
 
-Managed Service for TimescaleDB supports many PostgreSQL extensions. See
+$MST_LONG supports many $PG extensions. See
 [available extensions](#available-extensions) for a full list.
 
 ## Add an extension
@@ -35,7 +35,7 @@ before they are fully available.
 
 ## Available extensions
 
-These extensions are available on Managed Service for TimescaleDB:
+These extensions are available on $MST_LONG:
 
 <!-- vale Vale.Spelling = NO -->
 
@@ -59,9 +59,9 @@ These extensions are available on Managed Service for TimescaleDB:
 *   ltree
 *   pg_buffercache
 *   pg_cron
-*   pg_partman (PostgreSQL 10 and older)
-*   pg_prometheus (PostgreSQL 10 and newer)
-*   pg_repack (PostgreSQL 10 and newer)
+*   pg_partman ($PG 10 and older)
+*   pg_prometheus ($PG 10 and newer)
+*   pg_repack ($PG 10 and newer)
 *   pg_stat_statements
 *   pg_trgm
 *   pgcrypto
@@ -71,7 +71,7 @@ These extensions are available on Managed Service for TimescaleDB:
 *   plcoffee
 *   plls
 *   plperl
-*   plv8  (PostgreSQL 10 and older)
+*   plv8  ($PG 10 and older)
 *   postgis
 *   postgis_address_standardizer
 *   postgis_sfcgal
@@ -93,8 +93,7 @@ These extensions are available on Managed Service for TimescaleDB:
 
 <Highlight type="note">
 The `postgis_legacy` extension is not packaged or supported as an extension by
-the PostGIS project. Timescale provides the extension package for Managed
-Service for TimescaleDB.
+the PostGIS project. $COMPANY provides the extension package for $MST_LONG.
 </Highlight>
 
 ## Request an extension
@@ -108,6 +107,6 @@ ability to offer the highest possible service level. An example of an untrusted
 language extension is `plpythonu`.
 
 <Highlight type="note">
-You can contact Support directly from Managed Service for TimescaleDB. Click the
+You can contact Support directly from $MST_LONG. Click the
 life-preserver icon in the upper-right corner of your dashboard.
 </Highlight>

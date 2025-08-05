@@ -1,19 +1,19 @@
 ---
 title: About querying data
-excerpt: How to query data in Timescale
+excerpt: Querying data in TimescaleDB works just like querying data in Postgres, which means you can reuse your existing queries from another Postgres database
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
 
 # About querying data
 
-Querying data in Timescale works just like querying data in PostgreSQL. You
-can reuse your existing queries if you're moving from another PostgreSQL
+Querying data in $TIMESCALE_DB works just like querying data in $PG. You
+can reuse your existing queries if you're moving from another $PG
 database.
 
-Timescale also provides some additional features to help with data analysis:
+$TIMESCALE_DB also provides some additional features to help with data analysis:
 
-* Use [PopSQL][popsql] to work on data with centralized SQL queries, interactive visuals and real-time collaboration
+*   Use [PopSQL][popsql] to work on data with centralized SQL queries, interactive visuals and real-time collaboration
 *   The [`SkipScan`][skipscan] feature speeds up `DISTINCT` queries
 *   [Hyperfunctions][hyperfunctions] improve the experience of writing many data
     analysis queries
@@ -23,5 +23,5 @@ Timescale also provides some additional features to help with data analysis:
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
 [pipelines]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
-[popsql]: /use-timescale/:currentVersion:/popsql/
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/

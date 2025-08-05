@@ -1,23 +1,23 @@
 <Procedure>
 
-1. **Install the latest PostgreSQL packages**
+1. **Install the latest $PG packages**
 
     ```bash
     sudo apt install gnupg postgresql-common apt-transport-https lsb-release wget
     ```
 
-1.  **Run the PostgreSQL package setup script**
+1.  **Run the $PG package setup script**
 
     ```bash
     sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
 
-    If you want to do some development on PostgreSQL, add the libraries:
+    If you want to do some development on $PG, add the libraries:
     ```
-    sudo apt install postgresql-server-dev-16
+    sudo apt install postgresql-server-dev-17
     ```
 
-1.  **Add the TimescaleDB package**
+1.  **Add the $TIMESCALE_DB package**
 
     <Terminal>
 
@@ -39,7 +39,7 @@
 
     </Terminal>
 
-1.  **Install the TimescaleDB GPG key**
+1.  **Install the $TIMESCALE_DB GPG key**
 
     ```bash
     wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/timescaledb.gpg
@@ -58,31 +58,30 @@
 1.  **Install TimescaleDB**
 
     ```bash
-    sudo apt install timescaledb-2-postgresql-16 postgresql-client-16
+    sudo apt install timescaledb-2-postgresql-17 postgresql-client-17
     ```
     
-    To install a specific TimescaleDB [release][releases-page], set the version. For example:
+    To install a specific $TIMESCALE_DB [release][releases-page], set the version. For example:
     
     `sudo apt-get install timescaledb-2-postgresql-14='2.6.0*' timescaledb-2-loader-postgresql-14='2.6.0*'`
 
-    Older versions of TimescaleDB may not support all the OS versions listed on this page.
+    Older versions of $TIMESCALE_DB may not support all the OS versions listed on this page.
 
-1.  **Tune your PostgreSQL instance for TimescaleDB**
+1.  **Tune your $PG instance for TimescaleDB**
 
-    ```bash
-    sudo timescaledb-tune
-    ```   
+     ```bash
+     sudo timescaledb-tune
+     ```   
 
-    This script is included with the `timescaledb-tools` package when you install TimescaleDB.
-    For more information, see [configuration][config].
+    By default, this script is included with the `timescaledb-tools` package when you install TimescaleDB. If you have an issue, run `sudo apt install timescaledb-tools`. For more information, see [configuration][config].
 
-1.  **Restart PostgreSQL**
+1.  **Restart $PG**
 
     ```bash
     sudo systemctl restart postgresql
     ```
     
-1.  **Login to PostgreSQL as `postgres`**
+1.  **Log in to $PG as `postgres`**
 
     ```bash
     sudo -u postgres psql

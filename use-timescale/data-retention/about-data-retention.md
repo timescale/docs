@@ -1,35 +1,28 @@
 ---
 title: About data retention
-excerpt: Learn how data retention works in Timescale
+excerpt: With TimescaleDB, you can discard old data as it reaches a certain age - manually or by setting up automated policies
 products: [cloud, mst, self_hosted]
 keywords: [data retention]
 ---
 
-import UsageBasedStorage from "versionContent/_partials/_usage-based-storage-intro.mdx";
-
 # About data retention
 
-In time-series applications, data often becomes less useful as it gets older. If
-you don't need your historical data, you can delete it once it reaches a certain
-age. Timescale lets you set up
-[automatic data retention policies][retention-policy] to discard old data. You
-can also fine-tune data retention by [manually dropping chunks][manual-drop].
+In modern applications, data grows exponentially. As data gets older, it often becomes less useful in day-to-day operations. 
+However, you still need it for analysis. $TIMESCALE_DB elegantly solves this problem with
+[automated data retention policies][retention-policy]. 
 
-Often, you want to keep summaries of your historical data, but you don't need
-the raw data. You can downsample your older data by
-[combining data retention with continuous aggregates][retention-with-caggs].
-
-<UsageBasedStorage />
+Data retention policies delete raw old data for you on a schedule that you define. 
+By [combining retention policies with continuous aggregates][retention-with-caggs], you can downsample your data and keep useful summaries of it instead. This lets you analyze historical data - while also saving on storage.
 
 ## Drop data by chunk
 
-Timescale data retention works on chunks, not on rows. Deleting data
-row-by-row, for example with the PostgreSQL `DELETE` command, can be slow. But
+$TIMESCALE_DB data retention works on chunks, not on rows. Deleting data
+row-by-row, for example, with the $PG `DELETE` command, can be slow. But
 dropping data by the chunk is faster, because it deletes an entire file from
 disk. It doesn't need garbage collection and defragmentation.
 
-Whether you use a policy or manually drop chunks, Timescale drops data by the
-chunk. It only drops chunks where _all_ the data is within the specified time
+Whether you use a policy or manually drop chunks, $TIMESCALE_DB drops data by the
+chunk. It only drops chunks where all the data is within the specified time
 range.
 
 For example, consider the setup where you have 3 chunks containing data:

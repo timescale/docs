@@ -1,0 +1,44 @@
+import MigrationSetupFirstSteps from "versionContent/_partials/_migrate_set_up_database_first_steps.mdx";
+import MigrationSetupDBConnectionPostgresql from "versionContent/_partials/_migrate_set_up_align_db_extensions_postgres_based.mdx";
+import MigrationProcedureDumpSchemaPostgreSQL from "versionContent/_partials/_migrate_dump_roles_schema_data_postgres.mdx";
+import MigrationValidateRestartApp from "versionContent/_partials/_migrate_validate_and_restart_app.mdx";
+
+## Prepare to migrate
+<Procedure>
+
+<MigrationSetupFirstSteps />
+
+</Procedure>
+
+## Align the extensions on the source and target
+
+<Procedure>
+
+<MigrationSetupDBConnectionPostgresql />
+
+</Procedure>
+
+## Migrate the roles from $TIMESCALE_DB to your $SERVICE_LONG
+
+Roles manage database access permissions. To migrate your role-based security hierarchy to your $SERVICE_LONG:
+
+<Procedure>
+
+<MigrationProcedureDumpSchemaPostgreSQL />
+
+</Procedure>
+
+## Upload your data to the target $SERVICE_LONG
+
+```bash
+psql $TARGET -v ON_ERROR_STOP=1 --echo-errors \
+-f roles.sql \
+-f dump.sql
+```
+
+## Validate your $SERVICE_LONG and restart your app
+<Procedure>
+
+<MigrationValidateRestartApp />
+
+</Procedure>

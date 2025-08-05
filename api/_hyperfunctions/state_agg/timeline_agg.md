@@ -17,7 +17,7 @@ hyperfunction:
 api_details:
   summary: >
     Aggregate state data into a state aggregate to track state transitions.
-    Unlike [`state_agg`](/api/latest/hyperfunctions/state-tracking/state_agg/),
+    Unlike [`compact_state_agg`](/api/latest/hyperfunctions/state-tracking/compact_state_agg/),
     which only stores durations, `state_agg` also stores the timestamps of
     state transitions.
   signatures:
@@ -44,5 +44,6 @@ api_details:
       command:
         code: |
           SELECT state_agg(time, status) FROM devices;
+products: [cloud, mst, self_hosted]
 ---
 

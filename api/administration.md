@@ -1,8 +1,9 @@
 ---
 title: Administrative functions
-excerpt: Prepare a database for backup and restore, and keep track of your setup data
+excerpt: The full list of administration functions available in TimescaleDB. Administration functions help you manage your service before and after recovery, as well as keeping track of your data
 keywords: [administration]
 tags: [backup, restore, set up]
+products: [cloud, mst, self_hosted]
 ---
 
 # Administrative Functions
@@ -23,7 +24,7 @@ Inspect `dumpfile.txt` before sending it together with a bug report or support q
 
 ## get_telemetry_report()
 
-Returns the background [telemetry][telemetry] string sent to Timescale servers. 
+Returns the background [telemetry][telemetry] string sent to $COMPANY. 
 
 If telemetry is turned off, it sends the string that would be sent if telemetry were enabled.
 

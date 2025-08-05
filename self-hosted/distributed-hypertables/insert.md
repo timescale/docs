@@ -1,9 +1,10 @@
 ---
 title: Insert data
-excerpt: How to insert data into distributed hypertables
-products: [self_hosted]
+excerpt: Sunsetted v2.14.x. Insert data into distributed hypertables in your self-hosted TimescaleDB installation
 keywords: [write, distributed hypertables]
 tags: [ingest, insert]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
@@ -13,7 +14,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # Insert data
 
 You can insert data into a distributed hypertable with an `INSERT` statement.
-The syntax looks the same as for a standard hypertable or PostgreSQL table. For
+The syntax looks the same as for a standard hypertable or $PG table. For
 example:
 
 ```sql

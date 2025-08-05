@@ -27,7 +27,7 @@ One theme across all these questions is that most of the insights are about the
 sale itself, or the aggregation of sales. So you need to create a schema which
 focuses on the time-series aspect of the data. It's also important to make sure
 that you can JOIN supporting tables, so you can more easily make queries that
-touch both the time-series and the relational tables. TimescaleDB's PostgreSQL
+touch both the time-series and the relational tables. $TIMESCALE_DB's $PG
 foundation and full-SQL support allows you to easily combine time-series and
 relational tables during your analysis.
 
@@ -35,11 +35,11 @@ relational tables during your analysis.
 
 You need these tables:
 
-TimescaleDB hypertable:
+$TIMESCALE_DB hypertable:
 
 *   **nft_sales**: successful NFT transactions
 
-Relational tables (regular PostgreSQL tables):
+Relational tables (regular $PG tables):
 
 *   **assets**: unique NFT items
 *   **collections**: NFT collections
@@ -192,11 +192,11 @@ CREATE INDEX idx_payment_symbol ON nft_sales (payment_symbol);
 ### Schema design
 
 The `id` field in each table is `BIGINT` because its storage size is 8 bytes in
-PostgreSQL (as opposed to `INT`'s 4 bytes) which is needed to make sure this
+$PG (as opposed to `INT`'s 4 bytes) which is needed to make sure this
 value doesn't overflow.
 
 For the `quantity` field we suggest using numeric or decimal (which works the
-same way in PostgreSQL) as the data type, because in some edge cases we
+same way in $PG) as the data type, because in some edge cases we
 experience transactions where the quantity was too big even for BIGINT.
 
 `total_price` needs to be `double precision` because NFT prices often include

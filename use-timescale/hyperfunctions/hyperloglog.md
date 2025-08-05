@@ -1,6 +1,6 @@
 ---
 title: Hyperloglog
-excerpt: Find the number of unique values in a very large dataset
+excerpt: Hyperloglog simplifies finding the cardinality of very large datasets by providing an estimate within a 2% margin of error. Learn why it's the perfect match for continuous real-time data analysis
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, approximate count distincts, hyperloglog]
 ---

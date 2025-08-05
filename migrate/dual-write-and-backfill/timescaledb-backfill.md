@@ -1,12 +1,29 @@
+---
+title: Migrate with timescaledb-backfill
+excerpt: Use the timescaledb-backfill tool to migrate your database to Tiger Cloud by copying historic data into your service
+products: [cloud]
+keywords: [migration, low-downtime]
+tags: [migration, logical backup]
+---
+
 import SourceTargetNote from "versionContent/_partials/_migrate_source_target_note.mdx";
 
 # timescaledb-backfill
 
+Dual-write and backfill is a method to write from your application to two
+databases at once, and gives tooling and guidance to move your existing data
+from the one database to the other. It is specifically catered for, and relies
+on, your data being predominantly append-only time-series data. As such, it
+comes with some caveats and prerequisites which live migration does not
+(dual-write and backfill does not support executing `UPDATE` or `DELETE`
+statements on your data). Additionally, it requires you to make changes to the
+ingest pipeline of your application.
+
 The `timescaledb-backfill` tool is a command-line utility designed to support
-migrations from Timescale instances by copying historic data from one database
+migrations from $SERVICE_LONGs by copying historic data from one database
 to another ("backfilling"). `timescaledb-backfill` efficiently copies
 hypertable and continuous aggregates chunks directly, without the need for
-intermediate storage or decompressing compressed chunks. It operates
+intermediate storage, or converting chunks from the $COLUMNSTORE to the $ROWSTORE. It operates
 transactionally, ensuring data integrity throughout the migration process. It
 is designed to be used in the [dual-write and backfill][dual-write-backfill]
 migration procedure.
@@ -26,7 +43,7 @@ migration procedure.
 
 The tool performs best when executed in an instance located close to the target
 database. The ideal scenario is an EC2 instance located in the same region as
-the Timescale service. Use a Linux-based distribution on x86_64.
+the $SERVICE_LONG. Use a Linux-based distribution on x86_64.
 
 [//]: # (TODO: Recommended spec for the instance.)
 
@@ -109,7 +126,7 @@ migration.
   ```
 
 - **Copy Command:** processes the tasks created during the staging phase and
-  copies the corresponding hypertable chunks to the target Timescale service.
+  copies the corresponding hypertable chunks to the target $SERVICE_LONG.
 
    ```sh 
    timescaledb-backfill copy --source $SOURCE --target $TARGET

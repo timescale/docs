@@ -14,7 +14,7 @@ hyperfunction:
   type: function
 api_details:
   summary: >
-    Downsample your data with the [ASAP smoothing algorithm](https://arxiv.org/pdf/1703.00983.pdf).
+    Downsample your data with the [ASAP smoothing algorithm](http://arxiv.org/pdf/1703.00983).
     This algorithm preserves the approximate shape and larger trends of the input data, while minimizing the local variance between points.
   signatures:
     - language: sql
@@ -72,5 +72,6 @@ api_details:
           2020-01-05 05:00:00+00  |  4.417012192481623
           2020-01-06 01:00:00+00  |  5.366481456572268
           2020-01-06 21:00:00+00  |  5.949469264090643
+products: [cloud, mst, self_hosted]
 ---
 

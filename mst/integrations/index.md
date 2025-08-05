@@ -1,17 +1,15 @@
 ---
 title: Integrations for Managed Service for TimescaleDB
-excerpt: Integrate Managed Service for TimescaleDB with other services.
-product: mst
+excerpt: Integrate Managed Service for TimescaleDB with other services
 products: [mst]
 ---
 
-# Integrations for Managed Service for TimescaleDB
+# Integrations for $MST_LONG
 
-Managed Service for TimescaleDB integrates with the other tools you are already
-using. You can combine your Managed Service for TimescaleDB
-services with third party tools and build a complete cloud data platform.
+$MST_LONG integrates with the other tools you are already
+using. You can combine your $MST_SERVICE_LONGs with third-party tools and build a complete cloud data platform.
 
-You can integrate Managed Service for TimescaleDB with:
+You can integrate $MST_LONG with:
 
 *   [Grafana]
 *   [Loggly]

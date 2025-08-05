@@ -1,46 +1,42 @@
 ---
 title: Ingest real-time financial websocket data - Set up the dataset
-excerpt: Set up a dataset so you can query financial tick data to analyze price changes
-products: [cloud]
+excerpt: Ingest and set up a sample dataset in Tiger Cloud to run real-time analysis of financial data
+products: [cloud, self_hosted, mst]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]
 layout_components: [next_prev_large]
 content_group: Ingest real-time financial websocket data
 ---
 
-import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
-import CreateHypertableStocks from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
+import CreateHypertableCrypo from "versionContent/_partials/_create-hypertable-twelvedata-crypto.mdx";
 import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Set up the database
+# Ingest data into a $SERVICE_LONG
 
 This tutorial uses a dataset that contains second-by-second stock-trade data for
 the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
 also includes a separate table of company symbols and company names, in a
-regular PostgreSQL table named `company`.
+regular $PG table named `company`.
 
-<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
+## Prerequisites
 
-<CreateAndConnect/>
+<IntegrationPrereqs />
 
-</Collapsible>
-
-<Collapsible heading="Connect to the websocket server" defaultExpanded={false}>
+## Connect to the websocket server
 
 When you connect to the Twelve Data API through a websocket, you create a
 persistent connection between your computer and the websocket server.
 You set up a Python environment, and pass two arguments to create a
 websocket object and establish the connection.
 
-## Set up a new Python environment
+### Set up a new Python environment
 
 Create a new Python virtual environment for this project and activate it. All
 the packages you need to complete for this tutorial are installed in this environment.
 
 <Procedure>
-
-### Setting up a new Python environment
 
 1.  Create and activate a Python virtual environment:
 
@@ -59,7 +55,7 @@ the packages you need to complete for this tutorial are installed in this enviro
     ```
 
 1.  Install [Psycopg2][psycopg2] so that you can connect the
-    TimescaleDB from your Python script:
+    $TIMESCALE_DB from your Python script:
 
     ```bash
     pip install psycopg2-binary
@@ -67,13 +63,13 @@ the packages you need to complete for this tutorial are installed in this enviro
 
 </Procedure>
 
-## Create the websocket connection
+### Create the websocket connection
 
 A persistent connection between your computer and the websocket server is used
 to receive data for as long as the connection is maintained. You need to pass
 two arguments to create a websocket object and establish connection.
 
-### Websocket arguments
+#### Websocket arguments
 
 *   `on_event`
 
@@ -99,7 +95,7 @@ two arguments to create a websocket object and establish connection.
 
 <Procedure>
 
-### Connecting to the websocket server
+### Connect to the websocket server
 
 1.  Create a new Python file called `websocket_test.py` and connect to the
     Twelve Data servers using the `<YOUR_API_KEY>`:
@@ -163,27 +159,13 @@ two arguments to create a websocket object and establish connection.
 
 </Procedure>
 
-</Collapsible>
 
-<Collapsible heading="The real-time dataset" headingLevel={2} defaultExpanded={false}>
-
-To ingest the data into your Timescale service, you need to implement the
-`on_event` function.
-
-After the websocket connection is set up, you can use the `on_event` function
-to ingest data into the database. This is a data pipeline that ingests real-time
-financial data into your Timescale service.
-
-Stock trades are ingested in real-time Monday through Friday, typically during
-normal trading hours of the New York Stock Exchange (9:30&nbsp;AM to
-4:00&nbsp;PM&nbsp;EST).
-
-<CreateHypertableStocks />
+<CreateHypertableCrypo />
 
 When you ingest data into a transactional database like Timescale, it is more
 efficient to insert data in batches rather than inserting data row-by-row. Using
 one transaction to insert multiple rows can significantly increase the overall
-ingest capacity and speed of your Timescale database.
+ingest capacity and speed of your $SERVICE_LONG.
 
 ## Batching in memory
 
@@ -192,8 +174,15 @@ first, then after the batch reaches a certain size, insert all the records
 from memory into the database in one transaction. The perfect batch size isn't
 universal, but you can experiment with different batch sizes
 (for example, 100, 1000, 10000, and so on) and see which one fits your use case better.
-Using batching is a fairly common pattern when ingesting data into TimescaleDB
+Using batching is a fairly common pattern when ingesting data into $TIMESCALE_DB
 from Kafka, Kinesis, or websocket connections.
+
+To ingest the data into your $SERVICE_LONG, you need to implement the
+`on_event` function.
+
+After the websocket connection is set up, you can use the `on_event` function
+to ingest data into the database. This is a data pipeline that ingests real-time
+financial data into your $SERVICE_LONG.
 
 You can implement a batching solution in Python with Psycopg2.
 You can implement the ingestion logic within the `on_event` function that
@@ -207,13 +196,13 @@ This function needs to:
 1.  Add it to the in-memory batch, which is a list in Python.
 1.  If the batch reaches a certain size, insert the data, and reset or empty the list.
 
-## Ingesting data in real-time
+## Ingest data in real-time
 
 <Procedure>
 
 1.  Update the Python script that prints out the current batch size, so you can
     follow when data gets ingested from memory into your database. Use
-    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the Timescale service
+    the `<HOST>`, `<PASSWORD>`, and `<PORT>` details for the $SERVICE_LONG
     where you want to ingest the data and your API key from Twelve Data:
 
     ```python
@@ -323,17 +312,8 @@ If you see an error message similar to this:
 
 Then check that you use a proper API key received from Twelve Data.
 
-</Collapsible>
-
-<Collapsible heading="Connect to Grafana" defaultExpanded={false}>
-
-The queries in this tutorial are suitable for visualizing in Grafana. If you
-want to visualize the results of your queries, connect your Grafana account to
-the energy consumption dataset.
-
 <GrafanaConnect />
 
-</Collapsible>
 
 [twelve-wrapper]: https://github.com/twelvedata/twelvedata-python
 [psycopg2]: https://www.psycopg.org/docs/

@@ -1,4 +1,5 @@
 {
+  "aliveStatusCodes": [429, 200],
   "replacementPatterns": [
     {
       "pattern": ":currentVersion:",
@@ -6,10 +7,19 @@
     },
     {
       "pattern": "^/",
-      "replacement": "https://docs.timescale.com/"
+      "replacement": "https://docs.tigerdata.com/"
     }
   ],
   "ignorePatterns": [
+    {
+      "pattern": "^https://console.aws.amazon.com/rds/home#databases"
+    },
+    {
+      "pattern": "^https?://dbeaver.io/"
+    },
+    {
+      "pattern": "^https?://dbeaver.io/download/"
+    },
     {
       "pattern": "^https?://localhost"
     },
@@ -18,6 +28,9 @@
     },
     {
       "pattern": "^https://platform.openai.com/docs"
+    },
+    {
+      "pattern": "^https://www.tableau.com/products/trial"
     },
     {
       "pattern": "^https://www.promptingguide.ai/techniques/rag"
@@ -48,6 +61,36 @@
     },
     {
       "pattern": "https://assets.timescale.com/images/diagrams/compression_diagram.png"
+    },
+    {
+      "pattern": "https://www.cse.ust.hk/~raywong/comp5331/References/EfficientComputationOfFrequentAndTop-kElementsInDataStreams.pdf"
+    },
+    {
+      "pattern": "^https://www.hhs.gov/hipaa/for-professionals/index.html"
+    },
+    {
+      "pattern": "^https://wiki.postgresql.org/wiki/List_of_drivers"
+    },
+    {
+      "pattern": "^https://cmake.org/download/"
+    },
+    {
+      "pattern": "^https://www.tableau.com/"
+    },
+    {
+      "pattern": "^https://www.tableau.com/support/releases/server/2024.2.6#esdalt"
+    },
+    {
+      "pattern": "^https://azure.microsoft.com/en-us/products/data-studio"
+    },
+    {
+      "pattern": "^https://azure.microsoft.com/en-gb/"
+    },
+    {
+      "pattern": "^https://typeorm.biunav.com/en/connection-options.html#postgres-cockroachdb-connection-options"
+    },
+    {
+      "pattern": "^https://www.nagios.com/solutions/postgresql-monitoring/"
     }
   ]
 }

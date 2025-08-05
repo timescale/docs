@@ -1,6 +1,6 @@
 ---
 title: Percentile approximation
-excerpt: Approximate percentiles in large datasets
+excerpt: Calculating percentiles on a large dataset requires a lot of resources. TimescaleDB solves this problem by providing an approximation without requiring all the data. Learn how percentile approximation works for your data
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles]
 ---
@@ -25,9 +25,9 @@ heating checked!)
 Percentiles are sometimes avoided because calculating them requires more CPU and
 memory than an average or other aggregate measures. This is because an exact
 computation of the percentile needs the full dataset as an ordered list.
-Timescale uses approximation algorithms to calculate a percentile without
+$TIMESCALE_DB uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
-aggregates. By default, TimescaleDB uses `uddsketch`, but you can also choose to
+aggregates. By default, $TIMESCALE_DB uses `uddsketch`, but you can also choose to
 use `tdigest`. For more information about these algorithms, see the
 [advanced aggregation methods][advanced-agg] documentation.
 
@@ -45,5 +45,5 @@ word for this type of function.
     [hyperfunction API documentation][hyperfunctions-api-approx-percentile].
 
 [advanced-agg]: /use-timescale/:currentVersion:/hyperfunctions/percentile-approx/advanced-agg/
-[blog-percentile-approx]: https://blog.timescale.com/blog/how-percentile-approximation-works-and-why-its-more-useful-than-averages/
+[blog-percentile-approx]: https://tigerdata.com/blog/how-percentile-approximation-works-and-why-its-more-useful-than-averages/
 [hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/

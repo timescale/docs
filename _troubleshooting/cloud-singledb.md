@@ -1,7 +1,7 @@
 ---
 title: Cannot create another database
 section: troubleshooting
-products: [cloud, mst, self_hosted]
+products: [cloud]
 topics: [services]
 errors:
   - language: text
@@ -26,8 +26,8 @@ tags: [services]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-Each Timescale service hosts a single database named `tsdb`. You see this error when you try 
+Each $SERVICE_LONG hosts a single $TIGER_POSTGRES instance called `tsdb`. You see this error when you try 
 to create an additional database in a service. If you need another database, 
 [create a new service][create-service].
 
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-service
+[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service

@@ -1,6 +1,6 @@
 ---
 title: High availability
-excerpt: Learn about high availability
+excerpt: Learn about high availability in your self-hosted TimescaleDB installation
 products: [self_hosted]
 keywords: [high availability]
 ---
@@ -9,9 +9,9 @@ import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # Replication and high availability
 
-PostgreSQL relies on replication for high availability, failover, and balancing
+$PG relies on replication for high availability, failover, and balancing
 read loads across multiple nodes. Replication ensures that data written to the
-primary PostgreSQL database is mirrored on one or more nodes. By virtue of
+primary $PG database is mirrored on one or more nodes. By virtue of
 having multiple nodes with an exact copy of the primary database available, the
 primary database can be replaced with a replica node in the event of a failure
 or outage on the primary server. Replica nodes can also be used as read only

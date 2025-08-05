@@ -19,27 +19,27 @@ keywords: [hyperfunctions, Toolkit, installation, upgrades, updates]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-In some cases, when you create the TimescaleDB Toolkit extension, or upgrade it
+In some cases, when you create the $TOOLKIT_LONG extension, or upgrade it
 with the `ALTER EXTENSION timescaledb_toolkit UPDATE` command, it might fail
 with the above error.
 
 This occurs if the list of available extensions does not include the version you
 are trying to upgrade to, and it can occur if the package was not installed
 correctly in the first place. To correct the problem, install the upgrade
-package, restart PostgreSQL, verify the version, and then attempt the update
+package, restart $PG, verify the version, and then attempt the update
 again.
 
 <Procedure>
 
-### Troubleshooting TimescaleDB Toolkit setup
+### Troubleshooting $TOOLKIT_LONG setup
 
-1.  If you're installing Toolkit from a package, check your package manager's
-    local repository list. Make sure the TimescaleDB repository is available and
-    contains Toolkit. For instructions on adding the TimescaleDB repository, see
+1.  If you're installing $TOOLKIT_SHORT from a package, check your package manager's
+    local repository list. Make sure the $TIMESCALE_DB repository is available and
+    contains Toolkit. For instructions on adding the $TIMESCALE_DB repository, see
     the installation guides:
     *   [Linux installation guide][linux-install]
 1.  Update your local repository list with `apt update` or `yum update`.
-1.  Restart your PostgreSQL service.
+1.  Restart your $PG service.
 1.  Check that the right version of Toolkit is among your available extensions:
 
     ```sql
