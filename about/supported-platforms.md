@@ -1,7 +1,7 @@
 ---
 title: Supported platforms
 excerpt: The platforms and systems supported by Timescale products.
-products: [Timescale Cloud, self_hosted]
+products: [ cloud, self_hosted]
 keywords: [platforms, systems]
 tags: [platforms, os, versions]
 ---
