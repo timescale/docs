@@ -21,8 +21,6 @@ This includes the following roles:
 - **Admin**: the Owner assigns this role to other users in the $PROJECT_SHORT. A user with the Admin role has the same scope of rights as the Owner but cannot transfer project ownership. 
 - **Viewer**: the Owner and Admins assign this role to other users in the $PROJECT_SHORT. A Viewer has limited, read-only access to $CONSOLE_LONG. This means that a Viewer cannot modify $SERVICE_SHORTs and their configurations in any way. A Viewer has no access to the $DATA_MODE and has read-queries-only access to $SQL_EDITOR.
 
-<EarlyAccessGeneral />
-
 ![Project users in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-project-users-overview.png)
 
 If you have the [$ENTERPRISE $PRICING_PLAN][pricing-plans], you can use your company [SAML][saml]
