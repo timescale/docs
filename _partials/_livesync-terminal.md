@@ -178,7 +178,7 @@ instance to a $SERVICE_LONG:
    As you run $LIVESYNC continuously, best practice is to run it as a Docker daemon.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.1.19 run \
+   docker run -d --rm --name livesync timescale/live-sync:v0.1.21 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET
    ```
@@ -315,7 +315,7 @@ EOF
    Use the `--drop` flag to remove the replication slots created by $LIVESYNC on the source database.
 
    ```shell
-   docker run -it --rm --name livesync timescale/live-sync:v0.1.19 run \
+   docker run -it --rm --name livesync timescale/live-sync:v0.1.21 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET \
       --drop
