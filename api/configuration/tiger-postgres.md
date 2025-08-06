@@ -12,8 +12,5 @@ import TimescaleDBConfig from "versionContent/_partials/_timescaledb-config.mdx"
 
 # $TIGER_POSTGRES configuration and tuning
 
-Just as you can tune settings in $PG, $TIGER_POSTGRES provides a number of configuration
-settings that may be useful to your specific installation and performance needs. 
-
 <TimescaleDBConfig />
 

@@ -81,6 +81,7 @@ To connect a $SERVICE_LONG to your data lake:
 
    Replace the following values in the command, then run it from the terminal:
 
+   * `Region`: region of the S3 table bucket
    * `StackName`: the name for this CloudFormation stack
    * `BucketName`: the name of the S3 table bucket to create
    * `ProjectID`: enter your $SERVICE_LONG [connection details][get-project-id] 
@@ -90,6 +91,7 @@ To connect a $SERVICE_LONG to your data lake:
    aws cloudformation create-stack \
     --capabilities CapabilityIAM \
     --template-url https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml \
+    --region <Region> \
     --stack-name <StackName> \
     --parameters \
       ParameterKey=BucketName,ParameterValue="<BucketName>" \
@@ -310,6 +312,7 @@ data lake:
 * Renaming a table in $PG stops the sync to Iceberg and causes unexpected behavior.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
+* The Iceberg namespace is hard coded to `timescaledb`, a custom namespace value is work in progress.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
