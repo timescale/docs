@@ -43,9 +43,9 @@ requires a direct connection to the database to function properly.
 
 ## Tune your source database
 
-<Tabs label="Live migration">
+<Tabs label="Live migration" persistKey="source-database">
 
-<Tab title="From AWS RDS/Aurora">
+<Tab title="From AWS RDS/Aurora" label="aws-rds">
 
 <Procedure>
 
@@ -55,7 +55,7 @@ requires a direct connection to the database to function properly.
 
 </Tab>
 
-<Tab title="From PostgreSQL">
+<Tab title="From Postgres" label="postgres">
 <Procedure>
 
 <LivesyncConfigureSourceDatabase />

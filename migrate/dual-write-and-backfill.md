@@ -44,18 +44,18 @@ Dual-write and backfill works well when:
 
 To move your data from a self-hosted database to a $SERVICE_LONG:
 
-<Tabs label="Live migration">
+<Tabs label="Live migration" persistKey="source-database">
 
-<Tab title="From TimescaleDB">
-
-</Tab>
-<Tab title="From Postgres">
+<Tab title="From TimescaleDB" label="self-hosted">
 
 </Tab>
-<Tab title="From AWS RDS">
+<Tab title="From Postgres" label="postgres">
 
 </Tab>
-<Tab title="From Non-Postgres">
+<Tab title="From AWS RDS" label="aws-rds">
+
+</Tab>
+<Tab title="From Non-Postgres" label="non-postgres">
 
 </Tab>
 </Tabs>

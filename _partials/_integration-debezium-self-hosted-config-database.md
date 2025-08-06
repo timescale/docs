@@ -73,4 +73,4 @@
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [psql-connect]: /integrations/:currentVersion:/psql/#connect-to-your-service
-[debezium-replication-permissions]: https://debezium.io/documentation/reference/3.1/connectors/postgresql.html#postgresql-host-replication-permissions
+[debezium-replication-permissions]: https://debezium.io/documentation/reference/3.2/connectors/postgresql.html#postgresql-host-replication-permissions

@@ -54,6 +54,8 @@ hypertable. Additionally, all functions and their arguments included in
     FROM conditions
     GROUP BY device, bucket;
     ```
+ 
+    To create a continuous aggregate within a transaction block, use the [WITH NO DATA option][with-no-data].
 
 1.  Create a policy to refresh the view every hour:
 
@@ -308,3 +310,4 @@ For $TIMESCALE_DB v2.19.3 and below, $CAGGs do not support window functions. To 
 [postgres-immutable]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
 [postgres-rls]: <https://www.postgresql.org/docs/current/ddl-rowsecurity.html>
 [postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>
+[with-no-data]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option
