@@ -34,7 +34,7 @@
   - Stale aggregate data.
   - Queries returning incomplete results.
 
-  If the continuous aggregate exists in the source database, then the best
+  If the continuous aggregate exists in the source database, best
   practice is to add it to the live-sync publication. If it only exists on the
   target database, manually refresh the continuous aggregate using the `force`
   option of [refresh_continuous_aggregate][refresh-caggs].
