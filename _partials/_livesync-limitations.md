@@ -26,7 +26,7 @@
   automatically refresh for data inserted during the migration. This limitation
   only applies to data below the continuous aggregate's materialization
   watermark (i.e. backfilled data). New rows synced above the continuous
-  aggregate watermark will still correctly be used when refreshing.
+  aggregate watermark are used correctly when refreshing.
 
   This can lead to:
 
