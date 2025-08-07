@@ -91,7 +91,7 @@ arguments specific to $TIMESCALE_DB.
      ```
    1. Enable direct compression copy:
      ```sql   
-     SET timescaledb.enable_direct_compress_copy;
+     SET timescaledb.enable_direct_compress_copy=on;
      ```
    1. Copy data into the $HYPERTABLE:
      You achieve the highest insert rate using binary format. CSV and text format are also supported.
