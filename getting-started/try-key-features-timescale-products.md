@@ -145,7 +145,7 @@ relational and time-series data from external files.
           `INSERT` already produces compressed chunks. 
        
           ```sql
-          SET timescaledb.enable_direct_compress_copy;
+          SET timescaledb.enable_direct_compress_copy=on;
           ```       
 
        3. Upload the dataset to your $SERVICE_SHORT:
