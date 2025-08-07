@@ -36,7 +36,7 @@
 
   If the continuous aggregate exists in the source database, then the best
   approach is to add it to the live-sync publication. If it only exists on the
-  target database, then it should be manually refreshed using the `force`
+  target database, manually refresh the continuous aggregate using the `force`
   option of [refresh_continuous_aggregate][refresh-caggs].
 
 [refresh-caggs]: /api/latest/continuous-aggregates/refresh_continuous_aggregate/#sample-usage
