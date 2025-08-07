@@ -21,7 +21,7 @@ specific time interval.
 You enable the $COLUMNSTORE a hypertable or continuous aggregate before you create a $COLUMNSTORE policy. 
 You do this by calling `CREATE TABLE` for hypertables and `ALTER MATERIALIZED VIEW` for continuous aggregates. When
 $COLUMNSTORE is enabled, [bloom filters][bloom-filters] are enabled by default, and every new chunk has a bloom index. 
-If you moved chunks to $COLUMNSTORE using $TIMESCALE_DB v2.19.3 or below, to enable bloom filters on that data you have 
+If you converted chunks to $COLUMNSTORE using $TIMESCALE_DB v2.19.3 or below, to enable bloom filters on that data you have 
 to convert those chunks to the $ROWSTORE, then convert them back to the $COLUMNSTORE. 
 
 Bloom indexes are not retrofitted, meaning that the existing chunks need to be fully recompressed to have the bloom 
@@ -29,7 +29,9 @@ indexes present. Please check out the PR description for more in-depth explanati
 TimescaleDB work.
 
 To view the policies that you set or the policies that already exist,
-see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy].
+see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy]. 
+
+A $COLUMNSTORE policy is applied on a per-chunk basis. If you remove an existing policy and then add a new one, the new policy applies only to the chunks that have not yet been converted to $COLUMNSTORE. The existing chunks in the $COLUMNSTORE remain unchanged. This means that chunks with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE.
 
 <Since2180 />
 
