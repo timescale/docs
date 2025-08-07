@@ -62,7 +62,7 @@ SET timescaledb.enable_direct_compress_copy=on;
 As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data
 is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast
 scanning and aggregation, optimizing performance for analytical workloads while also saving significant storage space.
-In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by more than 90%, and organized for efficient,
+In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by up to 98%, and organized for efficient,
 large-scale queries. This columnar format enables fast scanning and aggregation, optimizing performance for analytical
 workloads.
 
