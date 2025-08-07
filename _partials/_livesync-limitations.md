@@ -22,7 +22,7 @@
   triggers that mark continuous aggregates as invalid when underlying data
   changes.
 
-  If you have continuous aggregates on your target database, they will not
+  If you have continuous aggregates on your target database, they do not
   automatically refresh for data inserted during the migration. This limitation
   only applies to data below the continuous aggregate's materialization
   watermark (i.e. backfilled data). New rows synced above the continuous
