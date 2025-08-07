@@ -54,7 +54,7 @@ than the individual tuples. Also, the [columnstore policy][add_columnstore_polic
 `INSERT` already produces compressed chunks. 
 
 ```sql
-SET timescaledb.enable_direct_compress_copy;
+SET timescaledb.enable_direct_compress_copy=on;
 ```       
 
 ## Optimize cooling data in the $COLUMNSTORE
