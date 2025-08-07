@@ -46,7 +46,7 @@ CREATE TABLE conditions (
 To convert an existing table with data in it, call `create_hypertable` on that table with
 [`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time.
 
-## Speed up data ingestion:
+## Speed up data ingestion
  
 When you set `timescaledb.enable_direct_compress_copy` your data is compressed when it is ingested into memory
 during `COPY` and `INSERT` calls. This means that WAL records are written for the compressed batches rather 
