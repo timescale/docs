@@ -25,7 +25,7 @@
   If you have continuous aggregates on your target database, they do not
   automatically refresh for data inserted during the migration. This limitation
   only applies to data below the continuous aggregate's materialization
-  watermark (i.e. backfilled data). New rows synced above the continuous
+  watermark. For example, backfilled data. New rows synced above the continuous
   aggregate watermark are used correctly when refreshing.
 
   This can lead to:
