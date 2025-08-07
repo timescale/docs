@@ -26,16 +26,18 @@ derived.
 DROP MATERIALIZED VIEW <view_name>;
 ```
 
-## Parameters
-
-|Name|Type|Description|
-|---|---|---|
-| `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be dropped.|
-
-## Sample usage
+## Samples
 
 Drop existing continuous aggregate.
 
 ```sql
 DROP MATERIALIZED VIEW contagg_view;
 ```
+
+
+## Parameters
+
+|Name|Type|Description|
+|---|---|---|
+| `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be dropped.|
+

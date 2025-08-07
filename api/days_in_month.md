@@ -19,13 +19,7 @@ products: [cloud, mst, self_hosted]
 
 Given a timestamptz, returns how many days are in that month.
 
-### Required arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`date`|`TIMESTAMPTZ`|Timestamp to use to calculate how many days in the month|
-
-### Sample usage
+### Samples
 
 Calculate how many days in the month of January 1, 2022:
 
@@ -40,3 +34,11 @@ days_in_month
 ----------------------
 31
 ```
+
+### Required arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`date`|`TIMESTAMPTZ`|Timestamp to use to calculate how many days in the month|
+
+

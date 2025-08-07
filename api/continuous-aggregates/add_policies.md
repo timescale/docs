@@ -38,6 +38,26 @@ timescaledb_experimental.add_policies(
 If you would like to set this add your policies manually (see [`add_continuous_aggregate_policy`][add_continuous_aggregate_policy]).
 </Highlight>
 
+## Samples
+
+Given a continuous aggregate named `example_continuous_aggregate`, add three
+policies to it:
+
+1.  Regularly refresh the continuous aggregate to materialize data between 1 day
+    and 2 days old.
+1.  Compress data in the continuous aggregate after 20 days.
+1.  Drop data in the continuous aggregate after 1 year.
+
+```sql
+SELECT timescaledb_experimental.add_policies(
+    'example_continuous_aggregate',
+    refresh_start_offset => '1 day'::interval,
+    refresh_end_offset => '2 day'::interval,
+    compress_after => '20 days'::interval,
+    drop_after => '1 year'::interval
+);
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -62,25 +82,6 @@ time bucket is based on integers.
 
 Returns `true` if successful.
 
-## Sample usage
-
-Given a continuous aggregate named `example_continuous_aggregate`, add three
-policies to it:
-
-1.  Regularly refresh the continuous aggregate to materialize data between 1 day
-    and 2 days old.
-1.  Compress data in the continuous aggregate after 20 days.
-1.  Drop data in the continuous aggregate after 1 year.
-
-```sql
-SELECT timescaledb_experimental.add_policies(
-    'example_continuous_aggregate',
-    refresh_start_offset => '1 day'::interval,
-    refresh_end_offset => '2 day'::interval,
-    compress_after => '20 days'::interval,
-    drop_after => '1 year'::interval
-);
-```
 <!-- vale Vale.Terms = NO -->
 [add_continuous_aggregate_policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
 <!-- vale Vale.Terms = YES -->
