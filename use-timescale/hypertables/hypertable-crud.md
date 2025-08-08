@@ -7,7 +7,7 @@ keywords: [hypertables, create]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
-import HypercoreDirectCompress from "versionContent/_hypercore-direct-compress.mdx";
+import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 
 # Optimize time-series data in hypertables
 

@@ -9,7 +9,7 @@ import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
-import HypercoreDirectCompress from "versionContent/_hypercore-direct-compress.mdx";
+import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 
 # Try the key features in $COMPANY products
 
