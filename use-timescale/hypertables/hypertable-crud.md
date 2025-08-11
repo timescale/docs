@@ -7,6 +7,7 @@ keywords: [hypertables, create]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 
 # Optimize time-series data in hypertables
 
@@ -48,14 +49,7 @@ To convert an existing table with data in it, call `create_hypertable` on that t
 
 ## Speed up data ingestion
  
-When you set `timescaledb.enable_direct_compress_copy` your data is compressed when it is ingested into memory
-during `COPY` and `INSERT` calls. This means that WAL records are written for the compressed batches rather 
-than the individual tuples. Also, the [columnstore policy][add_columnstore_policy] you set is less important, 
-`INSERT` already produces compressed chunks. 
-
-```sql
-SET timescaledb.enable_direct_compress_copy=on;
-```       
+<HypercoreDirectCompress />  
 
 ## Optimize cooling data in the $COLUMNSTORE
 
