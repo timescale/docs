@@ -83,16 +83,17 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
    1. Click `Connectors` > `PostgreSQL`.
    1. Set the name for the new connector by clicking the pencil icon.
    1. Check the boxes for `Set wal_level to logical` and `Update your credentials`, then click `Continue`.
-   1. Enter your database credentials or a $PG connection string, then click `Connect to database`. This is the connection string for [`<pg connector username>`][livesync-tune-source-db]. $CONSOLE connects to the source database and retrieves the schema information.
+   1. Enter your database credentials or a $PG connection string, then click `Connect to database`. 
+      This is the connection string for [`<pg connector username>`][livesync-tune-source-db]. $CONSOLE connects to the source database and retrieves the schema information.
 
-1. **Optimize the data to synchronize in hypertables**
+1. **Optimize the data to synchronize in $HYPERTABLEs**
 
    ![Postgres connector start](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-connector-start-tiger-cloud.png)
 
    1. In the `Select table` dropdown, select the tables to sync.
    1. To select the tables to sync, click `Select table +` .    
 
-      $CONSOLE checks the table schema and, if possible, suggests the column to use as the time dimension in a hypertable.
+      $CONSOLE checks the table schema and, if possible, suggests the column to use as the time dimension in a $HYPERTABLE.
    1. Click `Create Connector`.
    
       $CONSOLE starts $PG_CONNECTOR between the source database and the target $SERVICE_SHORT and displays the progress.
@@ -111,7 +112,9 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
    1. To edit the connector, click `Connectors` > `Source connectors`, then select the name of your connector in the table. You can rename the connector, delete or add new tables for syncing.
    
-   1. To pause or delete the connector, click `Connectors` > `Source connectors`, then open the three-dot menu on the right and select an option. You must pause the connector before deleting it.
+   1. To pause a connector, click `Connectors` > `Source connectors`, then open the three-dot menu on the right and select `Pause`. 
+
+   1. To delete a connector, click `Connectors` > `Source connectors`, then open the three-dot menu on the right and select `Delete`. You must pause the connector before deleting it.
 
 </Procedure>
 

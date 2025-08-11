@@ -110,7 +110,7 @@ events data, and tables that are already partitioned using $PG declarative parti
 1. **Convert $PG partitions to hypertables**
 
    Rename the partition and create a new regular table with the same name as the partitioned table, then
-   convert to a hypertable:
+   convert to a $HYPERTABLE:
 
    ```shell
    psql $TARGET -f - <<'EOF'

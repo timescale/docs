@@ -46,9 +46,9 @@ To import data from a CSV file:
 
     <SetupConnectionString />
 
-1. **Create a [hypertable][hypertable-docs] to hold your data**
+1. **Create a [$HYPERTABLE][hypertable-docs] to hold your data**
 
-   Create a hypertable with a schema that is compatible with the data in your parquet file. For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types`TIMESTAMP`, `STRING`, and `DOUBLE`:
+   Create a $HYPERTABLE with a schema that is compatible with the data in your parquet file. For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types`TIMESTAMP`, `STRING`, and `DOUBLE`:
 
    - $TIMESCALE_DB v2.20 and above:
 
@@ -71,7 +71,7 @@ To import data from a CSV file:
          );"
          ```
 
-     1.  Convert the empty table to a hypertable:
+     1.  Convert the empty table to a $HYPERTABLE:
 
          In the following command, replace `<TABLE NAME>` with the name of the table you just created, and `<COLUMN_NAME>` with the partitioning column in `<TABLE NAME>`.
          ```sql
@@ -201,9 +201,9 @@ To import data from a Parquet file:
 
     <SetupConnectionString />
 
-1. **Create a [hypertable][hypertable-docs] to hold your data**
+1. **Create a [$HYPERTABLE][hypertable-docs] to hold your data**
 
-   Create a hypertable with a schema that is compatible with the data in your parquet file. For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types`TIMESTAMP`, `STRING`, and `DOUBLE`:
+   Create a $HYPERTABLE with a schema that is compatible with the data in your parquet file. For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types`TIMESTAMP`, `STRING`, and `DOUBLE`:
 
     - $TIMESCALE_DB v2.20 and above:
 
@@ -226,7 +226,7 @@ To import data from a Parquet file:
             );"
             ```
 
-        1.  Convert the empty table to a hypertable:
+        1.  Convert the empty table to a $HYPERTABLE:
 
             In the following command, replace `<TABLE NAME>` with the name of the table you just created, and `<COLUMN_NAME>` with the partitioning column in `<TABLE NAME>`.
             ```sql
@@ -255,7 +255,7 @@ To import data from a Parquet file:
        ```
        Where:
 
-        - `<TABLE_NAME>`: the hypertable you created to import data to
+        - `<TABLE_NAME>`: the $HYPERTABLE you created to import data to
         - `<FILENAME>`: the Parquet file to import data from
 
     1. Exit the DuckDB session:

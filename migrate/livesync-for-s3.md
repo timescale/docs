@@ -27,7 +27,7 @@ You can use the $S3_CONNECTOR to synchronize your existing and new data. Here's 
     - CSV: check for compression in GZ and ZIP format, then process using [timescaledb-parallel-copy][parallel-copy].
     - Parquet: convert to CSV, then process using [timescaledb-parallel-copy][parallel-copy].
 
-* The $S3_CONNECTOR offers an option to enable a [hypertable][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once the connector has started running.
+* The $S3_CONNECTOR offers an option to enable a [$HYPERTABLE][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once the connector has started running.
 
 * The connector offers a default 1-minute polling interval. This means that $CLOUD_LONG checks the S3 source every minute for new data. You can customize this interval by setting up a cron expression.
 
@@ -114,14 +114,14 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
       
    1. Click the search icon. You see the files to sync. Click `Continue`.
 
-1. **Optimize the data to synchronize in hypertables**
+1. **Optimize the data to synchronize in $HYPERTABLEs**
 
    ![S3 connector table selection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-s3-connector-create-tables.png)
 
    $CONSOLE checks the file schema and, if possible, suggests the column to use as the time dimension in a 
-   [hypertable][about-hypertables].
+   [$HYPERTABLE][about-hypertables].
    
-   1. Choose to create a new table or ingest into an existing one.
+   1. Choose `Create a new table for your data` or `Ingest data to an existing table`. 
    1. Choose the `Data type` for each column, then click `Continue`.
    1. Choose the interval. This can be a minute, an hour, or use a [cron expression][cron-expression].
    1. Click `Start Connector`.

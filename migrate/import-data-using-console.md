@@ -32,7 +32,7 @@ To upload a CSV file to your $SERVICE_SHORT:
 
 <Procedure>
 
-1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import data` > `Upload .CSV`**
+1. **Select your $SERVICE_SHORT in [$CONSOLE_SHORT][console], then click `Actions` > `Import data` > `Upload .CSV`**
 
    ![Import from CSV into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-csv.png)
 
@@ -45,11 +45,11 @@ To upload a CSV file to your $SERVICE_SHORT:
    - Toggle to skip or keep the header.
    - Select to ingest the data into an existing table or create a new one. 
    - Provide the new or existing table name. 
-   - <Optional /> For a new table with a time column, toggle the time column to create a hypertable instead of a regular table.
+   - <Optional /> For a new table with a time column, toggle the time column to create a $HYPERTABLE instead of a regular table.
 
 1. **Click `Process CSV file`**
 
-   When the processing is finished, find your data imported to a new or existing table in `Explorer`. 
+   When the processing is completed, to find the data your imported, click `Explorer`.
 
 </Procedure>
 
@@ -61,7 +61,7 @@ To upload a Parquet file to your $SERVICE_SHORT:
 
 <Procedure>
 
-1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import data` > `Upload Parquet`**
+1. **Select your $SERVICE_SHORT in [$CONSOLE_SHORT][console], then click `Actions` > `Import data` > `Upload Parquet`**
 
    ![Import from Parquet into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-parquet.png)
 
@@ -72,11 +72,11 @@ To upload a Parquet file to your $SERVICE_SHORT:
 
    - Select to ingest the data into an existing table or create a new one.
    - Provide the new or existing table name.
-   - <Optional /> For a new table with a time column, toggle the time column to create a hypertable instead of a regular table.
+   - <Optional /> For a new table with a time column, toggle the time column to create a $HYPERTABLE instead of a regular table.
    
 1. **Click `Process Parquet file`**
 
-   When the processing is finished, find your data imported to a new or existing table in `Explorer`.
+   When the processing is completed, to find the data your imported, click `Explorer`.
 
 </Procedure>
 
@@ -141,7 +141,9 @@ To import a CSV file from an S3 bucket:
 
    1. Provide your file path.
    1. Select `CSV` in the file type dropdown.
-   1. Select the authentication method: `IAM role` or `Public`. For `IAM role`, provide the role.
+   1. Select the authentication method: 
+      - `IAM role` and provide the role.
+      - `Public`. 
    1. Click `Continue`.
 
 1. **Configure the import**
@@ -152,11 +154,11 @@ To import a CSV file from an S3 bucket:
    - Toggle to skip or keep the header.
    - Select to ingest the data into an existing table or create a new one.
    - Provide the new or existing table name.
-   - <Optional /> For a new table with a time column, toggle the time column to create a hypertable instead of a regular table.
+   - <Optional /> For a new table with a time column, toggle the time column to create a $HYPERTABLE instead of a regular table.
 
 1. **Click `Process CSV file`**
 
-   When the processing is finished, find your data imported to a new or existing table in `Explorer`.
+   When the processing is completed, to find the data your imported, click `Explorer`.
 
 </Procedure>
     
@@ -176,18 +178,20 @@ To import a Parquet file from an S3 bucket:
 
    1. Provide your file path.
    1. Select `Parquet` in the file type dropdown.
-   1. Select the authentication method: `IAM role` or `Public`. For `IAM role`, provide the role.
+   1. Select the authentication method: 
+     - `IAM role` and provide the role.
+     - `Public`. 
    1. Click `Continue`.
 
 1. **Configure the import**
 
-   - Select to ingest the data into an existing table or create a new one.
+   - Select `Create a new table for your data` or `Ingest data to an existing table`.
    - Provide the new or existing table name.
-   - <Optional /> For a new table with a time column, toggle the time column to create a hypertable instead of a regular table.
+   - <Optional /> For a new table with a time column, toggle the time column to create a $HYPERTABLE instead of a regular table.
 
 1. **Click `Process Parquet file`**
 
-   When the processing is finished, find your data imported to a new or existing table in `Explorer`.
+   When the processing is completed, to find the data your imported, click `Explorer`.
 
 </Procedure>
 
@@ -204,4 +208,4 @@ And that is it, you have imported your data to your $SERVICE_LONG.
 
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
-
+[console]: hhttps://console.cloud.timescale.com/dashboard/services
