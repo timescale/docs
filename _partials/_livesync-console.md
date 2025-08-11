@@ -109,7 +109,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
    ![Edit a Postgres connector](https://assets.timescale.com/docs/images/tiger-cloud-console/edit-pg-connector.png)
 
-   1. To edit the connector, click `Connectors` > `Source connectors`, then select the name of your connector in the table. Here you can rename the connector, and delete or add new tables for syncing.
+   1. To edit the connector, click `Connectors` > `Source connectors`, then select the name of your connector in the table. You can rename the connector, delete or add new tables for syncing.
    
    1. To pause or delete the connector, click `Connectors` > `Source connectors`, then open the three-dot menu on the right and select an option. You must pause the connector before deleting it.
 
