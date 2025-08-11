@@ -27,8 +27,8 @@ by time to select the chunks you want to decompress.
 
 Before decompressing chunks, stop any compression policy on the hypertable you are decompressing. 
 The database automatically recompresses your chunks in the next scheduled job. 
-If you accumulate a larger amount of chunks that need to be compressed, please refer to [this section](throubleshooting-oom-chunks), describing how to compress a backlog of chunks.
-For more information on how to stop and run compression policies with the `alter_job()` function, see the [API reference][api-reference-alter-job].
+If you accumulate a large amount of chunks that need to be compressed, the [troubleshooting guide](throubleshooting-oom-chunks) shows how to compress a backlog of chunks.
+For more information on how to stop and run compression policies using `alter_job()`, see the [API reference][api-reference-alter-job].
 
 There are several methods for selecting chunks and decompressing them.
 
