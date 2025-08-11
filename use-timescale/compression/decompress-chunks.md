@@ -10,7 +10,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Decompression
 
-<Deprecated2180 /> This function has been replaced by [`convert_to_rowstore`](https://docs.tigerdata.com/api/latest/hypercore/convert_to_rowstore/).
+<Deprecated2180 /> This function has been replaced by [`convert_to_rowstore`](api-convert-to-rowstore).
 
 <Highlight type="important">
 
@@ -73,3 +73,4 @@ SELECT tableoid::regclass FROM metrics
 [api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
 [api-reference-alter-job]: /api/:currentVersion:/actions/alter_job/
 [throubleshooting-oom-chunks]: /use-timescale/:currentVersion:/hypercore/troubleshooting/#out-of-memory-errors-after-enabling-the-columnstore
+[api-convert-to-rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
