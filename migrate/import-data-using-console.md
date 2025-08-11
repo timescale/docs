@@ -113,7 +113,7 @@ To upload a TXT or MD file to your $SERVICE_SHORT:
 
 <Tab title="From S3">
 
-$CONSOLE_LONG enables you to upload CSV and Parquet files, including compressed formats (GZIP and ZIP), by connecting to an S3 bucket.
+$CONSOLE_LONG enables you to upload CSV and Parquet files, including archives compressed using GZIP and ZIP, by connecting to an S3 bucket.
 
 ## Prerequisites
 
