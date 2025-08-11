@@ -97,7 +97,7 @@ Consider a simple database with a standard `devices` table and a `metrics` hyper
 tiered storage, query for the hypertable chunks in the object storage tier:
 
 ```sql
-select * from timescaledb_osm.tiered_hypertables;
+select * from timescaledb_osm.tiered_chunks where hypertable_name = 'metrics'
 ```
 You see something like the following:
 ```sql
