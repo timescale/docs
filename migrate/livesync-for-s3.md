@@ -98,7 +98,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    ![Connect Tiger Cloud to S3 bucket](https://assets.timescale.com/docs/images/tiger-cloud-console/s3-connector-tiger-cloud.png)
 
    1. Click `Connectors` > `Amazon S3`.
-   1. Set the name for the new connector by clicking the pencil icon.
+   1. Click the pencil icon, then set the name for the new connector.
    1. Set the `Bucket name` and `Authentication method`, then click `Continue`.
    
       For instruction on creating the IAM role to connect your S3 bucket, click `Learn how`. $CONSOLE connects to the source bucket.
