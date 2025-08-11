@@ -65,7 +65,7 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
 ## Limitations
 
 - File naming:
-  Files must follow lexicographical ordering conventions. Files with names that sort earlier than already-processed files will be permanently skipped.
+  Files must follow lexicographical ordering conventions. Files with names that sort earlier than already-processed files are permanently skipped.
 
   Example: If `file_2024_01_15.csv` has been processed, a file named `file_2024_01_10.csv` added later will never be synced.
 
