@@ -29,6 +29,20 @@ the next scheduled job.
 
 </Highlight>
 
+## Samples
+
+Decompress a single chunk:
+
+``` sql
+SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
+```
+
+Decompress all compressed chunks in a hypertable named `metrics`:
+
+```sql
+SELECT decompress_chunk(c, true) FROM show_chunks('metrics') c;
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -47,16 +61,4 @@ the next scheduled job.
 |---|---|---|
 |`decompress_chunk`|`REGCLASS`|Name of the chunk that was decompressed.|
 
-## Sample usage
 
-Decompress a single chunk:
-
-``` sql
-SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
-```
-
-Decompress all compressed chunks in a hypertable named `metrics`:
-
-```sql
-SELECT decompress_chunk(c, true) FROM show_chunks('metrics') c;
-```

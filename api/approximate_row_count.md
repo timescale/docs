@@ -21,13 +21,7 @@ This function supports tables with nested inheritance and declarative partitioni
 
 The accuracy of `approximate_row_count` depends on the database having up-to-date statistics about the table or hypertable, which are updated by `VACUUM`, `ANALYZE`, and a few DDL commands. If you have auto-vacuum configured on your table or hypertable, or changes to the table are relatively infrequent, you might not need to explicitly `ANALYZE` your table as shown below. Otherwise, if your table statistics are too out-of-date, running this command updates your statistics and yields more accurate approximation results.
 
-### Required arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `relation` | REGCLASS | Hypertable or regular $PG table to get row count for. |
-
-### Sample usage
+### Samples
 
 Get the approximate row count for a single hypertable.
 
@@ -44,3 +38,9 @@ approximate_row_count
 ----------------------
                240000
 ```
+
+### Required arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `relation` | REGCLASS | Hypertable or regular $PG table to get row count for. |

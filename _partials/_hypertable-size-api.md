@@ -15,23 +15,7 @@ instead.
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
-## Required arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`hypertable`|REGCLASS|Hypertable or continuous aggregate to show size of.|
-
-## Returns
-
-|Name|Type|Description|
-|-|-|-|
-|hypertable_size|BIGINT|Total disk space used by the specified hypertable, including all indexes and TOAST data|
-
-<Highlight type="note">
-`NULL` is returned if the function is executed on a non-hypertable relation.
-</Highlight>
-
-## Sample usage
+## Samples
 
 Get the size information for a hypertable.
 
@@ -59,5 +43,24 @@ SELECT hypertable_size('device_stats_15m');
 -----------------
            73728
 ```
+
+## Required arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`hypertable`|REGCLASS|Hypertable or continuous aggregate to show size of.|
+
+## Returns
+
+|Name|Type|Description|
+|-|-|-|
+|hypertable_size|BIGINT|Total disk space used by the specified hypertable, including all indexes and TOAST data|
+
+<Highlight type="note">
+
+`NULL` is returned if the function is executed on a non-hypertable relation.
+
+</Highlight>
+
 
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/

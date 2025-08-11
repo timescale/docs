@@ -14,6 +14,14 @@ products: [cloud, self_hosted, mst]
 
 Remove a policy to drop chunks of a particular hypertable.
 
+## Samples
+
+```sql
+SELECT remove_retention_policy('conditions');
+```
+
+Removes the existing data retention policy for the `conditions` table.
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -26,10 +34,4 @@ Remove a policy to drop chunks of a particular hypertable.
 |---|---|---|
 | `if_exists` | BOOLEAN |  Set to true to avoid throwing an error if the policy does not exist. Defaults to false.|
 
-## Sample usage
 
-```sql
-SELECT remove_retention_policy('conditions');
-```
-
-Removes the existing data retention policy for the `conditions` table.

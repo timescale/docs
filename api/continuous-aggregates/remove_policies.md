@@ -32,6 +32,23 @@ To remove all policies on a continuous aggregate, see
 
 <Experimental />
 
+## Samples
+
+Given a continuous aggregate named `example_continuous_aggregate` with a refresh
+policy and a data retention policy, remove both policies.
+
+Throw an error if either policy doesn't exist. If the continuous aggregate has a
+columnstore policy, leave it unchanged:
+
+```sql
+SELECT timescaledb_experimental.remove_policies(
+    'example_continuous_aggregate',
+    false,
+    'policy_refresh_continuous_aggregate',
+    'policy_retention'
+);
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -48,22 +65,5 @@ To remove all policies on a continuous aggregate, see
 ## Returns
 
 Returns true if successful.
-
-## Sample usage
-
-Given a continuous aggregate named `example_continuous_aggregate` with a refresh
-policy and a data retention policy, remove both policies.
-
-Throw an error if either policy doesn't exist. If the continuous aggregate has a
-columnstore policy, leave it unchanged:
-
-```sql
-SELECT timescaledb_experimental.remove_policies(
-    'example_continuous_aggregate',
-    false,
-    'policy_refresh_continuous_aggregate',
-    'policy_retention'
-);
-```
 
 [remove-all-policies]: /api/:currentVersion:/continuous-aggregates/remove_all_policies/

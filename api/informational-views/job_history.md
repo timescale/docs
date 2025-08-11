@@ -17,23 +17,7 @@ created to manage data retention, continuous aggregates, columnstore, and
 other automation policies. For more information about automation policies,
 see [$JOBs][jobs].
 
-## Available columns
-
-|Name|Type|Description|
-|-|-|-|
-|`id`|INTEGER|The sequencial ID to identify the job execution|
-|`job_id`|INTEGER|The ID of the background job created to implement the policy|
-|`succeeded`|BOOLEAN|`TRUE` when the job ran successfully, `FALSE` for failed executions|
-|`proc_schema`|TEXT| The schema name of the function or procedure executed by the job|
-|`proc_name`|TEXT| The name of the function or procedure executed by the job|
-|`pid`|INTEGER|The process ID of the background worker executing the job. This is `NULL` in the case of a job crash|
-|`start_time`|TIMESTAMP WITH TIME ZONE| The time the job started|
-|`finish_time`|TIMESTAMP WITH TIME ZONE| The time when the error was reported|
-|`config`|JSONB| The job configuration at the moment of execution|
-|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official $PG documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
-|`err_message`|TEXT|The detailed error message|
-
-## Sample usage
+## Samples
 
 To retrieve information about recent jobs:
 
@@ -50,6 +34,22 @@ ORDER BY id, job_id;
    1001 | 1779468 | public      | custom_job_error | f         | {"bar": 1} | 22012      | division by zero
 (5 rows)
 ```
+
+## Available columns
+
+|Name|Type|Description|
+|-|-|-|
+|`id`|INTEGER|The sequencial ID to identify the job execution|
+|`job_id`|INTEGER|The ID of the background job created to implement the policy|
+|`succeeded`|BOOLEAN|`TRUE` when the job ran successfully, `FALSE` for failed executions|
+|`proc_schema`|TEXT| The schema name of the function or procedure executed by the job|
+|`proc_name`|TEXT| The name of the function or procedure executed by the job|
+|`pid`|INTEGER|The process ID of the background worker executing the job. This is `NULL` in the case of a job crash|
+|`start_time`|TIMESTAMP WITH TIME ZONE| The time the job started|
+|`finish_time`|TIMESTAMP WITH TIME ZONE| The time when the error was reported|
+|`config`|JSONB| The job configuration at the moment of execution|
+|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official $PG documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
+|`err_message`|TEXT|The detailed error message|
 
 ## Error retention policy
 
