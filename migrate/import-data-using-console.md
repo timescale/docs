@@ -65,7 +65,7 @@ To upload a Parquet file to your $SERVICE_SHORT:
 
    ![Import from Parquet into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-parquet.png)
 
-1. **Click to browse, or drag and drop the file to import**
+1. **Click to browse, or drag the file to import**
 1. **Configure the import**
 
    ![Configure the Parquet import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-parquet-import.png)
