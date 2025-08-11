@@ -135,7 +135,7 @@ To import a CSV file from an S3 bucket:
 
 1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import from S3`**
 
-1. **Point to your file in the S3 bucket**
+1. **Select your file in the S3 bucket**
 
    ![Import CSV from S3 in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-csv-from-s3.png)
 
