@@ -1,3 +1,7 @@
+When you set `timescaledb.enable_direct_compress_copy` your data gets compressed in memory during ingestion with `COPY` statements. 
+By writing the compressed batches immediately in the columnstore, the IO footprint is significantly lower.
+Also, the [columnstore policy][add_columnstore_policy] you set is less important, `INSERT` already produces compressed chunks. 
+
 <Highlight type="note">
 
 Please note that this feature is a **tech preview** and not production-ready.
@@ -6,9 +10,7 @@ correctly ordered or are of too high cardinality.
 
 </Highlight>
 
-When you set `timescaledb.enable_direct_compress_copy` your data gets compressed in memory during ingestion with `COPY` statements. 
-By writing the compressed batches immediately in the columnstore, the IO footprint is significantly lower.
-Also, the [columnstore policy][add_columnstore_policy] you set is less important, `INSERT` already produces compressed chunks. 
+To enable in-memory data compression during ingestion:
 
 ```sql
 SET timescaledb.enable_direct_compress_copy=on;
