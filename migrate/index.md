@@ -14,7 +14,7 @@ In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from oth
 
 - Connect directly, so data from another source is continuously synced to your $SERVICE_SHORT.
 - Import individual files using $CONSOLE_LONG or the command line.
-- Migrating data from other databases.
+- Migrate data from other databases.
 - Ingesting metrics from Telegraf.
 
 ## Connect to $PG or S3
