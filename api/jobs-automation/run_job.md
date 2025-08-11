@@ -24,13 +24,7 @@ Any background worker $JOB can be run in the foreground when executed with
 
 </Highlight>
 
-## Required arguments
-
-|Name|Description|
-|---|---|
-|`job_id`| (INTEGER)  TimescaleDB background $JOB ID |
-
-## Sample usage
+## Samples
 
 Set log level shown to client to `DEBUG1` and run the $JOB with the $JOB ID 1000:
 
@@ -38,3 +32,11 @@ Set log level shown to client to `DEBUG1` and run the $JOB with the $JOB ID 1000
 SET client_min_messages TO DEBUG1;
 CALL run_job(1000);
 ```
+
+## Required arguments
+
+|Name|Description|
+|---|---|
+|`job_id`| (INTEGER)  TimescaleDB background $JOB ID |
+
+

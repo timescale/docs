@@ -33,6 +33,29 @@ ALTER TABLE <table_name> SET (timescaledb.compress,
 );
 ```
 
+## Samples
+
+Configure a hypertable that ingests device data to use compression. Here, if the hypertable
+is often queried about a specific device or set of devices, the compression should be
+segmented using the `device_id` for greater performance.
+
+```sql
+ALTER TABLE metrics SET (timescaledb.compress, timescaledb.compress_orderby = 'time DESC', timescaledb.compress_segmentby = 'device_id');
+```
+
+You can also specify compressed chunk interval without changing other
+compression settings:
+
+```sql
+ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '24 hours');
+```
+
+To disable the previously set option, set the interval to 0:
+
+```sql
+ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '0');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -55,28 +78,6 @@ ALTER TABLE <table_name> SET (timescaledb.compress,
 |`column_name`|TEXT|Column used to order by or segment by|
 |`interval`|TEXT|Time interval used to roll compressed chunks into|
 
-## Sample usage
-
-Configure a hypertable that ingests device data to use compression. Here, if the hypertable
-is often queried about a specific device or set of devices, the compression should be
-segmented using the `device_id` for greater performance.
-
-```sql
-ALTER TABLE metrics SET (timescaledb.compress, timescaledb.compress_orderby = 'time DESC', timescaledb.compress_segmentby = 'device_id');
-```
-
-You can also specify compressed chunk interval without changing other
-compression settings:
-
-```sql
-ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '24 hours');
-```
-
-To disable the previously set option, set the interval to 0:
-
-```sql
-ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '0');
-```
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/

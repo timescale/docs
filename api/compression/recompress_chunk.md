@@ -48,6 +48,14 @@ the procedure with `CALL`. Don't use a `SELECT` statement.
 chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
 </Highlight>
 
+## Samples
+
+Recompress the chunk `timescaledb_internal._hyper_1_2_chunk`:
+
+```sql
+CALL recompress_chunk('_timescaledb_internal._hyper_1_2_chunk');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -59,14 +67,6 @@ chunk for the first time, use [`compress_chunk`](/api/latest/compression/compres
 |Name|Type|Description|
 |-|-|-|
 |`if_not_compressed`|`BOOLEAN`|If `true`, prints a notice instead of erroring if the chunk is already compressed. Defaults to `false`.|
-
-## Sample usage
-
-Recompress the chunk `timescaledb_internal._hyper_1_2_chunk`:
-
-```sql
-CALL recompress_chunk('_timescaledb_internal._hyper_1_2_chunk');
-```
 
 ## Troubleshooting
 

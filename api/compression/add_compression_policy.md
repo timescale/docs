@@ -28,6 +28,38 @@ command. To enable compression on continuous aggregates, use the
 command. To view the policies that you set or the policies that already exist,
 see [informational views][informational-views].
 
+## Samples
+
+Add a policy to compress chunks older than 60 days on the `cpu` hypertable.
+
+``` sql
+SELECT add_compression_policy('cpu', compress_after => INTERVAL '60d');
+```
+
+Add a policy to compress chunks created 3 months before on the 'cpu' hypertable.
+
+``` sql
+SELECT add_compression_policy('cpu', compress_created_before => INTERVAL '3 months');
+```
+
+Note above that when `compress_after` is used then the time data range
+present in the partitioning time column is used to select the target
+chunks. Whereas, when `compress_created_before` is used then the chunks
+which were created 3 months ago are selected.
+
+Add a compress chunks policy to a hypertable with an integer-based time column:
+
+``` sql
+SELECT add_compression_policy('table_with_bigint_time', BIGINT '600000');
+```
+
+Add a policy to compress chunks of a continuous aggregate called `cpu_weekly`, that are
+older than eight weeks:
+
+``` sql
+SELECT add_compression_policy('cpu_weekly', INTERVAL '8 weeks');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -59,38 +91,6 @@ on the type of the time column of the hypertable or continuous aggregate:
 
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
-
-## Sample usage
-
-Add a policy to compress chunks older than 60 days on the `cpu` hypertable.
-
-``` sql
-SELECT add_compression_policy('cpu', compress_after => INTERVAL '60d');
-```
-
-Add a policy to compress chunks created 3 months before on the 'cpu' hypertable.
-
-``` sql
-SELECT add_compression_policy('cpu', compress_created_before => INTERVAL '3 months');
-```
-
-Note above that when `compress_after` is used then the time data range
-present in the partitioning time column is used to select the target
-chunks. Whereas, when `compress_created_before` is used then the chunks
-which were created 3 months ago are selected.
-
-Add a compress chunks policy to a hypertable with an integer-based time column:
-
-``` sql
-SELECT add_compression_policy('table_with_bigint_time', BIGINT '600000');
-```
-
-Add a policy to compress chunks of a continuous aggregate called `cpu_weekly`, that are
-older than eight weeks:
-
-``` sql
-SELECT add_compression_policy('cpu_weekly', INTERVAL '8 weeks');
-```
 
 [compression_alter-table]: /api/:currentVersion:/compression/alter_table_compression/
 [compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/

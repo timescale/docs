@@ -37,34 +37,7 @@ date of January 3, 2000, for buckets shorter than a month. `time_bucket_ng()`
 uses an origin date of January 1, 2000, for all bucket sizes.
 </Highlight>
 
-### Required arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `bucket_width` | INTERVAL | A $PG time interval for how long each bucket is |
-| `ts` | DATE, TIMESTAMP or TIMESTAMPTZ | The timestamp to bucket |
-
-### Optional arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `origin` | Should be the same as `ts` | Buckets are aligned relative to this timestamp |
-| `timezone` | TEXT | The name of the timezone. The argument can be specified only if the type of `ts` is TIMESTAMPTZ |
-
-For backward compatibility with `time_bucket()` the `timezone` argument is
-optional. However, it is required for time buckets that are less than 24 hours.
-
-If you call the TIMESTAMPTZ-version of the function without the `timezone`
-argument, the timezone defaults to the session's timezone and so the function
-can't be used with continuous aggregates. Best practice is to use
-`time_bucket_ng(interval, timestamptz, text)` and specify the timezone.
-
-### Returns
-
-The function returns the bucket's start time. The return value type is the
-same as `ts`.
-
-### Sample usage
+### Samples
 
 In this example, `time_bucket_ng()` is used to create bucket data in three month
 intervals:
@@ -210,3 +183,31 @@ This table shows which `time_bucket_ng()` functions can be used in a continuous 
 
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+
+
+### Required arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `bucket_width` | INTERVAL | A $PG time interval for how long each bucket is |
+| `ts` | DATE, TIMESTAMP or TIMESTAMPTZ | The timestamp to bucket |
+
+### Optional arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `origin` | Should be the same as `ts` | Buckets are aligned relative to this timestamp |
+| `timezone` | TEXT | The name of the timezone. The argument can be specified only if the type of `ts` is TIMESTAMPTZ |
+
+For backward compatibility with `time_bucket()` the `timezone` argument is
+optional. However, it is required for time buckets that are less than 24 hours.
+
+If you call the TIMESTAMPTZ-version of the function without the `timezone`
+argument, the timezone defaults to the session's timezone and so the function
+can't be used with continuous aggregates. Best practice is to use
+`time_bucket_ng(interval, timestamptz, text)` and specify the timezone.
+
+### Returns
+
+The function returns the bucket's start time. The return value type is the
+same as `ts`.

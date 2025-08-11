@@ -28,6 +28,14 @@ these types of queries.
 One can call this function directly on individual chunks of a hypertable, but
 using [add_reorder_policy][add_reorder_policy] is often much more convenient.
 
+## Samples
+
+Reorder a chunk on an index:
+
+```sql
+SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', '_timescaledb_internal.conditions_device_id_time_idx');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -44,14 +52,6 @@ using [add_reorder_policy][add_reorder_policy] is often much more convenient.
 ## Returns
 
 This function returns void.
-
-## Sample usage
-
-Reorder a chunk on an index:
-
-```sql
-SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', '_timescaledb_internal.conditions_device_id_time_idx');
-```
 
 
 [add_reorder_policy]: /api/:currentVersion:/hypertable/add_reorder_policy/

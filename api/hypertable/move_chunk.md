@@ -30,6 +30,18 @@ You must be logged in as a super user, such as the `postgres` user,
 to use the `move_chunk()` call.
 </Highlight>
 
+## Samples
+
+``` sql
+SELECT move_chunk(
+  chunk => '_timescaledb_internal._hyper_1_4_chunk',
+  destination_tablespace => 'tablespace_2',
+  index_destination_tablespace => 'tablespace_3',
+  reorder_index => 'conditions_device_id_time_idx',
+  verbose => TRUE
+);
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -44,18 +56,6 @@ to use the `move_chunk()` call.
 |-|-|-|
 |`reorder_index`|REGCLASS|The name of the index (on either the hypertable or chunk) to order by|
 |`verbose`|BOOLEAN|Setting to true displays messages about the progress of the move_chunk command. Defaults to false.|
-
-## Sample usage
-
-``` sql
-SELECT move_chunk(
-  chunk => '_timescaledb_internal._hyper_1_4_chunk',
-  destination_tablespace => 'tablespace_2',
-  index_destination_tablespace => 'tablespace_3',
-  reorder_index => 'conditions_device_id_time_idx',
-  verbose => TRUE
-);
-```
 
 [manage-storage]: /use-timescale/:currentVersion:/schema-management/about-tablespaces/
 [postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
