@@ -16,7 +16,7 @@ This page shows you how to import data in CSV, MySQL, and Parquet files from a s
 
 <Tab title="From CSV">
 
-CSV is a file format that is widely used for data migration. This page shows you how to import data into your $SERVICE_LONG from a CSV file.
+The CSV file format is widely used for data migration. This page shows you how to import data into your $SERVICE_LONG from a CSV file using the terminal.
 
 ## Prerequisites
 
