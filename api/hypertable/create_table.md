@@ -11,6 +11,7 @@ products: [cloud, mst, self_hosted]
 
 import Since2200 from "versionContent/_partials/_since_2_20_0.mdx";
 import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
+import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 
 # CREATE TABLE
 
@@ -80,18 +81,11 @@ arguments specific to $TIMESCALE_DB.
 
 - **Enable data compression during ingestion**:
 
-    When you set `timescaledb.enable_direct_compress_copy` your data is compressed when it is ingested into memory 
-    during `COPY` and `INSERT` calls. This means that WAL records are written for the compressed batches rather than the
-    individual tuples. Also, the [columnstore policy][add_columnstore_policy] you set is less important, `INSERT` 
-    already produces compressed chunks.
+    <HypercoreDirectCompress />
 
     1. Create a $HYPERTABLE:
      ```sql
      CREATE TABLE t(time timestamptz, device text, value float) WITH (tsdb.hypertable,tsdb.partition_column='time');
-     ```
-   1. Enable direct compression copy:
-     ```sql   
-     SET timescaledb.enable_direct_compress_copy=on;
      ```
    1. Copy data into the $HYPERTABLE:
      You achieve the highest insert rate using binary format. CSV and text format are also supported.

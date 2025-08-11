@@ -9,6 +9,7 @@ import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
+import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 
 # Try the key features in $COMPANY products
 
@@ -139,14 +140,7 @@ relational and time-series data from external files.
             ```
        1. Speed up data ingestion:
        
-          When you set `timescaledb.enable_direct_compress_copy` your data is compressed when it is ingested into memory
-          during `COPY` and `INSERT` calls. This means that WAL records are written for the compressed batches rather 
-          than the individual tuples. Also, the [columnstore policy][add_columnstore_policy] you set is less important, 
-          `INSERT` already produces compressed chunks. 
-       
-          ```sql
-          SET timescaledb.enable_direct_compress_copy=on;
-          ```       
+          <HypercoreDirectCompress />       
 
        3. Upload the dataset to your $SERVICE_SHORT:
        
@@ -439,7 +433,6 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [sign-up]: https://console.cloud.timescale.com/signup
 [job]: /api/:currentVersion:/actions/add_job/
 [alter-table-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
