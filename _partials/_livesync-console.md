@@ -44,7 +44,7 @@ requires a direct connection to the database to function properly.
 
 ## Tune your source database
 
-<Tabs label="Live migration" persistKey="source-database">
+<Tabs label="Live migration" persistKey="tune-database">
 
 <Tab title="From AWS RDS/Aurora" label="aws-rds">
 

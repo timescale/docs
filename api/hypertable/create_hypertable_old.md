@@ -32,6 +32,57 @@ on the resulting hypertable.
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
+## Samples
+
+Convert table `conditions` to hypertable with just time partitioning on column `time`:
+
+```sql
+SELECT create_hypertable('conditions', 'time');
+```
+
+Convert table `conditions` to hypertable, setting `chunk_time_interval` to 24 hours.
+
+```sql
+SELECT create_hypertable('conditions', 'time', chunk_time_interval => 86400000000);
+SELECT create_hypertable('conditions', 'time', chunk_time_interval => INTERVAL '1 day');
+```
+
+Convert table `conditions` to hypertable. Do not raise a warning
+if `conditions` is already a hypertable:
+
+```sql
+SELECT create_hypertable('conditions', 'time', if_not_exists => TRUE);
+```
+
+Time partition table `measurements` on a composite column type `report` using a
+time partitioning function. Requires an immutable function that can convert the
+column value into a supported column value:
+
+```sql
+CREATE TYPE report AS (reported timestamp with time zone, contents jsonb);
+
+CREATE FUNCTION report_reported(report)
+  RETURNS timestamptz
+  LANGUAGE SQL
+  IMMUTABLE AS
+  'SELECT $1.reported';
+
+SELECT create_hypertable('measurements', 'report', time_partitioning_func => 'report_reported');
+```
+
+Time partition table `events`, on a column type `jsonb` (`event`), which has
+a top level key (`started`) containing an ISO 8601 formatted timestamp:
+
+```sql
+CREATE FUNCTION event_started(jsonb)
+  RETURNS timestamptz
+  LANGUAGE SQL
+  IMMUTABLE AS
+  $func$SELECT ($1->>'started')::timestamptz$func$;
+
+SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_started');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -137,56 +188,6 @@ not already specified on table creation, `create_hypertable` automatically adds
 this constraint on the table when it is executed.
 </Highlight>
 
-## Sample use
-
-Convert table `conditions` to hypertable with just time partitioning on column `time`:
-
-```sql
-SELECT create_hypertable('conditions', 'time');
-```
-
-Convert table `conditions` to hypertable, setting `chunk_time_interval` to 24 hours.
-
-```sql
-SELECT create_hypertable('conditions', 'time', chunk_time_interval => 86400000000);
-SELECT create_hypertable('conditions', 'time', chunk_time_interval => INTERVAL '1 day');
-```
-
-Convert table `conditions` to hypertable. Do not raise a warning
-if `conditions` is already a hypertable:
-
-```sql
-SELECT create_hypertable('conditions', 'time', if_not_exists => TRUE);
-```
-
-Time partition table `measurements` on a composite column type `report` using a
-time partitioning function. Requires an immutable function that can convert the
-column value into a supported column value:
-
-```sql
-CREATE TYPE report AS (reported timestamp with time zone, contents jsonb);
-
-CREATE FUNCTION report_reported(report)
-  RETURNS timestamptz
-  LANGUAGE SQL
-  IMMUTABLE AS
-  'SELECT $1.reported';
-
-SELECT create_hypertable('measurements', 'report', time_partitioning_func => 'report_reported');
-```
-
-Time partition table `events`, on a column type `jsonb` (`event`), which has
-a top level key (`started`) containing an ISO 8601 formatted timestamp:
-
-```sql
-CREATE FUNCTION event_started(jsonb)
-  RETURNS timestamptz
-  LANGUAGE SQL
-  IMMUTABLE AS
-  $func$SELECT ($1->>'started')::timestamptz$func$;
-
-SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_started');
-```
 
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

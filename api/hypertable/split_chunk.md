@@ -13,6 +13,14 @@ products: [cloud, mst, self_hosted]
 
 Split a large chunk at a specific point in time.
 
+## Samples
+
+Split a chunk at a specific time:
+
+```sql
+CALL split_chunk('chunk_1', split_at => '2025-03-01 00:00');
+```
+
 ## Required arguments
 
 |Name|Type| Description                      |
@@ -24,12 +32,4 @@ Split a large chunk at a specific point in time.
 ## Returns
 
 This function returns void.
-
-## Sample usage
-
-Split a chunk at a specific time:
-
-```sql
-CALL split_chunk('chunk_1', split_at => '2025-03-01 00:00');
-```
 

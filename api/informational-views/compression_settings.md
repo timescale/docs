@@ -21,8 +21,6 @@ This view exists for backwards compatibility. The supported views to retrieve in
 
 <DeprecationNotice />
 
-
-
 Get information about compression-related settings for hypertables.
 Each row of the view provides information about individual `orderby`
 and `segmentby` columns used by compression.
@@ -31,20 +29,7 @@ How you use `segmentby` is the single most important thing for compression. It
 affects compresion rates, query performance, and what is compressed or
 decompressed by mutable compression.
 
-
-## Available columns
-
-|Name|Type|Description|
-|---|---|---|
-| `hypertable_schema` | TEXT | Schema name of the hypertable |
-| `hypertable_name` | TEXT | Table name of the hypertable |
-| `attname` | TEXT | Name of the column used in the compression settings |
-| `segmentby_column_index` | SMALLINT | Position of attname in the compress_segmentby list |
-| `orderby_column_index` | SMALLINT | Position of attname in the compress_orderby list |
-| `orderby_asc` | BOOLEAN | True if this is used for order by ASC, False for order by DESC |
-| `orderby_nullsfirst` | BOOLEAN | True if nulls are ordered first for this column, False if nulls are ordered last|
-
-## Sample usage
+## Samples
 
 ```sql
 CREATE TABLE hypertab (a_col integer, b_col integer, c_col integer, d_col integer, e_col integer);
@@ -92,6 +77,19 @@ orderby_nullsfirst     | f
 <Highlight type="note">
 The `by_range` dimension builder is an addition to TimescaleDB 2.13.
 </Highlight>
+
+## Available columns
+
+|Name|Type|Description|
+|---|---|---|
+| `hypertable_schema` | TEXT | Schema name of the hypertable |
+| `hypertable_name` | TEXT | Table name of the hypertable |
+| `attname` | TEXT | Name of the column used in the compression settings |
+| `segmentby_column_index` | SMALLINT | Position of attname in the compress_segmentby list |
+| `orderby_column_index` | SMALLINT | Position of attname in the compress_orderby list |
+| `orderby_asc` | BOOLEAN | True if this is used for order by ASC, False for order by DESC |
+| `orderby_nullsfirst` | BOOLEAN | True if nulls are ordered first for this column, False if nulls are ordered last|
+
 
 [chunk_compression_settings]: /api/:currentVersion:/informational-views/chunk_compression_settings/
 [hypertable_compression_settings]: /api/:currentVersion:/informational-views/hypertable_compression_settings/

@@ -16,16 +16,18 @@ on a hypertable, it no longer has any tablespaces attached to
 it. New chunks are instead placed in the database's default
 tablespace.
 
-## Required arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `hypertable` | REGCLASS | Hypertable to detach a the tablespace from.|
-
-## Sample usage
+## Samples
 
 Detach all tablespaces from the hypertable `conditions`:
 
 ```sql
 SELECT detach_tablespaces('conditions');
 ```
+
+## Required arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Hypertable to detach a the tablespace from.|
+
+

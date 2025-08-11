@@ -34,43 +34,7 @@ to align with bucket boundaries.
 To improve performance for continuous aggregate refresh, see 
 [CREATE MATERIALIZED VIEW ][create_materialized_view].
 
-## Required arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`continuous_aggregate`|REGCLASS|The continuous aggregate to refresh.|
-|`window_start`|INTERVAL, TIMESTAMPTZ, INTEGER|Start of the window to refresh, has to be before `window_end`.|
-|`window_end`|INTERVAL, TIMESTAMPTZ, INTEGER|End of the window to refresh, has to be after `window_start`.|
-
-You must specify the `window_start` and `window_end` parameters differently,
-depending on the type of the time column of the hypertable. For hypertables with
-`TIMESTAMP`, `TIMESTAMPTZ`, and `DATE` time columns, set the refresh window as
-an `INTERVAL` type. For hypertables with integer-based timestamps, set the
-refresh window as an `INTEGER` type.
-
-<Highlight type="note">
-A `NULL` value for `window_start` is equivalent to the lowest changed element
-in the raw hypertable of the CAgg. A `NULL` value for `window_end` is
-equivalent to the largest changed element in raw hypertable of the CAgg. As 
-changed element tracking is performed after the initial CAgg refresh, running 
-CAgg refresh without `window_start` and `window_end` covers the entire time 
-range.
-</Highlight>
-
-<Highlight type="warning">
-Note that it's not guaranteed that all buckets will be updated: refreshes will
-not take place when buckets are materialized with no data changes or with
-changes that only occurred in the secondary table used in the JOIN.
-</Highlight>
-
-## Optional arguments
-
-|Name|Type| Description                                                                                                                                                                                                            |
-|-|-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `force` | BOOLEAN | Force refresh every bucket in the time range between `window_start` and `window_end`, even when the bucket has already been refreshed. This can be very expensive when a lot of data is refreshed. Default is `FALSE`. |
-| `refresh_newest_first` | BOOLEAN | Set to `FALSE` to refresh the oldest data first. Default is `TRUE`.                                                                                                                                                    |
-
-## Sample usage
+## Samples
 
 Refresh the continuous aggregate `conditions` between `2020-01-01` and
 `2020-02-01` exclusive.
@@ -107,6 +71,43 @@ Force the  `conditions` continuous aggregate to refresh between `2020-01-01` and
 ```sql
 CALL refresh_continuous_aggregate('conditions', '2020-01-01', '2020-02-01', force => TRUE);
 ```
+
+## Required arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`continuous_aggregate`|REGCLASS|The continuous aggregate to refresh.|
+|`window_start`|INTERVAL, TIMESTAMPTZ, INTEGER|Start of the window to refresh, has to be before `window_end`.|
+|`window_end`|INTERVAL, TIMESTAMPTZ, INTEGER|End of the window to refresh, has to be after `window_start`.|
+
+You must specify the `window_start` and `window_end` parameters differently,
+depending on the type of the time column of the hypertable. For hypertables with
+`TIMESTAMP`, `TIMESTAMPTZ`, and `DATE` time columns, set the refresh window as
+an `INTERVAL` type. For hypertables with integer-based timestamps, set the
+refresh window as an `INTEGER` type.
+
+<Highlight type="note">
+A `NULL` value for `window_start` is equivalent to the lowest changed element
+in the raw hypertable of the CAgg. A `NULL` value for `window_end` is
+equivalent to the largest changed element in raw hypertable of the CAgg. As 
+changed element tracking is performed after the initial CAgg refresh, running 
+CAgg refresh without `window_start` and `window_end` covers the entire time 
+range.
+</Highlight>
+
+<Highlight type="warning">
+Note that it's not guaranteed that all buckets will be updated: refreshes will
+not take place when buckets are materialized with no data changes or with
+changes that only occurred in the secondary table used in the JOIN.
+</Highlight>
+
+## Optional arguments
+
+|Name|Type| Description                                                                                                                                                                                                            |
+|-|-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `force` | BOOLEAN | Force refresh every bucket in the time range between `window_start` and `window_end`, even when the bucket has already been refreshed. This can be very expensive when a lot of data is refreshed. Default is `FALSE`. |
+| `refresh_newest_first` | BOOLEAN | Set to `FALSE` to refresh the oldest data first. Default is `TRUE`.                                                                                                                                                    |
+
 
 [modify-parameters]: /use-timescale/:currentVersion:/configuration/customize-configuration/
 [create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/
