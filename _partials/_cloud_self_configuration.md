@@ -15,14 +15,6 @@ the number of databases loaded with the $TIMESCALE_DB extension in a $PG instanc
 ### `timescaledb.disable_load (bool)`
 Disable the loading of the actual extension
 
-## Removed features
-
-### `timescaledb.default_hypercore_use_access_method`
-
-The default value for `hypercore_use_access_method` for functions that have this parameter. This function is in `user` context, meaning that any user can set it for the session. The default value is `false`.
-
-<Deprecated2210 /> This feature was sunsetted in TimescaleDB `v2.22.0`.
-
 [enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
 [pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-entire]: /self-hosted/:currentVersion:/migration/entire-database/
