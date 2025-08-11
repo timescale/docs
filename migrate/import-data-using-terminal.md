@@ -10,7 +10,7 @@ import SetupConnectionString from "versionContent/_partials/_migrate_import_setu
 
 # Import data into your $SERVICE_SHORT using the terminal
 
-You can import data into your $SERVICE_LONG using the command line. This page shows you how to import from CSV, MySQL, and Parquet.
+This page shows you how to import data in CSV, MySQL, and Parquet files from a source machine into your $SERVICE_SHORT using the terminal.
 
 <Tabs label="Import data using the terminal">
 
