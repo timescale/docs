@@ -23,6 +23,28 @@ scheduled $JOBs, as well as in `timescaledb_information.job_stats`. The
 `job_stats` view also gives information about when each $JOB was last run and
 other useful statistics for deciding what the new schedule should be.
 
+## Samples
+
+Reschedules $JOB ID `1000` so that it runs every two days:
+
+```sql
+SELECT alter_job(1000, schedule_interval => INTERVAL '2 days');
+```
+
+Disables scheduling of the compression policy on the `conditions` hypertable:
+
+```sql
+SELECT alter_job(job_id, scheduled => false)
+FROM timescaledb_information.jobs
+WHERE proc_name = 'policy_compression' AND hypertable_name = 'conditions'
+```
+
+Reschedules continuous aggregate $JOB ID `1000` so that it next runs at 9:00:00 on 15 March, 2020:
+
+```sql
+SELECT alter_job(1000, next_start => '2020-03-15 09:00:00.0+00');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -68,28 +90,6 @@ automatically return to the schedule.
 |`config`|`JSONB`| $JOB_CAPs-specific configuration, passed to the function when it runs                                         |
 |`next_start`|`TIMESTAMPTZ`| The next time to run the $JOB                                                                                  |
 |`check_config`|`TEXT`| The function used to validate updated $JOB configurations                                                      |
-
-## Sample usage
-
-Reschedules $JOB ID `1000` so that it runs every two days:
-
-```sql
-SELECT alter_job(1000, schedule_interval => INTERVAL '2 days');
-```
-
-Disables scheduling of the compression policy on the `conditions` hypertable:
-
-```sql
-SELECT alter_job(job_id, scheduled => false)
-FROM timescaledb_information.jobs
-WHERE proc_name = 'policy_compression' AND hypertable_name = 'conditions'
-```
-
-Reschedules continuous aggregate $JOB ID `1000` so that it next runs at 9:00:00 on 15 March, 2020:
-
-```sql
-SELECT alter_job(1000, next_start => '2020-03-15 09:00:00.0+00');
-```
 
 ## Calculation of next start on failure
 

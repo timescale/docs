@@ -18,6 +18,31 @@ information, see the [drop_chunks][drop_chunks] section. This implements a data
 retention policy and removes data on a schedule. Only one retention policy may
 exist per hypertable.
 
+## Samples
+
+Create a data retention policy to discard chunks greater than 6 months old:
+
+```sql
+SELECT add_retention_policy('conditions', drop_after => INTERVAL '6 months');
+```
+
+Create a data retention policy with an integer-based time column:
+
+```sql
+SELECT add_retention_policy('conditions', drop_after => BIGINT '600000');
+```
+
+Create a data retention policy to discard chunks created before 6 months:
+
+```sql
+SELECT add_retention_policy('conditions', drop_created_before => INTERVAL '6 months');
+```
+
+Note above that when `drop_after` is used then the time data range
+present in the partitioning time column is used to select the target
+chunks. Whereas, when `drop_created_before` is used then the chunks
+which were created 3 months ago are selected.
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -49,30 +74,6 @@ integer type (this requires the [integer_now_func][set_integer_now_func] to be s
 |-|-|-|
 |`job_id`|INTEGER|TimescaleDB background job ID created to implement this policy|
 
-## Sample usage
-
-Create a data retention policy to discard chunks greater than 6 months old:
-
-```sql
-SELECT add_retention_policy('conditions', drop_after => INTERVAL '6 months');
-```
-
-Create a data retention policy with an integer-based time column:
-
-```sql
-SELECT add_retention_policy('conditions', drop_after => BIGINT '600000');
-```
-
-Create a data retention policy to discard chunks created before 6 months:
-
-```sql
-SELECT add_retention_policy('conditions', drop_created_before => INTERVAL '6 months');
-```
-
-Note above that when `drop_after` is used then the time data range
-present in the partitioning time column is used to select the target
-chunks. Whereas, when `drop_created_before` is used then the chunks
-which were created 3 months ago are selected.
 
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks/
 [set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func/

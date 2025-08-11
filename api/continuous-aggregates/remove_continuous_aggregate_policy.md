@@ -27,6 +27,14 @@ To view the existing continuous aggregate policies, see the [policies informatio
 
 </Highlight>
 
+## Samples
+
+Remove all refresh policies from the `cpu_view` continuous aggregate:
+
+``` sql
+SELECT remove_continuous_aggregate_policy('cpu_view');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -39,10 +47,4 @@ To view the existing continuous aggregate policies, see the [policies informatio
 |-|-|-|
 |`if_exists` (formerly `if_not_exists`)|`BOOL`|When true, prints a warning instead of erroring if the policy doesn't exist. Defaults to false. Renamed in TimescaleDB 2.8.|
 
-## Sample usage
 
-Remove all refresh policies from the `cpu_view` continuous aggregate:
-
-``` sql
-SELECT remove_continuous_aggregate_policy('cpu_view');
-```

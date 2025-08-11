@@ -26,39 +26,7 @@ Note that during shifts to and from daylight savings, the amount of data
 aggregated into the corresponding buckets can be irregular. For example, if the
 `bucket_width` is 2 hours, the number of bucketed hours is either three hours or one hour.
 
-## Required arguments for interval time inputs
-
-|Name|Type|Description|
-|-|-|-|
-|`bucket_width`|INTERVAL|A $PG time interval for how long each bucket is|
-|`ts`|DATE, TIMESTAMP, or TIMESTAMPTZ|The timestamp to bucket|
-
-If you use months as an interval for `bucket_width`, you cannot combine it with
-a non-month component. For example, `1 month` and `3 months` are both valid
-bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
-
-## Optional arguments for interval time inputs
-
-|Name|Type| Description                                                                                                                                                                                                                                                                                    |
-|-|-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|`timezone`|TEXT| The time zone for calculating bucket start and end times. Can only be used with `TIMESTAMPTZ`. Defaults to UTC+0.                                                                                                                                                                              |
-|`origin`|DATE, TIMESTAMP, or TIMESTAMPTZ| Buckets are aligned relative to this timestamp. Defaults to midnight on January 3, 2000, for buckets that don't include a month or year interval, and to midnight on January 1, 2000, for month, year, and century buckets.                                                                    |
-|`offset`|INTERVAL| The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG. |
-
-## Required arguments for integer time inputs
-
-|Name|Type|Description|
-|-|-|-|
-|`bucket_width`|INTEGER|The bucket width|
-|`ts`|INTEGER|The timestamp to bucket|
-
-## Optional arguments for integer time inputs
-
-|Name|Type|Description|
-|-|-|-|
-|`offset`|INTEGER|The amount to offset all buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG.|
-
-## Sample usage
+## Samples
 
 Simple five-minute averaging:
 
@@ -133,3 +101,37 @@ FROM weather
 GROUP BY month_bucket
 ORDER BY month_bucket DESC LIMIT 10;
 ```
+
+## Required arguments for interval time inputs
+
+|Name|Type|Description|
+|-|-|-|
+|`bucket_width`|INTERVAL|A $PG time interval for how long each bucket is|
+|`ts`|DATE, TIMESTAMP, or TIMESTAMPTZ|The timestamp to bucket|
+
+If you use months as an interval for `bucket_width`, you cannot combine it with
+a non-month component. For example, `1 month` and `3 months` are both valid
+bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
+
+## Optional arguments for interval time inputs
+
+|Name|Type| Description                                                                                                                                                                                                                                                                                    |
+|-|-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`timezone`|TEXT| The time zone for calculating bucket start and end times. Can only be used with `TIMESTAMPTZ`. Defaults to UTC+0.                                                                                                                                                                              |
+|`origin`|DATE, TIMESTAMP, or TIMESTAMPTZ| Buckets are aligned relative to this timestamp. Defaults to midnight on January 3, 2000, for buckets that don't include a month or year interval, and to midnight on January 1, 2000, for month, year, and century buckets.                                                                    |
+|`offset`|INTERVAL| The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG. |
+
+## Required arguments for integer time inputs
+
+|Name|Type|Description|
+|-|-|-|
+|`bucket_width`|INTEGER|The bucket width|
+|`ts`|INTEGER|The timestamp to bucket|
+
+## Optional arguments for integer time inputs
+
+|Name|Type|Description|
+|-|-|-|
+|`offset`|INTEGER|The amount to offset all buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG.|
+
+

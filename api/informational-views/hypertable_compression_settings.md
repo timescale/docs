@@ -14,16 +14,7 @@ products: [cloud, mst, self_hosted]
 
 Shows information about compression settings for each hypertable chunk that has compression enabled on it.
 
-## Arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`hypertable`|`REGCLASS`|Hypertable which has compression enabled|
-|`chunk`|`REGCLASS`|Hypertable chunk which has compression enabled|
-|`segmentby`|`TEXT`|List of columns used for segmenting the compressed data|
-|`orderby`|`TEXT`| List of columns used for ordering compressed data along with ordering and NULL ordering information|
-
-## Sample use
+## Samples
 
 Show compression settings for all hypertables:
 
@@ -44,3 +35,14 @@ chunk                    | _timescaledb_internal._hyper_1_12_chunk
 segmentby                | metric_id
 orderby                  | time DESC
 ```
+
+
+## Arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`hypertable`|`REGCLASS`|Hypertable which has compression enabled|
+|`chunk`|`REGCLASS`|Hypertable chunk which has compression enabled|
+|`segmentby`|`TEXT`|List of columns used for segmenting the compressed data|
+|`orderby`|`TEXT`| List of columns used for ordering compressed data along with ordering and NULL ordering information|
+

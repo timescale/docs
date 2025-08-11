@@ -22,26 +22,15 @@ The `policies` view provides information on all policies set on continuous
 aggregates.
 
 <Highlight type="note">
+
 Only policies applying to continuous aggregates are shown in this view. Policies
 applying to regular hypertables or regular materialized views are not displayed.
+
 </Highlight>
 
 <Experimental />
 
-## Available columns
-
-|Column|Type|Description|
-|-|-|-|
-|`relation_name`|Name of the continuous aggregate|
-|`relation_schema`|Schema of the continuous aggregate|
-|`schedule_interval`|How often the policy job runs|
-|`proc_schema`|Schema of the policy job|
-|`proc_name`|Name of the policy job|
-|`config`|Configuration details for the policy job|
-|`hypertable_schema`|Schema of the hypertable that contains the actual data for the continuous aggregate view|
-|`hypertable_name`|Name of the hypertable that contains the actual data for the continuous aggregate view|
-
-## Sample usage
+## Samples
 
 Select from the `timescaledb_experimental.policies` table to view it:
 
@@ -80,3 +69,18 @@ config            | {"drop_after": 20, "hypertable_id": 2}
 hypertable_schema | _timescaledb_internal
 hypertable_name   | _materialized_hypertable_2
 ```
+
+
+## Available columns
+
+|Column|Type|Description|
+|-|-|-|
+|`relation_name`|Name of the continuous aggregate|
+|`relation_schema`|Schema of the continuous aggregate|
+|`schedule_interval`|How often the policy job runs|
+|`proc_schema`|Schema of the policy job|
+|`proc_name`|Name of the policy job|
+|`config`|Configuration details for the policy job|
+|`hypertable_schema`|Schema of the hypertable that contains the actual data for the continuous aggregate view|
+|`hypertable_name`|Name of the hypertable that contains the actual data for the continuous aggregate view|
+

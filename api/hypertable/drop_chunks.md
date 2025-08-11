@@ -29,6 +29,73 @@ specified one.
 Chunks can only be dropped based on their time intervals. They cannot be dropped
 based on a hash partition.
 
+## Samples
+
+Drop all chunks from hypertable `conditions` older than 3 months:
+
+```sql
+SELECT drop_chunks('conditions', INTERVAL '3 months');
+```
+
+Example output:
+
+```sql
+              drop_chunks
+----------------------------------------
+ _timescaledb_internal._hyper_3_5_chunk
+ _timescaledb_internal._hyper_3_6_chunk
+ _timescaledb_internal._hyper_3_7_chunk
+ _timescaledb_internal._hyper_3_8_chunk
+ _timescaledb_internal._hyper_3_9_chunk
+(5 rows)
+```
+
+Drop all chunks from hypertable `conditions` created before 3 months:
+
+```sql
+SELECT drop_chunks('conditions', created_before => now() -  INTERVAL '3 months');
+```
+
+Drop all chunks more than 3 months in the future from hypertable
+`conditions`. This is useful for correcting data ingested with
+incorrect clocks:
+
+```sql
+SELECT drop_chunks('conditions', newer_than => now() + interval '3 months');
+```
+
+Drop all chunks from hypertable `conditions` before 2017:
+
+```sql
+SELECT drop_chunks('conditions', '2017-01-01'::date);
+```
+
+Drop all chunks from hypertable `conditions` before 2017, where time
+column is given in milliseconds from the UNIX epoch:
+
+```sql
+SELECT drop_chunks('conditions', 1483228800000);
+```
+
+Drop all chunks older than 3 months ago and newer than 4 months ago from hypertable `conditions`:
+
+```sql
+SELECT drop_chunks('conditions', older_than => INTERVAL '3 months', newer_than => INTERVAL '4 months')
+```
+
+Drop all chunks created 3 months ago and created 4 months before from  hypertable `conditions`:
+
+```sql
+SELECT drop_chunks('conditions', created_before => INTERVAL '3 months', created_after => INTERVAL '4 months')
+```
+
+Drop all chunks older than 3 months ago across all hypertables:
+
+```sql
+SELECT drop_chunks(format('%I.%I', hypertable_schema, hypertable_name)::regclass, INTERVAL '3 months')
+  FROM timescaledb_information.hypertables;
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -97,72 +164,5 @@ overlapping intersection between two ranges results in an error.
 The `created_before`/`created_after` parameters cannot be used together with
 `older_than`/`newer_than`.
 </Highlight>
-
-## Sample usage
-
-Drop all chunks from hypertable `conditions` older than 3 months:
-
-```sql
-SELECT drop_chunks('conditions', INTERVAL '3 months');
-```
-
-Example output:
-
-```sql
-              drop_chunks
-----------------------------------------
- _timescaledb_internal._hyper_3_5_chunk
- _timescaledb_internal._hyper_3_6_chunk
- _timescaledb_internal._hyper_3_7_chunk
- _timescaledb_internal._hyper_3_8_chunk
- _timescaledb_internal._hyper_3_9_chunk
-(5 rows)
-```
-
-Drop all chunks from hypertable `conditions` created before 3 months:
-
-```sql
-SELECT drop_chunks('conditions', created_before => now() -  INTERVAL '3 months');
-```
-
-Drop all chunks more than 3 months in the future from hypertable
-`conditions`. This is useful for correcting data ingested with
-incorrect clocks:
-
-```sql
-SELECT drop_chunks('conditions', newer_than => now() + interval '3 months');
-```
-
-Drop all chunks from hypertable `conditions` before 2017:
-
-```sql
-SELECT drop_chunks('conditions', '2017-01-01'::date);
-```
-
-Drop all chunks from hypertable `conditions` before 2017, where time
-column is given in milliseconds from the UNIX epoch:
-
-```sql
-SELECT drop_chunks('conditions', 1483228800000);
-```
-
-Drop all chunks older than 3 months ago and newer than 4 months ago from hypertable `conditions`:
-
-```sql
-SELECT drop_chunks('conditions', older_than => INTERVAL '3 months', newer_than => INTERVAL '4 months')
-```
-
-Drop all chunks created 3 months ago and created 4 months before from  hypertable `conditions`:
-
-```sql
-SELECT drop_chunks('conditions', created_before => INTERVAL '3 months', created_after => INTERVAL '4 months')
-```
-
-Drop all chunks older than 3 months ago across all hypertables:
-
-```sql
-SELECT drop_chunks(format('%I.%I', hypertable_schema, hypertable_name)::regclass, INTERVAL '3 months')
-  FROM timescaledb_information.hypertables;
-```
 
 [show_chunks]: /api/:currentVersion:/hypertable/show_chunks/

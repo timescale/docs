@@ -27,14 +27,7 @@ scan through the group. They are primarily used for ordered selection within a
 indexes.
 </Highlight>
 
-### Required arguments
-
-|Name|Type|Description|
-|---|---|---|
-|`value`|ANY ELEMENT|The value to return|
-|`time`|TIMESTAMP or INTEGER|The timestamp to use for comparison|
-
-### Sample usage
+### Samples
 
 Get the temperature every 5 minutes for each device over the past day:
 
@@ -59,3 +52,10 @@ SELECT
 FROM sensors
 GROUP BY interv
 ```
+
+### Required arguments
+
+|Name|Type|Description|
+|---|---|---|
+|`value`|ANY ELEMENT|The value to return|
+|`time`|TIMESTAMP or INTEGER|The timestamp to use for comparison|

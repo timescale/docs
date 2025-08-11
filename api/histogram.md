@@ -28,16 +28,7 @@ Each bucket is inclusive on its lower bound, and exclusive on its upper
 bound. Therefore, values equal to the `min` are included in the bucket
 starting with `min`, but values equal to the `max` are in the last bucket.
 
-### Required arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `value` | ANY VALUE | A set of values to partition into a histogram |
-| `min` | NUMERIC | The histogram's lower bound used in bucketing (inclusive) |
-| `max` | NUMERIC | The histogram's upper bound used in bucketing (exclusive) |
-| `nbuckets` | INTEGER | The integer value for the number of histogram buckets (partitions) |
-
-### Sample usage
+### Samples
 
 A simple bucketing of device's battery levels from the `readings` dataset:
 
@@ -64,3 +55,12 @@ The expected output:
  demo000008 | {0,0,311,345,116,228,0}
  demo000009 | {295,92,105,50,8,8,442}
 ```
+
+### Required arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `value` | ANY VALUE | A set of values to partition into a histogram |
+| `min` | NUMERIC | The histogram's lower bound used in bucketing (inclusive) |
+| `max` | NUMERIC | The histogram's upper bound used in bucketing (exclusive) |
+| `nbuckets` | INTEGER | The integer value for the number of histogram buckets (partitions) |
