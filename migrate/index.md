@@ -19,7 +19,7 @@ In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from oth
 
 ## Connect to $PG or S3
 
-$CLOUD_LONG provides source connectors for Postgres and S3, which you can use to synchronize all or some of your data to your $SERVICE_LONG in real time. You run the connectors continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you
+$CLOUD_LONG provides source connectors for Postgres and S3. You use them to synchronize all or some of your data to your $SERVICE_LONG in real time. You run the connectors continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you
 to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica data.
 
 | Connector options                      |  Downtime requirements |
