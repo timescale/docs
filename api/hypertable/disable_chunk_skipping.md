@@ -14,6 +14,28 @@ products: [cloud, mst, self_hosted]
 
 Disable range tracking for a specific column in a hypertable **in the columnstore**.
 
+## Samples
+
+In this sample, you convert the `conditions` table to a hypertable with
+partitioning on the `time` column. You then specify and enable additional
+columns to track ranges for. You then disable range tracking:
+
+```sql
+SELECT create_hypertable('conditions', 'time');
+SELECT enable_chunk_skipping('conditions', 'device_id');
+SELECT disable_chunk_skipping('conditions', 'device_id');
+```
+
+<Highlight type="note">
+
+ Best practice is to enable range tracking on columns which are correlated to the
+ partitioning column. In other words, enable tracking on secondary columns that are
+ referenced in the `WHERE` clauses in your queries.
+ Use this API to disable range tracking on columns when the query patterns don't
+ use this secondary column anymore.
+
+</Highlight>
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -43,25 +65,5 @@ and enabled range tracking on a column in the hypertable.
 
 </Highlight>
 
-## Sample use
-
-In this sample, you convert the `conditions` table to a hypertable with
-partitioning on the `time` column. You then specify and enable additional
-columns to track ranges for. You then disable range tracking:
-
-```sql
-SELECT create_hypertable('conditions', 'time');
-SELECT enable_chunk_skipping('conditions', 'device_id');
-SELECT disable_chunk_skipping('conditions', 'device_id');
-```
-
-<Highlight type="note">
- Best practice is to enable range tracking on columns which are correlated to the
- partitioning column. In other words, enable tracking on secondary columns that are
- referenced in the `WHERE` clauses in your queries.
- Use this API to disable range tracking on columns when the query patterns don't
- use this secondary column anymore.
-
-</Highlight>
 
 [enable_chunk_skipping]: /api/:currentVersion:/hypertable/enable_chunk_skipping/

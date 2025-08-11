@@ -14,6 +14,14 @@ products: [cloud, mst, self_hosted]
 
 Remove a policy to reorder a particular hypertable.
 
+## Samples
+
+```sql
+SELECT remove_reorder_policy('conditions', if_exists => true);
+```
+
+removes the existing reorder policy for the `conditions` table if it exists.
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -26,10 +34,3 @@ Remove a policy to reorder a particular hypertable.
 |---|---|---|
 | `if_exists` | BOOLEAN |  Set to true to avoid throwing an error if the reorder_policy does not exist. A notice is issued instead. Defaults to false. |
 
-## Sample usage
-
-```sql
-SELECT remove_reorder_policy('conditions', if_exists => true);
-```
-
-removes the existing reorder policy for the `conditions` table if it exists.

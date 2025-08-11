@@ -16,6 +16,22 @@ Sets the `chunk_time_interval` on a hypertable. The new interval is used
 when new chunks are created, and time intervals on existing chunks are
 not changed.
 
+## Samples
+
+For a TIMESTAMP column, set `chunk_time_interval` to 24 hours:
+
+```sql
+SELECT set_chunk_time_interval('conditions', INTERVAL '24 hours');
+SELECT set_chunk_time_interval('conditions', 86400000000);
+```
+
+For a time column expressed as the number of milliseconds since the
+UNIX epoch, set `chunk_time_interval` to 24 hours:
+
+```sql
+SELECT set_chunk_time_interval('conditions', 86400000);
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -49,20 +65,6 @@ For more information, see [hypertable partitioning][hypertable-partitioning].
 You need to use `dimension_name` argument only if your hypertable has multiple
 time dimensions.
 
-## Sample usage
 
-For a TIMESTAMP column, set `chunk_time_interval` to 24 hours:
-
-```sql
-SELECT set_chunk_time_interval('conditions', INTERVAL '24 hours');
-SELECT set_chunk_time_interval('conditions', 86400000000);
-```
-
-For a time column expressed as the number of milliseconds since the
-UNIX epoch, set `chunk_time_interval` to 24 hours:
-
-```sql
-SELECT set_chunk_time_interval('conditions', 86400000);
-```
 
 [hypertable-partitioning]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
