@@ -103,7 +103,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
     1. To view the amount of data replicated, click `Connectors`. The diagram in `Connector data flow` gives you an overview of the connectors you have created, their status, and how much data has been replicated.  
 
-    1. To review the syncing progress per table, click `Connectors` > `Source connectors`, then select the name of your connector in the table. 
+    1. To review the syncing progress for each table, click `Connectors` > `Source connectors`, then select the name of your connector in the table. 
 
 1. **Manage the connector**
 
