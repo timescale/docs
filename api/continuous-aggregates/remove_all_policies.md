@@ -28,6 +28,16 @@ timescaledb_experimental.remove_all_policies(
 
 <Experimental />
 
+## Samples
+
+Remove all policies from a continuous aggregate named
+`example_continuous_aggregate`. This includes refresh policies, columnstore
+policies, and data retention policies. It doesn't include custom $JOBs:
+
+```sql
+SELECT timescaledb_experimental.remove_all_policies('example_continuous_aggregate');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -44,12 +54,4 @@ timescaledb_experimental.remove_all_policies(
 
 Returns true if successful.
 
-## Sample usage
 
-Remove all policies from a continuous aggregate named
-`example_continuous_aggregate`. This includes refresh policies, columnstore
-policies, and data retention policies. It doesn't include custom $JOBs:
-
-```sql
-SELECT timescaledb_experimental.remove_all_policies('example_continuous_aggregate');
-```

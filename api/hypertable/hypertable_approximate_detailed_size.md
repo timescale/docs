@@ -37,6 +37,17 @@ compute the approximate sizes of hypertables to get faster results.
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
+## Samples
+
+Get the approximate size information for a hypertable.
+
+```sql
+SELECT * FROM hypertable_approximate_detailed_size('hyper_table');
+ table_bytes | index_bytes | toast_bytes | total_bytes
+-------------+-------------+-------------+-------------
+        8192 |       24576 |       32768 |       65536
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -57,15 +68,5 @@ If executed on a relation that is not a hypertable, the function
 returns `NULL`.
 </Highlight>
 
-## Sample usage
-
-Get the approximate size information for a hypertable.
-
-```sql
-SELECT * FROM hypertable_approximate_detailed_size('hyper_table');
- table_bytes | index_bytes | toast_bytes | total_bytes
--------------+-------------+-------------+-------------
-        8192 |       24576 |       32768 |       65536
-```
 
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/

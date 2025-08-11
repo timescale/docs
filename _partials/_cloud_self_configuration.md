@@ -14,7 +14,7 @@ the number of databases loaded with the $TIMESCALE_DB extension in a $PG instanc
 
 The default value for `hypercore_use_access_method` for functions that have this parameter. This function is in `user` context, meaning that any user can set it for the session. The default value is `false`.
 
-<Deprecated2210 /> This feature is sunsetted in TimescaleDB v2.22.0.
+<Deprecated2210 /> This feature was sunsetted in TimescaleDB v2.22.0.
 
 ## $SERVICE_LONG tuning
 

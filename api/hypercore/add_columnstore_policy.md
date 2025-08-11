@@ -21,13 +21,17 @@ specific time interval.
 You enable the $COLUMNSTORE a hypertable or continuous aggregate before you create a $COLUMNSTORE policy. 
 You do this by calling `CREATE TABLE` for hypertables and `ALTER MATERIALIZED VIEW` for continuous aggregates. When
 $COLUMNSTORE is enabled, [bloom filters][bloom-filters] are enabled by default, and every new chunk has a bloom index. 
-If you moved chunks to $COLUMNSTORE using $TIMESCALE_DB v2.19.3 or below, to enable bloom filters on that data you have 
+If you converted chunks to $COLUMNSTORE using $TIMESCALE_DB v2.19.3 or below, to enable bloom filters on that data you have 
 to convert those chunks to the $ROWSTORE, then convert them back to the $COLUMNSTORE. 
 
-Bloom indexes are not retrofitted, meaning that the existing chunks need to be fully recompressed to have the bloom indexes present. Please check out the PR description for more in-depth explanations of how bloom filters in TimescaleDB work.
+Bloom indexes are not retrofitted, meaning that the existing chunks need to be fully recompressed to have the bloom 
+indexes present. Please check out the PR description for more in-depth explanations of how bloom filters in 
+TimescaleDB work.
 
 To view the policies that you set or the policies that already exist,
-see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy].
+see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy]. 
+
+A $COLUMNSTORE policy is applied on a per-chunk basis. If you remove an existing policy and then add a new one, the new policy applies only to the chunks that have not yet been converted to $COLUMNSTORE. The existing chunks in the $COLUMNSTORE remain unchanged. This means that chunks with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE.
 
 <Since2180 />
 
@@ -91,14 +95,24 @@ To create a $COLUMNSTORE job:
      CALL add_columnstore_policy('cpu_weekly', INTERVAL '8 weeks');
      ```
 
-   * Older than eight weeks and using the $HYPERCORE table access method:
+   * Control the time your policy runs:
+   
+      When you use a policy with a fixed schedule, $TIMESCALE_DB uses the `initial_start` time to compute the 
+      next start time. When $TIMESCALE_DB finishes executing a policy, it picks the next available time on the 
+     schedule, 
+      skipping any candidate start times that have already passed.
+   
+      When you set the `next_start` time, it only changes the start time of the next immediate execution. It does not 
+      change the computation of the next scheduled execution after that next execution. To change the schedule so a 
+      policy starts at a specific time, you need to set `initial_start`. To change the next immediate 
+      execution, you need to set `next_start`. For example, to modify a policy to execute on a fixed schedule 15 minutes past the hour, and every 
+      hour, you need to set both `initial_start` and `next_start` using `alter_job`:
+   
+      ``` sql
+      select * from alter_job(1000, fixed_schedule => true, initial_start => '2025-07-11 10:15:00', next_start => 
+     '2025-07-11 11:15:00');
+      ```
 
-     ``` sql
-     CALL add_columnstore_policy(
-       'cpu_weekly', 
-       INTERVAL '8 weeks', 
-       hypercore_use_access_method => true);
-     ```
 
 1. **View the policies that you set or the policies that already exist** 
 
@@ -117,24 +131,23 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 <!-- vale Google.Acronyms = NO -->
 <!-- vale Vale.Spelling = NO -->
 
-| Name | Type | Default | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|--|--|--|--|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `hypertable`             |REGCLASS| - | ✔ | Name of the hypertable or continuous aggregate to run this [job][job] on.                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `after`         |INTERVAL or INTEGER|- | ✖ | Add chunks containing data older than `now - {after}::interval` to the $COLUMNSTORE. <br/> Use an object type that matchs the time column type in `hypertable`: <ul><li><b><code>TIMESTAMP</code>, <code>TIMESTAMPTZ</code>, or <code>DATE</code></b>: use an <code>INTERVAL</code> type.</li><li><b> Integer-based timestamps </b>: set an integer type using the [integer_now_func][set_integer_now_func].</li></ul> `after` is mutually exclusive with `created_before`. |
-| `created_before` |INTERVAL| NULL | ✖ | Add chunks with a creation time of `now() - created_before` to the $COLUMNSTORE. <br/> `created_before` is <ul><li>Not supported for continuous aggregates.</li><li>Mutually exclusive with `after`.</li></ul>                                                                                                                                                                                                                                                              |
-| `schedule_interval`       |INTERVAL| 12 hours when [chunk_time_interval][chunk_time_interval] >= `1 day` for `hypertable`. Otherwise `chunk_time_interval` / `2`. | ✖        | Set the interval between the finish time of the last execution of this policy and the next start.                                                                                                                                                                                                                                                                                                                                                                           |
-| `initial_start`     |TIMESTAMPTZ| The interval from the finish time of the last execution to the [next_start][next-start].| ✖| Set the time this job is first run. This is also the time that `next_start` is calculated from.                                                                                                                                                                                                                                                                                                                                                                             |
-| `timezone`          |TEXT| UTC. However, daylight savings time(DST) changes may shift this alignment. | ✖ | Set to a valid time zone to mitigate DST shifting. If `initial_start` is set, subsequent executions of this policy are aligned on `initial_start`.                                                                                                                                                                                                                                                                                                                          |
-| `if_not_exists`     |BOOLEAN| `false` | ✖ | Set to `true` so this job fails with a warning rather than an error if a $COLUMNSTORE policy already exists on `hypertable`                                                                                                                                                                                                                                                                                                                                                 |
-| `hypercore_use_access_method`         | BOOLEAN | `NULL` | ✖ | Set to `true` to use $HYPERCORE table access method. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`.                                                                                                                                                                                                                                                                                                                         |
-
+| Name                          | Type | Default                                                                                                                      | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|-------------------------------|--|------------------------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `hypertable`                  |REGCLASS| -                                                                                                                            | ✔        | Name of the hypertable or continuous aggregate to run this [job][job] on.                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `after`                       |INTERVAL or INTEGER| -                                                                                                                            | ✖        | Add chunks containing data older than `now - {after}::interval` to the $COLUMNSTORE. <br/> Use an object type that matchs the time column type in `hypertable`: <ul><li><b><code>TIMESTAMP</code>, <code>TIMESTAMPTZ</code>, or <code>DATE</code></b>: use an <code>INTERVAL</code> type.</li><li><b> Integer-based timestamps </b>: set an integer type using the [integer_now_func][set_integer_now_func].</li></ul> `after` is mutually exclusive with `created_before`. |
+| `created_before`              |INTERVAL| NULL                                                                                                                         | ✖        | Add chunks with a creation time of `now() - created_before` to the $COLUMNSTORE. <br/> `created_before` is <ul><li>Not supported for continuous aggregates.</li><li>Mutually exclusive with `after`.</li></ul>                                                                                                                                                                                                                                                             |
+| `schedule_interval`           |INTERVAL| 12 hours when [chunk_time_interval][chunk_time_interval] >= `1 day` for `hypertable`. Otherwise `chunk_time_interval` / `2`. | ✖        | Set the interval between the finish time of the last execution of this policy and the next start.                                                                                                                                                                                                                                                                                                                                                                          |
+| `initial_start`               |TIMESTAMPTZ| The interval from the finish time of the last execution to the [next_start][next-start].                                     | ✖        | Set the time this job is first run. This is also the time that `next_start` is calculated from. |
+| `next_start`                  |TIMESTAMPTZ| -|  ✖       | Set the start time of the next immediate execution. It does not change the computation of the next scheduled time after the next execution.  |
+| `timezone`                    |TEXT| UTC. However, daylight savings time(DST) changes may shift this alignment.                                                   | ✖        | Set to a valid time zone to mitigate DST shifting. If `initial_start` is set, subsequent executions of this policy are aligned on `initial_start`.                                                                                                                                                                                                                                                                                                                         |
+| `if_not_exists`               |BOOLEAN| `false`                                                                                                                      | ✖        | Set to `true` so this job fails with a warning rather than an error if a $COLUMNSTORE policy already exists on `hypertable`                                                                                                                                                                                                                                                                                                                                                |
 
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
 
 
 [compression_alter-table]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/

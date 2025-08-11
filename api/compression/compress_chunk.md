@@ -28,9 +28,19 @@ You can also compress chunks by
 allowing you to target a specific chunk that needs compressing.
 
 <Highlight type="tip">
+
 You can get a list of chunks belonging to a hypertable using the
 [`show_chunks` function](/api/latest/hypertable/show_chunks/).
+
 </Highlight>
+
+## Samples
+
+Compress a single chunk.
+
+``` sql
+SELECT compress_chunk('_timescaledb_internal._hyper_1_2_chunk');
+```
 
 ## Required arguments
 
@@ -43,7 +53,6 @@ You can get a list of chunks belonging to a hypertable using the
 |Name|Type|Description|
 |---|---|---|
 | `if_not_compressed` | BOOLEAN | Disabling this will make the function error out on chunks that are already compressed. Defaults to true.|
-| `hypercore_use_access_method`         | BOOLEAN | `NULL` |✖| Set to `true` to use hypercore table access metod. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`. |
 
 ## Returns
 
@@ -51,13 +60,6 @@ You can get a list of chunks belonging to a hypertable using the
 |---|---|---|
 | `compress_chunk` | REGCLASS | Name of the chunk that was compressed|
 
-## Sample usage
-
-Compress a single chunk.
-
-``` sql
-SELECT compress_chunk('_timescaledb_internal._hyper_1_2_chunk');
-```
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [run-job]: /api/:currentVersion:/jobs-automation/run_job/

@@ -29,6 +29,15 @@ may also change the placement behavior. A hypertable with no attached
 tablespaces has its chunks placed in the database's default
 tablespace.
 
+## Samples
+
+Attach the tablespace `disk1` to the hypertable `conditions`:
+
+```sql
+SELECT attach_tablespace('disk1', 'conditions');
+SELECT attach_tablespace('disk2', 'conditions', if_not_attached => true);
+ ```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -49,15 +58,6 @@ using the `TABLESPACE` option to `CREATE TABLE`, prior to calling
 |Name|Type|Description|
 |---|---|---|
 | `if_not_attached` | BOOLEAN |Set to true to avoid throwing an error if the tablespace is already attached to the table. A notice is issued instead. Defaults to false. |
-
-## Sample usage
-
-Attach the tablespace `disk1` to the hypertable `conditions`:
-
-```sql
-SELECT attach_tablespace('disk1', 'conditions');
-SELECT attach_tablespace('disk2', 'conditions', if_not_attached => true);
- ```
 
 [postgres-createtablespace]: https://www.postgresql.org/docs/current/sql-createtablespace.html
 [postgres-tablespaces]: https://www.postgresql.org/docs/current/manage-ag-tablespaces.html

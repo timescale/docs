@@ -23,6 +23,28 @@ scheduled $JOBs, as well as in `timescaledb_information.job_stats`. The
 `job_stats` view also gives information about when each $JOB was last run and
 other useful statistics for deciding what the new schedule should be.
 
+## Samples
+
+Reschedules $JOB ID `1000` so that it runs every two days:
+
+```sql
+SELECT alter_job(1000, schedule_interval => INTERVAL '2 days');
+```
+
+Disables scheduling of the compression policy on the `conditions` hypertable:
+
+```sql
+SELECT alter_job(job_id, scheduled => false)
+FROM timescaledb_information.jobs
+WHERE proc_name = 'policy_compression' AND hypertable_name = 'conditions'
+```
+
+Reschedules continuous aggregate $JOB ID `1000` so that it next runs at 9:00:00 on 15 March, 2020:
+
+```sql
+SELECT alter_job(1000, next_start => '2020-03-15 09:00:00.0+00');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -38,7 +60,7 @@ other useful statistics for deciding what the new schedule should be.
 |`max_retries`|`INTEGER`| The number of times the job is retried if it fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |`retry_period`|`INTERVAL`| The amount of time the scheduler waits between retries of the job on failure.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |`scheduled`|`BOOLEAN`| Set to `FALSE` to exclude this job from being run as background job.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|`config`|`JSONB`| $JOB_CAP-specific configuration, passed to the function when it runs. This includes: <li><code>verbose_log</code>: boolean, defaults to <code>false</code>. Enable verbose logging output when running the compression policy.</li><li><code>maxchunks_to_compress</code>: integer, defaults to <code>0</code> (no limit). The maximum number of chunks to compress during a policy run.</li><li><code>recompress</code>: boolean, defaults to <code>true</code>. Recompress partially compressed chunks.</li><li><code>compress_after</code>: see <code>[add_compression_policy][add-policy]</code>.</li><li><code>compress_created_before</code>: see <code>[add_compression_policy][add-policy]</code>.</li> <li><code>hypercore_use_access_method</code>: boolean, defaults to <code>false</code>. Use hypercore TAM to compress chunks. <EarlyAccess /> </li> |
+|`config`|`JSONB`| $JOB_CAP-specific configuration, passed to the function when it runs. This includes: <li><code>verbose_log</code>: boolean, defaults to <code>false</code>. Enable verbose logging output when running the compression policy.</li><li><code>maxchunks_to_compress</code>: integer, defaults to <code>0</code> (no limit). The maximum number of chunks to compress during a policy run.</li><li><code>recompress</code>: boolean, defaults to <code>true</code>. Recompress partially compressed chunks.</li><li><code>compress_after</code>: see <code>[add_compression_policy][add-policy]</code>.</li><li><code>compress_created_before</code>: see <code>[add_compression_policy][add-policy]</code>.</li> |
 |`next_start`|`TIMESTAMPTZ`| The next time at which to run the job. The job can be paused by setting this value to `infinity`, and restarted with a value of `now()`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |`if_exists`|`BOOLEAN`| Set to `true`to issue a notice instead of an error if the job does not exist. Defaults to false.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |`check_config`|`REGPROC`| A function that takes a single argument, the `JSONB` `config` structure. The function is expected to raise an error if the configuration is not valid, and return nothing otherwise. Can be used to validate the configuration when updating a job. Only functions, not procedures, are allowed as values for `check_config`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -68,28 +90,6 @@ automatically return to the schedule.
 |`config`|`JSONB`| $JOB_CAPs-specific configuration, passed to the function when it runs                                         |
 |`next_start`|`TIMESTAMPTZ`| The next time to run the $JOB                                                                                  |
 |`check_config`|`TEXT`| The function used to validate updated $JOB configurations                                                      |
-
-## Sample usage
-
-Reschedules $JOB ID `1000` so that it runs every two days:
-
-```sql
-SELECT alter_job(1000, schedule_interval => INTERVAL '2 days');
-```
-
-Disables scheduling of the compression policy on the `conditions` hypertable:
-
-```sql
-SELECT alter_job(job_id, scheduled => false)
-FROM timescaledb_information.jobs
-WHERE proc_name = 'policy_compression' AND hypertable_name = 'conditions'
-```
-
-Reschedules continuous aggregate $JOB ID `1000` so that it next runs at 9:00:00 on 15 March, 2020:
-
-```sql
-SELECT alter_job(1000, next_start => '2020-03-15 09:00:00.0+00');
-```
 
 ## Calculation of next start on failure
 
