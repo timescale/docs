@@ -12,7 +12,7 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from other sources. This includes:
 
-- Connecting directly, so that your data from another source is continuously synced to your $SERVICE_SHORT.
+- Connect directly, so data from another source is continuously synced to your $SERVICE_SHORT.
 - Importing individual files via $CONSOLE_LONG and the command line.
 - Migrating data from other databases.
 - Ingesting metrics from Telegraf.
