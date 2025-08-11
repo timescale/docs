@@ -33,6 +33,20 @@ timescaledb_experimental.alter_policies(
 
 <Experimental />
 
+## Samples
+
+Given a continuous aggregate named `example_continuous_aggregate` with an
+existing columnstore policy, alter the columnstore policy to compress data older
+than 16 days:
+
+```sql
+SELECT timescaledb_experimental.alter_policies(
+    'continuous_agg_max_mat_date',
+    compress_after => '16 days'::interval
+);
+```
+
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -56,16 +70,3 @@ time bucket is based on integers.
 ## Returns
 
 Returns true if successful.
-
-## Sample usage
-
-Given a continuous aggregate named `example_continuous_aggregate` with an
-existing columnstore policy, alter the columnstore policy to compress data older
-than 16 days:
-
-```sql
-SELECT timescaledb_experimental.alter_policies(
-    'continuous_agg_max_mat_date',
-    compress_after => '16 days'::interval
-);
-```

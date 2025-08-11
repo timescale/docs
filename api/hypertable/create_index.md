@@ -43,7 +43,7 @@ chunks have a copy of the index, drop and recreate it.
 
 </Highlight>
 
-## Sample usage
+## Samples
 
 Create an anonymous index:
 

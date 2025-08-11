@@ -26,6 +26,15 @@ already been reordered, re-run [reorder_chunk][reorder_chunk] on them. If you ha
 
 </Highlight>
 
+## Samples
+
+```sql
+SELECT add_reorder_policy('conditions', 'conditions_device_id_time_idx');
+```
+
+Creates a policy to reorder chunks by the existing `(device_id, time)` index every 24 hours.
+This applies to all chunks except the two most recent ones.
+
 ## Required arguments
 
 |Name|Type| Description                                                  |
@@ -48,14 +57,6 @@ already been reordered, re-run [reorder_chunk][reorder_chunk] on them. If you ha
 |-|-|-|
 |`job_id`|INTEGER|TimescaleDB background job ID created to implement this policy|
 
-## Sample usage
-
-```sql
-SELECT add_reorder_policy('conditions', 'conditions_device_id_time_idx');
-```
-
-Creates a policy to reorder chunks by the existing `(device_id, time)` index every 24 hours.
-This applies to all chunks except the two most recent ones. 
 
 [reorder_chunk]: /api/:currentVersion:/hypertable/reorder_chunk
 [alter_job]: /api/:currentVersion:/jobs-automation/alter_job/

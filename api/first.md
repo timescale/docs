@@ -27,14 +27,7 @@ scan through the group. They are primarily used for ordered selection within a
 indexes.
 </Highlight>
 
-### Required arguments
-
-|Name|Type|Description|
-|---|---|---|
-|`value`|TEXT|The value to return|
-|`time`|TIMESTAMP or INTEGER|The timestamp to use for comparison|
-
-### Sample usage
+### Samples
 
 Get the earliest temperature by device_id:
 
@@ -56,3 +49,10 @@ SELECT
 FROM sensors
 GROUP BY interv
 ```
+
+### Required arguments
+
+|Name|Type|Description|
+|---|---|---|
+|`value`|TEXT|The value to return|
+|`time`|TIMESTAMP or INTEGER|The timestamp to use for comparison|

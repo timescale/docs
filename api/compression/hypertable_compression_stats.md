@@ -24,6 +24,35 @@ see the [hypertable section][hypertable-docs].
 For more information about compression, see the
 [compression section][compression-docs].
 
+## Samples
+
+```sql
+SELECT * FROM hypertable_compression_stats('conditions');
+
+-[ RECORD 1 ]------------------+------
+total_chunks                   | 4
+number_compressed_chunks       | 1
+before_compression_table_bytes | 8192
+before_compression_index_bytes | 32768
+before_compression_toast_bytes | 0
+before_compression_total_bytes | 40960
+after_compression_table_bytes  | 8192
+after_compression_index_bytes  | 32768
+after_compression_toast_bytes  | 8192
+after_compression_total_bytes  | 49152
+node_name                      |
+```
+
+Use `pg_size_pretty` get the output in a more human friendly format.
+
+```sql
+SELECT pg_size_pretty(after_compression_total_bytes) as total
+  FROM hypertable_compression_stats('conditions');
+
+-[ RECORD 1 ]--+------
+total | 48 kB
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -52,34 +81,7 @@ Returns show `NULL` if the data is currently uncompressed.
 
 </Highlight>
 
-## Sample usage
 
-```sql
-SELECT * FROM hypertable_compression_stats('conditions');
-
--[ RECORD 1 ]------------------+------
-total_chunks                   | 4
-number_compressed_chunks       | 1
-before_compression_table_bytes | 8192
-before_compression_index_bytes | 32768
-before_compression_toast_bytes | 0
-before_compression_total_bytes | 40960
-after_compression_table_bytes  | 8192
-after_compression_index_bytes  | 32768
-after_compression_toast_bytes  | 8192
-after_compression_total_bytes  | 49152
-node_name                      |
-```
-
-Use `pg_size_pretty` get the output in a more human friendly format.
-
-```sql
-SELECT pg_size_pretty(after_compression_total_bytes) as total
-  FROM hypertable_compression_stats('conditions');
-
--[ RECORD 1 ]--+------
-total | 48 kB
-```
 
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [compression-docs]: /use-timescale/:currentVersion:/compression/
