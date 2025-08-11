@@ -20,7 +20,7 @@ You can use $LIVESYNC to synchronize your existing and new data. Here's what $LI
 * Sync data from an S3 bucket instance to a $SERVICE_LONG:
     - Use glob patterns to identify the objects to sync.
     - Livesync watches an S3 bucket for new files and imports them automatically. It runs on a configurable schedule and tracks processed files.
-    - Important: Livesync processes files in [lexicographical order][lex-order] and uses the last processed file's name as a marker to fetch only newer files in subsequent queries. Files that don't follow lexicographical ordering conventions (e.g., files with names that sort earlier than already-processed files) will be skipped and never synced.
+    - **Important**: Livesync processes files in [lexicographical order][lex-order]. It uses the name of the last file processed as a marker and fetches only files later in the alphabet in subsequent queries. Files added with names earlier in the alphabet than the marker are skipped and never synced. For example, if you add the file Bob when the marker is at Elephant, Bob is never processed. 
     - For large backlogs, $LIVESYNC checks every minute until caught up. 
 
 * Sync data from multiple file formats:
