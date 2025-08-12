@@ -55,21 +55,20 @@ For example:
 
 <Procedure>
 
-1. **Create a relational table**
+1. **Create the $HYPERTABLE with 1 day interval chunk interval**
 
    ```sql
-   create table conditions(
-       time timestamptz not null,
-       device_id integer,
-       temperature float
+   CREATE TABLE conditions(
+      "time"      timestamptz not null,
+      device_id   integer,
+      temperature float
+   )
+   WITH(
+      timescaledb.hypertable,
+      timescaledb.partition_column='time',
+      timescaledb.chunk_interval='1 day'
    );
    ```
-
-1. **Create a $HYPERTABLE with an optimized chunk size**
-
-   ```sql
-   select * from create_hypertable('conditions', by_range('time', '1 day'::interval));
-   ``` 
 
 1. **Add a hash partition on a non-time column**
 
@@ -134,5 +133,4 @@ This section shows you:
 [hypertables-and-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
-
 [troubleshooting]: /use-timescale/:currentVersion:/hypertables/troubleshooting/
