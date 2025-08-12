@@ -12,12 +12,6 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 <Deprecated2180 /> This function has been replaced by [`convert_to_rowstore`](api-convert-to-rowstore).
 
-$TIMESCALE_DB automatically supports `INSERT`s into compressed chunks. But if you
-need to insert a lot of data, for example, as part of a bulk backfilling
-operation, you should first decompress the chunk. Inserting data into a
-compressed chunk is more computationally expensive than inserting data into an
-uncompressed chunk. This adds up over a lot of rows.
-
 <Highlight type="important">
 
 When compressing your data, you can reduce the amount of storage space used. But you should always leave some additional storage
@@ -31,8 +25,10 @@ by time to select the chunks you want to decompress.
 
 ## Decompress chunks manually
 
-Before decompressing chunks, stop any compression policy on the hypertable you are decompressing. When you finish backfilling or updating data, turn the policy back on. The database automatically recompresses your
-chunks in the next scheduled job. For more information on how to stop and run compression policies with the `alter_job()` function, see the [API reference][api-reference-alter-job].
+Before decompressing chunks, stop any compression policy on the hypertable you are decompressing. 
+The database automatically recompresses your chunks in the next scheduled job. 
+If you accumulate a large amount of chunks that need to be compressed, the [troubleshooting guide](throubleshooting-oom-chunks) shows how to compress a backlog of chunks.
+For more information on how to stop and run compression policies using `alter_job()`, see the [API reference][api-reference-alter-job].
 
 There are several methods for selecting chunks and decompressing them.
 
@@ -76,4 +72,5 @@ SELECT tableoid::regclass FROM metrics
 
 [api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
 [api-reference-alter-job]: /api/:currentVersion:/actions/alter_job/
+[throubleshooting-oom-chunks]: /use-timescale/:currentVersion:/hypercore/troubleshooting/#out-of-memory-errors-after-enabling-the-columnstore
 [api-convert-to-rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
