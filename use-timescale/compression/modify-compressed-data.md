@@ -11,10 +11,9 @@ keywords: [compression, backfilling, hypertables, columnstore]
 In $TIMESCALE_DB [v2.11.0](tsdb-release-2-11-0) and later, you can use the `UPDATE` and `DELETE`
 commands to modify existing rows in compressed chunks. This works in a similar
 way to `INSERT` operations. To reduce the amount decompression that is done, $TIMESCALE_DB only attempts to decompress data where it is necessary. 
-the modification commands can end up decompressing a large amount of data. This
-often happens if there are no qualifiers, or if the qualifiers can't be used to
-filter. You can try and avoid this by using columns for `segmentby` and
-decompression and modification operations.
+the modification commands can end up decompressing a large amount of data. 
+However, if there are no qualifiers, or if the qualifiers cannot be used as filters, calls to `UPDATE` and `DELETE` may convert large amounts of data to the rowstore and back to the columnstore.
+To avoid large scale conversion, filter on the columns you use to segementby and orderby. This filters as much data as possible before any data is modified, and reduces the amount of data conversions.
 
 DML operations on the $COLUMNSTORE work if the data you are inserting has 
 unique constraints. Constraints are preserved during the insert operation. 
