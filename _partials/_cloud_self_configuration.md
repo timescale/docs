@@ -1,7 +1,7 @@
 
 import Deprecated2210 from "versionContent/_partials/_deprecated_2_21_0.mdx";
 
-Please refer to the [Grand Unified Configuration (GUC) parameters](gucs) for a complete list.
+Please refer to the [Grand Unified Configuration (GUC) parameters][gucs] for a complete list.
 
 ## Policies
 
