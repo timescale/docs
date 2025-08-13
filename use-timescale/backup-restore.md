@@ -47,14 +47,15 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 1. Click the trash icon next to the existing backup to disable it. 
 
-   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/cross-region-backup-list-tiger-cloud.png)
+   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/cross-region-backup-list-in-tiger-cloud.png)
 
 1. Create a new backup in a different region. 
 
 </Procedure>
 
-
 ## Create a point-in-time recovery fork
+
+<Availability products={['cloud']} />
 
 To recover your $SERVICE_SHORT from a destructive or unwanted action, create a point-in-time recovery fork. You can recover a $SERVICE_SHORT to any point within the period [defined by your pricing plan][pricing-and-account-management]. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time of recovery.
 
@@ -78,12 +79,14 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
     you want to recover has a status of `Running` or `Paused`.
 1.  Navigate to `Operations` > `Backup & restore` and click `Create recovery fork`. 
 1.  Select the recovery point, ensuring the correct time zone (UTC offset).
-1.  Configure the fork. 
+1.  Configure the fork.
 
-    You can add an HA replica, enable cross-region backup, change the compute resources, and
-    add a connection pooler as part of this process. Best practice is to match
+    ![Create recovery fork](https://assets.timescale.com/docs/images/tiger-cloud-console/create-recovery-fork-tiger-cloud.png)
+
+    You can configure the compute resources, add an HA replica, tag your fork, and
+    add a connection pooler. Best practice is to match
     the same configuration you had at the point you want to recover to.
-1.  Confirm by clicking `Fork service`.
+1.  Confirm by clicking `Create recovery fork`.
 
     A fork of the $SERVICE_SHORT is created. The recovered $SERVICE_SHORT shows in `Services` with a label specifying which $SERVICE_SHORT it has been forked from.
 1.  Update the connection strings in your app to use the fork.
@@ -94,7 +97,7 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 
 <Tab title="Cross-region backup">
 
-[Contact us](mailto:support@tigerdata.com) and we will assist in recovering your $SERVICE_SHORT.
+[Contact us](mailto:support@tigerdata.com), and we will assist in recovering your $SERVICE_SHORT.
     
 </Tab>
 
