@@ -34,7 +34,7 @@ To get $TOOLKIT_SHORT, use the high availability image, `timescaledb-ha`:
 docker pull timescale/timescaledb-ha:pg17
 ```
 
-For more information on running $TIMESCALE_DB using Docker, see the section on
+For more information on running $TIMESCALE_DB using Docker, see 
 [pre-built containers][docker-install].
     
 </Tab>
