@@ -26,7 +26,7 @@ If you're hosting the $TIMESCALE_DB extension on your self-hosted database, you 
 
 <Tab title="Docker">
 
-The recommended way to install the $TOOLKIT_SHORT is to use the
+Best practice for $TOOLKIT_SHORT installation is to use the
 [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
 To get $TOOLKIT_SHORT, use the high availability image, `timescaledb-ha`:
 
