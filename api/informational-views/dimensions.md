@@ -31,29 +31,7 @@ If the hypertable uses time data types, the `time_interval` column is defined.
 Alternatively, if the hypertable uses integer data types, the `integer_interval`
 and `integer_now_func` columns are defined.
 
-## Available columns
-
-|Name|Type|Description|
-|-|-|-|
-|`hypertable_schema`|TEXT|Schema name of the hypertable|
-|`hypertable_name`|TEXT|Table name of the hypertable|
-|`dimension_number`|BIGINT|Dimension number of the hypertable, starting from 1|
-|`column_name`|TEXT|Name of the column used to create this dimension|
-|`column_type`|REGTYPE|Type of the column used to create this dimension|
-|`dimension_type`|TEXT|Is this a time based or space based dimension|
-|`time_interval`|INTERVAL|Time interval for primary dimension if the column type is a time datatype|
-|`integer_interval`|BIGINT|Integer interval for primary dimension if the column type is an integer datatype|
-|`integer_now_func`|TEXT|`integer_now`` function for primary dimension if the column type is an integer datatype|
-|`num_partitions`|SMALLINT|Number of partitions for the dimension|
-
-<Highlight type="note">
-
-The `time_interval` and `integer_interval` columns are not applicable for space
-based dimensions.
-
-</Highlight>
-
-## Sample usage
+## Samples
 
 Get information about the dimensions of hypertables.
 
@@ -128,3 +106,27 @@ integer_interval  |
 integer_now_func  |
 num_partitions    |
 ```
+
+
+## Available columns
+
+|Name|Type|Description|
+|-|-|-|
+|`hypertable_schema`|TEXT|Schema name of the hypertable|
+|`hypertable_name`|TEXT|Table name of the hypertable|
+|`dimension_number`|BIGINT|Dimension number of the hypertable, starting from 1|
+|`column_name`|TEXT|Name of the column used to create this dimension|
+|`column_type`|REGTYPE|Type of the column used to create this dimension|
+|`dimension_type`|TEXT|Is this a time based or space based dimension|
+|`time_interval`|INTERVAL|Time interval for primary dimension if the column type is a time datatype|
+|`integer_interval`|BIGINT|Integer interval for primary dimension if the column type is an integer datatype|
+|`integer_now_func`|TEXT|`integer_now`` function for primary dimension if the column type is an integer datatype|
+|`num_partitions`|SMALLINT|Number of partitions for the dimension|
+
+<Highlight type="note">
+
+The `time_interval` and `integer_interval` columns are not applicable for space
+based dimensions.
+
+</Highlight>
+

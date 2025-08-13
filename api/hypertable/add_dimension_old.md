@@ -44,6 +44,40 @@ data nodes (in the case of distributed hypertables) or
 across multiple disks within the same time interval
 (in the case of single-node deployments).
 
+## Samples
+
+First convert table `conditions` to hypertable with just time
+partitioning on column `time`, then add an additional partition key on `location` with four partitions:
+
+```sql
+SELECT create_hypertable('conditions', 'time');
+SELECT add_dimension('conditions', 'location', number_partitions => 4);
+```
+
+Convert table `conditions` to hypertable with time partitioning on `time` and
+space partitioning (2 partitions) on `location`, then add two additional dimensions.
+
+```sql
+SELECT create_hypertable('conditions', 'time', 'location', 2);
+SELECT add_dimension('conditions', 'time_received', chunk_time_interval => INTERVAL '1 day');
+SELECT add_dimension('conditions', 'device_id', number_partitions => 2);
+SELECT add_dimension('conditions', 'device_id', number_partitions => 2, if_not_exists => true);
+```
+
+Now in a multi-node example for distributed hypertables with a cluster
+of one access node and two data nodes, configure the access node for
+access to the two data nodes. Then, convert table `conditions` to
+a distributed hypertable with just time partitioning on column `time`,
+and finally add a space partitioning dimension on `location`
+with two partitions (as the number of the attached data nodes).
+
+```sql
+SELECT add_data_node('dn1', host => 'dn1.example.com');
+SELECT add_data_node('dn2', host => 'dn2.example.com');
+SELECT create_distributed_hypertable('conditions', 'time');
+SELECT add_dimension('conditions', 'location', number_partitions => 2);
+```
+
 ### Parallelizing queries across multiple data nodes
 
 In a distributed hypertable, space partitioning enables inserts to be
@@ -139,39 +173,6 @@ is the number of milliseconds since the UNIX epoch).
 
 </Highlight>
 
-## Sample use
-
-First convert table `conditions` to hypertable with just time
-partitioning on column `time`, then add an additional partition key on `location` with four partitions:
-
-```sql
-SELECT create_hypertable('conditions', 'time');
-SELECT add_dimension('conditions', 'location', number_partitions => 4);
-```
-
-Convert table `conditions` to hypertable with time partitioning on `time` and
-space partitioning (2 partitions) on `location`, then add two additional dimensions.
-
-```sql
-SELECT create_hypertable('conditions', 'time', 'location', 2);
-SELECT add_dimension('conditions', 'time_received', chunk_time_interval => INTERVAL '1 day');
-SELECT add_dimension('conditions', 'device_id', number_partitions => 2);
-SELECT add_dimension('conditions', 'device_id', number_partitions => 2, if_not_exists => true);
-```
-
-Now in a multi-node example for distributed hypertables with a cluster
-of one access node and two data nodes, configure the access node for
-access to the two data nodes. Then, convert table `conditions` to
-a distributed hypertable with just time partitioning on column `time`,
-and finally add a space partitioning dimension on `location`
-with two partitions (as the number of the attached data nodes).
-
-```sql
-SELECT add_data_node('dn1', host => 'dn1.example.com');
-SELECT add_data_node('dn2', host => 'dn2.example.com');
-SELECT create_distributed_hypertable('conditions', 'time');
-SELECT add_dimension('conditions', 'location', number_partitions => 2);
-```
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable_old/
 [distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/

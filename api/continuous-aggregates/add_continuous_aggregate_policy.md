@@ -16,6 +16,19 @@ Create a policy that automatically refreshes a continuous aggregate. To view the
 policies that you set or the policies that already exist, see
 [informational views][informational-views].
 
+## Samples
+
+Add a policy that refreshes the last month once an hour, excluding the latest
+hour from the aggregate. For performance reasons, we recommend that you
+exclude buckets that see lots of writes:
+
+```sql
+SELECT add_continuous_aggregate_policy('conditions_summary',
+  start_offset => INTERVAL '1 month',
+  end_offset => INTERVAL '1 hour',
+  schedule_interval => INTERVAL '1 hour');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -69,18 +82,5 @@ Because each `batch` is an individual transaction, executing a policy in batches
 |Column|Type|Description|
 |-|-|-|
 |`job_id`|INTEGER|TimescaleDB background job ID created to implement this policy|
-
-## Sample use
-
-Add a policy that refreshes the last month once an hour, excluding the latest
-hour from the aggregate. For performance reasons, we recommend that you
-exclude buckets that see lots of writes:
-
-```sql
-SELECT add_continuous_aggregate_policy('conditions_summary',
-  start_offset => INTERVAL '1 month',
-  end_offset => INTERVAL '1 hour',
-  schedule_interval => INTERVAL '1 hour');
-```
 
 [informational-views]: /api/:currentVersion:/informational-views/jobs/

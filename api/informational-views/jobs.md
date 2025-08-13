@@ -14,30 +14,7 @@ products: [cloud, mst, self_hosted]
 
 Shows information about all $JOBs registered with the automation framework.
 
-## Arguments
-
-|Name|Type| Description                                                                                                  |
-|-|-|--------------------------------------------------------------------------------------------------------------|
-|`job_id`|`INTEGER`| The ID of the background $JOB                                                                                |
-|`application_name`|`TEXT`| Name of the policy or $JOB                                                                        |
-|`schedule_interval`|`INTERVAL`| The interval at which the $JOB runs. Defaults to 24 hours                                                    |
-|`max_runtime`|`INTERVAL`| The maximum amount of time the $JOB is allowed to run by the background worker scheduler before it is stopped |
-|`max_retries`|`INTEGER`| The number of times the $JOB is retried if it fails                                                          |
-|`retry_period`|`INTERVAL`| The amount of time the scheduler waits between retries of the $JOB on failure                                |
-|`proc_schema`|`TEXT`| Schema name of the function or procedure executed by the $JOB                                                |
-|`proc_name`|`TEXT`| Name of the function or procedure executed by the $JOB                                                       |
-|`owner`|`TEXT`| Owner of the $JOB                                                                                            |
-|`scheduled`|`BOOLEAN`| Set to `true` to run the $JOB automatically                                                                  |
-|`fixed_schedule`|BOOLEAN| Set to `true` for $JOBs executing at fixed times according to a schedule interval and initial start          |
-|`config`|`JSONB`| Configuration passed to the function specified by `proc_name` at execution time                              |
-|`next_start`|`TIMESTAMP WITH TIME ZONE`| Next start time for the $JOB, if it is scheduled to run automatically                                        |
-|`initial_start`|`TIMESTAMP WITH TIME ZONE`| Time the $JOB is first run and also the time on which execution times are aligned for $JOBs with fixed schedules |
-|`hypertable_schema`|`TEXT`| Schema name of the hypertable. Set to `NULL` for a $JOB                                                      |
-|`hypertable_name`|`TEXT`| Table name of the hypertable. Set to `NULL` for a $JOB                                                       |
-|`check_schema`|`TEXT`| Schema name of the optional configuration validation function, set when the $JOB is created or updated       |
-|`check_name`|`TEXT`| Name of the optional configuration validation function, set when the $JOB is created or updated              |
-
-## Sample use
+## Samples
 
 Shows a $JOB associated with the refresh policy for continuous aggregates:
 
@@ -147,3 +124,28 @@ hypertable_name   |
 check_schema      | NULL
 check_name        | NULL
 ```
+
+## Arguments
+
+|Name|Type| Description                                                                                                  |
+|-|-|--------------------------------------------------------------------------------------------------------------|
+|`job_id`|`INTEGER`| The ID of the background $JOB                                                                                |
+|`application_name`|`TEXT`| Name of the policy or $JOB                                                                        |
+|`schedule_interval`|`INTERVAL`| The interval at which the $JOB runs. Defaults to 24 hours                                                    |
+|`max_runtime`|`INTERVAL`| The maximum amount of time the $JOB is allowed to run by the background worker scheduler before it is stopped |
+|`max_retries`|`INTEGER`| The number of times the $JOB is retried if it fails                                                          |
+|`retry_period`|`INTERVAL`| The amount of time the scheduler waits between retries of the $JOB on failure                                |
+|`proc_schema`|`TEXT`| Schema name of the function or procedure executed by the $JOB                                                |
+|`proc_name`|`TEXT`| Name of the function or procedure executed by the $JOB                                                       |
+|`owner`|`TEXT`| Owner of the $JOB                                                                                            |
+|`scheduled`|`BOOLEAN`| Set to `true` to run the $JOB automatically                                                                  |
+|`fixed_schedule`|BOOLEAN| Set to `true` for $JOBs executing at fixed times according to a schedule interval and initial start          |
+|`config`|`JSONB`| Configuration passed to the function specified by `proc_name` at execution time                              |
+|`next_start`|`TIMESTAMP WITH TIME ZONE`| Next start time for the $JOB, if it is scheduled to run automatically                                        |
+|`initial_start`|`TIMESTAMP WITH TIME ZONE`| Time the $JOB is first run and also the time on which execution times are aligned for $JOBs with fixed schedules |
+|`hypertable_schema`|`TEXT`| Schema name of the hypertable. Set to `NULL` for a $JOB                                                      |
+|`hypertable_name`|`TEXT`| Table name of the hypertable. Set to `NULL` for a $JOB                                                       |
+|`check_schema`|`TEXT`| Schema name of the optional configuration validation function, set when the $JOB is created or updated       |
+|`check_name`|`TEXT`| Name of the optional configuration validation function, set when the $JOB is created or updated              |
+
+
