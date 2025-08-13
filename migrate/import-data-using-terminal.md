@@ -12,9 +12,9 @@ import SetupConnectionString from "versionContent/_partials/_migrate_import_setu
 
 This page shows you how to import data in CSV, MySQL, and Parquet files from a source machine into your $SERVICE_SHORT using the terminal.
 
-<Tabs label="Import data using the terminal">
+<Tabs label="Import data using the terminal" persistKey="file-import">
 
-<Tab title="From CSV">
+<Tab title="From CSV" label="import-csv">
 
 The CSV file format is widely used for data migration. This page shows you how to import data into your $SERVICE_LONG from a CSV file using the terminal.
 
@@ -116,7 +116,7 @@ And that is it, you have imported your data from a CSV file.
     
 </Tab>
 
-<Tab title="From MySQL">
+<Tab title="From MySQL" label="import-mysql">
 
 MySQL is an open-source relational database management system (RDBMS). This page shows you how to import data into your $SERVICE_LONG from a database running on MySQL version 8 or earlier.
 
@@ -175,7 +175,7 @@ And that is it, you have imported your data from MySQL.
     
 </Tab>
 
-<Tab title="From Parquet">
+<Tab title="From Parquet" label="import-parquet">
 
 [Apache Parquet][apache-parquet] is a free and open-source column-oriented data storage format in the
 Apache Hadoop ecosystem. It provides efficient data compression and encoding schemes with

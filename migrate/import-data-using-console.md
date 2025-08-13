@@ -12,9 +12,9 @@ import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 
 You can import data into your $SERVICE_SHORT using $CONSOLE_LONG. This page explains how to import CSV, Parquet, and text files, from your local machine and from an S3 bucket.
 
-<Tabs label="Import files using Tiger Cloud Console">
+<Tabs label="Import files using Tiger Cloud Console" persistKey="console-import">
 
-<Tab title="From a local machine">
+<Tab title="From a local machine" label="local-import">
 
 $CONSOLE_LONG enables you to drag and drop files to upload from your local machine.
 
@@ -24,9 +24,9 @@ $CONSOLE_LONG enables you to drag and drop files to upload from your local machi
 
 <ImportPrerequisitesCloudNoConnection />
 
-<Tabs label="Upload files from a local machine">
+<Tabs label="Upload files from a local machine" persistKey="file-import">
 
-<Tab title="From CSV">
+<Tab title="From CSV" label="import-csv">
 
 To upload a CSV file to your $SERVICE_SHORT:
 
@@ -55,7 +55,7 @@ To upload a CSV file to your $SERVICE_SHORT:
 
 </Tab>
 
-<Tab title="From Parquet">
+<Tab title="From Parquet" label="import-parquet">
 
 To upload a Parquet file to your $SERVICE_SHORT:
 
@@ -82,7 +82,7 @@ To upload a Parquet file to your $SERVICE_SHORT:
 
 </Tab>
 
-<Tab title="From a text file">
+<Tab title="From a text file" label="import-txt">
 
 To upload a TXT or MD file to your $SERVICE_SHORT:
 
@@ -111,7 +111,7 @@ To upload a TXT or MD file to your $SERVICE_SHORT:
     
 </Tab>
 
-<Tab title="From S3">
+<Tab title="From S3" label="s3-import">
 
 $CONSOLE_LONG enables you to upload CSV and Parquet files, including archives compressed using GZIP and ZIP, by connecting to an S3 bucket.
 
@@ -124,11 +124,10 @@ $CONSOLE_LONG enables you to upload CSV and Parquet files, including archives co
    - [IAM Role][credentials-iam].
    - [Public anonymous user][credentials-public].
 
-<Tabs label="Import files from S3">
+<Tabs label="Import files from S3" persistKey="file-import">
 
-<Tab title="Import from CSV">
+<Tab title="From CSV" label="import-csv">
 
-    
 To import a CSV file from an S3 bucket:
 
 <Procedure>
@@ -164,7 +163,7 @@ To import a CSV file from an S3 bucket:
     
 </Tab>
 
-<Tab title="Import from Parquet">
+<Tab title="From Parquet" label="import-parquet">
 
 To import a Parquet file from an S3 bucket:
 
