@@ -35,7 +35,7 @@ docker pull timescale/timescaledb-ha:pg17
 ```
 
 For more information on running $TIMESCALE_DB using Docker, see 
-[pre-built containers][docker-install].
+[Install TimescaleDB from a Docker container][docker-install].
     
 </Tab>
 
