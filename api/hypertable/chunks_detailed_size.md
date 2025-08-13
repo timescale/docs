@@ -24,6 +24,19 @@ node is not included since it doesn't have any local chunk data.
 Additional metadata associated with a chunk can be accessed
 via the `timescaledb_information.chunks` view.
 
+## Samples
+
+```sql
+SELECT * FROM chunks_detailed_size('dist_table')
+  ORDER BY chunk_name, node_name;
+
+     chunk_schema      |      chunk_name       | table_bytes | index_bytes | toast_bytes | total_bytes |       node_name
+-----------------------+-----------------------+-------------+-------------+-------------+-------------+-----------------------
+ _timescaledb_internal | _dist_hyper_1_1_chunk |        8192 |       32768 |           0 |       40960 | data_node_1
+ _timescaledb_internal | _dist_hyper_1_2_chunk |        8192 |       32768 |           0 |       40960 | data_node_2
+ _timescaledb_internal | _dist_hyper_1_3_chunk |        8192 |       32768 |           0 |       40960 | data_node_3
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -43,19 +56,9 @@ via the `timescaledb_information.chunks` view.
 |node_name| TEXT | Node for which size is reported, applicable only to distributed hypertables|
 
 <Highlight type="tip">
+
 If executed on a relation that is not a hypertable, the function
 returns `NULL`.
+
 </Highlight>
 
-## Sample usage
-
-```sql
-SELECT * FROM chunks_detailed_size('dist_table')
-  ORDER BY chunk_name, node_name;
-
-     chunk_schema      |      chunk_name       | table_bytes | index_bytes | toast_bytes | total_bytes |       node_name
------------------------+-----------------------+-------------+-------------+-------------+-------------+-----------------------
- _timescaledb_internal | _dist_hyper_1_1_chunk |        8192 |       32768 |           0 |       40960 | data_node_1
- _timescaledb_internal | _dist_hyper_1_2_chunk |        8192 |       32768 |           0 |       40960 | data_node_2
- _timescaledb_internal | _dist_hyper_1_3_chunk |        8192 |       32768 |           0 |       40960 | data_node_3
-```

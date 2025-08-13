@@ -15,19 +15,27 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 <Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/convert_to_rowstore/">convert_to_rowstore()</a>.
 
-If you need to modify or add a lot of data to a chunk that has already been
-compressed, you should decompress the chunk first. This is especially
-useful for backfilling old data.
-
 <Highlight type="important">
 
 Before decompressing chunks, stop any compression policy on the hypertable you
 are decompressing. You can use `SELECT alter_job(JOB_ID, scheduled => false);`
-to prevent scheduled execution. When you finish backfilling or updating data,
-turn the policy back on. The database automatically recompresses your chunks in
-the next scheduled job.
+to prevent scheduled execution.
 
 </Highlight>
+
+## Samples
+
+Decompress a single chunk:
+
+``` sql
+SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
+```
+
+Decompress all compressed chunks in a hypertable named `metrics`:
+
+```sql
+SELECT decompress_chunk(c, true) FROM show_chunks('metrics') c;
+```
 
 ## Required arguments
 
@@ -47,16 +55,4 @@ the next scheduled job.
 |---|---|---|
 |`decompress_chunk`|`REGCLASS`|Name of the chunk that was decompressed.|
 
-## Sample usage
 
-Decompress a single chunk:
-
-``` sql
-SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
-```
-
-Decompress all compressed chunks in a hypertable named `metrics`:
-
-```sql
-SELECT decompress_chunk(c, true) FROM show_chunks('metrics') c;
-```

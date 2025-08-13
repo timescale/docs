@@ -36,15 +36,7 @@ When you normalize the sales metrics, you get the following result, showing that
 | Mar   | 2847.38           |
 
 
-### Required arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`metric`|`float8`||
-|`reference_date`|`TIMESTAMPTZ`|Timestamp to normalize the metric with|
-|`days`|`float8`|Optional, defaults to 365.25/12 if none provided|
-
-### Sample usage
+### Samples
 
 Get the normalized value for a metric of 1000, and a reference date of January
 1, 2021:
@@ -60,3 +52,13 @@ month_normalize
 ----------------------
 981.8548387096774
 ```
+
+### Required arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`metric`|`float8`||
+|`reference_date`|`TIMESTAMPTZ`|Timestamp to normalize the metric with|
+|`days`|`float8`|Optional, defaults to 365.25/12 if none provided|
+
+

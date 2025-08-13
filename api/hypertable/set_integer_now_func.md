@@ -26,9 +26,26 @@ The function you set as `integer_now_func` has no arguments. It must be either:
   [chunk pruning](https://www.timescale.com/blog/optimizing-queries-timescaledb-hypertables-with-partitions-postgresql-6366873a995d) is executed at runtime. This generates a correct result, but may increase 
   planning time.
 
-
 `set_integer_now_func` does not work on tables where the `time` column type is `TIMESTAMP`, `TIMESTAMPTZ`, or 
 `DATE`.  
+
+## Samples
+
+Set the integer `now` function for a hypertable with a time column in [unix time](https://en.wikipedia.org/wiki/Unix_time).
+
+- `IMMUTABLE`: when you execute the query each time:
+    ```sql
+    CREATE OR REPLACE FUNCTION unix_now_immutable() returns BIGINT LANGUAGE SQL IMMUTABLE as $$  SELECT extract (epoch from now())::BIGINT $$;
+    
+    SELECT set_integer_now_func('hypertable_name', 'unix_now_immutable');
+    ```
+
+- `STABLE`: for prepared statements:
+    ```sql
+    CREATE OR REPLACE FUNCTION unix_now_stable() returns BIGINT LANGUAGE SQL STABLE AS $$ SELECT extract(epoch from now())::BIGINT $$;
+    
+    SELECT set_integer_now_func('hypertable_name', 'unix_now_stable');
+    ```
 
 ## Required arguments
 
@@ -43,22 +60,5 @@ The function you set as `integer_now_func` has no arguments. It must be either:
 |-|-|-|
 |`replace_if_exists`|BOOLEAN| Set to `true` to override `integer_now_func` when you have previously set a custom function. Default is `false`. |
 
-## Sample usage
-
-Set the integer `now` function for a hypertable with a time column in [unix time](https://en.wikipedia.org/wiki/Unix_time).
-
-- `IMMUTABLE`: when you execute the query each time: 
-    ```sql
-    CREATE OR REPLACE FUNCTION unix_now_immutable() returns BIGINT LANGUAGE SQL IMMUTABLE as $$  SELECT extract (epoch from now())::BIGINT $$;
-    
-    SELECT set_integer_now_func('hypertable_name', 'unix_now_immutable');
-    ```
-
-- `STABLE`: for prepared statements:
-    ```sql
-    CREATE OR REPLACE FUNCTION unix_now_stable() returns BIGINT LANGUAGE SQL STABLE AS $$ SELECT extract(epoch from now())::BIGINT $$;
-    
-    SELECT set_integer_now_func('hypertable_name', 'unix_now_stable');
-    ```
 
 [chunks]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

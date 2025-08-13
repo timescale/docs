@@ -25,19 +25,7 @@ timescaledb_experimental.show_policies(
 
 <Experimental />
 
-## Required arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`relation`|`REGCLASS`|The continuous aggregate to display policies for|
-
-## Returns
-
-|Column|Type|Description|
-|-|-|-|
-|`show_policies`|`JSONB`|Details for each policy set on the continuous aggregate|
-
-## Sample usage
+## Samples
 
 Given a continuous aggregate named `example_continuous_aggregate`, show all the
 policies set on it:
@@ -55,3 +43,17 @@ show_policies
 {"policy_name": "policy_refresh_continuous_aggregate", "refresh_interval": "@ 1 hour", "refresh_end_offset": 1, "refresh_start_offset": 10}
 {"drop_after": 20, "policy_name": "policy_retention", "retention_interval": "@ 1 day"}
 ```
+
+## Required arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`relation`|`REGCLASS`|The continuous aggregate to display policies for|
+
+## Returns
+
+|Column|Type|Description|
+|-|-|-|
+|`show_policies`|`JSONB`|Details for each policy set on the continuous aggregate|
+
+

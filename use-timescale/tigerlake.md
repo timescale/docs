@@ -301,6 +301,20 @@ data lake:
    ALTER TABLE my_hypertable SET (tigerlake.iceberg_sync = false);
    ```
 
+- **Update or add the partitioning scheme of an Iceberg table**
+
+   To change the partitioning scheme of an Iceberg table, you specify the desired partitioning scheme using the `tigerlake.iceberg_partitionby` property.
+   For example. if the `samples` table has an hourly (`hour(ts)`) partition on the `ts` timestamp column,  
+   to change to daily partitioning, call the following statement:
+   
+   ```sql
+   ALTER TABLE samples SET (tigerlake.iceberg_partitionby = 'day(ts)');
+   ```
+
+   This statement is also correct for Iceberg tables without a partitioning scheme.
+   When you change the partition, you **do not** have to pause the sync to Iceberg. 
+   Apache Iceberg handles the partitioning operation in function of the internal implementation.
+
 ## Limitations
 
 * Only $PG 17.4 is supported. Services running $PG 17.5 are downgraded to 17.4.
