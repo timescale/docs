@@ -22,9 +22,9 @@ If you're hosting the $TIMESCALE_DB extension on your self-hosted database, you 
     pre-built binaries are available
 *   Building from source. For more information, see the [$TOOLKIT_SHORT developer documentation][toolkit-gh-docs]
 
-<Tabs label="Install TimescaleDB Toolkit">
+<Tabs label="Install TimescaleDB Toolkit" persistKey="os">
 
-<Tab title="Docker">
+<Tab title="Docker" label="docker">
 
 Best practice for $TOOLKIT_SHORT installation is to use the
 [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
@@ -39,7 +39,7 @@ For more information on running $TIMESCALE_DB using Docker, see
     
 </Tab>
 
-<Tab title="Red Hat-based" >
+<Tab title="Red Hat-based" label="redhat">
 
 <Procedure>
 
@@ -69,7 +69,7 @@ For more information on running $TIMESCALE_DB using Docker, see
     
 </Tab>
 
-<Tab title="Debian-based">
+<Tab title="Debian-based" label="ubuntu">
 
 These instructions use the `apt` package manager. They have been tested on Ubuntu 20.04
 and may also work on other Debian-based systems.
@@ -102,7 +102,7 @@ and may also work on other Debian-based systems.
     
 </Tab>
 
-<Tab title="macOS">
+<Tab title="macOS" label="macos">
 
 These instructions use the `brew` package manager. For more information on
 installing or using Homebrew, see [the `brew` homepage][brew-install].
@@ -145,9 +145,9 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
 
 Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENSION`.
 
-<Tabs label="Tabs label for accessibility" >
+<Tabs label="Update TimescaleDB Toolkit" persistKey="os">
 
-<Tab title="Red Hat-based" >
+<Tab title="Red Hat-based" label="redhat">
 
 <Procedure>
 
@@ -181,7 +181,7 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
     
 </Tab>
 
-<Tab title="Debian-based" >
+<Tab title="Debian-based" label="ubuntu">
 
 <Procedure>
 
@@ -215,7 +215,7 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
     
 </Tab>
 
-<Tab title="macOS" >
+<Tab title="macOS" label="macos">
 
 <Procedure>
 
