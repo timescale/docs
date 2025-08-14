@@ -54,4 +54,4 @@ To avoid data loss, $SERVICE_SHORTs are monitored for this kind of scenario.
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [mst-failover]: /mst/:currentVersion:/failover/
 [self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/
-[backup-recovery]: /use-timescale/:currentVersion:/backup-restore/backup-restore-cloud/
+[backup-recovery]: /use-timescale/:currentVersion:/backup-restore/
