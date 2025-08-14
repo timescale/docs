@@ -9,6 +9,15 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## PostgreSQL options and onboarding
+<Label type="date">August 14, 2025</Label>
+
+### Standard PostgreSQL instructions for onboarding
+We have added basic instructions for INSERT, UPDATE, DELETE commands to the Tiger Cloud console.  It's now shown as an option in the Import Data page.
+
+### PostgreSQL-only service type
+In Tiger Cloud, you now have an option to choose PostgreSQL-only in the service creation flow. Just click on "Looking for PostgreSQL" on the Service Type screen.
+
 ## Viewer role GA, EXPLAIN plans, and chunk index sizes in Explorer
 <Label type="date">July 31, 2025</Label>
 
