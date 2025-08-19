@@ -44,8 +44,8 @@
   -e '/GRANT "pg_.*" TO/d' \
   -e '/CREATE ROLE "_aiven";/d' \
   -e '/ALTER ROLE "_aiven"/d' \
-  -e '/GRANT SET ON PARAMETER "pgaudit.log_max_string_length" TO "_tsdbadmin_auditing"/d' \
-  -e '/GRANT SET ON PARAMETER "pgaudit.log_nested_statements" TO "_tsdbadmin_auditing"/d' \
+  -e '/GRANT SET ON PARAMETER "pgaudit\.[^"]+" TO "_tsdbadmin_auditing"/d' \
+  -e '/GRANT SET ON PARAMETER "anon\.[^"]+" TO "tsdbadmin_group"/d' \
    roles.sql
    ```
 
@@ -63,7 +63,7 @@
    --no-privileges \
    --file=dump.sql
    ```
-   
+
    To dramatically reduce the time taken to dump the source database, using multiple connections. For more information,
    see [dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
 
