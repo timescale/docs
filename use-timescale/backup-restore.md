@@ -11,8 +11,9 @@ tags: [recovery, failures]
 $CLOUD_LONG automatically handles backup for your $SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform backups manually. What's more, with [cross-region backup][cross-region], you are protected when an entire AWS region goes down.
 
 $CLOUD_LONG automatically creates one full backup every week, and
-incremental backups every day in the same region as your $SERVICE_SHORT. Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. This means that you always
-have a full backup available for the current and previous week: 
+incremental backups every day in the same region as your $SERVICE_SHORT. To check the list of backups for the previous 14 days, select your $SERVICE_SHORT in the $CONSOLE_LONG, then click `Operations` > `Backup and restore` > `Backup history`. 
+
+Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. This means that you always have a full backup available for the current and previous week: 
 
 ![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
