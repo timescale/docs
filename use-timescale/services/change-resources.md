@@ -26,6 +26,7 @@ the $SERVICE_SHORT restarts. You can change the CPU and memory allocation up or 
 
 ![Change resources](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-update-resources-manually.png)
 
+
 There is momentary downtime while the new compute settings are applied. In most cases, this is 
 less than a minute. However, before making changes to your $SERVICE_SHORT, best practice
 is to enable [HA replication][high-availability] on the $SERVICE_SHORT. When you resize a $SERVICE_SHORT with HA enabled,
