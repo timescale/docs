@@ -9,6 +9,19 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Cross-region backups, PostgreSQL options, and onboarding
+<Label type="date">August 14, 2025</Label>
+
+### Cross-region backups
+
+You can now store backups in a different region than your service, which improves resilience and helps meet enterprise compliance requirements. Cross‑region backups are available on our Enterprise plan for free at launch; usage‑based billing may be introduced later. For full details, please [see the docs](https://docs.tigerdata.com/use-timescale/latest/backup-restore/#enable-cross-region-backup).
+
+### Standard PostgreSQL instructions for onboarding
+We have added basic instructions for INSERT, UPDATE, DELETE commands to the Tiger Cloud console.  It's now shown as an option in the Import Data page.
+
+### PostgreSQL-only service type
+In Tiger Cloud, you now have an option to choose PostgreSQL-only in the service creation flow. Just click on "Looking for PostgreSQL" on the Service Type screen.
+
 ## Viewer role GA, EXPLAIN plans, and chunk index sizes in Explorer
 <Label type="date">July 31, 2025</Label>
 
