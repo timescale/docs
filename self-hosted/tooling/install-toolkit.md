@@ -58,7 +58,7 @@ For more information on running $TIMESCALE_DB using Docker, see
     yum install timescaledb-toolkit-postgresql-17
     ```
 
-1.  Connect to the database where you want to use $TOOLKIT_SHORT.
+1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
 1.  Create the $TOOLKIT_SHORT extension in the database:
 
     ```sql
@@ -91,7 +91,7 @@ and may also work on other Debian-based systems.
     apt install timescaledb-toolkit-postgresql-17
     ```
 
-1.  Connect to the database where you want to use $TOOLKIT_SHORT.
+1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
 1.  Create the $TOOLKIT_SHORT extension in the database:
 
     ```sql
@@ -128,7 +128,7 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
     brew install timescaledb-toolkit
     ```
 
-1.  Connect to the database where you want to use $TOOLKIT_SHORT.
+1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
 1.  Create the $TOOLKIT_SHORT extension in the database:
 
     ```sql
@@ -147,6 +147,12 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 
 <Tabs label="Update TimescaleDB Toolkit" persistKey="os">
 
+<Tab title="Docker" label="docker">
+
+To get the latest version of $TOOLKIT_SHORT, [update][update-docker] the $TIMESCALE_DB HA docker image. 
+
+</Tab>
+
 <Tab title="Red Hat-based" label="redhat">
 
 <Procedure>
@@ -163,7 +169,7 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
     yum install timescaledb-toolkit-postgresql-17
     ```
 
-1.  Connect to the database where you want to use the new version of $TOOLKIT_SHORT.
+1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
 1.  Update the $TOOLKIT_SHORT extension in the database:
 
     ```sql
@@ -197,7 +203,7 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
     apt install timescaledb-toolkit-postgresql-17
     ```
 
-1.  Connect to the database where you want to use the new version of $TOOLKIT_SHORT.
+1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
 1.  Update the $TOOLKIT_SHORT extension in the database:
 
     ```sql
@@ -231,7 +237,7 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
     brew upgrade timescaledb-toolkit
     ```
 
-1.  Connect to the database where you want to use the new version of $TOOLKIT_SHORT.
+1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
 1.  Update the $TOOLKIT_SHORT extension in the database:
 
     ```sql
@@ -258,3 +264,5 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 [mst]: /mst/:currentVersion:/
 [red-hat-install]: /self-hosted/:currentVersion:/install/installation-linux/
 [toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
+[connect]: /integrations/:currentVersion:/find-connection-details/
+[update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
