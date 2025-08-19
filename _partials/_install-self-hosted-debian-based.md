@@ -73,7 +73,7 @@
      sudo timescaledb-tune
      ```   
 
-    By default, this script is included with the `timescaledb-tools` package when you install TimescaleDB. If you have an issue, run `sudo apt install timescaledb-tools`. For more information, see [configuration][config].
+    By default, this script is included with the `timescaledb-tools` package when you install TimescaleDB. Use the prompts to tune your development or production environment. For more information on manual configuration, see [Configuration][config]. If you have an issue, run `sudo apt install timescaledb-tools`.
 
 1.  **Restart $PG**
 
