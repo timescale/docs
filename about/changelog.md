@@ -12,6 +12,18 @@ All the latest features and updates to $CLOUD_LONG.
 ## Cross-region backups, PostgreSQL options, and onboarding
 <Label type="date">August 14, 2025</Label>
 
+### Developer role (GA)
+
+The Developer role is now generally available. It’s a project‑scoped permission set that lets technical users build and operate services, create or modify resources, run queries, and use observability—without admin or billing access. This enforces least‑privilege by default, reducing risk and audit noise while keeping governance with Admins/Owners and billing with Finance. For customers, this means faster delivery (fewer access escalations), protected sensitive settings, and clear boundaries so the right people can ship changes safely while compliance and cost control remain intact.
+
+### 🦋 Transform a table to a hypertable from the Explorer
+
+In the Console you can now easily create hypertables from your normal PostgreSQL tables directly from the Explorer. Clicking on any PostgreSQL table shows an option to open up the hypertable action. Follow the simple steps to set up your partition key and transform the table to a hypertable.
+
+![Transform a table to a hypertable - 1](https://assets.timescale.com/docs/images/table_to_hypertable_1.png)
+
+![Transform a table to a hypertable - 2](https://assets.timescale.com/docs/images/table_to_hypertable_2.png)
+
 ### Cross-region backups
 
 You can now store backups in a different region than your service, which improves resilience and helps meet enterprise compliance requirements. Cross‑region backups are available on our Enterprise plan for free at launch; usage‑based billing may be introduced later. For full details, please [see the docs](https://docs.tigerdata.com/use-timescale/latest/backup-restore/#enable-cross-region-backup).
