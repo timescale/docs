@@ -17,10 +17,10 @@ You use the $S3_CONNECTOR in $CLOUD_LONG to synchronize CSV and Parquet files fr
 
 You can use the $S3_CONNECTOR to synchronize your existing and new data. Here's what the connector can do:
 
-* Sync data from an S3 bucket instance to a $SERVICE_LONG, specifically:
+* Sync data from an S3 bucket instance to a $SERVICE_LONG:
     - Use glob patterns to identify the objects to sync.
-    - Use the objects returned for subsequent queries. This efficient approach means files are synced in [lexicographical order][lex-order].
-    - Watch the S3 bucket for new files and import them automatically. It runs on a configurable schedule and tracks processed files.
+    - Watch an S3 bucket for new files and import them automatically. It runs on a configurable schedule and tracks processed files.
+    - **Important**: The connector processes files in [lexicographical order][lex-order]. It uses the name of the last file processed as a marker and fetches only files later in the alphabet in subsequent queries. Files added with names earlier in the alphabet than the marker are skipped and never synced. For example, if you add the file Bob when the marker is at Elephant, Bob is never processed. 
     - For large backlogs, check every minute until caught up. 
 
 * Sync data from multiple file formats:
@@ -63,6 +63,10 @@ The $S3_CONNECTOR continuously imports data from an Amazon S3 bucket into your d
     - [Public anonymous user][credentials-public].
 
 ## Limitations
+
+- **File naming**:
+  Files must follow lexicographical ordering conventions. Files with names that sort earlier than already-processed files are permanently skipped. Example: if `file_2024_01_15.csv` has been processed, a file named `file_2024_01_10.csv` added later will never be synced. 
+  Recommended naming patterns: timestamps (for example, `YYYY-MM-DD-HHMMSS`), sequential numbers with fixed padding (for example, `file_00001`, `file_00002`).
 
 - **CSV**:
    - Maximum file size: 1 GB 
