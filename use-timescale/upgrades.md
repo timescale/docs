@@ -91,12 +91,12 @@ $TIMESCALE_DB manually:
 </Procedure>
 
 
-Upgrading to a newer version of PostgreSQL allows you to take advantage of new
+Upgrading to a newer version of $PG allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
-version of PostgreSQL that's compatible with the newest version of Timescale,
-allowing you to take advantage of everything Timescale has to offer. For more
-information about feature changes between versions, see the [Timescale release notes][timescale-changelog],
-[Supported systems][supported-systems], and the [PostgreSQL release notes][postgres-relnotes].
+version of $PG that's compatible with the newest version of $TIMESCALE_DB,
+allowing you to take advantage of everything it has to offer. For more
+information about feature changes between versions, see the [$CLOUD_LONG release notes][timescale-changelog],
+[supported systems][supported-systems], and the [$PG release notes][postgres-relnotes].
 
 ## Deprecations
 

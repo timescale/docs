@@ -79,14 +79,7 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 ## Supported platforms
 
-TimescaleDB is supported on the following platforms:
-
-|Debian|Ubuntu|Red Hat Enterprise|Fedora|Rocky Linux|
-|-|-|-|-|-|
-|Debian 10 Buster|Ubuntu 20.04 LTS Focal Fossa|Red Hat Enterprise Linux 7|Fedora 33|Rocky Linux 8|
-|Debian 11 Bullseye|Ubuntu 22.04 LTS Jammy Jellyfish|Red Hat Enterprise Linux 8|Fedora 34|Rocky Linux 9|
-|Debian 12 Bookworm|Ubuntu 23.04 Lunar Lobster|Red Hat Enterprise Linux 9|Fedora 35| |
-||Ubuntu 24.04 LTS Noble Numbat||| |
+See [Supported platforms][supported-platforms-self-hosted].
 
 ## Where to next
 
@@ -94,4 +87,4 @@ TimescaleDB is supported on the following platforms:
 
 
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
-[supported-platforms-self-hosted]: /about/:currentVersion:/supported-platforms/#self-hosted-timescaledb
+[supported-platforms-self-hosted]: /about/:currentVersion:/supported-platforms/#supported-systems

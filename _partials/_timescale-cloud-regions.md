@@ -1,7 +1,8 @@
-Timescale Cloud Services run in the following Amazon Web Services (AWS) regions:
+$SERVICE_LONGs run in the following Amazon Web Services (AWS) regions:
 
 | Region           | Zone          | Location       |
-|------------------|---------------|----------------|
+| ---------------- | ------------- | -------------- |
+| `ap-south-1`     | Asia Pacific  | Mumbai         |
 | `ap-southeast-1` | Asia Pacific  | Singapore      |
 | `ap-southeast-2` | Asia Pacific  | Sydney         |
 | `ap-northeast-1` | Asia Pacific  | Tokyo          |
