@@ -1064,5 +1064,13 @@ module.exports = [
   {
     from: "/api/latest/hypercore/alter_materialized_view/",
     to: "https://docs.tigerdata.com/api/latest/continuous-aggregates/alter_materialized_view/"
-  }
+  },
+   {
+     from: '/use-timescale/latest/backup-restore/point-in-time-recovery/',
+     to: 'https://docs.tigerdata.com/use-timescale/latest/backup-restore/',
+   },
+   {
+     from: '/use-timescale/latest/backup-restore/backup-restore-cloud/',
+     to: 'https://docs.tigerdata.com/use-timescale/latest/backup-restore/',
+   }
 ];
