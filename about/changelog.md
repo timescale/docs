@@ -259,7 +259,7 @@ Highlighted features in TimescaleDB v2.20 include:
 
 ### $PG 13 and 14 deprecated on Tiger Cloud
 
-[TimescaleDB version 2.20][timescale220] is not compatible with $PG versions v14 and below.
+[TimescaleDB version 2.20](https://github.com/timescale/timescaledb/releases/tag/2.20.0) is not compatible with $PG versions v14 and below.
 TimescaleDB 2.19.3 is the last bug-fix release for $PG 14. Future fixes are for
 $PG 15+ only. To continue receiving critical fixes and security patches, and to take
 advantage of the latest TimescaleDB features, you must upgrade to $PG 15 or newer.
