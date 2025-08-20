@@ -5,12 +5,12 @@ module.exports = [
     excerpt: "Import, ingest, migrate data, and connect to Tiger Cloud",
     children: [
       {
-        title: "Connect to Postgres",
+        title: "Connect a Postgres data source",
         href: "livesync-for-postgresql",
         excerpt: "Synchronize updates to a primary Postgres database instance with a Tiger Cloud service in real time",
       },
       {
-        title: "Connect to S3",
+        title: "Connect an S3 data source",
         href: "livesync-for-s3",
         excerpt: "Synchronize data from S3 with a Tiger Cloud service in real time",
       },

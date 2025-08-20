@@ -30,7 +30,7 @@ to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica dat
 
 ## Import individual files
 
-You can [import individual files via $CONSOLE_SHORT][import-console], from your local machine or S3. This includes CSV, Parquet, TXT, and MD files. Alternatively, [import data in the terminal][import-terminal].
+You can [import individual files using $CONSOLE_SHORT][import-console], from your local machine or S3. This includes CSV, Parquet, TXT, and MD files. Alternatively, [import data using the terminal][import-terminal].
 
 ## Migrate your data 
 

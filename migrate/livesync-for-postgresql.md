@@ -1,5 +1,5 @@
 ---
-title: Connect Postgres to stream to Tiger Cloud
+title: Connect a Postgres data source to your service
 excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
@@ -12,7 +12,7 @@ import LivesyncConsole from "versionContent/_partials/_livesync-console.mdx"
 import LivesyncTerminal from "versionContent/_partials/_livesync-terminal.mdx"
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
-# Connect $PG to $CLOUD_LONG
+# Connect a $PG data source to your $SERVICE_SHORT
 
 You use the $PG_CONNECTOR in $CLOUD_LONG to synchronize all data or specific tables from a $PG database instance to your 
 $SERVICE_SHORT, in real time. You run the connector continuously, turning $PG into a primary database with your 
@@ -48,7 +48,7 @@ You use the $PG_CONNECTOR for data synchronization, rather than migration. This 
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
-<EarlyAccessNoRelease />: the source Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
+<EarlyAccessNoRelease />: this source Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
 
 <Tabs label="Postgres source connector" persistKey="source-database">
 
