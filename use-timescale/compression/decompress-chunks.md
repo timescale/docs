@@ -10,7 +10,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Decompression
 
-<Deprecated2180 /> This function has been replaced by [`convert_to_rowstore`](api-convert-to-rowstore).
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/convert_to_rowstore/">`convert_to_rowstore`</a>.
 
 <Highlight type="important">
 
@@ -27,7 +27,7 @@ by time to select the chunks you want to decompress.
 
 Before decompressing chunks, stop any compression policy on the hypertable you are decompressing. 
 The database automatically recompresses your chunks in the next scheduled job. 
-If you accumulate a large amount of chunks that need to be compressed, the [troubleshooting guide](throubleshooting-oom-chunks) shows how to compress a backlog of chunks.
+If you accumulate a large amount of chunks that need to be compressed, the [troubleshooting guide][troubleshooting-oom-chunks] shows how to compress a backlog of chunks.
 For more information on how to stop and run compression policies using `alter_job()`, see the [API reference][api-reference-alter-job].
 
 There are several methods for selecting chunks and decompressing them.
@@ -72,5 +72,6 @@ SELECT tableoid::regclass FROM metrics
 
 [api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
 [api-reference-alter-job]: /api/:currentVersion:/actions/alter_job/
-[throubleshooting-oom-chunks]: /use-timescale/:currentVersion:/hypercore/troubleshooting/#out-of-memory-errors-after-enabling-the-columnstore
+[troubleshooting-oom-chunks]: /use-timescale/:currentVersion:/hypercore/troubleshooting/#out-of-memory-errors-after-enabling-the-columnstore
 [api-convert-to-rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+
