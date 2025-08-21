@@ -19,8 +19,8 @@ You can use $LIVESYNC to synchronize your existing and new data. Here's what $LI
 
 * Sync data from an S3 bucket instance to a $SERVICE_LONG:
     - Use glob patterns to identify the objects to sync.
-    - Livesync uses the objects returned for subsequent queries. This efficient approach means files are synced in [lexicographical order][lex-order].
     - Livesync watches an S3 bucket for new files and imports them automatically. It runs on a configurable schedule and tracks processed files.
+    - **Important**: Livesync processes files in [lexicographical order][lex-order]. It uses the name of the last file processed as a marker and fetches only files later in the alphabet in subsequent queries. Files added with names earlier in the alphabet than the marker are skipped and never synced. For example, if you add the file Bob when the marker is at Elephant, Bob is never processed. 
     - For large backlogs, $LIVESYNC checks every minute until caught up. 
 
 * Sync data from multiple file formats:
@@ -63,6 +63,13 @@ $LIVESYNC_CAP for S3 continuously imports data from an Amazon S3 bucket into you
     - [Public anonymous user][credentials-public].
 
 ## Limitations
+
+- File naming:
+  Files must follow lexicographical ordering conventions. Files with names that sort earlier than already-processed files are permanently skipped.
+
+  Example: If `file_2024_01_15.csv` has been processed, a file named `file_2024_01_10.csv` added later will never be synced.
+
+  Recommended naming patterns: timestamps (e.g., `YYYY-MM-DD-HHMMSS`), sequential numbers with fixed padding (e.g., `file_00001`, `file_00002`).
 
 - **CSV**:
    - Maximum file size: 1 GB 

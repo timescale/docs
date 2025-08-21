@@ -16,13 +16,13 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 
 ## $COMPANY extensions
 
-| Extension                                  | Description                            | Enabled by default                                                            |
-|--------------------------------------------|----------------------------------------|-------------------------------------------------------------------------------|
-| [pgai][pgai]                               | Helper functions for AI workflows      | For $SERVICE_SHORTs with the [AI and Vector capability][services]             |
-| [pgvector][pgvector]                       | Vector similarity search for $PG | For $SERVICE_SHORTs with the [AI and Vector capability][services]             |
-| [pgvectorscale][pgvectorscale]             | Advanced indexing for vector data      | For $SERVICE_SHORTs with the [AI and Vector capability][services]             |
-| [timescaledb_toolkit][timescaledb-toolkit] | TimescaleDB Toolkit                    | For $SERVICE_SHORTs with the [Time series and analytics capability][services] |
-| [timescaledb][timescaledb]                 | TimescaleDB                            | For all $SERVICE_SHORTs                                                       |
+| Extension                                  | Description                        | Enabled by default                                  |
+|--------------------------------------------|------------------------------------|-----------------------------------------------------|
+| [pgai][pgai]                               | Helper functions for AI workflows  | For [AI-focused][services] $SERVICE_SHORTs          |
+| [pgvector][pgvector]                       | Vector similarity search for $PG   | For [AI-focused][services] $SERVICE_SHORTs          |
+| [pgvectorscale][pgvectorscale]             | Advanced indexing for vector data  | For [AI-focused][services] $SERVICE_SHORTs          |
+| [timescaledb_toolkit][timescaledb-toolkit] | TimescaleDB Toolkit                | For [Real-time analytics][services] $SERVICE_SHORTs |
+| [timescaledb][timescaledb]                 | TimescaleDB                        | For all $SERVICE_SHORTs                             |
 
 ## $PG built-in extensions
 
@@ -76,16 +76,17 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 
 | Extension                                        | Description                                                | Enabled by default |
 |--------------------------------------------------|------------------------------------------------------------|--------------------|
-| [h3][h3]                                         | H3 bindings for $PG                                 | -                  |
+| [h3][h3]                                         | H3 bindings for $PG                                        | -                  |
 | [pgaudit][pgaudit]                               | Detailed session and/or object audit logging               | -                  |
 | [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                      | -                  |
+| [pg_repack][pgrepack]                            | Table reorganization in $PG with minimal locks             | -                  | 
 | [pgrouting][pgrouting]                           | Geospatial routing functionality                           | -                  |
 | [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions | -                  |
 | [postgis_raster][postgis-raster]                 | PostGIS raster types and functions                         | -                  |
 | [postgis_sfcgal][postgis-sfcgal]                 | PostGIS SFCGAL functions                                   | -                  |
 | [postgis_tiger_geocoder][postgis-tiger-geocoder] | PostGIS tiger geocoder and reverse geocoder                | -                  |
 | [postgis_topology][postgis-topology]             | PostGIS topology spatial types and functions               | -                  |
-| [unit][unit]                                     | SI units for $PG                                    | -                  |
+| [unit][unit]                                     | SI units for $PG                                           | -                  |
 
 [amcheck]: https://www.postgresql.org/docs/current/amcheck.html
 [autoinc]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-AUTOINC
@@ -118,6 +119,7 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [pgai]: /ai/:currentVersion:/
 [pgaudit]: https://www.pgaudit.org/
 [pgpcre]: https://github.com/petere/pgpcre
+[pgrepack]: https://github.com/reorg/pg_repack
 [pgrouting]: https://pgrouting.org/
 [pgrowlocks]: https://www.postgresql.org/docs/current/pgrowlocks.html
 [pgstattuple]: https://www.postgresql.org/docs/current/pgstattuple.html

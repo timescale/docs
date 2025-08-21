@@ -74,17 +74,17 @@ And that is it! You have $TIMESCALE_DB running on a database on a self-hosted in
 
     *   <Tag type="download">
         
-        [$PG 17: TimescaleDB release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-17-windows-amd64.zip)
+        [$PG 17: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.21.2/timescaledb-postgresql-17-windows-amd64.zip)
   
         </Tag>
     *   <Tag type="download">
         
-        [$PG 16: TimescaleDB release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-16-windows-amd64.zip)
+        [$PG 16: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.21.2/timescaledb-postgresql-16-windows-amd64.zip)
   
         </Tag>
     *   <Tag type="download">
         
-        [$PG 15: TimescaleDB release](https://github.com/timescale/timescaledb/releases/latest/download/timescaledb-postgresql-15-windows-amd64.zip)
+        [$PG 15: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.21.2/timescaledb-postgresql-15-windows-amd64.zip)
   
         </Tag>
 

@@ -639,20 +639,8 @@ module.exports = [
         ],
       },
       {
-        title: "Backup, restore, and PITR",
+        title: "Back up and recover your services",
         href: "backup-restore",
-        children: [
-          {
-            title: "Backup and restore",
-            href: "backup-restore-cloud",
-            excerpt: "Tiger Cloud backup and restore",
-          },
-          {
-            title: "Point-in-time recovery",
-            href: "point-in-time-recovery",
-            excerpt: "PITR on Tiger Cloud services",
-          },
-        ],
       },
       {
         title: "Jobs",
