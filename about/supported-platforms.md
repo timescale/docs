@@ -16,7 +16,7 @@ This page lists the platforms and systems that $COMPANY products have been teste
 following options:
 
 * **$CLOUD_LONG**: all the latest features that just work. A reliable and worry-free $PG cloud for all your workloads. 
-* **$SELF_LONG_CAP**: create your best app from the comfort of your own developer environment. 
+* **Open-source products**: create your best app from the comfort of your own developer environment. 
 
 ## $CLOUD_LONG
 
@@ -38,7 +38,7 @@ See the available [service capabilities][service-types] and [regions][regions].
 
 <Regions />
 
-## Self-hosted TimescaleDB
+## Self-hosted products
 
 <Platforms />
 

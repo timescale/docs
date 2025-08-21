@@ -11,6 +11,7 @@ import SelfHostedDebianBased from "versionContent/_partials/_install-self-hosted
 import SelfHostedRedhatBased from "versionContent/_partials/_install-self-hosted-redhat-based.mdx";
 import SelfHostedArchLinuxBased from "versionContent/_partials/_install-self-hosted-archlinux-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
+import LinuxSupport from "versionContent/_partials/_timescaledb_supported_linux.mdx";
 
 
 # Install $TIMESCALE_DB on Linux
@@ -79,7 +80,9 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 ## Supported platforms
 
-See [Supported platforms][supported-platforms-self-hosted].
+You can deploy $TIMESCALE_DB on the following systems:
+
+<LinuxSupport />
 
 ## Where to next
 

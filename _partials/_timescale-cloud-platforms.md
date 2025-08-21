@@ -1,3 +1,8 @@
+import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
+import LinuxSupport from "versionContent/_partials/_timescaledb_supported_linux.mdx";
+import WindowsSupport from "versionContent/_partials/_timescaledb_supported_windows.mdx";
+import MacosSupport from "versionContent/_partials/_timescaledb_supported_macos.mdx";
+
 You use $COMPANY's open-source products to create your best app from the comfort of your own developer environment. 
 
 See the [available services][available-services] and [supported systems][supported-systems].
@@ -26,20 +31,23 @@ $COMPANY offers the following services for your self-hosted installations:
 
 ### Supported systems
 
-$COMPANY's open-source products run on Postgres v12, v13, v14, v15, v16, and v17. You can deploy them on the 
-following systems:
+$TIMESCALE_DB and $TOOLKIT_LONG run on Postgres v10, v11, v12, v13, v14, v15, v16, and v17. 
 
-|Debian|Ubuntu|Red Hat Enterprise|Fedora| Rocky Linux     |  
-|-|-|-|-|-----------------|
-|Debian 12 Bookworm|Ubuntu 23.04 Lunar Lobster|Red Hat Enterprise Linux 9|Fedora 35| Rocky Linux 9 (x86_64) |
-|Debian 11 Bullseye|Ubuntu 22.04 LTS Jammy Jellyfish|Red Hat Enterprise Linux 8|Fedora 34| Rocky Linux 8   |
-|Debian 10 Buster|Ubuntu 20.04 LTS Focal Fossa|Red Hat Enterprise Linux 7|Fedora 33|  |
+<SupportMatrix />
 
+You can deploy $TIMESCALE_DB and $TOOLKIT_LONG on the following systems:
 
-$TIMESCALE_DB is supported by the community on the following platforms:
+- Linux:
 
-* ArchLinux: check the [available packages][archlinux-packages].
+  <LinuxSupport />
 
-[archlinux-packages]: https://archlinux.org/packages/?sort=&q=timescale&maintainer=&flagged=
+- Windows:
+
+  <WindowsSupport />
+
+- MacOS:
+
+  <MacosSupport />
+
 [available-services]: /about/:currentVersion:/supported-platforms/#available-services
 [supported-systems]: /about/:currentVersion:/supported-platforms/#supported-systems

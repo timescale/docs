@@ -30,6 +30,11 @@ module.exports = [
         excerpt: "Discover the different TimescaleDB editions and licences",
       },
       {
+        title: "Supported platforms",
+        href: "supported-platforms",
+        excerpt: "The platforms and systems supported by TigerData products",
+      },
+      {
         title: "Contribute to TigerData",
         href: "contribute-to-timescale",
         excerpt: "Contribute to the codebase and documentation of TigerData products",
@@ -38,11 +43,6 @@ module.exports = [
         title: "Release notes",
         href: "release-notes",
         excerpt: "Release information for TimescaleDB v2.0.0 - v2.15.1",
-      },
-      {
-        title: "Supported platforms",
-        href: "supported-platforms",
-        excerpt: "The platforms and systems supported by TigerData products",
       },
     ],
   },
