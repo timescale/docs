@@ -18,6 +18,26 @@ instead.
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
+## Samples
+
+Get the size information for a hypertable.
+
+```sql
+-- disttable is a distributed hypertable --
+SELECT * FROM hypertable_detailed_size('disttable') ORDER BY node_name;
+
+ table_bytes | index_bytes | toast_bytes | total_bytes |  node_name
+-------------+-------------+-------------+-------------+-------------
+       16384 |       40960 |           0 |       57344 | data_node_1
+        8192 |       24576 |           0 |       32768 | data_node_2
+           0 |        8192 |           0 |        8192 |
+
+```
+
+The access node is listed without a user-given node name. Normally,
+the access node holds no data, but still maintains, for example, index
+information that occupies a small amount of disk space.
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -38,25 +58,5 @@ see the [hypertable section][hypertable-docs].
 If executed on a relation that is not a hypertable, the function
 returns `NULL`.
 </Highlight>
-
-## Sample usage
-
-Get the size information for a hypertable.
-
-```sql
--- disttable is a distributed hypertable --
-SELECT * FROM hypertable_detailed_size('disttable') ORDER BY node_name;
-
- table_bytes | index_bytes | toast_bytes | total_bytes |  node_name
--------------+-------------+-------------+-------------+-------------
-       16384 |       40960 |           0 |       57344 | data_node_1
-        8192 |       24576 |           0 |       32768 | data_node_2
-           0 |        8192 |           0 |        8192 |
-
-```
-
-The access node is listed without a user-given node name. Normally,
-the access node holds no data, but still maintains, for example, index
-information that occupies a small amount of disk space.
 
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/

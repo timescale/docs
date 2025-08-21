@@ -14,13 +14,7 @@ products: [cloud, mst, self_hosted]
 
 Show the tablespaces attached to a hypertable.
 
-## Required arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `hypertable` | REGCLASS | Hypertable to show attached tablespaces for.|
-
-## Sample usage
+## Samples
 
 ```sql
 SELECT * FROM show_tablespaces('conditions');
@@ -30,3 +24,11 @@ SELECT * FROM show_tablespaces('conditions');
  disk1
  disk2
 ```
+
+## Required arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Hypertable to show attached tablespaces for.|
+
+

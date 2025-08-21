@@ -17,6 +17,38 @@ Get list of chunks associated with a hypertable.
 Function accepts the following required and optional arguments. These arguments
 have the same semantics as the `drop_chunks` [function][drop_chunks].
 
+## Samples
+
+Get list of all chunks associated with a table:
+
+```sql
+SELECT show_chunks('conditions');
+```
+
+Get all chunks from hypertable `conditions` older than 3 months:
+
+```sql
+SELECT show_chunks('conditions', older_than => INTERVAL '3 months');
+```
+
+Get all chunks from hypertable `conditions` created before 3 months:
+
+```sql
+SELECT show_chunks('conditions', created_before => INTERVAL '3 months');
+```
+
+Get all chunks from hypertable `conditions` created in the last 1 month:
+
+```sql
+SELECT show_chunks('conditions', created_after => INTERVAL '1 month');
+```
+
+Get all chunks from hypertable `conditions` before 2017:
+
+```sql
+SELECT show_chunks('conditions', older_than => DATE '2017-01-01');
+```
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -81,36 +113,6 @@ The `created_before`/`created_after` parameters cannot be used together with
 `older_than`/`newer_than`.
 </Highlight>
 
-## Sample usage
 
-Get list of all chunks associated with a table:
-
-```sql
-SELECT show_chunks('conditions');
-```
-
-Get all chunks from hypertable `conditions` older than 3 months:
-
-```sql
-SELECT show_chunks('conditions', older_than => INTERVAL '3 months');
-```
-
-Get all chunks from hypertable `conditions` created before 3 months:
-
-```sql
-SELECT show_chunks('conditions', created_before => INTERVAL '3 months');
-```
-
-Get all chunks from hypertable `conditions` created in the last 1 month:
-
-```sql
-SELECT show_chunks('conditions', created_after => INTERVAL '1 month');
-```
-
-Get all chunks from hypertable `conditions` before 2017:
-
-```sql
-SELECT show_chunks('conditions', older_than => DATE '2017-01-01');
-```
 
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks

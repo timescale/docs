@@ -7,6 +7,7 @@ keywords: [hypertables, create]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 
 # Optimize time-series data in hypertables
 
@@ -46,23 +47,16 @@ CREATE TABLE conditions (
 To convert an existing table with data in it, call `create_hypertable` on that table with
 [`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time.
 
-## Speed up data ingestion:
+## Speed up data ingestion
  
-When you set `timescaledb.enable_direct_compress_copy` your data is compressed when it is ingested into memory
-during `COPY` and `INSERT` calls. This means that WAL records are written for the compressed batches rather 
-than the individual tuples. Also, the [columnstore policy][add_columnstore_policy] you set is less important, 
-`INSERT` already produces compressed chunks. 
-
-```sql
-SET timescaledb.enable_direct_compress_copy;
-```       
+<HypercoreDirectCompress />  
 
 ## Optimize cooling data in the $COLUMNSTORE
 
 As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data
 is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast
 scanning and aggregation, optimizing performance for analytical workloads while also saving significant storage space.
-In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by more than 90%, and organized for efficient,
+In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by up to 98%, and organized for efficient,
 large-scale queries. This columnar format enables fast scanning and aggregation, optimizing performance for analytical
 workloads.
 
