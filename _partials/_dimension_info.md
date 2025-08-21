@@ -91,6 +91,8 @@ If the column to be partitioned is a:
 
 The partition type and default value depending on column type is:
 
+<a name="partition-types"></a>
+
 | Column Type                  | Partition Type   | Default value |
 |------------------------------|------------------|---------------|
 | `TIMESTAMP WITHOUT TIMEZONE` | INTERVAL/INTEGER | 1 week        |
