@@ -1,6 +1,6 @@
 # Glossary
 
-This glossary defines technical terms, concepts, and terminology used in $COMPANY documentation and the time-series database industry. Each entry follows the Google Developer Style Guide format.
+This glossary defines technical terms, concepts, and terminology used in $COMPANY documentation and the time-series database industry.
 
 ## A
 
