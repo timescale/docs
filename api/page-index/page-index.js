@@ -588,6 +588,12 @@ module.exports = [
           "An overview of what different tags represent in the API section of TigerData Documentation.",
       },
       {
+        title: "Tiger Cloud REST API",
+        href: "api-reference",
+        description:
+          "A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.",
+      },
+      {
         title: "Compression (Old API, replaced by Hypercore)",
         href: "compression",
         description:

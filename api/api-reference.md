@@ -1,6 +1,13 @@
-# TigerData Cloud API Reference
+---
+title: Tiger Cloud API reference
+excerpt: A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.
+tags: [REST]
+products: [cloud]
+---
 
-A comprehensive RESTful API for managing TigerData Cloud Platform resources including VPCs, services, and read replicas.
+# Tiger Cloud API reference
+
+A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.
 
 ## Overview
 
