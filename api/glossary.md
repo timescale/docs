@@ -12,15 +12,15 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Adaptive Query Optimization**: dynamic query plan adjustment based on actual execution statistics and data distribution patterns, improving performance over time.
 
-**Add_compression_policy**: a $TIMESCALE_DB API function that creates an automated policy to compress chunks after a specified time interval.
+**Add_compression_policy**: a $TIMESCALE_DB API function that creates an automated policy to compress chunks after a specified time interval. See [add_compression_policy][api-compression-policy-add].
 
-**Add_continuous_aggregate_policy**: a $TIMESCALE_DB API function that creates an automated refresh policy for continuous aggregates.
+**Add_continuous_aggregate_policy**: a $TIMESCALE_DB API function that creates an automated refresh policy for continuous aggregates. See [add_continuous_aggregate_policy][api-continuous-aggregate-policy-add].
 
-**Add_data_node**: a $TIMESCALE_DB API function used in distributed $HYPERTABLE s to add a new data node to the cluster.
+**Add_data_node**: a $TIMESCALE_DB API function used in distributed $HYPERTABLE s to add a new data node to the cluster. See [add_data_node][api-data-node-add].
 
-**Add_dimension**: a $TIMESCALE_DB API function that adds a partitioning dimension to an existing $HYPERTABLE.
+**Add_dimension**: a $TIMESCALE_DB API function that adds a partitioning dimension to an existing $HYPERTABLE. See [add_dimension][api-dimension-add].
 
-**Add_retention_policy**: a $TIMESCALE_DB API function that creates an automated policy to drop old chunks after a specified time interval.
+**Add_retention_policy**: a $TIMESCALE_DB API function that creates an automated policy to drop old chunks after a specified time interval. See [add_retention_policy][api-retention-policy-add].
 
 **Aggregate (Continuous Aggregate)**: a materialized, precomputed summary of query results over time-series data, providing faster access to analytics.
 
@@ -32,17 +32,17 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Apache Airflow**: an open-source platform to develop, schedule, and monitor workflows programmatically.
 
-**Apache Kafka**: a distributed event streaming platform used for building real-time data pipelines and streaming applications.
+**Apache Kafka**: a distributed event streaming platform used for building real-time data pipelines and streaming applications. See [Kafka integration][integrations-kafka].
 
 **Append-Only Storage**: a storage pattern where data is only added, never modified in place, ideal for time-series workloads and audit trails.
 
-**Approx_count_distinct**: a hyperfunction that provides an approximate count of distinct values in a dataset using probabilistic algorithms.
+**Approx_count_distinct**: a hyperfunction that provides an approximate count of distinct values in a dataset using probabilistic algorithms. See [approx_count_distinct][hyperfunctions-approx-count-distinct].
 
 **Archival**: the process of moving old or infrequently accessed data to long-term, cost-effective storage solutions.
 
-**ASAP smooth**: a hyperfunction that provides Automatic Smoothing for Arbitrary-Precision time-series data using statistical smoothing algorithms.
+**ASAP smooth**: a hyperfunction that provides Automatic Smoothing for Arbitrary-Precision time-series data using statistical smoothing algorithms. See [ASAP smooth][hyperfunctions-asap-smooth].
 
-**Attach_chunk**: a $TIMESCALE_DB API function that attaches a standalone table as a chunk to a $HYPERTABLE.
+**Attach_chunk**: a $TIMESCALE_DB API function that attaches a standalone table as a chunk to a $HYPERTABLE. See [attach_chunk][api-chunk-attach].
 
 **Attach_data_node**: a $TIMESCALE_DB API function that attaches an existing data node to a distributed $HYPERTABLE.
 
@@ -92,13 +92,13 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Cache Hit Ratio**: the percentage of data requests served from memory cache rather than disk, indicating query performance efficiency.
 
-**Candlestick_agg**: a hyperfunction that creates OHLC (Open, High, Low, Close) candlestick aggregates commonly used in financial data analysis.
+**Candlestick_agg**: a hyperfunction that creates OHLC (Open, High, Low, Close) candlestick aggregates commonly used in financial data analysis. See [candlestick_agg][hyperfunctions-candlestick-agg].
 
 **Cardinality**: the number of unique values in a dataset or database column.
 
 **Check constraint**: a database constraint that limits the values that can be stored in a column by checking them against a specified condition.
 
-**Chunk**: a horizontal partition of a $HYPERTABLE that contains data for a specific time interval and space partition.
+**Chunk**: a horizontal partition of a $HYPERTABLE that contains data for a specific time interval and space partition. See [chunks][use-hypertables-chunks].
 
 **Chunk interval**: the time period covered by each chunk in a $HYPERTABLE, which affects query performance and storage efficiency.
 
@@ -130,7 +130,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Compact_state_agg**: a hyperfunction that aggregates state data with compression for efficient storage and analysis.
 
-**Compression**: the process of reducing data size by encoding information using fewer bits, improving storage efficiency and query performance.
+**Compression**: the process of reducing data size by encoding information using fewer bits, improving storage efficiency and query performance. See [compression][use-compression].
 
 **Connection Pooling**: a technique for managing multiple database connections efficiently, reducing overhead for high-concurrency environments.
 
@@ -140,7 +140,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Compression ratio**: the ratio between the original data size and the compressed data size, indicating compression effectiveness.
 
-**Compress_chunk**: a $TIMESCALE_DB API function that manually compresses a specific chunk.
+**Compress_chunk**: a $TIMESCALE_DB API function that manually compresses a specific chunk. See [compress_chunk][api-chunk-compress].
 
 **Compress_truncate_behaviour**: a $TIMESCALE_DB configuration parameter that controls how compression handles data truncation.
 
@@ -148,7 +148,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Constraint**: a rule enforced by the database to maintain data integrity and consistency.
 
-**Continuous aggregate**: a materialized view that incrementally updates with new data, providing fast access to pre-computed aggregations.
+**Continuous aggregate**: a materialized view that incrementally updates with new data, providing fast access to pre-computed aggregations. See [continuous aggregates][use-continuous-aggregates].
 
 **Continuous aggregates**: plural form of continuous aggregate.
 
@@ -160,15 +160,15 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Counter aggregation**: a hyperfunction category for aggregating monotonic counter data, handling counter resets and extrapolation.
 
-**Counter_agg**: a hyperfunction that aggregates counter metrics, handling resets and providing rate calculations.
+**Counter_agg**: a hyperfunction that aggregates counter metrics, handling resets and providing rate calculations. See [counter_agg][hyperfunctions-counter-agg].
 
 **Counter_zero_time**: a hyperfunction that finds when a counter value was zero.
 
 **CPU (Central Processing Unit)**: the primary component of a computer that performs most of the processing inside a computer.
 
-**Create_hypertable**: the primary $TIMESCALE_DB API function that converts a regular $PG table into a $HYPERTABLE.
+**Create_hypertable**: the primary $TIMESCALE_DB API function that converts a regular $PG table into a $HYPERTABLE. See [create_hypertable][api-hypertable-create].
 
-**Create_materialized_view**: a $TIMESCALE_DB API function that creates a continuous aggregate as a materialized view.
+**Create_materialized_view**: a $TIMESCALE_DB API function that creates a continuous aggregate as a materialized view. See [create_materialized_view][api-materialized-view-create].
 
 **Cron**: a time-based job scheduler in Unix-like computer operating systems.
 
@@ -186,9 +186,9 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Data Pipeline**: automated workflows for moving, transforming, and loading data between systems, often using tools like Apache Kafka or Apache Airflow.
 
-**Data migration**: the process of moving data from one system, storage type, or format to another.
+**Data migration**: the process of moving data from one system, storage type, or format to another. See [migration guides][migrate].
 
-**Data retention**: the practice of storing data for a specified period before deletion, often governed by compliance requirements or storage optimization.
+**Data retention**: the practice of storing data for a specified period before deletion, often governed by compliance requirements or storage optimization. See [data retention][use-data-retention].
 
 **Data Rollup**: the process of summarizing detailed historical data into higher-level aggregates, balancing storage needs with query efficiency.
 
@@ -210,13 +210,13 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Decompress**: the process of restoring compressed data to its original, uncompressed state.
 
-**Decompress_chunk**: a $TIMESCALE_DB API function that decompresses a previously compressed chunk.
+**Decompress_chunk**: a $TIMESCALE_DB API function that decompresses a previously compressed chunk. See [decompress_chunk][api-chunk-decompress].
 
-**Delete_data_node**: a $TIMESCALE_DB API function that removes a data node from a distributed $HYPERTABLE cluster.
+**Delete_data_node**: a $TIMESCALE_DB API function that removes a data node from a distributed $HYPERTABLE cluster. See [delete_data_node][api-data-node-delete].
 
 **Delta**: the difference between two values, commonly used in counter aggregations to calculate the change over time.
 
-**Detach_chunk**: a $TIMESCALE_DB API function that removes a chunk from a $HYPERTABLE, converting it back to a regular table.
+**Detach_chunk**: a $TIMESCALE_DB API function that removes a chunk from a $HYPERTABLE, converting it back to a regular table. See [detach_chunk][api-chunk-detach].
 
 **Detach_data_node**: a $TIMESCALE_DB API function that detaches a data node from a distributed $HYPERTABLE.
 
@@ -244,9 +244,9 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Downtime**: the period during which a system, service, or application is unavailable or not operational.
 
-**Drop_chunks**: a $TIMESCALE_DB API function that removes chunks from a $HYPERTABLE, typically used for data retention.
+**Drop_chunks**: a $TIMESCALE_DB API function that removes chunks from a $HYPERTABLE, typically used for data retention. See [drop_chunks][api-chunks-drop].
 
-**Drop_materialized_view**: a $TIMESCALE_DB API function that removes a continuous aggregate.
+**Drop_materialized_view**: a $TIMESCALE_DB API function that removes a continuous aggregate. See [drop_materialized_view][api-materialized-view-drop].
 
 **Dual-write and Backfill**: a migration approach where new data is written to both the source and target databases simultaneously, followed by backfilling historical data to ensure completeness.
 
@@ -316,7 +316,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **GP-LTTB**: an advanced downsampling algorithm that extends Largest-Triangle-Three-Buckets with Gaussian Process modeling.
 
-**Grafana**: an open-source analytics and monitoring solution for visualizing time-series data.
+**Grafana**: an open-source analytics and monitoring solution for visualizing time-series data. See [Grafana integration][integrations-grafana].
 
 **GUC (Grand Unified Configuration)**: $PG's configuration parameter system that controls various aspects of database behavior.
 
@@ -352,17 +352,17 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **HTTPS (Hypertext Transfer Protocol Secure)**: an extension of HTTP that uses encryption for secure communication over networks.
 
-**Hypercore**: $TIMESCALE_DB's hybrid storage engine that seamlessly combines row and column storage for optimal performance.
+**Hypercore**: $TIMESCALE_DB's hybrid storage engine that seamlessly combines row and column storage for optimal performance. See [Hypercore][use-hypercore].
 
 **Hypercore Storage Engine**: a hybrid row-columnar storage system within $TIMESCALE_DB, optimizing performance for compressed and analytical workloads.
 
-**Hyperfunctions**: a collection of SQL functions in $TIMESCALE_DB designed for time-series analysis, statistics, and specialized computations.
+**Hyperfunctions**: a collection of SQL functions in $TIMESCALE_DB designed for time-series analysis, statistics, and specialized computations. See [hyperfunctions][use-hyperfunctions].
 
 **HyperLogLog**: a probabilistic data structure used for estimating the cardinality of large datasets with minimal memory usage.
 
 **Hypershift**: a migration tool and strategy for moving data to $TIMESCALE_DB with minimal downtime.
 
-**Hypertable**: $TIMESCALE_DB's core abstraction that automatically partitions time-series data across time and space dimensions for scalability.
+**Hypertable**: $TIMESCALE_DB's core abstraction that automatically partitions time-series data across time and space dimensions for scalability. See [hypertables][use-hypertables].
 
 **Hypertables**: plural form of $HYPERTABLE.
 
@@ -494,7 +494,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **MFA (Multi-Factor Authentication)**: a security method that requires two or more verification factors to grant access.
 
-**Migration**: the process of moving data, applications, or systems from one environment to another.
+**Migration**: the process of moving data, applications, or systems from one environment to another. See [migration guides][migrate].
 
 **Min_n**: a hyperfunction that finds the n smallest values in a dataset.
 
@@ -502,7 +502,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Monitoring**: the continuous observation and measurement of system performance and health.
 
-**Move_chunk**: a $TIMESCALE_DB API function that moves a chunk between data nodes in a distributed setup.
+**Move_chunk**: a $TIMESCALE_DB API function that moves a chunk between data nodes in a distributed setup. See [move_chunk][api-chunk-move].
 
 **Multi-Tenancy**: architecture pattern supporting multiple customers or applications within a single database instance, with proper isolation.
 
@@ -574,11 +574,11 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **pgAdmin**: a popular open-source administration and development platform for $PG.
 
-**pgVector**: a $PG extension that adds vector similarity search capabilities for AI and machine learning applications.
+**pgVector**: a $PG extension that adds vector similarity search capabilities for AI and machine learning applications. See [pgvector][ai-pgvector].
 
-**pgai on $CLOUD**: a cloud solution for building search, RAG, and AI agents with $PG. Enables calling AI embedding and generation models directly from the database using SQL.
+**pgai on Tiger Cloud**: a cloud solution for building search, RAG, and AI agents with $PG. Enables calling AI embedding and generation models directly from the database using SQL. See [pgai][ai-pgai].
 
-**pgvectorscale**: a performance enhancement for pgvector featuring StreamingDiskANN indexing, binary quantization compression, and label-based filtering.
+**pgvectorscale**: a performance enhancement for pgvector featuring StreamingDiskANN indexing, binary quantization compression, and label-based filtering. See [pgvectorscale][ai-pgvectorscale].
 
 **pgvectorizer**: a $TIMESCALE_DB tool for automatically vectorizing and indexing data for similarity search.
 
@@ -600,7 +600,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Primary key**: a database constraint that uniquely identifies each row in a table.
 
-**Prometheus**: an open-source monitoring and alerting toolkit designed for reliability and scalability.
+**Prometheus**: an open-source monitoring and alerting toolkit designed for reliability and scalability. See [Prometheus integration][integrations-prometheus].
 
 **psql**: the interactive terminal-based front-end to $PG that allows users to type queries interactively.
 
@@ -640,9 +640,9 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Real-time aggregates**: continuous aggregates that include both materialized historical data and real-time calculations on recent data.
 
-**Recompress_chunk**: a $TIMESCALE_DB API function that recompresses a chunk with updated compression settings.
+**Recompress_chunk**: a $TIMESCALE_DB API function that recompresses a chunk with updated compression settings. See [recompress_chunk][api-chunk-recompress].
 
-**Refresh_continuous_aggregate**: a $TIMESCALE_DB API function that manually updates a continuous aggregate with new data.
+**Refresh_continuous_aggregate**: a $TIMESCALE_DB API function that manually updates a continuous aggregate with new data. See [refresh_continuous_aggregate][api-continuous-aggregate-refresh].
 
 **Refresh policy**: an automated rule that determines when and how continuous aggregates are updated with new data.
 
@@ -650,11 +650,11 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Remove_columnstore_policy**: a $TIMESCALE_DB API function that removes an automated columnstore conversion policy.
 
-**Remove_compression_policy**: a $TIMESCALE_DB API function that removes an automated compression policy from a $HYPERTABLE.
+**Remove_compression_policy**: a $TIMESCALE_DB API function that removes an automated compression policy from a $HYPERTABLE. See [remove_compression_policy][api-compression-policy-remove].
 
-**Remove_continuous_aggregate_policy**: a $TIMESCALE_DB API function that removes an automated refresh policy from a continuous aggregate.
+**Remove_continuous_aggregate_policy**: a $TIMESCALE_DB API function that removes an automated refresh policy from a continuous aggregate. See [remove_continuous_aggregate_policy][api-continuous-aggregate-policy-remove].
 
-**Remove_retention_policy**: a $TIMESCALE_DB API function that removes an automated data retention policy.
+**Remove_retention_policy**: a $TIMESCALE_DB API function that removes an automated data retention policy. See [remove_retention_policy][api-retention-policy-remove].
 
 **Reorder_chunk**: a $TIMESCALE_DB API function that reorganizes data within a chunk to improve query performance.
 
@@ -720,7 +720,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **SFTP (SSH File Transfer Protocol)**: a secure version of FTP that encrypts both commands and data during transmission.
 
-**Show_chunks**: a $TIMESCALE_DB API function that displays information about chunks in a $HYPERTABLE.
+**Show_chunks**: a $TIMESCALE_DB API function that displays information about chunks in a $HYPERTABLE. See [show_chunks][api-chunks-show].
 
 **Show_tablespaces**: a $TIMESCALE_DB API function that shows tablespace information for ${HYPERTABLE}s.
 
@@ -758,7 +758,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Statistics**: quantitative data and metrics collected about database operations and performance.
 
-**Stats_agg**: a hyperfunction that calculates statistical measures like mean, variance, and correlation.
+**Stats_agg**: a hyperfunction that calculates statistical measures like mean, variance, and correlation. See [stats_agg][hyperfunctions-stats-agg].
 
 **Stderror**: a hyperfunction that calculates the standard error of estimates in statistical aggregations.
 
@@ -812,7 +812,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Time-weighted average**: a statistical calculation that gives more weight to values based on the duration they were held.
 
-**Time_bucket**: the SQL function in $TIMESCALE_DB for grouping data into time-based buckets.
+**Time_bucket**: the SQL function in $TIMESCALE_DB for grouping data into time-based buckets. See [time_bucket][hyperfunctions-time-bucket].
 
 **Time_bucket_ng**: an enhanced version of time_bucket with additional features and optimizations.
 
@@ -923,3 +923,47 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 **Zero downtime**: a system design goal where services remain available during maintenance, upgrades, or migrations without interruption.
 
 **Zero-Downtime Migration**: migration strategies that maintain service availability throughout the transition process, often using techniques like dual-write and gradual cutover.
+
+<!-- Link references -->
+[api-compression-policy-add]: /api/:currentVersion:/compression/add_compression_policy/
+[api-continuous-aggregate-policy-add]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
+[api-data-node-add]: /api/:currentVersion:/distributed-hypertables/add_data_node/
+[api-dimension-add]: /api/:currentVersion:/hypertable/add_dimension/
+[api-retention-policy-add]: /api/:currentVersion:/data-retention/add_retention_policy/
+[api-chunk-attach]: /api/:currentVersion:/hypertable/attach_chunk/
+[api-chunk-compress]: /api/:currentVersion:/compression/compress_chunk/
+[api-hypertable-create]: /api/:currentVersion:/hypertable/create_hypertable/
+[api-materialized-view-create]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/
+[api-chunk-decompress]: /api/:currentVersion:/compression/decompress_chunk/
+[api-data-node-delete]: /api/:currentVersion:/distributed-hypertables/delete_data_node/
+[api-chunk-detach]: /api/:currentVersion:/hypertable/detach_chunk/
+[api-chunks-drop]: /api/:currentVersion:/hypertable/drop_chunks/
+[api-materialized-view-drop]: /api/:currentVersion:/continuous-aggregates/drop_materialized_view/
+[api-chunk-move]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental/
+[api-chunk-recompress]: /api/:currentVersion:/compression/recompress_chunk/
+[api-continuous-aggregate-refresh]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
+[api-compression-policy-remove]: /api/:currentVersion:/compression/remove_compression_policy/
+[api-continuous-aggregate-policy-remove]: /api/:currentVersion:/continuous-aggregates/remove_continuous_aggregate_policy/
+[api-retention-policy-remove]: /api/:currentVersion:/data-retention/remove_retention_policy/
+[api-chunks-show]: /api/:currentVersion:/hypertable/show_chunks/
+[use-hypertables]: /use-timescale/:currentVersion:/hypertables/
+[use-hypertables-chunks]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/
+[use-compression]: /use-timescale/:currentVersion:/compression/
+[use-hypercore]: /use-timescale/:currentVersion:/hypercore/
+[use-continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
+[use-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[use-data-retention]: /use-timescale/:currentVersion:/data-retention/
+[integrations-kafka]: /integrations/:currentVersion:/apache-kafka/
+[integrations-grafana]: /integrations/:currentVersion:/grafana/
+[integrations-prometheus]: /integrations/:currentVersion:/prometheus/
+[migrate]: /migrate/:currentVersion:/
+[ai-pgvector]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/
+[ai-pgai]: https://github.com/timescale/pgai
+[ai-pgvectorscale]: https://github.com/timescale/pgvectorscale
+[hyperfunctions-approx-count-distinct]: /use-timescale/:currentVersion:/hyperfunctions/approx-count-distincts/
+[hyperfunctions-asap-smooth]: /use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation/
+[hyperfunctions-candlestick-agg]: /use-timescale/:currentVersion:/hyperfunctions/stats-aggs/
+[hyperfunctions-counter-agg]: /api/:currentVersion:/hyperfunctions/counters-and-gauges/counter_agg/#counter_agg
+[hyperfunctions-stats-agg]: /use-timescale/:currentVersion:/hyperfunctions/stats-aggs/
+[hyperfunctions-time-bucket]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
+
