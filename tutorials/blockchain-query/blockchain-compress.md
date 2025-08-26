@@ -36,7 +36,17 @@ To compress the data in the `transactions` table, do the following:
    - [Manually convert all chunks][convert_to_columnstore] in the $HYPERTABLE to the $COLUMNSTORE:
 
        ```sql
-       CALL convert_to_columnstore(c) from show_chunks('transactions') c;
+       DO $$
+       DECLARE
+          chunk_name TEXT;
+       BEGIN
+          FOR chunk_name IN (SELECT c FROM show_chunks('transactions') c)
+          LOOP
+             RAISE NOTICE 'Converting chunk: %', chunk_name; -- Optional: To see progress
+             CALL convert_to_columnstore(chunk_name);
+          END LOOP;
+          RAISE NOTICE 'Conversion to columnar storage complete for all chunks.'; -- Optional: Completion message
+       END$$;
        ```
      
 </Procedure>
