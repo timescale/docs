@@ -1,5 +1,5 @@
 ---
-title: "Set up Tiger Cloud REST API and create your first service"
+title: "DevOps with Tiger Cloud REST API"
 excerpt: "Configure secure authentication and create a new database service using the Tiger Cloud REST API"
 keywords:
   - authentication
@@ -15,7 +15,7 @@ tags:
 
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 
-# Get started with Tiger Cloud REST API
+# DevOps with Tiger Cloud REST API
 
 [$CLOUD_LONG REST API][rest-api-reference] is a comprehensive RESTful API you use to manage Tiger Cloud resources including VPCs, services, and read 
 replicas.
@@ -25,8 +25,9 @@ This page shows you how to set up secure authentication for the TigerData Cloud 
 ## Prerequisites
 
 <RESTPrereqs />
-- A Command-line tool for REST calls
-- Network connectivity to Tiger Cloud REST API endpoints
+
+* Install [curl][curl].
+
 
 ## Configure secure authentication
 
@@ -179,3 +180,4 @@ Follow these security guidelines when working with the Tiger Cloud REST API:
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
+[curl]: https://curl.se/
