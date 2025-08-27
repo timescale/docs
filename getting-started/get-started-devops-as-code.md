@@ -13,69 +13,52 @@ tags:
   - authentication
 ---
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 
 # Get started with Tiger Cloud REST API
 
-[Tiger Cloud REST API][rest-api-reference] is a comprehensive RESTful API you use to manage Tiger Cloud resources including VPCs, services, and read 
+[$CLOUD_LONG REST API][rest-api-reference] is a comprehensive RESTful API you use to manage Tiger Cloud resources including VPCs, services, and read 
 replicas.
 
 This page shows you how to set up secure authentication for the TigerData Cloud REST API and create your first service. 
 
 ## Prerequisites
 
-<IntegrationPrereqs />
-
-- An [API access key and secret key][rest-api-credentials]
+<RESTPrereqs />
 - A Command-line tool for REST calls
 - Network connectivity to Tiger Cloud REST API endpoints
 
 ## Configure secure authentication
 
-Tiger Cloud REST API uses HTTP Basic Authentication with access keys and secret keys. All API requests must include
+$CLOUD_LONG REST API uses HTTP Basic Authentication with access keys and secret keys. All API requests must include
 proper authentication headers.
 
 <Procedure> 
 
 1. **Set up API credentials**
 
-   1. Obtain your API credentials from the TigerData Cloud console:
-      - Access key: Your unique API identifier
-      - Secret key: Your private authentication token
-      - Project ID: The identifier for your TigerData project
-
-   2. Store credentials securely using environment variables:
+    1. In $CONSOLE [copy your project ID][get-project-id] and store it securely using an environment variable:
+   
       ```bash
-      export TIGERDATA_ACCESS_KEY="your-access-key"
-      export TIGERDATA_SECRET_KEY="your-secret-key"
       export TIGERDATA_PROJECT_ID="your-project-id"
       ```
 
-   3. Verify credential format:
-      - Access key format: Alphanumeric string (typically 10-20 characters)
-      - Secret key format: Base64-encoded string (typically 40-60 characters)
-      - Project ID format: Alphanumeric string starting with project prefix
+   1. In $CONSOLE [create your client credentials][create-client-credentials] and store them securely using environment variables:
+
+      ```bash
+      export TIGERDATA_ACCESS_KEY="Public key"
+      export TIGERDATA_SECRET_KEY="Secret key"
+      ```
 
 1. **Configure API endpoint**
 
-    Set the appropriate API base URL for your environment:
+    Set the API base URL for your environment:
     
     ```bash
-    # Development environment (recommended for testing)
-    export API_BASE_URL="https://console.dev.timescale.com/public/api/v1"
-    
-    # Production environment
     export API_BASE_URL="https://console.cloud.timescale.com/public/api/v1"
-    
-    # Local development (if running local server)
-    export API_BASE_URL="http://localhost:8080/public/api/v1"
     ```
 
-1. **Test API connection**
-
-    Verify your authentication setup and API connectivity before creating resources.
-
-1. **Perform health check**
+1. **Perform health check and test your connection to $CLOUD_LONG REST API**
 
     Test the API connection using a simple health check request:
 
@@ -118,7 +101,7 @@ Create a new database service using the Tiger Cloud REST API with secure configu
    {
      "name": "my-first-service",
      "service_type": "TIMESCALEDB",
-     "region_code": "google-europe-west1",
+     "region_code": "us-east-1",
      "replica_count": 1,
      "cpu_millis": 1000,
      "memory_gbs": 4
@@ -194,3 +177,5 @@ Follow these security guidelines when working with the Tiger Cloud REST API:
 
 [rest-api-reference]: /api/:currentVersion:/api-reference/
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
+[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
+[create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
