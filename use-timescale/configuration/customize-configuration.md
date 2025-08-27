@@ -42,14 +42,6 @@ To modify a configured value, hover over the value and click the revealed pencil
 icon. This reveals an editable field to apply your change. Clicking anywhere
 outside of that field saves the value to be applied.
 
-<Highlight type="note">
-
-The values for some of the parameters vary depending on your [pricing plan][plan-features]. 
-For example, the value for `max_connections` is 25 in the Performance plan, but
-ranges from 25 to 500 in higher compute plans.
-
-</Highlight>
-
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-change.webp"
