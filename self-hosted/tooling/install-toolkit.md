@@ -23,27 +23,6 @@ If you're using [$CLOUD_LONG][cloud], the $TOOLKIT_LONG is already installed. If
 
 <Tabs label="Install and update TimescaleDB Toolkit" persistKey="os">
 
-<Tab title="Docker" label="docker">
-
-## Install $TOOLKIT_LONG 
-
-Best practice for $TOOLKIT_SHORT installation is to use the
-[TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
-To get $TOOLKIT_SHORT, use the high availability image, `timescaledb-ha`:
-
-```bash
-docker pull timescale/timescaledb-ha:pg17
-```
-
-For more information on running $TIMESCALE_DB using Docker, see 
-[Install TimescaleDB from a Docker container][docker-install].
-
-## Update $TOOLKIT_LONG
-
-To get the latest version of $TOOLKIT_SHORT, [update][update-docker] the $TIMESCALE_DB HA docker image.
-
-</Tab>
-
 <Tab title="Debian" label="debian">
 
 <ToolkitDebianBase />
@@ -65,6 +44,27 @@ To get the latest version of $TOOLKIT_SHORT, [update][update-docker] the $TIMESC
 <Tab title="Fedora" label="fedora">
 
 <ToolkitRedhatBase />
+
+</Tab>
+
+<Tab title="Docker" label="docker">
+
+## Install $TOOLKIT_LONG
+
+Best practice for $TOOLKIT_SHORT installation is to use the
+[TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
+To get $TOOLKIT_SHORT, use the high availability image, `timescaledb-ha`:
+
+```bash
+docker pull timescale/timescaledb-ha:pg17
+```
+
+For more information on running $TIMESCALE_DB using Docker, see
+[Install TimescaleDB from a Docker container][docker-install].
+
+## Update $TOOLKIT_LONG
+
+To get the latest version of $TOOLKIT_SHORT, [update][update-docker] the $TIMESCALE_DB HA docker image.
 
 </Tab>
 
