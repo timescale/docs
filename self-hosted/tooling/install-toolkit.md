@@ -5,6 +5,9 @@ products: [self_hosted]
 keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 ---
 
+import ToolkitDebianBase from "versionContent/_partials/_toolkit-install-update-debian-base.mdx";
+import ToolkitRedhatBase from "versionContent/_partials/_toolkit-install-update-redhat-base.mdx";
+
 # Install and update $TIMESCALE_DB Toolkit
 
 Some hyperfunctions are included by default in $TIMESCALE_DB. For additional
@@ -41,153 +44,27 @@ To get the latest version of $TOOLKIT_SHORT, [update][update-docker] the $TIMESC
 
 </Tab>
 
-<Tab title="Debian, Ubuntu" label="ubuntu">
+<Tab title="Debian" label="debian">
 
-## Prerequisites
-
-To follow this procedure:
-
-- [Install $TIMESCALE_DB][debian-install].
-- Add the $TIMESCALE_DB repository and the GPG key.
-
-## Install $TOOLKIT_LONG
-
-These instructions use the `apt` package manager. 
-
-<Procedure>
-
-1.  Update your local repository list:
-
-    ```bash
-    sudo apt update
-    ```
-
-1.  Install TimescaleDB Toolkit:
-
-    ```bash
-    sudo apt install timescaledb-toolkit-postgresql-17
-    ```
-
-1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
-1.  Create the $TOOLKIT_SHORT extension in the database:
-
-    ```sql
-    CREATE EXTENSION timescaledb_toolkit;
-    ```
-
-</Procedure>
-
-## Update $TOOLKIT_LONG
-
-Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENSION`.
-
-<Procedure>
-
-1.  Update your local repository list:
-
-    ```bash
-    apt update
-    ```
-
-1. Install the latest version of $TOOLKIT_LONG:
-
-    ```bash
-    apt install timescaledb-toolkit-postgresql-17
-    ```
-
-1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
-1.  Update the $TOOLKIT_SHORT extension in the database:
-
-    ```sql
-    ALTER EXTENSION timescaledb_toolkit UPDATE;
-    ```
-
-    <Highlight type="note">
-
-    For some $TOOLKIT_SHORT versions, you might need to disconnect and reconnect active
-    sessions.
-
-    </Highlight>
-
-</Procedure>
+<ToolkitDebianBase />
 
 </Tab>
 
-<Tab title="Red Hat, Fedora" label="redhat">
+<Tab title="Ubuntu" label="ubuntu">
 
-## Prerequisites
+<ToolkitDebianBase />
 
-To follow this procedure:
+</Tab>
 
-- [Install $TIMESCALE_DB][red-hat-install].
-- Create a $TIMESCALE_DB repository in your `yum` `repo.d` directory.
+<Tab title="Red Hat" label="redhat">
 
-## Install $TOOLKIT_LONG
+<ToolkitRedhatBase />
 
-These instructions use the `yum` package manager.
+</Tab>
 
-<Procedure>
+<Tab title="Fedora" label="fedora">
 
-1.  Set up the repository:
-
-    ```bash
-    curl -s https://packagecloud.io/install/repositories/timescale/timescaledb/script.deb.sh | sudo bash
-    ```
-
-1.  Update your local repository list:
-
-    ```bash
-    yum update
-    ```
-
-1.  Install $TOOLKIT_LONG:
-
-    ```bash
-    yum install timescaledb-toolkit-postgresql-17
-    ```
-
-1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
-1.  Create the $TOOLKIT_SHORT extension in the database:
-
-    ```sql
-    CREATE EXTENSION timescaledb_toolkit;
-    ```
-
-</Procedure>
-
-## Update $TOOLKIT_LONG
-
-Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENSION`.
-
-<Procedure>
-
-1.  Update your local repository list:
-
-    ```bash
-    yum update
-    ```
-
-1.  Install the latest version of $TOOLKIT_LONG:
-
-    ```bash
-    yum install timescaledb-toolkit-postgresql-17
-    ```
-
-1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
-1.  Update the $TOOLKIT_SHORT extension in the database:
-
-    ```sql
-    ALTER EXTENSION timescaledb_toolkit UPDATE;
-    ```
-
-    <Highlight type="note">
-
-    For some $TOOLKIT_SHORT versions, you might need to disconnect and reconnect active
-    sessions.
-
-    </Highlight>
-
-</Procedure>
+<ToolkitRedhatBase />
 
 </Tab>
 
