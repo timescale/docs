@@ -18,8 +18,8 @@ All the latest features and updates to $CLOUD_LONG.
 - **Sync metadata**: Connectors now display the following detailed metadata:
     - `Initial data copy`: The number of rows copied at any given point in time.
     - `Change data capture`: The replication lag represented in time and data size.
-- **Improved UX design**: in-progress syncs with separate sections showing the tables and metadata for 
-   `initial data copy` and `change data capture`, plus a dedicated tab where you can more tables to the connector.
+- **Improved UX design**: In-progress syncs with separate sections showing the tables and metadata for 
+   `initial data copy` and `change data capture`, plus a dedicated tab where you can add more tables to the connector.
 
    ![Connectors UX](https://assets.timescale.com/docs/images/tiger-cloud-console/connectors-new-ui.png )
 
