@@ -35,6 +35,8 @@ Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_S
 
    ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
 
+   To create a plain $PG $SERVICE_SHORT, without any additional capabilities, click `Looking for plan PostgreSQL?` in the top right.
+   
 1. Follow the next steps in `Create a service` to configure the region, compute size, environment, availability, connectivity, and $SERVICE_SHORT name. Then click `Create service`.
 
    Your $SERVICE_SHORT is constructed and ready to use in a few seconds. 
