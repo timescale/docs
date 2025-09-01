@@ -178,9 +178,9 @@ instance to a $SERVICE_LONG:
    As you run $LIVESYNC continuously, best practice is to run it as a Docker daemon.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.1.22 run \
+   docker run -d --rm --name livesync timescale/live-sync:v0.1.25 run \
       --publication <publication_name> --subscription <subscription_name> \
-      --source $SOURCE --target $TARGET
+      --source $SOURCE --target $TARGET --table-map <table_map_as_json>
    ```
 
    `--publication`: The name of the publication as you created in the previous step. To use multiple publication repeat the `--publication` flag.
@@ -190,6 +190,19 @@ instance to a $SERVICE_LONG:
    `--source`: The connection string to the source $PG database.
 
    `--target`: The connection string to the target $SERVICE_LONG.
+
+   `--table-map`: (Optional) A JSON string that maps source tables to target tables. If not provided, the source and target table names are assumed to be the same.
+   For example, to map the source table `metrics` to the target table `metrics_data`:
+
+   ```
+   --table-map '{"source": {"schema": "public", "table": "metrics"}, "target": {"schema": "public", "table": "metrics_data"}}'
+   ```
+   To map only the schema, use:
+
+   ```
+   --table-map '{"source": {"schema": "public"}, "target": {"schema": "analytics"}}'
+   ```
+   This flag can be repeated for multiple table mappings.
 
 1. **Capture Logs**
 
@@ -315,7 +328,7 @@ EOF
    Use the `--drop` flag to remove the replication slots created by $LIVESYNC on the source database.
 
    ```shell
-   docker run -it --rm --name livesync timescale/live-sync:v0.1.22 run \
+   docker run -it --rm --name livesync timescale/live-sync:v0.1.25 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET \
       --drop
