@@ -850,6 +850,10 @@ module.exports = [
     to: "https://docs.tigerdata.com/self-hosted/latest/install/"
   },
   {
+    from: "/latest/using-timescaledb/backup",
+    to: "https://docs.tigerdata.com/self-hosted/latest/backup-and-restore/"
+  },
+  {
     from: "/v0.9/faq",
     to: "https://docs.tigerdata.com/about/latest/"
   },
@@ -884,6 +888,10 @@ module.exports = [
   {
     from: "/latest/api#add_dimension",
     to: "https://docs.tigerdata.com/api/latest/hypertable/add_dimension/"
+  },
+  {
+    from: "/latest/api#backup",
+    to: "https://docs.tigerdata.com/self-hosted/latest/backup-and-restore/"
   },
   {
     from: "/timescaledb/latest/tutorials/grafana/grafana-variables/",
