@@ -108,6 +108,20 @@ Description | Enables scalable inserts and complex queries for time-series data
 defaultdb=>
 ```
 
+## Install and update TimescaleDB Toolkit
+
+Run this command on each database you want to use the $TOOLKIT_SHORT with:
+
+```sql
+CREATE EXTENSION timescaledb_toolkit;
+```
+
+Update an installed version of the $TOOLKIT_SHORT using this command:
+
+```sql
+ALTER EXTENSION timescaledb_toolkit UPDATE;
+```
+
 ## Where to next
 
 Now that you have your first service up and running, you can check out the
