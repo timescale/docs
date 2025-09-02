@@ -10,7 +10,7 @@ products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2200 from "versionContent/_partials/_deprecated_2_20_0.mdx";
-import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
+import DimensionInfo from "versionContent/_partials/_dimension_infos.mdx";
 
 # create_hypertable()
 
