@@ -89,7 +89,7 @@ If the column to be partitioned is a:
 - Another integer type: specify `partition_interval` as an integer that reflects the column's
   underlying semantics. For example, if this column is in UNIX time, specify `partition_interval` in milliseconds.
 
-The partition type and default value depending on column type is:<a id="partition-types" href=""></a>
+The partition type and default value depending on column type iss:<a id="partition-types" href=""></a>
 
 | Column Type                  | Partition Type   | Default value |
 |------------------------------|------------------|---------------|
