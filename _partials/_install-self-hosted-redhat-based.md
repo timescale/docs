@@ -2,7 +2,7 @@
 
 1. **Install the latest $PG packages**
 
-    <Terminal>
+    <Terminal persistKey="os-redhat">
 
     <tab label='Red Hat'>
 
@@ -23,7 +23,7 @@
 
 1.  **Add the $TIMESCALE_DB repository**
 
-    <Terminal>
+    <Terminal persistKey="os-redhat">
 
     <tab label='Red Hat'>
 
