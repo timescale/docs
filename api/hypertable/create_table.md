@@ -10,7 +10,7 @@ products: [cloud, mst, self_hosted]
 ---
 
 import Since2200 from "versionContent/_partials/_since_2_20_0.mdx";
-import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
+import DimensionInfo from "versionContent/_partials/_dimensions_info.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 
 # CREATE TABLE
