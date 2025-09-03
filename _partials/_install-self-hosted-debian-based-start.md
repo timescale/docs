@@ -11,12 +11,5 @@
     sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
 
-    If you want to do some development on $PG, add the libraries:
-    ```
-    sudo apt install postgresql-server-dev-17
-    ```
-
-
-
 [config]: /self-hosted/:currentVersion:/configuration/
 [releases-page]: https://packagecloud.io/timescale/timescaledb
