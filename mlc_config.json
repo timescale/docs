@@ -91,6 +91,9 @@
     },
     {
       "pattern": "^https://www.nagios.com/solutions/postgresql-monitoring/"
+    },
+    {
+      "pattern": "^https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html"
     }
   ]
 }

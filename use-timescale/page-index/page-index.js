@@ -757,11 +757,6 @@ module.exports = [
             href: "modify-a-schema",
             excerpt: "Change the data schema in compressed chunks",
           },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
-          },
         ],
       },
     ],

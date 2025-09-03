@@ -10,7 +10,7 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
-import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
+import DimensionInfo from "versionContent/_partials/_dimensions_info.mdx";
 
 # add_dimension()
 

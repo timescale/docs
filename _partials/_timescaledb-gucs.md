@@ -1,7 +1,10 @@
 | Name | Type | Default | Description |
 | -- | -- | -- | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `GUC_CAGG_HIGH_WORK_MEM_NAME` | `INTEGER` | `GUC_CAGG_HIGH_WORK_MEM_VALUE` | The high working memory limit for the continuous aggregate invalidation processing.<br />min: `64`, max: `MAX_KILOBYTES` |
+| `GUC_CAGG_LOW_WORK_MEM_NAME` | `INTEGER` | `GUC_CAGG_LOW_WORK_MEM_VALUE` | The low working memory limit for the continuous aggregate invalidation processing.<br />min: `64`, max: `MAX_KILOBYTES` |
 | `auto_sparse_indexes` | `BOOLEAN` | `true` | The hypertable columns that are used as index keys will have suitable sparse indexes when compressed. Must be set at the moment of chunk compression, e.g. when the `compress_chunk()` is called. |
 | `bgw_log_level` | `ENUM` | `WARNING` | Log level for the scheduler and workers of the background worker subsystem. Requires configuration reload to change. |
+| `cagg_processing_wal_batch_size` | `INTEGER` | `10000` | Number of entries processed from the WAL at a go. Larger values take more memory but might be more efficient.<br />min: `1000`, max: `10000000` |
 | `compress_truncate_behaviour` | `ENUM` | `COMPRESS_TRUNCATE_ONLY` | Defines how truncate behaves at the end of compression. 'truncate_only' forces truncation. 'truncate_disabled' deletes rows instead of truncate. 'truncate_or_delete' allows falling back to deletion. |
 | `compression_batch_size_limit` | `INTEGER` | `1000` | Setting this option to a number between 1 and 999 will force compression to limit the size of compressed batches to that amount of uncompressed tuples.Setting this to 0 defaults to the max batch size of 1000.<br />min: `1`, max: `1000` |
 | `compression_orderby_default_function` | `STRING` | `"_timescaledb_functions.get_orderby_defaults"` | Function to use for calculating default order_by setting for compression |
@@ -11,11 +14,11 @@
 | `debug_bgw_scheduler_exit_status` | `INTEGER` | `0` |  this is for debugging purposes<br />min: `0`, max: `255` |
 | `debug_compression_path_info` | `BOOLEAN` | `false` |  this is for debugging/information purposes |
 | `debug_have_int128` | `BOOLEAN` | `#ifdef HAVE_INT128 true` |  this is for debugging purposes |
-| `debug_require_batch_sorted_merge` | `BOOLEAN` | `false` |  this is for debugging purposes |
+| `debug_require_batch_sorted_merge` | `ENUM` | `DRO_Allow` |  this is for debugging purposes |
 | `debug_require_vector_agg` | `ENUM` | `DRO_Allow` |  this is for debugging purposes |
 | `debug_require_vector_qual` | `ENUM` | `DRO_Allow` | this is for debugging purposes, to let us check if the vectorized quals are used or not. EXPLAIN differs after PG15 for custom nodes, and using the test templates is a pain |
+| `debug_skip_scan_info` | `BOOLEAN` | `false` | Print debug info about SkipScan distinct columns |
 | `debug_toast_tuple_target` | `INTEGER` | `/* bootValue = */ 128` |  this is for debugging purposes<br />min: `/* minValue = */ 1`, max: `/* maxValue = */ 65535` |
-| `default_hypercore_use_access_method` | `BOOLEAN` | `false` | gettext_noop(Sets the global default for using Hypercore TAM when compressing chunks.) |
 | `enable_bool_compression` | `BOOLEAN` | `true` | Enable bool compression |
 | `enable_bulk_decompression` | `BOOLEAN` | `true` | Increases throughput of decompression, but might increase query memory usage |
 | `enable_cagg_reorder_groupby` | `BOOLEAN` | `true` | Enable group by clause reordering for continuous aggregates |
@@ -46,9 +49,9 @@
 | `enable_event_triggers` | `BOOLEAN` | `false` | Enable event triggers for chunks creation |
 | `enable_exclusive_locking_recompression` | `BOOLEAN` | `false` | Enable getting exclusive lock on chunk during segmentwise recompression |
 | `enable_foreign_key_propagation` | `BOOLEAN` | `true` | Adjust foreign key lookup queries to target whole hypertable |
-| `enable_hypercore_scankey_pushdown` | `BOOLEAN` | `true` | Enabling this setting might lead to faster scans when query qualifiers match Hypercore segmentby and orderby columns. |
 | `enable_job_execution_logging` | `BOOLEAN` | `false` | Retain job run status in logging table |
 | `enable_merge_on_cagg_refresh` | `BOOLEAN` | `false` | Enable MERGE statement on cagg refresh |
+| `enable_multikey_skipscan` | `BOOLEAN` | `true` | Enable SkipScan for multiple distinct inputs |
 | `enable_now_constify` | `BOOLEAN` | `true` | Enable constifying now() in query constraints |
 | `enable_null_compression` | `BOOLEAN` | `true` | Enable null compression |
 | `enable_optimizations` | `BOOLEAN` | `true` | Enable TimescaleDB query optimizations |
@@ -62,12 +65,10 @@
 | `enable_skipscan_for_distinct_aggregates` | `BOOLEAN` | `true` | Enable SkipScan for DISTINCT aggregates |
 | `enable_sparse_index_bloom` | `BOOLEAN` | `true` | This sparse index speeds up the equality queries on compressed columns, and can be disabled when not desired. |
 | `enable_tiered_reads` | `BOOLEAN` | `true` | Enable reading of tiered data by including a foreign table representing the data in the object storage into the query plan |
-| `enable_transparent_decompression` | `ENUM` | `1` | Enable transparent decompression when querying hypertable |
+| `enable_transparent_decompression` | `BOOLEAN` | `true` | Enable transparent decompression when querying hypertable |
 | `enable_tss_callbacks` | `BOOLEAN` | `true` | Enable ts_stat_statements callbacks |
+| `enable_uuid_compression` | `BOOLEAN` | `false` | Enable uuid compression |
 | `enable_vectorized_aggregation` | `BOOLEAN` | `true` | Enable vectorized aggregation for compressed data |
-| `hypercore_arrow_cache_max_entries` | `INTEGER` | `25000` | The max number of decompressed arrow segments that can be cached before entries are evicted. This mainly affects the performance of index scans on the Hypercore TAM when segments are accessed in non-sequential order.<br />min: `1`, max: `INT_MAX` |
-| `hypercore_copy_to_behavior` | `ENUM` | `HYPERCORE_COPY_NO_COMPRESSED_DATA` | Set to 'all_data' to return both compressed and uncompressed data via the Hypercore table when using COPY TO. Set to 'no_compressed_data' to skip compressed data. |
-| `hypercore_indexam_whitelist` | `STRING` | `"btree,hash"` | gettext_noop(List of index access method names supported by hypercore.) |
 | `last_tuned` | `STRING` | `NULL` |  records last time timescaledb-tune ran |
 | `last_tuned_version` | `STRING` | `NULL` |  version of timescaledb-tune used to tune |
 | `license` | `STRING` | `TS_LICENSE_DEFAULT` |  Determines which features are enabled |
@@ -80,4 +81,4 @@
 | `skip_scan_run_cost_multiplier` | `REAL` | `1.0` | Default is 1.0 i.e. regularly estimated SkipScan run cost, 0.0 will make SkipScan to have run cost = 0<br />min: `0.0`, max: `1.0` |
 | `telemetry_level` | `ENUM` | `TELEMETRY_DEFAULT` | Level used to determine which telemetry to send |
 
-Version: [2.21.0](https://github.com/timescale/timescaledb/releases/tag/2.21.0)
+Version: [2.22.0](https://github.com/timescale/timescaledb/releases/tag/2.22.0)
