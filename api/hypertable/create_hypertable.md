@@ -9,8 +9,8 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
+import DimensionInfo from "versionContent/_partials/_dimensions_info.mdx";
 import Deprecated2200 from "versionContent/_partials/_deprecated_2_20_0.mdx";
-import DimensionInfo from "versionContent/_partials/_dimension_info.mdx";
 
 # create_hypertable()
 
