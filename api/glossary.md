@@ -1,6 +1,6 @@
 # Glossary
 
-This glossary defines technical terms, concepts, and terminology used in $COMPANY documentation and the time-series database industry.
+This glossary defines technical terms, concepts, and terminology used in $COMPANY documentation, database industry, and real-time analytics.
 
 ## A
 
