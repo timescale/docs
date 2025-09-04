@@ -227,7 +227,9 @@ statement:
 ```sql
 ALTER TABLE <table_name> SET (
   tigerlake.iceberg_sync = true | false,
-  tigerlake.iceberg_partitionby = '<partition_specification>'
+  tigerlake.iceberg_partitionby = '<partition_specification>',
+  tigerlake.iceberg_namespace = '<namespace>',
+  tigerlake.iceberg_table = '<table>'
 )
 ```
 
@@ -236,6 +238,8 @@ ALTER TABLE <table_name> SET (
 * `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the 
    Iceberg table is partitioned as `day(<time-column of $HYPERTABLE>)`. This default behavior is only applicable  
    to $HYPERTABLEs. For more information, see [partitioning][partitioning].
+* `tigerlake.iceberg_namespace`: optional property to set a namespace, the default is `timescaledb`.
+* `tigerlake.iceberg_table`: optional property to specify a different table name. If no name is specified the $PG table name is used.
 
 ### Partitioning intervals
 
@@ -317,16 +321,14 @@ data lake:
 
 ## Limitations
 
-* Only $PG 17.4 is supported. Services running $PG 17.5 are downgraded to 17.4.
+* Only $PG 17.6 and above is supported.
 * Consistent ingestion rates of over 50000 records / second can lead to a lost replication slot.
 * [Amazon S3 Tables Iceberg REST][aws-s3-tables] catalog only is supported.
 * In order to collect deletes made to data in the columstore, certain columnstore optimizations are disabled for $HYPERTABLEs.
 * The `TRUNCATE` statement is not supported, and does not truncate data in the corresponding Iceberg table.
 * Data in a $HYPERTABLE that has been moved to the [low-cost object storage tier][data-tiering] is not synced.
-* Renaming a table in $PG stops the sync to Iceberg and causes unexpected behavior.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
-* The Iceberg namespace is hard coded to `timescaledb`, a custom namespace value is work in progress.
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
