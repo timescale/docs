@@ -21,8 +21,7 @@ $CLOUD_LONG has the following upgrade policies:
 * **Minor software upgrades**: handled automatically, you do not need to do anything. 
 
   Upgrades are performed on your $SERVICE_LONG during a maintenance window that you 
-  [define to suit your workload][define-maintenence-window]. You can also 
-  [manually upgrade $TIMESCALE_DB][minor-manual-upgrade].
+  [define to suit your workload][define-maintenance-window]. You can also [manually upgrade $TIMESCALE_DB][minor-manual-upgrade].
 * **Critical security upgrades**: installed outside normal maintenance windows when necessary, and sometimes require 
   a short outage. 
 
@@ -40,7 +39,7 @@ After a maintenance upgrade, the DNS name remains the same. However, the IP addr
 ## Minor software upgrades
 
 If you do not [manually upgrade $TIMESCALE_DB][minor-manual-upgrade] for non-critical upgrades,
-$CLOUD_LONG performs upgrades automatically in the next available maintenance window. 
+$CLOUD_LONG performs upgrades automatically in the next available maintenance window. The upgrade is first applied to your $SERVICE_SHORTs tagged `#dev`, and three weeks later to those tagged `#prod`. [Subscribe][subscribe] to get an email notification before your `#prod` $SERVICE_SHORTs are upgraded. You can upgrade your `#prod` $SERVICE_SHORTs manually sooner, if needed. 
 
 Most upgrades that occur during your maintenance windows do not require any downtime. This means that there is no 
 $SERVICE_SHORT outage during the upgrade. However, all connections and transactions in progress during the upgrade are 
@@ -48,7 +47,7 @@ reset. Usually, the $SERVICE_SHORT connection is automatically restored after th
 
 Some minor upgrades do require some downtime. This is usually between 30 seconds and 5 minutes. If downtime is required 
 for an upgrade, $COMPANY endeavors to notify you by email ahead of the upgrade. However, in some cases, we might not be 
-able to do so. Best practice is to [schedule your maintenance window][define-maintenence-window] so that any downtime 
+able to do so. Best practice is to [schedule your maintenance window][define-maintenance-window] so that any downtime 
 disrupts your workloads as little as possible and [minimize downtime with replicas][minimize-downtime]. If there are no 
 pending upgrades available during a regular maintenance window, no changes are performed.
 
@@ -222,9 +221,10 @@ To change your maintenance window:
 [timescale-relnotes]: https://github.com/timescale/timescaledb/releases
 [deprecation-window]: /use-timescale/:currentVersion:/upgrades/#deprecations
 [minimize-downtime]: /use-timescale/:currentVersion:/upgrades/#minimize-downtime-with-replicas
-[minor-manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-timescaledb-for-non-critical-updates
-[manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-postgresql-for-a-service
-[automatic-upgrade]: /use-timescale/:currentVersion:/upgrades/#automatic-postgresql-upgrades-for-a-service
-[define-maintenence-window]: /use-timescale/:currentVersion:/upgrades/#define-your-maintenance-window
+[minor-manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-timescaledb-for-non-critical-upgrades 
+[manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-postgres-for-a-service
+[automatic-upgrade]: /use-timescale/:currentVersion:/upgrades/#automatic-postgres-upgrades-for-a-service
+[define-maintenance-window]: /use-timescale/:currentVersion:/upgrades/#define-your-maintenance-window
 [hareplica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[subscribe]: https://status.timescale.com/
