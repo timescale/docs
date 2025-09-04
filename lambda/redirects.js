@@ -938,6 +938,10 @@ module.exports = [
     to: "https://docs.timescale.com/use-timescale/latest/hypercore/compression-methods/"
   },
   {
+    from: "/use-timescale/latest/compression/troubleshooting/",
+    to: "https://docs.tigerdata.com/use-timescale/latest/hypercore/troubleshooting/"
+  },
+  {
     from: "/use-timescale/latest/integrations/observability-alerting/grafana/installation/",
     to: "https://docs.tigerdata.com/integrations/latest/grafana/"
   },

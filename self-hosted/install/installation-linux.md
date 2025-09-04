@@ -7,8 +7,11 @@ keywords: [installation, self-hosted, Debian, Ubuntu, RHEL, Fedora]
 
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
-import SelfHostedDebianBased from "versionContent/_partials/_install-self-hosted-debian-based.mdx";
-import SelfHostedRedhatBased from "versionContent/_partials/_install-self-hosted-redhat-based.mdx";
+import SelfHostedDebian from "versionContent/_partials/_install-self-hosted-debian.mdx";
+import SelfHostedUbuntu from "versionContent/_partials/_install-self-hosted-ubuntu.mdx";
+import SelfHostedRedhat from "versionContent/_partials/_install-self-hosted-redhat.mdx";
+import SelfHostedFedora from "versionContent/_partials/_install-self-hosted-fedora.mdx";
+import SelfHostedRocky from "versionContent/_partials/_install-self-hosted-rocky.mdx";
 import SelfHostedArchLinuxBased from "versionContent/_partials/_install-self-hosted-archlinux-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
 import LinuxSupport from "versionContent/_partials/_timescaledb_supported_linux.mdx";
@@ -46,17 +49,36 @@ To keep your current $PG installation, [Install from source][install-from-source
 
 <Tabs label="Install TimescaleDB" persistKey="os">
 
-<Tab title="Debian, Ubuntu" label="ubuntu">
+<Tab title="Debian" label="debian">
 
-<SelfHostedDebianBased />
+<SelfHostedDebian />
+
+</Tab>
+
+<Tab title="Ubuntu" label="ubuntu">
+
+<SelfHostedUbuntu />
 
 </Tab>
 
-<Tab title="Red Hat, Fedora" label="redhat">
+<Tab title="Red Hat" label="redhat">
 
-<SelfHostedRedhatBased />
+<SelfHostedRedhat />
 
 </Tab>
+
+<Tab title="Fedora" label="fedora">
+
+<SelfHostedFedora />
+
+</Tab>
+
+<Tab title="RockyLinux" label="rocky">
+
+<SelfHostedRocky />
+
+</Tab>
+
 
 <Tab title="ArchLinux" label="archlinux">
 
