@@ -363,18 +363,24 @@ Retrieves all read replica sets associated with a primary service.
 ```json
 [
   {
-    "id": "dsldm715t2",
-    "name": "replica-set-test",
+    "id": "l5alxb3s2g",
+    "name": "replica-set-test2",
     "status": "active",
     "nodes": 1,
-    "cpu_millis": 500,
-    "memory_gbs": 2,
-    "metadata": {
-      "environment": "PROD"
-    },
+    "cpu_millis": 1000,
+    "memory_gbs": 4,
     "endpoint": {
-        "host": "jz22xtzemv.dsldm715t2.tsdb.cloud.timescale.com",
-        "port": 39680
+        "host": "l5alxb3s2g.jz4qxtzemv.tsdb.cloud.timescale.com",
+        "port": 38448
+    },
+    "connection_pooler": {
+        "endpoint": {
+            "host": "l5alxb3s2g.jz4qxtzemv.tsdb.cloud.timescale.com",
+            "port": 38543
+        }
+    },
+    "metadata": {
+        "environment": "DEV"
     }
   }
 ]
