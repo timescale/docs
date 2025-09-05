@@ -12,9 +12,7 @@ A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, s
 ## Overview
 
 **API Version:** 1.0.0  
-**Base URL:** `https://api.tigerdata.com/public/v1`  
-**Development URL:** `https://console.dev.timescale.com/public/api/v1`  
-**Local Development URL:** `http://localhost:8080/public/api/v1`
+**Base URL:** `https://console.cloud.timescale.com/public/api/v1`
 
 ## Authentication
 
@@ -28,213 +26,9 @@ Authorization: Basic <base64(access_key:secret_key)>
 ### Example
 ```bash
 # Using cURL
-curl -X GET "https://api.tigerdata.com/public/v1/projects/{project_id}/services" \
+curl -X GET "https://console.cloud.timescale.com/public/api/v1/projects/{project_id}/services" \
   -H "Authorization: Basic $(echo -n 'your_access_key:your_secret_key' | base64)"
 ```
-
-### Error Responses
-- **401 Unauthorized:** Invalid or missing credentials
-- **403 Forbidden:** Insufficient permissions
-
-## Common Parameters
-
-### Path Parameters
-- `project_id` (string): The unique identifier of the project (e.g., "rp1pz7uyae")
-- `service_id` (string): The unique identifier of the service (e.g., "d1k5vk7hf2")
-- `vpc_id` (string): The unique identifier of the VPC (e.g., "1234567890")
-- `replica_set_id` (string): The unique identifier of the read replica set (e.g., "alb8jicdpr")
-- `peering_id` (string): The unique identifier of the VPC peering connection (e.g., "1234567890")
-
-## VPC Management
-
-Virtual Private Clouds (VPCs) provide network isolation for your TigerData services.
-
-### List All VPCs
-
-```http
-GET /projects/{project_id}/vpcs
-```
-
-Lists all Virtual Private Clouds in a project.
-
-**Response:** `200 OK`
-```json
-[
-  {
-    "id": "1234567890",
-    "name": "my-production-vpc",
-    "cidr": "10.0.0.0/16",
-    "region_code": "google-europe-west1"
-  }
-]
-```
-
-### Create a VPC
-
-```http
-POST /projects/{project_id}/vpcs
-```
-
-Creates a new Virtual Private Cloud.
-
-**Request Body:**
-```json
-{
-  "name": "my-production-vpc",
-  "cidr": "10.0.0.0/16",
-  "region_code": "google-europe-west1"
-}
-```
-
-**Response:** `201 Created`
-```json
-{
-  "id": "1234567890",
-  "name": "my-production-vpc",
-  "cidr": "10.0.0.0/16",
-  "region_code": "google-europe-west1"
-}
-```
-
-**Error Responses:**
-- `400 Bad Request`: Invalid request parameters
-
-### Get a VPC
-
-```http
-GET /projects/{project_id}/vpcs/{vpc_id}
-```
-
-Retrieves details of a specific VPC.
-
-**Response:** `200 OK`
-```json
-{
-  "id": "1234567890",
-  "name": "my-production-vpc",
-  "cidr": "10.0.0.0/16",
-  "region_code": "google-europe-west1"
-}
-```
-
-**Error Responses:**
-- `404 Not Found`: VPC not found
-
-### Rename a VPC
-
-```http
-POST /projects/{project_id}/vpcs/{vpc_id}/rename
-```
-
-Updates the name of a specific VPC.
-
-**Request Body:**
-```json
-{
-  "name": "my-renamed-vpc"
-}
-```
-
-**Response:** `200 OK`
-```json
-{
-  "id": "1234567890",
-  "name": "my-renamed-vpc",
-  "cidr": "10.0.0.0/16",
-  "region_code": "google-europe-west1"
-}
-```
-
-**Error Responses:**
-- `400 Bad Request`: Invalid request parameters
-- `404 Not Found`: VPC not found
-
-### Delete a VPC
-
-```http
-DELETE /projects/{project_id}/vpcs/{vpc_id}
-```
-
-Deletes a specific VPC.
-
-**Response:** `204 No Content`
-
-**Error Responses:**
-- `404 Not Found`: VPC not found
-
-## VPC Peering
-
-Manage peering connections between VPCs across different accounts and regions.
-
-### List VPC Peerings
-
-```http
-GET /projects/{project_id}/vpcs/{vpc_id}/peerings
-```
-
-Retrieves all VPC peering connections for a given VPC.
-
-**Response:** `200 OK`
-```json
-[
-  {
-    "id": "1234567890",
-    "peer_account_id": "acc-12345",
-    "peer_region_code": "aws-us-east-1",
-    "peer_vpc_id": "1234567890",
-    "provisioned_id": "1234567890",
-    "status": "active",
-    "error_message": null
-  }
-]
-```
-
-### Create VPC Peering
-
-```http
-POST /projects/{project_id}/vpcs/{vpc_id}/peerings
-```
-
-Creates a new VPC peering connection.
-
-**Request Body:**
-```json
-{
-  "peer_account_id": "acc-12345",
-  "peer_region_code": "aws-us-east-1",
-  "peer_vpc_id": "1234567890"
-}
-```
-
-**Response:** `201 Created`
-```json
-{
-  "id": "1234567890",
-  "peer_account_id": "acc-12345",
-  "peer_region_code": "aws-us-east-1",
-  "peer_vpc_id": "1234567890",
-  "provisioned_id": "1234567890",
-  "status": "pending"
-}
-```
-
-### Get VPC Peering
-
-```http
-GET /projects/{project_id}/vpcs/{vpc_id}/peerings/{peering_id}
-```
-
-Retrieves details of a specific VPC peering connection.
-
-### Delete VPC Peering
-
-```http
-DELETE /projects/{project_id}/vpcs/{vpc_id}/peerings/{peering_id}
-```
-
-Deletes a specific VPC peering connection.
-
-**Response:** `204 No Content`
 
 ## Service Management
 
@@ -252,14 +46,13 @@ Retrieves all services within a project.
 ```json
 [
   {
-    "service_id": "d1k5vk7hf2",
-    "project_id": "rp1pz7uyae",
+    "service_id": "p7zm9wqqii",
+    "project_id": "jz22xtzemv",
     "name": "my-production-db",
-    "region_code": "google-europe-west1",
+    "region_code": "eu-central-1",
     "service_type": "TIMESCALEDB",
     "status": "READY",
     "created": "2024-01-15T10:30:00Z",
-    "initial_password": "a-very-secure-initial-password",
     "paused": false,
     "resources": [
       {
@@ -290,10 +83,9 @@ Creates a new database service. This is an asynchronous operation.
 **Request Body:**
 ```json
 {
-  "name": "my-production-db",
+  "name": "test-2",
   "service_type": "TIMESCALEDB",
-  "region_code": "google-europe-west1",
-  "replica_count": 1,
+  "region_code": "eu-central-1",
   "cpu_millis": 1000,
   "memory_gbs": 4
 }
@@ -302,14 +94,32 @@ Creates a new database service. This is an asynchronous operation.
 **Response:** `202 Accepted`
 ```json
 {
-  "service_id": "d1k5vk7hf2",
-  "project_id": "rp1pz7uyae",
-  "name": "my-production-db",
-  "region_code": "google-europe-west1",
+  "service_id": "p7zm9wqqii",
+  "project_id": "jz22xtzemv",
+  "name": "test-2",
+  "region_code": "eu-central-1",
   "service_type": "TIMESCALEDB",
-  "status": "QUEUED",
-  "created": "2024-01-15T10:30:00Z",
-  "initial_password": "a-very-secure-initial-password"
+  "created": "2025-09-04T20:46:46.265680278Z",
+  "paused": false,
+  "status": "READY",
+  "resources": [
+      {
+          "id": "100927",
+          "spec": {
+              "cpu_millis": 1000,
+              "memory_gbs": 4,
+              "volume_type": ""
+          }
+      }
+  ],
+  "metadata": {
+      "environment": "PROD"
+  },
+  "endpoint": {
+      "host": "p7zm8wqqii.jz4qxtzemv.tsdb.cloud.timescale.com",
+      "port": 35482
+  },
+  "initial_password": "oamv8ch9t4ar2j8g"
 }
 ```
 
@@ -317,9 +127,6 @@ Creates a new database service. This is an asynchronous operation.
 - `TIMESCALEDB`: TimescaleDB service
 - `POSTGRES`: PostgreSQL service
 - `VECTOR`: Vector database service
-
-**Error Responses:**
-- `400 Bad Request`: Invalid service configuration
 
 ### Get a Service
 
@@ -332,36 +139,30 @@ Retrieves details of a specific service.
 **Response:** `200 OK`
 ```json
 {
-  "service_id": "d1k5vk7hf2",
-  "project_id": "rp1pz7uyae",
-  "name": "my-production-db",
-  "region_code": "google-europe-west1",
+  "service_id": "p7zm9wqqii",
+  "project_id": "jz22xtzemv",
+  "name": "test-2",
+  "region_code": "eu-central-1",
   "service_type": "TIMESCALEDB",
-  "status": "READY",
-  "created": "2024-01-15T10:30:00Z",
+  "created": "2025-09-04T20:46:46.26568Z",
   "paused": false,
+  "status": "READY",
   "resources": [
-    {
-      "id": "resource-1",
-      "spec": {
-        "cpu_millis": 1000,
-        "memory_gbs": 4,
-        "volume_type": "gp2"
+      {
+          "id": "100927",
+          "spec": {
+              "cpu_millis": 1000,
+              "memory_gbs": 4,
+              "volume_type": ""
+          }
       }
-    }
   ],
   "metadata": {
-    "environment": "PROD"
+      "environment": "DEV"
   },
   "endpoint": {
-    "host": "my-service.com",
-    "port": 5432
-  },
-  "connection_pooler": {
-    "endpoint": {
-      "host": "pooler.my-service.com",
-      "port": 5432
-    }
+      "host": "p7zm8wqqii.jz4qxtzemv.tsdb.cloud.timescale.com",
+      "port": 35482
   }
 }
 ```
@@ -388,9 +189,6 @@ DELETE /projects/{project_id}/services/{service_id}
 Deletes a specific service. This is an asynchronous operation.
 
 **Response:** `202 Accepted`
-
-**Error Responses:**
-- `404 Not Found`: Service not found
 
 ### Resize a Service
 
@@ -449,7 +247,7 @@ Sets the environment type for the service.
 **Response:** `200 OK`
 ```json
 {
-  "message": "Action completed successfully."
+    "message": "Environment set successfully"
 }
 ```
 
@@ -464,8 +262,7 @@ Changes the HA configuration for a service. This is an asynchronous operation.
 **Request Body:**
 ```json
 {
-  "sync_replica_count": 1,
-  "replica_count": 2
+  "replica_count": 1
 }
 ```
 
@@ -484,7 +281,7 @@ Activates the connection pooler for a service.
 **Response:** `200 OK`
 ```json
 {
-  "message": "Action completed successfully."
+  "message": "Connection pooler enabled successfully"
 }
 ```
 
@@ -497,45 +294,10 @@ POST /projects/{project_id}/services/{service_id}/disablePooler
 Deactivates the connection pooler for a service.
 
 **Response:** `200 OK`
-
-### Service VPC Operations
-
-#### Attach Service to VPC
-
-```http
-POST /projects/{project_id}/services/{service_id}/attachToVPC
-```
-
-Associates a service with a VPC.
-
-**Request Body:**
 ```json
 {
-  "vpc_id": "1234567890"
+  "message": "Connection pooler disabled successfully"
 }
-```
-
-**Response:** `202 Accepted`
-
-**Error Responses:**
-- `409 Conflict`: Service already attached to a VPC
-
-#### Detach Service from VPC
-
-```http
-POST /projects/{project_id}/services/{service_id}/detachFromVPC
-```
-
-Disassociates a service from its VPC.
-
-**Request Body:**
-```json
-{
-  "vpc_id": "1234567890"
-}
-```
-
-**Response:** `202 Accepted`
 
 ### Fork a Service
 
@@ -548,27 +310,46 @@ Creates a new, independent service by taking a snapshot of an existing one.
 **Request Body:**
 ```json
 {
-  "name": "forked-customer-db"
+    "name": "fork-test2",
+    "region_code": "eu-central-1",
+    "cpu_millis": 1000,
+    "memory_gbs": 4
 }
 ```
 
 **Response:** `202 Accepted`
 ```json
 {
-  "service_id": "new-service-id",
-  "name": "forked-customer-db",
-  "forked_from": {
-    "project_id": "rp1pz7uyae",
-    "service_id": "d1k5vk7hf2",
-    "is_standby": false
-  },
-  "status": "CONFIGURING"
+    "service_id": "otewd3pem2",
+    "project_id": "jz22xtzemv",
+    "name": "fork-test2",
+    "region_code": "eu-central-1",
+    "service_type": "TIMESCALEDB",
+    "created": "2025-09-04T20:54:09.53380732Z",
+    "paused": false,
+    "status": "READY",
+    "resources": [
+        {
+            "id": "100929",
+            "spec": {
+                "cpu_millis": 1000,
+                "memory_gbs": 4,
+                "volume_type": ""
+            }
+        }
+    ],
+    "forked_from": {
+        "project_id": "jz22xtzemv",
+        "service_id": "p7zm9wqqii",
+        "is_standby": false
+    },
+    "initial_password": "ph33bl5juuri5gem"
 }
 ```
 
 ## Read Replica Sets
 
-Manage read replicas for improved read performance and geographical distribution.
+Manage read replicas for improved read performance.
 
 ### List Read Replica Sets
 
@@ -582,18 +363,18 @@ Retrieves all read replica sets associated with a primary service.
 ```json
 [
   {
-    "id": "alb8jicdpr",
-    "name": "reporting-replica-1",
+    "id": "dsldm715t2",
+    "name": "replica-set-test",
     "status": "active",
-    "nodes": 2,
-    "cpu_millis": 250,
-    "memory_gbs": 0.5,
+    "nodes": 1,
+    "cpu_millis": 500,
+    "memory_gbs": 2,
     "metadata": {
       "environment": "PROD"
     },
     "endpoint": {
-      "host": "replica.my-service.com",
-      "port": 5432
+        "host": "jz22xtzemv.dsldm715t2.tsdb.cloud.timescale.com",
+        "port": 39680
     }
   }
 ]
@@ -617,22 +398,22 @@ Creates a new read replica set. This is an asynchronous operation.
 **Request Body:**
 ```json
 {
-  "name": "my-reporting-replica",
-  "nodes": 2,
-  "cpu_millis": 250,
-  "memory_gbs": 0.5
+  "name": "replica-set-test2",
+  "cpu_millis": 1000,
+  "memory_gbs": 4,
+  "nodes": 1
 }
 ```
 
 **Response:** `202 Accepted`
 ```json
 {
-  "id": "alb8jicdpr",
-  "name": "my-reporting-replica",
-  "status": "creating",
-  "nodes": 2,
-  "cpu_millis": 250,
-  "memory_gbs": 0.5
+  "id": "dsldm715t2",
+  "name": "replica-set-test2",
+  "status": "active",
+  "nodes": 1,
+  "cpu_millis": 1000,
+  "memory_gbs": 4
 }
 ```
 
@@ -652,22 +433,27 @@ Deletes a specific read replica set. This is an asynchronous operation.
 POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/resize
 ```
 
-Changes resource allocation for a read replica set.
+Changes resource allocation for a read replica set. This operation is async.
 
 **Request Body:**
 ```json
 {
   "cpu_millis": 500,
-  "memory_gbs": 1.0,
-  "nodes": 3
+  "memory_gbs": 2,
+  "nodes": 2
 }
 ```
 
 **Response:** `202 Accepted`
+```json
+{
+    "message": "Replica set resize request accepted"
+}
+```
 
-### Read Replica Connection Pooler
+### Read Replica Set Connection Pooler
 
-#### Enable Replica Pooler
+#### Enable Replica Set Pooler
 
 ```http
 POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/enablePooler
@@ -676,8 +462,13 @@ POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/e
 Activates the connection pooler for a read replica set.
 
 **Response:** `200 OK`
+```json
+{
+  "message": "Connection pooler enabled successfully"
+}
+```
 
-#### Disable Replica Pooler
+#### Disable Replica Set Pooler
 
 ```http
 POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/disablePooler
@@ -686,8 +477,13 @@ POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/d
 Deactivates the connection pooler for a read replica set.
 
 **Response:** `200 OK`
+```json
+{
+  "message": "Connection pooler disabled successfully"
+}
+```
 
-### Set Replica Environment
+### Set Replica Set Environment
 
 ```http
 POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/setEnvironment
@@ -703,6 +499,225 @@ Sets the environment type for a read replica set.
 ```
 
 **Response:** `200 OK`
+```json
+{
+  "message": "Environment set successfully"
+}
+```
+
+## VPC Management
+
+Virtual Private Clouds (VPCs) provide network isolation for your TigerData services.
+
+### List All VPCs
+
+```http
+GET /projects/{project_id}/vpcs
+```
+
+Lists all Virtual Private Clouds in a project.
+
+**Response:** `200 OK`
+```json
+[
+  {
+    "id": "1234567890",
+    "name": "my-production-vpc",
+    "cidr": "10.0.0.0/16",
+    "region_code": "eu-central-1"
+  }
+]
+```
+
+### Create a VPC
+
+```http
+POST /projects/{project_id}/vpcs
+```
+
+Creates a new VPC.
+
+**Request Body:**
+```json
+{
+  "name": "my-production-vpc",
+  "cidr": "10.0.0.0/16",
+  "region_code": "eu-central-1"
+}
+```
+
+**Response:** `201 Created`
+```json
+{
+  "id": "1234567890",
+  "name": "my-production-vpc",
+  "cidr": "10.0.0.0/16",
+  "region_code": "eu-central-1"
+}
+```
+
+### Get a VPC
+
+```http
+GET /projects/{project_id}/vpcs/{vpc_id}
+```
+
+Retrieves details of a specific VPC.
+
+**Response:** `200 OK`
+```json
+{
+  "id": "1234567890",
+  "name": "my-production-vpc",
+  "cidr": "10.0.0.0/16",
+  "region_code": "eu-central-1"
+}
+```
+
+### Rename a VPC
+
+```http
+POST /projects/{project_id}/vpcs/{vpc_id}/rename
+```
+
+Updates the name of a specific VPC.
+
+**Request Body:**
+```json
+{
+  "name": "my-renamed-vpc"
+}
+```
+
+**Response:** `200 OK`
+```json
+{
+  "id": "1234567890",
+  "name": "my-renamed-vpc",
+  "cidr": "10.0.0.0/16",
+  "region_code": "eu-central-1"
+}
+```
+
+### Delete a VPC
+
+```http
+DELETE /projects/{project_id}/vpcs/{vpc_id}
+```
+
+Deletes a specific VPC.
+
+**Response:** `204 No Content`
+
+## VPC Peering
+
+Manage peering connections between VPCs across different accounts and regions.
+
+### List VPC Peerings
+
+```http
+GET /projects/{project_id}/vpcs/{vpc_id}/peerings
+```
+
+Retrieves all VPC peering connections for a given VPC.
+
+**Response:** `200 OK`
+```json
+[
+  {
+    "id": "1234567890",
+    "peer_account_id": "acc-12345",
+    "peer_region_code": "eu-central-1",
+    "peer_vpc_id": "1234567890",
+    "provisioned_id": "1234567890",
+    "status": "active",
+    "error_message": null
+  }
+]
+```
+
+### Create VPC Peering
+
+```http
+POST /projects/{project_id}/vpcs/{vpc_id}/peerings
+```
+
+Creates a new VPC peering connection.
+
+**Request Body:**
+```json
+{
+  "peer_account_id": "acc-12345",
+  "peer_region_code": "eu-central-1",
+  "peer_vpc_id": "1234567890"
+}
+```
+
+**Response:** `201 Created`
+```json
+{
+  "id": "1234567890",
+  "peer_account_id": "acc-12345",
+  "peer_region_code": "eu-central-1",
+  "peer_vpc_id": "1234567890",
+  "provisioned_id": "1234567890",
+  "status": "pending"
+}
+```
+
+### Get VPC Peering
+
+```http
+GET /projects/{project_id}/vpcs/{vpc_id}/peerings/{peering_id}
+```
+
+Retrieves details of a specific VPC peering connection.
+
+### Delete VPC Peering
+
+```http
+DELETE /projects/{project_id}/vpcs/{vpc_id}/peerings/{peering_id}
+```
+
+Deletes a specific VPC peering connection.
+
+**Response:** `204 No Content`
+
+## Service VPC Operations
+
+### Attach Service to VPC
+
+```http
+POST /projects/{project_id}/services/{service_id}/attachToVPC
+```
+
+Associates a service with a VPC.
+
+**Request Body:**
+```json
+{
+  "vpc_id": "1234567890"
+}
+```
+
+**Response:** `202 Accepted`
+
+### Detach Service from VPC
+
+```http
+POST /projects/{project_id}/services/{service_id}/detachFromVPC
+```
+
+Disassociates a service from its VPC.
+
+**Request Body:**
+```json
+{
+  "vpc_id": "1234567890"
+}
+```
+
+**Response:** `202 Accepted`
 
 ## Data Models
 
@@ -774,8 +789,8 @@ Sets the environment type for a read replica set.
   "name": "string",
   "status": "creating|active|resizing|deleting|error",
   "nodes": 2,
-  "cpu_millis": 250,
-  "memory_gbs": 0.5,
+  "cpu_millis": 1000,
+  "memory_gbs": 4,
   "metadata": {
     "environment": "PROD|DEV"
   },
@@ -819,20 +834,3 @@ The API uses standard HTTP status codes and returns error details in JSON format
   "message": "The service_type field is required"
 }
 ```
-
-## Rate Limiting
-
-The API implements rate limiting to ensure fair usage:
-
-- **Development Environment**: More lenient rate limits for testing
-- **Production Environment**: Strict rate limits for stability
-- **Local Development**: No rate limits applied
-
-When rate limits are exceeded, the API returns `429 Too Many Requests` with retry information in the response headers.
-
-## Support and Contact
-
-For API support and questions:
-- **Support**: [TigerData Support](https://www.tigerdata.com/contact)
-- **License**: [Terms of Service](https://www.tigerdata.com/legal/terms)
-- **Documentation**: This API reference follows the OpenAPI 3.0.3 specification
