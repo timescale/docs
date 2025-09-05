@@ -22,7 +22,7 @@ The new categories include:
 
   ![Data import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/data-import-wizard-in-tiger-cloud.png)
 
-A new data import component has been added to the overview dashboard, providing a clear view of your imports—including quick start, in-progress status, and completed imports:
+A new data import component has been added to the overview dashboard, providing a clear view of your imports. This includes quick start, in-progress status, and completed imports:
 
   ![Overview dashboard in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/service-dashboard-tiger-cloud.png)
 
