@@ -12,7 +12,7 @@ All the latest features and updates to $CLOUD_LONG.
 ## New data import wizard
 <Label type="date">September 5, 2025</Label>
 
-We’ve introduced a cleaner, more intuitive UI for data import. It highlights the most common and recommended option—PostgreSQL Dump & Restore—while organizing all import options into clear categories, to make navigation easier.
+To make navigation easier, we’ve introduced a cleaner, more intuitive UI for data import. It highlights the most common and recommended option, PostgreSQL Dump & Restore, while organizing all import options into clear categories, to make navigation easier.
 
 The new categories include:
 - **PostgreSQL Dump & Restore**
