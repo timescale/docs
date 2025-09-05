@@ -16,7 +16,7 @@ This page lists the platforms and systems that $COMPANY products have been teste
 following options:
 
 * **$CLOUD_LONG**: all the latest features that just work. A reliable and worry-free $PG cloud for all your workloads. 
-* **Open-source products**: create your best app from the comfort of your own developer environment. 
+* **Self-hosted products**: create your best app from the comfort of your own developer environment. 
 
 ## $CLOUD_LONG
 

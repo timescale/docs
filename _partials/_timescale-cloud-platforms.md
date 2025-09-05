@@ -29,25 +29,37 @@ $COMPANY offers the following services for your self-hosted installations:
     </tbody>
 </table>
 
-### Supported systems
+### $PG, $TIMESCALE_DB support matrix
 
-$TIMESCALE_DB and $TOOLKIT_LONG run on Postgres v10, v11, v12, v13, v14, v15, v16, and v17. 
+$TIMESCALE_DB and $TOOLKIT_LONG run on Postgres v10, v11, v12, v13, v14, v15, v16, and v17.
 
 <SupportMatrix />
 
+### Supported operating system
+
 You can deploy $TIMESCALE_DB and $TOOLKIT_LONG on the following systems:
 
-- Linux:
+<Tabs label="Supported operating systems" persistKey="os">
 
-  <LinuxSupport />
+<Tab title="Linux" label="linux">
 
-- Windows:
+<LinuxSupport />
+    
+</Tab>
 
-  <WindowsSupport />
+<Tab title="Windows" label="windows">
 
-- MacOS:
+<WindowsSupport />
+    
+</Tab>
 
-  <MacosSupport />
+<Tab title="MacOS" label="macos">
+
+<MacosSupport />
+
+</Tab>
+
+</Tabs>
 
 [available-services]: /about/:currentVersion:/supported-platforms/#available-services
 [supported-systems]: /about/:currentVersion:/supported-platforms/#supported-systems
