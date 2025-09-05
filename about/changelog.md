@@ -17,7 +17,7 @@ We’ve introduced a cleaner, more intuitive UI for data import. It highlights t
 The new categories include:
 - **PostgreSQL Dump & Restore**
 - **Upload Files** (CSV, Parquet, TXT)
-- **Real-time Data Replication** (source connectors)
+- **Real-time Data Replication**: source connectors
 - **Migrations & Other Options**
 
   ![Data import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/data-import-wizard-in-tiger-cloud.png)
