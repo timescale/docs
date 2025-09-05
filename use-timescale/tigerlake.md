@@ -19,7 +19,7 @@ running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tab
 
 <Highlight type="important">
 
-Tiger Lake is in private beta, please contact us access.
+Tiger Lake is currently in private beta. Please contact us to request access.
 
 </Highlight>
 
