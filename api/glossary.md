@@ -44,8 +44,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Bloom filter**: a probabilistic data structure that tests set membership with possible false positives but no false negatives. $TIMESCALE_DB uses blocked bloom filters to speed up point lookups by eliminating chunks that don't contain queried values.
 
-**Boolean**: a data type that can hold one of two values: true or false.
-
 **Buffer pool**: memory area where frequently accessed data pages are cached to reduce disk I/O operations.
 
 **BRIN (Block Range Index)**: a $PG index type that stores summaries about ranges of table blocks, useful for large tables with naturally ordered data.
@@ -94,25 +92,17 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Compression ratio**: the ratio between the original data size and the compressed data size, indicating compression effectiveness.
 
-**Configuration**: the set of parameters and settings that control how a database system operates.
-
 **Constraint**: a rule enforced by the database to maintain data integrity and consistency.
 
 **Continuous aggregate**: a materialized view that incrementally updates with new data, providing fast access to pre-computed aggregations. See [continuous aggregates][use-continuous-aggregates].
 
 **Counter aggregation**: aggregating monotonic counter data, handling counter resets and extrapolation.
 
-**CPU (Central Processing Unit)**: the primary component of a computer that performs most of the processing inside a computer.
-
 **Cron**: a time-based job scheduler in Unix-like computer operating systems.
 
 **Cross-region backup**: a backup stored in a different geographical region from the primary data for disaster recovery.
 
-**CSV (Comma-Separated Values)**: a simple file format used to store tabular data where each line represents a row and commas separate the columns.
-
 ## D
-
-**Dashboard**: a visual display of key metrics, indicators, and data points relevant to monitoring system performance.
 
 **Data lake**: a centralized repository storing structured and unstructured data at scale, often integrated with time-series databases for analytics.
 
@@ -132,8 +122,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Data type**: a classification that specifies which type of value a variable can hold, such as integer, string, or boolean.
 
-**Database**: an organized collection of structured information or data stored electronically in a computer system.
-
 **Decompress**: the process of restoring compressed data to its original, uncompressed state.
 
 **Delta**: the difference between two values, commonly used in counter aggregations to calculate the change over time.
@@ -143,8 +131,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 **Dimension**: a partitioning key in a $HYPERTABLE that determines how data is distributed across chunks.
 
 **Disaster recovery**: the process and procedures for recovering and protecting a business's IT infrastructure in the event of a disaster.
-
-**DNS (Domain Name System)**: a hierarchical naming system for computers, services, or other resources connected to the internet or a private network.
 
 **Double precision**: a floating-point data type that provides more precision than the standard float type.
 
@@ -228,10 +214,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Hot storage**: a tier of data storage for frequently accessed data that provides the fastest access times but at higher cost.
 
-**HTTP (Hypertext Transfer Protocol)**: an application protocol for distributed, collaborative, hypermedia information systems.
-
-**HTTPS (Hypertext Transfer Protocol Secure)**: an extension of HTTP that uses encryption for secure communication over networks.
-
 **Hypercore**: $TIMESCALE_DB's hybrid storage engine that seamlessly combines row and column storage for optimal performance. See [Hypercore][use-hypercore].
 
 **Hyperfunction**: an SQL function in $TIMESCALE_DB designed for time-series analysis, statistics, and specialized computations. See [Hyperfunctions][use-hyperfunctions].
@@ -260,8 +242,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Interpolation**: a method of estimating unknown values that fall between known data points.
 
-**IP (Internet Protocol)**: the principal communications protocol in the internet protocol suite for relaying data across network boundaries.
-
 **IP allow list**: a security feature that restricts access to specified IP addresses or ranges.
 
 **Isolation level**: a database transaction property that defines the degree to which operations in one transaction are isolated from those in other concurrent transactions.
@@ -283,8 +263,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 ## L
 
 **Latency**: the time delay between a request being made and the response being received.
-
-**License**: legal permission granted by a copyright holder to use software under specified terms and conditions.
 
 **Lifecycle policy**: a set of rules that automatically manage data throughout its lifecycle, including retention and deletion.
 
@@ -337,8 +315,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 ## N
 
 **NAT Gateway**: a network address translation service that enables instances in a private subnet to connect to the internet.
-
-**Networking**: the practice of connecting computers and other devices to share resources and communicate.
 
 **Node (database node)**: an individual server within a distributed system, contributing to storage, compute, or replication tasks.
 
@@ -472,8 +448,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 ## S
 
-**SaaS (Software as a Service)**: cloud-hosted software platforms relying on scalable databases to manage telemetry, user data, and operational metrics.
-
 **SAML (Security Assertion Markup Language)**: an XML-based standard for exchanging authentication and authorization data between security domains.
 
 **Scheduled job**: an automated task that runs at predetermined times or intervals.
@@ -522,11 +496,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **SSL (Secure Sockets Layer)**: a security protocol that establishes encrypted links between networked computers.
 
-**Statistics**: quantitative data and metrics collected about database operations and performance.
-
 **Streaming replication**: a $PG replication method that continuously sends write-ahead log records to standby servers.
-
-**Subnet**: a logical subdivision of an IP network that allows for better organization and security of network resources.
 
 **Synthetic monitoring**: simulated transactions or probes used to test system health, generating time-series metrics for performance analysis.
 
@@ -577,8 +547,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 **Transaction**: a unit of work performed against a database that must be completed entirely or not at all.
 
 **Trigger**: a database procedure that automatically executes in response to certain events on a table or view.
-
-**Troubleshooting**: the process of diagnosing and resolving problems in database systems or applications.
 
 ## U
 
