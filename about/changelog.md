@@ -16,7 +16,7 @@ We’ve introduced a cleaner, more intuitive UI for data import. It highlights t
 
 The new categories include:
 - **PostgreSQL Dump & Restore**
-- **Upload Files** (CSV, Parquet, TXT)
+- **Upload Files**: CSV, Parquet, TXT
 - **Real-time Data Replication**: source connectors
 - **Migrations & Other Options**
 
