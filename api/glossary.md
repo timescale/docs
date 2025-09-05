@@ -1,3 +1,10 @@
+---
+title: TigerData glossary of terms
+excerpt: Find definitions of the key terms used in TigerData documentation, real-time analytics, and database industry
+tags: [glossary, definition]
+products: [cloud, mst, self_hosted]
+---
+
 # Glossary
 
 This glossary defines technical terms, concepts, and terminology used in $COMPANY documentation, database industry, and real-time analytics.
@@ -518,7 +525,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Tiered storage**: a storage strategy that automatically moves data between different storage classes based on access patterns and age.
 
-**$CLOUD**: $COMPANY's managed cloud service that provides $TIMESCALE_DB as a fully managed solution with additional features.
+**$CLOUD_LONG**: $COMPANY's managed cloud service that provides $TIMESCALE_DB as a fully managed solution with additional features.
 
 **Tiger Lake**: $COMPANY's service for integrating operational databases with data lake architectures.
 
