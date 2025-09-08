@@ -57,5 +57,5 @@ a CSV file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][
 [livesync-postgres]: /migrate/:currentVersion:/livesync-for-postgresql/
 [livesync-s3]: /migrate/:currentVersion:/livesync-for-s3/
 [troubleshooting]: /migrate/:currentVersion:/troubleshooting/
-[import-console]: /migrate/:currentVersion:/import-data-using-console/
-[import-terminal]: /migrate/:currentVersion:/import-data-using-terminal/
+[import-console]: /migrate/:currentVersion:/upload-file-using-console/
+[import-terminal]: /migrate/:currentVersion:/upload-file-using-terminal/

@@ -30,4 +30,4 @@ a CSV file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][
 [pg-dump-restore]: /migrate/:currentVersion:/migrate-data/pg-dump-and-restore/
 [live-migration]: /migrate/:currentVersion:/migrate-data/live-migration/
 [troubleshooting]: /migrate/:currentVersion:/troubleshooting/
-[import-terminal]: /migrate/:currentVersion:/import-data-using-terminal/
+[import-terminal]: /migrate/:currentVersion:/upload-file-using-terminal/
