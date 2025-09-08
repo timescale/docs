@@ -618,6 +618,12 @@ module.exports = [
           "An overview of what different tags represent in the API section of TigerData Documentation.",
       },
       {
+        title: "Glossary",
+        href: "glossary",
+        description:
+          "Comprehensive glossary of technical terms, concepts, and terminology used in TigerData documentation and the time-series database industry.",
+      },
+      {
         title: "Compression (Old API, replaced by Hypercore)",
         href: "compression",
         description:
