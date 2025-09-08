@@ -79,6 +79,16 @@ arguments specific to $TIMESCALE_DB.
    );
    ```
 
+- **Create a $HYPERTABLE partitioned using [UUIDv7][uuidv7_functions]**:
+
+   ```sql
+    CREATE TABLE events (
+      vvid  uuid PRIMARY KEY DEFAULT uuidv7(),
+      vvpayload jsonb
+    );
+    WITH (tsdb.hypertable, tsdb.partition_column = by_uuidv7('id'));
+   ```
+
 - **Enable data compression during ingestion**:
 
     <HypercoreDirectCompress />
@@ -92,7 +102,6 @@ arguments specific to $TIMESCALE_DB.
      ```sql
      COPY t FROM '/tmp/t.binary' WITH (format binary);
      ```
-   
 
 - **Create a $PG relational table**:
    ```sql
@@ -169,3 +178,4 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
+[uuidv7_functions]: /api/:currentVersion:/uuid-functions/

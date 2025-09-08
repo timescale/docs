@@ -286,7 +286,7 @@ module.exports = [
         ],
       },
       {
-        title: "UUID functions",
+        title: "UUIDv7 functions",
         href: "uuid-functions",
         children: [
           {

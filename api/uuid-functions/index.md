@@ -1,12 +1,12 @@
 ---
-title: UUID functions
+title: UUIDv7 functions
 excerpt: Create a hypertable partitioned by time-based UUIDv7
 keywords: [jobs]
 tags: [background jobs, scheduled jobs, automation framework]
 products: [cloud, mst, self_hosted]
 ---
 
-# UUID v7 functions <Tag type="community">Community</Tag>
+# UUIDv7 functions <Tag type="community">Community</Tag>
 
 
 UUIDv7 is a time-ordered UUID that includes a Unix timestamp (with millisecond precision) in its first 48 bits. Like 

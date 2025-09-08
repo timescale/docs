@@ -49,6 +49,7 @@ The following examples show you how to create a hypertable from an existing tabl
 - [Time partition a hypertable by time range][sample-time-range]
 - [Time partition a hypertable using composite columns and immutable functions][sample-composite-columns]
 - [Time partition a hypertable using ISO formatting][sample-iso-formatting]
+- [Time partition a hypertable using UUIDv7][sample-uuidv7]
 
 
 ### Time partition a hypertable by time range
@@ -121,6 +122,28 @@ CREATE FUNCTION event_started(jsonb)
 SELECT create_hypertable('events', by_range('event', partition_func => 'event_started'));
 ```
 
+### Time partition a hypertable using [UUIDv7][uuidv7_functions]:
+
+1. Create a table with a UUIDv7 column:
+    ```sql
+    CREATE TABLE events (
+        id  uuid PRIMARY KEY DEFAULT uuidv7(),
+        payload jsonb
+    );
+    ```
+
+1. Partition the table based on the timestamps embedded within the UUID values:
+
+    ```sql
+    SELECT create_hypertable(
+        'events',
+        by_uuidv7('id'),
+        chunk_time_interval => INTERVAL '1 month'
+    );
+    ```
+
+Subsequent data insertion and queries automatically leverage the UUIDv7-based partitioning.
+
 ## Arguments
 
 | Name        | Type             | Default | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -158,3 +181,5 @@ SELECT create_hypertable('events', by_range('event', partition_func => 'event_st
 [sample-time-range]: /api/:currentVersion:/hypertable/create_hypertable/#time-partition-a-hypertable-by-time-range
 [sample-composite-columns]: /api/:currentVersion:/hypertable/create_hypertable/#time-partition-a-hypertable-using-composite-columns-and-immutable-functions
 [sample-iso-formatting]: /api/:currentVersion:/hypertable/create_hypertable/#time-partition-a-hypertable-using-iso-formatting
+[sample-uuidv7]: /api/:currentVersion:/hypertable/create_hypertable/#time-partition-a-hypertable-using-iso-formatting
+[uuidv7_functions]: /api/:currentVersion:/uuid-functions/
