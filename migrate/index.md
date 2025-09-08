@@ -1,9 +1,9 @@
 ---
-title: Connect, import, ingest, and migrate your data to Tiger Cloud
-excerpt: In Tiger Cloud, you can easily import individual files, ingest data in bulk, migrate from other databases, or connect directly so that your data from another source is continuously synced 
+title: Sync, import, and migrate your data to Tiger Cloud
+excerpt: In Tiger Cloud, you can easily import individual files, migrate from other databases, or sync directly so that your data from another source is continuously updated 
 products: [cloud, self_hosted]
-keywords: [import, ingest, connect, migrate, RDS]
-tags: [import, ingest, connect, migrate, RDS]
+keywords: [import, sync, migrate, RDS]
+tags: [import, sync, migrate, RDS]
 ---
 
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
@@ -12,14 +12,13 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from other sources. This includes:
 
-- Connect directly, so data from another source is continuously synced to your $SERVICE_SHORT.
+- Sync directly, so data from another source is continuously updated in your $SERVICE_SHORT.
 - Import individual files using $CONSOLE_LONG or the command line.
 - Migrate data from other databases.
-- Ingest metrics from Telegraf.
 
-## Connect to $PG or S3
+## Sync from $PG or S3
 
-$CLOUD_LONG provides source connectors for Postgres and S3. You use them to synchronize all or some of your data to your $SERVICE_LONG in real time. You run the connectors continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you
+$CLOUD_LONG provides source connectors for $PG and S3. You use them to synchronize all or some of your data to your $SERVICE_LONG in real time. You run the connectors continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you
 to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica data.
 
 | Connector options                      |  Downtime requirements |
@@ -30,12 +29,11 @@ to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica dat
 
 ## Import individual files
 
-You can [import individual files using $CONSOLE_SHORT][import-console], from your local machine or S3. This includes CSV, Parquet, TXT, and MD files. Alternatively, [import data using the terminal][import-terminal].
+You can [import individual files using $CONSOLE_SHORT][import-console], from your local machine or S3. This includes CSV, Parquet, TXT, and MD files. Alternatively, [import files using the terminal][import-terminal].
 
 ## Migrate your data 
 
-Depending on the amount of data you need to migrate, and the amount of downtime you can afford, $COMPANY offers 
-the following ways to migrate your data:
+Depending on the amount of data you need to migrate, and the amount of downtime you can afford, $COMPANY offers the following migration options:
 
 | Migration strategy                         | Use when                                                                                                                    | Downtime requirements |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------|
@@ -51,22 +49,13 @@ in the [community slack](https://timescaledb.slack.com/signup#/domain-signup), t
 <OpenSupportRequest />
 
 If you're migrating your data from another source database type, best practice is export the data from your source database as 
-a CSV file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][parallel-copy]. 
+a CSV file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][import-terminal].
 
-## Ingest data
-
-Telegraf is a server-based agent that collects and sends metrics and events from databases, systems, and IoT sensors. You can [view metrics][ingest-telegraf] gathered by Telegraf and stored in a hypertable in a $SERVICE_LONG.
-
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
-[dual-write]: /migrate/:currentVersion:/dual-write-and-backfill/
-[pg-dump-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
-[parallel-copy]: /migrate/:currentVersion:/import-data-using-terminal/
+[dual-write]: /migrate/:currentVersion:/migrate-data/dual-write-and-backfill/
+[pg-dump-restore]: /migrate/:currentVersion:/migrate-data/pg-dump-and-restore/
+[live-migration]: /migrate/:currentVersion:/migrate-data/live-migration/
 [livesync-postgres]: /migrate/:currentVersion:/livesync-for-postgresql/
 [livesync-s3]: /migrate/:currentVersion:/livesync-for-s3/
 [troubleshooting]: /migrate/:currentVersion:/troubleshooting/
-[live-migration]: /migrate/:currentVersion:/live-migration/
-[pgcopydb]: https://github.com/dimitri/pgcopydb
-[playbooks]: /migrate/:currentVersion:/playbooks/
 [import-console]: /migrate/:currentVersion:/import-data-using-console/
 [import-terminal]: /migrate/:currentVersion:/import-data-using-terminal/
-[ingest-telegraf]: /migrate/:currentVersion:/ingest-telegraf/
