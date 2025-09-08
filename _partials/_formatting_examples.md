@@ -275,7 +275,7 @@ For example:
 [decompress-chunks]: ../use-timescale/compression/decompress-chunks.md
 [alerting]: ../use-timescale/alerting.md
 [deprecation]: ../_partials/_deprecated.md
-[live-migration]: ../migrate/live-migration.md
+[live-migration]: ../migrate/migrate-data/live-migration.md
 [fenced-code-blocks]: https://www.markdownguide.org/extended-syntax/#fenced-code-blocks
 [connection-pooling]: ../use-timescale/services/connection-pooling.md
 [installation-windows]: ../self-hosted/install/installation-windows.md

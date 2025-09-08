@@ -8,7 +8,7 @@ tags: [import, ingest, connect, migrate, RDS]
 
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 
-# Import and connect 
+# Import and sync 
 
 In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from other sources. This includes:
 
