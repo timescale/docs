@@ -12,26 +12,35 @@ products: [cloud, mst, self_hosted]
 
 # uuid_timestamp_micros() <Tag type="Community">Community</Tag>
 
-Extract a PostgreSQL timestamp with time zone from a version 7
-UUID. The UUID contains a millisecond unix timestamp and an optional
-sub-millisecond fraction. Unlike `uuid_timestamp`, the microsecond
-part is used to construct a PostgreSQL timestamp with microsecond
-precision.
+Extract a [Postgres timestamp with time zone][pg-timestamp-timezone] from a UUIDv7 object.
+`uuid` contains a millisecond unix timestamp and an optional sub-millisecond fraction. 
 
-Unless the UUID is known to encode a valid sub-millisecond fraction,
-use `uuid_timestamp` instead.
+
+![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
+
+Unlike [`uuid_timestamp`][uuid_timestamp], the microsecond part of `uuid` is used to construct a 
+Postgres timestamp with microsecond precision.
+
+Unless `uuid` is known to encode a valid sub-millisecond fraction, use [`uuid_timestamp`][uuid_timestamp].
 
 ## Samples
 
 ```sql
 postgres=# SELECT uuid_timestamp_micros('019913ce-f124-7835-96c7-a2df691caa98');
-     uuid_timestamp_micros
+```
+Returns something like:
+```terminaloutput
+uuid_timestamp_micros
 -------------------------------
  2025-09-04 10:19:13.316512+02
 ```
 
-### Required arguments
+## Arguments
 
-|Name|Type|Description|
-|---|---|---|
-|`uuid`|UUID|The version 7 UUID to extract a timestamp from|
+| Name | Type             | Default | Required | Description                                     |
+|-|------------------|-|----------|-------------------------------------------------|
+|`uuid`|UUID| - | ✔ | The UUID object to extract the timestamp from |
+
+
+[uuid_timestamp]: /api/:currentVersion:/uuid-functions/uuid_timestamp/
+[pg-timestamp-timezone]: https://www.postgresql.org/docs/current/datatype-datetime.html

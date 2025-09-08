@@ -12,24 +12,31 @@ products: [cloud, mst, self_hosted]
 
 # generate_uuidv7() <Tag type="Community">Community</Tag>
 
-Generate a version 7 UUID based on current time. The UUID contains a
-millisecond unix timestamp and a sub-millisecond fraction, followed by
+Generate a UUIDv7 object based on the current time. 
+
+The UUID contains a a UNIX timestamp split into millisecond and sub-millisecond parts, followed by
 random bits.
 
-The function can be used to generate a time-ordered series of UUIDs
+
+![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
+
+You can use this function to generate a time-ordered series of UUIDs
 suitable for use in a time-partitioned column in TimescaleDB.
 
 ## Samples
 
-```sql
-postgres=# SELECT generate_uuidv7();
-           generate_uuidv7
---------------------------------------
- 019913ce-f124-7835-96c7-a2df691caa98
-```
 
-Insert a generated version 7 UUID:
+- **Generate a UUIDv7 object based on the current time**
 
-```sql
-INSERT INTO alerts VALUES (generate_uuidv7(), 'high CPU');
-```
+    ```sql
+    postgres=# SELECT generate_uuidv7();
+               generate_uuidv7
+    --------------------------------------
+     019913ce-f124-7835-96c7-a2df691caa98
+    ```
+
+- **Insert a generated UUIDv7 object**
+
+    ```sql
+    INSERT INTO alerts VALUES (generate_uuidv7(), 'high CPU');
+    ```

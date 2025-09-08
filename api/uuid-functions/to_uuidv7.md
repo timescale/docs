@@ -12,9 +12,11 @@ products: [cloud, mst, self_hosted]
 
 # to_uuidv7() <Tag type="Community">Community</Tag>
 
-Create a version 7 UUID from a PostgreSQL timestamp and random
-bits. The PostgreSQL timestamp is converted to a UNIX timestamp which
-is split into milliseconds and sub-milliseconds parts.
+Create a UUIDv7 object from a Postgres timestamp and random bits. 
+
+`ts` is converted to a UNIX timestamp split into millisecond and sub-millisecond parts.
+
+![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
 
 ## Samples
 
@@ -23,8 +25,8 @@ SELECT to_uuidv7(ts)
 FROM generate_series('2025-01-01:00:00:00'::timestamptz, '2025-01-01:00:00:03'::timestamptz, '1 microsecond'::interval) ts;
 ```
 
-### Required arguments
+## Arguments
 
-|Name|Type|Description|
-|---|---|---|
-|`ts`|TIMESTAMPTZ|The timestamp to use in the UUID|
+| Name | Type             | Default | Required | Description                                      |
+|-|------------------|-|----------|--------------------------------------------------|
+|`ts`|TIMESTAMPTZ| - | ✔ | The timestamp used to return a UUIDv7 object |

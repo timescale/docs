@@ -12,19 +12,24 @@ products: [cloud, mst, self_hosted]
 
 # uuid_version() <Tag type="Community">Community</Tag>
 
-Extract the version number of a UUID.
+Extract the version number from a UUID object: 
+
+![UUIDv7](https://assets.timescale.com/docs/images/uuidv7-structure.svg)
 
 ## Samples
 
 ```sql
 postgres=# SELECT uuid_version('019913ce-f124-7835-96c7-a2df691caa98');
+```
+Returns something like:
+```terminaloutput
  uuid_version
 --------------
             7
 ```
 
-### Required arguments
+## Arguments
 
-|Name|Type|Description|
-|---|---|---|
-|`uuid`|UUID|The UUID to extract the version from|
+| Name | Type             | Default | Required | Description                                        |
+|-|------------------|-|----------|----------------------------------------------------|
+|`uuid`|UUID| - | ✔ | The UUID object to extract the version number from |
