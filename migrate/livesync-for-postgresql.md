@@ -1,5 +1,5 @@
 ---
-title: Connect a Postgres data source to your service
+title: Sync data from a Postgres data source to your service
 excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
@@ -12,7 +12,7 @@ import LivesyncConsole from "versionContent/_partials/_livesync-console.mdx"
 import LivesyncTerminal from "versionContent/_partials/_livesync-terminal.mdx"
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
-# Connect a $PG data source to your $SERVICE_SHORT
+# Sync data from a $PG data source to your $SERVICE_SHORT
 
 You use the $PG_CONNECTOR in $CLOUD_LONG to synchronize all data or specific tables from a $PG database instance to your 
 $SERVICE_SHORT, in real time. You run the connector continuously, turning $PG into a primary database with your 

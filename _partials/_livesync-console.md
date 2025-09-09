@@ -91,7 +91,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
    ![Postgres connector start](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-connector-start-tiger-cloud.png)
 
    1. In the `Select table` dropdown, select the tables to sync.
-   1. To select the tables to sync, click `Select table +` .    
+   1. Click `Select tables +` .    
 
       $CONSOLE checks the table schema and, if possible, suggests the column to use as the time dimension in a $HYPERTABLE.
    1. Click `Create Connector`.

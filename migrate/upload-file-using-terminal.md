@@ -1,18 +1,18 @@
 ---
-title: Import data using the terminal
-excerpt: 
-products: [cloud, self_hosted]
+title: Upload a file into your service using the terminal
+excerpt: You can upload CSV, MySQL, and Parquet files into your service using the terminal.
+products: [cloud]
 keywords: [import]
 ---
 
 import ImportPrerequisites from "versionContent/_partials/_prereqs-cloud-and-self.mdx";
 import SetupConnectionString from "versionContent/_partials/_migrate_import_setup_connection_strings_parquet.mdx";
 
-# Import data into your $SERVICE_SHORT using the terminal
+# Upload a file into your $SERVICE_SHORT using the terminal
 
-This page shows you how to import data in CSV, MySQL, and Parquet files from a source machine into your $SERVICE_SHORT using the terminal.
+This page shows you how to upload CSV, MySQL, and Parquet files from a source machine into your $SERVICE_SHORT using the terminal.
 
-<Tabs label="Import data using the terminal" persistKey="file-import">
+<Tabs label="Upload files using the terminal" persistKey="file-import">
 
 <Tab title="From CSV" label="import-csv">
 

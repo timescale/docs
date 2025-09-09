@@ -17,12 +17,12 @@ module.exports = [
       {
         title: "Upload a file using Console",
         href: "upload-file-using-console",
-        excerpt: "Import data into a Tiger Cloud service using Console",
+        excerpt: "Upload files into a Tiger Cloud service using Console",
       },
       {
         title: "Upload a file using the terminal",
         href: "upload-file-using-terminal",
-        excerpt: "Import data into a Tiger Cloud service using the terminal",
+        excerpt: "Upload files into a Tiger Cloud service using the terminal",
       },
       {
         title: "Migrate data",
