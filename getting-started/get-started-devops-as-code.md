@@ -51,9 +51,9 @@ proper authentication headers.
       export TIGERDATA_SECRET_KEY="Secret key"
       ```
 
-1. **Configure API endpoint**
+1. **Configure the API endpoint**
 
-    Set the API base URL for your environment:
+    Set the base URL in your environment:
     
     ```bash
     export API_BASE_URL="https://console.cloud.timescale.com/public/api/v1"
