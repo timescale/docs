@@ -59,36 +59,32 @@ proper authentication headers.
     export API_BASE_URL="https://console.cloud.timescale.com/public/api/v1"
     ```
 
-1. **Perform health check and test your connection to $CLOUD_LONG REST API**
-
-    Test the API connection using a simple health check request:
-
-    ```bash
-    curl -X GET "${API_BASE_URL}/healthcheck" \
-      -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)"
-    ```
-    
-    Expected response:
-    ```json
-    {
-      "status": "healthy",
-      "timestamp": "2024-01-15T10:30:00Z"
-    }
-    ```
-
-1. **Validate authentication**
-
-    Test authentication by listing existing services:
-    
+1. **Test your authenticated connection to $CLOUD_LONG REST API by listing services**
+ 
     ```bash
     curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services" \
       -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
       -H "Content-Type: application/json"
     ```
 
+    This call returns something like:
+    - No services:
+      ```terminaloutput
+      []%
+      ```
+    - One or more services:
+   
+      ```terminaloutput
+      [{"service_id":"a59clooxoe","project_id":"c8nmagk8zh","name":"events",
+      "region_code":"eu-central-1","service_type":"TIMESCALEDB",
+      "created":"2025-09-09T08:37:15.816443Z","paused":false,"status":"READY",
+      "resources":[{"id":"101228","spec":{"cpu_millis":500,"memory_gbs":2,"volume_type":""}}],
+      "metadata":{"environment":"DEV"},"endpoint":{"host":"oh.yeah.tsdb.cloud.timescale.com",
+      "port":12345}}] 
+      ```
+
 </Procedure>
 
-Successful authentication returns a JSON array of services (may be empty for new projects).
 
 ## Create your first service
 
@@ -119,33 +115,47 @@ Create a new database service using the Tiger Cloud REST API with secure configu
         -H "Content-Type: application/json" \
         -d @service-config.json
       ```
+      $CLOUD_LONG creates a production environment for you. You see something like:
+      ```terminaloutput
+      {
+        "service_id":"asdfasdfasdf","project_id":"asdasdfasf","name":"my-first-service",
+        "region_code":"us-east-1", "service_type":"TIMESCALEDB",
+        "created":"2025-09-09T09:24:31.997767396Z", "paused":false,"status":"READY",
+        "resources":[{"id":"101240",
+        "spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
+        "metadata":{"environment":"PROD"},
+        "endpoint":{"host":"oh.yeah.tsdb.cloud.timescale.com","port":123435},
+        "initial_password":"very-secret",
+        "ha_replicas":{"sync_replica_count":0,"replica_count":1}
+      } 
+      ```
+       
 
-   2. Save the service ID from the response:
+   2. Save `service_id` from the response to a variable:
       ```bash
       # Extract service_id from the JSON response
-      export SERVICE_ID="extracted-service-id-from-response"
+      export SERVICE_ID="service_id-from-response"
       ```
 
-    The API returns HTTP 202 (Accepted) for service creation requests, indicating the operation is asynchronous.
+1. **Change the environment from production to development**
 
-1. **Monitor service creation progress**
-
-   1. Check service status periodically:
-      ```bash
-      curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services/${SERVICE_ID}" \
-        -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
-        -H "Content-Type: application/json"
-      ```
-
-   2. Wait for status to change from `CONFIGURING` to `READY`:
-      - `QUEUED`: Service creation request is queued
-      - `CONFIGURING`: Service is being provisioned
-      - `READY`: Service is available for use
-      - `UNSTABLE`: Service encountered issues during creation
-
-    Service creation typically completes within 5-10 minutes depending on the configuration.
+  ```bash
+  curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services/${SERVICE_ID}" \
+    -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
+    -H "Content-Type: application/json" \
+    -d '{"environment": "DEV"}' 
+  ```
+  You see something like:
+  ```terminaloutput
+  {                                          
+    "message": "Environment set successfully"
+  }
+  ```
 
 </Procedure>
+
+And that is it, you are ready to use the [$CLOUD_LONG REST API][rest-api-reference] to manage your 
+$SERVICE_SHORTs in $CLOUD_LONG.
 
 ## Security best practices
 

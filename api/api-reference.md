@@ -1,11 +1,11 @@
 ---
-title: Tiger Cloud API reference
+title: Tiger Cloud REST API reference
 excerpt: A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.
 tags: [REST]
 products: [cloud]
 ---
 
-# Tiger Cloud API reference
+# Tiger Cloud REST API reference
 
 A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.
 
@@ -32,7 +32,12 @@ curl -X GET "https://console.cloud.timescale.com/public/api/v1/projects/{project
 
 ## Service Management
 
-Manage database services including TimescaleDB, PostgreSQL, and Vector databases.
+You use this endpoint to create and manage the following Tiger Posgres services:
+
+- `TIMESCALEDB`: a Tiger Postgres instance optimized for real-time analytics service For time-stamped data like events,
+  prices, metrics, sensor readings, or any information that changes over time
+- `POSTGRES`: a vanilla Postgres instance
+- `VECTOR`: a Tiger Postgres instance with vector extensions
 
 ### List All Services
 
@@ -40,7 +45,7 @@ Manage database services including TimescaleDB, PostgreSQL, and Vector databases
 GET /projects/{project_id}/services
 ```
 
-Retrieves all services within a project.
+Retrieve all services within a project.
 
 **Response:** `200 OK`
 ```json
@@ -78,7 +83,7 @@ Retrieves all services within a project.
 POST /projects/{project_id}/services
 ```
 
-Creates a new database service. This is an asynchronous operation.
+Create a new Tiger Postgres service. This is an asynchronous operation.
 
 **Request Body:**
 ```json
@@ -124,9 +129,10 @@ Creates a new database service. This is an asynchronous operation.
 ```
 
 **Service Types:**
-- `TIMESCALEDB`: TimescaleDB service
-- `POSTGRES`: PostgreSQL service
-- `VECTOR`: Vector database service
+- `TIMESCALEDB`: a Tiger Postgres instance optimized for real-time analytics service For time-stamped data like events,
+   prices, metrics, sensor readings, or any information that changes over time
+- `POSTGRES`: a vanilla Postgres instance
+- `VECTOR`: a Tiger Postgres instance with vector extensions
 
 ### Get a Service
 
@@ -134,7 +140,7 @@ Creates a new database service. This is an asynchronous operation.
 GET /projects/{project_id}/services/{service_id}
 ```
 
-Retrieves details of a specific service.
+Retrieve details of a specific service.
 
 **Response:** `200 OK`
 ```json
@@ -186,7 +192,7 @@ Retrieves details of a specific service.
 DELETE /projects/{project_id}/services/{service_id}
 ```
 
-Deletes a specific service. This is an asynchronous operation.
+Delete a specific service. This is an asynchronous operation.
 
 **Response:** `202 Accepted`
 
@@ -196,7 +202,7 @@ Deletes a specific service. This is an asynchronous operation.
 POST /projects/{project_id}/services/{service_id}/resize
 ```
 
-Changes CPU and memory allocation for a service.
+Change CPU and memory allocation for a service.
 
 **Request Body:**
 ```json
@@ -214,7 +220,7 @@ Changes CPU and memory allocation for a service.
 POST /projects/{project_id}/services/{service_id}/updatePassword
 ```
 
-Sets a new master password for the service.
+Set a new master password for the service.
 
 **Request Body:**
 ```json
@@ -231,7 +237,7 @@ Sets a new master password for the service.
 POST /projects/{project_id}/services/{service_id}/setEnvironment
 ```
 
-Sets the environment type for the service.
+Set the environment type for the service.
 
 **Request Body:**
 ```json
@@ -257,7 +263,7 @@ Sets the environment type for the service.
 POST /projects/{project_id}/services/{service_id}/setHA
 ```
 
-Changes the HA configuration for a service. This is an asynchronous operation.
+Change the HA configuration for a service. This is an asynchronous operation.
 
 **Request Body:**
 ```json
@@ -276,7 +282,7 @@ Changes the HA configuration for a service. This is an asynchronous operation.
 POST /projects/{project_id}/services/{service_id}/enablePooler
 ```
 
-Activates the connection pooler for a service.
+Activate the connection pooler for a service.
 
 **Response:** `200 OK`
 ```json
@@ -291,7 +297,7 @@ Activates the connection pooler for a service.
 POST /projects/{project_id}/services/{service_id}/disablePooler
 ```
 
-Deactivates the connection pooler for a service.
+Deactivate the connection pooler for a service.
 
 **Response:** `200 OK`
 ```json
@@ -305,7 +311,7 @@ Deactivates the connection pooler for a service.
 POST /projects/{project_id}/services/{service_id}/forkService
 ```
 
-Creates a new, independent service by taking a snapshot of an existing one.
+Create a new, independent service by taking a snapshot of an existing one.
 
 **Request Body:**
 ```json
@@ -357,7 +363,7 @@ Manage read replicas for improved read performance.
 GET /projects/{project_id}/services/{service_id}/replicaSets
 ```
 
-Retrieves all read replica sets associated with a primary service.
+Retrieve all read replica sets associated with a primary service.
 
 **Response:** `200 OK`
 ```json
@@ -399,7 +405,7 @@ Retrieves all read replica sets associated with a primary service.
 POST /projects/{project_id}/services/{service_id}/replicaSets
 ```
 
-Creates a new read replica set. This is an asynchronous operation.
+Create a new read replica set. This is an asynchronous operation.
 
 **Request Body:**
 ```json
@@ -429,7 +435,7 @@ Creates a new read replica set. This is an asynchronous operation.
 DELETE /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}
 ```
 
-Deletes a specific read replica set. This is an asynchronous operation.
+Delete a specific read replica set. This is an asynchronous operation.
 
 **Response:** `202 Accepted`
 
@@ -439,7 +445,7 @@ Deletes a specific read replica set. This is an asynchronous operation.
 POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/resize
 ```
 
-Changes resource allocation for a read replica set. This operation is async.
+Change resource allocation for a read replica set. This operation is async.
 
 **Request Body:**
 ```json
@@ -465,7 +471,7 @@ Changes resource allocation for a read replica set. This operation is async.
 POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/enablePooler
 ```
 
-Activates the connection pooler for a read replica set.
+Activate the connection pooler for a read replica set.
 
 **Response:** `200 OK`
 ```json
@@ -480,7 +486,7 @@ Activates the connection pooler for a read replica set.
 POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/disablePooler
 ```
 
-Deactivates the connection pooler for a read replica set.
+Deactivate the connection pooler for a read replica set.
 
 **Response:** `200 OK`
 ```json
@@ -495,7 +501,7 @@ Deactivates the connection pooler for a read replica set.
 POST /projects/{project_id}/services/{service_id}/replicaSets/{replica_set_id}/setEnvironment
 ```
 
-Sets the environment type for a read replica set.
+Set the environment type for a read replica set.
 
 **Request Body:**
 ```json
@@ -521,7 +527,7 @@ Virtual Private Clouds (VPCs) provide network isolation for your TigerData servi
 GET /projects/{project_id}/vpcs
 ```
 
-Lists all Virtual Private Clouds in a project.
+List all Virtual Private Clouds in a project.
 
 **Response:** `200 OK`
 ```json
@@ -541,7 +547,7 @@ Lists all Virtual Private Clouds in a project.
 POST /projects/{project_id}/vpcs
 ```
 
-Creates a new VPC.
+Create a new VPC.
 
 **Request Body:**
 ```json
@@ -568,7 +574,7 @@ Creates a new VPC.
 GET /projects/{project_id}/vpcs/{vpc_id}
 ```
 
-Retrieves details of a specific VPC.
+Retrieve details of a specific VPC.
 
 **Response:** `200 OK`
 ```json
@@ -586,7 +592,7 @@ Retrieves details of a specific VPC.
 POST /projects/{project_id}/vpcs/{vpc_id}/rename
 ```
 
-Updates the name of a specific VPC.
+Update the name of a specific VPC.
 
 **Request Body:**
 ```json
@@ -611,7 +617,7 @@ Updates the name of a specific VPC.
 DELETE /projects/{project_id}/vpcs/{vpc_id}
 ```
 
-Deletes a specific VPC.
+Delete a specific VPC.
 
 **Response:** `204 No Content`
 
@@ -625,7 +631,7 @@ Manage peering connections between VPCs across different accounts and regions.
 GET /projects/{project_id}/vpcs/{vpc_id}/peerings
 ```
 
-Retrieves all VPC peering connections for a given VPC.
+Retrieve all VPC peering connections for a given VPC.
 
 **Response:** `200 OK`
 ```json
@@ -648,7 +654,7 @@ Retrieves all VPC peering connections for a given VPC.
 POST /projects/{project_id}/vpcs/{vpc_id}/peerings
 ```
 
-Creates a new VPC peering connection.
+Create a new VPC peering connection.
 
 **Request Body:**
 ```json
@@ -677,7 +683,7 @@ Creates a new VPC peering connection.
 GET /projects/{project_id}/vpcs/{vpc_id}/peerings/{peering_id}
 ```
 
-Retrieves details of a specific VPC peering connection.
+Retrieve details of a specific VPC peering connection.
 
 ### Delete VPC Peering
 
@@ -685,7 +691,7 @@ Retrieves details of a specific VPC peering connection.
 DELETE /projects/{project_id}/vpcs/{vpc_id}/peerings/{peering_id}
 ```
 
-Deletes a specific VPC peering connection.
+Delete a specific VPC peering connection.
 
 **Response:** `204 No Content`
 
@@ -697,7 +703,7 @@ Deletes a specific VPC peering connection.
 POST /projects/{project_id}/services/{service_id}/attachToVPC
 ```
 
-Associates a service with a VPC.
+Associate a service with a VPC.
 
 **Request Body:**
 ```json
@@ -714,7 +720,7 @@ Associates a service with a VPC.
 POST /projects/{project_id}/services/{service_id}/detachFromVPC
 ```
 
-Disassociates a service from its VPC.
+Disassociate a service from its VPC.
 
 **Request Body:**
 ```json
@@ -789,6 +795,7 @@ Disassociates a service from its VPC.
 ```
 
 ### Read Replica Set Object
+
 ```json
 {
   "id": "string",
@@ -815,7 +822,7 @@ Disassociates a service from its VPC.
 
 ## Error Handling
 
-The API uses standard HTTP status codes and returns error details in JSON format.
+Tiger Cloud REST API uses standard HTTP status codes and returns error details in JSON format.
 
 ### Error Response Format
 ```json
