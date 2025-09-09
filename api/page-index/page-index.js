@@ -594,6 +594,12 @@ module.exports = [
           "A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.",
       },
       {
+        title: "Glossary",
+        href: "glossary",
+        description:
+          "Comprehensive glossary of technical terms, concepts, and terminology used in TigerData documentation and the time-series database industry.",
+      },
+      {
         title: "Compression (Old API, replaced by Hypercore)",
         href: "compression",
         description:

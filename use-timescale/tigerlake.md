@@ -17,7 +17,11 @@ system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data la
 This experimental release is a native integration enabling synchronization between $HYPERTABLEs and relational tables
 running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
 
-<EarlyAccessGeneral /> 
+<Highlight type="important">
+
+Tiger Lake is currently in private beta. Please contact us to request access.
+
+</Highlight>
 
 ## Prerequisites
 
