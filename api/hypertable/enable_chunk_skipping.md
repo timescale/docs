@@ -11,14 +11,14 @@ products: [cloud, mst, self_hosted]
 ---
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
-import Experimental from "versionContent/_partials/_experimental.mdx";
+import EarlyAccessBasic from "versionContent/_partials/_early_access.mdx";
 
 <!-- vale Google.Headings = NO -->
 <!-- markdownlint-disable-next-line line-length -->
 # enable_chunk_skipping() <Tag type="experimental" content="Experimental" />
 <!-- vale Google.Headings = YES -->
 
-<Experimental />
+<EarlyAccessBasic />
 
 Enable range statistics for a specific column in a **compressed** hypertable. This tracks a range of values for that column per chunk. 
 Used for chunk skipping during query optimization and applies only to the chunks created after chunk skipping is enabled. 
