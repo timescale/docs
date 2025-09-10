@@ -57,5 +57,5 @@ To retrieve information about settings:
 |`chunk`|`REGCLASS`| The name of the chunk in the `hypertable`.  |
 |`segmentby`|`TEXT`| The list of columns used to segment the `hypertable`. |
 |`orderby`|`TEXT`| The list of columns used to order the data in the `hypertable`, along with ordering and NULL ordering information. |
-|`index`| `TEXT` | The sparse index definitions.  |   
+|`index`| `TEXT` | The sparse index details.  |   
 
