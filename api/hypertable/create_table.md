@@ -42,7 +42,7 @@ arguments specific to $TIMESCALE_DB.
 
 ## Samples
 
-- **Create a $HYPERTABLE partitioned on the time dimension and enable $HYPERCORE**:
+- **Create a $HYPERTABLE partitioned on the time dimension and enable $COLUMNSTORE**:
 
    1. Create the $HYPERTABLE:
 
@@ -60,7 +60,7 @@ arguments specific to $TIMESCALE_DB.
      );
      ```
   
-   1. Add a $COLUMNSTORE policy:
+   1. Enable $HYPERCORE by adding a columnstore policy:
   
       ```sql
       CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
