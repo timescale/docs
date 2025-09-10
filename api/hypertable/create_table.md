@@ -81,13 +81,38 @@ arguments specific to $TIMESCALE_DB.
 
 - **Create a $HYPERTABLE partitioned using [UUIDv7][uuidv7_functions]**:
 
-   ```sql
-    CREATE TABLE events (
-      vvid  uuid PRIMARY KEY DEFAULT uuidv7(),
-      vvpayload jsonb
-    );
-    WITH (tsdb.hypertable, tsdb.partition_column = by_uuidv7('id'));
-   ```
+   <Terminal>
+
+    <tab label='Postgres 17 and lower'>
+  
+    ```sql
+     -- For optimal compression on the ID column, first enable UUIDv7 compression 
+     SET enable_uuid_compression=true;
+     -- Then create your table
+     CREATE TABLE events (
+        id  uuid PRIMARY KEY DEFAULT generate_uuidv7(),
+        payload jsonb
+     ) WITH (tsdb.hypertable, tsdb.partition_column = 'id');   
+    ```
+    </tab>
+
+    <tab label='Postgres v18'>
+
+     ```sql
+     -- For optimal compression on the ID column, first enable UUIDv7 compression 
+     SET enable_uuid_compression=true;
+     -- Then create your table
+     CREATE TABLE events (
+        id  uuid PRIMARY KEY DEFAULT uuidv7(),
+        payload jsonb
+     ) WITH (tsdb.hypertable, tsdb.partition_column = 'id');   
+    ```    
+   
+    </tab>
+
+    </Terminal> 
+
+   
 
 - **Enable data compression during ingestion**:
 

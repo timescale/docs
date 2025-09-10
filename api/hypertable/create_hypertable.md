@@ -125,20 +125,38 @@ SELECT create_hypertable('events', by_range('event', partition_func => 'event_st
 ### Time partition a hypertable using [UUIDv7][uuidv7_functions]:
 
 1. Create a table with a UUIDv7 column:
+   <Terminal>
+
+    <tab label='Postgres 17 and lower'>
+
+    ```sql
+    CREATE TABLE events (
+        id  uuid PRIMARY KEY DEFAULT generate_uuidv7(),
+        payload jsonb
+    );
+    ```
+    </tab>
+
+    <tab label='Postgres v18'>
+   
     ```sql
     CREATE TABLE events (
         id  uuid PRIMARY KEY DEFAULT uuidv7(),
         payload jsonb
     );
     ```
+   
+    </tab>
 
+    </Terminal>
+   
+   
 1. Partition the table based on the timestamps embedded within the UUID values:
 
     ```sql
-    SELECT create_hypertable(
-        'events',
-        by_uuidv7('id'),
-        chunk_time_interval => INTERVAL '1 month'
+   SELECT create_hypertable(
+        'events',                                      
+        by_range('id', INTERVAL '1 month')
     );
     ```
 
