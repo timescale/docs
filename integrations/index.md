@@ -113,7 +113,8 @@ Some of the most in-demand integrations are listed below.
 |:------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |            <img isIcon src='https://assets.timescale.com/docs/icons/cloudwatch-logo.png' alt='cloudwatch-logo' />[Amazon Cloudwatch][cloudwatch]             | Collect, analyze, and act on data from applications, infrastructure, and services running in AWS and on-premises environments.                            |
 |         <img isIcon src='https://assets.timescale.com/docs/icons/skywalking-logo.png' alt='skywalking-logo' />[Apache SkyWalking][apache-skywalking]         | Monitor, trace, and diagnose distributed applications for improved observability. You can also [set up $PG as storage][apache-skywalking-storage]. |
-|             <img isIcon src='https://assets.timescale.com/docs/icons/azure-monitor-logo.png' alt='azure-monitor-logo' />[Azure Monitor][azure-monitor]             | Collect and analyze telemetry data from cloud and on-premises environments.                                                                               |
+|             <img isIcon src='https://assets.timescale.com/docs/icons/azure-monitor-logo.png' alt='azure-monitor-logo' />[Azure Monitor][azure-monitor]             | Collect and analyze telemetry data from cloud and on-premises environments.   
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/dash0-logo.png' alt='datadog-logo' />[Dash0][dash0]                   | OpenTelemetry Native Observability, built on CNCF Open Standards such as PromQL, Perses and OTLP with full cost contro      |
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/datadog-logo.png' alt='datadog-logo' />[Datadog][datadog]                   | Gain comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics.                        |
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/grafana-logo.png' alt='grafana-logo' />[Grafana][grafana]                   | Query, visualize, alert on, and explore your metrics and logs.                                                                                            |
 |               <img isIcon src='https://assets.timescale.com/docs/icons/instana-logo.png' alt='instana-logo' />[IBM Instana][ibm-instana]               | Monitor application performance and detect issues in real-time.                                                                                           |
@@ -186,6 +187,7 @@ Some of the most in-demand integrations are listed below.
 [confluent-source]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-source.html
 [cube-js]: https://cube.dev/integrations/Timescale-API
 [data-center]: /integrations/:currentVersion:/corporate-data-center
+[dash0]: https://www.dash0.com/hub/integrations/int_postgresql/overview
 [datadog]: /integrations/:currentVersion:/datadog/
 [dbt]: https://dbt-timescaledb.debruyn.dev/
 [dbeaver]: /integrations/:currentVersion:/dbeaver/
