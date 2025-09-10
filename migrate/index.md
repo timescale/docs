@@ -16,6 +16,8 @@ In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from oth
 - Import individual files using $CONSOLE_LONG or the command line.
 - Migrate data from other databases.
 
+![Import and sync](https://assets.timescale.com/docs/images/tiger-cloud-console/import-sync-options-tiger-cloud.svg)
+
 ## Sync from $PG or S3
 
 $CLOUD_LONG provides source connectors for $PG and S3. You use them to synchronize all or some of your data to your $SERVICE_LONG in real time. You run the connectors continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you
@@ -51,9 +53,9 @@ in the [community slack](https://timescaledb.slack.com/signup#/domain-signup), t
 If you're migrating your data from another source database type, best practice is export the data from your source database as 
 a CSV file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][import-terminal].
 
-[dual-write]: /migrate/:currentVersion:/migrate-data/dual-write-and-backfill/
-[pg-dump-restore]: /migrate/:currentVersion:/migrate-data/pg-dump-and-restore/
-[live-migration]: /migrate/:currentVersion:/migrate-data/live-migration/
+[dual-write]: /migrate/:currentVersion:/dual-write-and-backfill/
+[pg-dump-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
+[live-migration]: /migrate/:currentVersion:/live-migration/
 [livesync-postgres]: /migrate/:currentVersion:/livesync-for-postgresql/
 [livesync-s3]: /migrate/:currentVersion:/livesync-for-s3/
 [troubleshooting]: /migrate/:currentVersion:/troubleshooting/
