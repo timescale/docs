@@ -12,7 +12,7 @@ import LivesyncConsole from "versionContent/_partials/_livesync-console.mdx"
 import LivesyncTerminal from "versionContent/_partials/_livesync-terminal.mdx"
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
-# Sync data from $PG to your $SERVICE_SHORT
+# Sync data from $PG
 
 You use the $PG_CONNECTOR in $CLOUD_LONG to synchronize all data or specific tables from a $PG database instance to your 
 $SERVICE_SHORT, in real time. You run the connector continuously, turning $PG into a primary database with your 
