@@ -23,7 +23,7 @@ module.exports = [
         excerpt: "Create a Tiger Cloud service and connect to it",
       },
       {
-        title: "DevOps with Tiger Cloud REST API",
+        title: "DevOps as code with Tiger Cloud",
         href: "get-started-devops-as-code",
         excerpt: "Set up secure authentication for the TigerData Cloud REST API and create your first service",
       },

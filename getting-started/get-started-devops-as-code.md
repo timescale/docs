@@ -1,5 +1,5 @@
 ---
-title: "DevOps with Tiger Cloud REST API"
+title: "DevOps as code with Tiger Cloud"
 excerpt: "Configure secure authentication and create a new database service using the Tiger Cloud REST API"
 keywords:
   - authentication
@@ -15,7 +15,7 @@ tags:
 
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 
-# DevOps with Tiger Cloud REST API
+# DevOps as code with Tiger Cloud
 
 [$CLOUD_LONG REST API][rest-api-reference] is a comprehensive RESTful API you use to manage Tiger Cloud resources including VPCs, services, and read 
 replicas.
