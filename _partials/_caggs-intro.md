@@ -7,12 +7,12 @@ temperature readings every second, you might want to find the average temperatur
 for each hour. Every time you run this query, the database needs to scan the
 entire table and recalculate the average. $TIMESCALE_DB makes aggregating data lightning fast, accurate, and easy.
 
+![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png)
+
 Continuous aggregates in $TIMESCALE_DB are a kind of hypertable that is refreshed automatically
 in the background as new data is added, or old data is modified. Changes to your
 dataset are tracked, and the hypertable behind the continuous aggregate is
 automatically updated in the background.
-
-![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png)
 
 Continuous aggregates have a much lower maintenance burden than regular $PG materialized
 views, because the whole view is not created from scratch on each refresh. This
