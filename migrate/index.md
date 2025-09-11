@@ -10,13 +10,15 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 # Import and sync 
 
-In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from other sources. This includes:
+In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from other sources. 
+
+![Import and sync](https://assets.timescale.com/docs/images/tiger-cloud-console/import-sync-options-in-tiger-cloud.svg)
+
+This includes:
 
 - Sync directly, so data from another source is continuously updated in your $SERVICE_SHORT.
 - Import individual files using $CONSOLE_LONG or the command line.
 - Migrate data from other databases.
-
-![Import and sync](https://assets.timescale.com/docs/images/tiger-cloud-console/import-sync-options-in-tiger-cloud.svg)
 
 ## Sync from $PG or S3
 
