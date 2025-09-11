@@ -56,6 +56,6 @@ To retrieve information about settings:
 |`hypertable`|`REGCLASS`| The name of the hypertable in the $COLUMNSTORE. |
 |`chunk`|`REGCLASS`| The name of the chunk in the `hypertable`.  |
 |`segmentby`|`TEXT`| The list of columns used to segment the `hypertable`. |
-|`orderby`|`TEXT`| The list of columns used to order the data in the `hypertable`, along with ordering and NULL ordering information. |
+|`orderby`|`TEXT`| The list of columns used to order the data in the `hypertable`, along with the ordering and `NULL` ordering information. |
 |`index`| `TEXT` | The sparse index details.  |   
 
