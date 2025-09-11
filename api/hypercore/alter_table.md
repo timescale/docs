@@ -17,7 +17,7 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 
 Enable the $COLUMNSTORE or change the $COLUMNSTORE settings for a $HYPERTABLE. The settings are applied on a per-chunk basis. You do not need to convert the entire $HYPERTABLE back to the $ROWSTORE before changing the settings. The new settings apply only to the chunks that have not yet been converted to $COLUMNSTORE, the existing chunks in the $COLUMNSTORE do not change. This means that chunks with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE.
 
-$TIMESCALE_DB calculates default $COLUMNSTORE settings for each chunk when it is created. These settings apply to each chunk, and not the entire hypertable. To explicitly disable the defaults, set to an empty string. To remove the current configuration and re-enable the defaults, call `ALTER TABLE <your_table_name> RESET (<columnstore_setting>);`. 
+$TIMESCALE_DB calculates default $COLUMNSTORE settings for each chunk when it is created. These settings apply to each chunk, and not the entire hypertable. To explicitly disable the defaults, set a setting to an empty string. To remove the current configuration and re-enable the defaults, call `ALTER TABLE <your_table_name> RESET (<columnstore_setting>);`. 
 
 After you have enabled the $COLUMNSTORE, either: 
 - [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the $COLUMNSTORE at a
