@@ -16,7 +16,7 @@ In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from oth
 - Import individual files using $CONSOLE_LONG or the command line.
 - Migrate data from other databases.
 
-![Import and sync](https://assets.timescale.com/docs/images/tiger-cloud-console/import-sync-options-tiger-cloud.svg)
+![Import and sync](https://assets.timescale.com/docs/images/tiger-cloud-console/import-sync-options-in-tiger-cloud.svg)
 
 ## Sync from $PG or S3
 
