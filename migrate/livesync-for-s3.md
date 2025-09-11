@@ -1,5 +1,5 @@
 ---
-title: Sync data from an S3 data source to your service
+title: Sync data from S3 to your service
 excerpt: Synchronize data from S3 to Tiger Cloud service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
@@ -9,7 +9,7 @@ tags: [recovery, logical backup, replication]
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
-# Sync data from an S3 data source to your $SERVICE_SHORT
+# Sync data from S3 to your $SERVICE_SHORT
 
 You use the $S3_CONNECTOR in $CLOUD_LONG to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. The connector runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
