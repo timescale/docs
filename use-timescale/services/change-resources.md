@@ -24,7 +24,7 @@ You can change the CPU and memory allocation for your $SERVICE_SHORT at any time
 minimal downtime, usually less than a minute. The new resources become available as soon as 
 the $SERVICE_SHORT restarts. You can change the CPU and memory allocation up or down, as frequently as required. 
 
-![Change resources](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-update-resources-manually.png)
+![Change resources](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-update-cpu-manually.png)
 
 
 There is momentary downtime while the new compute settings are applied. In most cases, this is 
