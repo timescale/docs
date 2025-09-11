@@ -9,18 +9,70 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
-## Cross-region backups, PostgreSQL options, and onboarding
+## New data import wizard
+<Label type="date">September 5, 2025</Label>
+
+To make navigation easier, we’ve introduced a cleaner, more intuitive UI for data import. It highlights the most common and recommended option, PostgreSQL Dump & Restore, while organizing all import options into clear categories, to make navigation easier.
+
+The new categories include:
+- **PostgreSQL Dump & Restore**
+- **Upload Files**: CSV, Parquet, TXT
+- **Real-time Data Replication**: source connectors
+- **Migrations & Other Options**
+
+  ![Data import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/data-import-wizard-in-tiger-cloud.png)
+
+A new data import component has been added to the overview dashboard, providing a clear view of your imports. This includes quick start, in-progress status, and completed imports:
+
+  ![Overview dashboard in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/service-dashboard-tiger-cloud.png)
+
+## 🚁 Enhancements to the Postgres source connector
+<Label type="date">August 28, 2025</Label>
+
+- **Easy table selection**: You can now sync the complete source schema in one go. Select multiple tables from the 
+   drop-down menu and start the connector.
+- **Sync metadata**: Connectors now display the following detailed metadata:
+    - `Initial data copy`: The number of rows copied at any given point in time.
+    - `Change data capture`: The replication lag represented in time and data size.
+- **Improved UX design**: In-progress syncs with separate sections showing the tables and metadata for 
+   `initial data copy` and `change data capture`, plus a dedicated tab where you can add more tables to the connector.
+
+   ![Connectors UX](https://assets.timescale.com/docs/images/tiger-cloud-console/connectors-new-ui.png)
+
+## 🦋 Developer role GA and hypertable transformation in Console
+<Label type="date">August 21, 2025</Label>
+
+### Developer role (GA)
+
+The [Developer role in Tiger Cloud](https://docs.tigerdata.com/use-timescale/latest/security/members/) is now 
+generally available. It’s a project‑scoped permission set that lets technical users build and 
+operate services, create or modify resources, run queries, and use observability—without admin or billing access. 
+This enforces least‑privilege by default, reducing risk and audit noise, while keeping governance with Admins/Owners and 
+billing with Finance. This means faster delivery (fewer access escalations), protected sensitive settings, 
+and clear boundaries, so the right users can ship changes safely, while compliance and cost control remain intact.
+
+### Transform a table to a hypertable from the Explorer
+
+In Console, you can now easily create hypertables from your regular Postgres tables directly from the Explorer. 
+Clicking on any Postgres table shows an option to open up the hypertable action. Follow the simple steps to set up your 
+partition key and transform the table to a hypertable.
+
+![Transform a table to a hypertable](https://assets.timescale.com/docs/images/table_to_hypertable_1.png)
+
+![Transform a table to a hypertable](https://assets.timescale.com/docs/images/table_to_hypertable_2.png)
+
+## Cross-region backups, Postgres options, and onboarding
 <Label type="date">August 14, 2025</Label>
 
 ### Cross-region backups
 
 You can now store backups in a different region than your service, which improves resilience and helps meet enterprise compliance requirements. Cross‑region backups are available on our Enterprise plan for free at launch; usage‑based billing may be introduced later. For full details, please [see the docs](https://docs.tigerdata.com/use-timescale/latest/backup-restore/#enable-cross-region-backup).
 
-### Standard PostgreSQL instructions for onboarding
+### Standard Postgres instructions for onboarding
 We have added basic instructions for INSERT, UPDATE, DELETE commands to the Tiger Cloud console.  It's now shown as an option in the Import Data page.
 
-### PostgreSQL-only service type
-In Tiger Cloud, you now have an option to choose PostgreSQL-only in the service creation flow. Just click on "Looking for PostgreSQL" on the Service Type screen.
+### Postgres-only service type
+In Tiger Cloud, you now have an option to choose Postgres-only in the service creation flow. Just click `Looking for plan PostgreSQL?` on the `Service Type` screen.
 
 ## Viewer role GA, EXPLAIN plans, and chunk index sizes in Explorer
 <Label type="date">July 31, 2025</Label>
@@ -259,7 +311,7 @@ Highlighted features in TimescaleDB v2.20 include:
 
 ### $PG 13 and 14 deprecated on Tiger Cloud
 
-[TimescaleDB version 2.20][timescale220] is not compatible with $PG versions v14 and below.
+[TimescaleDB version 2.20](https://github.com/timescale/timescaledb/releases/tag/2.20.0) is not compatible with $PG versions v14 and below.
 TimescaleDB 2.19.3 is the last bug-fix release for $PG 14. Future fixes are for
 $PG 15+ only. To continue receiving critical fixes and security patches, and to take
 advantage of the latest TimescaleDB features, you must upgrade to $PG 15 or newer.

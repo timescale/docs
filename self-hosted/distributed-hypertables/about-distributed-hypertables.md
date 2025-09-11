@@ -271,5 +271,4 @@ of $TIMESCALE_DB might remove some of these limitations.
 [multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
 [multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/
 [random-func]: <https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE>
-[space-partitioning]: /use-timescale/:currentVersion:/hypertables/about-hypertables#space-partitioning
 [volatility]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
