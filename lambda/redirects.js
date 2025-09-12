@@ -1084,5 +1084,29 @@ module.exports = [
    {
      from: '/use-timescale/latest/backup-restore/backup-restore-cloud/',
      to: 'https://docs.tigerdata.com/use-timescale/latest/backup-restore/',
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/import-csv/",
+     to: "https://docs.tigerdata.com/migrate/latest/upload-file-using-terminal/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/import-mysql/",
+     to: "https://docs.tigerdata.com/migrate/latest/upload-file-using-terminal/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/import-parquet/",
+     to: "https://docs.tigerdata.com/migrate/latest/upload-file-using-terminal/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/ingest-kafka/",
+     to: "https://docs.tigerdata.com/integrations/latest/apache-kafka/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/ingest-telegraf/",
+     to: "https://docs.tigerdata.com/integrations/latest/telegraf/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/",
+     to: "https://docs.tigerdata.com/integrations/latest/#data-ingestion-and-streaming"
    }
 ];

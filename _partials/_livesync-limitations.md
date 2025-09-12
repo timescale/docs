@@ -9,15 +9,15 @@
 
 * Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
 
-  $LIVESYNC_CAP does not create extensions on the target. If the table uses
+  The $PG_CONNECTOR does not create extensions on the target. If the table uses
   column types from an extension, first create the extension on the
   target $SERVICE_LONG before syncing the table.
 
 * There is WAL volume growth on the source $PG instance during large table copy.
 
-* Continuous Aggregates Invalidation
+* Continuous aggregate invalidation
 
-  LiveSync uses `session_replication_role=replica` during data replication,
+  The connector uses `session_replication_role=replica` during data replication,
   which prevents table triggers from firing. This includes the internal
   triggers that mark continuous aggregates as invalid when underlying data
   changes.
@@ -35,7 +35,7 @@
   - Queries returning incomplete results.
 
   If the continuous aggregate exists in the source database, best
-  practice is to add it to the live-sync publication. If it only exists on the
+  practice is to add it to the $PG connector publication. If it only exists on the
   target database, manually refresh the continuous aggregate using the `force`
   option of [refresh_continuous_aggregate][refresh-caggs].
 
