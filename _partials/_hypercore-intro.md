@@ -21,7 +21,7 @@ $HYPERCORE_CAP’s hybrid approach combines the benefits of row-oriented and col
   saving significant storage space.
 
 - **Faster queries on compressed data in $COLUMNSTORE**: in the $COLUMNSTORE conversion, hypertable
-  chunks are compressed by more than 90%, and organized for efficient, large-scale queries. Combined with [chunk skipping][chunk-skipping], this helps you save on storage costs and keeps your queries operating at lightning speed.
+  chunks are compressed by up to 98%, and organized for efficient, large-scale queries. Combined with [chunk skipping][chunk-skipping], this helps you save on storage costs and keeps your queries operating at lightning speed.
 
 - **Fast modification of compressed data in $COLUMNSTORE**: just use SQL to add or modify data in the $COLUMNSTORE.
    $TIMESCALE_DB is optimized for super fast INSERT and UPSERT performance.  
