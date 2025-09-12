@@ -180,7 +180,7 @@ challenges in real-time analytics.
 
 When $TIMESCALE_DB converts $CHUNKs from the $ROWSTORE to the $COLUMNSTORE, multiple records are grouped into a single row.
 The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk
-space, you can reduce your $CHUNK size by more than 90%, and can also speed up your queries. This helps you save on storage costs,
+space, you can reduce your $CHUNK size by up to 98%, and can also speed up your queries. This helps you save on storage costs,
 and keeps your queries operating at lightning speed.
 
 $HYPERCORE is enabled by default when you call [CREATE TABLE][hypertable-create-table]. Best practice is to compress
