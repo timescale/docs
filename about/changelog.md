@@ -9,6 +9,30 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+<Label type="date">September 12, 2025</Label>
+
+## 🛡️ Phased rollouts for TimescaleDB minor releases
+Starting with TimescaleDB 2.22.0, minor releases will now roll out in phases. Services tagged #dev will get upgraded first, then #prod after 21 days. This gives you time to validate upgrades in #dev before they reach #prod. Subscribe to get an email notification before your #prod service is upgraded. For full details, please visit our docs.
+
+## ⏰ pg_cron extension
+pg_cron is now available on Tiger Cloud!
+With pg_cron, you can:
+- Schedule SQL commands to run automatically—like generating weekly sales reports or cleaning up old log entries every night at 2 AM
+- Automate routine maintenance tasks such as refreshing materialized views hourly to keep dashboards current
+- Eliminate external cron jobs and task schedulers, keeping all your automation logic within PostgreSQL
+To enable pg_cron on your service, please contact our support team. We're working on making this self-service in future updates.
+
+## ⚡️ Larger compute options: 48 and 64 CPU
+For the most demanding workloads, you can now create services with 48 and 64 CPUs. These options are only available on our Enterprise plan, and they're dedicated instances that are not shared with other customers.
+
+## 📋 Backup report for compliance
+Scale and Enterprise customers can now see a list of their backups in Tiger Cloud Console. For customers with SOC 2 or other compliance needs, this serves as auditable proof of backups.
+
+## 🗺️ New Router for TigerData's UI
+The UI just got faster! We have updated our router in the console to allow prefetching pages, which should make the UI feel much snappier. It also allows us to deep-link objects in the UI. Users can now link to specific objects in the Explorer easily, and navigating between pages (e.g., Insights and Explorer) should be much easier. With this, we've made the objects clickable in the Jobs page to see what hypertable the job is associated with.
+
+
+
 ## New data import wizard
 <Label type="date">September 5, 2025</Label>
 
