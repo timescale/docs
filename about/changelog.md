@@ -29,9 +29,13 @@ To enable `pg_cron` on your service, contact our support team. We're working on 
 
 For the most demanding workloads, you can now create services with 48 and 64 CPUs. These options are only available on our Enterprise plan, and they're dedicated instances that are not shared with other customers.
 
+![CPU options in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-cpu-options.png)
+
 ### 📋 Backup report for compliance
 
 Scale and Enterprise customers can now see a list of their backups in Tiger Cloud Console. For customers with SOC 2 or other compliance needs, this serves as auditable proof of backups.
+
+![Backup reports in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/backup-history-tiger-cloud.png)
 
 ### 🗺️ New router for Tiger Cloud Console
 
