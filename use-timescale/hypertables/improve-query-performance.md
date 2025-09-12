@@ -7,6 +7,7 @@ keywords: [hypertables, indexes, chunks]
 
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import ChunkInterval from "versionContent/_partials/_chunk-interval.mdx";
+import EarlyAccess2171 from "versionContent/_partials/_early_access_2_17_1.mdx";
 
 # Improve hypertable and query performance
 
@@ -97,6 +98,8 @@ care to check the total size of the chunk and its index using
 [`chunks_detailed_size`][chunks_detailed_size].
 
 ## Enable chunk skipping
+
+<EarlyAccess2171 />
 
 One of the key purposes of hypertables is to make your analytical queries run with the lowest latency possible. 
 When you execute a query on a hypertable, you do not parse the whole table; you only access the chunks necessary
