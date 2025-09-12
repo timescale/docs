@@ -32,12 +32,19 @@ UNIX epoch, set `chunk_time_interval` to 24 hours:
 SELECT set_chunk_time_interval('conditions', 86400000);
 ```
 
-## Required arguments
+## Arguments
 
-|Name|Type|Description|
-|-|-|-|
-|`hypertable`|REGCLASS|Hypertable or continuous aggregate to update interval for|
-|`chunk_time_interval`|See note|Event time that each new chunk covers|
+
+| Name        | Type             | Default | Required                                                             | Description                                                                                                                                      |
+|-------------|------------------|---------|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+|`hypertable`|REGCLASS| -       | ✔                                                                    | Hypertable or continuous aggregate to update interval for.                                                                                       |
+|`chunk_time_interval`|See note|-       | ✔   | Event time that each new chunk covers.                                                                                                           |
+|`dimension_name`|REGCLASS|-       | ✖ | The name of the time dimension to set the number of partitions for. Only use `dimension_name` when your hypertable has multiple time dimensions. |
+
+When you create a $HYPERTABLE, the default chunk interval is 7 days. To calculate the interval, $TIMESCALE_DB divides 
+the whole time line from epoch 0: two 7 day chunks end at day 14. If you set `chunk_time_interval` to 3 days,
+dividing the time line with 3 day chunks ending at a similar point lead to 5 chunks. That is, 15 days. Since the two 
+7 day chunks already occupied the first 14 days, the new 3 day chunks are cut to cover day 15 only (3+3+1).
 
 The valid types for the `chunk_time_interval` depend on the type used for the
 hypertable `time` column:
@@ -55,16 +62,6 @@ hypertable `time` column:
 |BIGINT|BIGINT|The same time unit as the `time` column|
 
 For more information, see [hypertable partitioning][hypertable-partitioning].
-
-## Optional arguments
-
-|TEXT|Description|
-|-|-|-|
-|`dimension_name`|REGCLASS|The name of the time dimension to set the number of partitions for|
-
-You need to use `dimension_name` argument only if your hypertable has multiple
-time dimensions.
-
 
 
 [hypertable-partitioning]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
