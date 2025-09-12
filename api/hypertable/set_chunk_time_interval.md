@@ -41,9 +41,7 @@ SELECT set_chunk_time_interval('conditions', 86400000);
 |`chunk_time_interval`|See note|-       | ✔   | Event time that each new chunk covers.                                                                                                           |
 |`dimension_name`|REGCLASS|-       | ✖ | The name of the time dimension to set the number of partitions for. Only use `dimension_name` when your hypertable has multiple time dimensions. |
 
-If you change chunk time interval from 7-days to 3-days, you may have a remainder in the transition chunk: 1 day + 3-days + 3-days = 7.
-This happens because the `chunk_time_interval` divides the timeline starting from epoch 0. For example, two 7-day 
-chunks cover 14 days. Switching to 3-day chunks aligns with a 15-day cycle, leaving a remainder 1-day chunk. 
+If you change chunk time interval it might result in a chunk that is smaller than the new interval. For example, if you have two 7-day chunks that cover 14 days and change the `chunk_time_interval` to 3 days, you may end up with a transition chunk covering only one day. This happens because the start and end of the new chunk is calculated based on dividing the timeline by the `chunk_time_interval` starting at epoch 0, leading to chunks [0, 3), [3, 6), [6, 9), [9, 12), [12, 15), [15, 18) and so on. The two 7-day chunks already covered data up to day 14, so the 3-day chunk for [12, 15) will be cut down to a one day chunk. The following chunk at [15, 18) will be created as a full 3 day chunk.
 
 
 
