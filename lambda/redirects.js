@@ -850,6 +850,10 @@ module.exports = [
     to: "https://docs.tigerdata.com/self-hosted/latest/install/"
   },
   {
+    from: "/latest/using-timescaledb/backup",
+    to: "https://docs.tigerdata.com/self-hosted/latest/backup-and-restore/"
+  },
+  {
     from: "/v0.9/faq",
     to: "https://docs.tigerdata.com/about/latest/"
   },
@@ -884,6 +888,10 @@ module.exports = [
   {
     from: "/latest/api#add_dimension",
     to: "https://docs.tigerdata.com/api/latest/hypertable/add_dimension/"
+  },
+  {
+    from: "/latest/api#backup",
+    to: "https://docs.tigerdata.com/self-hosted/latest/backup-and-restore/"
   },
   {
     from: "/timescaledb/latest/tutorials/grafana/grafana-variables/",
@@ -928,6 +936,10 @@ module.exports = [
   {
     from: "/use-timescale/latest/compression/compression-methods",
     to: "https://docs.timescale.com/use-timescale/latest/hypercore/compression-methods/"
+  },
+  {
+    from: "/use-timescale/latest/compression/troubleshooting/",
+    to: "https://docs.tigerdata.com/use-timescale/latest/hypercore/troubleshooting/"
   },
   {
     from: "/use-timescale/latest/integrations/observability-alerting/grafana/installation/",
@@ -1072,5 +1084,29 @@ module.exports = [
    {
      from: '/use-timescale/latest/backup-restore/backup-restore-cloud/',
      to: 'https://docs.tigerdata.com/use-timescale/latest/backup-restore/',
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/import-csv/",
+     to: "https://docs.tigerdata.com/migrate/latest/upload-file-using-terminal/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/import-mysql/",
+     to: "https://docs.tigerdata.com/migrate/latest/upload-file-using-terminal/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/import-parquet/",
+     to: "https://docs.tigerdata.com/migrate/latest/upload-file-using-terminal/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/ingest-kafka/",
+     to: "https://docs.tigerdata.com/integrations/latest/apache-kafka/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/ingest-telegraf/",
+     to: "https://docs.tigerdata.com/integrations/latest/telegraf/"
+   },
+   {
+     from: "/use-timescale/latest/ingest-data/",
+     to: "https://docs.tigerdata.com/integrations/latest/#data-ingestion-and-streaming"
    }
 ];

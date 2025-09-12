@@ -343,44 +343,6 @@ module.exports = [
         ],
       },
       {
-        title: "Import and ingest data",
-        href: "ingest-data",
-        excerpt:
-          "Ingest data into a Tiger Cloud service from third-party sources",
-        children: [
-          {
-            title: "Import data from CSV",
-            href: "import-csv",
-            excerpt:
-              "Import data into a Tiger Cloud service from an external .csv file",
-          },
-          {
-            title: "Import data from MySQL",
-            href: "import-mysql",
-            excerpt:
-              "Import data into a Tiger Cloud service from a MySQL instance",
-          },
-          {
-            title: "Import data from Parquet",
-            href: "import-parquet",
-            excerpt:
-              "Import data into a Tiger Cloud service from a Parquet file",
-          },
-          {
-            title: "Ingest data with Kafka",
-            href: "ingest-kafka",
-            excerpt:
-              "Import data into a Tiger Cloud service using the Postgres Kafka connector",
-          },
-          {
-            title: "Ingest metrics with Telegraf",
-            href: "ingest-telegraf",
-            excerpt:
-              "Ingest metrics into a Tiger Cloud service using the Telegraf plugin",
-          },
-        ],
-      },
-      {
         title: "Alerting",
         href: "alerting",
         excerpt: "Configure alerting in Tiger Cloud",
@@ -794,11 +756,6 @@ module.exports = [
             title: "Modify a schema",
             href: "modify-a-schema",
             excerpt: "Change the data schema in compressed chunks",
-          },
-          {
-            title: "Troubleshooting",
-            href: "troubleshooting",
-            type: "placeholder",
           },
         ],
       },
