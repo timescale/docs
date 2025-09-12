@@ -41,10 +41,11 @@ SELECT set_chunk_time_interval('conditions', 86400000);
 |`chunk_time_interval`|See note|-       | ✔   | Event time that each new chunk covers.                                                                                                           |
 |`dimension_name`|REGCLASS|-       | ✖ | The name of the time dimension to set the number of partitions for. Only use `dimension_name` when your hypertable has multiple time dimensions. |
 
-When you create a $HYPERTABLE, the default chunk interval is 7 days. To calculate the interval, $TIMESCALE_DB divides 
-the whole time line from epoch 0: two 7 day chunks end at day 14. If you set `chunk_time_interval` to 3 days,
-dividing the time line with 3 day chunks ending at a similar point lead to 5 chunks. That is, 15 days. Since the two 
-7 day chunks already occupied the first 14 days, the new 3 day chunks are cut to cover day 15 only (3+3+1).
+If you change chunk time interval from 7-days to 3-days, you may have a remainder in the transition chunk: 1 day + 3-days + 3-days = 7.
+This happens because the `chunk_time_interval` divides the timeline starting from epoch 0. For example, two 7-day 
+chunks cover 14 days. Switching to 3-day chunks aligns with a 15-day cycle, leaving a remainder 1-day chunk. 
+
+
 
 The valid types for the `chunk_time_interval` depend on the type used for the
 hypertable `time` column:
