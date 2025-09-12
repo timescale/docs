@@ -39,6 +39,8 @@ You can also create an additional index on another column and time. For example:
 CREATE INDEX ON conditions (location, time DESC);
 ```
 
+$TIMESCALE_DB also creates sparse indexes per compressed chunk for optimization. You can manually set up those indexes when you call [`CREATE TABLE`][hypertable-create-table] or [`ALTER_TABLE`][alter-table].
+
 For more information about the order to use when declaring indexes, see the
 [about indexing][about-index] section.
 
@@ -99,3 +101,4 @@ to perform indexing transactions on an individual chunk.
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
 [create-index]: https://docs.tigerdata.com/api/latest/hypertable/create_index/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[alter-table]: /api/:currentVersion:/hypercore/alter_table/

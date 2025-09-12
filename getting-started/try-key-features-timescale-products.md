@@ -66,7 +66,7 @@ relational and time-series data from external files.
            optimization in a [hypertable][hypertables-section].
          - A list of asset symbols and company names. This is best suited for a regular relational table.  
 
-       To import up to 100GB of data directly from your current $PG-based database, 
+       To import up to 100 GB of data directly from your current $PG-based database, 
        [migrate with downtime][migrate-with-downtime] using native $PG tooling. To seamlessly import 100GB-10TB+ 
        of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG data 
        sources, see [Import and ingest data][data-ingest].
@@ -82,9 +82,11 @@ relational and time-series data from external files.
        <Tab title="Tiger Cloud Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
-          1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Upload CSV`.
-          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name` to `crypto_ticks`.
-          1. Enable `hypertable partition` for the `time` column and click `Upload CSV`.
+          1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.
+          1. Click to browse, or drag and drop `<local folder>/tutorial_sample_tick.csv` to upload. 
+          1. Leave the default settings for the delimiter, skipping the header, and creating a new table. 
+          1. In `Table`, provide `crypto_ticks` as the new table name. 
+          1. Enable `hypertable partition` for the `time` column and click `Process CSV file`.
        
               The upload wizard creates a $HYPERTABLE containing the data from the CSV file.
           1. When the data is uploaded, close `Upload .CSV`.
@@ -180,7 +182,7 @@ challenges in real-time analytics.
 
 When $TIMESCALE_DB converts $CHUNKs from the $ROWSTORE to the $COLUMNSTORE, multiple records are grouped into a single row.
 The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk
-space, you can reduce your $CHUNK size by more than 90%, and can also speed up your queries. This helps you save on storage costs,
+space, you can reduce your $CHUNK size by up to 98%, and can also speed up your queries. This helps you save on storage costs,
 and keeps your queries operating at lightning speed.
 
 $HYPERCORE is enabled by default when you call [CREATE TABLE][hypertable-create-table]. Best practice is to compress
