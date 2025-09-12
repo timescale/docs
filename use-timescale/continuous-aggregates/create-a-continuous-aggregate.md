@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
 ---
 
-import Since2200 from "versionContent/_partials/_since_2_20_0.mdx";
+import Since2220 from "versionContent/_partials/_since_2_22_0.mdx";
 
 # Create continuous aggregates
 
@@ -55,7 +55,9 @@ hypertable. Additionally, all functions and their arguments included in
     GROUP BY device, bucket;
     ```
  
-    To create a continuous aggregate within a transaction block, use the [WITH NO DATA option][with-no-data].
+    To create a continuous aggregate within a transaction block, use the [WITH NO DATA option][with-no-data]. 
+
+    To improve continuous aggregate performance, [set `timescaledb.invalidate_using = 'wal'`][create_materialized_view] <Since2220 />. 
 
 1.  Create a policy to refresh the view every hour:
 
@@ -311,3 +313,4 @@ For $TIMESCALE_DB v2.19.3 and below, $CAGGs do not support window functions. To 
 [postgres-rls]: <https://www.postgresql.org/docs/current/ddl-rowsecurity.html>
 [postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>
 [with-no-data]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option
+[create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
