@@ -68,17 +68,18 @@ Some of the most in-demand integrations are listed below.
 
 ## Data ingestion and streaming
 
-|             Name             | Description                                                                                                                       |
-|:----------------------------:|-----------------------------------------------------------------------------------------------------------------------------------|
-| <img isIcon src='https://assets.timescale.com/docs/icons/spark-logo.png' alt='spark-logo' />[Apache Spark][apache-spark] | Process large-scale data workloads quickly using distributed computing.                                                           |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/confluent-logo.png' alt='confluent-logo'  />[Confluent][confluent]    | Manage and scale Apache Kafka-based event streaming applications. You can also [set up $PG as a source][confluent-source]. |
-|  <img isIcon src='https://assets.timescale.com/docs/icons/electric-sql-logo.png' alt='electric-sql-logo'  />[ElectricSQL][electricsql]  | Enable real-time synchronization between databases and frontend applications.                                                     |
-|         <img isIcon src='https://assets.timescale.com/docs/icons/emqx-logo.png' alt='emqx-logo'  />[EMQX][emqx]         | Deploy an enterprise-grade MQTT broker for IoT messaging.                                                                         |
-|      <img isIcon src='https://assets.timescale.com/docs/icons/estuary-logo.png' alt='estuary-logo'  />[Estuary][estuary]      | Stream and synchronize data in real time between different systems.                                                               |
-|        <img isIcon src='https://assets.timescale.com/docs/icons/flink-logo.png' alt='flink-logo'  />[Flink][flink]        | Process real-time data streams with fault-tolerant distributed computing.                                                         |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/fivetran-logo.png' alt='fivetran-logo'  />[Fivetran][fivetran]      | Sync data from multiple sources to your data warehouse.                                                                           |
-|     <img isIcon src='https://assets.timescale.com/docs/icons/red-panda-logo.png' alt='red-panda-logo'  />[Redpanda][redpanda]     | Stream and process real-time data as a Kafka-compatible platform.                                                                 |
-|       <img isIcon src='https://assets.timescale.com/docs/icons/striim-logo.png' alt='strimm-logo'  />[Striim][striim]       | Ingest, process, and analyze real-time data streams.                                                                              |
+|                                                                 Name                                                                  | Description                                                                                                                |
+|:-------------------------------------------------------------------------------------------------------------------------------------:|----------------------------------------------------------------------------------------------------------------------------|
+|       <img isIcon src='https://assets.timescale.com/docs/icons/spark-logo.png' alt='spark-logo' />[Apache Spark][apache-spark]        | Process large-scale data workloads quickly using distributed computing.                                                    |
+|      <img isIcon src='https://assets.timescale.com/docs/icons/confluent-logo.png' alt='confluent-logo'  />[Confluent][confluent]      | Manage and scale Apache Kafka-based event streaming applications. You can also [set up $PG as a source][confluent-source]. |
+| <img isIcon src='https://assets.timescale.com/docs/icons/electric-sql-logo.png' alt='electric-sql-logo'  />[ElectricSQL][electricsql] | Enable real-time synchronization between databases and frontend applications.                                              |
+|                <img isIcon src='https://assets.timescale.com/docs/icons/emqx-logo.png' alt='emqx-logo'  />[EMQX][emqx]                | Deploy an enterprise-grade MQTT broker for IoT messaging.                                                                  |
+|          <img isIcon src='https://assets.timescale.com/docs/icons/estuary-logo.png' alt='estuary-logo'  />[Estuary][estuary]          | Stream and synchronize data in real time between different systems.                                                        |
+|              <img isIcon src='https://assets.timescale.com/docs/icons/flink-logo.png' alt='flink-logo'  />[Flink][flink]              | Process real-time data streams with fault-tolerant distributed computing.                                                  |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/fivetran-logo.png' alt='fivetran-logo'  />[Fivetran][fivetran]        | Sync data from multiple sources to your data warehouse.                                                                    |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/highbyte-logo.svg' alt='highbyte-logo'  />[HighByte][highbyte]        | Connect operational technology sources, model the data, and stream it into $PG.                                            |
+|       <img isIcon src='https://assets.timescale.com/docs/icons/red-panda-logo.png' alt='red-panda-logo'  />[Redpanda][redpanda]       | Stream and process real-time data as a Kafka-compatible platform.                                                          |
+|            <img isIcon src='https://assets.timescale.com/docs/icons/striim-logo.png' alt='strimm-logo'  />[Striim][striim]            | Ingest, process, and analyze real-time data streams.                                                                       |
 
 ## Development tools
 
@@ -208,6 +209,7 @@ Some of the most in-demand integrations are listed below.
 [google-cloud]: /integrations/:currentVersion:/google-cloud
 [grafana]: /integrations/:currentVersion:/grafana/
 [hasura]: https://hasura.io/docs/2.0/databases/postgres/timescale-cloud/
+[highbyte]: https://guide.highbyte.com/configuration/connect/connections/historians/timescaledb/
 [ibm-instana]: https://www.ibm.com/docs/en/instana-observability/current?topic=technologies-monitoring-postgresql
 [jaeger]: https://www.jaegertracing.io/docs/2.0/storage/
 [java]: /getting-started/:currentVersion:/start-coding-with-timescale/
