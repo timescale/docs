@@ -39,55 +39,79 @@ These extensions are available on $MST_LONG:
 
 <!-- vale Vale.Spelling = NO -->
 
-*   address_standardizer
-*   address_standardizer_data_us
-*   aiven_extras (logical replication support)
-*   bloom
-*   btree_gin
-*   btree_gist
-*   chkpass
-*   citext
-*   cube
-*   dblink
-*   dict_int
-*   earthdistance
-*   fuzzystrmatch
-*   hstore
-*   intagg
-*   intarray
-*   isn
-*   ltree
-*   pg_buffercache
-*   pg_cron
-*   pg_partman ($PG 10 and older)
-*   pg_prometheus ($PG 10 and newer)
-*   pg_repack ($PG 10 and newer)
-*   pg_stat_statements
-*   pg_trgm
-*   pgcrypto
-*   pgrouting
-*   pgrowlocks
-*   pgstattuple
-*   plcoffee
-*   plls
-*   plperl
-*   plv8  ($PG 10 and older)
-*   postgis
-*   postgis_address_standardizer
-*   postgis_sfcgal
-*   postgis_tiger_geocoder
-*   postgis_topology
-*   postgis_legacy (see notes in this section)
-*   postgres_fdw
-*   rum
-*   sslinfo
-*   tablefunc
-*   tsearch2
-*   tsm_system_rows
-*   unaccent
-*   unit
-*   uuid-ossp
-*   wal2json
+- address_standardizer
+- address_standardizer_data_us
+- aiven_extras
+- amcheck
+- anon
+- autoinc
+- bloom
+- bool_plperl
+- btree_gin
+- btree_gist
+- citext
+- cube
+- dblink
+- dict_int
+- dict_xsyn
+- earthdistance
+- file_fdw
+- fuzzystrmatch
+- h3
+- h3_postgis
+- hll
+- hstore
+- hstore_plperl
+- insert_username
+- intagg
+- intarray
+- isn
+- jsonb_plperl
+- lo
+- ltree
+- moddatetime
+- pageinspect
+- pg_buffercache
+- pg_cron
+- pg_freespacemap
+- pg_prewarm
+- pg_repack
+- pg_similarity
+- pg_stat_monitor
+- pg_stat_statements
+- pg_surgery
+- pg_trgm
+- pg_visibility
+- pg_walinspect
+- pgaudit
+- pgcrypto
+- pgrouting
+- pgrowlocks
+- pgstattuple
+- plperl
+- plpgsql
+- postgis
+- postgis_raster
+- postgis_sfcgal
+- postgis_tiger_geocoder
+- postgis_topology
+- postgres_fdw
+- refint
+- rum
+- seg
+- sslinfo
+- tablefunc
+- tcn
+- timescaledb
+- tsm_system_rows
+- tsm_system_time
+- unaccent
+- unit
+- uuid-ossp
+- vector
+- vectorscale
+- xml2
+- timescaledb_toolkit
 
 <!-- vale Vale.Spelling = YES -->
 
