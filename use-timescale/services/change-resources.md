@@ -26,6 +26,10 @@ the $SERVICE_SHORT restarts. You can change the CPU and memory allocation up or 
 
 ![Change resources](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-update-cpu-manually.png)
 
+Note that:
+
+- For the 48 CPU / 192 GiB option, 6 CPU / 14 GiB is reserved for platform operations.
+- For the 64 CPU / 256 GiB option, 6 CPU / 16 GiB is reserved for platform operations. 
 
 There is momentary downtime while the new compute settings are applied. In most cases, this is 
 less than a minute. However, before making changes to your $SERVICE_SHORT, best practice
