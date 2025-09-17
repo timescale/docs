@@ -10,7 +10,9 @@ import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 
 # Stream data from Kafka
 
-You use the Kafka source connector in $CLOUD_LONG to stream events from Kafka into your $SERVICE_LONG. This page explains how to connect $CLOUD_LONG to your Confluence Cloud Kafka cluster and Schema Registry using SASL/SCRAM authentication and service account–based API keys.
+You use the Kafka source connector in $CLOUD_LONG to stream events from Kafka into your $SERVICE_SHORT. $CLOUD_LONG connects to your Confluent Cloud Kafka cluster and Schema Registry using SASL/SCRAM authentication and service account–based API keys. Only the Avro format is currently supported.
+
+This page explains how to connect $CLOUD_LONG to your Confluence Cloud Kafka cluster.
 
 ## Prerequisites
 
