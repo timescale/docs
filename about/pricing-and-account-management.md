@@ -137,8 +137,8 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 |---------------------------------------------------------------|-----------------------------------|------------------------------------------------|-------------------------------------------------|
 | **Compute and storage**                                       |                                   |                                                |                                                 |
 | Number of $SERVICE_SHORTs	                                    | Up to 4	                          | Unlimited	                                     | Unlimited                                       |
-| CPU limit per $SERVICE_SHORT                                  | 	Up to 8 CPU	                     | Up to 32 CPU	                                  | Up to 32 CPU                                    | 
-| Memory limit per $SERVICE_SHORT                               | 	Up to 32 GB                      | 	Up to 128 GB                                  | 	Up to 128 GB                                   | 
+| CPU limit per $SERVICE_SHORT                                  | 	Up to 8 CPU	                     | Up to 32 CPU	                                  | Up to 64 CPU                                    | 
+| Memory limit per $SERVICE_SHORT                               | 	Up to 32 GB                      | 	Up to 128 GB                                  | 	Up to 256 GB                                   | 
 | Storage limit per $SERVICE_SHORT	                             | Up to 16 TB	                      | Up to 16 TB	                                   | Up to 64 TB                                     |
 | Bottomless storage on S3	                                     |                                   | 	Unlimited	                                    | Unlimited                                       |
 | Independently scale compute and storage	                      | ✓                                 | 	✓	                                            | ✓                                               |
@@ -157,8 +157,8 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | **Availability and monitoring**                               |                                   |                                                |                                                 |
 | High-availability replicas <br/>(Automated multi-AZ failover) | ✓                                 | ✓                                              | ✓                                               |
 | Read replicas		                                               |                                   | ✓                                              | ✓                                               |
-| Cross-region backup                                           |                                   |                                                |  ✓ |
-| Backup reports | | 14 days | 14 days |
+| Cross-region backup                                           |                                   |                                                |  ✓                                               |
+| Backup reports                                                |                                   | 14 days                                        | 14 days                                          |
 | Point-in-time recovery and forking                            | 	3 days                           | 14 days                                        | 14 days                                         |
 | Performance insights                                          | ✓                                 | ✓                                              | ✓                                               |
 | Metrics and log exporters	                                    |                                   | ✓                                              | ✓                                               |
