@@ -15,6 +15,11 @@ module.exports = [
         excerpt: "Synchronize data from S3 with a Tiger Cloud service in real time",
       },
       {
+        title: "Stream from Kafka",
+        href: "livesync-for-kafka",
+        excerpt: "Stream events from Kafka into your Tiger Cloud service",
+      },
+      {
         title: "Upload a file using Console",
         href: "upload-file-using-console",
         excerpt: "Upload files into a Tiger Cloud service using Console",
