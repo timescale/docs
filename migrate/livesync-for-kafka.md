@@ -122,14 +122,16 @@ Take the following steps to create a Kafka source connector in $CONSOLE_LONG.
 1. **Go to `Connectors` > `Source connectors`. Click `New Connector`, then select `Kafka`**
 1. **Click the pencil icon, then set the connector name**
 1. **Set up Kafka authentication**
-   Enter the name of your cluster in Confluent Cloud and the information from the first `api-key-*.txt` that you 
-      downloaded and press `Authenticate`.
-1. **Set up the schema registry**
-   Enter the Service account IDm and the information from the second `api-key-*.txt` that you
-   downloaded, then press `Authenticate`.
 
+   Enter the name of your cluster in Confluent Cloud and the information from the first `api-key-*.txt` that you 
+      downloaded, then click `Authenticate`.
+1. **Set up the Schema Registry**
+
+   Enter the Service account ID and the information from the second `api-key-*.txt` that you
+   downloaded, then click `Authenticate`.
 1. **Select topics to sync**
-    Add the schema and table, map the columns in the table and click `Create connector`.
+
+    Add the schema and table, map the columns in the table, and click `Create connector`.
 
 
 Your Kafka connector is configured and ready to stream events. 
