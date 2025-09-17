@@ -126,10 +126,28 @@ Take the following steps to create a Kafka source connector in $CONSOLE_LONG.
 
 <Procedure>
 
+1. **In [$CONSOLE_SHORT][console], select your $SERVICE_SHORT**
+1. **Go to `Connectors` > `Source connectors` > `Kafka`**
+1. **Click the pencil icon, then set the connector name**
+1. **Set up Kafka authentication**
+
+
+
+1. **Set up Schema Registry**
+
+
+
+1. **Select topics to sync**
+
+
+Your Kafka connector is configured and ready to stream events. 
+
 </Procedure>
+
 
 
 [confluent-cloud]: https://confluent.cloud/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [confluence-signup]: https://www.confluent.io/get-started/
 [create-kafka-cluster]: https://docs.confluent.io/cloud/current/clusters/create-cluster.html
+[console]: https://console.cloud.timescale.com/dashboard/services
