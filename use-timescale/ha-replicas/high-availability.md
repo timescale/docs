@@ -54,7 +54,7 @@ The following HA configurations are available in $CLOUD_LONG:
 
 - **Highest availability**: two replicas in different AWS availability zones from your primary. Available replication modes are:
 
-  - **High performance** - two async replicas. Provides the highest level of availability with two AZs and the ability to query the HA system. Best for absolutely critical apps.
+  - **High performance** - two async replicas. Provides the highest level of availability with two AZs and the ability to query the HA system. Best for apps where service availability is most critical.
   - **High data integrity** - one sync replica and one async replica. The sync replica is identical to the primary at all times. Best for apps that can tolerate no data loss.
 
 The following table summarizes the differences between these HA configurations:
