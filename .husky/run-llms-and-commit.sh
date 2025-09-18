@@ -13,6 +13,7 @@ if [ -f llms-full.txt ]; then
   # Faz commit somente se houver mudanças no arquivo gerado
   if ! git diff --cached --quiet; then
     git commit -m "chore: auto-update llms-full.txt"
+    git push
   else
     echo "⚠️ Nenhuma mudança detectada no arquivo. Não foi feito novo commit."
   fi
