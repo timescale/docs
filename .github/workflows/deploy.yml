@@ -39,8 +39,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout ${{ github.head_ref }}
-          git add llms-full.tsx
-          git diff --cached --quiet || git commit -m "chore: update LLM training file [auto]"
+          if [ -f llms-full.txt ]; then
+            git add llms-full.txt
+            git diff --cached --quiet || git commit -m "chore: update LLM training file [auto]"
+          else
+            echo "⚠️ File llms-full.txt not found, skipping commit."
+          fi
 
       - name: Push updated files back to PR
         run: git push origin HEAD:${{ github.head_ref }}
