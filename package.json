@@ -7,5 +7,13 @@
   },
   "dependencies": {
     "markdown-link-check": "^3.13.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "python3 .helper-scripts/llms/generate_llms_full.py && git add llms-full.txt && git commit -m 'chore: update LLM training file' || true"
+    }
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }
