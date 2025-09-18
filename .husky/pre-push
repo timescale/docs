@@ -1,16 +1,3 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/h"
-
-python3 .helper-scripts/llms/generate_llms_full.py
-LLM_FILE="llms-full.txt"
-if [ -f "$LLM_FILE" ]; then
-  git add "$LLM_FILE"
-  if ! git diff --cached --quiet; then
-    git commit -m "chore: update LLM training file"
-  else
-    echo "No changes detected for $LLM_FILE"
-  fi
-else
-  echo "❌ $LLM_FILE was not created. Check the python script"
-  exit 1
-fi
+bash .husky/run-llms-and-commit.sh
