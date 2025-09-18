@@ -21,6 +21,30 @@ jobs:
           echo "DEV_FOLDER=$(echo ${GITHUB_HEAD_REF})" >> $GITHUB_OUTPUT
           echo "HYPHENATED_BRANCH_NAME=$(echo "${GITHUB_HEAD_REF}" | sed 's|/|-|' | sed 's/\./-/g')" >> $GITHUB_ENV
 
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run LLM training generator
+        run: python3 .helper-scripts/llms/generate_llms_full.py
+
+      - name: Commit generated .txt files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout ${{ github.head_ref }}
+          git add llms-full.tsx
+          git diff --cached --quiet || git commit -m "chore: update LLM training file [auto]"
+
+      - name: Push updated files back to PR
+        run: git push origin HEAD:${{ github.head_ref }}
+
       - name: Workflow dispatch
         uses: benc-uk/workflow-dispatch@v1
         with:
