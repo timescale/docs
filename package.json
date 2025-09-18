@@ -4,7 +4,7 @@
   "description": "Documentation for Tiger Cloud and related products",
   "scripts": {
     "template:hyperfunction": "node ./.helper-scripts/mkdir-hyperfn.mjs",
-    "prepare": "husky install"
+    "prepare": "husky install" 
   },
   "dependencies": {
     "markdown-link-check": "^3.13.7"
