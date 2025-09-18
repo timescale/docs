@@ -36,8 +36,8 @@ jobs:
 
       - name: Commit generated .txt files
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "Victor Meireles"
+          git config user.email "victor@tigerdata.com"
           git checkout ${{ github.head_ref }}
           if [ -f llms-full.txt ]; then
             git add llms-full.txt
