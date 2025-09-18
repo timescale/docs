@@ -2,22 +2,18 @@
 
 set -e
 
-echo "🔁 Gerando arquivo llms-full.txt..."
 python3 .helper-scripts/llms/generate_llms_full.py
 
 if [ -f llms-full.txt ]; then
-  echo "✅ Arquivo gerado com sucesso. Adicionando ao commit..."
-
   git add llms-full.txt
 
-  # Faz commit somente se houver mudanças no arquivo gerado
   if ! git diff --cached --quiet; then
     git commit -m "chore: auto-update llms-full.txt"
     git push
   else
-    echo "⚠️ Nenhuma mudança detectada no arquivo. Não foi feito novo commit."
+    echo "⚠️ No updates detected on file"
   fi
 else
-  echo "❌ Arquivo llms-full.txt não encontrado. Abortando push."
+  echo "❌ llms-full.txt not found. Aborting push."
   exit 1
 fi
