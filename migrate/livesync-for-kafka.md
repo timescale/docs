@@ -138,6 +138,109 @@ Your Kafka connector is configured and ready to stream events.
 
 </Procedure>
 
+## Known Limitations / Not Supported Types
+
+Below are the Avro schema types not supported at this time:
+
+### 1. Union Types
+
+All union types are blocked, including simple nullable fields.
+
+Examples:
+
+Simple nullable field:
+```
+{
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {"name": "id", "type": "string"},
+    {"name": "age", "type": ["null", "int"]}
+  ]
+}
+```
+
+Multiple type union:
+```
+{
+  "type": "record",
+  "name": "Message",
+  "fields": [
+    {"name": "content", "type": ["string", "bytes", "null"]}
+  ]
+}
+```
+
+Union as root schema:
+```
+["null", "string"]
+```
+
+### 2. Reference Types (Named Type References)
+
+Referencing a previously defined named type by name (instead of inline) is not supported.
+
+Example:
+
+Named type definition:
+
+```
+{
+  "type": "record",
+  "name": "Address",
+  "fields": [
+    {"name": "street", "type": "string"},
+    {"name": "city", "type": "string"}
+  ]
+}
+```
+
+Failing reference:
+
+```
+{
+  "type": "record",
+  "name": "Person",
+  "fields": [
+    {"name": "name", "type": "string"},
+    {"name": "address", "type": "Address"}
+  ]
+}
+```
+
+### 3. Unsupported Logical Types
+
+Any logical type not in the hardcoded supported list.
+
+Currently supported logical types:
+
+* decimal, date, time-millis, time-micros
+
+* timestamp-millis, timestamp-micros, timestamp-nanos
+
+* local-timestamp-millis, local-timestamp-micros, local-timestamp-nanos
+
+* uuid, duration
+
+Unsupported examples:
+
+```
+{
+  "type": "int",
+  "logicalType": "date-time"
+}
+
+{
+  "type": "string",
+  "logicalType": "json"
+}
+
+{
+  "type": "bytes",
+  "logicalType": "custom-type"
+}
+```
+
 
 
 [confluent-cloud]: https://confluent.cloud/
