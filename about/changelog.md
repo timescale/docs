@@ -9,6 +9,18 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Kafka Source Connector (early access)
+<Label type="date">September 19, 2025</Label>
+
+The new [Kafka Source Connector](https://docs.tigerdata.com/migrate/latest/livesync-for-kafka/) enables you to connect your existing Kafka clusters directly to Tiger Cloud and ingest data from Kafka topics into hypertables. Developers often build proxies or run JDBC Sink Connectors to bridge Kafka and Tiger Cloud, which is error-prone and time-consuming. With the Kafka Source Connector, you can seamlessly start ingesting your Kafka data natively without additional middleware.
+
+- Supported formats: AVRO
+- Supported platforms: Confluent Cloud and Amazon Managed Streaming for Apache Kafka
+
+![Kafka source connector in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/kafka-source-connector-tiger-data.png)
+
+![Kafka source connector streaming in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/kafka-source-connector-streaming.png)
+
 ## Phased update rollouts, `pg_cron`, larger compute options, and backup reports 
 <Label type="date">September 12, 2025</Label>
 

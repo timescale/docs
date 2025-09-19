@@ -7,26 +7,21 @@ keywords: [queries, DISTINCT, SkipScan]
 
 # Get faster `DISTINCT` queries with `SkipScan`
 
-SkipScan improves query times for `DISTINCT` queries. It works on both regular $PG
-tables and hypertables. SkipScan is included in $TIMESCALE_DB v2.2.1 and later.
+SkipScan dramatically speeds up `DISTINCT` queries by jumping directly to the first row of each distinct value in an index, instead of scanning all rows. First introduced in $TIMESCALE_DB v2.2.1 for the rowstore hypertables and relational tables, SkipScan now extends to columnstore hypertables, distinct aggregates, and even multiple columns.
 
 ## Speed up `DISTINCT` queries
 
-To query your database and find the most recent value of an item, you
-could use a `DISTINCT` query. For example, you might want to find the latest
-stock or cryptocurrency price for each of your investments. Or you might have graphs
-and alarms that repeatedly query the most recent values for every device or
-service.
+You use DISTINCT queries to get only the unique values in your data. For example, the customers who placed orders, the countries where your users are located, or the unique devices reporting into an IoT system. Or you might have graphs and alarms that repeatedly query the most recent values for every device or service.
 
 As your tables get larger, `DISTINCT` queries tend to get slower. This is
 because $PG does not currently have a good mechanism for pulling a list
 of unique values from an ordered index. Even when you have an index that matches
 the exact order and columns for these kinds of queries, $PG scans the
-entire index to find all unique values. As a table grows, this operation keeps
+entire index to find all unique values. As the table grows, this operation keeps
 getting slower.
 
 SkipScan allows queries to incrementally jump from one ordered value to the next
-without reading all of the rows in between. Without support for this feature,
+without reading all rows in between. Without support for this feature,
 the database engine has to scan the entire ordered index and then de-duplicate
 at the end, which is a much slower process.
 
@@ -46,13 +41,12 @@ For benchmarking information on how SkipScan compares to regular `DISTINCT`
 queries, see the [SkipScan blog post][blog-skipscan].
 
 <Highlight type="note">
-Skip scan cost is based on the ratio of distinct tuples to total tuples. If the number of distinct tuples is close to the total number of tuples, skip scan is unlikely to be chosen due to its higher estimated cost.
+The SkipScan cost is based on the ratio of distinct tuples to total tuples. If the number of distinct tuples is close to the total number of tuples, SkipScan is unlikely to be chosen due to its higher estimated cost.
 </Highlight>
 
 ## Use SkipScan queries
 
-SkipScan is included in $TIMESCALE_DB v2.2.1 and later. This section describes
-how to set up your database index and query to use a SkipScan node.
+This section describes how to set up your database index and query to use a SkipScan node.
 
 Your index must:
 
