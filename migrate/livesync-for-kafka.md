@@ -11,7 +11,7 @@ import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
 # Stream data from Kafka
 
-You use the Kafka source connector in $CLOUD_LONG to stream events from Kafka into your $SERVICE_SHORT. $CLOUD_LONG connects to your Confluent Cloud Kafka cluster and Schema Registry using SASL/SCRAM authentication and service account–based API keys. Only the Avro format is currently supported.
+You use the Kafka source connector in $CLOUD_LONG to stream events from Kafka into your $SERVICE_SHORT. $CLOUD_LONG connects to your Confluent Cloud Kafka cluster and Schema Registry using SASL/SCRAM authentication and service account–based API keys. Only the Avro format is currently supported [with some limitations][limitations]. 
 
 This page explains how to connect $CLOUD_LONG to your Confluence Cloud Kafka cluster.
 
@@ -130,7 +130,7 @@ Take the following steps to create a Kafka source connector in $CONSOLE_LONG.
       downloaded, then click `Authenticate`.
 1. **Set up the Schema Registry**
 
-   Enter the Service account ID and the information from the second `api-key-*.txt` that you
+   Enter the service account ID and the information from the second `api-key-*.txt` that you
    downloaded, then click `Authenticate`.
 1. **Select topics to sync**
 
@@ -141,10 +141,113 @@ Your Kafka connector is configured and ready to stream events.
 
 </Procedure>
 
+## Known limitations and unsupported types
 
+The following Avro schema types are not supported:
+
+### Union types
+
+All union types are blocked, including simple nullable fields.
+
+Examples:
+
+- Simple nullable field:
+
+    ```
+    {
+      "type": "record",
+      "name": "User",
+      "fields": [
+        {"name": "id", "type": "string"},
+        {"name": "age", "type": ["null", "int"]}
+      ]
+    }
+    ```
+
+- Multiple type union:
+
+    ```
+    {
+      "type": "record",
+      "name": "Message",
+      "fields": [
+        {"name": "content", "type": ["string", "bytes", "null"]}
+      ]
+    }
+    ```
+
+- Union as root schema:
+
+    ```
+    ["null", "string"]
+    ```
+
+### Reference types (named type references)
+
+Referencing a previously defined named type by name, instead of inline, is not supported.
+
+Examples:
+
+- Named type definition:
+
+    ```
+    {
+      "type": "record",
+      "name": "Address",
+      "fields": [
+        {"name": "street", "type": "string"},
+        {"name": "city", "type": "string"}
+      ]
+    }
+    ```
+
+- Failing reference:
+
+    ```
+    {
+      "type": "record",
+      "name": "Person",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "address", "type": "Address"}
+      ]
+    }
+    ```
+
+### Unsupported logical types
+
+Only the logical types in the hardcoded supported list are supported. This includes:
+
+* decimal, date, time-millis, time-micros
+
+* timestamp-millis, timestamp-micros, timestamp-nanos
+
+* local-timestamp-millis, local-timestamp-micros, local-timestamp-nanos
+
+* uuid, duration
+
+Unsupported examples:
+
+```
+{
+  "type": "int",
+  "logicalType": "date-time"
+}
+
+{
+  "type": "string",
+  "logicalType": "json"
+}
+
+{
+  "type": "bytes",
+  "logicalType": "custom-type"
+}
+```
 
 [confluent-cloud]: https://confluent.cloud/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [confluence-signup]: https://www.confluent.io/get-started/
 [create-kafka-cluster]: https://docs.confluent.io/cloud/current/clusters/create-cluster.html
 [console]: https://console.cloud.timescale.com/dashboard/services
+[limitations]: /migrate/:currentVersion:/livesync-for-kafka/#known-limitations-and-unsupported-types
