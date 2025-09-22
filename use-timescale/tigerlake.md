@@ -89,7 +89,7 @@ To connect a $SERVICE_LONG to your data lake:
    
    ```shell
    aws cloudformation create-stack \
-    --capabilities CapabilityIAM \
+    --capabilities CAPABILITY_IAM \
     --template-url https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml \
     --region <Region> \
     --stack-name <StackName> \
