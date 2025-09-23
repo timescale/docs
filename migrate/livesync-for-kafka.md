@@ -147,22 +147,9 @@ The following Avro schema types are not supported:
 
 ### Union types
 
-All union types are blocked, including simple nullable fields.
+Multi-type non-nullable unions are blocked.
 
 Examples:
-
-- Simple nullable field:
-
-    ```
-    {
-      "type": "record",
-      "name": "User",
-      "fields": [
-        {"name": "id", "type": "string"},
-        {"name": "age", "type": ["null", "int"]}
-      ]
-    }
-    ```
 
 - Multiple type union:
 
