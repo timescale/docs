@@ -19,7 +19,8 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Adaptive query optimization**: dynamic query plan adjustment based on actual execution statistics and data distribution patterns, improving performance over time.
 
-<a id="agent"></a>**Agent**: a system that uses prompts, and other logic to act autonomously or semi-autonomously.
+<a id="agent"></a>
+**Agent**: a system that uses prompts, and other logic to act autonomously or semi-autonomously.
 
 **AI agent**: See [Agent](#agent). 
 
