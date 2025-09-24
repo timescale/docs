@@ -11,7 +11,7 @@ import Since220 from "versionContent/_partials/_since_2_2_0.mdx";
 
 $SKIPSCAN_LONG dramatically speeds up `DISTINCT` queries. It jumps directly to the first row of each distinct value in an 
 index instead of scanning all rows. First introduced for the rowstore hypertables and relational tables, 
-$SKIPSCAN_SHORT now extends to columnstore hypertables, distinct aggregates, and even multiple columns.
+$SKIPSCAN_SHORT now extends to columnstore hypertables, distinct aggregates like `COUNT(DISTINCT)`, and even multiple columns.
 
 <Since220 />
 
@@ -43,7 +43,7 @@ CREATE INDEX ON metrics(region, device, metric_type);
 -- All distinct columns have filters which don't allow NULLs: can use SkipScan
 SELECT DISTINCT ON (region, device, metric_type) *
 FROM   metrics
-WHERE region IN ('UK','EU','JP') AND device >1 AND metric_type IS NOT NULL
+WHERE region IN ('UK','EU','JP') AND device > 1 AND metric_type IS NOT NULL
 ORDER  BY region, device, metric_type, time DESC;
 -- Distinct columns are declared NOT NULL: can use SkipScan
 CREATE TABLE metrics(region TEXT NOT NULL, device INT NOT NULL, ...);
