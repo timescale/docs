@@ -19,6 +19,10 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Adaptive query optimization**: dynamic query plan adjustment based on actual execution statistics and data distribution patterns, improving performance over time.
 
+<a id="agent"></a>**Agent**: a system that uses prompts, and other logic to act autonomously or semi-autonomously.
+
+**AI agent**: See [Agent](#agent). 
+
 **Aggregate (Continuous Aggregate)**: a materialized, precomputed summary of query results over time-series data, providing faster access to analytics.
 
 **Alerting**: the process of automatically notifying administrators when predefined conditions or thresholds are met in system monitoring.
@@ -130,6 +134,8 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 **Data type**: a classification that specifies which type of value a variable can hold, such as integer, string, or boolean.
 
 **Decompress**: the process of restoring compressed data to its original, uncompressed state.
+
+**Developer Agent**: a specialized [Agent](#agent) you use for coding, debugging and devops-as-code. 
 
 **Delta**: the difference between two values, commonly used in counter aggregations to calculate the change over time.
 
@@ -384,6 +390,8 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 **Policy**: an automated rule or procedure that performs maintenance tasks like compression, retention, or refresh operations.
 
 **Predictive maintenance**: the use of time-series data to forecast equipment failure, common in IoT and industrial applications.
+
+**Prompt**: an input or instruction you give to an Agent. A prompt is normally text, but may be multimodal. For example, images and text.
 
 **$PG**: an open-source object-relational database system known for its reliability, robustness, and performance.
 
