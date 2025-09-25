@@ -39,7 +39,7 @@ Take the following steps to prepare your Kafka cluster for connection to $CLOUD_
           `Access control` > `Service accounts` >`Add service account`.
        1. Enter the following details:
        
-          - Name: `tigercloud-access` 
+          - Name: `tigerdata-access` 
           - Description: `Service account for the Tiger Cloud source connector`
 
        1. Add the service account owner role, then click `Next`.
@@ -53,7 +53,7 @@ Take the following steps to prepare your Kafka cluster for connection to $CLOUD_
        1. In Confluent Cloud, click `Home` > `Environments` > Select your environment > Select your cluster.
        1. Under `Cluster overview` in the left sidebar, select `API Keys`. 
        1. Click `Add key`, choose `Service Account` and click `Next`. 
-       1. Select `tigercloud-access`, then click `Next`. 
+       1. Select `tigerdata-access`, then click `Next`. 
        1. For your cluster, choose the `Operation` and select the following `Permission`s, then click `Next`:
           - `Resource type`: `Cluster`
           - `Operation`: `DESCRIBE`
@@ -68,7 +68,7 @@ Take the following steps to prepare your Kafka cluster for connection to $CLOUD_
             - `Permission`: `ALLOW`
           - ACL 3: Consumer group access
             - `Resource type`: `Consumer group`
-            - `Consumer group ID`: `tigercloud-kafka/<tiger_cloud_project_id>`. See [Find your connection details][connection-info] for where to find your project ID
+            - `Consumer group ID`: `tigerdata-kafka/<tiger_cloud_project_id>`. See [Find your connection details][connection-info] for where to find your project ID
             - `Pattern type`: `PREFIXED`
             - `Operation`: `READ`
             - `Permission`: `ALLOW`
@@ -89,11 +89,11 @@ $CLOUD_LONG requires access to the Schema Registry to fetch schemas for Kafka to
    1. **Create a Schema Registry API key**
 
       1. Click `API Keys`, then click `Add API Key`.
-      1. Choose `Service Account`, select `tigercloud-access`, then click `Next`. 
+      1. Choose `Service Account`, select `tigerdata-access`, then click `Next`. 
       1. Under `Resource scope`, choose `Schema Registry`, select the `default` environment, then click `Next`. 
       2. In `Create API Key`, add the following, then click `Create API Key` :
       
-         - `Name`: `tigercloud-schema-registry-access`
+         - `Name`: `tigerdata-schema-registry-access`
          - `Description`: `API key for Tiger Cloud schema registry access`
 
       1. Click `Download API Key` and securely store the API key and secret, then click `Complete`.
@@ -102,7 +102,7 @@ $CLOUD_LONG requires access to the Schema Registry to fetch schemas for Kafka to
 
       1. Click the burger menu at the top-right of the pane, then press 
           `Access control` > `Accounts & access` > `Service accounts`.
-      1. Select the `tigercloud-access` service account.
+      1. Select the `tigerdata-access` service account.
       1. In the `Access` tab, add the following role assignments for `All schema subjects`:
       
          - `ResourceOwner` on the service account. 
