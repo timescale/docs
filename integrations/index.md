@@ -68,17 +68,18 @@ Some of the most in-demand integrations are listed below.
 
 ## Data ingestion and streaming
 
-|             Name             | Description                                                                                                                       |
-|:----------------------------:|-----------------------------------------------------------------------------------------------------------------------------------|
-| <img isIcon src='https://assets.timescale.com/docs/icons/spark-logo.png' alt='spark-logo' />[Apache Spark][apache-spark] | Process large-scale data workloads quickly using distributed computing.                                                           |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/confluent-logo.png' alt='confluent-logo'  />[Confluent][confluent]    | Manage and scale Apache Kafka-based event streaming applications. You can also [set up $PG as a source][confluent-source]. |
-|  <img isIcon src='https://assets.timescale.com/docs/icons/electric-sql-logo.png' alt='electric-sql-logo'  />[ElectricSQL][electricsql]  | Enable real-time synchronization between databases and frontend applications.                                                     |
-|         <img isIcon src='https://assets.timescale.com/docs/icons/emqx-logo.png' alt='emqx-logo'  />[EMQX][emqx]         | Deploy an enterprise-grade MQTT broker for IoT messaging.                                                                         |
-|      <img isIcon src='https://assets.timescale.com/docs/icons/estuary-logo.png' alt='estuary-logo'  />[Estuary][estuary]      | Stream and synchronize data in real time between different systems.                                                               |
-|        <img isIcon src='https://assets.timescale.com/docs/icons/flink-logo.png' alt='flink-logo'  />[Flink][flink]        | Process real-time data streams with fault-tolerant distributed computing.                                                         |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/fivetran-logo.png' alt='fivetran-logo'  />[Fivetran][fivetran]      | Sync data from multiple sources to your data warehouse.                                                                           |
-|     <img isIcon src='https://assets.timescale.com/docs/icons/red-panda-logo.png' alt='red-panda-logo'  />[Redpanda][redpanda]     | Stream and process real-time data as a Kafka-compatible platform.                                                                 |
-|       <img isIcon src='https://assets.timescale.com/docs/icons/striim-logo.png' alt='strimm-logo'  />[Striim][striim]       | Ingest, process, and analyze real-time data streams.                                                                              |
+|                                                                 Name                                                                  | Description                                                                                                                |
+|:-------------------------------------------------------------------------------------------------------------------------------------:|----------------------------------------------------------------------------------------------------------------------------|
+|       <img isIcon src='https://assets.timescale.com/docs/icons/spark-logo.png' alt='spark-logo' />[Apache Spark][apache-spark]        | Process large-scale data workloads quickly using distributed computing.                                                    |
+|      <img isIcon src='https://assets.timescale.com/docs/icons/confluent-logo.png' alt='confluent-logo'  />[Confluent][confluent]      | Manage and scale Apache Kafka-based event streaming applications. You can also [set up $PG as a source][confluent-source]. |
+| <img isIcon src='https://assets.timescale.com/docs/icons/electric-sql-logo.png' alt='electric-sql-logo'  />[ElectricSQL][electricsql] | Enable real-time synchronization between databases and frontend applications.                                              |
+|                <img isIcon src='https://assets.timescale.com/docs/icons/emqx-logo.png' alt='emqx-logo'  />[EMQX][emqx]                | Deploy an enterprise-grade MQTT broker for IoT messaging.                                                                  |
+|          <img isIcon src='https://assets.timescale.com/docs/icons/estuary-logo.png' alt='estuary-logo'  />[Estuary][estuary]          | Stream and synchronize data in real time between different systems.                                                        |
+|              <img isIcon src='https://assets.timescale.com/docs/icons/flink-logo.png' alt='flink-logo'  />[Flink][flink]              | Process real-time data streams with fault-tolerant distributed computing.                                                  |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/fivetran-logo.png' alt='fivetran-logo'  />[Fivetran][fivetran]        | Sync data from multiple sources to your data warehouse.                                                                    |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/highbyte-logo.svg' alt='highbyte-logo'  />[HighByte][highbyte]        | Connect operational technology sources, model the data, and stream it into $PG.                                            |
+|       <img isIcon src='https://assets.timescale.com/docs/icons/red-panda-logo.png' alt='red-panda-logo'  />[Redpanda][redpanda]       | Stream and process real-time data as a Kafka-compatible platform.                                                          |
+|            <img isIcon src='https://assets.timescale.com/docs/icons/striim-logo.png' alt='strimm-logo'  />[Striim][striim]            | Ingest, process, and analyze real-time data streams.                                                                       |
 
 ## Development tools
 
@@ -109,20 +110,21 @@ Some of the most in-demand integrations are listed below.
 
 ## Observability and alerting
 
-|                          Name                          | Description                                                                                                                                               |
-|:------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-|            <img isIcon src='https://assets.timescale.com/docs/icons/cloudwatch-logo.png' alt='cloudwatch-logo' />[Amazon Cloudwatch][cloudwatch]             | Collect, analyze, and act on data from applications, infrastructure, and services running in AWS and on-premises environments.                            |
-|         <img isIcon src='https://assets.timescale.com/docs/icons/skywalking-logo.png' alt='skywalking-logo' />[Apache SkyWalking][apache-skywalking]         | Monitor, trace, and diagnose distributed applications for improved observability. You can also [set up $PG as storage][apache-skywalking-storage]. |
-|             <img isIcon src='https://assets.timescale.com/docs/icons/azure-monitor-logo.png' alt='azure-monitor-logo' />[Azure Monitor][azure-monitor]             | Collect and analyze telemetry data from cloud and on-premises environments.                                                                               |
-|                   <img isIcon src='https://assets.timescale.com/docs/icons/datadog-logo.png' alt='datadog-logo' />[Datadog][datadog]                   | Gain comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics.                        |
-|                   <img isIcon src='https://assets.timescale.com/docs/icons/grafana-logo.png' alt='grafana-logo' />[Grafana][grafana]                   | Query, visualize, alert on, and explore your metrics and logs.                                                                                            |
-|               <img isIcon src='https://assets.timescale.com/docs/icons/instana-logo.png' alt='instana-logo' />[IBM Instana][ibm-instana]               | Monitor application performance and detect issues in real-time.                                                                                           |
-|                    <img isIcon src='https://assets.timescale.com/docs/icons/jaeger-logo.png' alt='jaeger-logo' />[Jaeger][jaeger]                    | Trace and diagnose distributed transactions for observability.                                                                                            |
-|                 <img isIcon src='https://assets.timescale.com/docs/icons/new-relic-logo.png' alt='new-relic-logo' />[New Relic][new-relic]                 | Monitor applications, infrastructure, and logs for performance insights.                                                                                  |
-|          <img isIcon src='https://assets.timescale.com/docs/icons/open-telemetery-logo.png' alt='open-telemetery-logo' />[OpenTelemetry Beta][opentelemetry]           | Collect and analyze telemetry data for observability across systems.                                                                                      |
-|                <img isIcon src='https://assets.timescale.com/docs/icons/prometheus-logo.png' alt='prometheus-logo' />[Prometheus][prometheus]                | Track the performance and health of systems, applications, and infrastructure.                                                                            |
-|                             <img isIcon src='https://assets.timescale.com/docs/icons/signoz-logo.png' alt='signoz-logo' />[SigNoz][signoz]           | Monitor application performance with an open-source observability tool.                                                                                   |
-|                   <img isIcon src='https://assets.timescale.com/docs/icons/tableau-logo.png' alt='tableau-logo' />[Tableau][tableau]                   | Connect to data sources, analyze data, and create interactive visualizations and dashboards.                                                              |
+|                                                                        Name                                                                         | Description                                                                                                                                   |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------|
+|        <img isIcon src='https://assets.timescale.com/docs/icons/cloudwatch-logo.png' alt='cloudwatch-logo' />[Amazon Cloudwatch][cloudwatch]        | Collect, analyze, and act on data from applications, infrastructure, and services running in AWS and on-premises environments.                |
+|    <img isIcon src='https://assets.timescale.com/docs/icons/skywalking-logo.png' alt='skywalking-logo' />[Apache SkyWalking][apache-skywalking]     | Monitor, trace, and diagnose distributed applications for improved observability. You can also [set up $PG as storage][apache-skywalking-storage]. |
+|     <img isIcon src='https://assets.timescale.com/docs/icons/azure-monitor-logo.png' alt='azure-monitor-logo' />[Azure Monitor][azure-monitor]      | Collect and analyze telemetry data from cloud and on-premises environments.                                                                   |
+|                 <img isIcon src='https://assets.timescale.com/docs/icons/datadog-logo.png' alt='datadog-logo' />[Datadog][datadog]                  | Gain comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics.            |
+|                 <img isIcon src='https://assets.timescale.com/docs/icons/grafana-logo.png' alt='grafana-logo' />[Grafana][grafana]                  | Query, visualize, alert on, and explore your metrics and logs.                                                                                |
+|             <img isIcon src='https://assets.timescale.com/docs/icons/instana-logo.png' alt='instana-logo' />[IBM Instana][ibm-instana]              | Monitor application performance and detect issues in real-time.                                                                               |
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/jaeger-logo.png' alt='jaeger-logo' />[Jaeger][jaeger]                    | Trace and diagnose distributed transactions for observability.                                                                                |
+|             <img isIcon src='https://assets.timescale.com/docs/icons/new-relic-logo.png' alt='new-relic-logo' />[New Relic][new-relic]              | Monitor applications, infrastructure, and logs for performance insights.                                                                      |
+| <img isIcon src='https://assets.timescale.com/docs/icons/open-telemetery-logo.png' alt='open-telemetery-logo' />[OpenTelemetry Beta][opentelemetry] | Collect and analyze telemetry data for observability across systems.                                                                          |
+|           <img isIcon src='https://assets.timescale.com/docs/icons/prometheus-logo.png' alt='prometheus-logo' />[Prometheus][prometheus]            | Track the performance and health of systems, applications, and infrastructure.                                                                |
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/signoz-logo.png' alt='signoz-logo' />[SigNoz][signoz]                    | Monitor application performance with an open-source observability tool.                                                                       |
+|                 <img isIcon src='https://assets.timescale.com/docs/icons/tableau-logo.png' alt='tableau-logo' />[Tableau][tableau]                  | Connect to data sources, analyze data, and create interactive visualizations and dashboards.                                                  |
+|              <img isIcon src='https://assets.timescale.com/docs/icons/Influx-telegraf.svg' alt='telegraf-logo' />[Telegraf][telegraf]               | Collect, process, and ship metrics and events into databases or monitoring platforms.                             |
 
 ## Query and administration
 
@@ -207,6 +209,7 @@ Some of the most in-demand integrations are listed below.
 [google-cloud]: /integrations/:currentVersion:/google-cloud
 [grafana]: /integrations/:currentVersion:/grafana/
 [hasura]: https://hasura.io/docs/2.0/databases/postgres/timescale-cloud/
+[highbyte]: https://guide.highbyte.com/configuration/connect/connections/historians/timescaledb/
 [ibm-instana]: https://www.ibm.com/docs/en/instana-observability/current?topic=technologies-monitoring-postgresql
 [jaeger]: https://www.jaegertracing.io/docs/2.0/storage/
 [java]: /getting-started/:currentVersion:/start-coding-with-timescale/
@@ -252,6 +255,7 @@ Some of the most in-demand integrations are listed below.
 [striim]: https://www.striim.com/connectors/postgresql/
 [superset]: https://superset.apache.org/docs/configuration/databases#timescaledb
 [tableau]: /integrations/:currentVersion:/tableau/
+[telegraf]: /integrations/:currentVersion:/telegraf/
 [terraform]: /integrations/:currentVersion:/terraform
 [tooljet]: https://docs.tooljet.ai/docs/data-sources/postgresql/
 [typeorm]: https://typeorm.biunav.com/en/connection-options.html#postgres-cockroachdb-connection-options

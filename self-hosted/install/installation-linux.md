@@ -14,6 +14,7 @@ import SelfHostedFedora from "versionContent/_partials/_install-self-hosted-fedo
 import SelfHostedRocky from "versionContent/_partials/_install-self-hosted-rocky.mdx";
 import SelfHostedArchLinuxBased from "versionContent/_partials/_install-self-hosted-archlinux-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
+import LinuxSupport from "versionContent/_partials/_timescaledb_supported_linux.mdx";
 
 
 # Install $TIMESCALE_DB on Linux
@@ -99,20 +100,16 @@ This section shows you how to enable TimescaleDB for a new database in $PG using
 
 And that is it! You have TimescaleDB running on a database on a self-hosted instance of $PG.  
 
+## Supported platforms
+
+You can deploy $TIMESCALE_DB on the following systems:
+
+<LinuxSupport />
+
 ## Where to next
 
 <WhereTo />
 
 
-## Supported platforms
-
-TimescaleDB is supported on the following platforms:
-
-|Debian|Ubuntu|Red Hat Enterprise|Fedora|Rocky Linux|
-|-|-|-|-|-|
-|Debian 10 Buster|Ubuntu 20.04 LTS Focal Fossa|Red Hat Enterprise Linux 7|Fedora 33|Rocky Linux 8|
-|Debian 11 Bullseye|Ubuntu 22.04 LTS Jammy Jellyfish|Red Hat Enterprise Linux 8|Fedora 34|Rocky Linux 9|
-|Debian 12 Bookworm|Ubuntu 23.04 Lunar Lobster|Red Hat Enterprise Linux 9|Fedora 35| |
-||Ubuntu 24.04 LTS Noble Numbat||| |
-
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
+[supported-platforms-self-hosted]: /about/:currentVersion:/supported-platforms/#supported-systems

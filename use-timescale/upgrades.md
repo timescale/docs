@@ -89,6 +89,14 @@ $TIMESCALE_DB manually:
 
 </Procedure>
 
+
+Upgrading to a newer version of $PG allows you to take advantage of new
+features, enhancements, and security fixes. It also ensures that you are using a
+version of $PG that's compatible with the newest version of $TIMESCALE_DB,
+allowing you to take advantage of everything it has to offer. For more
+information about feature changes between versions, see the [$CLOUD_LONG release notes][timescale-changelog],
+[supported systems][supported-systems], and the [$PG release notes][postgres-relnotes].
+
 ## Deprecations
 
 To ensure you benefit from the latest features, optimal performance, enhanced security, and full compatibility 
@@ -218,6 +226,8 @@ To change your maintenance window:
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
 [replicas-docs]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [status-page]: https://status.timescale.com/
+[timescale-changelog]: /about/:currentVersion:/changelog/
+[supported-systems]: /about/:currentVersion:/supported-platforms/#supported-systems
 [timescale-relnotes]: https://github.com/timescale/timescaledb/releases
 [deprecation-window]: /use-timescale/:currentVersion:/upgrades/#deprecations
 [minimize-downtime]: /use-timescale/:currentVersion:/upgrades/#minimize-downtime-with-replicas

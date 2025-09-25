@@ -137,6 +137,11 @@ module.exports = [
         excerpt: "Integrate Tableau with Tiger Cloud",
       },
       {
+        title: "Telegraf",
+        href: "telegraf",
+        excerpt: "Ingest metrics into a Tiger Cloud service using the Telegraf plugin",
+      },
+      {
         title: "Terraform",
         href: "terraform",
         excerpt: "Integrate Terraform with Tiger Cloud",
