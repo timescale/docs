@@ -20,7 +20,7 @@ $SKIPSCAN_SHORT now extends to columnstore hypertables, distinct aggregates like
 You use `DISTINCT` queries to get only the unique values in your data. For example, the IDs of customers who placed orders, the countries where your users are located, or the devices reporting into an IoT system. You might also have graphs and alarms that repeatedly query the most recent values for every device or service.
 
 As your tables get larger, `DISTINCT` queries tend to get slower. Even when your index matches
-the exact order and columns for these kinds of queries, $PG has to scan the
+the exact order and columns for these kinds of queries, $PG (without $SKIPSCAN_SHORT) has to scan the
 entire index and then run deduplication. As the table grows, this operation keeps
 getting slower.
 
@@ -45,7 +45,7 @@ SELECT DISTINCT ON (region, device, metric_type) *
 FROM   metrics
 WHERE region IN ('UK','EU','JP') AND device > 1 AND metric_type IS NOT NULL
 ORDER  BY region, device, metric_type, time DESC;
--- Distinct columns are declared NOT NULL: can use SkipScan
+-- Distinct columns are declared NOT NULL: can use SkipScan with index on (region, device)
 CREATE TABLE metrics(region TEXT NOT NULL, device INT NOT NULL, ...);
 SELECT DISTINCT ON (region, device) *
 FROM   metrics
