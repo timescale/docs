@@ -67,7 +67,7 @@ To connect a $SERVICE_LONG to your data lake:
       - ARN of the S3Table bucket
       - ARN of a role with permissions to write to the table bucket   
 
-   Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+   Provisioning takes a couple of minutes.
 
 </Procedure>
 
@@ -111,7 +111,7 @@ To connect a $SERVICE_LONG to your data lake:
       - ARN of the S3Table bucket
       - ARN of a role with permissions to write to the table bucket
 
-   Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+   Provisioning takes a couple of minutes.
 
 </Procedure>
 
@@ -204,7 +204,7 @@ To connect a $SERVICE_LONG to your data lake:
       - ARN of the S3Table bucket
       - ARN of a role with permissions to write to the table bucket
 
-   Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+   Provisioning takes a couple of minutes.
 
 </Procedure>
 
