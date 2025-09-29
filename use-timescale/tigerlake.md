@@ -14,7 +14,9 @@ import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 $LAKE_LONG enables you to build real-time applications alongside efficient data pipeline management within a single 
 system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. 
 
-This experimental release is a native integration enabling synchronization between $HYPERTABLEs and relational tables
+![Tiger Lake architecture](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-lake-integration-tiger-cloud.svg)
+
+$LAKE_LONG is a native integration enabling synchronization between $HYPERTABLEs and relational tables
 running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
 
 <Highlight type="important">
@@ -238,8 +240,7 @@ ALTER TABLE <table_name> SET (
 * `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming, or `false` to stop the stream. A stream 
   **cannot** resume after being stopped. 
 * `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the 
-   Iceberg table is partitioned as `day(<time-column of $HYPERTABLE>)`. This default behavior is only applicable  
-   to $HYPERTABLEs. For more information, see [partitioning][partitioning].
+   Iceberg table is partitioned as `day(<time-column of $HYPERTABLE>)`. This default behavior is only applicable to $HYPERTABLEs. For more information, see [partitioning][partitioning].
 
 ### Partitioning intervals
 
