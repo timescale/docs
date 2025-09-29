@@ -94,6 +94,12 @@
     },
     {
       "pattern": "^https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html"
+    },
+    {
+      "pattern": "^https://docs.llamaindex.ai/en/stable/examples/vector_stores/Timescalevector.html"
+    },
+    {
+      "pattern": "^https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html"
     }
   ]
 }
