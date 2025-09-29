@@ -35,7 +35,7 @@ You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and mor
 
   - Last hour:
       ```sql
-      SELECT count(*) FROM logs WHERE to_timestamp(id) >= now() - interval '1 hour';
+      SELECT count(*) FROM logs WHERE id >= to_uuidv7_boundary(now() - interval '1 hour');
       ```
   - Keyset pagination
       ```sql
@@ -50,7 +50,7 @@ You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and mor
     ```sql
     SELECT run_id, status
     FROM runs
-    WHERE to_timestamp(run_id) >= now() - interval '5 minutes';
+    WHERE run_id >= to_uuidv7_boundary(now() - interval '5 minutes')
     ```
 
 - **Orders / activity feeds / messages (SaaS apps)**:  
