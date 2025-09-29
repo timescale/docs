@@ -5,7 +5,7 @@ it into useful summaries can become very slow. If you are collecting data very f
 data into minutes or hours instead. For example, if an IoT device takes
 temperature readings every second, you might want to find the average temperature
 for each hour. Every time you run this query, the database needs to scan the
-entire table and recalculate the average. $TIMESCALE_DB makes aggregating data lightning fast, accurate, and easy.
+entire table and recalculate the average. $TIMESCALE_DB makes aggregating data lightning fast, accurate, and easy with continuous aggregates.
 
 ![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png)
 
