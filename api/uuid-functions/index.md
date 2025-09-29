@@ -23,6 +23,27 @@ UUIDv7 is ideal anywhere you create lots of records over time, not only observab
 - **Easy keyset pagination**: `WHERE id > :cursor` and natural sharding.
 - **UUID**: safe across services, replicas, and unique across distributed systems.
 
+UUIDv7 also increases query speed by reducing the number of chunks scanned during queries. For example, in a database 
+with 25 million rows, the following query runs in 25 seconds:
+
+```sql
+WITH ref AS (SELECT now() AS t0)
+SELECT count(*) AS cnt_ts_filter
+FROM events e, ref
+WHERE uuid_timestamp(e.event_id) >= ref.t0 - INTERVAL '2 days';
+```
+
+Using UUIDv7 excludes chunks at startup and reduces the query time to 550ms:
+
+```sql
+WITH ref AS (SELECT now() AS t0)
+SELECT count(*) AS cnt_boundary_filter
+FROM events e, ref
+WHERE e.event_id >= to_uuidv7_boundary(ref.t0 - INTERVAL '2 days')
+```
+
+
+
 You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and more.
     
 ## Examples
@@ -64,6 +85,9 @@ You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and mor
     AND id <  to_uuidv7('2025-08-02'::timestamptz, true)
     ORDER BY id;
     ```
+
+
+
 
 ## Functions
 
