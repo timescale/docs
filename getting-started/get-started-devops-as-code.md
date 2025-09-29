@@ -26,13 +26,13 @@ programmatically.
 
 <Tabs label="Install TimescaleDB" persistKey="devops-platform">
 
-<Tab title="REST API" label="rest">
+<Tab title="Tiger REST API" label="rest">
 
 <RESTGS />
 
 </Tab>
 
-<Tab title="Cli" label="rest">
+<Tab title="Tiger Cli" label="rest">
 
 <CLIGS />
 

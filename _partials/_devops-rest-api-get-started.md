@@ -1,9 +1,9 @@
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 
-[$CLOUD_LONG REST API][rest-api-reference] is a comprehensive RESTful API you use to manage $CLOUD_LONG resources
+[$REST_LONG][rest-api-reference] is a comprehensive RESTful API you use to manage $CLOUD_LONG resources
 including VPCs, services, and read replicas.
 
-This page shows you how to set up secure authentication for the $CLOUD_LONG REST API and create your first service.
+This page shows you how to set up secure authentication for the $REST_LONG and create your first service.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ This page shows you how to set up secure authentication for the $CLOUD_LONG REST
 
 ## Configure secure authentication
 
-$CLOUD_LONG REST API uses HTTP Basic Authentication with access keys and secret keys. All API requests must include
+$REST_LONG uses HTTP Basic Authentication with access keys and secret keys. All API requests must include
 proper authentication headers.
 
 <Procedure> 
@@ -42,7 +42,7 @@ proper authentication headers.
     export API_BASE_URL="https://console.cloud.timescale.com/public/api/v1"
     ```
 
-1. **Test your authenticated connection to $CLOUD_LONG REST API by listing services**
+1. **Test your authenticated connection to $REST_LONG by listing services**
 
     ```bash
     curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services" \
@@ -71,7 +71,7 @@ proper authentication headers.
 
 ## Create your first service
 
-Create a new database service using the Tiger Cloud REST API with secure configuration.
+Create a new database service using the $REST_LONG with secure configuration.
 
 <Procedure>
 
@@ -137,12 +137,12 @@ You see something like:
 
 </Procedure>
 
-And that is it, you are ready to use the [$CLOUD_LONG REST API][rest-api-reference] to manage your
+And that is it, you are ready to use the [$REST_LONG][rest-api-reference] to manage your
 $SERVICE_SHORTs in $CLOUD_LONG.
 
 ## Security best practices
 
-Follow these security guidelines when working with the Tiger Cloud REST API:
+Follow these security guidelines when working with the $REST_LONG:
 
 - **Credential management**
     - Store API credentials as environment variables, not in code

@@ -1,11 +1,10 @@
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 
-is a command-line interface for managing TigerData Cloud Platform resources.
+$CLI_LONG is a command-line interface that you use to manage $CLOUD_LONG resources
+including VPCs, services, read replicas, and related infrastructure. $CLI_LONG calls $REST_LONG to communicate with 
+$CLOUD_LONG. 
 
-$CLOUD_LONG Cli is a command-line interface that you use to manage $CLOUD_LONG resources
-including VPCs, services, read replicas, and related infrastructure.
-
-This page shows you how to install and set up secure authentication for the $CLOUD_LONG Cli, then create your first 
+This page shows you how to install and set up secure authentication for $CLI_LONG, then create your first 
 service.
 
 ## Prerequisites
@@ -13,98 +12,101 @@ service.
 <RESTPrereqs />
 
 
-## Install and configure secure authentication
+## Install and configure $CLI_LONG
 
+<Procedure>
 
-<Procedure> 
+1. ** Install $CLI_LONG**
 
-1. **Install the CLI**
-   <Tabs label="Install TimescaleDB" persistKey="os">
+   Use the Terminal to install the $CLI_SHORT: 
+   <Tabs label="Install Tiger CLI" persistKey="os">
 
-<Tab title="Debian" label="debian">
+    <Tab title="Debian" label="debian">
 
-<SelfHostedDebian />
+    ```shell
+    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo bash
+    sudo apt-get install tiger-cli
+    ```
+    
+    </Tab>
+    
+    <Tab title="Ubuntu" label="ubuntu">
 
-</Tab>
+    ```shell
+    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo bash
+    sudo apt-get install tiger-cli
+    ```
+    </Tab>
+    
+    <Tab title="Red Hat" label="redhat">
+   
+    ```shell
+    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo bash
+    sudo yum install tiger-cli
+    ```
+   
+    </Tab>
+    
+    <Tab title="Fedora" label="fedora">
 
-<Tab title="Ubuntu" label="ubuntu">
+    ```shell
+    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo bash
+    sudo yum install tiger-cli
+    ```
+    
+    </Tab>
 
-<SelfHostedUbuntu />
+    <Tab title="MacOs" label="macos">
 
-</Tab>
-
-<Tab title="Red Hat" label="redhat">
-
-<SelfHostedRedhat />
-
-</Tab>
-
-<Tab title="Fedora" label="fedora">
-
-<SelfHostedFedora />
-
-</Tab>
-
-<Tab title="RockyLinux" label="rocky">
-
-<SelfHostedRocky />
-
-</Tab>
-
-
-<Tab title="ArchLinux" label="archlinux">
-
-<SelfHostedArchLinuxBased />
-
-</Tab>
-
-</Tabs>
-3. 
-4. **Set up API credentials**
-
-    1. In $CONSOLE [copy your project ID][get-project-id] and store it securely using an environment variable:
-
-      ```bash
-      export TIGERDATA_PROJECT_ID="your-project-id"
-      ```
-
-    1. In $CONSOLE [create your client credentials][create-client-credentials] and store them securely using environment variables:
-
-       ```bash
-       export TIGERDATA_ACCESS_KEY="Public key"
-       export TIGERDATA_SECRET_KEY="Secret key"
-       ```
-
-1. **Configure the API endpoint**
-
-   Set the base URL in your environment:
-
-    ```bash
-    export API_BASE_URL="https://console.cloud.timescale.com/public/api/v1"
+    ```shell
+    brew install --cask timescale/tap/tiger-cli
     ```
 
-1. **Test your authenticated connection to $CLOUD_LONG REST API by listing services**
+    </Tab>
+
+    <Tab title="x-platform" label="xplatform">
+
+    ```shell
+    curl -fsSL https://tiger-cli-releases.s3.amazonaws.com/install/install.sh | sh
+    ```
+
+    </Tab>
+
+    </Tabs>
+ 
+1. **Set up API credentials**
+
+   1. Log $CLI_LONG into your $CLOUD_LONG account
+ 
+      ```shell
+      tiger auth login
+      ```
+      $CLI_LONG opens $CONSOLE_SHORT in your browser. Login, then click `Authorize`.  
+
+   1. Select a $PROJECT_LONG. 
+
+      $CLI_LONG stores your authentication information locally in `~/.config/tiger/config.yaml`.
+    
+1. **Test your authenticated connection to $CLOUD_LONG by listing services**
 
     ```bash
-    curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services" \
-      -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
-      -H "Content-Type: application/json"
+    tiger service list
     ```
 
    This call returns something like:
     - No services:
       ```terminaloutput
-      []%
+      🏜️  No services found! Your project is looking a bit empty.
+      🚀 Ready to get started? Create your first service with: tiger service create
       ```
     - One or more services:
 
       ```terminaloutput
-      [{"service_id":"a59clooxoe","project_id":"c8nmagk8zh","name":"events",
-      "region_code":"eu-central-1","service_type":"TIMESCALEDB",
-      "created":"2025-09-09T08:37:15.816443Z","paused":false,"status":"READY",
-      "resources":[{"id":"101228","spec":{"cpu_millis":500,"memory_gbs":2,"volume_type":""}}],
-      "metadata":{"environment":"DEV"},"endpoint":{"host":"oh.yeah.tsdb.cloud.timescale.com",
-      "port":12345}}] 
+      ┌────────────┬─────────────────────┬────────┬─────────────┬──────────────┬──────────────────┐
+      │ SERVICE ID │        NAME         │ STATUS │    TYPE     │    REGION    │     CREATED      │
+      ├────────────┼─────────────────────┼────────┼─────────────┼──────────────┼──────────────────┤
+      │ tgrservice │ tiger-agent-service │ READY  │ TIMESCALEDB │ eu-central-1 │ 2025-09-25 16:09 │
+      └────────────┴─────────────────────┴────────┴─────────────┴──────────────┴──────────────────┘
       ```
 
 </Procedure>
@@ -112,102 +114,100 @@ service.
 
 ## Create your first service
 
-Create a new database service using the Tiger Cloud REST API with secure configuration.
+Create a new $SERVICE_LONG using $CLI_LONG with a secure configuration:
 
 <Procedure>
 
-1. **Define the service creation payload in a JSON file**
-   ```bash
-   cat > service-config.json << 'EOF'
-   {
-     "name": "my-first-service",
-     "service_type": "TIMESCALEDB",
-     "region_code": "us-east-1",
-     "replica_count": 1,
-     "cpu_millis": 1000,
-     "memory_gbs": 4
-   }
-   EOF
+1. **Submit a service creation request**
+   ```shell
+   tiger service create
+   ```
+   $CLOUD_LONG creates a `#dev` environment for you. You see something like:
+   ```terminaloutput
+    🚀 Creating service 'db-11111' (auto-generated name)...
+    ✅ Service creation request accepted!
+    📋 Service ID: happyservice 
+    🔐 Password saved to system keyring for automatic authentication
+    🎯 Set service 'happyservice' as default service.
+    ⏳ Waiting for service to be ready (wait timeout: 30m0s)...
+    ⏳ Service status: QUEUED...
+    ⏳ Service status: QUEUED...
+    ⏳ Service status: QUEUED...
+    ⏳ Service status: QUEUED...
+    🎉 Service is ready and running!
+   ```
+   The $SERVICE_SHORT configuration is stored by the $CLI_SHORT and this $SERVICE_SHORT is set as default.
+
+1. **Check the $CLI_SHORT configuration**
+   ```shell
+   tiger config show
+   ```
+   You see something like:
+   ```terminaloutput
+    API URL:     https://console.cloud.timescale.com/public/api/v1
+    Console URL: https://console.cloud.timescale.com
+    Gateway URL: https://console.cloud.timescale.com/api
+    Docs MCP:       true
+    Docs MCP URL:   https://mcp.tigerdata.com/docs
+    Project ID:  tgrproject
+    Service ID:  tgrservice
+    Output:      table
+    Analytics:   true
+    Password Storage: keyring
+    Debug:       false
+    Config Dir:  /Users/<username>/.config/tiger
    ```
 
-1. **Submit service creation request**
-
-    1. Create the service using the POST endpoint:
-       ```bash
-       curl -X POST "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services" \
-         -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
-         -H "Content-Type: application/json" \
-         -d @service-config.json
-       ```
-       $CLOUD_LONG creates a production environment for you. You see something like:
-       ```terminaloutput
-       {
-         "service_id":"asdfasdfasdf","project_id":"asdasdfasf","name":"my-first-service",
-         "region_code":"us-east-1", "service_type":"TIMESCALEDB",
-         "created":"2025-09-09T09:24:31.997767396Z", "paused":false,"status":"READY",
-         "resources":[{"id":"101240",
-         "spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
-         "metadata":{"environment":"PROD"},
-         "endpoint":{"host":"oh.yeah.tsdb.cloud.timescale.com","port":123435},
-         "initial_password":"very-secret",
-         "ha_replicas":{"sync_replica_count":0,"replica_count":1}
-       } 
-       ```
-
-
-2. Save `service_id` from the response to a variable:
-   ```bash
-   # Extract service_id from the JSON response
-   export SERVICE_ID="service_id-from-response"
-   ```
-
-1. **Change the environment from production to development**
-
-  ```bash
-  curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services/${SERVICE_ID}" \
-    -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
-    -H "Content-Type: application/json" \
-    -d '{"environment": "DEV"}' 
-  ```
-You see something like:
-  ```terminaloutput
-  {                                          
-    "message": "Environment set successfully"
-  }
-  ```
 
 </Procedure>
 
-And that is it, you are ready to use the [$CLOUD_LONG REST API][rest-api-reference] to manage your
-$SERVICE_SHORTs in $CLOUD_LONG.
+And that is it, you are ready to use $CLI_LONG to manage your $SERVICE_SHORTs in $CLOUD_LONG.
 
-## Security best practices
+## Commands
 
-Follow these security guidelines when working with the Tiger Cloud REST API:
+You can use the following commands with $CLI_LONG. For more information on each command, use the `-h` flag. For example: 
+`tiger auth login -h`
 
-- **Credential management**
-    - Store API credentials as environment variables, not in code
-    - Use credential rotation policies for production environments
-    - Limit credential scope to minimum required permissions
-    - Never commit credentials to version control systems
+| Command | Subcommand                       | Description                                                                                    |
+|---------|----------------------------------|------------------------------------------------------------------------------------------------|
+| auth    |                                  | Manage authentication and the credentials for your $CLOUD_LONG account                         | 
+|         | login                            | Create an authenticated connection to your $CLOUD_LONG account                                 |
+|         | logout                           | Remove the credentials used to create authenticated connections to $CLOUD_LONG                 |
+|         | whoami                           | Show information about the current user                                                        |
+| version |                                  | Show information about the currently installed version of $CLI_LONG                            |
+| config  |                                  | Manage your $CLI_LONG configuration                                                            |
+|         | show                             | Show the current configuration                                                                 |
+|         | set `<key>` `<value>`            | Set a specific value in your configuration. For example, `tiger config set debug true`         |
+|         | unset `<key>`                    | Clear the value of a configuration parameter. For example, `tiger config unset debug`          |
+|         | reset                            | Reset the configuration to the defaults. This also logs you out from the current $PROJECT_LONG | 
+| service |                                  | Manage the $SERVICE_LONGs in this $PROJECT_SHORT                                               |
+|         | describe `<service-id>`          | Show detailed information about a specific $SERVICE_SHORT in this $PROJECT_SHORT                      |
+|         | list                             | List all the $SERVICE_SHORTs in this $PROJECT_SHORT                                                   |
+|         | create                           | Create a new $SERVICE_SHORT in this $PROJECT_SHORT                                                    |
+|         | delete `<service-id>`            | Delete a $SERVICE_SHORT from this $PROJECT_SHORT                                                      |
+|         | update-password `<service-id>`   | Update the password for a $SERVICE_SHORT                                                       |
+| db      |                                  | Database operations and management                                                             |
+|         | connection-string `<service-id>` | Retrieve the connection string for a $SERVICE_SHORT                                            |
+|         | connect `<service-id>`           | Connect to a $SERVICE_SHORT                                                                    |
+|         | test-connection `<service-id>`   | Test the connectivity to a $SERVICE_SHORT                                                      | 
+| mcp     |                                  | Manage the $MCP_LONG                                                                           |
+|         | start                            | Start the $MCP_LONG                                                                            |
+|         | start `stdio` \| `http`          | Start the $MCP_LONG with stdio or HTTP transport.                                              |
 
-- **Network security**
-    - Use HTTPS endpoints exclusively for API communication
-    - Implement proper certificate validation in your HTTP clients
-    - Consider IP allowlisting for production API access
-    - Monitor API access logs for suspicious activity
+## Flags
 
-- **Access control**
-    - Create dedicated service accounts for automated API access
-    - Use principle of least privilege for API key permissions
-    - Regularly audit and review API access patterns
-    - Implement proper session management for interactive applications
+You can use the following global flags with $CLI_LONG:
 
-- **Data protection**
-    - Encrypt sensitive data before API transmission when applicable
-    - Use secure storage for service connection strings and passwords
-    - Implement proper backup and recovery procedures for created services
-    - Follow data residency requirements for your region
+| Flag | Default         | Description                                                           |
+|--|-----------------|-----------------------------------------------------------------------|
+| --analytics             | `true`          | Set to `false` to disable usage analytics.                            |
+| --config-dir string     | `.config/tiger` | Set the directory that holds `config.yaml`                            |
+| --debug                 | No debugging    | Enable debug logging                                                  |
+| -o, --output string     | table           | Set the output format. Options are `json`, `yaml`, or `table`               |
+| --password-storage string | keyring         | Set the password storage method. Options are `keyring`, `pgpass`, or `none` |
+| --project-id string      | -               | Set the $PROJECT_LONG to manage.                              | 
+| --service-id string      | -               | Set the $SERVICE_LONG to manage. |
+
 
 
 [rest-api-reference]: /api/:currentVersion:/api-reference/

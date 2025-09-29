@@ -5,9 +5,9 @@ tags: [REST]
 products: [cloud]
 ---
 
-# Tiger Cloud REST API reference
+# $REST_LONG reference
 
-A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.
+A comprehensive RESTful API for managing $CLOUD_LONG resources including VPCs, services, and read replicas.
 
 ## Overview
 
@@ -16,7 +16,7 @@ A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, s
 
 ## Authentication
 
-The TigerData Cloud API uses HTTP Basic Authentication. Include your access key and secret key in the Authorization header.
+The $REST_LONG uses HTTP Basic Authentication. Include your access key and secret key in the Authorization header.
 
 ### Basic Authentication
 ```http
@@ -32,7 +32,7 @@ curl -X GET "https://console.cloud.timescale.com/public/api/v1/projects/{project
 
 ## Service Management
 
-You use this endpoint to create and manage the following Tiger Posgres services:
+You use this endpoint to create and manage the following Tiger Postgres services:
 
 - `TIMESCALEDB`: a Tiger Postgres instance optimized for real-time analytics service For time-stamped data like events,
   prices, metrics, sensor readings, or any information that changes over time
