@@ -96,7 +96,14 @@ Create a new database service using the $REST_LONG with secure configuration.
        curl -X POST "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services" \
          -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
          -H "Content-Type: application/json" \
-         -d @service-config.json
+         -d '{
+             "name": "my-first-service",
+             "service_type": "TIMESCALEDB",
+             "region_code": "us-east-1",
+             "replica_count": 1,
+             "cpu_millis": 1000,
+             "memory_gbs": 4
+         }'
        ```
        $CLOUD_LONG creates a production environment for you. You see something like:
        ```terminaloutput
@@ -123,7 +130,7 @@ Create a new database service using the $REST_LONG with secure configuration.
 1. **Change the environment from production to development**
 
   ```bash
-  curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services/${SERVICE_ID}" \
+  curl -X POST "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services/${SERVICE_ID}"/setEnvironment \
     -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
     -H "Content-Type: application/json" \
     -d '{"environment": "DEV"}' 
