@@ -8,11 +8,12 @@ tags: [encryption, VPC, privacy]
 
 # About security in $CLOUD_LONG
 
-$COMPANY implements a variety of secure software engineering practices in $TIMESCALE_DB, including code static analysis 
-for security hardening, automated scanning for dependency vulnerabilities, and code security reviews. 
-Additionally, $COMPANY has developed the https://github.com/timescale/pgspot open-source extension that we 
-use to identify security issues with $PG extensions. This has helped tighten our security posture.
-$COMPANY products do not have any identified weaknesses.
+Protecting data starts with secure software engineering. At $COMPANY, we embed security into every stage of 
+development—from static code analysis and automated dependency scanning to rigorous code security reviews. 
+To go even further, we have developed [pgspot](https://github.com/timescale/pgspot), an open-source extension to identify security 
+issues with $PG extensions, which strengthens the broader ecosystem as well as our own platform. $COMPANY products do not have any identified weaknesses.
+
+![Image alt](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-platform-security-overview.svg)
 
 This page lists the additional things we do to ensure operational security and to lock down $SERVICE_LONGs. 
 To see our security features at a glance, see [$COMPANY Security][security-at-timescale].
@@ -73,11 +74,7 @@ accesses are audit logged.
 
 No customer access to the virtual machine level is provided.
 
-## Customer data privacy
-
-Customer data privacy is of utmost importance at $COMPANY. By default, your data is encrypted both in transit and at rest. To do this,
-$COMPANY uses various technical mechanisms, processes, and software development
-lifecycle practices, to help ensure the security and privacy of your data.
+## GDPR compliance
 
 $COMPANY complies with the European Union's General Data Protection Regulation
 (GDPR), and all practices are covered by our
@@ -96,6 +93,12 @@ has mandatory recurring training regarding the applicable policies.
 The $CLOUD_LONG [Enterprise plan][pricing-plan-features] is Health Insurance Portability and Accountability Act 
 (HIPAA) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they 
 meet regulatory requirements while building compliant applications.
+
+## SOC 2 compliance
+
+$CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can securely manage customer data in alignment 
+with industry standards for security, availability, processing integrity, confidentiality, and privacy. It helps businesses meet trust requirements while confidently building applications that handle sensitive information.
+The annual SOC 2 report is available to customers on the Scale or Enterprise plan.
 
 [timescale-privacy-policy]: https://www.timescale.com/legal/privacy
 [tsc-tos]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
