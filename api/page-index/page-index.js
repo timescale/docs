@@ -286,6 +286,36 @@ module.exports = [
         ],
       },
       {
+        title: "UUIDv7 functions",
+        href: "uuid-functions",
+        children: [
+          {
+            title: "generate_uuidv7",
+            href: "generate_uuidv7",                    
+          },
+          {
+              title: "to_uuidv7",
+              href: "to_uuidv7",                    
+          },
+          {
+              title: "to_uuidv7_boundary",
+              href: "to_uuidv7_boundary",                    
+          },
+          {
+              title: "uuid_timestamp",
+              href: "uuid_timestamp",                    
+          },
+          {
+              title: "uuid_timestamp_micros",
+              href: "uuid_timestamp_micros",                    
+          },
+          {
+              title: "uuid_version",
+              href: "uuid_version",                    
+          },
+        ],            
+      },
+      {
         title: "Hyperfunctions",
         type: "directory",
         href: "hyperfunctions",
