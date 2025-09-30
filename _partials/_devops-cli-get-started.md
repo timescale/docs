@@ -76,7 +76,7 @@ service.
  
 1. **Set up API credentials**
 
-   1. Log $CLI_LONG into your $CLOUD_LONG account
+   1. Log $CLI_LONG into your $ACCOUNT_LONG
  
       ```shell
       tiger auth login
@@ -85,7 +85,11 @@ service.
 
    1. Select a $PROJECT_LONG. 
 
-      $CLI_LONG stores your authentication information locally in `~/.config/tiger/config.yaml`.
+      If only one $PROJECT_SHORT is associated with your $ACCOUNT_SHORT, this step is not shown. 
+
+      Where possible, $CLI_LONG stores your authentication information in the system keychain/credential manager. 
+      If that fails, the key is stored in `~/.config/tiger/api-key` with restricted file permissions (600).
+      $CLI_LONG stores your configuration in `~/.config/tiger/config.yaml`.
     
 1. **Test your authenticated connection to $CLOUD_LONG by listing services**
 
@@ -114,7 +118,7 @@ service.
 
 ## Create your first service
 
-Create a new $SERVICE_LONG using $CLI_LONG with a secure configuration:
+Create a new $SERVICE_LONG using $CLI_LONG:
 
 <Procedure>
 
@@ -122,7 +126,8 @@ Create a new $SERVICE_LONG using $CLI_LONG with a secure configuration:
    ```shell
    tiger service create
    ```
-   $CLOUD_LONG creates a `#dev` environment for you. You see something like:
+   $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
+   read-replication. You see something like:
    ```terminaloutput
     🚀 Creating service 'db-11111' (auto-generated name)...
     ✅ Service creation request accepted!
@@ -131,12 +136,9 @@ Create a new $SERVICE_LONG using $CLI_LONG with a secure configuration:
     🎯 Set service 'happyservice' as default service.
     ⏳ Waiting for service to be ready (wait timeout: 30m0s)...
     ⏳ Service status: QUEUED...
-    ⏳ Service status: QUEUED...
-    ⏳ Service status: QUEUED...
-    ⏳ Service status: QUEUED...
     🎉 Service is ready and running!
    ```
-   The $SERVICE_SHORT configuration is stored by the $CLI_SHORT and this $SERVICE_SHORT is set as default.
+   This $SERVICE_SHORT is set as default by the $CLI_SHORT.
 
 1. **Check the $CLI_SHORT configuration**
    ```shell
@@ -144,20 +146,19 @@ Create a new $SERVICE_LONG using $CLI_LONG with a secure configuration:
    ```
    You see something like:
    ```terminaloutput
-    API URL:     https://console.cloud.timescale.com/public/api/v1
-    Console URL: https://console.cloud.timescale.com
-    Gateway URL: https://console.cloud.timescale.com/api
-    Docs MCP:       true
-    Docs MCP URL:   https://mcp.tigerdata.com/docs
-    Project ID:  tgrproject
-    Service ID:  tgrservice
-    Output:      table
-    Analytics:   true
-    Password Storage: keyring
-    Debug:       false
-    Config Dir:  /Users/<username>/.config/tiger
+   api_url:     https://console.cloud.timescale.com/public/api/v1
+   console_url: https://console.cloud.timescale.com
+   gateway_url: https://console.cloud.timescale.com/api
+   docs_mcp:       true
+   docs_mcp_url:   https://mcp.tigerdata.com/docs
+   project_id:  tgrproject
+   service_id:  tgrservice
+   output:      table
+   analytics:   true
+   password_storage: keyring
+   debug:       false
+   config_dir:  /Users/<username>/.config/tiger
    ```
-
 
 </Procedure>
 
@@ -170,8 +171,8 @@ You can use the following commands with $CLI_LONG. For more information on each 
 
 | Command | Subcommand                       | Description                                                                                    |
 |---------|----------------------------------|------------------------------------------------------------------------------------------------|
-| auth    |                                  | Manage authentication and the credentials for your $CLOUD_LONG account                         | 
-|         | login                            | Create an authenticated connection to your $CLOUD_LONG account                                 |
+| auth    |                                  | Manage authentication and the credentials for your $ACCOUNT_LONG                               | 
+|         | login                            | Create an authenticated connection to your $ACCOUNT_LONG                                       |
 |         | logout                           | Remove the credentials used to create authenticated connections to $CLOUD_LONG                 |
 |         | whoami                           | Show information about the current user                                                        |
 | version |                                  | Show information about the currently installed version of $CLI_LONG                            |
@@ -181,17 +182,17 @@ You can use the following commands with $CLI_LONG. For more information on each 
 |         | unset `<key>`                    | Clear the value of a configuration parameter. For example, `tiger config unset debug`          |
 |         | reset                            | Reset the configuration to the defaults. This also logs you out from the current $PROJECT_LONG | 
 | service |                                  | Manage the $SERVICE_LONGs in this $PROJECT_SHORT                                               |
-|         | describe `<service-id>`          | Show detailed information about a specific $SERVICE_SHORT in this $PROJECT_SHORT                      |
-|         | list                             | List all the $SERVICE_SHORTs in this $PROJECT_SHORT                                                   |
-|         | create                           | Create a new $SERVICE_SHORT in this $PROJECT_SHORT                                                    |
-|         | delete `<service-id>`            | Delete a $SERVICE_SHORT from this $PROJECT_SHORT                                                      |
+|         | describe `<service-id>`          | Show detailed information about a specific $SERVICE_SHORT in this $PROJECT_SHORT               |
+|         | list                             | List all the $SERVICE_SHORTs in this $PROJECT_SHORT                                            |
+|         | create                           | Create a new $SERVICE_SHORT in this $PROJECT_SHORT                                             |
+|         | delete `<service-id>`            | Delete a $SERVICE_SHORT from this $PROJECT_SHORT                                               |
 |         | update-password `<service-id>`   | Update the password for a $SERVICE_SHORT                                                       |
 | db      |                                  | Database operations and management                                                             |
 |         | connection-string `<service-id>` | Retrieve the connection string for a $SERVICE_SHORT                                            |
 |         | connect `<service-id>`           | Connect to a $SERVICE_SHORT                                                                    |
 |         | test-connection `<service-id>`   | Test the connectivity to a $SERVICE_SHORT                                                      | 
 | mcp     |                                  | Manage the $MCP_LONG                                                                           |
-|         | start                            | Start the $MCP_LONG                                                                            |
+|         | start                            | Start the $MCP_LONG. This is the same as `tiger mcp start stdio`                               |
 |         | start `stdio` \| `http`          | Start the $MCP_LONG with stdio or HTTP transport.                                              |
 
 ## Flags

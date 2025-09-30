@@ -1,9 +1,9 @@
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 
 [$REST_LONG][rest-api-reference] is a comprehensive RESTful API you use to manage $CLOUD_LONG resources
-including VPCs, services, and read replicas.
+including VPCs, $SERVICE_SHORTs, and read replicas.
 
-This page shows you how to set up secure authentication for the $REST_LONG and create your first service.
+This page shows you how to set up secure authentication for the $REST_LONG and create your first $SERVICE_SHORT.
 
 ## Prerequisites
 
@@ -42,20 +42,20 @@ proper authentication headers.
     export API_BASE_URL="https://console.cloud.timescale.com/public/api/v1"
     ```
 
-1. **Test your authenticated connection to $REST_LONG by listing services**
+1. **Test your authenticated connection to $REST_LONG by listing the $SERVICE_SHORTs in the current $PROJECT_LONG**
 
     ```bash
     curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services" \
-      -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
+      -u "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" \
       -H "Content-Type: application/json"
     ```
 
    This call returns something like:
-    - No services:
+    - No $SERVICE_SHORTs:
       ```terminaloutput
       []%
       ```
-    - One or more services:
+    - One or more $SERVICE_SHORTs:
 
       ```terminaloutput
       [{"service_id":"a59clooxoe","project_id":"c8nmagk8zh","name":"events",
@@ -69,77 +69,62 @@ proper authentication headers.
 </Procedure>
 
 
-## Create your first service
+## Create your first $SERVICE_LONG
 
-Create a new database service using the $REST_LONG with secure configuration.
+Create a new $SERVICE_SHORT using the $REST_LONG:
 
 <Procedure>
 
-1. **Define the service creation payload in a JSON file**
+1. **Create a $SERVICE_SHORT using the POST endpoint**
    ```bash
-   cat > service-config.json << 'EOF'
+   curl -X POST "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services" \
+     -u "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" \
+     -H "Content-Type: application/json" \
+     -d '{
+         "name": "my-first-service",
+         "service_type": "TIMESCALEDB",
+         "region_code": "us-east-1",
+         "replica_count": 1,
+         "cpu_millis": 1000,
+         "memory_gbs": 4
+     }'
+   ```
+   $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
+   read-replication. You see something like:
+   ```terminaloutput
    {
-     "name": "my-first-service",
-     "service_type": "TIMESCALEDB",
-     "region_code": "us-east-1",
-     "replica_count": 1,
-     "cpu_millis": 1000,
-     "memory_gbs": 4
-   }
-   EOF
+     "service_id":"asdfasdfasdf","project_id":"asdasdfasf","name":"my-first-service",
+     "region_code":"us-east-1", "service_type":"TIMESCALEDB",
+     "created":"2025-09-09T09:24:31.997767396Z", "paused":false,"status":"READY",
+     "resources":[{"id":"101240",
+     "spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
+     "metadata":{"environment":"PROD"},
+     "endpoint":{"host":"oh.yeah.tsdb.cloud.timescale.com","port":123435},
+     "initial_password":"very-secret",
+     "ha_replicas":{"sync_replica_count":0,"replica_count":1}
+   } 
    ```
 
-1. **Submit service creation request**
-
-    1. Create the service using the POST endpoint:
-       ```bash
-       curl -X POST "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services" \
-         -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
-         -H "Content-Type: application/json" \
-         -d '{
-             "name": "my-first-service",
-             "service_type": "TIMESCALEDB",
-             "region_code": "us-east-1",
-             "replica_count": 1,
-             "cpu_millis": 1000,
-             "memory_gbs": 4
-         }'
-       ```
-       $CLOUD_LONG creates a production environment for you. You see something like:
-       ```terminaloutput
-       {
-         "service_id":"asdfasdfasdf","project_id":"asdasdfasf","name":"my-first-service",
-         "region_code":"us-east-1", "service_type":"TIMESCALEDB",
-         "created":"2025-09-09T09:24:31.997767396Z", "paused":false,"status":"READY",
-         "resources":[{"id":"101240",
-         "spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
-         "metadata":{"environment":"PROD"},
-         "endpoint":{"host":"oh.yeah.tsdb.cloud.timescale.com","port":123435},
-         "initial_password":"very-secret",
-         "ha_replicas":{"sync_replica_count":0,"replica_count":1}
-       } 
-       ```
-
-
-2. Save `service_id` from the response to a variable:
+1. Save `service_id` from the response to a variable:
    ```bash
    # Extract service_id from the JSON response
    export SERVICE_ID="service_id-from-response"
    ```
 
-1. **Change the environment from production to development**
+1. **Check the configuration for the **
 
   ```bash
-  curl -X POST "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services/${SERVICE_ID}"/setEnvironment \
-    -H "Authorization: Basic $(echo -n "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" | base64)" \
-    -H "Content-Type: application/json" \
-    -d '{"environment": "DEV"}' 
+    curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services/${SERVICE_ID}" \
+      -u "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" \
+      -H "Content-Type: application/json"
   ```
 You see something like:
   ```terminaloutput
-  {                                          
-    "message": "Environment set successfully"
-  }
+    {"service_id":"tgrservice","project_id":"tgrproject","name":"my-first-service","region_code":"us-east-1",
+    "service_type":"TIMESCALEDB","created":"2025-09-30T12:08:54.438785Z","paused":false,"status":"READY",
+    "resources":[{"id":"102879","spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
+    "metadata":{"environment":"DEV"},"endpoint":{"host":"ohhhh.yeahhhhh.tsdb.cloud.timescale.com","port":33867},
+    "ha_replicas":{"sync_replica_count":0,"replica_count":1}}  
   ```
 
 </Procedure>
@@ -154,27 +139,17 @@ Follow these security guidelines when working with the $REST_LONG:
 - **Credential management**
     - Store API credentials as environment variables, not in code
     - Use credential rotation policies for production environments
-    - Limit credential scope to minimum required permissions
     - Never commit credentials to version control systems
 
 - **Network security**
     - Use HTTPS endpoints exclusively for API communication
     - Implement proper certificate validation in your HTTP clients
     - Consider IP allowlisting for production API access
-    - Monitor API access logs for suspicious activity
-
-- **Access control**
-    - Create dedicated service accounts for automated API access
-    - Use principle of least privilege for API key permissions
-    - Regularly audit and review API access patterns
-    - Implement proper session management for interactive applications
 
 - **Data protection**
-    - Encrypt sensitive data before API transmission when applicable
     - Use secure storage for service connection strings and passwords
     - Implement proper backup and recovery procedures for created services
     - Follow data residency requirements for your region
-
 
 [rest-api-reference]: /api/:currentVersion:/api-reference/
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
