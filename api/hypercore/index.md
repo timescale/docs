@@ -3,7 +3,7 @@ title: Hypercore
 excerpt: Reference information about the TimescaleDB hybrid row-columnar storage engine
 keywords: [hypercore]
 tags: [hypercore]
-products: [cloud, self_hosted]
+products: [cloud, mst, self_hosted]
 api:
   license: community
 ---
