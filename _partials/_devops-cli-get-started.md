@@ -50,7 +50,7 @@ service.
     <Tab title="Fedora" label="fedora">
 
     ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo bash
+    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo os=rpm_any dist=rpm_any bash
     sudo yum install tiger-cli
     ```
     
