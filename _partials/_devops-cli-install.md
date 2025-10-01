@@ -1,6 +1,10 @@
 1. ** Install $CLI_LONG**
 
    Use the Terminal to install the $CLI_SHORT: 
+
+1. ** Install $CLI_LONG**
+
+   Use the Terminal to install the $CLI_SHORT:
    <Tabs label="Install Tiger CLI" persistKey="os">
 
     <Tab title="Debian" label="debian">
@@ -9,33 +13,33 @@
     curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo os=any dist=any bash
     sudo apt-get install tiger-cli
     ```
-    
+
     </Tab>
-    
+
     <Tab title="Ubuntu" label="ubuntu">
 
     ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo bash
+    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo os=any dist=any bash
     sudo apt-get install tiger-cli
     ```
     </Tab>
-    
+
     <Tab title="Red Hat" label="redhat">
-   
+
     ```shell
     curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo os=rpm_any dist=rpm_any bash
     sudo yum install tiger-cli
     ```
-   
+
     </Tab>
-    
+
     <Tab title="Fedora" label="fedora">
 
     ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo bash
+    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo os=rpm_any dist=rpm_any bash
     sudo yum install tiger-cli
     ```
-    
+
     </Tab>
 
     <Tab title="MacOs" label="macos">

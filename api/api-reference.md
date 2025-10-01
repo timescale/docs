@@ -34,10 +34,10 @@ curl -X GET "https://console.cloud.timescale.com/public/api/v1/projects/{project
 
 You use this endpoint to create and manage the following Tiger Postgres services:
 
-- `TIMESCALEDB`: a Tiger Postgres instance optimized for real-time analytics service For time-stamped data like events,
+- `time-series`: a Tiger Postgres instance optimized for real-time analytics service For time-stamped data like events,
   prices, metrics, sensor readings, or any information that changes over time
-- `POSTGRES`: a vanilla Postgres instance
-- `VECTOR`: a Tiger Postgres instance with vector extensions
+- `none`: a vanilla Postgres instance
+- `ai`: a Tiger Postgres instance with vector extensions
 
 ### List All Services
 
@@ -55,7 +55,7 @@ Retrieve all services within a project.
     "project_id": "jz22xtzemv",
     "name": "my-production-db",
     "region_code": "eu-central-1",
-    "service_type": "TIMESCALEDB",
+    "addons": "time-series",
     "status": "READY",
     "created": "2024-01-15T10:30:00Z",
     "paused": false,
@@ -89,7 +89,7 @@ Create a new Tiger Postgres service. This is an asynchronous operation.
 ```json
 {
   "name": "test-2",
-  "service_type": "TIMESCALEDB",
+  "addons": "time-series",
   "region_code": "eu-central-1",
   "cpu_millis": 1000,
   "memory_gbs": 4
@@ -103,7 +103,7 @@ Create a new Tiger Postgres service. This is an asynchronous operation.
   "project_id": "jz22xtzemv",
   "name": "test-2",
   "region_code": "eu-central-1",
-  "service_type": "TIMESCALEDB",
+  "addons": "time-series",
   "created": "2025-09-04T20:46:46.265680278Z",
   "paused": false,
   "status": "READY",
@@ -149,7 +149,7 @@ Retrieve details of a specific service.
   "project_id": "jz22xtzemv",
   "name": "test-2",
   "region_code": "eu-central-1",
-  "service_type": "TIMESCALEDB",
+  "addons": "time-series",
   "created": "2025-09-04T20:46:46.26568Z",
   "paused": false,
   "status": "READY",
@@ -330,7 +330,7 @@ Create a new, independent service by taking a snapshot of an existing one.
     "project_id": "jz22xtzemv",
     "name": "fork-test2",
     "region_code": "eu-central-1",
-    "service_type": "TIMESCALEDB",
+    "addons": "time-series",
     "created": "2025-09-04T20:54:09.53380732Z",
     "paused": false,
     "status": "READY",
@@ -750,7 +750,7 @@ Disassociate a service from its VPC.
   "project_id": "string",
   "name": "string",
   "region_code": "string",
-  "service_type": "TIMESCALEDB|POSTGRES|VECTOR",
+  "addons": "time-series|ai|none",
   "created": "2024-01-15T10:30:00Z",
   "initial_password": "string",
   "paused": false,

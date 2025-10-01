@@ -59,7 +59,7 @@ proper authentication headers.
 
       ```terminaloutput
       [{"service_id":"a59clooxoe","project_id":"c8nmagk8zh","name":"events",
-      "region_code":"eu-central-1","service_type":"TIMESCALEDB",
+      "region_code":"eu-central-1","addons":"time-series",
       "created":"2025-09-09T08:37:15.816443Z","paused":false,"status":"READY",
       "resources":[{"id":"101228","spec":{"cpu_millis":500,"memory_gbs":2,"volume_type":""}}],
       "metadata":{"environment":"DEV"},"endpoint":{"host":"oh.yeah.tsdb.cloud.timescale.com",
@@ -82,7 +82,7 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
      -H "Content-Type: application/json" \
      -d '{
          "name": "my-first-service",
-         "service_type": "TIMESCALEDB",
+         "addons": "time-series",
          "region_code": "us-east-1",
          "replica_count": 1,
          "cpu_millis": 1000,
@@ -94,7 +94,7 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
    ```terminaloutput
    {
      "service_id":"asdfasdfasdf","project_id":"asdasdfasf","name":"my-first-service",
-     "region_code":"us-east-1", "service_type":"TIMESCALEDB",
+     "region_code":"us-east-1", "addons":"time-series",
      "created":"2025-09-09T09:24:31.997767396Z", "paused":false,"status":"READY",
      "resources":[{"id":"101240",
      "spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
@@ -106,12 +106,13 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
    ```
 
 1. Save `service_id` from the response to a variable:
+
    ```bash
    # Extract service_id from the JSON response
    export SERVICE_ID="service_id-from-response"
    ```
 
-1. **Check the configuration for the **
+1. **Check the configuration for the $SERVICE_SHORT**
 
   ```bash
     curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services/${SERVICE_ID}" \
@@ -121,7 +122,7 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
 You see something like:
   ```terminaloutput
     {"service_id":"tgrservice","project_id":"tgrproject","name":"my-first-service","region_code":"us-east-1",
-    "service_type":"TIMESCALEDB","created":"2025-09-30T12:08:54.438785Z","paused":false,"status":"READY",
+    "addons":"time-series","created":"2025-09-30T12:08:54.438785Z","paused":false,"status":"READY",
     "resources":[{"id":"102879","spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
     "metadata":{"environment":"DEV"},"endpoint":{"host":"ohhhh.yeahhhhh.tsdb.cloud.timescale.com","port":33867},
     "ha_replicas":{"sync_replica_count":0,"replica_count":1}}  
@@ -144,12 +145,12 @@ Follow these security guidelines when working with the $REST_LONG:
 - **Network security**
     - Use HTTPS endpoints exclusively for API communication
     - Implement proper certificate validation in your HTTP clients
-    - Consider IP allowlisting for production API access
 
 - **Data protection**
     - Use secure storage for service connection strings and passwords
     - Implement proper backup and recovery procedures for created services
     - Follow data residency requirements for your region
+
 
 [rest-api-reference]: /api/:currentVersion:/api-reference/
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
