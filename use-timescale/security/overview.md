@@ -96,9 +96,7 @@ meet regulatory requirements while building compliant applications.
 
 ## SOC 2 compliance
 
-$CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can securely manage customer data in alignment 
-with industry standards for security, availability, processing integrity, confidentiality, and privacy. It helps businesses meet trust requirements while confidently building applications that handle sensitive information.
-The annual SOC 2 report is available to customers on the Scale or Enterprise plan.
+$CLOUD_LONG SOC 2 Type 2 compliant. This ensures that organizations can securely manage customer data in alignment with industry standards for security, availability, processing integrity, confidentiality, and privacy. It helps businesses meet trust requirements while confidently building applications that handle sensitive information. The annual SOC 2 report is available to customers on the Scale or Enterprise pricing plans. Open a [support ticket][open-support-ticket] to get access to it.
 
 [timescale-privacy-policy]: https://www.timescale.com/legal/privacy
 [tsc-tos]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
@@ -110,3 +108,4 @@ The annual SOC 2 report is available to customers on the Scale or Enterprise pla
 [security-at-timescale]: https://www.timescale.com/security
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[open-support-ticket]: https://console.cloud.timescale.com/dashboard/support
