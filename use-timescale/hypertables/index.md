@@ -5,15 +5,12 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
 
-import HypertableIntro from 'versionContent/_partials/_hypertable-intro.mdx';
+import HypertableOverview from 'versionContent/_partials/_hypertable-intro.mdx';
 import ChunkInterval from "versionContent/_partials/_chunk-interval.mdx";
 
 # Hypertables
 
-<HypertableIntro />
-
-![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
-
+<HypertableOverview />
 
 ## Partition by time
 
@@ -25,10 +22,6 @@ a range of time, and only contains data from that range.
 
 By default, each $HYPERTABLE chunk holds data for 7 days. You can change this to better suit your
 needs. For example, if you set `chunk_interval` to 1 day, each chunk stores data for a single day.
-
-The following figure shows the difference in structure between a relational table and a hypertable:
-
-![Compare a relational table to a hypertable](https://assets.timescale.com/docs/images/getting-started/hypertables-chunks.webp)
 
 $TIMESCALE_DB divides time into potential chunk ranges, based on the `chunk_interval`. Each $HYPERTABLE chunk holds 
 data for a specific time range only. When you insert data from a time range that doesn't yet have a chunk, $TIMESCALE_DB
@@ -55,7 +48,7 @@ For example:
 
 <Procedure>
 
-1. **Create the $HYPERTABLE with 1 day interval chunk interval**
+1. **Create the $HYPERTABLE with the 1-day interval chunk interval**
 
    ```sql
    CREATE TABLE conditions(
@@ -102,7 +95,7 @@ when all those chunks are part of a single hypertable.
 
 For a detailed analysis of how to optimize your chunk sizes, see the
 [blog post on chunk time intervals][blog-chunk-time]. To learn how
-to view and set your chunk time intervals, see how to
+to view and set your chunk time intervals, see 
 [Optimize $HYPERTABLE chunk intervals][change-chunk-intervals].
 
 ## $HYPERTABLE_CAP indexes

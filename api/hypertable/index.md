@@ -5,11 +5,11 @@ keywords: [hypertables, chunks]
 products: [cloud, mst, self_hosted]
 ---
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
-import HypertableIntro from "versionContent/_partials/_hypertable-intro.mdx";
+import HypertableOverview from "versionContent/_partials/_hypertable-intro.mdx";
 
 # Hypertables and chunks
 
-<HypertableIntro />
+<HypertableOverview />
 
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
