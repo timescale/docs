@@ -33,7 +33,7 @@ service.
     <Tab title="Ubuntu" label="ubuntu">
 
     ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo bash
+    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo os=any dist=any bash
     sudo apt-get install tiger-cli
     ```
     </Tab>
