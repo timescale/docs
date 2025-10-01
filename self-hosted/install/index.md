@@ -10,7 +10,7 @@ import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.md
 
 # Install $TIMESCALE_DB
 
-$TIMESCALE_DB is an open-source Postgres extension that powers $CLOUD_LONG. Designed for running real-time analytics on time-series data, it supercharges ingest, query, storage, and analytics performance.
+$TIMESCALE_DB is an open-source $PG extension that powers $CLOUD_LONG. Designed for running real-time analytics on time-series data, it supercharges ingest, query, storage, and analytics performance.
 
 You can install $SELF_LONG from [source][self-hosted-source], with a [pre-built Docker container][self-hosted-container], or on one of the [supported platforms][platform-support]. This section provides instructions for installing the latest version of $SELF_LONG. 
 
