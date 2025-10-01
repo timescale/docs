@@ -11,8 +11,6 @@ tags: [telemetry, monitor]
 
 Get complete visibility into your $SERVICE_SHORT performance with $CLOUD_LONG's powerful monitoring suite. Whether you're optimizing for peak efficiency or troubleshooting unexpected behavior, $CLOUD_LONG gives you the tools to quickly identify and resolve issues.
 
-## Debug performance issues in minutes
-
 When something doesn't look right, $CLOUD_LONG provides a complete investigation workflow:
 
 ![Monitoring suite in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-monitoring-workflow-diagram.svg)
