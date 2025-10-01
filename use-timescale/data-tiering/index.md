@@ -7,7 +7,13 @@ keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+
 # Tiered storage
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 Tiered storage is a [hierarchical storage management architecture][hierarchical-storage] for 
 [time series and analytics][create-service] $SERVICE_SHORT you create in [$CLOUD_LONG](https://console.cloud.timescale.com/).
@@ -52,6 +58,17 @@ In this section, you:
 * [Query tiered data][querying-tiered-data]: query the data in the object storage. 
 * [Learn about replicas and forks with tiered data][replicas-and-forks]: understand how tiered storage works
   with forks and replicas of your $SERVICE_SHORT.
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
 [enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/

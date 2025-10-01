@@ -11,8 +11,13 @@ cloud_ui:
 ---
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Manage storage and tiering
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier:
 
@@ -285,6 +290,17 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
    ```
 
 </Procedure>
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
 [console]: https://console.cloud.timescale.com/dashboard/services

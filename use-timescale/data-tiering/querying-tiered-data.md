@@ -7,7 +7,13 @@ keywords: [ tiered storage, tiering ]
 tags: [ storage, data management ]
 ---
 
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+
 # Querying tiered data
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 Once rarely used data is tiered and migrated to the object storage tier, it can still be queried 
 with standard SQL by enabling the `timescaledb.enable_tiered_reads` GUC. 
@@ -186,3 +192,12 @@ Queries over tiered data are expected to be slower than over local data. However
 
 * Text and non-native types (JSON, JSONB, GIS) filtering is slower when querying tiered data.
 
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>

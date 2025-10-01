@@ -7,7 +7,13 @@ keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+
 # How tiered data works on replicas and forks 
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 There is one more thing that makes Tiered Storage even more amazing: when you keep data in the low-cost object storage tier,
 you pay for this data only once, regardless of whether you have a [high-availability replica][ha-replica]
@@ -67,6 +73,17 @@ In addition to that, we delay hard deleting the data by 14 days, so that in case
 In the case of such a restore, new references are added to the deleted tiered chunks, so they are not any more candidates for a hard deletion. 
 
 Once 14 days pass after soft deleting the data,that is the number of references to the tiered data drop to 0, we hard delete the tiered data.
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [ha-replica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/#read-replicas

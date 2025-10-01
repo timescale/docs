@@ -11,8 +11,13 @@ cloud_ui:
 ---
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # About storage tiers
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier. You use the high-performance tier for data that requires quick access, and the object tier for rarely used historical data. Tiering policies move older data asynchronously and periodically from high-performance to low-cost storage, sparing you the need to do it manually. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. 
 
@@ -118,6 +123,17 @@ The low-cost storage tier comes with the following limitations:
 *   **Number of dimensions**: you cannot use tiered storage with hypertables
     partitioned on more than one dimension. Make sure your hypertables are
     partitioned on time only, before you enable tiered storage.
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
