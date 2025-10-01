@@ -16,7 +16,7 @@ tags:
 
 import RESTGS from "versionContent/_partials/_devops-rest-api-get-started.mdx";
 import CLIGS from "versionContent/_partials/_devops-cli-get-started.mdx";
-
+import MCPGS from "versionContent/_partials/_devops-mcp-get-started.mdx";
 
 # DevOps as code with Tiger Cloud
 
@@ -35,6 +35,12 @@ programmatically.
 <Tab title="Tiger Cli" label="rest">
 
 <CLIGS />
+
+</Tab>
+
+<Tab title="MCP server" label="rest">
+
+<MCPGS />
 
 </Tab>
 
