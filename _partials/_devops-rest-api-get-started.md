@@ -111,7 +111,7 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
    export SERVICE_ID="service_id-from-response"
    ```
 
-1. **Check the configuration for the **
+1. **Check the configuration for the $SERVICE_SHORT**
 
   ```bash
     curl -X GET "${API_BASE_URL}/projects/${TIGERDATA_PROJECT_ID}/services/${SERVICE_ID}" \
@@ -144,7 +144,6 @@ Follow these security guidelines when working with the $REST_LONG:
 - **Network security**
     - Use HTTPS endpoints exclusively for API communication
     - Implement proper certificate validation in your HTTP clients
-    - Consider IP allowlisting for production API access
 
 - **Data protection**
     - Use secure storage for service connection strings and passwords
