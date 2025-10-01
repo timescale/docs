@@ -15,7 +15,7 @@ import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 # Manage high availability
 
 For $SERVICE_LONGs where every second of uptime matters, $CLOUD_LONG delivers High Availability (HA) replicas. 
-These replicas safeguard your data and keep your $SERVICE_SHORT running smoothly—even in the face of unexpected failures. 
+These replicas safeguard your data and keep your $SERVICE_SHORT running smoothly, even in the face of unexpected failures. 
 By minimizing downtime and protecting against data loss, HA replicas ensure business continuity and give you the confidence 
 to operate without interruption, including during routine maintenance.
 
