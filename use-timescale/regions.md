@@ -5,14 +5,29 @@ products: [cloud]
 ---
 
 import Regions from "versionContent/_partials/_timescale-cloud-regions.mdx";
+import RegionsAzure from "versionContent/_partials/_timescale-cloud-regions-azure.mdx";
 
 # $CLOUD_LONG regions
 
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
+
 <Regions />
 
-<Highlight type="cloud"  header="Need to deploy on Azure or Google Cloud Platform?">
+</Tab>
 
-Use [$MST_LONG][aiven-client-mst] to run $TIMESCALE_DB on Azure and GCP.
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<RegionsAzure />
+
+</Tab>
+
+</Tabs>
+
+<Highlight type="cloud"  header="Need to deploy on Google Cloud Platform?">
+
+Use [$MST_LONG][aiven-client-mst]!
 
 </Highlight>
 

@@ -8,6 +8,7 @@ tags: [platforms, os, versions]
 
 import ServiceTypes from "versionContent/_partials/_timescale-cloud-services.mdx";
 import Regions from "versionContent/_partials/_timescale-cloud-regions.mdx";
+import RegionsAzure from "versionContent/_partials/_timescale-cloud-regions-azure.mdx";
 import Platforms from "versionContent/_partials/_timescale-cloud-platforms.mdx";
 
 # Supported platforms and regions
@@ -36,7 +37,21 @@ See the available [service capabilities][service-types] and [regions][regions].
 
 ### Available regions
 
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
+
 <Regions />
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<RegionsAzure />
+
+</Tab>
+
+</Tabs>
 
 ## Self-hosted products
 
