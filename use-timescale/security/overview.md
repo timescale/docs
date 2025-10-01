@@ -9,7 +9,7 @@ tags: [encryption, VPC, privacy]
 # About security in $CLOUD_LONG
 
 Protecting data starts with secure software engineering. At $COMPANY, we embed security into every stage of 
-development—from static code analysis and automated dependency scanning to rigorous code security reviews. 
+development, from static code analysis and automated dependency scanning to rigorous code security reviews. 
 To go even further, we have developed [pgspot](https://github.com/timescale/pgspot), an open-source extension to identify security 
 issues with $PG extensions, which strengthens the broader ecosystem as well as our own platform. $COMPANY products do not have any identified weaknesses.
 
