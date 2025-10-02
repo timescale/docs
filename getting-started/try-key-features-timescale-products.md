@@ -14,10 +14,13 @@ import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-
 # Try the key features in $COMPANY products
 
 $CLOUD_LONG offers managed database services that provide a stable and reliable environment for your
-applications. Each $SERVICE_SHORT is an instance of $TIGER_POSTGRES, a radically faster $PG for
-transactional, analytical and agentic workloads at scale.
+applications. 
 
-$CLOUD_LONG scales $TIGER_POSTGRES to ingest and query vast amounts of live data. $CLOUD_LONG 
+Each $SERVICE_LONG is a single optimised $PG instance extended with innovations such as $TIMESCALE_DB in the database 
+engine, in a cloud infrastructure that delivers speed without compromise. A radically faster $PG for transactional, 
+analytical and agentic workloads at scale.
+
+$CLOUD_LONG scales $PG to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
 costs down. For example: 
 * The $HYPERCORE row-columnar engine in $TIMESCALE_DB makes queries up to 350x faster, ingests 44% faster, and reduces 

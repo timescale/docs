@@ -138,7 +138,7 @@ class TigerDataDocumentationGenerator:
             '$READ_REPLICA': 'read replica',
             
             # Legacy/Backwards compatibility
-            '$TIGER_POSTGRES': 'Tiger Postgres',
+            '$TIGER_POSTGRES': 'TimescaleDB',
             '$POSTGRESQL': 'PostgreSQL',
             
             # Additional Variables

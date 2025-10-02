@@ -19,7 +19,7 @@ For more information about these functions and the options available, see the
 ## Use the `pgvector` extension to create a `chatbot`
 
 The `pgvector` $PG extension allows you to create, store, and query
-OpenAI [vector embeddings][vector-embeddings] in $TIGER_POSTGRES. This page shows you how to 
+OpenAI [vector embeddings][vector-embeddings] in a $PG database instance. This page shows you how to 
 use [retrieval augmented generation (RAG)][rag-docs] to create a chatbot that combines
 your data with ChatGPT using OpenAI and `pgvector`. RAG provides a solution to the
 problem that a foundational model such as GPT-3 or GPT-4 could be missing some
