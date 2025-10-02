@@ -11,8 +11,13 @@ cloud_ui:
 ---
 
 import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Securely connect to $CLOUD_LONG using AWS Transit Gateway
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 [AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your $CLOUD_LONG from AWS, Google Cloud, Microsoft Azure, or any other cloud or on-premise environment.
 
@@ -88,6 +93,16 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 </Tabs>
 
 You can now securely access your $SERVICE_SHORTs in $CLOUD_LONG. 
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
 
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

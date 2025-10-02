@@ -1,5 +1,5 @@
 ---
-title: Tiered Storage
+title: Storage on Tiger Cloud
 excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier. Tiger Cloud tiered storage makes sure you cut costs while having data available for analytical queries
 products: [cloud]
 price_plans: [scale, enterprise]
@@ -7,9 +7,7 @@ keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
-import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
-
-# Tiered storage
+# Storage
 
 <Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
 
@@ -63,7 +61,9 @@ In this section, you:
 
 <Tab title="Tiger Cloud on Azure" label="azure-cloud">
 
-<NotSupportedAzure />
+$CLOUD_LONG stores your data in high-performance storage optimized for frequent querying. Based on [AWS EBS gp3][aws-gp3], the high-performance storage provides you with up to 16 TB and 16,000 IOPS. Its [$HYPERCORE row-columnar storage engine][hypercore], designed specifically for real-time analytics, enables you to compress your data by up to 98%, while improving performance. 
+
+Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
 
 </Tab>
 
@@ -78,3 +78,5 @@ In this section, you:
 [add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/
 [create-service]: /getting-started/:currentVersion:/services/
 [hierarchical-storage]: https://en.wikipedia.org/wiki/Hierarchical_storage_management
+[hypercore]: /use-timescale/:currentVersion:/hypercore
+[aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html

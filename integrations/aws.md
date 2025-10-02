@@ -8,8 +8,13 @@ keywords: [AWS, integrations]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate Amazon Web Services with $CLOUD_LONG
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 [Amazon Web Services (AWS)][aws] is a comprehensive cloud computing platform that provides on-demand infrastructure, storage, databases, AI, analytics, and security services to help businesses build, deploy, and scale applications in the cloud.
 
@@ -32,6 +37,17 @@ To connect to $CLOUD_LONG:
 </Procedure>
 
 You have successfully integrated your AWS infrastructure with $CLOUD_LONG. 
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [aws]: https://aws.amazon.com/
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/

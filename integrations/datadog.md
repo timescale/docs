@@ -9,8 +9,13 @@ keywords: [integrate]
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate Datadog with $CLOUD_LONG
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 [Datadog][datadog] is a cloud-based monitoring and analytics platform that provides comprehensive visibility into
 applications, infrastructure, and systems through real-time monitoring, logging, and analytics.
@@ -131,6 +136,16 @@ metrics about your $SERVICE_LONGs.
 
 Metrics for your $SERVICE_LONG are now visible in Datadog. Check the Datadog $PG integration documentation for a
 comprehensive list of [metrics][datadog-postgres-metrics] collected.
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
 
 [datadog]: https://www.datadoghq.com/
 [datadog-agent-install]: https://docs.datadoghq.com/getting_started/agent/#installation

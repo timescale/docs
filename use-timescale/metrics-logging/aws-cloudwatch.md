@@ -10,8 +10,13 @@ tags: [telemetry, monitor]
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Export telemetry data to AWS Cloudwatch
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Amazon CloudWatch][cloudwatch]. Available metrics include CPU usage, RAM usage, and storage. This integration is available for [Scale or Enterprise][pricing-plan-features]
 pricing plans.
@@ -34,6 +39,16 @@ tools. You create an exporter on the [$PROJECT_SHORT level][projects], in the sa
 This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 <ManageDataExporter />
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
 
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-docs]: https://docs.aws.amazon.com/cloudwatch/index.html

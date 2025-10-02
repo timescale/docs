@@ -8,8 +8,13 @@ keywords: [Google Cloud, integrations]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate Google Cloud with $CLOUD_LONG
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 [Google Cloud][google-cloud] is a suite of cloud computing services, offering scalable infrastructure, AI, analytics, databases, security, and developer tools to help businesses build, deploy, and manage applications.
 
@@ -36,6 +41,17 @@ To connect to $CLOUD_LONG:
 </Procedure>
 
 You have successfully integrated your Google Cloud infrastructure with $CLOUD_LONG.
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [google-cloud]: https://cloud.google.com/?hl=en
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/

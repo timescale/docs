@@ -381,7 +381,7 @@ module.exports = [
         ],
       },
       {
-        title: "Tiered storage",
+        title: "Storage",
         href: "data-tiering",
         excerpt:
           "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",

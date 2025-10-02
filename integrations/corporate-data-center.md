@@ -8,8 +8,13 @@ keywords: [on-premise, integrations]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate your data center with $CLOUD_LONG
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 This page explains how to integrate your corporate on-premise infrastructure with $CLOUD_LONG using [AWS Transit Gateway][aws-transit-gateway].
 
@@ -33,7 +38,18 @@ To connect to $CLOUD_LONG:
 
 </Procedure>
 
-You have successfully integrated your Microsoft Azure infrastructure with $CLOUD_LONG.
+You have successfully integrated your corporate data center with $CLOUD_LONG.
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
 [gtw-setup]: https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html
