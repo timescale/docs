@@ -1,12 +1,14 @@
+
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 import CLIINSTALL from "versionContent/_partials/_devops-cli-install.mdx";
 
+The $MCP_LONG provides programmatic access to your $CLOUD_LONG resources through Claude and other
+AI assistants. $MCP_SHORT mirrors the functionality of $CLI_LONG and is integrated directly into the $CLI_SHORT binary.
 
-$CLI_LONG is a command-line interface that you use to manage $CLOUD_LONG resources
-including VPCs, services, read replicas, and related infrastructure. $CLI_LONG calls $REST_LONG to communicate with 
-$CLOUD_LONG. 
+You use $MCP_SHORT to manage $CLOUD_LONG resources including VPCs, services, read replicas, and related infrastructure.
+$MCP_SHORT calls $REST_LONG to communicate with $CLOUD_LONG. 
 
-This page shows you how to install and set up secure authentication for $CLI_LONG, then create your first 
+This page shows you how to install and set up secure authentication for $MCP_LONG, then create your first 
 service.
 
 ## Prerequisites
@@ -14,19 +16,16 @@ service.
 <RESTPrereqs />
 * Claude installed locally and an API key
 
-
-## Install and configure $CLI_LONG
+## Install and configure $MCP_SHORT
 
 <Procedure>
 
 <CLIINSTALL />
 
-    
-
 </Procedure>
 
 
-## Run the MCP server
+## Use the 
 
 Bla bla
 
