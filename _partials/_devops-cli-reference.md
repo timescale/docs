@@ -33,15 +33,16 @@ You can use the following commands with $CLI_LONG. For more information on each 
 
 You can use the following global flags with $CLI_LONG:
 
-| Flag | Default         | Description                                                           |
-|--|-----------------|-----------------------------------------------------------------------|
-| --analytics             | `true`          | Set to `false` to disable usage analytics.                            |
-| --config-dir string     | `.config/tiger` | Set the directory that holds `config.yaml`                            |
-| --debug                 | No debugging    | Enable debug logging                                                  |
-| -o, --output string     | table           | Set the output format. Options are `json`, `yaml`, or `table`               |
-| --password-storage string | keyring         | Set the password storage method. Options are `keyring`, `pgpass`, or `none` |
-| --project-id string      | -               | Set the $PROJECT_LONG to manage.                              | 
-| --service-id string      | -               | Set the $SERVICE_LONG to manage. |
+| Flag                      | Default         | Description                                                                                                                                                                                                                 |
+|---------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --addons                  |  time-series    | Possible values are: <ul><li>**time-series**: Postgres with TimescaleDB and TimescaleDB Toolkit</li><li>**ai**: `time-series` service, plus pgvectorscale and ai</li><li>**none**: vanilla Postgres in Tiger</li></ul> |
+| --analytics               | `true`          | Set to `false` to disable usage analytics.                                                                                                                                                                                  |
+| --config-dir string       | `.config/tiger` | Set the directory that holds `config.yaml`                                                                                                                                                                                  |
+| --debug                   | No debugging    | Enable debug logging                                                                                                                                                                                                        |
+| -o, --output string       | table           | Set the output format. Options are `json`, `yaml`, or `table`                                                                                                                                                               |
+| --password-storage string | keyring         | Set the password storage method. Options are `keyring`, `pgpass`, or `none`                                                                                                                                                 |
+| --project-id string       | -               | Set the $PROJECT_LONG to manage.                                                                                                                                                                                            | 
+| --service-id string       | -               | Set the $SERVICE_LONG to manage.                                                                                                                                                                                            |
 
 
 
