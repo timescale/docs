@@ -350,7 +350,7 @@ Now, when you reload the page, you should see all of the rows currently in the
 </procedure>
 
 [node-install]: https://nodejs.org
-[npm-install]: https://www.npmjs.com/get-npm
+[npm-install]: https://docs.npmjs.com/getting-started
 [sequelize-info]: https://sequelize.org
 [connect]: #connect-to-timescaledb
 [create-table]: #create-a-relational-table
