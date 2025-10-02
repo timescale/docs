@@ -12,8 +12,6 @@ tags: [storage, data management]
 Tiered storage is a [hierarchical storage management architecture][hierarchical-storage] for 
 [real-time analytics][create-service] $SERVICE_SHORTs you create in [$CLOUD_LONG](https://console.cloud.timescale.com/).
 
-![$CLOUD_LONG tiered storage](https://assets.timescale.com/docs/images/timescale-tiered-storage-architecture.png)
-
 Engineered for infinite low-cost scalability, tiered storage consists of the following:
 
 * **High-performance storage tier**: stores the most recent and frequently queried data. This tier comes in two types, 
