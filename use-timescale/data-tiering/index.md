@@ -10,11 +10,12 @@ tags: [storage, data management]
 # Tiered storage
 
 Tiered storage is a [hierarchical storage management architecture][hierarchical-storage] for 
-[time series and analytics][create-service] $SERVICE_SHORT you create in [$CLOUD_LONG](https://console.cloud.timescale.com/).
+[real-time analytics][create-service] $SERVICE_SHORTs you create in [$CLOUD_LONG](https://console.cloud.timescale.com/).
 
 Engineered for infinite low-cost scalability, tiered storage consists of the following:
 
-* **High-performance storage tier**: stores the most recent and frequently queried data. This tier comes in two types, standard and enhanced, and provides you with up to 64 TB of storage and 32,000 IOPS. 
+* **High-performance storage tier**: stores the most recent and frequently queried data. This tier comes in two types, 
+standard and enhanced, and provides you with up to 64 TB of storage and 32,000 IOPS. 
 
 * **Object storage tier**: stores data that is rarely accessed and has lower performance requirements.
   For example, old data for auditing or reporting purposes over long periods of time, even forever.
@@ -22,8 +23,6 @@ Engineered for infinite low-cost scalability, tiered storage consists of the fol
 
 No matter the tier your data is stored in, you can [query it when you need it][querying-tiered-data]. 
 $CLOUD_LONG seamlessly accesses the correct storage tier and generates the response.
-
-![$CLOUD_LONG tiered storage](https://assets.timescale.com/docs/images/timescale-tiered-storage-architecture.png)
 
 <!-- vale Google.SmartQuotes = NO -->
 
@@ -33,16 +32,7 @@ data from the high-performance storage tier to the object tier as it ages. You u
 
 With tiered storage you don't need an ETL process, infrastructure changes, or custom-built, bespoke 
 solutions to offload data to secondary storage and fetch it back in when needed. Kick back and relax, 
-we do the work for you. 
-
-<Highlight type="info">
-
-Tiered storage is only available for the $SERVICE_SHORTs with the [time series and analytics][create-service]
-capability enabled. 
-
-Tiered storage **DOES NOT** work on $SELF_LONG or $MST_LONG.  
-
-</Highlight>
+we do the work for you.
 
 <!-- vale Google.SmartQuotes = YES -->
 
