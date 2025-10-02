@@ -21,7 +21,7 @@ import CLIGS from "versionContent/_partials/_devops-cli-get-started.mdx";
 # DevOps as code with Tiger Cloud
 
 $COMPANY supplies a clean, programmatic control layer for $CLOUD_LONG. This includes RESTful APIs, CLI commands, and 
-MCP endpoints that let humans, machines, and AI agents easily provision, configure, and manage $SERVICE_LONG 
+MCP endpoints that let humans, machines, and AI agents easily provision, configure, and manage $SERVICE_LONGs
 programmatically. 
 
 <Tabs label="Install TimescaleDB" persistKey="devops-platform">
@@ -32,7 +32,7 @@ programmatically.
 
 </Tab>
 
-<Tab title="Tiger Cli" label="rest">
+<Tab title="Tiger CLI" label="cli">
 
 <CLIGS />
 

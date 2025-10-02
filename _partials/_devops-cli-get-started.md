@@ -16,9 +16,9 @@ service.
 
 <Procedure>
 
-1. ** Install $CLI_LONG**
+1. **Install $CLI_LONG**
 
-   Use the Terminal to install the $CLI_SHORT: 
+   Use the terminal to install the $CLI_SHORT: 
    <Tabs label="Install Tiger CLI" persistKey="os">
 
     <Tab title="Debian" label="debian">
@@ -76,12 +76,12 @@ service.
  
 1. **Set up API credentials**
 
-   1. Log $CLI_LONG into your $ACCOUNT_LONG
+   1. Log $CLI_LONG into your $ACCOUNT_LONG:
  
       ```shell
       tiger auth login
       ```
-      $CLI_LONG opens $CONSOLE_SHORT in your browser. Login, then click `Authorize`.  
+      $CLI_LONG opens $CONSOLE_SHORT in your browser. Log in, then click `Authorize`.  
 
    1. Select a $PROJECT_LONG. 
 
@@ -127,7 +127,7 @@ Create a new $SERVICE_LONG using $CLI_LONG:
    tiger service create
    ```
    $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
-   read-replication. You see something like:
+   read replication. You see something like:
    ```terminaloutput
     🚀 Creating service 'db-11111' (auto-generated name)...
     ✅ Service creation request accepted!
@@ -193,7 +193,7 @@ You can use the following commands with $CLI_LONG. For more information on each 
 |         | test-connection `<service-id>`   | Test the connectivity to a $SERVICE_SHORT                                                      | 
 | mcp     |                                  | Manage the $MCP_LONG                                                                           |
 |         | start                            | Start the $MCP_LONG. This is the same as `tiger mcp start stdio`                               |
-|         | start `stdio` \| `http`          | Start the $MCP_LONG with stdio or HTTP transport.                                              |
+|         | start `stdio` \| `http`          | Start the $MCP_LONG with stdio or HTTP transport                                             |
 
 ## Flags
 
@@ -201,13 +201,13 @@ You can use the following global flags with $CLI_LONG:
 
 | Flag | Default         | Description                                                           |
 |--|-----------------|-----------------------------------------------------------------------|
-| --analytics             | `true`          | Set to `false` to disable usage analytics.                            |
+| --analytics             | `true`          | Set to `false` to disable usage analytics                           |
 | --config-dir string     | `.config/tiger` | Set the directory that holds `config.yaml`                            |
 | --debug                 | No debugging    | Enable debug logging                                                  |
 | -o, --output string     | table           | Set the output format. Options are `json`, `yaml`, or `table`               |
 | --password-storage string | keyring         | Set the password storage method. Options are `keyring`, `pgpass`, or `none` |
-| --project-id string      | -               | Set the $PROJECT_LONG to manage.                              | 
-| --service-id string      | -               | Set the $SERVICE_LONG to manage. |
+| --project-id string      | -               | Set the $PROJECT_LONG to manage                              | 
+| --service-id string      | -               | Set the $SERVICE_LONG to manage |
 
 
 

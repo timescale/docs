@@ -21,7 +21,7 @@ proper authentication headers.
 
 1. **Set up API credentials**
 
-    1. In $CONSOLE [copy your project ID][get-project-id] and store it securely using an environment variable:
+    1. In $CONSOLE, copy your [project ID][get-project-id] and store it securely using an environment variable:
 
       ```bash
       export TIGERDATA_PROJECT_ID="your-project-id"
@@ -90,7 +90,7 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
      }'
    ```
    $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
-   read-replication. You see something like:
+   read replication. You see something like:
    ```terminaloutput
    {
      "service_id":"asdfasdfasdf","project_id":"asdasdfasf","name":"my-first-service",
@@ -105,7 +105,7 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
    } 
    ```
 
-1. Save `service_id` from the response to a variable:
+1. **Save `service_id` from the response to a variable**
    ```bash
    # Extract service_id from the JSON response
    export SERVICE_ID="service_id-from-response"
@@ -118,7 +118,7 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
       -u "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" \
       -H "Content-Type: application/json"
   ```
-You see something like:
+      You see something like:
   ```terminaloutput
     {"service_id":"tgrservice","project_id":"tgrproject","name":"my-first-service","region_code":"us-east-1",
     "service_type":"TIMESCALEDB","created":"2025-09-30T12:08:54.438785Z","paused":false,"status":"READY",
