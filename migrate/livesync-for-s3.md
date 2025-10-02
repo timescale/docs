@@ -1,6 +1,6 @@
 ---
 title: Sync data from S3 to your service
-excerpt: Synchronize data from S3 to Tiger Cloud service in real time
+excerpt: Synchronize data from S3 to Tiger service in real time
 products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
@@ -13,7 +13,7 @@ import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 
 You use the $S3_CONNECTOR in $CLOUD_LONG to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. The connector runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
-![Tiger Cloud connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-connector-overview.png)
+![Tiger connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-connector-overview.png)
 
 You can use the $S3_CONNECTOR to synchronize your existing and new data. Here's what the connector can do:
 
@@ -99,7 +99,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect the source S3 bucket to the target $SERVICE_SHORT**
 
-   ![Connect Tiger Cloud to S3 bucket](https://assets.timescale.com/docs/images/tiger-cloud-console/s3-connector-tiger-cloud.png)
+   ![Connect Tiger to S3 bucket](https://assets.timescale.com/docs/images/tiger-cloud-console/s3-connector-tiger-cloud.png)
 
    1. Click `Connectors` > `Amazon S3`.
    1. Click the pencil icon, then set the name for the new connector.
@@ -136,7 +136,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
     1. To view the amount of data replicated, click `Connectors`. The diagram in `Connector data flow` gives you an overview of the connectors you have created, their status, and how much data has been replicated.
 
-       ![Tiger Cloud connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-connector-overview.png)
+       ![Tiger connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-connector-overview.png)
 
     1. To view file import statistics and logs, click `Connectors` > `Source connectors`.
 

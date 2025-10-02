@@ -1,6 +1,6 @@
 ---
 title: Hypertables and chunks
-excerpt: Tiger CloudAPI reference for dealing with hypertables and chunks. Includes all SQL functions and views related to managing hypertables, chunks, dimensions, tablespaces, and indexing
+excerpt: TigerAPI reference for dealing with hypertables and chunks. Includes all SQL functions and views related to managing hypertables, chunks, dimensions, tablespaces, and indexing
 keywords: [hypertables, chunks]
 products: [cloud, mst, self_hosted]
 ---
