@@ -83,14 +83,32 @@ service.
       ```
       $CLI_LONG opens $CONSOLE_SHORT in your browser. Log in, then click `Authorize`.  
 
-   1. Select a $PROJECT_LONG. 
+   1. Log $CLI_LONG into your $ACCOUNT_LONG
 
-      If only one $PROJECT_SHORT is associated with your $ACCOUNT_SHORT, this step is not shown. 
+      ```shell
+      tiger auth login
+      ```
+      $CLI_LONG opens $CONSOLE_SHORT in your browser. Login, then click `Authorize`.
 
-      Where possible, $CLI_LONG stores your authentication information in the system keychain/credential manager. 
+   1. Select a $PROJECT_LONG.
+
+      ```terminaloutput
+      Auth URL is: https://console.cloud.timescale.com/oauth/authorize?client_id=lotsOfURLstuff
+      Opening browser for authentication...
+      Select a project:
+
+      > 1. Tiger Project (tgrproject)
+      2. YourCompany (Company wide project) (cpnproject)
+      3. YourCompany Department (dptproject)
+
+      Use ↑/↓ arrows or number keys to navigate, enter to select, q to quit  
+      ```  
+      If only one $PROJECT_SHORT is associated with your $ACCOUNT_SHORT, this step is not shown.
+
+      Where possible, $CLI_LONG stores your authentication information in the system keychain/credential manager.
       If that fails, the key is stored in `~/.config/tiger/api-key` with restricted file permissions (600).
       $CLI_LONG stores your configuration in `~/.config/tiger/config.yaml`.
-    
+ 
 1. **Test your authenticated connection to $CLOUD_LONG by listing services**
 
     ```bash
