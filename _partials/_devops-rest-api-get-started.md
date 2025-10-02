@@ -27,7 +27,7 @@ proper authentication headers.
       export TIGERDATA_PROJECT_ID="your-project-id"
       ```
 
-    1. In $CONSOLE [create your client credentials][create-client-credentials] and store them securely using environment variables:
+    1. [Create your client credentials][create-client-credentials] and store them securely using environment variables:
 
        ```bash
        export TIGERDATA_ACCESS_KEY="Public key"

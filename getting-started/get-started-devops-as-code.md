@@ -1,6 +1,6 @@
 ---
 title: "DevOps as code with Tiger Cloud"
-excerpt: "Configure secure authentication and create a new database service using the Tiger Cloud REST API"
+excerpt: "Configure secure authentication and manage the resources in your Tiger project using REST, the Cli or MCP."
 keywords:
   - authentication
   - service creation
@@ -24,7 +24,7 @@ $COMPANY supplies a clean, programmatic control layer for $CLOUD_LONG. This incl
 MCP endpoints that let humans, machines, and AI agents easily provision, configure, and manage $SERVICE_LONGs
 programmatically. 
 
-<Tabs label="Install TimescaleDB" persistKey="devops-platform">
+<Tabs label="Setup your DevOps tooling" persistKey="devops-platform">
 
 <Tab title="Tiger REST API" label="rest">
 
