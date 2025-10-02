@@ -1,4 +1,6 @@
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
+import CLIINSTALL from "versionContent/_partials/_devops-cli-install.mdx";
+
 
 $CLI_LONG is a command-line interface that you use to manage $CLOUD_LONG resources
 including VPCs, services, read replicas, and related infrastructure. $CLI_LONG calls $REST_LONG to communicate with 
@@ -10,155 +12,33 @@ service.
 ## Prerequisites
 
 <RESTPrereqs />
+* Claude installed locally and an API key
 
 
 ## Install and configure $CLI_LONG
 
 <Procedure>
 
-1. ** Install $CLI_LONG**
+<CLIINSTALL />
 
-   Use the Terminal to install the $CLI_SHORT: 
-   <Tabs label="Install Tiger CLI" persistKey="os">
-
-    <Tab title="Debian" label="debian">
-
-    ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo os=any dist=any bash
-    sudo apt-get install tiger-cli
-    ```
     
-    </Tab>
-    
-    <Tab title="Ubuntu" label="ubuntu">
-
-    ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo bash
-    sudo apt-get install tiger-cli
-    ```
-    </Tab>
-    
-    <Tab title="Red Hat" label="redhat">
-   
-    ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo os=rpm_any dist=rpm_any bash
-    sudo yum install tiger-cli
-    ```
-   
-    </Tab>
-    
-    <Tab title="Fedora" label="fedora">
-
-    ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo bash
-    sudo yum install tiger-cli
-    ```
-    
-    </Tab>
-
-    <Tab title="MacOs" label="macos">
-
-    ```shell
-    brew install --cask timescale/tap/tiger-cli
-    ```
-
-    </Tab>
-
-    <Tab title="x-platform" label="xplatform">
-
-    ```shell
-    curl -fsSL https://tiger-cli-releases.s3.amazonaws.com/install/install.sh | sh
-    ```
-
-    </Tab>
-
-    </Tabs>
- 
-1. **Set up API credentials**
-
-   1. Log $CLI_LONG into your $ACCOUNT_LONG
- 
-      ```shell
-      tiger auth login
-      ```
-      $CLI_LONG opens $CONSOLE_SHORT in your browser. Login, then click `Authorize`.  
-
-   1. Select a $PROJECT_LONG. 
-
-      If only one $PROJECT_SHORT is associated with your $ACCOUNT_SHORT, this step is not shown. 
-
-      Where possible, $CLI_LONG stores your authentication information in the system keychain/credential manager. 
-      If that fails, the key is stored in `~/.config/tiger/api-key` with restricted file permissions (600).
-      $CLI_LONG stores your configuration in `~/.config/tiger/config.yaml`.
-    
-1. **Test your authenticated connection to $CLOUD_LONG by listing services**
-
-    ```bash
-    tiger service list
-    ```
-
-   This call returns something like:
-    - No services:
-      ```terminaloutput
-      🏜️  No services found! Your project is looking a bit empty.
-      🚀 Ready to get started? Create your first service with: tiger service create
-      ```
-    - One or more services:
-
-      ```terminaloutput
-      ┌────────────┬─────────────────────┬────────┬─────────────┬──────────────┬──────────────────┐
-      │ SERVICE ID │        NAME         │ STATUS │    TYPE     │    REGION    │     CREATED      │
-      ├────────────┼─────────────────────┼────────┼─────────────┼──────────────┼──────────────────┤
-      │ tgrservice │ tiger-agent-service │ READY  │ TIMESCALEDB │ eu-central-1 │ 2025-09-25 16:09 │
-      └────────────┴─────────────────────┴────────┴─────────────┴──────────────┴──────────────────┘
-      ```
 
 </Procedure>
 
 
-## Create your first service
+## Run the MCP server
 
-Create a new $SERVICE_LONG using $CLI_LONG:
+Bla bla
 
 <Procedure>
 
-1. **Submit a service creation request**
+1. **Add the tiger-docs MCP server**
    ```shell
-   tiger service create
+   claude mcp add --transport http tiger-docs https://mcp.tigerdata.com/docs
    ```
-   $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
-   read-replication. You see something like:
-   ```terminaloutput
-    🚀 Creating service 'db-11111' (auto-generated name)...
-    ✅ Service creation request accepted!
-    📋 Service ID: happyservice 
-    🔐 Password saved to system keyring for automatic authentication
-    🎯 Set service 'happyservice' as default service.
-    ⏳ Waiting for service to be ready (wait timeout: 30m0s)...
-    ⏳ Service status: QUEUED...
-    🎉 Service is ready and running!
-   ```
-   This $SERVICE_SHORT is set as default by the $CLI_SHORT.
 
-1. **Check the $CLI_SHORT configuration**
-   ```shell
-   tiger config show
-   ```
-   You see something like:
-   ```terminaloutput
-   api_url:     https://console.cloud.timescale.com/public/api/v1
-   console_url: https://console.cloud.timescale.com
-   gateway_url: https://console.cloud.timescale.com/api
-   docs_mcp:       true
-   docs_mcp_url:   https://mcp.tigerdata.com/docs
-   project_id:  tgrproject
-   service_id:  tgrservice
-   output:      table
-   analytics:   true
-   password_storage: keyring
-   debug:       false
-   config_dir:  /Users/<username>/.config/tiger
-   ```
+
+
 
 </Procedure>
 
