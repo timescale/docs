@@ -1,9 +1,5 @@
 1. ** Install $CLI_LONG**
 
-   Use the Terminal to install the $CLI_SHORT: 
-
-1. ** Install $CLI_LONG**
-
    Use the Terminal to install the $CLI_SHORT:
    <Tabs label="Install Tiger CLI" persistKey="os">
 
@@ -71,6 +67,17 @@
 
    1. Select a $PROJECT_LONG. 
 
+      ```terminaloutput
+      Auth URL is: https://console.cloud.timescale.com/oauth/authorize?client_id=lotsOfURLstuff
+      Opening browser for authentication...
+      Select a project:
+
+      > 1. Tiger Project (tgrproject)
+      2. YourCompany (Company wide project) (cpnproject)
+      3. YourCompany Department (dptproject)
+
+      Use ↑/↓ arrows or number keys to navigate, enter to select, q to quit  
+      ```  
       If only one $PROJECT_SHORT is associated with your $ACCOUNT_SHORT, this step is not shown. 
 
       Where possible, $CLI_LONG stores your authentication information in the system keychain/credential manager. 

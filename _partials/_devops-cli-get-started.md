@@ -23,7 +23,7 @@ service.
 </Procedure>
 
 
-## Create your first service
+## Create your first $SERVICE_LONG
 
 Create a new $SERVICE_LONG using $CLI_LONG:
 

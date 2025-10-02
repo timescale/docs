@@ -18,7 +18,7 @@ import RESTGS from "versionContent/_partials/_devops-rest-api-get-started.mdx";
 import CLIGS from "versionContent/_partials/_devops-cli-get-started.mdx";
 import MCPGS from "versionContent/_partials/_devops-mcp-get-started.mdx";
 
-# DevOps as code with Tiger Cloud
+# DevOps as code with $CLOUD_LONG
 
 $COMPANY supplies a clean, programmatic control layer for $CLOUD_LONG. This includes RESTful APIs, CLI commands, and 
 MCP endpoints that let humans, machines, and AI agents easily provision, configure, and manage $SERVICE_LONG 
