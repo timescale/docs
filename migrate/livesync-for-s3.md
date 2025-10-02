@@ -8,8 +8,13 @@ tags: [recovery, logical backup, replication]
 
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Sync data from S3
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 You use the $S3_CONNECTOR in $CLOUD_LONG to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. The connector runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
@@ -156,6 +161,17 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 And that is it, you are using the $S3_CONNECTOR to synchronize all the data, or specific files, from an S3 bucket to your 
 $SERVICE_LONG in real time.
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize

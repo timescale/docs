@@ -8,8 +8,13 @@ tags: [stream, connector]
 
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Stream data from Kafka
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 You use the Kafka source connector in $CLOUD_LONG to stream events from Kafka into your $SERVICE_SHORT. $CLOUD_LONG connects to your Confluent Cloud Kafka cluster and Schema Registry using SASL/SCRAM authentication and service account–based API keys. Only the Avro format is currently supported [with some limitations][limitations]. 
 
@@ -231,6 +236,17 @@ Unsupported examples:
   "logicalType": "custom-type"
 }
 ```
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [confluent-cloud]: https://confluent.cloud/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

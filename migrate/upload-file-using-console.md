@@ -7,8 +7,13 @@ keywords: [import]
 
 import ImportPrerequisitesCloudNoConnection from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Upload a file into your $SERVICE_SHORT using $CONSOLE_LONG
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 You can upload files into your $SERVICE_SHORT using $CONSOLE_LONG. This page explains how to upload CSV, Parquet, and text files, from your local machine and from an S3 bucket.
 
@@ -204,6 +209,17 @@ To import a Parquet file from an S3 bucket:
 
 
 And that is it, you have imported your data to your $SERVICE_LONG.
+
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<NotSupportedAzure />
+
+</Tab>
+
+</Tabs>
+
 
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
