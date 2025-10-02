@@ -184,7 +184,7 @@ You can use the following commands with $CLI_LONG. For more information on each 
 | service |                                  | Manage the $SERVICE_LONGs in this $PROJECT_SHORT                                               |
 |         | describe `<service-id>`          | Show detailed information about a specific $SERVICE_SHORT in this $PROJECT_SHORT               |
 |         | list                             | List all the $SERVICE_SHORTs in this $PROJECT_SHORT                                            |
-|         | create                           | Create a new $SERVICE_SHORT in this $PROJECT_SHORT                                             |
+|         | create --addons=time-series \| ai \| none | Create a new $SERVICE_SHORT in this $PROJECT_SHORT. Possible flavors are: <ul><li><strong>time-series</strong>: with the Timescaledb and Timescaledb Toolkit extensions</li><li><strong>ai</strong>: with the Timescaledb, Timescaledb Toolkit, vector and vectorscale extensions </li><li><strong>none</strong>: vanilla Postgres</li></ul> All services have Tiger features such as Tiger Storage, Security, Monitoring and compliance. If you do not use the `addons` flag, the default service is `time-series`. |
 |         | delete `<service-id>`            | Delete a $SERVICE_SHORT from this $PROJECT_SHORT                                               |
 |         | update-password `<service-id>`   | Update the password for a $SERVICE_SHORT                                                       |
 | db      |                                  | Database operations and management                                                             |
