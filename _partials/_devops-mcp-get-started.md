@@ -96,6 +96,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
    ```
 
 1. **Manage your $SERVICE_SHORTs without having to learn how to**
+
    For example:
    ```shell
    Can you create a new ai service called bob with a read replica for me please
@@ -109,6 +110,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
    ```
 
 1. **Find best practice for things you need to do**
+
    For example:
    ```shell
    >  I need to migrate a database with 25 million rows of data to Tiger, 
