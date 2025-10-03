@@ -169,61 +169,6 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
 
 That beat's working. Let the $MCP_LONG do it all for you. 
 
-## Manage the resources in your $ACCOUNT_LONG using HTTP calls
-
-Your AI assistant is connected to your $ACCOUNT_LONG and the $COMPANY documentation, you can now use it to
-manage your $SERVICE_SHORTs using HTTP calls. For example:
-
-<Procedure>
-
-1. **Start your $MCP_SHORT**
-   ```shell
-   tiger mcp start http
-   ```
-   You see something like:
-   ```shell   
-   🚀 Tiger MCP server listening on http://localhost:8080
-   💡 Use Ctrl+C to stop the server
-   ```
-
-1. **Initiate a session**
-
-   ```shell 
-   curl -X POST http://localhost:8080/message \
-    -H "Content-Type: application/json" \
-    -d '{
-      "jsonrpc": "2.0",
-      "id": 1,
-      "method": "initialize",
-      "params": {
-        "protocolVersion": "2024-11-05",
-        "capabilities": {},
-        "clientInfo": {
-          "name": "curl-client",
-          "version": "1.0"
-        }
-      }
-    }'
-   ```
-   You see something like:
-   ```shell   
-   event: message
-   id: SOMEVERYSECUREIDSTRING_0
-   data: {"jsonrpc":"2.0","id":1,"result":{"capabilities":{"logging":{},"prompts":{"listChanged":true},"tools":{"listChanged":true}},"protocolVersion":"2024-11-05","serverInfo":{"name":"tiger","title":"Tiger MCP","version":"0.5.0"}}}
-   ```
-
-1. **List the $SERVICE_SHORTs in your $PROJECT_LONG**
-   ```shell
-   Can I have an example please. 
-   ```
-   You see something like:
-   ```shell   
-   Can I have an example please. 
-   ```   
-
-</Procedure>
-
-And that is it, you are ready to manage the resources in your $ACCOUNT_LONG using $MCP_LONG. 
 
 ## $MCP_LONG commands
 
