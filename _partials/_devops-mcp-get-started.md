@@ -28,33 +28,18 @@ The $MCP_SHORT is bundled with $CLI_LONG:
 
 <CLIINSTALL />
 
-</Procedure>
+1. **Configure your AI Assistant to interact with the $PROJECT_SHORTs and $SERVICE_SHORTs in your $ACCOUNT_LONG**
 
-
-## Configure your AI assistant to work with the $MCP_SHORT 
-
-Your AI assistant needs to know that your local $MCP_SHORT is running on your development machine, and where
-$COMPANY gives your AI assistant access to the $COMPANY docs: 
-
-<Procedure>
-
-1. **Configure your AI Assistant to interact with the $PROJECT_SHORTs and $SERVICE_SHORTs in your $ACCOUNT_LONG** 
-
-   For example: 
+   For example:
    ```shell
    tiger mcp install claude-code
    ```
-   
+
 1. **Configure your AI Assistant to interact with the $COMPANY docs**
 
    For example:
    ```shell
    claude mcp add --transport http tiger-docs https://mcp.tigerdata.com/docs
-   ```
-
-1. **Start your $MCP_SHORT**
-   ```shell
-   tiger mcp start
    ```
 
 </Procedure>
@@ -67,6 +52,11 @@ Your AI assistant is connected to your $ACCOUNT_LONG and the $COMPANY documentat
 manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG features. For example: 
 
 <Procedure>
+
+1. **Start your $MCP_SHORT**
+   ```shell
+   tiger mcp start
+   ```
 
 1. **Run your AI assistant** 
    ```shell
@@ -121,11 +111,13 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
 1. **Find best practice for things you need to do**
    For example:
    ```shell
-   >  I need to migrate a database with 25 million rows of data to Tiger Cloud, please tell me what service optimizations i should do before migration. 
+   >  I need to migrate a database with 25 million rows of data to Tiger, 
+   please tell me what service optimizations i should do before migration. 
+   
    ```
    You see something like:
    ```shell
-   ⏺ For migrating a database with 25 million rows to Tiger Cloud, here are the key service optimizations to do before migration:
+   ⏺ For migrating a database with 25 million rows to Tiger, here are the key service optimizations to do before migration:
 
    Pre-Migration Service Optimizations
 
@@ -177,25 +169,81 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
 
 That beat's working. Let the $MCP_LONG do it all for you. 
 
+## Manage the resources in your $ACCOUNT_LONG using HTTP calls
+
+Your AI assistant is connected to your $ACCOUNT_LONG and the $COMPANY documentation, you can now use it to
+manage your $SERVICE_SHORTs using HTTP calls. For example:
+
+<Procedure>
+
+1. **Start your $MCP_SHORT**
+   ```shell
+   tiger mcp start http
+   ```
+   You see something like:
+   ```shell   
+   🚀 Tiger MCP server listening on http://localhost:8080
+   💡 Use Ctrl+C to stop the server
+   ```
+
+1. **Initiate a session**
+
+   ```shell 
+   curl -X POST http://localhost:8080/message \
+    -H "Content-Type: application/json" \
+    -d '{
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "initialize",
+      "params": {
+        "protocolVersion": "2024-11-05",
+        "capabilities": {},
+        "clientInfo": {
+          "name": "curl-client",
+          "version": "1.0"
+        }
+      }
+    }'
+   ```
+   You see something like:
+   ```shell   
+   event: message
+   id: SOMEVERYSECUREIDSTRING_0
+   data: {"jsonrpc":"2.0","id":1,"result":{"capabilities":{"logging":{},"prompts":{"listChanged":true},"tools":{"listChanged":true}},"protocolVersion":"2024-11-05","serverInfo":{"name":"tiger","title":"Tiger MCP","version":"0.5.0"}}}
+   ```
+
+1. **List the $SERVICE_SHORTs in your $PROJECT_LONG**
+   ```shell
+   Can I have an example please. 
+   ```
+   You see something like:
+   ```shell   
+   Can I have an example please. 
+   ```   
+
+</Procedure>
+
+And that is it, you are ready to manage the resources in your $ACCOUNT_LONG using $MCP_LONG. 
+
 ## $MCP_LONG commands
 
 You can use the following commands with $MCP_LONG.
 
-| Command                       | Parameters | Required parameter | Description                                                               |
-|-------------------------------|------------|--------------------|---------------------------------------------------------------------------|
-| tiger_service_list            | None       | -                  | List all $SERVICE_LONGs in your current $PROJECT_LONG                     |
-| tiger_service_show            | service_id | ✓                  | Show detailed information about a specific $SERVICE_SHORT                 |
-| tiger_service_create          |            | ✗                  | Create a new $SERVICE_SHORT with a default name in your $PROJECT_LONG     |
-|                               | name       | ✗                  | Set the $SERVICE_SHORT name to  `name`   s                                |
-|                               | addons     | ✗                  |                                                                           |
-|                               | region     | ✗                  |                                                                           |
-|                               | cpu_memory | ✗                  |                                                                           |
-|                               | replicas   | ✗                  |                                                                           |
-|                               | free       | ✗                  |                                                                           |
-|                               | wait       | ✗                  |                                                                           |
-|                               | timeout    | ✗                  |                                                                           |
-| tiger_service_update_password | service_id | ✓                  | Update the master password for the 'tsdbadmin' user of a database service |
-|                               | password   | ✓                  |                                                                           |
+| Command                       | Parameters | Required parameter | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|-------------------------------|------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| tiger_service_list            | None       | -                  | List all $SERVICE_LONGs in your current $PROJECT_LONG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| tiger_service_show            | service_id | ✓                  | Show detailed information about a specific $SERVICE_SHORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| tiger_service_create          |            | ✗                  | Create a new $SERVICE_SHORT with a default name in your $PROJECT_LONG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|                               | name       | ✗                  | Set the $SERVICE_SHORT name to  `name`   s                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|                               | addons     | ✗                  | Possible addons are: <ul><li><strong>time-series</strong>: with the Timescaledb and Timescaledb Toolkit extensions</li><li><strong>ai</strong>: with the Timescaledb, Timescaledb Toolkit, vector and vectorscale extensions </li><li><strong>free</strong>: free services have fixed compute of 0.25 CPU, 1 GiB RAM, and up to 500mb storage.</li><li><strong>none</strong>: vanilla Postgres</li></ul> All services have Tiger features such as Tiger Storage, Security, Monitoring and compliance. If you do not use the `addons` flag, the default service is `time-series`. |
+|                               | region     | ✗                  | The [Region][cloud-regions] this $SERVICE is hosted in. Default is `us-east-1`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|                               | cpu_memory | ✗                  | The CPU and memory allocation combination. Default is "0.5 CPU/2GB"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|                               | replicas   | ✗                  | The number of [high-availability replicas][readreplica]. Default is 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|                               | free       | ✗                  | Free services have fixed compute of 0.25 CPU, 1 GiB RAM, and up to 500mb storage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|                               | wait       | ✗                  | Wait for this $SERVICE_SHORT to be ready. Default is to not wait                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                               | timeout    | ✗                  | Timeout for `wait` in minutes. The default is 30                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| tiger_service_update_password | service_id | ✓                  | Update the master password for the 'tsdbadmin' user of a database service                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|                               | password   | ✓                  | The new password                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ## $CLI_LONG commands for $MCP_SHORT
 
@@ -223,3 +271,5 @@ You can use the following $CLI_LONG global flags when you run the $MCP_SHORT:
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
 [curl]: https://curl.se/
+[cloud-regions]: /use-timescale/:currentVersion:/regions/
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
