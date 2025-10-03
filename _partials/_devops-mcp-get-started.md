@@ -167,7 +167,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
 
 </Procedure>
 
-That beat's working. Let the $MCP_LONG do it all for you. 
+That beats working. Let the $MCP_LONG do it all for you. 
 
 
 ## $MCP_LONG commands
