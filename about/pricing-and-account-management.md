@@ -61,7 +61,7 @@ from initial development through to mission-critical enterprise applications.
    or egress. There are no per-query fees, nor additional costs to read or write data. It's all completely 
    transparent, easily understood, and up to you.
   
-### Test $CLOUD_LONG for free
+### Use $CLOUD_LONG for free
 
 Are you just starting out with $CLOUD_LONG? On our Free pricing plan, you can create $SERVICE_SHORTs with fixed limited CPU, memory, and storage resources, and run them at zero cost. 
 
