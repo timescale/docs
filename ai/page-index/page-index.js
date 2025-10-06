@@ -8,11 +8,6 @@ module.exports = [
       "Information about pgai on TigerData and how to use it.",
     children: [
       {
-        title: "Incorporate Slack-native AI agents",
-        href: "tiger-agents-for-work",
-        excerpt: "Unify company knowledge with slack-native AI agents",
-      },
-      {
         title: "Key vector database concepts",
         href: "key-vector-database-concepts-for-understanding-pgvector",
         excerpt: "Key concepts for working with pgvector data in Postgres",
