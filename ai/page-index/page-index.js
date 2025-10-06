@@ -1,12 +1,17 @@
 module.exports = [
   {
-    title: "AI  and Vector: pgai on Tiger Cloud",
+    title: "AI  and Vector",
     href: "ai",
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
       "Information about pgai on TigerData and how to use it.",
     children: [
+      {
+        title: "Incorporate Slack-native AI agents",
+        href: "tiger-agents-for-work",
+        excerpt: "Unify company knowledge with slack-native AI agents",
+      },
       {
         title: "Key vector database concepts",
         href: "key-vector-database-concepts-for-understanding-pgvector",
