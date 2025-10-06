@@ -277,11 +277,11 @@ behaviour][log_min_messages].
 | Scheduler | Scheduler delayed in dispatching job |
 
 
-## Hypertable chunks are not discoverable by CDC service
+## $HYPERTABLE chunks are not discoverable by the $PG CDC service
 
-Hypertables require special handling for CDC support, as the newly created chunks are not 
-not published, hence not discoverable by the CDC service. 
-The following trigger, automatically published newly created chunks on the replication slot.
+$HYPERTABLEs require special handling for CDC support. Newly created chunks are not 
+not published, which means they are  not discoverable by the CDC service. 
+To fix this problem, use the following trigger to automatically publishe newly created chunks on the replication slot.
 Please be aware that $TIMESCALE_DB does not provide full CDC support.
 
 ```sql
