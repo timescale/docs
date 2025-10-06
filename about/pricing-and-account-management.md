@@ -63,7 +63,7 @@ from initial development through to mission-critical enterprise applications.
   
 ### Use $CLOUD_LONG for free
 
-Are you just starting out with $CLOUD_LONG? On our Free pricing plan, you can create $SERVICE_SHORTs with fixed limited CPU, memory, and storage resources, and run them at zero cost. 
+Are you just starting out with $CLOUD_LONG? On our Free pricing plan, you can create $SERVICE_SHORTs with [limited  resources][plan-features], and run them at zero cost. 
 
 Ready to try a more feature-rich paid plan? Request a 30-day free trial of our $PERFORMANCE or $SCALE plan with no credit card required. During your trial, if a $SERVICE_SHORT doesn’t receive any queries for 7 days, it is paused to conserve resources. Your data remains intact during the trial, and you can easily resume your $SERVICE_SHORT in $CONSOLE. After your trial ends, we may remove your data unless you’ve added a payment method.
 
@@ -249,3 +249,4 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
 [aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing
 [contact-company]: https://www.tigerdata.com/contact/
+ 
