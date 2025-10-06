@@ -33,7 +33,7 @@ Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_S
 
 1. In the [$SERVICE_SHORT creation page][create-service], choose the capability to match your business needs: `Real-time analytics`, `AI-focused`, or `Hybrid applications`. 
 
-   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
+   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-service.png)
 
    To create a plain $PG $SERVICE_SHORT, without any additional capabilities, click `Looking for plain PostgreSQL?` in the top right.
    
