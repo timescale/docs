@@ -273,8 +273,44 @@ behaviour][log_min_messages].
 
 | Source    | Event                                |
 |-----------|--------------------------------------|
-| Scheduler | Scheduled wake up                     |
+| Scheduler | Scheduled wake up                    |
 | Scheduler | Scheduler delayed in dispatching job |
+
+
+## Hypertable chunks are not discoverable by CDC service
+
+Hypertables require special handling for CDC support, as the newly created chunks are not 
+not published, hence not discoverable by the CDC service. 
+The following trigger, automatically published newly created chunks on the replication slot.
+Please be aware that $TIMESCALE_DB does not provide full CDC support.
+
+```sql
+CREATE OR REPLACE FUNCTION ddl_end_trigger_func() RETURNS EVENT_TRIGGER AS
+$$
+DECLARE
+    r RECORD;
+    pub NAME;
+BEGIN
+    FOR r IN SELECT * FROM pg_event_trigger_ddl_commands()
+    LOOP
+        SELECT pubname INTO pub
+        FROM pg_inherits
+        JOIN _timescaledb_catalog.hypertable ht
+            ON inhparent = format('%I.%I', ht.schema_name, ht.table_name)::regclass
+        JOIN pg_publication_tables
+            ON schemaname = ht.schema_name AND tablename = ht.table_name
+        WHERE inhrelid = r.objid;
+
+        IF NOT pub IS NULL THEN
+            EXECUTE format('ALTER PUBLICATION %s ADD TABLE %s', pub, r.objid::regclass);
+        END IF;
+    END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE EVENT TRIGGER ddl_end_trigger
+ON ddl_command_end WHEN TAG IN ('CREATE TABLE') EXECUTE FUNCTION ddl_end_trigger_func();
+```
 
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
 [github]: https://github.com/timescale/timescaledb/issues
