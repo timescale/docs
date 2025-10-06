@@ -321,7 +321,7 @@ data lake:
 
 ## Limitations
 
-* Only $PG 17.6 and above is supported.
+* Service requires $PG 17.6 and above is supported.
 * Consistent ingestion rates of over 50000 records / second can lead to a lost replication slot.
 * [Amazon S3 Tables Iceberg REST][aws-s3-tables] catalog only is supported.
 * In order to collect deletes made to data in the columstore, certain columnstore optimizations are disabled for $HYPERTABLEs.
