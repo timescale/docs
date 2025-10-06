@@ -68,7 +68,7 @@ Are you just starting out with $CLOUD_LONG? On our Free pricing plan, you can cr
 Ready to try a more feature-rich paid plan? Request a 30-day free trial of our $PERFORMANCE or $SCALE plan with no credit card required. During your trial, if a $SERVICE_SHORT doesn’t receive any queries for 7 days, it is paused to conserve resources. Your data remains intact during the trial, and you can easily resume your $SERVICE_SHORT in $CONSOLE. After your trial ends, we may remove your data unless you’ve added a payment method.
 
 After you have completed your 30-day trial period, choose the 
-[$PRICING_PLAN][plan-features] that suits your business and engineering needs. When you upgrade from the free plan, your free services remain free. 
+[$PRICING_PLAN][plan-features] that suits your business and engineering needs. When you upgrade from the free plan, you still have access to up to two zero cost services. 
 
 Once you become a paying user on a particular plan, we can enable some features in the higher $PRICING_PLANs so you can test them before upgrading. 
 
