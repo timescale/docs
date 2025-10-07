@@ -20,7 +20,7 @@ $AGENTS_LONG can handle concurrent conversations with enterprise-grade reliabili
 
 - **Durable and atomic event handling**: $PG-backed event claiming ensures exactly-once processing, even under high concurrency and failure conditions
 - **Bounded concurrency**: fixed worker pools prevent resource exhaustion while maintaining predictable performance under load
-- **Immediate event processing**: $AGENTS_SHORT provide real-time responsiveness. Events are processed within milliseconds of arrival rather than waiting for polling cycles 
+- **Immediate event processing**: $AGENTS_LONG provide real-time responsiveness. Events are processed within milliseconds of arrival rather than waiting for polling cycles 
 - **Resilient retry logic**: automatic retry with visibility thresholds, plus stuck or expired event cleanup
 - **Horizontal scalability**: run multiple $AGENTS_SHORT instances simultaneously with coordinated work distribution across all instances
 - **AI-Powered Responses**: use the AI model of your choice, you can also integrate with MCP servers 
@@ -39,7 +39,7 @@ your specific needs.
 
 ## Create a Slack app
 
-Before installing $AGENTS_SHORT, you need to create a Slack app that the $AGENTS_SHORT will connect to. This app 
+Before installing $AGENTS_LONG, you need to create a Slack app that the $AGENTS_SHORT will connect to. This app 
 provides the security tokens for Slack integration with your $AGENTS_SHORT:
 
 <Procedure>
@@ -103,8 +103,8 @@ You have created a Slack app and obtained the necessary tokens for $AGENTS_SHORT
 
 ## Install and configure your $AGENTS_SHORT instance
 
-$AGENTS_SHORT are a production-ready library and CLI written in Python that you use to create Slack-native AI agents.
-This section shows you how to configure $AGENTS_SHORT to connect to your Slack app, and give them access to your
+$AGENTS_LONG are a production-ready library and CLI written in Python that you use to create Slack-native AI agents.
+This section shows you how to configure a $AGENTS_SHORT to connect to your Slack app, and give them access to your
 data and analytics stored in $CLOUD_LONG.
 
 <Procedure>
@@ -152,16 +152,16 @@ data and analytics stored in $CLOUD_LONG.
      curl -L -o prompts/user_prompt.md https://raw.githubusercontent.com/timescale/tiger-agent/refs/heads/main/prompts/user_prompt.md
      ```  
 
-1. **Install $AGENTS_CLI to manage and run your AI-powered Slack bots**
+1. **Install $AGENTS_LONG to manage and run your AI-powered Slack bots**
 
-   1. Install $AGENTS_SHORT using uv
+   1. Install the $AGENTS_CLI using uv.
 
       ```bash
       uv tool install --from git+https://github.com/timescale/tiger-agents-for-work.git tiger-agent
       ```
       `tiger-agent` is installed in `~/.local/bin/tiger-agent`. If necessary, add this folder to your `PATH`.
 
-   1. Verify the installation
+   1. Verify the installation.
 
       ```bash
       tiger-agent --help
@@ -224,22 +224,23 @@ see [MCP Server Configuration][mcp-configuration-docs].
 
 ## Customize prompts for personalization
 
-$AGENTS_SHORT uses Jinja2 templates for dynamic, context-aware prompt generation. This system allows for sophisticated 
-prompts that adapt to conversation context, user preferences, and event metadata. $AGENTS_SHORT use the following templates:
+$AGENTS_LONG uses Jinja2 templates for dynamic, context-aware prompt generation. This system allows for sophisticated 
+prompts that adapt to conversation context, user preferences, and event metadata. $AGENTS_LONG uses the following 
+templates:
 
 - `system_prompt.md`: defines the AI Assistant's role, capabilities, and behavior patterns. This template sets the 
    foundation for the way your $AGENTS_SHORT will respond and interact.
 - `user_prompt.md`: formats the user's request with relevant context, providing the AI Assistant with the 
    information necessary to generate an appropriate response.
 
-To change the way your $AGENTS_SHORT interact with users in your Slack app:
+To change the way your $AGENTS_SHORTs interact with users in your Slack app:
 
 <Procedure>
 
 1. **Update the prompt**
 
    For example, in `prompts/system_prompt.md`, add another item in the `Response Protocol` section to fine tune 
-   the behaviour of $AGENTS_SHORT. For example:
+   the behaviour of your $AGENTS_SHORTs. For example:
    ```shell
    5. Be snarky but vaguely amusing 
    ```
@@ -275,7 +276,7 @@ tiger-agent run \
   --max-attempts 5
 ```
 
-Your $AGENTS_SHORT are now configured with $COMPANY MCP server access and personalized prompts, ready to help users analyze data from your $SERVICE_LONG.
+Your $AGENTS_SHORTs are now configured with $COMPANY MCP server access and personalized prompts.
 
 
 
