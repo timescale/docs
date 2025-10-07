@@ -25,7 +25,7 @@ $AGENTS_LONG can handle concurrent conversations with enterprise-grade reliabili
 - **Horizontal scalability**: run multiple $AGENTS_SHORT instances simultaneously with coordinated work distribution across all instances
 - **AI-Powered Responses**: use the AI model of your choice, you can also integrate with MCP servers 
 - **Extensible architecture**: zero code integration for basic agents. For more specialized use cases, easily customize your agent using [Jinja templates][jinja-templates] 
-- **Complete Observability**: detailed tracing of event flow, worker activity, and database operations with full [Logfire][logfire] instrumentation 
+- **Complete observability**: detailed tracing of event flow, worker activity, and database operations with full [Logfire][logfire] instrumentation 
 
 This page shows you how to install the $AGENTS_CLI, connect to the $COMPANY MCP server, and customize prompts for
 your specific needs.
@@ -103,7 +103,7 @@ You have created a Slack app and obtained the necessary tokens for $AGENTS_SHORT
 
 ## Install and configure your $AGENTS_SHORT instance
 
-$AGENTS_SHORT is a production-ready library and CLI written in Python that you use to create Slack-native AI agents.
+$AGENTS_SHORT are a production-ready library and CLI written in Python that you use to create Slack-native AI agents.
 This section shows you how to configure $AGENTS_SHORT to connect to your Slack app, and give it access to your
 data and analytics stored in $CLOUD_LONG.
 
@@ -116,9 +116,9 @@ data and analytics stored in $CLOUD_LONG.
    cd my-tiger-agent
    ```
 
-1. **Create an $AGENTS_SHORT environment with your Slack, AI Assistant and database configuration**
+1. **Create a $AGENTS_SHORT environment with your Slack, AI Assistant, and database configuration**
 
-   1. Download `.env.sample` to a local `,env` file:
+   1. Download `.env.sample` to a local `.env` file:
      ```shell
      curl -L -o .env https://raw.githubusercontent.com/timescale/tiger-agent/refs/heads/main/.env.sample
      ```
@@ -193,7 +193,7 @@ your users need. For example, to add the $COMPANY MCP server to your $AGENTS_SHO
 
 1. **Copy the example `mcp_config.json` to your project**
 
-   In `my-tiger-agent`, run the following command.
+   In `my-tiger-agent`, run the following command:
 
        ```bash
         curl -L -o mcp_config.json https://raw.githubusercontent.com/timescale/tiger-agent/refs/heads/main/examples/mcp_config.json
@@ -224,14 +224,14 @@ see [MCP Server Configuration][mcp-configuration-docs].
 ## Customize prompts for personalization
 
 $AGENTS_SHORT uses Jinja2 templates for dynamic, context-aware prompt generation. This system allows for sophisticated 
-prompts that adapt to conversation context, user preferences, and event metadata. $AGENTS_SHORT uses the following templates:
+prompts that adapt to conversation context, user preferences, and event metadata. $AGENTS_SHORT use the following templates:
 
-- `system_prompt.md`: defines the AI Assistant;s role, capabilities, and behavior patterns. This template sets the 
+- `system_prompt.md`: defines the AI Assistant's role, capabilities, and behavior patterns. This template sets the 
    foundation for the way your $AGENTS_SHORT will respond and interact.
 - `user_prompt.md`: formats the user's request with relevant context, providing the AI Assistant with the 
    information necessary to generate an appropriate response.
 
-To change the way your $AGENTS_SHORT interacts with users in your Slack app:
+To change the way your $AGENTS_SHORT interact with users in your Slack app:
 
 1. **Update the prompt**
 
@@ -257,9 +257,9 @@ For more information, see [Prompt tempates][prompt-templates].
 
 For additional customization, you can modify the following $AGENTS_SHORT parameters:
 
-* `--model`: Change AI model (default: `anthropic:claude-sonnet-4-20250514`)
-* `--num-workers`: Adjust concurrent workers (default: 5)
-* `--max-attempts`: Set retry attempts per event (default: 3)
+* `--model`: change AI model (default: `anthropic:claude-sonnet-4-20250514`)
+* `--num-workers`: adjust concurrent workers (default: `5`)
+* `--max-attempts`: set retry attempts per event (default: `3`)
 
 Example with custom settings:
 
@@ -272,7 +272,7 @@ tiger-agent run \
   --max-attempts 5
 ```
 
-Your $AGENTS_SHORT is now configured with TigerData MCP server access and personalized prompts, ready to help users analyze data from your Tiger Cloud service.
+Your $AGENTS_SHORT are now configured with $COMPANY MCP server access and personalized prompts, ready to help users analyze data from your $SERVICE_LONG.
 
 
 
