@@ -16,7 +16,7 @@ business, technical, and operations questions in your Slack channels.
 
 ![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-agent/query-in-slack.png)
 
-$AGENTS_LONG can handle concurrent conversations with enterprise-grade reliability. It has the following features:
+$AGENTS_LONG can handle concurrent conversations with enterprise-grade reliability. They has the following features:
 
 - **Durable and atomic event handling**: $PG-backed event claiming ensures exactly-once processing, even under high concurrency and failure conditions
 - **Bounded concurrency**: fixed worker pools prevent resource exhaustion while maintaining predictable performance under load
@@ -52,7 +52,7 @@ provides the security tokens for Slack integration with your $AGENTS_SHORT:
       curl -O https://raw.githubusercontent.com/timescale/tiger-agents-for-work/main/slack-manifest.json
       ```
 
-   1. Edit `slack-manifest.json` and customize your name and description of your Slack App app. For example:
+   1. Edit `slack-manifest.json` and customize your name and description of your Slack App. For example:
 
       ```json
       "display_information": {
@@ -104,7 +104,7 @@ You have created a Slack app and obtained the necessary tokens for $AGENTS_SHORT
 ## Install and configure your $AGENTS_SHORT instance
 
 $AGENTS_SHORT are a production-ready library and CLI written in Python that you use to create Slack-native AI agents.
-This section shows you how to configure $AGENTS_SHORT to connect to your Slack app, and give it access to your
+This section shows you how to configure $AGENTS_SHORT to connect to your Slack app, and give them access to your
 data and analytics stored in $CLOUD_LONG.
 
 <Procedure>
@@ -179,10 +179,11 @@ data and analytics stored in $CLOUD_LONG.
        If you open the explorer in [$CONSOLE][portal-ops-mode], you can see the tables used by your $AGENTS_SHORT.          
 
     1. In Slack, open a public channel app and ask $AGENTS_SHORT a couple of questions. You see the response in your 
-       public channel, the output and from the $AGENTS_CLI in the Terminal and your $SERVICE_LONG.
+       public channel and log messages in the Terminal.
    
       ![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-agent/query-in-terminal.png)
-       
+
+</Procedure>   
 
 ## Add information from MCP servers to your $AGENTS_SHORT
 
@@ -232,6 +233,8 @@ prompts that adapt to conversation context, user preferences, and event metadata
    information necessary to generate an appropriate response.
 
 To change the way your $AGENTS_SHORT interact with users in your Slack app:
+
+<Procedure>
 
 1. **Update the prompt**
 
