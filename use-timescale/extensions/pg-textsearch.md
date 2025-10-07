@@ -6,46 +6,63 @@ tags: [search, indexing, performance, BM25]
 ---
 
 import EA1125 from "versionContent/_partials/_early_access_11_25.mdx";
-
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Optimize full text search with BM25 
 
 $PG full-text search at scale consistently hits a wall where performance degrades catastrophically. 
-$COMPANY's [pg_textsearch][pg_textsearch-repo] brings modern BM25-based full-text search directly into $PG, using a memtable 
-architecture for efficient indexing and ranking. pg_textsearch integrates seamlessly with SQL and provides better search 
-quality and performance than the $PG built-in full-text search.
+$COMPANY's [pg_textsearch][pg_textsearch-repo] brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
+with a memtable architecture for efficient indexing and ranking. pg_textsearch integrates seamlessly with SQL and 
+provides better search quality and performance than the $PG built-in full-text search.
 
-This guide shows you how to install pg_textsearch and configure BM25 indexes, then optimize your search capabilities. 
+BM25 scores in pg_textsearch are returned as negative values, where lower (more negative) numbers indicate better 
+matches. pg_textsearch implements the following:
 
-<EA1125 />
+* **Corpus-aware ranking**: BM25 uses inverse document frequency to weight rare terms higher
+* **Term frequency saturation**: prevents documents with excessive term repetition from dominating results
+* **Length normalization**: adjusts scores based on document length relative to corpus average
+* **Relative ranking**: focuses on rank order rather than absolute score values
+
+This page shows you how to install `pg_textsearch`, configure BM25 indexes, and optimize your search capabilities using
+the following best practice: 
+
+* **Memory planning**: Size your `index_memory_limit` based on corpus vocabulary and document count
+* **Language configuration**: Choose appropriate text search configurations for your data language
+* **Hybrid search**: Combine with pgvector for applications requiring both semantic and keyword search
+* **Query optimization**: Use score thresholds to filter low-relevance results
+* **Index monitoring**: Regularly check index usage and memory consumption
+
+<EA1125 /> this preview release is designed for development and staging environments. It is not recommended for use with hypertables
 
 ## Prerequisites
 
-To use pg_textsearch you need:
+<IntegrationPrereqs />
 
-* A Tiger Cloud service (available on free tier)
-* $PG 17 or later
 * Tables with text columns you want to search
 
-## Install pg_textsearch on Tiger Cloud
+## Install pg_textsearch 
 
-pg_textsearch is available to all Tiger Cloud customers, including those on the free plan. This is a preview release 
-designed for development and staging environments.
+To install this $PG extension: 
 
 <Procedure>
 
-1. **Enable the extension on your Tiger Cloud service**
+1. **Connect to your $SERVICE_LONG**
 
-   For new services, simply enable the extension:
-   ```sql
-   CREATE EXTENSION pg_textsearch;
-   ```
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your $SERVICE_SHORT using [psql][connect-using-psql].
 
-1. **For existing services, update your instance**
+1. **Enable the extension on your $SERVICE_LONG**
 
-   The extension may not be available until after your next scheduled maintenance window. You can manually pause and restart your service to pick up the update immediately.
+   - For new services, simply enable the extension:
+      ```sql
+      CREATE EXTENSION pg_textsearch;
+      ```
+   
+   - For existing services, update your instance, then enable the extension:
 
-1. **Verify installation**
+      The extension may not be available until after your next scheduled maintenance window. To pick up the update 
+      immediately, manually pause and restart your service.
+
+1. **Verify the installation**
 
    ```sql
    SELECT * FROM pg_extension WHERE extname = 'pg_textsearch';
@@ -53,11 +70,14 @@ designed for development and staging environments.
 
 </Procedure>
 
-You have installed pg_textsearch on Tiger Cloud.
+You have installed pg_textsearch on $CLOUD_LONG.
 
-## Create and configure BM25 indexes
+## Create BM25 indexes on your data
 
-BM25 indexes provide modern relevance ranking that outperforms $PG's built-in ts_rank functions by using corpus statistics and better algorithmic design.
+BM25 indexes provide modern relevance ranking that outperforms $PG's built-in ts_rank functions by using corpus 
+statistics and better algorithmic design. 
+
+To create a BM25 with pg_textsearch:
 
 <Procedure>
 
@@ -88,14 +108,6 @@ BM25 indexes provide modern relevance ranking that outperforms $PG's built-in ts
    CREATE INDEX products_search_idx ON products
    USING pg_textsearch(description)
    WITH (text_config='english');
-   ```
-
-1. **Configure memory limit if needed**
-
-   The size of the memtable depends primarily on the number of distinct terms in your corpus. The Timescale docs dataset produces a roughly 10MB index. For comparison, a corpus with longer documents or more varied vocabulary will require more memory per document.
-   ```sql
-   -- Set memory limit per index (default 64MB)
-   SET pg_textsearch.index_memory_limit = '128MB';
    ```
 
 </Procedure>
@@ -181,7 +193,7 @@ Combine pg_textsearch with pgvector to build powerful hybrid search systems that
    WITH (text_config='english');
    ```
 
-1. **Perform hybrid search using Reciprocal Rank Fusion**
+1. **Perform hybrid search using [reciprocal rank fusion][recip-rank-fusion]**
 
    ```sql
    WITH vector_search AS (
@@ -237,6 +249,16 @@ Customize pg_textsearch behavior for your specific use case and data characteris
 
 <Procedure>
 
+1. **Configure the memory limit**
+
+   The size of the memtable depends primarily on the number of distinct terms in your corpus. A corpus with longer
+   documents or more varied vocabulary requires more memory per document.
+   ```sql
+   -- Set memory limit per index (default 64MB)
+   SET pg_textsearch.index_memory_limit = '128MB';
+   ```
+
+
 1. **Configure language-specific text processing**
 
    ```sql
@@ -274,40 +296,23 @@ Customize pg_textsearch behavior for your specific use case and data characteris
 
 </Procedure>
 
-You have configured pg_textsearch for optimal performance.
-
-## Understanding BM25 scoring
-
-BM25 scores in pg_textsearch are returned as negative values, where lower (more negative) numbers indicate better matches.
-
-Key concepts:
-
-* **Corpus-aware ranking**: BM25 uses inverse document frequency to weight rare terms higher
-* **Term frequency saturation**: Prevents documents with excessive term repetition from dominating results
-* **Length normalization**: Adjusts scores based on document length relative to corpus average
-* **Relative ranking**: Focus on rank order rather than absolute score values
+You have configured pg_textsearch for optimal performance. For production applications, consider implementing result 
+caching and pagination to improve user experience with large result sets.
 
 ## Current limitations
 
-The preview release (v0.0.1) focuses on core BM25 functionality:
+This preview release focuses on core BM25 functionality. It has the following limitations:
 
-* **Memory-only storage**: Indexes are limited by `pg_textsearch.index_memory_limit` (default 64MB)
-* **Single-column indexes**: Cannot index multiple columns in one index
-* **No phrase queries**: Cannot search for exact multi-word phrases yet
+* **Memory-only storage**: indexes are limited by `pg_textsearch.index_memory_limit` (default 64MB)
+* **Single-column indexes**: cannot index multiple columns in one index
+* **No phrase queries**: cannot search for exact multi-word phrases yet
 
 These limitations will be addressed in upcoming releases with disk-based segments and expanded query capabilities.
 
-## Best practices
 
-Follow these practices for optimal pg_textsearch performance:
-
-* **Memory planning**: Size your `index_memory_limit` based on corpus vocabulary and document count
-* **Language configuration**: Choose appropriate text search configurations for your data language
-* **Hybrid search**: Combine with pgvector for applications requiring both semantic and keyword search
-* **Query optimization**: Use score thresholds to filter low-relevance results
-* **Index monitoring**: Regularly check index usage and memory consumption
-
-For production applications, consider implementing result caching and pagination to improve user experience with large result sets.
-
-
+[bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
 [pg_textsearch-repo]: https://github.com/timescale/tapir
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[recip-rank-fusion]: https://en.wikipedia.org/wiki/Mean_reciprocal_rank
