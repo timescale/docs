@@ -10,17 +10,19 @@ tags: [ai, vector, pgvectorizer]
 
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 
-$AGENTS_LONG is a Slack-native AI agent that you use to unify the knowledge in your company. This includes your slack 
-history, docs, GitHub repositories, salesforce and so on. You use your agent to get instant answers for real business,
-technical and progress questions. 
+$AGENTS_LONG is a Slack-native AI agent that you use to unify the knowledge in your company. This includes your Slack 
+history, docs, GitHub repositories, Salesforce and so on. You use your $AGENTS_LONG to get instant answers for real 
+business, technical, and operations questions in your Slack channels. 
+
+![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-agent/query-in-slack.png)
 
 $AGENTS_SHORT is a production-ready library and CLI for building Slack-native agents. $AGENTS_SHORTs can 
-handle concurrent conversations with enterprise-grade reliability. It has the following features. 
+handle concurrent conversations with enterprise-grade reliability. It has the following features:
 
 - **Durable and atomic event handling**: $PG-backed event claiming ensures exactly-once processing, even under high concurrency and failure conditions
 - **Bounded concurrency**: fixed worker pools prevent resource exhaustion while maintaining predictable performance under load
-- **Immediate event processing**: $AGENTS_SHORT provide real-time responsiveness, events are processed within milliseconds of arrival rather than waiting for polling cycles 
-- **Resilient retry logic**: automatic retry with visibility thresholds, and stuck or expired event cleanup
+- **Immediate event processing**: $AGENTS_SHORT provide real-time responsiveness. Events are processed within milliseconds of arrival rather than waiting for polling cycles 
+- **Resilient retry logic**: automatic retry with visibility thresholds, plus stuck or expired event cleanup
 - **Horizontal scalability**: run multiple $AGENTS_SHORT instances simultaneously with coordinated work distribution across all instances
 - **AI-Powered Responses**: use the AI model of your choice, you can also integrate with MCP servers 
 - **Extensible architecture**: zero code integration for basic agents. For more specialized use cases, easily customize your agent using [Jinja templates][jinja-templates] 
@@ -39,7 +41,7 @@ your specific needs.
 ## Create a Slack app
 
 Before installing $AGENTS_SHORT, you need to create a Slack app that the $AGENTS_SHORT will connect to. This app 
-provides the necessary tokens for Slack integration.
+provides the security tokens for Slack integration with your $AGENTS_SHORT:
 
 <Procedure>
 
@@ -51,17 +53,17 @@ provides the necessary tokens for Slack integration.
       curl -O https://raw.githubusercontent.com/timescale/tiger-agents-for-work/main/slack-manifest.json
       ```
 
-   1. Edit `slack-manifest.json` to change the app name and description. For example:
+   1. Edit `slack-manifest.json` and customize your name and description of your Slack App app. For example:
 
       ```json
       "display_information": {
-        "name": "Tiger Agents in Slack",
-        "description": "Tiger documentation showing how to install and configure a Tiger Agent",
+        "name": "Tiger Agent",
+        "description": "Tiger AI Agent helps you easily access your business information, and tune your Tiger services",
         "background_color": "#000000"
       },
       "features": {
         "bot_user": {
-          "display_name": "Tiger Agents in Slack",
+          "display_name": "Tiger Agent",
           "always_online": true
         }
       },
@@ -77,21 +79,16 @@ provides the necessary tokens for Slack integration.
 
     1. Go to [api.slack.com/apps](https://api.slack.com/apps).
     1. Click `Create New App`.
-    1. Select `From an app manifest`.
+    1. Select `From a manifest`.
     1. Choose your workspace, then click `Next`.
     1. Paste the contents of `slack-manifest.json` and click `Next`.  
     1. Click `Create`.
-
-1. **Enable slash commands in your app**
-    1. In the left menu, open `App Home`
-    1. Enable `Allow users to send Slash commands and messages from the App Home`.
-
 1. **Generate an app-level token**
 
     1. In your app settings, go to `Basic Information`.
     1. Scroll to `App-Level Tokens`.
     1. Click `Generate Token and Scopes`.
-    1. Add a `Token Name`, then click `Scope`, add `connections:write` then click `Generate`.
+    1. Add a `Token Name`, then click `Add Scope`, add `connections:write` then click `Generate`.
     1. Copy the `xapp-*` token locally and click `Done`. 
 
 1. **Install your app to a Slack workspace**
@@ -108,7 +105,7 @@ You have created a Slack app and obtained the necessary tokens for $AGENTS_SHORT
 ## Install and configure your $AGENTS_SHORT instance
 
 $AGENTS_SHORT is a production-ready library and CLI written in Python that you use to create Slack-native AI agents.
-This section shows you how to configure $AGENTS_SHORT to connect to your Slack app, and give it access to 
+This section shows you how to configure $AGENTS_SHORT to connect to your Slack app, and give it access to your
 data and analytics stored in $CLOUD_LONG.
 
 <Procedure>
@@ -161,8 +158,9 @@ data and analytics stored in $CLOUD_LONG.
    1. Install $AGENTS_SHORT using uv
 
       ```bash
-      uv tool install --from git+https://github.com/timescale/tiger-agent.git tiger-agent
+      uv tool install --from git+https://github.com/timescale/tiger-agents-for-work.git tiger-agent
       ```
+      `tiger-agent` is installed in `~/.local/bin/tiger-agent`. If necessary, add this folder to your `PATH`.
 
    1. Verify the installation
 
@@ -170,18 +168,22 @@ data and analytics stored in $CLOUD_LONG.
       tiger-agent --help
       ```
 
-      You see the $AGENTS_CLI help output with available commands and options.
+      You see the $AGENTS_CLI help output with the available commands and options.
 
 
 1. **Connect your $AGENTS_SHORT with Slack**
 
     1. Run your $AGENTS_SHORT:
        ```bash
-       tiger-agent run --prompts prompts/
+       tiger-agent run --prompts prompts/  --env .env
        ```
        If you open the explorer in [$CONSOLE][portal-ops-mode], you can see the tables used by your $AGENTS_SHORT.          
 
-    1. In Slack, open your app and ask it a couple of questions, enjoy.
+    1. In Slack, open a public channel app and ask $AGENT_SHORT a couple of questions. You see the response in your 
+       public channel, the output and from the $AGENTS_CLI in the Terminal and your $SERVICE_LONG.
+   
+      ![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-agent/query-in-terminal.png)
+       
 
 ## Add information from MCP servers to your $AGENTS_SHORT
 
@@ -193,9 +195,10 @@ your users need. For example, to add the $COMPANY MCP server to your $AGENTS_SHO
 1. **Copy the example `mcp_config.json` to your project**
 
    In `my-tiger-agent`, run the following command.
-   ```bash
-    curl -L -o mcp_config.json https://raw.githubusercontent.com/timescale/tiger-agent/refs/heads/main/examples/mcp_config.json
-    ```
+
+       ```bash
+        curl -L -o mcp_config.json https://raw.githubusercontent.com/timescale/tiger-agent/refs/heads/main/examples/mcp_config.json
+        ```
 
 1. **Configure your $AGENTS_SHORT to connect to the most useful MCP servers for your organization**
 
