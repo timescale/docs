@@ -4,7 +4,7 @@ excerpt: Set a policy to automatically move chunks in a hypertable to the column
 topics: [hypercore, columnstore, jobs]
 keywords: [columnstore, hypercore, policies]
 tags: [scheduled jobs, background jobs, automation framework]
-products: [cloud, self_hosted]
+products: [cloud, mst, self_hosted]
 api:
   license: community
   type: procedure
