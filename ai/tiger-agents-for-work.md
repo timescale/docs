@@ -211,6 +211,7 @@ your users need. For example, to add the $COMPANY MCP server to your $AGENTS_SHO
       "allow_sampling": false
     },
     ```
+    To avoid errors, delete all entries in `mcp_config.json` with invalid URLS. For example the `github` entry with `http://github-mcp-server/mcp`.     
 
 1. **Restart your $AGENTS_SHORT**
    ```bash
