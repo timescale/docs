@@ -106,7 +106,7 @@ Insights include `Metrics`, `Current lock contention`, and `Queries`.
 
 `Queries` displays the top 50 queries matching your search. This includes executions, total rows, total time, median time, P95 time, related hypertables, tables in the columnstore, and user name. 
 
-![Queries](https://assets.timescale.com/docs/images/tiger-console-query-insights.png)
+![Queries](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-query-insights.png)
 
 | Column            | Description                                                                                     |
 |-------------------|-------------------------------------------------------------------------------------------------|

@@ -34,12 +34,12 @@ To upload a CSV file to your $SERVICE_SHORT:
 
 1. **Select your $SERVICE_SHORT in [$CONSOLE_SHORT][console], then click `Actions` > `Import data` > `Upload your files` > `Upload CSV file`**
 
-   ![Import from CSV into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-csv-file.png)
+   ![Import from CSV into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-import-csv-file.png)
 
 1. **Click to browse, or drag the file to import**
 1. **Configure the import**
 
-   ![Configure the CSV import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-csv-file-import.png)
+   ![Configure the CSV import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-configure-csv-file-import.png)
 
    - Set a delimiter.
    - Toggle to skip or keep the header.
@@ -63,12 +63,12 @@ To upload a Parquet file to your $SERVICE_SHORT:
 
 1. **Select your $SERVICE_SHORT in [$CONSOLE_SHORT][console], then click `Actions` > `Import data` > `Upload your files` > `Upload Parquet file`**
 
-   ![Import from Parquet into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-parquet-file.png)
+   ![Import from Parquet into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-import-parquet-file.png)
 
 1. **Click to browse, or drag the file to import**
 1. **Configure the import**
 
-   ![Configure the Parquet import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-parquet-file-import.png)
+   ![Configure the Parquet import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-configure-parquet-file-import.png)
 
    - Select to ingest the data into an existing table or create a new one.
    - Provide the new or existing table name.
@@ -90,14 +90,14 @@ To upload a TXT or MD file to your $SERVICE_SHORT:
 
 1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import data` > `Upload your files` > `Upload Text file`**
 
-   ![Import from a text file into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-txt-file.png)
+   ![Import from a text file into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-import-txt-file.png)
 
 1. **Click to browse, or drag and drop the file to import**
 1. **Configure the import**
 
    Provide a name to create a new table, or select an existing table to add data to. 
 
-   ![Configure the text file import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-txt-file-import.png)
+   ![Configure the text file import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-configure-txt-file-import.png)
 
 1. **Click `Upload files`**
 

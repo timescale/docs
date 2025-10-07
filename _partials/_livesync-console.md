@@ -78,7 +78,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect the source database and the target $SERVICE_SHORT**
 
-   ![Postgres connector wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-connector-wizard-tiger-cloud.png)
+   ![Postgres connector wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-connector-wizard-tiger-console.png)
 
    1. Click `Connectors` > `PostgreSQL`.
    1. Set the name for the new connector by clicking the pencil icon.
@@ -88,7 +88,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Optimize the data to synchronize in $HYPERTABLEs**
 
-   ![Postgres connector start](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-connector-start-tiger-cloud.png)
+   ![Postgres connector start](https://assets.timescale.com/docs/images/tiger-cloud-console/pg-connector-start-tiger-console.png)
 
    1. In the `Select table` dropdown, select the tables to sync.
    1. Click `Select tables +` .    
@@ -100,7 +100,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Monitor synchronization**
 
-   ![Tiger connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-connector-overview.png)
+   ![Tiger connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-connector-overview.png)
 
     1. To view the amount of data replicated, click `Connectors`. The diagram in `Connector data flow` gives you an overview of the connectors you have created, their status, and how much data has been replicated.  
 
@@ -108,7 +108,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Manage the connector**
 
-   ![Edit a Postgres connector](https://assets.timescale.com/docs/images/tiger-cloud-console/edit-pg-connector.png)
+   ![Edit a Postgres connector](https://assets.timescale.com/docs/images/tiger-cloud-console/edit-pg-connector-tiger-console.png)
 
    1. To edit the connector, click `Connectors` > `Source connectors`, then select the name of your connector in the table. You can rename the connector, delete or add new tables for syncing.
    

@@ -66,7 +66,7 @@ To connect to a $SERVICE_SHORT:
 
    Type `SELECT CURRENT_DATE;` in `Scratchpad` and click `Run`:
 
-   ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-cloud.png)
+   ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-console.png)
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][portal-ops-mode]
@@ -193,7 +193,7 @@ For best results with $SQL_ASSISTANT_SHORT:
 Security and privacy is prioritized in $CONSOLE. In [$DATA_MODE][portal-data-mode], $PROJECT_SHORT members
 manage $SQL_ASSISTANT_SHORT settings under [`User name` > `Settings` > `SQL Assistant`][sql-editor-settings].
 
-![SQL assistant settings](https://assets.timescale.com/docs/images/sql-editor-preferences.png)
+![SQL assistant settings](https://assets.timescale.com/docs/images/tiger-console-sql-editor-preferences.png)
 
 $SQL_ASSISTANT_SHORT settings are:
 
