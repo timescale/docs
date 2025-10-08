@@ -28,7 +28,7 @@ the following best practice:
 
 * **Memory planning**: Size your `index_memory_limit` based on corpus vocabulary and document count
 * **Language configuration**: Choose appropriate text search configurations for your data language
-* **Hybrid search**: Combine with pgvector for applications requiring both semantic and keyword search
+* **Hybrid search**: Combine with pgvector or pgvectorscale for applications requiring both semantic and keyword search
 * **Query optimization**: Use score thresholds to filter low-relevance results
 * **Index monitoring**: Regularly check index usage and memory consumption
 
@@ -75,9 +75,9 @@ You have installed pg_textsearch on $CLOUD_LONG.
 ## Create BM25 indexes on your data
 
 BM25 indexes provide modern relevance ranking that outperforms $PG's built-in ts_rank functions by using corpus 
-statistics and better algorithmic design. 
+statistics and better algorithmic design.
 
-To create a BM25 with pg_textsearch:
+To create a BM25 index with pg_textsearch:
 
 <Procedure>
 
@@ -109,6 +109,8 @@ To create a BM25 with pg_textsearch:
    USING pg_textsearch(description)
    WITH (text_config='english');
    ```
+   
+   pg_textsearch supports single-column indexes only. 
 
 </Procedure>
 
@@ -124,9 +126,9 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
 
    ```sql
    SELECT name, description,
-          description <@> to_tpquery('ergonomic work', 'products_search_idx') as score
+          description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
    FROM products
-   ORDER BY description <@> to_tpquery('ergonomic work', 'products_search_idx')
+   ORDER BY description <@> to_bm25query('ergonomic work', 'products_search_idx')
    LIMIT 3;
    ```
 
@@ -134,20 +136,20 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
 
    ```sql
    SELECT name,
-          description <@> to_tpquery('wireless', 'products_search_idx') as score
+          description <@> to_bm25query('wireless', 'products_search_idx') as score
    FROM products
-   WHERE description <@> to_tpquery('wireless', 'products_search_idx') < -2.0;
+   WHERE description <@> to_bm25query('wireless', 'products_search_idx') < -2.0;
    ```
 
 1. **Combine with standard SQL operations**
 
    ```sql
    SELECT category, name,
-          description <@> to_tpquery('ergonomic', 'products_search_idx') as score
+          description <@> to_bm25query('ergonomic', 'products_search_idx') as score
    FROM products
    WHERE price < 500
-     AND description <@> to_tpquery('ergonomic', 'products_search_idx') < -1.0
-   ORDER BY description <@> to_tpquery('ergonomic', 'products_search_idx')
+     AND description <@> to_bm25query('ergonomic', 'products_search_idx') < -1.0
+   ORDER BY description <@> to_bm25query('ergonomic', 'products_search_idx')
    LIMIT 5;
    ```
 
@@ -155,7 +157,7 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
 
    ```sql
    EXPLAIN SELECT * FROM products
-   ORDER BY description <@> to_tpquery('wireless keyboard', 'products_search_idx')
+   ORDER BY description <@> to_bm25query('wireless keyboard', 'products_search_idx')
    LIMIT 5;
    ```
 
@@ -165,7 +167,7 @@ You have optimized your search queries for BM25 ranking.
 
 ## Build hybrid search with semantic and keyword search
 
-Combine pg_textsearch with pgvector to build powerful hybrid search systems that use both semantic vector search and keyword BM25 search.
+Combine pg_textsearch with pgvector or pgvectorscale to build powerful hybrid search systems that use both semantic vector search and keyword BM25 search.
 
 <Procedure>
 
@@ -205,9 +207,9 @@ Combine pg_textsearch with pgvector to build powerful hybrid search systems that
    ),
    keyword_search AS (
        SELECT id,
-              ROW_NUMBER() OVER (ORDER BY content <@> to_tpquery('query performance', 'articles_content_idx')) AS rank
+              ROW_NUMBER() OVER (ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')) AS rank
        FROM articles
-       ORDER BY content <@> to_tpquery('query performance', 'articles_content_idx')
+       ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')
        LIMIT 20
    )
    SELECT
@@ -257,7 +259,6 @@ Customize pg_textsearch behavior for your specific use case and data characteris
    -- Set memory limit per index (default 64MB)
    SET pg_textsearch.index_memory_limit = '128MB';
    ```
-
 
 1. **Configure language-specific text processing**
 
