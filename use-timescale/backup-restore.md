@@ -1,23 +1,30 @@
 ---
-title: Back up and recover your Tiger Cloud services
-excerpt: See how and when Tiger Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
+title: Back up and fork your Tiger Cloud services
+excerpt: Tiger Cloud backs up your data, making sure you always have something to fall back on for disaster recovery
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]
 ---
 
-# Back up and recover your $SERVICE_SHORTs
+import CLIINSTALL from "versionContent/_partials/_devops-cli-install.mdx";
 
-$CLOUD_LONG automatically handles backup for your $SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform backups manually. What's more, with [cross-region backup][cross-region], you are protected when an entire AWS region goes down.
+# Back up and fork your $SERVICE_SHORTs
 
-$CLOUD_LONG automatically creates one full backup every week, and
-incremental backups every day in the same region as your $SERVICE_SHORT. 
+$CLOUD_LONG provides comprehensive backup and recovery solutions to protect your data, including automatic daily backups, 
+cross-region protection, point-in-time recovery, and development forks for testing and collaboration.
 
-On [$SCALE and $PERFORMANCE][pricing-and-account-management] $PRICING_PLANs, you can check the list of backups for the previous 14 days in $CONSOLE_LONG. To do so, select your $SERVICE_SHORT, then click `Operations` > `Backup and restore` > `Backup history`. 
+## Automatic backups
 
-Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. This means that you always have a full backup available for the current and previous week: 
+$CLOUD_LONG automatically handles backup for your $SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform 
+backups manually. What's more, with [cross-region backup][cross-region], you are protected when an entire AWS region goes down.
+
+$CLOUD_LONG automatically creates one full backup every week, and incremental backups every day in the same region as 
+your $SERVICE_SHORT. Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. 
+This means that you always have a full backup available for the current and previous week:
 
 ![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
+
+On [$SCALE and $PERFORMANCE][pricing-and-account-management] $PRICING_PLANs, you can check the list of backups for the previous 14 days in $CONSOLE_LONG. To do so, select your $SERVICE_SHORT, then click `Operations` > `Backup and restore` > `Backup history`. 
 
 In the event of a storage failure, a $SERVICE_SHORT automatically recovers from a backup
 to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, you can [create a point-in-time recovery fork][create-fork].
@@ -105,6 +112,79 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 </Tab>
 
 </Tabs>
+
+
+## Create a development fork
+
+Modern development is highly iterative. Developers and AI agents need safe spaces to test changes before deploying them 
+to production. Forkable $SERVICE_SHORTs make this natural. Spin up a branch, run your test, throw it away or merge it 
+back.Forks are also a powerful way to share production-scale data safely. BI and data science teams often need access to 
+real datasets to build models or generate insights. With forkable $SERVICE_SHORTs, you can hand a production fork
+to those teams in secondsL isolated from production but containing all the data needed for analysis. This dramatically 
+reduces friction getting insights from live data.
+
+Forkable $SERVICE_LONGs in $CLOUD_LONG enable you to create instant, zero-copy branches of a $SERVICE_SHORT. These forks are 
+fully independent. You can query them, run migrations, add indexes, or test new features.
+
+To manage development forks:
+
+<Procedure> 
+
+<CLIINSTALL />
+
+1. **Fork the $SERVICE_SHORT**
+
+   ```shell
+    tiger service fork  tgrservice --now --no-wait --name bob   
+   ```
+   You see something like:
+
+    ```terminaloutput
+    🍴 Forking service 'tgrservice' to create 'bob' at current state...
+    ✅ Fork request accepted!
+    📋 New Service ID: trgbobserv
+    🔐 Password saved to system keyring for automatic authentication
+    🎯 Set service 'trgbobserv' as default service.
+    ⏳ Service is being forked. Use 'tiger service list' to check status.
+    ┌───────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────┐
+    │     PROPERTY      │                                              VALUE                                               │
+    ├───────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────┤
+    │ Service ID        │ trgbobserv                                                                                       │
+    │ Name              │ bob                                                                                              │
+    │ Status            │                                                                                                  │
+    │ Type              │ TIMESCALEDB                                                                                      │
+    │ Region            │ eu-central-1                                                                                     │
+    │ CPU               │ 0.5 cores (500m)                                                                                 │
+    │ Memory            │ 2 GB                                                                                             │
+    │ Direct Endpoint   │ <service-id>.<project-id>.tsdb.cloud.timescale.com:<port>                                             │
+    │ Created           │ 2025-10-08 13:58:07 UTC                                                                          │
+    │ Connection String │ postgresql://tsdbadmin@<service-id>.<project-id>.tsdb.cloud.timescale.com:<port>/tsdb?sslmode=require │
+    └───────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────┘
+   ```
+
+1. **When you are done, delete your forked $SERVICE_SHORT**   
+
+    1. Use the CLI to request $SERVICE_SHORT delete:
+   
+       ```shell
+       tiger service delete trgbobserv  
+       ```
+   1. Validate the $SERVICE_SHORT delete:
+
+       ```terminaloutput
+       Are you sure you want to delete service 'trgbobserv'? This operation cannot be undone.
+       Type the service ID 'trgbobserv' to confirm:
+       trgbobserv
+       ```
+        You see something like:
+       ```terminaloutput
+       🗑️  Delete request accepted for service 'trgbobserv'.
+       ⏳ Waiting for service 'trgbobserv' to be deleted
+       ✅ Service 'trgbobserv' has been successfully deleted.
+       ```
+
+</Procedure>
+
 
 
 [console]: https://console.cloud.timescale.com/dashboard/services
