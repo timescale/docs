@@ -222,7 +222,7 @@ $CAGG_CAPs are a kind of $HYPERTABLE that is refreshed automatically in
 the background as new data is added, or old data is modified. Changes to your dataset are tracked, 
 and the $HYPERTABLE behind the $CAGG is automatically updated in the background.
 
-![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png )
+![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png)
 
 You create $CAGGs on uncompressed data in high-performance storage. They continue to work 
 on [data in the $COLUMNSTORE][test-drive-enable-compression]

@@ -32,7 +32,7 @@ For an [existing $CAGG][create-cagg]:
    To enable the $COLUMNSTORE compression on a $CAGG, set `timescaledb.enable_columnstore = true` when you alter the view:
 
    ```sql
-   ALTER MATERIALIZED VIEW <cagg_name> set (timescaledb.enable_columnstore = true,);
+   ALTER MATERIALIZED VIEW <cagg_name> set (timescaledb.enable_columnstore = true);
    ```
    To disable the $COLUMNSTORE compression, set  `timescaledb.enable_columnstore = false`:
 
