@@ -7,6 +7,7 @@ keywords: [import]
 
 import ImportPrerequisitesCloudNoConnection from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 # Upload a file into your $SERVICE_SHORT using $CONSOLE_LONG
 
@@ -114,6 +115,8 @@ To upload a TXT or MD file to your $SERVICE_SHORT:
 <Tab title="From S3" label="s3-import">
 
 $CONSOLE_LONG enables you to upload CSV and Parquet files, including archives compressed using GZIP and ZIP, by connecting to an S3 bucket.
+
+<NotAvailableFreePlan />
 
 ## Prerequisites
 

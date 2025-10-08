@@ -10,6 +10,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 # Try the key features in $COMPANY products
 
@@ -162,7 +163,7 @@ relational and time-series data from external files.
 
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
-    - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
+    - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs. <NotAvailableFreePlan />
     - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted $TIMESCALE_DB deployment from Terminal.
 
@@ -237,6 +238,8 @@ $CONSOLE. You can also do this using psql.
 <Tabs label="Upload data to " persistKey="sql-editor">
 
 <Tab title="Data mode" label="data-mode">
+
+<NotAvailableFreePlan />
 
 <Procedure>
 
@@ -333,6 +336,8 @@ a $CAGG, run the query part of the $CAGG
 
 ## Slash storage charges 
 
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
+
 In the previous sections, you used $CAGGs to make fast analytical queries, and
 $HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
 you create tiering policies to move rarely accessed data to the object store. The object store is 
@@ -341,8 +346,6 @@ low-cost bottomless data storage built on Amazon S3. However, no matter the tier
 tier and generates the response.
 
 ![Tiered storage](https://assets.timescale.com/docs/images/tiered-storage.png )
-
-Data tiering is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
 
 To set up data tiering: 
 
@@ -388,14 +391,14 @@ To set up data tiering:
 
 ## Reduce the risk of downtime and data loss
 
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
+
 By default, all $SERVICE_LONGs have rapid recovery enabled. However, if your app has very low tolerance 
 for downtime, $CLOUD_LONG offers $HA_REPLICAs. HA replicas are exact, up-to-date copies 
 of your database hosted in multiple AWS availability zones (AZ) within the same region as your primary node.
 HA replicas automatically take over operations if the original primary data node becomes unavailable. 
 The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of 
-data loss during failover.
-
-High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
+data loss during failover. 
 
 <HASetup />
 

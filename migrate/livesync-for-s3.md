@@ -2,6 +2,7 @@
 title: Sync data from S3 to your service
 excerpt: Synchronize data from S3 to Tiger Cloud service in real time
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---

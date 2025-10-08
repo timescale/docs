@@ -1,3 +1,4 @@
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 <Procedure>
 
@@ -14,6 +15,8 @@
    <Tabs label="Connect to your Tiger Cloud service" persistKey="sql-editor">
 
    <Tab title="Data mode in Console" label="data-mode">
+
+   <NotAvailableFreePlan />
 
    <Procedure>
 
