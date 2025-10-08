@@ -29,6 +29,8 @@ To start using $CLOUD_LONG for your data:
 
 Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
 
+Under the Free pricing plan, you can create up to 2 $SERVICE_SHORTs with limited resources. See [Pricing and account management][pricing-plans] for details. To create a $SERVICE_SHORT under a paid plan: 
+
 <Procedure>
 
 1. In the [$SERVICE_SHORT creation page][create-service], choose the capability to match your business needs: `Real-time analytics`, `AI-focused`, or `Hybrid applications`. 
@@ -72,4 +74,4 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [timescaledb]: https://docs.tigerdata.com/#TimescaleDB
-
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
