@@ -58,7 +58,7 @@ provisioning your $SERVICE_SHORTs or later, as your needs grow.
 (typically 80-100 TB uncompressed) data and is metered on your average GB consumption per hour. We can help you compress your data by up to 98% so you pay even less. <TieredStorageBilling />
 For easy upgrades, each $SERVICE_SHORT stores the $TIMESCALE_DB binaries. This contributes up to 900 MB to overall storage, which amounts to less than $.80/month in additional storage costs.
   
-### Use $CLOUD_LONG for free
+## Use $CLOUD_LONG for free
 
 Are you just starting out with $CLOUD_LONG? On our Free pricing plan, you can create zero-cost $SERVICE_SHORTs with [limited  resources][plan-features].
 
