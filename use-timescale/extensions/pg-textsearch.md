@@ -305,7 +305,6 @@ caching and pagination to improve user experience with large result sets.
 This preview release focuses on core BM25 functionality. It has the following limitations:
 
 * **Memory-only storage**: indexes are limited by `pg_textsearch.index_memory_limit` (default 64MB)
-* **Single-column indexes**: cannot index multiple columns in one index
 * **No phrase queries**: cannot search for exact multi-word phrases yet
 
 These limitations will be addressed in upcoming releases with disk-based segments and expanded query capabilities.
