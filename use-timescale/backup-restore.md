@@ -117,14 +117,16 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 ## Create a development fork
 
 Modern development is highly iterative. Developers and AI agents need safe spaces to test changes before deploying them 
-to production. Forkable $SERVICE_SHORTs make this natural. Spin up a branch, run your test, throw it away or merge it 
-back.Forks are also a powerful way to share production-scale data safely. BI and data science teams often need access to 
-real datasets to build models or generate insights. With forkable $SERVICE_SHORTs, you can hand a production fork
-to those teams in secondsL isolated from production but containing all the data needed for analysis. This dramatically 
-reduces friction getting insights from live data.
+to production. Forkable $SERVICE_SHORTs make this natural and easy. Spin up a branch, run your test, throw it away, or 
+merge it back. 
 
-Forkable $SERVICE_LONGs in $CLOUD_LONG enable you to create instant, zero-copy branches of a $SERVICE_SHORT. These forks are 
-fully independent. You can query them, run migrations, add indexes, or test new features.
+Forks are a powerful way to share production-scale data safely. BI and data science teams often need access to real 
+datasets to build models or generate insights. With forkable $SERVICE_SHORTs, you easily create instant, zero-copy 
+branches of a production $SERVICE_SHORT that is isolated from production, but contains all the data needed for 
+analysis. You share this fork with your analytics teams in seconds. This dramatically reduces friction getting insights 
+from live data.
+
+Forks are fully independent. You can query them, run migrations, add indexes, or test new features.
 
 To manage development forks:
 
