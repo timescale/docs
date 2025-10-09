@@ -40,6 +40,7 @@ Some of the most in-demand integrations are listed below.
 |                Name                | Description                                                                    |
 |:----------------------------------:|--------------------------------------------------------------------------------|
 | <img isIcon src='https://assets.timescale.com/docs/icons/azure-functions-logo.png' alt='azure-functions-logo'  />[Azure Functions][azure-functions] | Run event-driven serverless code in the cloud without managing infrastructure. |
+|                              <img isIcon src='https://atlasgo.io/u/logo-atlas.svg' alt='atlas-logo'  />[Atlas][atlas]     | Manage your database schema as code.    |
 |     <img isIcon src='https://assets.timescale.com/docs/icons/deno-deploy-logo.png' alt='deno-deploy-logo'  />[Deno Deploy][deno-deploy]     | Deploy and run JavaScript and TypeScript applications at the edge.             |
 |          <img isIcon src='https://assets.timescale.com/docs/icons/flyway-logo.png' alt='flyway-logo'  />[Flyway][flyway]          | Manage and automate database migrations using version control.                 |
 |       <img isIcon src='https://assets.timescale.com/docs/icons/liquibase-logo.png' alt='liquibase-logo'  />[Liquibase][liquibase]       | Track, version, and automate database schema changes.                          |
@@ -176,6 +177,7 @@ Some of the most in-demand integrations are listed below.
 [apache-skywalking-storage]: https://skywalking.apache.org/docs/main/next/en/setup/backend/storages/postgresql/
 [apache-spark]: https://spark.apache.org/docs/3.5.4/sql-data-sources-jdbc.html
 [appsmith]: https://docs.appsmith.com/connect-data/reference/querying-postgres
+[atlas]: https://atlasgo.io/docs
 [auth-js]: https://authjs.dev/getting-started/adapters/pg?framework=next-js
 [auth0]: https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
 [aws]: /integrations/:currentVersion:/aws
