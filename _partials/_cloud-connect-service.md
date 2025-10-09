@@ -5,7 +5,7 @@
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
 
-   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-services-view.png)
+   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-cloud-console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
@@ -45,7 +45,7 @@
    
    1. Click `SQL editor`. 
 
-      ![Check a $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ops-mode-sql-editor.png)
+      ![Check a $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-cloud-ops-mode-sql-editor.png)
 
    1. Run a test query:
 

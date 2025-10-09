@@ -78,7 +78,7 @@ To change the compute and storage configuration of your $READ_REPLICA set:
 
 1. **In [$CONSOLE][timescale-console-services], expand and click the $READ_REPLICA set under your primary $SERVICE_SHORT**
 
-   ![Read replicas in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-sets-tiger-cloud-console.png)
+   ![Read replicas in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-on-azure/read-replica-sets-tiger-cloud-console.png)
 
 1. **Click `Operations` > `Compute and storage`**
 
@@ -102,7 +102,7 @@ is measured in bytes, against the current state of the primary instance. To chec
 
    You see a list of configured $READ_REPLICA sets for this $SERVICE_SHORT, including their status and lag:
 
-   ![Read replica sets](https://assets.timescale.com/docs/images/tiger-cloud-console/configured-replica-set-tiger-cloud.png)
+   ![Read replica sets](https://assets.timescale.com/docs/images/tiger-on-azure/configured-replica-set-tiger-cloud.png)
 
 1. **Configure the allowable lag**
 
