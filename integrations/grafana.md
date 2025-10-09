@@ -94,7 +94,7 @@ Grafana time-series panels include a time filter:
 
     When you visualize this query in Grafana, you see this:
 
-    ![Tiger Cloud service and Grafana query results](https://assets.timescale.com/docs/images/grafana_query_results.png)
+    ![Tiger service and Grafana query results](https://assets.timescale.com/docs/images/grafana_query_results.png)
 
     You can adjust the `time_bucket` function and compare the graphs:
     
@@ -112,7 +112,7 @@ Grafana time-series panels include a time filter:
     
     When you visualize this query, it looks like this:
 
-   ![Tiger Cloud service and Grafana query results in time buckets](https://assets.timescale.com/docs/images/grafana_query_results_5m.png)
+   ![Tiger service and Grafana query results in time buckets](https://assets.timescale.com/docs/images/grafana_query_results_5m.png)
 
 </Procedure>
 
@@ -175,7 +175,7 @@ tutorial as a starting point.
     
     You now have a visualization that looks like this: 
 
-    ![Tiger Cloud service and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
+    ![Tiger service and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
        
 
 </Procedure>

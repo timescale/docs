@@ -48,7 +48,7 @@ time-series services:
 <img
     class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-view-pgservice.png"
-    alt="A running Postgres service with a running Tiger Cloud service in the Tiger Cloud Console"
+    alt="A running Postgres service with a running Tiger service in the Tiger Console"
 />
 
 [cloud-install]: /getting-started/latest/
