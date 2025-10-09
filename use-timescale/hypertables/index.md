@@ -41,8 +41,6 @@ the number of chunks you see when inspecting it.
 
 Partitioning on time is the most common use case for $HYPERTABLE, but it may not be enough for your needs. For example,
 you may need to scan for the latest readings that match a certain condition without locking a critical $HYPERTABLE.
-Best practice to optimize ingest and query performance is to add a partitioning dimension on a non-time column such as
-location or device UUID, and specify a number of partitions.
 
 You add a partitioning dimension at the same time as you create the hypertable, when the table is empty. The good news 
 is that although you select the number of partitions at creation time, as your data grows you can change the number of 
