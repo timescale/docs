@@ -42,6 +42,14 @@ the number of chunks you see when inspecting it.
 Partitioning on time is the most common use case for $HYPERTABLE, but it may not be enough for your needs. For example,
 you may need to scan for the latest readings that match a certain condition without locking a critical $HYPERTABLE.
 
+<Highlight type="note">
+
+The use case for a partitioning dimension is a multi-tenant setup. You isolate the tenants using the `tenant_id` space 
+partition. However, you must perform extensive testing to ensure this works as expected, and there is a strong risk of 
+partition explosion,
+
+</Highlight>
+
 You add a partitioning dimension at the same time as you create the hypertable, when the table is empty. The good news 
 is that although you select the number of partitions at creation time, as your data grows you can change the number of 
 partitions later and improve query performance. Changing the number of partitions only affects chunks created after the 
