@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-excerpt: Troubleshoot common problems that occur when integrating Tiger Cloud services with third-party solutions
+excerpt: Troubleshoot common problems that occur when integrating Tiger services with third-party solutions
 products: [cloud, self_hosted]
 keywords: [troubleshooting]
 ---

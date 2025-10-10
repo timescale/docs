@@ -1,6 +1,6 @@
 ---
 title: Integrate AWS Lambda with Tiger Cloud
-excerpt: With AWS Lambda, you can run code without provisioning or managing servers, and scale automatically. Integrate AWS Lambda with Tiger Cloud and inject data into your service
+excerpt: With AWS Lambda, you can run code without provisioning or managing servers, and scale automatically. Integrate AWS Lambda with Tiger and inject data into your service
 products: [cloud, self_hosted]
 keywords: [connect, integrate, aws, lambda]
 ---

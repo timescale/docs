@@ -1,6 +1,6 @@
 ---
 title: Metrics and logging
-excerpt: Tiger Cloud enables you to monitor your services using the built-in metrics or by integrating third-party services. See the options available in Tiger Cloud Console
+excerpt: Tiger enables you to monitor your services using the built-in metrics or by integrating third-party services. See the options available in Tiger Cloud Console
 products: [cloud]
 keywords: [metrics, logs, admin]
 tags: [payment]

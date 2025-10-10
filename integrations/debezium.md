@@ -1,6 +1,6 @@
 ---
 title: Integrate Debezium with Tiger Cloud
-excerpt: Integrate Debezium with Tiger Cloud to enable change data capture in your Tiger Cloud service and streaming to Redis Streams
+excerpt: Integrate Debezium with Tiger to enable change data capture in your Tiger Cloud service and streaming to Redis Streams
 products: [self_hosted]
 keywords: [Debezium, integrate]
 ---

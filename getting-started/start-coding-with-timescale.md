@@ -1,6 +1,6 @@
 ---
 title: Start coding with TigerData
-excerpt: Integrate Tiger Cloud with your app using your preferred programming language. Connect to a service, 
+excerpt: Integrate Tiger with your app using your preferred programming language. Connect to a service, 
   create and manage hypertables, then and ingest and query data
 products: [cloud, self_hosted, mst]
 content_group: Getting started
