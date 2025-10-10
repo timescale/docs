@@ -187,7 +187,7 @@ Some of the most in-demand integrations are listed below.
 [confluent-source]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-source.html
 [cube-js]: https://cube.dev/integrations/Timescale-API
 [data-center]: /integrations/:currentVersion:/corporate-data-center
-[dash0]: https://www.dash0.com/hub/integrations/int_postgresql/overview
+[dash0]: https://www.dash0.com/hub/integrations/int_tiger_service/overview
 [datadog]: /integrations/:currentVersion:/datadog/
 [dbt]: https://dbt-timescaledb.debruyn.dev/
 [dbeaver]: /integrations/:currentVersion:/dbeaver/
