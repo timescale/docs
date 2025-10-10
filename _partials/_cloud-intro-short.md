@@ -1,7 +1,7 @@
 A $SERVICE_LONG is a single optimised $PG instance extended with innovations in the database engine such as 
 $TIMESCALE_DB, in a cloud infrastructure that delivers speed without compromise.
 
-A $SERVICE_LONG is a radically faster $PG for transactional, analytical and agentic
+A $SERVICE_LONG is a radically faster $PG database for transactional, analytical, and agentic
 workloads at scale. 
 
 It’s not a fork. It’s not a wrapper. It is $PG—extended with innovations in the database 
