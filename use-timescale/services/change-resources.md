@@ -1,6 +1,6 @@
 ---
 title: Manually change compute resources
-excerpt: Tiger Cloud charges for the storage you actually use, and handles disk resize for you. You can also manually resize the compute resources available to your Tiger Cloud services with minimal downtime
+excerpt: Tiger charges for the storage you actually use, and handles disk resize for you. You can also manually resize the compute resources available to your Tiger services with minimal downtime
 products: [cloud]
 keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]

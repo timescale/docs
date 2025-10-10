@@ -1,6 +1,6 @@
 ---
 title: About services
-excerpt: Manage your Tiger Cloud services in the Console. Run daily admin operations, control access, set up security, compress data, run analytical queries, and more
+excerpt: Manage your Tiger services in the Console. Run daily admin operations, control access, set up security, compress data, run analytical queries, and more
 products: [cloud]
 keywords: [connect, services]
 tags: [storage, resources, disk space]

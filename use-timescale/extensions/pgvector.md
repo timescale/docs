@@ -1,6 +1,6 @@
 ---
 title: Create a chatbot using pgvector
-excerpt: pgvector is an open-source extension for Postgres that enables efficient vector similarity search and can be used with Tiger CLoud. Learn to use pgvector to create a chatbot
+excerpt: pgvector is an open-source extension for Postgres that enables efficient vector similarity search and can be used with Tiger. Learn to use pgvector to create a chatbot
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgvector]
 tags: [extensions, pgvector]
@@ -251,10 +251,10 @@ Before you begin, make sure you have:
     ###############################################################################
     # Setup your database to insert embeddings
     ###############################################################################
-    # Get a Tiger Cloud / Postgres database connection string by reading local .env file
+    # Get a Tiger / Postgres database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to Postgres database in Tiger Cloud using connection string
+    # Connect to Postgres database in Tiger using connection string
     conn = psycopg2.connect(connection_string)
     cur = conn.cursor()
 
@@ -384,10 +384,10 @@ Before you begin, make sure you have:
     _ = load_dotenv(find_dotenv())
     openai.api_key  = os.environ['OPENAI_API_KEY']
 
-    # Get Tiger Cloud / Postgres database connection string by reading local .env file
+    # Get Tiger / Postgres database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to Postgres Tiger Cloud service using connection string
+    # Connect to Postgres Tiger service using connection string
     conn = psycopg2.connect(connection_string)
 
     ###############################################################################

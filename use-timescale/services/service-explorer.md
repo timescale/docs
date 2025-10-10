@@ -1,6 +1,6 @@
 ---
 title: Service explorer
-excerpt: Service explorer in Tiger Cloud provides a rich administrative dashboard for understanding the state of your services. Get insight into the performance and structure of your service
+excerpt: Service explorer in Tiger provides a rich administrative dashboard for understanding the state of your services. Get insight into the performance and structure of your service
 products: [cloud]
 keywords: [services, hypertables, schemas, indexes, policies]
 cloud_ui:

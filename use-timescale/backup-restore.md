@@ -1,6 +1,6 @@
 ---
-title: Back up and recover your Tiger Cloud services
-excerpt: See how and when Tiger Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
+title: Back up and recover your Tiger services
+excerpt: See how and when Tiger backs up your data, making sure you always have something to fall back on in case of disaster recovery
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]
@@ -17,7 +17,7 @@ On [$SCALE and $PERFORMANCE][pricing-and-account-management] $PRICING_PLANs, you
 
 Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. This means that you always have a full backup available for the current and previous week: 
 
-![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
+![Backup in Tiger](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
 In the event of a storage failure, a $SERVICE_SHORT automatically recovers from a backup
 to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, you can [create a point-in-time recovery fork][create-fork].
@@ -72,7 +72,7 @@ To avoid paying for compute for the recovery fork and the original $SERVICE_SHOR
 
 You initiate a point-in-time recovery from a same-region or cross-region backup in $CONSOLE_LONG:
 
-<Tabs label="Point-in-time recovery in Tiger Cloud Console">
+<Tabs label="Point-in-time recovery in Tiger Console">
 
 <Tab title="Same-region backup">
 
