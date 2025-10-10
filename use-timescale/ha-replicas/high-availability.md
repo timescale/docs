@@ -19,7 +19,7 @@ These replicas safeguard your data and keep your $SERVICE_SHORT running smoothly
 By minimizing downtime and protecting against data loss, HA replicas ensure business continuity and give you the confidence 
 to operate without interruption, including during routine maintenance.
 
-![HA replicas in Tiger Platform](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-platform-ha-architecture-diagram.svg)
+![HA replicas in Tiger Platform](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ha-architecture-diagram.svg)
 
 This page shows you how to choose the best high availability option for your $SERVICE_SHORT.
 
