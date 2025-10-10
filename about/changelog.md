@@ -500,7 +500,7 @@ This release adds a number of bug fixes including:
 
 The data mode's SQL Assistant now includes support for the latest models from OpenAI and Llama: GPT-4.1 (including mini and nano) and Llama 4 (Scout and Maverick). Additionally, we've added support for Gemini models, in particular Gemini 2.0 Nano and 2.5 Pro (experimental and preview). With the new additions, SQL Assistant supports more than 20 language models so you can select the one best suited to your needs.
 
-![SQL Assistant - New Models](https:///assets.timescale.com/docs/images/sql-assistant-new-models.png)
+![SQL Assistant - New Models](https://assets.timescale.com/docs/images/sql-assistant-new-models.png)
 
 ## 🪵 TimescaleDB v2.19, new service overview page, and log improvements
 <Label type="date">April 11, 2025</Label>

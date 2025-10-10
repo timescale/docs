@@ -1,6 +1,6 @@
 ---
 title: Compress your data using hypercore
-excerpt: Compress a sample dataset with Tiger Cloud to store the financial data more efficiently
+excerpt: Compress a sample dataset with Tiger to store the financial data more efficiently
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
