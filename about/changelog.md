@@ -9,6 +9,32 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## TimescaleDB 2.22.1 – Configurable Indexing, Enhanced Partitioning, and Faster Queries
+<Label type="date">October 10, 2025</Label>
+
+[TimescaleDB 2.22.1](https://github.com/timescale/timescaledb/releases) introduces major performance and flexibility improvements across indexing, compression, and query execution. TimescaleDB 2.22.1 was released on September 30th and is now available to all users on Tiger Cloud.
+
+### Highlighted features include:
+
+* **Configurable Sparse Indexes:** Users can now manually configure sparse indexes (min-max or bloom) on one or more columns of compressed hypertables, optimizing query performance for specific workloads and reducing I/O. In past releases these were automatically created based on heuristics and could not be modified.
+
+* **UUIDv7 Support:** Adds native support for UUIDv7 for both compression and partitioning. UUIDv7 embeds a time component, improving insert locality and enabling efficient time-based range queries while maintaining global uniqueness.
+
+    * **Vectorized UUID Compression:** New vectorized compression for UUIDv7 columns doubles query performance and improves storage efficiency by up to 30%.
+    
+    * **UUIDv7 Partitioning:** Hypertables can now be partitioned on UUIDv7 columns, combining time-based chunking with globally unique IDs—ideal for large-scale event and log data.
+
+* **Multi-Column SkipScan:** Expands SkipScan to support multiple distinct keys, delivering millisecond-fast deduplication and DISTINCT ON queries across billions of rows. [Learn more in our blog post](https://www.tigerdata.com/blog/skipscan-in-timescaledb-why-distinct-was-slow-how-we-built-it-and-how-you-can-use-it).
+
+* **Compression Improvements:** Default segmentby and orderby settings are now applied at compression time for each chunk, automatically adapting to evolving data patterns for better performance. In the past this was set at the hypertable level and was fixed across all chunks
+
+### Deprecations:
+
+The experimental **Hypercore Table Access Method (TAM)** has been removed in this release following advancements in the columnstore architecture.
+
+For a comprehensive list of changes, please refer to the TimescaleDB [2.22](https://github.com/timescale/timescaledb/releases/tag/2.22.0) & [2.22.1](https://github.com/timescale/timescaledb/releases/tag/2.22.1) release notes.
+
+
 ## Kafka Source Connector (beta)
 <Label type="date">September 19, 2025</Label>
 
