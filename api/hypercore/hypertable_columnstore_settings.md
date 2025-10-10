@@ -7,7 +7,7 @@ tags: [hypertable columnstore, columnstore settings]
 api:
   license: community
   type: view
-products: [cloud, self_hosted]
+products: [cloud, mst, self_hosted]
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
@@ -49,13 +49,13 @@ To retrieve information about settings:
 
 ## Returns
 
-|Name|Type| Description                                                                                                         |
-|-|-|---------------------------------------------------------------------------------------------------------------------|
-|`hypertable`|`REGCLASS`| A hypertable which has the [$COLUMNSTORE enabled][compression_alter-table].                                          |
-|`segmentby`|`TEXT`| The list of columns used to segment data                                                                            |
-|`orderby`|`TEXT`| List of columns used to order the data, along with ordering and NULL ordering information                           |
-|`compress_interval_length`|`TEXT`| Interval used for [rolling up chunks during compression][rollup-compression] |
-
+|Name|Type| Description   |
+|-|-|-------------------------------------------------------------------------------------------|
+|`hypertable`|`REGCLASS`| A hypertable which has the [$COLUMNSTORE enabled][compression_alter-table].|
+|`segmentby`|`TEXT`| The list of columns used to segment data. |
+|`orderby`|`TEXT`| List of columns used to order the data, along with ordering and NULL ordering information. |
+|`compress_interval_length`|`TEXT`| Interval used for [rolling up chunks during compression][rollup-compression]. |
+|`index`| `TEXT` | The sparse index details.  |                                                       
 
 
 [rollup-compression]: /use-timescale/:currentVersion:/compression/manual-compression/#roll-up-uncompressed-chunks-when-compressing

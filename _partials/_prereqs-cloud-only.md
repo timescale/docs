@@ -1,6 +1,6 @@
 To follow the steps on this page:
 
-* Create a target [$SERVICE_LONG][create-service] with time-series and analytics enabled.
+* Create a target [$SERVICE_LONG][create-service] with real-time analytics enabled.
 
   You need your [connection details][connection-info].
 

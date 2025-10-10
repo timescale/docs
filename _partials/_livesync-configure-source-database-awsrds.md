@@ -23,20 +23,20 @@ Updating parameters on a $PG instance will cause an outage. Choose a time that w
       - `rds.logical_replication` set to `1`: record the information needed for logical decoding.
       - `wal_sender_timeout` set to `0`: disable the timeout for the sender process.
 
-   1. In RDS, navigate back to your [databases][databases], select the RDS instance to migrate and click `Modify`.  
+   1. In RDS, navigate back to your [databases][databases], select the RDS instance to migrate, and click `Modify`.  
 
-   1. Scroll down to `Database options` select your new parameter group and click `Continue`. 
-   1. Either `Apply immediately` or choose a maintence window, then click `Modify DB instance`.
+   1. Scroll down to `Database options`, select your new parameter group, and click `Continue`. 
+   1. Click `Apply immediately` or choose a maintenance window, then click `Modify DB instance`.
 
       Changing parameters will cause an outage. Wait for the database instance to reboot before continuing. 
    1. Verify that the settings are live in your database.
 
-1. **Create a user for $LIVESYNC and assign permissions**
+1. **Create a user for the $PG_CONNECTOR and assign permissions**
 
-   1. Create `<livesync username>`:
+   1. Create `<pg connector username>`:
 
       ```sql
-      psql $SOURCE -c "CREATE USER <livesync username> PASSWORD '<password>'"
+      psql $SOURCE -c "CREATE USER <pg connector username> PASSWORD '<password>'"
       ```
 
       You can use an existing user. However, you must ensure that the user has the following permissions.
@@ -44,38 +44,38 @@ Updating parameters on a $PG instance will cause an outage. Choose a time that w
    1. Grant permissions to create a replication slot:
 
       ```sql
-      psql $SOURCE -c "GRANT rds_replication TO <livesync username>"
+      psql $SOURCE -c "GRANT rds_replication TO <pg connector username>"
       ```
 
    1. Grant permissions to create a publication:
 
       ```sql
-      psql $SOURCE -c "GRANT CREATE ON DATABASE <database name> TO <livesync username>"
+      psql $SOURCE -c "GRANT CREATE ON DATABASE <database name> TO <pg connector username>"
       ```
 
    1. Assign the user permissions on the source database:
 
       ```sql
       psql $SOURCE <<EOF
-      GRANT USAGE ON SCHEMA "public" TO <livesync username>;
-      GRANT SELECT ON ALL TABLES IN SCHEMA "public" TO <livesync username>;
-      ALTER DEFAULT PRIVILEGES IN SCHEMA "public" GRANT SELECT ON TABLES TO <livesync username>;
+      GRANT USAGE ON SCHEMA "public" TO <pg connector username>;
+      GRANT SELECT ON ALL TABLES IN SCHEMA "public" TO <pg connector username>;
+      ALTER DEFAULT PRIVILEGES IN SCHEMA "public" GRANT SELECT ON TABLES TO <pg connector username>;
       EOF
       ```
 
       If the tables you are syncing are not in the `public` schema, grant the user permissions for each schema you are syncing:
       ```sql
       psql $SOURCE <<EOF
-      GRANT USAGE ON SCHEMA <schema> TO <livesync username>;
-      GRANT SELECT ON ALL TABLES IN SCHEMA <schema> TO <livesync username>;
-      ALTER DEFAULT PRIVILEGES IN SCHEMA <schema> GRANT SELECT ON TABLES TO <livesync username>;
+      GRANT USAGE ON SCHEMA <schema> TO <pg connector username>;
+      GRANT SELECT ON ALL TABLES IN SCHEMA <schema> TO <pg connector username>;
+      ALTER DEFAULT PRIVILEGES IN SCHEMA <schema> GRANT SELECT ON TABLES TO <pg connector username>;
       EOF
       ```
 
-   1. On each table you want to sync, make `<livesync username>` the owner:
+   1. On each table you want to sync, make `<pg connector username>` the owner:
 
       ```sql
-      psql $SOURCE -c 'ALTER TABLE <table name> OWNER TO <livesync username>;'
+      psql $SOURCE -c 'ALTER TABLE <table name> OWNER TO <pg connector username>;'
       ```
       You can skip this step if the replicating user is already the owner of the tables.
 

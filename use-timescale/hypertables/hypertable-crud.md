@@ -13,8 +13,8 @@ import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-
 
 Hypertables are designed for real-time analytics, they are $PG tables that automatically partition your data by
 time. Typically, you partition hypertables on columns that hold time values.
-[Best practice is to use `timestamptz`][timestamps-best-practice] column type. However, you can also partition on `date`, `integer`
-and `timestamp` types.
+[Best practice is to use `timestamptz`][timestamps-best-practice] column type. However, you can also partition on 
+`date`, `integer`, `timestamp` and [UUIDv7][uuidv7_functions] types.
 
 ## Prerequisites
 
@@ -125,10 +125,11 @@ All data chunks belonging to the hypertable are deleted.
 [data-migration]: /migrate/:currentVersion:/
 [api-create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [api-create-hypertable-arguments]: /api/:currentVersion:/hypertable/create_hypertable/#arguments
-[timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[uuidv7_functions]: /api/:currentVersion:/uuid-functions/

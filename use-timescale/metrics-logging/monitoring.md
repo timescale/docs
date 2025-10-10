@@ -9,14 +9,21 @@ tags: [telemetry, monitor]
 
 # Monitor your $SERVICE_LONGs
 
-$CONSOLE offers you a quick, convenient way to see how your $SERVICE_SHORTs are performing, and see how to make them run more efficiently. This includes:
+Get complete visibility into your $SERVICE_SHORT performance with $CLOUD_LONG's powerful monitoring suite. Whether you're optimizing for peak efficiency or troubleshooting unexpected behavior, $CLOUD_LONG gives you the tools to quickly identify and resolve issues.
 
-- [**Metrics**][metrics]: CPU, memory, and storage usage over time. 
-- [**Logs**][logs]: your $SERVICE_SHORT logs with filtering and timeframe selection. 
-- [**Jobs**][monitoring-jobs]: a list of all the jobs scheduled for your $SERVICE_SHORT and their status.
-- [**Insights**][insights]: an in-depth look into your query performance. 
-- [**Connections**][connections]: a list of all current connections to your $SERVICE_SHORT. You can terminate any process in the list.
-- [**Recommendations**][recommendations]: tips to ensure your $SERVICE_SHORT is set up to achieve the best performance.
+When something doesn't look right, $CLOUD_LONG provides a complete investigation workflow:
+
+![Monitoring suite in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-monitoring-workflow-diagram.svg)
+
+1. **Pinpoint the bottleneck**: check [**Metrics**][metrics] to identify exactly when CPU, memory, or storage spiked.
+1. **Find the root cause**: review [**Logs**][logs] for errors or warnings that occurred during the incident.
+1. **Identify the culprit**: examine [**Insights**][insights] to see which queries were running at that time and how they impacted resources.
+1. **Check background activity**: look at [**Jobs**][monitoring-jobs] to see if scheduled tasks triggered the issue.
+1. **Investigate active connections**: use [**Connections**][connections] to see what clients were connected and what queries they were running.
+
+Want to save some time? Check out [**Recommendations**][recommendations] for alerts that may have already flagged the problem!
+
+This pages explains what specific data you get at each point.
 
 ## Metrics
 
@@ -44,7 +51,7 @@ Gray bars indicate that metrics have not been collected for the period shown:
 
 ![Metrics not collected](https://assets.timescale.com/docs/images/tsc-metrics_graybar.webp)
 
-## Understand high memory usage
+### Understand high memory usage
 
 It is normal to observe high overall memory usage for your $SERVICE_LONGs, especially for workloads with active 
 read and write. $SERVICE_LONG run on Linux, and high memory usage is a particularity of the Linux page cache. 
@@ -62,6 +69,25 @@ For a more accurate view of database memory consumption, look at $PG-specific me
 context breakdowns. Only [take action][memory-settings] if you see signs of real memory pressure—such as OOM (Out Of Memory) events 
 or degraded performance. 
 
+### $SERVICE_SHORT_CAP states
+
+$CONSOLE_LONG gives you a visual representation of the state of your $SERVICE_SHORT. The following states are represented with the following colors:
+
+| State | Color |
+|-------|-------|
+| Configuring | <span style="background-color: yellow; padding: 2px 8px; border-radius: 3px;">Yellow</span> |
+| Deleted | <span style="background-color: yellow; padding: 2px 8px; border-radius: 3px;">Yellow</span> |
+| Deleting | <span style="background-color: yellow; padding: 2px 8px; border-radius: 3px;">Yellow</span> |
+| Optimizing | <span style="background-color: green; color: white; padding: 2px 8px; border-radius: 3px;">Green</span> |
+| Paused | <span style="background-color: grey; color: white; padding: 2px 8px; border-radius: 3px;">Grey</span> |
+| Pausing | <span style="background-color: grey; color: white; padding: 2px 8px; border-radius: 3px;">Grey</span> |
+| Queued | <span style="background-color: yellow; padding: 2px 8px; border-radius: 3px;">Yellow</span> |
+| Ready | <span style="background-color: green; color: white; padding: 2px 8px; border-radius: 3px;">Green</span> |
+| Resuming | <span style="background-color: yellow; padding: 2px 8px; border-radius: 3px;">Yellow</span> |
+| Unstable | <span style="background-color: yellow; padding: 2px 8px; border-radius: 3px;">Yellow</span> |
+| Upgrading | <span style="background-color: yellow; padding: 2px 8px; border-radius: 3px;">Yellow</span> |
+| Read-only | <span style="background-color: red; color: white; padding: 2px 8px; border-radius: 3px;">Red</span> |
+
 ## Logs
 
 $CLOUD_LONG shows you detailed logs for your $SERVICE_SHORT, which you can filter by type, date, and time.
@@ -69,26 +95,6 @@ $CLOUD_LONG shows you detailed logs for your $SERVICE_SHORT, which you can filte
 To access logs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Logs`:
 
 ![Find logs faster](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-service-logs.png)
-
-## Jobs
-
-$CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along with their details like type, target object, and status. This includes native $CLOUD_LONG $JOBs as well as custom $JOBs you configure based on your specific needs.
-
-<Procedure>
-
-1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
-
-   ![Jobs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-jobs.png)
-
-1. Click a $JOB ID in the list to view its config and run history:
-
-   ![Job details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-job-details.png)
-
-1. Click the pencil icon to edit the $JOB config:
-
-   ![Update job config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-edit-job.png)
-
-</Procedure>
 
 ## Insights
 
@@ -98,13 +104,13 @@ To view insights, select your $SERVICE_SHORT, then click `Monitoring` > `Insight
 
 ![Insights](https://assets.timescale.com/docs/images/tiger-cloud-console/insights-overview-tiger-cloud.png)
 
-Insights include `Metrics`, `Current lock contention`, and `Queries`. 
+Insights include `Metrics`, `Current lock contention`, and `Queries`.
 
 `Metrics` provides a visual representation of CPU, memory, and storage input/output usage over time. It also overlays the execution times of the top three queries matching your search. This helps correlate query executions with resource utilization. Select an area of the graph to zoom into a specific time frame.
 
 `Current lock contention` shows how many queries or transactions are currently waiting for locks held by other queries or transactions.
 
-`Queries` displays the top 50 queries matching your search. This includes executions, total rows, total time, median time, P95 time, related hypertables, tables in the columnstore, and user name. 
+`Queries` displays the top 50 queries matching your search. This includes executions, total rows, total time, median time, P95 time, related hypertables, tables in the columnstore, and user name.
 
 ![Queries](https://assets.timescale.com/docs/images/query-insights.png)
 
@@ -136,10 +142,31 @@ Click a query in the list to see the drill-down view. This view not only helps y
 This view includes the following graphs:
 
 - `Execution time`: the median and P95 query execution times over the selected period. This is useful to understand the consistency and efficiency of your query's execution over time.
+- `EXPLAIN` plan: for queries that take more than 10 seconds to execute, there is an EXPLAIN plan collected automatically.
 - `Rows`: the impact of your query on rows over time. If it's a `SELECT` statement, it shows the number of rows retrieved, while for an `INSERT/UPDATE` statement, it reflects the rows inserted.
 - `Plans and executions`: the number of query plans and executions over time. You can use this to optimize query performance, helping you assess if you can benefit from prepared statements to reduce planning overhead.
 - `Shared buffers hit and miss`: shared buffers play a critical role in $PG's performance by caching data in memory. A shared buffer hit occurs when the required data block is found in the shared buffer memory, while a miss indicates that $PG couldn't locate the block in memory. A miss doesn't necessarily mean a disk read, because $PG may retrieve the data from the operating system's disk pages cache. If you observe a high number of shared buffer misses, your current shared buffers setting might be insufficient. Increasing the shared buffer size can improve cache hit rates and query speed.
 - `Cache hit ratio`: measures how much of your query's data is read from shared buffers. A 100% value indicates that all the data required by the query was found in the shared buffer, while a 0% value means none of the necessary data blocks were in the shared buffers. This metric provides a clear understanding of how efficiently your query leverages shared buffers, helping you optimize data access and database performance.
+
+## Jobs
+
+$CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along with their details like type, target object, and status. This includes native $CLOUD_LONG $JOBs as well as custom $JOBs you configure based on your specific needs.
+
+<Procedure>
+
+1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
+
+   ![Jobs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-jobs.png)
+
+1. Click a $JOB ID in the list to view its config and run history:
+
+   ![Job details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-job-details.png)
+
+1. Click the pencil icon to edit the $JOB config:
+
+   ![Update job config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-edit-job.png)
+
+</Procedure>
 
 ## Connections
 
