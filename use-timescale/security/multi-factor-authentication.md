@@ -12,7 +12,7 @@ You can use two-factor authentication to log in to your $ACCOUNT_LONG. Two-facto
 secure logins that require an authentication code in addition to your user
 password. The code is provided by an authenticator app on your mobile device. There are multiple authenticator apps available. 
 
-![Tiger Console 2FA](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-2fa.png)
+![Tiger Console 2FA](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-2fa.png)
 
 This page describes how to configure two-factor authentication with Google Authenticator.
 

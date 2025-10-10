@@ -210,7 +210,7 @@ For example, yesterday's market data.
    90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
    saved, click `Explorer` > `public` > `crypto_ticks`. 
 
-   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-columstore-data-savings.png )
+   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-columstore-data-savings.png )
 
 </Procedure>
 
@@ -298,9 +298,9 @@ $CONSOLE. You can also do this using psql.
 <Procedure>
 
 1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to**
-1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate`** next to the `crypto_ticks` hypertable. 
-   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-cloud.png )
+1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate` next to the `crypto_ticks` hypertable**
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**
+   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-console.png )
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql
    CREATE MATERIALIZED VIEW assets_candlestick_daily
@@ -357,7 +357,7 @@ To set up data tiering:
    
    1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
 
-   ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-cloud-console.png)
+      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-console.png)
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 

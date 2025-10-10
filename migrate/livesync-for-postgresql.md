@@ -19,7 +19,7 @@ $SERVICE_SHORT, in real time. You run the connector continuously, turning $PG in
 $SERVICE_SHORT as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on 
 your replica data.
 
-![Tiger connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-connector-overview.png)
+![Tiger connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-connector-overview.png)
 
 The $PG_CONNECTOR in $CLOUD_LONG leverages the well-established $PG logical replication protocol. By relying on this protocol,
 $CLOUD_LONG ensures compatibility, familiarity, and a broader knowledge base—making it easier for you to adopt the connector
