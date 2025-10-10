@@ -33,7 +33,7 @@ Retrieve the connection details for your $SERVICE_LONG:
 
    Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in `Service info` > `Connection info` > `More details`. If necessary, click `Forgot your password?` to get a new one.
 
-   ![Tiger service connection details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-service-connection-details.png)
+   ![Tiger service connection details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-service-connection-details.png)
 
 ## Find your project and service ID
 
