@@ -56,18 +56,18 @@ class TigerDataDocumentationGenerator:
             '$ENTERPRISE': 'Enterprise',
             
             # Product Variables
-            '$CLOUD_LONG': 'Tiger Cloud',
-            '$CLOUD_SHORT': 'Tiger Cloud',
+            '$CLOUD_LONG': 'Tiger',
+            '$CLOUD_SHORT': 'Tiger',
             '$LAKE_LONG': 'Tiger Lake',
             '$LAKE_SHORT': 'Tiger Lake',
             '$TIMESCALE_DB': 'TimescaleDB',
             '$PRODUCTS_ALL': 'TigerData products',
-            '$PRODUCTS_CL_DB': 'Tiger Cloud and TimescaleDB',
+            '$PRODUCTS_CL_DB': 'Tiger and TimescaleDB',
             '$TDB_APACHE': 'TimescaleDB Apache 2 Edition',
             '$TDB_COMMUNITY': 'TimescaleDB Community Edition',
             
             # Service Variables
-            '$SERVICE_LONG': 'Tiger Cloud service',
+            '$SERVICE_LONG': 'Tiger service',
             '$SERVICE_SHORT': 'service',
             '$MST_LONG': 'Managed Service for TimescaleDB',
             '$MST_SHORT': 'MST',
@@ -75,7 +75,7 @@ class TigerDataDocumentationGenerator:
             '$MST_SERVICE_LONG': 'service',
             '$MST_CONSOLE_SHORT': 'MST Console',
             '$CONSOLE': 'Console',
-            '$CONSOLE_LONG': 'Tiger Cloud Console',
+            '$CONSOLE_LONG': 'Tiger Console',
             '$CONSOLE_SHORT': 'Console',
             '$SELF_LONG': 'self-hosted TimescaleDB',
             '$SELF_SHORT': 'self-hosted TimescaleDB',

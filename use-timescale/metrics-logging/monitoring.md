@@ -1,6 +1,6 @@
 ---
 title: Monitor your Tiger services
-excerpt: View logs, metrics, and performance insights for your services in Tiger Cloud. Get actionable tips to improve your service performance
+excerpt: View logs, metrics, and performance insights for your services in Tiger. Get actionable tips to improve your service performance
 products: [cloud]
 price_plans: [performance, scale, enterprise]
 keywords: [monitoring]
@@ -13,7 +13,7 @@ Get complete visibility into your $SERVICE_SHORT performance with $CLOUD_LONG's 
 
 When something doesn't look right, $CLOUD_LONG provides a complete investigation workflow:
 
-![Monitoring suite in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-monitoring-workflow-diagram.svg)
+![Monitoring suite in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-monitoring-workflow-diagram.svg)
 
 1. **Pinpoint the bottleneck**: check [**Metrics**][metrics] to identify exactly when CPU, memory, or storage spiked.
 1. **Find the root cause**: review [**Logs**][logs] for errors or warnings that occurred during the incident.

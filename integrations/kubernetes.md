@@ -1,8 +1,8 @@
 ---
-title: Integrate Kubernetes with Tiger Cloud
+title: Integrate Kubernetes with Tiger
 excerpt: Learn how to integrate Kubernetes with Tiger to enable seamless deployment and scaling of your Postgres workloads
 products: [cloud, self_hosted]
-keywords: [Kubernetes, Tiger Cloud, PostgreSQL, container orchestration]
+keywords: [Kubernetes, Tiger, PostgreSQL, container orchestration]
 ---
 
 import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx";
@@ -24,7 +24,7 @@ To follow the steps on this page:
 
 <Tabs persistKey="source-database">
 
-<Tab title="Tiger Cloud" label="tiger-cloud">
+<Tab title="Tiger" label="tiger-cloud">
 
 To connect your Kubernetes cluster to your $SERVICE_LONG:
 

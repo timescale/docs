@@ -1,5 +1,5 @@
 ---
-title: Integrate Apache Airflow with Tiger Cloud
+title: Integrate Apache Airflow with Tiger
 excerpt: Apache Airflow is a platform to programmatically author, schedule, and monitor workflows. Integrate Apache Airflow with Tiger and create a data pipeline
 products: [cloud, self_hosted]
 keywords: [connect, integrate, apache, airflow]

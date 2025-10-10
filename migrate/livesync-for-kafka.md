@@ -40,7 +40,7 @@ Take the following steps to prepare your Kafka cluster for connection to $CLOUD_
        1. Enter the following details:
        
           - Name: `tigerdata-access` 
-          - Description: `Service account for the Tiger Cloud source connector`
+          - Description: `Service account for the Tiger source connector`
 
        1. Add the service account owner role, then click `Next`.
       
@@ -62,7 +62,7 @@ Take the following steps to prepare your Kafka cluster for connection to $CLOUD_
        1. Use the same procedure to add the following keys:
           - ACL 2: Topic access
             - `Resource type`: `Topic`
-            - `Topic name`: Select the topics that Tiger Cloud should read
+            - `Topic name`: Select the topics that Tiger should read
             - `Pattern type`: `LITERAL`
             - `Operation`: `READ`
             - `Permission`: `ALLOW`
@@ -94,7 +94,7 @@ $CLOUD_LONG requires access to the Schema Registry to fetch schemas for Kafka to
       2. In `Create API Key`, add the following, then click `Create API Key` :
       
          - `Name`: `tigerdata-schema-registry-access`
-         - `Description`: `API key for Tiger Cloud schema registry access`
+         - `Description`: `API key for Tiger schema registry access`
 
       1. Click `Download API Key` and securely store the API key and secret, then click `Complete`.
    

@@ -26,7 +26,7 @@ Configure Terraform based on your deployment type:
 
 <Tabs label="Configure Terraform for your service" persistKey="source-database">
 
-<Tab title="Tiger Cloud" label="tiger-cloud">
+<Tab title="Tiger" label="tiger-cloud">
 
 You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE_LONGs:
 

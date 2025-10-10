@@ -1,5 +1,5 @@
 ---
-title: Integrate Datadog with Tiger Cloud
+title: Integrate Datadog with Tiger
 excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Tiger service with time-series and analytics capability to Datadog
 products: [cloud]
 price_plans: [scale, enterprise]

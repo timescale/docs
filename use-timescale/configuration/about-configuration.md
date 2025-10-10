@@ -1,6 +1,6 @@
 ---
-title: About configuration in Tiger Cloud
-excerpt: Tiger configures your service automatically based on your compute and storage settings. However, you can also configure a wide range af advanced parameters in Tiger Cloud Console
+title: About configuration in Tiger
+excerpt: Tiger configures your service automatically based on your compute and storage settings. However, you can also configure a wide range af advanced parameters in Tiger Console
 products: [cloud]
 keywords: [configuration, memory, workers, settings]
 ---

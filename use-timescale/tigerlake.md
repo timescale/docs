@@ -1,5 +1,5 @@
 ---
-title: Integrate data lakes with Tiger Cloud
+title: Integrate data lakes with Tiger
 excerpt: Unifies the Tiger operational architecture with data lake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 products: [cloud]
 price_plans: [scale, enterprise]

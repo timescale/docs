@@ -1,6 +1,6 @@
 ---
 title: Client credentials
-excerpt: Tiger lets you use client credentials to programmatically access resources instead of using username and password. Set up client credentials in Tiger Cloud console
+excerpt: Tiger lets you use client credentials to programmatically access resources instead of using username and password. Set up client credentials in Tiger console
 products: [cloud]
 keywords: [client credentials, accounts, prgrammatic access]
 tags: [authentication tokens]

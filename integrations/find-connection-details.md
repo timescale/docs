@@ -19,7 +19,7 @@ Find the connection details based on your deployment type:
 
 <Tabs label="Connection details" persistKey="source-database">
 
-<Tab title="Tiger Cloud" label="tiger-cloud">
+<Tab title="Tiger" label="tiger-cloud">
 
 ## Connect to your service
 
