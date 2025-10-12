@@ -346,9 +346,10 @@ data lake:
 ## Limitations
 
 * Service requires $PG 17.6 and above is supported.
-* Consistent ingestion rates of over 50000 records / second can lead to a lost replication slot.
+* Consistent ingestion rates of over 30000 records / second can lead to a lost replication slot. Burst can be feathered out over time. 
 * [Amazon S3 Tables Iceberg REST][aws-s3-tables] catalog only is supported.
 * In order to collect deletes made to data in the columstore, certain columnstore optimizations are disabled for $HYPERTABLEs.
+* [Direct Compress][direct-compress] is not supported.
 * The `TRUNCATE` statement is not supported, and does not truncate data in the corresponding Iceberg table.
 * Data in a $HYPERTABLE that has been moved to the [low-cost object storage tier][data-tiering] is not synced.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
@@ -372,3 +373,4 @@ data lake:
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [aws-s3-tables]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[direct-compress]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#speed-up-data-ingestion
