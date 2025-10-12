@@ -319,6 +319,30 @@ data lake:
    When you change the partition, you **do not** have to pause the sync to Iceberg. 
    Apache Iceberg handles the partitioning operation in function of the internal implementation.
 
+**Specify a different namespace**
+
+   Tables are created, by default in the the `timescaledb` namespace, use the `tigerlake.iceberg_namespace` property to specify a different namespace when starting the sync through the following statement:
+   
+   ```sql
+   ALTER TABLE my_hypertable SET (
+     tigerlake.iceberg_sync = true,
+     tigerlake.iceberg_namespace = 'my_namespace'
+   );
+   ```
+
+**Specify a different Iceberg table name**
+
+   The table name in Iceberg is the same as the source table in $CLOUD_LONG. 
+   Some services do not allow mixed case or have other constraints for table names. 
+   With the `tigerlake.iceberg_table` property a different table name for the Iceberg table can be defined on sync start.
+   
+   ```sql
+   ALTER TABLE Mixed_CASE_TableNAME SET (
+     tigerlake.iceberg_sync = true,
+     tigerlake.iceberg_table = 'my_table_name'
+   );
+   ```
+
 ## Limitations
 
 * Service requires $PG 17.6 and above is supported.
