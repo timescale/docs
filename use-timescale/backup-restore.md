@@ -1,5 +1,5 @@
 ---
-title: Back up and fork your Tiger Cloud services
+title: Back up, fork, and recover services
 excerpt: Tiger Cloud backs up your data, making sure you always have something to fall back on for disaster recovery
 products: [cloud]
 keywords: [backups, restore]
@@ -8,7 +8,7 @@ tags: [recovery, failures]
 
 import CLIFORKS from "versionContent/_partials/_devops-cli-service-forks.mdx";
 
-# Back up and fork your $SERVICE_SHORTs
+# Back up, fork, and recover $SERVICE_SHORT
 
 $CLOUD_LONG provides comprehensive backup and recovery solutions to protect your data, including automatic daily backups, 
 cross-region protection, point-in-time recovery, and development forks for testing and collaboration.
