@@ -1,6 +1,6 @@
 ---
-title: Back up and recover your Tiger Cloud services
-excerpt: See how and when Tiger Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
+title: Back up and recover your Tiger services
+excerpt: See how and when Tiger backs up your data, making sure you always have something to fall back on in case of disaster recovery
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]
@@ -17,7 +17,7 @@ On [$SCALE and $PERFORMANCE][pricing-and-account-management] $PRICING_PLANs, you
 
 Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. This means that you always have a full backup available for the current and previous week: 
 
-![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
+![Backup in Tiger](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
 In the event of a storage failure, a $SERVICE_SHORT automatically recovers from a backup
 to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, you can [create a point-in-time recovery fork][create-fork].
@@ -36,7 +36,7 @@ You enable cross-region backup when you create a $SERVICE_SHORT, or configure it
 
 1. In `Cross-region backup`, select the region in the dropdown and click `Enable backup`. 
 
-   ![Create cross-region backup](https://assets.timescale.com/docs/images/tiger-on-azure/create-cross-region-backup-in-tiger-cloud.png)
+   ![Create cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/create-cross-region-backup-in-tiger-console.png)
 
    You can now see the backup, its region, and creation date in a list. 
 
@@ -50,7 +50,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 1. Click the trash icon next to the existing backup to disable it. 
 
-   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-on-azure/cross-region-backup-list-in-tiger-cloud.png)
+   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/cross-region-backup-list-in-tiger-console.png)
 
 1. Create a new backup in a different region. 
 
@@ -72,7 +72,7 @@ To avoid paying for compute for the recovery fork and the original $SERVICE_SHOR
 
 You initiate a point-in-time recovery from a same-region or cross-region backup in $CONSOLE_LONG:
 
-<Tabs label="Point-in-time recovery in Tiger Cloud Console">
+<Tabs label="Point-in-time recovery in Tiger Console">
 
 <Tab title="Same-region backup">
 
@@ -84,7 +84,7 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 1.  Select the recovery point, ensuring the correct time zone (UTC offset).
 1.  Configure the fork.
 
-    ![Create recovery fork](https://assets.timescale.com/docs/images/tiger-cloud-console/create-recovery-fork-tiger-cloud.png)
+    ![Create recovery fork](https://assets.timescale.com/docs/images/tiger-cloud-console/create-recovery-fork-tiger-console.png)
 
     You can configure the compute resources, add an HA replica, tag your fork, and
     add a connection pooler. Best practice is to match

@@ -1,6 +1,6 @@
 ---
 title: Export metrics to Datadog
-excerpt: Datadog is a cloud-based monitoring, observability, and security platform. Create an exporter in Tiger Cloud and export telemetry metrics of your service
+excerpt: Datadog is a cloud-based monitoring, observability, and security platform. Create an exporter in Tiger and export telemetry metrics of your service
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integration, metrics, datadog, alerting]

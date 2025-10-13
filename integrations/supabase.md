@@ -1,6 +1,6 @@
 ---
-title: Integrate Supabase with Tiger Cloud
-excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Tiger Cloud
+title: Integrate Supabase with Tiger
+excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Tiger
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---

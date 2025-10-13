@@ -1,6 +1,6 @@
 ---
 title: Configure database parameters
-excerpt: Customize standard Postgres configuration and specific Tiger Cloud options for each service individually
+excerpt: Customize standard Postgres configuration and specific Tiger options for each service individually
 products: [cloud]
 keywords: [configure, services, settings]
 cloud_ui:
@@ -30,9 +30,9 @@ restart is modifying the compute resources of a running $SERVICE_SHORT.
 
 To modify configuration parameters, first select the $SERVICE_SHORT that you want to
 modify. This displays the $SERVICE_SHORT details, with these tabs across the top:
-`Overview`, `Actions`, `Explorer`, `Monitoring`, `SQL Editor`, `Operations`, and `AI`. Select `Operations`, then `Database parameters`.
+`Overview`, `Actions`, `Explorer`, `Monitoring`, `Connections`, `SQL Editor`, `Operations`, and `AI`. Select `Operations`, then `Database parameters`.
 
-![Database configuration parameters](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-cloud-service-configuration-parameters.png)
+![Database configuration parameters](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-service-configuration-parameters.png)
 
 ### Modify basic parameters
 
@@ -45,7 +45,7 @@ outside of that field saves the value to be applied.
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-change.webp"
-alt="Change Tiger Cloud configuration parameters"/>
+alt="Change Tiger configuration parameters"/>
 
 ### Apply configuration changes
 
@@ -60,6 +60,6 @@ required. Click `Confirm` to apply the changes, and restart if necessary.
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-confirm.webp"
-alt="Confirm Tiger Cloud configuration changes"/>
+alt="Confirm Tiger configuration changes"/>
 
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan

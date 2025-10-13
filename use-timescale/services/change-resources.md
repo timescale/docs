@@ -1,6 +1,6 @@
 ---
 title: Manually change compute resources
-excerpt: Tiger Cloud charges for the storage you actually use, and handles disk resize for you. You can also manually resize the compute resources available to your Tiger Cloud services with minimal downtime
+excerpt: Tiger charges for the storage you actually use, and handles disk resize for you. You can also manually resize the compute resources available to your Tiger services with minimal downtime
 products: [cloud]
 keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]
@@ -24,7 +24,7 @@ You can change the CPU and memory allocation for your $SERVICE_SHORT at any time
 minimal downtime, usually less than a minute. The new resources become available as soon as 
 the $SERVICE_SHORT restarts. You can change the CPU and memory allocation up or down, as frequently as required. 
 
-![Change resources](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-cloud-console-update-cpu-manually.png)
+![Change resources](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-update-cpu-manually.png)
 
 Note that:
 
