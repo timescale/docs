@@ -7,7 +7,7 @@ tags: [hypertable columnstore, columnstore settings]
 api:
   license: community
   type: view
-products: [cloud, self_hosted]
+products: [cloud, mst, self_hosted]
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
