@@ -1,7 +1,7 @@
 As we enhance our offerings and align them with your evolving needs,
 $PRICING_PLANs provide more value, flexibility, and efficiency for your business.
 Whether you're a growing startup or a well-established enterprise, our plans
-are structured to support your journey towards greater success.
+are structured to support your journey towards greater success. This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
 
 $PRICING_PLAN_CAPs give you:
 
@@ -18,4 +18,6 @@ $PRICING_PLAN_CAPs give you:
 * **Cost efficiency**: by aligning our pricing with the value delivered, we ensure that you get the most
   out of every dollar spent. Our goal is to help you achieve more with less.
 
-Using $SELF_LONG and our open-source products is still free. 
+It’s that simple! You don't pay for automated backups or networking costs, such as data ingest or egress. There are no per-query fees, nor additional costs to read or write data. It's all completely transparent, easily understood, and up to you.
+
+Using $SELF_LONG and our open-source products is still free.

@@ -1,4 +1,4 @@
-### $CLOUD_LONG free trial for the different price plans
+## $CLOUD_LONG free trial for the different price plans
 
 We offer new users a free, 30-day trial period of our $PERFORMANCE plan with no credit card required.  
 During your trial, you can contact $CONTACT_SALES to request information about, and access

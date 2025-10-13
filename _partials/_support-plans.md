@@ -1,4 +1,4 @@
-### $COMPANY support
+## $COMPANY support
 
 $COMPANY runs a global support organization with Customer Satisfaction (CSAT) scores above 99%.
 Support covers all timezones, and is fully staffed at weekend hours.

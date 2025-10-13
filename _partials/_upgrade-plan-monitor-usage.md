@@ -1,11 +1,11 @@
-### Upgrade or downgrade your pricing plans at any time
+## Upgrade or downgrade your pricing plans at any time
 
 You can easily upgrade or downgrade between the $PERFORMANCE and $SCALE plans
 whenever you want using [$CONSOLE][cloud-login]. If you switch your $PRICING_PLAN mid-month,
 your prices are prorated to when you switch. Your $SERVICE_SHORTs are not interrupted when you switch, so
 you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY][contact-company].
 
-### Monitor usage and costs
+## Monitor usage and costs
 
 You keep track of your monthly usage in [$CONSOLE][cloud-billing]. $CONSOLE_SHORT shows your
 resource usage and dashboards with performance insights. This allows you to closely monitor your
