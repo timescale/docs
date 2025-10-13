@@ -4,7 +4,7 @@
 1.  **Click `New exporter`**
 1.  **Select the data type and specify `AWS CloudWatch` for provider**
 
-    ![Add CloudWatch data exporter](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-integrations-cloudwatch.png)
+    ![Add CloudWatch data exporter](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-integrations-cloudwatch.png)
 
 1.  **Provide your AWS CloudWatch configuration**
 

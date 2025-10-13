@@ -82,6 +82,41 @@ arguments specific to $TIMESCALE_DB.
    );
    ```
 
+- **Create a $HYPERTABLE partitioned using [UUIDv7][uuidv7_functions]**:
+
+   <Terminal>
+
+    <tab label='Postgres 17 and lower'>
+  
+    ```sql
+     -- For optimal compression on the ID column, first enable UUIDv7 compression 
+     SET enable_uuid_compression=true;
+     -- Then create your table
+     CREATE TABLE events (
+        id  uuid PRIMARY KEY DEFAULT generate_uuidv7(),
+        payload jsonb
+     ) WITH (tsdb.hypertable, tsdb.partition_column = 'id');   
+    ```
+    </tab>
+
+    <tab label='Postgres v18'>
+
+     ```sql
+     -- For optimal compression on the ID column, first enable UUIDv7 compression 
+     SET enable_uuid_compression=true;
+     -- Then create your table
+     CREATE TABLE events (
+        id  uuid PRIMARY KEY DEFAULT uuidv7(),
+        payload jsonb
+     ) WITH (tsdb.hypertable, tsdb.partition_column = 'id');   
+    ```    
+   
+    </tab>
+
+    </Terminal> 
+
+   
+
 - **Enable data compression during ingestion**:
 
     <HypercoreDirectCompress />
@@ -95,7 +130,6 @@ arguments specific to $TIMESCALE_DB.
      ```sql
      COPY t FROM '/tmp/t.binary' WITH (format binary);
      ```
-   
 
 - **Create a $PG relational table**:
    ```sql
@@ -123,7 +157,7 @@ WITH (
    tsdb.associated_table_prefix = '<prefix>'
    tsdb.orderby = '<column_name> [ASC | DESC] [ NULLS { FIRST | LAST } ] [, ...]',
    tsdb.segmentby = '<column_name> [, ...]',
-   tsdb.index = '<index>(<column_name>), index(<column_name>)'
+   tsdb.sparse_index = '<index>(<column_name>), index(<column_name>)'
 )
 ```
 
@@ -137,7 +171,7 @@ WITH (
 | `tsdb.associated_table_prefix` |TEXT| `_hyper`                                                                                                                                                                                                                          | ✖  | Set the prefix for the names of internal hypertable chunks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `tsdb.orderby`                 |TEXT| Descending order on the time column in `table_name`.                                                                                                                                                                              | ✖| The order in which items are used in the $COLUMNSTORE. Specified in the same way as an `ORDER BY` clause in a `SELECT` query. Setting `tsdb.orderby` automatically creates an implicit min/max sparse index on the `orderby` column.                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `tsdb.segmentby`               |TEXT| $TIMESCALE_DB looks at [`pg_stats`](https://www.postgresql.org/docs/current/view-pg-stats.html) and determines an appropriate column based on the data cardinality and distribution. If `pg_stats` is not available, $TIMESCALE_DB looks for an appropriate column from the existing indexes. | ✖| Set the list of columns used to segment data in the $COLUMNSTORE for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|`tsdb.index`| TEXT | $TIMESCALE_DB evaluates the columns you already have indexed, checks which data types are a good fit for sparse indexing, then creates a sparse index as an optimization.                                                         | ✖ | Configure the sparse indexes for compressed chunks. Requires setting `tsdb.orderby`. Supported index types include: <li> `bloom(<column_name>)`: a probabilistic index, effective for `=` filters. Cannot be applied to `tsdb.orderby` columns.</li> <li> `minmax(<column_name>)`: stores min/max values for each compressed chunk. Setting `tsdb.orderby` automatically creates an implicit min/max sparse index on the `orderby` column. </li> Define multiple indexes using a comma-separated list. You can set only one index per column. Set to an empty string to avoid using sparse indexes and explicitly disable the default behavior. |
+|`tsdb.sparse_index`| TEXT | $TIMESCALE_DB evaluates the columns you already have indexed, checks which data types are a good fit for sparse indexing, then creates a sparse index as an optimization.                                                         | ✖ | Configure the sparse indexes for compressed chunks. Requires setting `tsdb.orderby`. Supported index types include: <li> `bloom(<column_name>)`: a probabilistic index, effective for `=` filters. Cannot be applied to `tsdb.orderby` columns.</li> <li> `minmax(<column_name>)`: stores min/max values for each compressed chunk. Setting `tsdb.orderby` automatically creates an implicit min/max sparse index on the `orderby` column. </li> Define multiple indexes using a comma-separated list. You can set only one index per column. Set to an empty string to avoid using sparse indexes and explicitly disable the default behavior. |
 
 
 
@@ -175,3 +209,4 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
+[uuidv7_functions]: /api/:currentVersion:/uuid-functions/

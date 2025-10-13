@@ -33,10 +33,10 @@ This section shows you how to:
 
 In order to \<a couple of words that sound like the title> you need the following:
 
-*  A [Tiger Cloud service][create-a-service]
+*  A [Tiger service][create-a-service]
 *  If you are using this template to write a new document, see some good doc examples:
-   * [Create your first Tiger Cloud service][create-a-service]
-   * [Secure your Tiger Cloud service with VPC Peering and AWS PrivateLink][secure-vpc-aws]
+   * [Create your first Tiger service][create-a-service]
+   * [Secure your Tiger service with VPC Peering and AWS PrivateLink][secure-vpc-aws]
    * [Install TimescaleDB on Linux][install-linux]
 * Read the [Google Developer Style Guide][gdsg] 
 * ...

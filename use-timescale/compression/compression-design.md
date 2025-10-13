@@ -1,6 +1,6 @@
 ---
 title: Designing your database for compression
-excerpt: Data compression can save you up to 90% of storage space. Learn how to design your Tiger Cloud service to achieve the best data compression results
+excerpt: Data compression can save you up to 90% of storage space. Learn how to design your Tiger service to achieve the best data compression results
 products: [cloud, mst, self_hosted]
 keywords: [compression, schema, tables]
 ---
