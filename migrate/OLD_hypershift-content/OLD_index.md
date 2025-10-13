@@ -1,6 +1,6 @@
 ---
-title: Migrate your data to Tiger Cloud
-excerpt: Migrate existing database to Tiger Cloud
+title: Migrate your data to Tiger
+excerpt: Migrate existing database to Tiger
 products: [cloud]
 keywords: [data migration, postgresql, hypershift, RDS]
 tags: [ingest, migrate, RDS]

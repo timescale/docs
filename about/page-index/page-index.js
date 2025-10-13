@@ -17,7 +17,7 @@ module.exports = [
       {
         title: "Pricing plans and account management",
         href: "pricing-and-account-management",
-        excerpt: "Pricing plans for Tiger Cloud services",
+        excerpt: "Pricing plans for Tiger services",
       },
       {
         title: "Feature comparison",

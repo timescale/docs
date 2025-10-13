@@ -1,6 +1,6 @@
 ---
 title: Service explorer
-excerpt: Service explorer in Tiger Cloud provides a rich administrative dashboard for understanding the state of your services. Get insight into the performance and structure of your service
+excerpt: Service explorer in Tiger provides a rich administrative dashboard for understanding the state of your services. Get insight into the performance and structure of your service
 products: [cloud]
 keywords: [services, hypertables, schemas, indexes, policies]
 cloud_ui:
@@ -30,7 +30,7 @@ summary of your $SERVICE_SHORT, including all your hypertables and
 relational tables. It summarizes your overall compression ratios, and other
 policy and continuous aggregate data. And, if you aren't already using key features like continuous aggregates, columnstore compression, or other automation policies and actions, it provides pointers to tutorials and documentation to help you get started.
 
-![Service explorer](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-service-explorer.png)
+![Service explorer](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-service-explorer.png)
 
 ## Tables
 
@@ -43,7 +43,7 @@ ranges, and columnstore compression status.
 From this section, you can also set an automated policy to compress chunks into the columnstore. For more information,
 see the [hypercore documentation][hypercore].
 
-![Service explorer tables](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-service-explorer-tables.png)
+![Service explorer tables](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-columstore-data-savings.png)
 
 
 For more information about hypertables, see the
@@ -55,7 +55,7 @@ In the `Continuous aggregate` section, you can see all your continuous
 aggregates, including top-level information such as their size, whether they are
 configured for real-time aggregation, and their refresh periods.
 
-![Service explorer caggs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-service-explorer-caggs.png)
+![Service explorer caggs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-service-explorer-caggs.png)
 
 For more information about continuous aggregates, see the
 [continuous aggregates section][caggs].
