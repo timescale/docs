@@ -68,11 +68,11 @@ of recovery.
 
 All tiered data remains recoverable during the PITR period. When restoring to any point-in-time recovery fork, your
 $SERVICE_SHORT contains all data that existed at that moment - whether it was stored in high-performance or low-cost
-storage. PITR works in the following way:
+storage. 
 
 - **Recovery behavior**
   - Data restored from a PITR point is placed into high-performance storage
-  - The original tiered data remains in as a separate copy
+  - The tiered data, as of that point in time, remains in tiered storage
   - The $SERVICE_SHORT state matches the recovery point exactly, including tiered chunk references in the OSM catalog
 
 - **Reference tracking**
