@@ -20,7 +20,7 @@ Each major doc section has a dedicated directory with `.md` files inside, repres
   - A short intro describing the main subject of the page.
   - A visual illustrating the main concept, if relevant.
   - Paragraphs with descriptive headers, organizing the content into logical sections. 
-  - Procedures to describe the sequence of steps to reach a certain goal. For example, create a Tiger Cloud service. 
+  - Procedures to describe the sequence of steps to reach a certain goal. For example, create a Tiger service. 
   - Other visual aids, if necessary.
   - Links to other relevant resources. 
 
@@ -54,22 +54,22 @@ The navigation hierarchy of a doc section is governed by `page-index/page-index.
 
 ```js
      {
-        title: "Tiger Cloud services",
+        title: "Tiger services",
         href: "services",
-        excerpt: "About Tiger Cloud services",
+        excerpt: "About Tiger services",
         children: [
           {
             title: "Services overview",
             href: "service-overview",
-            excerpt: "Tiger Cloud services overview",
+            excerpt: "Tiger services overview",
           },
           {
             title: "Service explorer",
             href: "service-explorer",
-            excerpt: "Tiger Cloud services explorer",
+            excerpt: "Tiger services explorer",
           },
           {
-            title: "Troubleshooting Tiger Cloud services",
+            title: "Troubleshooting Tiger services",
             href: "troubleshooting",
             type: "placeholder",
           },
@@ -113,7 +113,7 @@ See [Formatting examples][formatting] for how to use them.
 
 ## Variables
 
-TigerData documentation uses variables for its product names, features, and UI elements in Tiger Cloud Console with the following syntax: `$VARIABLE_NAME`. Variables do not work inside the following: 
+TigerData documentation uses variables for its product names, features, and UI elements in Tiger Console with the following syntax: `$VARIABLE_NAME`. Variables do not work inside the following: 
 
 - Front matter on each page
 - HTML tables and tabs 
@@ -145,8 +145,8 @@ To make a documentation page more visible and clear for Google:
 - Summarize the contents of each paragraph in the first sentence of that paragraph. 
 - Include main page keywords into the meta tags, page title, first header, and intro. These are usually the names of features described in the page. For example, for a page dedicated to creating hypertables, you can use the keyword **hypertable** in the following way: 
 
-   - Title: Create a hypertable in Tiger Cloud
-   - Description: Turn a regular $PG table into a hypertable in a few steps, using Tiger Cloud Console. 
+   - Title: Create a hypertable in Tiger
+   - Description: Turn a regular $PG table into a hypertable in a few steps, using Tiger Console. 
    - First header: Create a hypertable
 
 ## Docs for deprecated products
