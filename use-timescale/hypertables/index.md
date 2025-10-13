@@ -5,15 +5,12 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables]
 ---
 
-import HypertableIntro from 'versionContent/_partials/_hypertable-intro.mdx';
+import HypertableOverview from 'versionContent/_partials/_hypertable-intro.mdx';
 import ChunkInterval from "versionContent/_partials/_chunk-interval.mdx";
 
 # Hypertables
 
-<HypertableIntro />
-
-![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
-
+<HypertableOverview />
 
 ## Partition by time
 
@@ -23,12 +20,12 @@ a range of time, and only contains data from that range.
 
 ### Time partitioning
 
+Typically, you partition $HYPERTABLEs on columns that hold time values.
+[Best practice is to use `timestamptz`][timestamps-best-practice] column type. However, you can also partition on
+`date`, `integer`, `timestamp` and [UUIDv7][uuidv7_functions] types.
+
 By default, each $HYPERTABLE chunk holds data for 7 days. You can change this to better suit your
 needs. For example, if you set `chunk_interval` to 1 day, each chunk stores data for a single day.
-
-The following figure shows the difference in structure between a relational table and a hypertable:
-
-![Compare a relational table to a hypertable](https://assets.timescale.com/docs/images/getting-started/hypertables-chunks.webp)
 
 $TIMESCALE_DB divides time into potential chunk ranges, based on the `chunk_interval`. Each $HYPERTABLE chunk holds 
 data for a specific time range only. When you insert data from a time range that doesn't yet have a chunk, $TIMESCALE_DB
@@ -40,22 +37,60 @@ might be a time gap between the start time and the earliest timestamp. This
 doesn't affect your usual interactions with your $HYPERTABLE, but might affect
 the number of chunks you see when inspecting it.
 
+## Best practices for scaling and partitioning
+
+Best practices for maintaining a high performance when scaling include:
+
+- Limit the number of $HYPERTABLEs in your $SERVICE_SHORT; having tens of thousands of $HYPERTABLEs is not recommended.
+- Choose a strategic chunk size.
+
+Chunk size affects insert and query performance. You want a chunk small enough
+to fit into memory so you can insert and query recent data without
+reading from disk. However, having too many small and sparsely filled chunks can
+affect query planning time and compression. The more chunks in the system, the slower that process becomes, even more so
+when all those chunks are part of a single hypertable.
+
+<ChunkInterval />
+
+For a detailed analysis of how to optimize your chunk sizes, see the
+[blog post on chunk time intervals][blog-chunk-time]. To learn how
+to view and set your chunk time intervals, see 
+[Optimize $HYPERTABLE chunk intervals][change-chunk-intervals].
+
+## $HYPERTABLE_CAP indexes
+
+By default, indexes are automatically created when you create a $HYPERTABLE. The default index is on time, descending.
+You can prevent index creation by setting the `create_default_indexes` option to `false`.
+
+$HYPERTABLE_CAPs have some restrictions on unique constraints and indexes. If you
+want a unique index on a $HYPERTABLE, it must include all the partitioning
+columns for the table. To learn more, see 
+[Enforce constraints with unique indexes on $HYPERTABLEs][hypertables-and-unique-indexes].
+
+You can prevent index creation by setting the `create_default_indexes` option to `false`.
+
 ## Partition by dimension
 
 Partitioning on time is the most common use case for $HYPERTABLE, but it may not be enough for your needs. For example,
 you may need to scan for the latest readings that match a certain condition without locking a critical $HYPERTABLE.
-Best practice to optimize ingest and query performance is to add a partitioning dimension on a non-time column such as
-location or device UUID, and specify a number of partitions.
 
-You add a partitioning dimension at the same time as you create the hypertable, when the table is empty. The good news 
-is that although you select the number of partitions at creation time, as your data grows you can change the number of 
-partitions later and improve query performance. Changing the number of partitions only affects chunks created after the 
-change, not existing chunks. To set the number of partitions for a partitioning dimension, call `set_number_partitions`. 
+<Highlight type="note">
+
+The use case for a partitioning dimension is a multi-tenant setup. You isolate the tenants using the `tenant_id` space
+partition. However, you must perform extensive testing to ensure this works as expected, and there is a strong risk of
+partition explosion.
+
+</Highlight>
+
+You add a partitioning dimension at the same time as you create the hypertable, when the table is empty. The good news
+is that although you select the number of partitions at creation time, as your data grows you can change the number of
+partitions later and improve query performance. Changing the number of partitions only affects chunks created after the
+change, not existing chunks. To set the number of partitions for a partitioning dimension, call `set_number_partitions`.
 For example:
 
 <Procedure>
 
-1. **Create the $HYPERTABLE with 1 day interval chunk interval**
+1. **Create the $HYPERTABLE with the 1-day interval chunk interval**
 
    ```sql
    CREATE TABLE conditions(
@@ -85,44 +120,6 @@ For example:
 
 </Procedure>
 
-## Best practices for scaling and partitioning
-
-Best practices for maintaining a high performance when scaling include:
-
-- Limit the number of $HYPERTABLEs in your $SERVICE_SHORT; having tens of thousands of $HYPERTABLEs is not recommended.
-- Choose a strategic chunk size.
-
-Chunk size affects insert and query performance. You want a chunk small enough
-to fit into memory so you can insert and query recent data without
-reading from disk. However, having too many small and sparsely filled chunks can
-affect query planning time and compression. The more chunks in the system, the slower that process becomes, even more so
-when all those chunks are part of a single hypertable.
-
-<ChunkInterval />
-
-For a detailed analysis of how to optimize your chunk sizes, see the
-[blog post on chunk time intervals][blog-chunk-time]. To learn how
-to view and set your chunk time intervals, see how to
-[Optimize $HYPERTABLE chunk intervals][change-chunk-intervals].
-
-## $HYPERTABLE_CAP indexes
-
-By default, indexes are automatically created when you create a $HYPERTABLE. The default index is on time, descending.
-You can prevent index creation by setting the `create_default_indexes` option to `false`.
-
-$HYPERTABLE_CAPs have some restrictions on unique constraints and indexes. If you
-want a unique index on a $HYPERTABLE, it must include all the partitioning
-columns for the table. To learn more, see 
-[Enforce constraints with unique indexes on $HYPERTABLEs][hypertables-and-unique-indexes].
-
-You can prevent index creation by setting the `create_default_indexes` option to `false`.
-
-This section shows you:
-
-* [Optimize time-series data in hypertables][create-hypertables]
-* [Improve hypertable and query performance][change-chunk-intervals]
-* [Enforce constraints with unique indexes][hypertables-and-unique-indexes]
-* [Troubleshooting][troubleshooting]
 
 [about-distributed-hypertables]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
 [best-practices-space]: #best-practices-for-space-partitioning
@@ -134,3 +131,5 @@ This section shows you:
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
 [troubleshooting]: /use-timescale/:currentVersion:/hypertables/troubleshooting/
+[timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[uuidv7_functions]: /api/:currentVersion:/uuid-functions/

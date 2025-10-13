@@ -1,6 +1,6 @@
 ---
-title: About Tiger Cloud storage tiers 
-excerpt: Learn how Tiger Cloud helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
+title: About Tiger storage tiers 
+excerpt: Learn how Tiger helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [tiered storage]
@@ -20,6 +20,8 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 <Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier. You use the high-performance tier for data that requires quick access, and the object tier for rarely used historical data. Tiering policies move older data asynchronously and periodically from high-performance to low-cost storage, sparing you the need to do it manually. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. 
+
+![$CLOUD_LONG tiered storage](https://assets.timescale.com/docs/images/timescale-tiered-storage-architecture.png)
 
 ## High-performance storage 
 
