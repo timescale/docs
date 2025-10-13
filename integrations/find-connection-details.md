@@ -44,12 +44,12 @@ To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LON
 1. **Retreive your project ID**:
 
    In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Copy` next to the project ID.
-   ![Retrive the project id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-project-id.png)
+   ![Retrive the project id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-project-id.png)
 
 1. **Retrieve your service ID**:
 
    Click the dots next to the service, then click `Copy` next to the service ID.
-   ![Retrive the service id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-service-id.png)
+   ![Retrive the service id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-id.png)
 
 </Procedure>
 
