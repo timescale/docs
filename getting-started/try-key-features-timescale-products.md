@@ -14,10 +14,13 @@ import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-
 # Try the key features in $COMPANY products
 
 $CLOUD_LONG offers managed database services that provide a stable and reliable environment for your
-applications. Each $SERVICE_SHORT is an instance of $TIGER_POSTGRES, a radically faster $PG for
-transactional, analytical and agentic workloads at scale.
+applications. 
 
-$CLOUD_LONG scales $TIGER_POSTGRES to ingest and query vast amounts of live data. $CLOUD_LONG 
+Each $SERVICE_LONG is a single optimised $PG instance extended with innovations such as $TIMESCALE_DB in the database 
+engine, in a cloud infrastructure that delivers speed without compromise. A radically faster $PG for transactional, 
+analytical and agentic workloads at scale.
+
+$CLOUD_LONG scales $PG to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
 costs down. For example: 
 * The $HYPERCORE row-columnar engine in $TIMESCALE_DB makes queries up to 350x faster, ingests 44% faster, and reduces 
@@ -79,7 +82,7 @@ relational and time-series data from external files.
     
        <Tabs label="Upload data" persistKey="sql-editor">
 
-       <Tab title="Tiger Cloud Console" label="data-mode">
+       <Tab title="Tiger Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.
@@ -207,7 +210,7 @@ For example, yesterday's market data.
    90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
    saved, click `Explorer` > `public` > `crypto_ticks`. 
 
-   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-columstore-data-savings.png )
+   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-columstore-data-savings.png )
 
 </Procedure>
 
@@ -219,7 +222,7 @@ $CAGG_CAPs are a kind of $HYPERTABLE that is refreshed automatically in
 the background as new data is added, or old data is modified. Changes to your dataset are tracked, 
 and the $HYPERTABLE behind the $CAGG is automatically updated in the background.
 
-![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png )
+![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png)
 
 You create $CAGGs on uncompressed data in high-performance storage. They continue to work 
 on [data in the $COLUMNSTORE][test-drive-enable-compression]
@@ -295,9 +298,9 @@ $CONSOLE. You can also do this using psql.
 <Procedure>
 
 1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to**
-1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate`** next to the `crypto_ticks` hypertable. 
-   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-cloud.png )
+1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate` next to the `crypto_ticks` hypertable**
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**
+   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-console.png )
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql
    CREATE MATERIALIZED VIEW assets_candlestick_daily
@@ -354,7 +357,7 @@ To set up data tiering:
    
    1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
 
-   ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-cloud-console.png)
+      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-console.png)
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
