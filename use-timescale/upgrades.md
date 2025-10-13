@@ -1,6 +1,6 @@
 ---
 title: Maintenance and upgrades
-excerpt: Keep your Tiger Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of Postgres
+excerpt: Keep your Tiger service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of Postgres
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:
@@ -88,6 +88,14 @@ $TIMESCALE_DB manually:
    - Click `⋮`, then `Pause` and `Resume` the service.
 
 </Procedure>
+
+
+Upgrading to a newer version of $PG allows you to take advantage of new
+features, enhancements, and security fixes. It also ensures that you are using a
+version of $PG that's compatible with the newest version of $TIMESCALE_DB,
+allowing you to take advantage of everything it has to offer. For more
+information about feature changes between versions, see the [$CLOUD_LONG release notes][timescale-changelog],
+[supported systems][supported-systems], and the [$PG release notes][postgres-relnotes].
 
 ## Deprecations
 
@@ -203,7 +211,7 @@ To change your maintenance window:
    In [$CONSOLE][cloud-login], select the $SERVICE_SHORT you want to manage.
 1. **Set your maintenance window**
    1. Click `Operations` > `Environment`, then click  `Change maintenance window`.
-       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-maintenance-upgrades.png)
+       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-maintenance-upgrades.png)
    1. Select the maintence window start time, then click `Apply`.
 
    Maintenance windows can run for up to four hours.
@@ -218,6 +226,8 @@ To change your maintenance window:
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
 [replicas-docs]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [status-page]: https://status.timescale.com/
+[timescale-changelog]: /about/:currentVersion:/changelog/
+[supported-systems]: /about/:currentVersion:/supported-platforms/#supported-systems
 [timescale-relnotes]: https://github.com/timescale/timescaledb/releases
 [deprecation-window]: /use-timescale/:currentVersion:/upgrades/#deprecations
 [minimize-downtime]: /use-timescale/:currentVersion:/upgrades/#minimize-downtime-with-replicas

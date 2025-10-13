@@ -10,6 +10,7 @@ import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.md
 import SelfHostedHomebrew from "versionContent/_partials/_install-self-hosted-homebrew-based.mdx";
 import SelfHostedMacports from "versionContent/_partials/_install-self-hosted-macports-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
+import MacosSupport from "versionContent/_partials/_timescaledb_supported_macos.mdx";
 
 # Install self-hosted $TIMESCALE_DB on macOS
 
@@ -72,14 +73,17 @@ This section shows you how to enable TimescaleDB for a new database in $PG using
 
 And that is it! You have TimescaleDB running on a database on a self-hosted instance of $PG.
 
+## Supported platforms
+
+You can deploy $TIMESCALE_DB on the following systems:
+
+<MacosSupport />
+
+For the latest functionality, install MacOS 14 Sonoma. 
 
 ## Where to next
 
  <WhereTo />
-
-## Supported platforms
-
-For the latest functionality, install MacOS 14 Sanoma. The oldest supported version is macOS 10.15 Catalina
 
 [homebrew]: https://docs.brew.sh/Installation
 [install-psql]: /integrations/:currentVersion:/psql/

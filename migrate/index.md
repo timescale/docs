@@ -1,22 +1,44 @@
 ---
-title: Migrate your data to Tiger Cloud
-excerpt: Migrate your existing database to Tiger Cloud - with downtime, live, with dual-write and backfill, or with livesync
-products: [cloud]
-keywords: [data migration, Postgres, RDS]
-tags: [ingest, migrate, RDS]
+title: Sync, import, and migrate your data to Tiger
+excerpt: In Tiger, you can easily import individual files, migrate from other databases, or sync directly so that your data from another source is continuously updated 
+products: [cloud, self_hosted]
+keywords: [import, sync, migrate, RDS]
+tags: [import, sync, migrate, RDS]
 ---
 
 import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_request.mdx"
 
+# Import and sync 
 
-# Migrate and sync data to $CLOUD_LONG
+In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from other sources. 
 
-You have chosen to migrate or sync your data to $CLOUD_LONG, thank you. 
+![Import and sync](https://assets.timescale.com/docs/images/tiger-cloud-console/import-sync-options-in-tiger-cloud.svg)
+
+This includes:
+
+- Sync or stream directly, so data from another source is continuously updated in your $SERVICE_SHORT.
+- Import individual files using $CONSOLE_LONG or the command line.
+- Migrate data from other databases.
+
+## Sync from $PG or S3
+
+$CLOUD_LONG provides source connectors for $PG, S3, and Kafka. You use them to synchronize all or some of your data to your $SERVICE_LONG in real time. You run the connectors continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you
+to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica data.
+
+| Connector options                        |  Downtime requirements |
+|------------------------------------------|-----------------------|
+| [$PG_CONNECTOR_CAP][livesync-postgres]   | None                  |
+| [$S3_CONNECTOR_CAP][livesync-s3]         | None                  |
+| [Source Kafka connector][livesync-kafka] | None                  |
+
+
+## Import individual files
+
+You can [import individual files using $CONSOLE_SHORT][import-console], from your local machine or S3. This includes CSV, Parquet, TXT, and MD files. Alternatively, [import files using the terminal][import-terminal].
 
 ## Migrate your data 
 
-Depending on the amount of data you need to migrate, and the amount of downtime you can afford. $COMPANY offers 
-the following ways to migrate your data:
+Depending on the amount of data you need to migrate, and the amount of downtime you can afford, $COMPANY offers the following migration options:
 
 | Migration strategy                         | Use when                                                                                                                    | Downtime requirements |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------|
@@ -32,29 +54,14 @@ in the [community slack](https://timescaledb.slack.com/signup#/domain-signup), t
 <OpenSupportRequest />
 
 If you're migrating your data from another source database type, best practice is export the data from your source database as 
-a `.csv` file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][parallel-copy]. For other ingestion methods, 
-see [Ingest data from other sources][data-ingest].
+a CSV file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][import-terminal].
 
-## Livesync your data
-
-You use $LIVESYNC to synchronize all or some of your data to your $SERVICE_LONG in real time. You run $LIVESYNC 
-continuously, using your data as a primary database and your $SERVICE_LONG as a logical replica. This enables you 
-to leverage $CLOUD_LONG’s real-time analytics capabilities on your replica data.
-
-| $LIVESYNC_CAP options                      |  Downtime requirements |
-|--------------------------------------------|-----------------------|
-| [$LIVESYNC_CAP for $PG][livesync-postgres] | None                  |
-| [$LIVESYNC_CAP for S3][livesync-s3]        | None                  |
-
-
-
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
 [dual-write]: /migrate/:currentVersion:/dual-write-and-backfill/
 [pg-dump-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
-[parallel-copy]: /use-timescale/:currentVersion:/ingest-data/import-csv/
+[live-migration]: /migrate/:currentVersion:/live-migration/
 [livesync-postgres]: /migrate/:currentVersion:/livesync-for-postgresql/
 [livesync-s3]: /migrate/:currentVersion:/livesync-for-s3/
+[livesync-kafka]: /migrate/:currentVersion:/livesync-for-kafka/
 [troubleshooting]: /migrate/:currentVersion:/troubleshooting/
-[live-migration]: /migrate/:currentVersion:/live-migration/
-[pgcopydb]: https://github.com/dimitri/pgcopydb
-[playbooks]: /migrate/:currentVersion:/playbooks/
+[import-console]: /migrate/:currentVersion:/upload-file-using-console/
+[import-terminal]: /migrate/:currentVersion:/upload-file-using-terminal/

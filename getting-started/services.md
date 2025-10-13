@@ -1,6 +1,6 @@
 ---
-title: Create your first Tiger Cloud service
-excerpt: Tiger Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Cloud Console
+title: Create your first Tiger service
+excerpt: Tiger offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Console
 products: [cloud]
 content_group: Getting started
 ---
@@ -33,9 +33,9 @@ Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_S
 
 1. In the [$SERVICE_SHORT creation page][create-service], choose the capability to match your business needs: `Real-time analytics`, `AI-focused`, or `Hybrid applications`. 
 
-   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
+   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-service.png)
 
-   To create a plain $PG $SERVICE_SHORT, without any additional capabilities, click `Looking for plan PostgreSQL?` in the top right.
+   To create a plain $PG $SERVICE_SHORT, without any additional capabilities, click `Looking for plain PostgreSQL?` in the top right.
    
 1. Follow the next steps in `Create a service` to configure the region, compute size, environment, availability, connectivity, and $SERVICE_SHORT name. Then click `Create service`.
 

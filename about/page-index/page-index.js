@@ -17,7 +17,7 @@ module.exports = [
       {
         title: "Pricing plans and account management",
         href: "pricing-and-account-management",
-        excerpt: "Pricing plans for Tiger Cloud services",
+        excerpt: "Pricing plans for Tiger services",
       },
       {
         title: "Changelog",
@@ -28,6 +28,11 @@ module.exports = [
         title: "TimescaleDB editions",
         href: "timescaledb-editions",
         excerpt: "Discover the different TimescaleDB editions and licences",
+      },
+      {
+        title: "Supported platforms",
+        href: "supported-platforms",
+        excerpt: "The platforms and systems supported by TigerData products",
       },
       {
         title: "Contribute to TigerData",

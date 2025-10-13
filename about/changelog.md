@@ -9,19 +9,103 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## TimescaleDB 2.22.1 – configurable indexing, enhanced partitioning, and faster queries
+<Label type="date">October 10, 2025</Label>
+
+[TimescaleDB 2.22.1](https://github.com/timescale/timescaledb/releases) introduces major performance and flexibility improvements across indexing, compression, and query execution. TimescaleDB 2.22.1 was released on September 30th and is now available to all users of Tiger.
+
+### Highlighted features
+
+* **Configurable sparse indexes:** manually configure sparse indexes (min-max or bloom) on one or more columns of compressed hypertables, optimizing query performance for specific workloads and reducing I/O. In previous versions, these were automatically created based on heuristics and could not be modified.
+
+* **UUIDv7 support:** native support for UUIDv7 for both compression and partitioning. UUIDv7 embeds a time component, improving insert locality and enabling efficient time-based range queries while maintaining global uniqueness.
+
+    * **Vectorized UUID compression:** new vectorized compression for UUIDv7 columns doubles query performance and improves storage efficiency by up to 30%.
+    
+    * **UUIDv7 partitioning:** hypertables can now be partitioned on UUIDv7 columns, combining time-based chunking with globally unique IDs—ideal for large-scale event and log data.
+
+* **Multi-column SkipScan:** expands SkipScan to support multiple distinct keys, delivering millisecond-fast deduplication and `DISTINCT ON` queries across billions of rows. Learn more in our [blog post](https://www.tigerdata.com/blog/skipscan-in-timescaledb-why-distinct-was-slow-how-we-built-it-and-how-you-can-use-it) and [documentation](https://docs.tigerdata.com/use-timescale/latest/query-data/skipscan/).
+* **Compression improvements:** default `segmentby` and `orderby` settings are now applied at compression time for each chunk, automatically adapting to evolving data patterns for better performance. This was previously set at the hypertable level and fixed across all chunks.
+
+### Deprecations
+
+The experimental Hypercore Table Access Method (TAM) has been removed in this release following advancements in the columnstore architecture.
+
+For a comprehensive list of changes, refer to the TimescaleDB [2.22](https://github.com/timescale/timescaledb/releases/tag/2.22.0) & [2.22.1](https://github.com/timescale/timescaledb/releases/tag/2.22.1) release notes.
+
+## Kafka Source Connector (beta)
+<Label type="date">September 19, 2025</Label>
+
+The new [Kafka Source Connector](https://docs.tigerdata.com/migrate/latest/livesync-for-kafka/) enables you to connect your existing Kafka clusters directly to Tiger Cloud and ingest data from Kafka topics into hypertables. Developers often build proxies or run JDBC Sink Connectors to bridge Kafka and Tiger Cloud, which is error-prone and time-consuming. With the Kafka Source Connector, you can seamlessly start ingesting your Kafka data natively without additional middleware.
+
+- Supported formats: AVRO
+- Supported platforms: Confluent Cloud and Amazon Managed Streaming for Apache Kafka
+
+![Kafka source connector in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/kafka-source-connector-tiger-data.png)
+
+![Kafka source connector streaming in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/kafka-source-connector-streaming.png)
+
+## Phased update rollouts, `pg_cron`, larger compute options, and backup reports 
+<Label type="date">September 12, 2025</Label>
+
+### 🛡️ Phased rollouts for TimescaleDB minor releases
+
+Starting with TimescaleDB 2.22.0, minor releases will now roll out in phases. Services tagged `#dev` will get upgraded first, followed by `#prod` after 21 days. This gives you time to validate upgrades in `#dev` before they reach `#prod` services. [Subscribe](https://status.timescale.com/?__hstc=231067136.cc62bfc44030d30e3b1c3d1bc78c9cab.1750169693582.1757669826871.1757685085606.116&__hssc=231067136.4.1757685085606&__hsfp=2801608430) to get an email notification before your `#prod` service is upgraded. See [Maintenance and upgrades](https://docs.tigerdata.com/use-timescale/latest/upgrades/) for details.
+
+### ⏰ pg_cron extension
+
+`pg_cron` is now available on Tiger Cloud! With `pg_cron`, you can:
+- Schedule SQL commands to run automatically—like generating weekly sales reports or cleaning up old log entries every night at 2 AM.
+- Automate routine maintenance tasks such as refreshing materialized views hourly to keep dashboards current.
+- Eliminate external cron jobs and task schedulers, keeping all your automation logic within PostgreSQL.
+
+To enable `pg_cron` on your service, contact our support team. We're working on making this self-service in future updates.
+
+### ⚡️ Larger compute options: 48 and 64 CPU
+
+For the most demanding workloads, you can now create services with 48 and 64 CPUs. These options are only available on our Enterprise plan, and they're dedicated instances that are not shared with other customers.
+
+![CPU options in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-cpu-options.png)
+
+### 📋 Backup report for compliance
+
+Scale and Enterprise customers can now see a list of their backups in Tiger Cloud Console. For customers with SOC 2 or other compliance needs, this serves as auditable proof of backups.
+
+![Backup reports in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/backup-history-tiger-cloud.png)
+
+### 🗺️ New router for Tiger Cloud Console
+
+The UI just got snappier and easier to navigate with improved interlinking. For example, click an object in the `Jobs` page to see what hypertable the job is associated with.
+
+## New data import wizard
+<Label type="date">September 5, 2025</Label>
+
+To make navigation easier, we’ve introduced a cleaner, more intuitive UI for data import. It highlights the most common and recommended option, PostgreSQL Dump & Restore, while organizing all import options into clear categories, to make navigation easier.
+
+The new categories include:
+- **PostgreSQL Dump & Restore**
+- **Upload Files**: CSV, Parquet, TXT
+- **Real-time Data Replication**: source connectors
+- **Migrations & Other Options**
+
+  ![Data import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/data-import-wizard-in-tiger-cloud.png)
+
+A new data import component has been added to the overview dashboard, providing a clear view of your imports. This includes quick start, in-progress status, and completed imports:
+
+  ![Overview dashboard in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/service-dashboard-tiger-cloud.png)
+
 ## 🚁 Enhancements to the Postgres source connector
 <Label type="date">August 28, 2025</Label>
 
 - **Easy table selection**: You can now sync the complete source schema in one go. Select multiple tables from the 
    drop-down menu and start the connector.
-
 - **Sync metadata**: Connectors now display the following detailed metadata:
     - `Initial data copy`: The number of rows copied at any given point in time.
     - `Change data capture`: The replication lag represented in time and data size.
 - **Improved UX design**: In-progress syncs with separate sections showing the tables and metadata for 
    `initial data copy` and `change data capture`, plus a dedicated tab where you can add more tables to the connector.
 
-   ![Connectors UX](https://assets.timescale.com/docs/images/tiger-cloud-console/connectors-new-ui.png )
+   ![Connectors UX](https://assets.timescale.com/docs/images/tiger-cloud-console/connectors-new-ui.png)
 
 ## 🦋 Developer role GA and hypertable transformation in Console
 <Label type="date">August 21, 2025</Label>
@@ -440,7 +524,7 @@ This release adds a number of bug fixes including:
 
 The data mode's SQL Assistant now includes support for the latest models from OpenAI and Llama: GPT-4.1 (including mini and nano) and Llama 4 (Scout and Maverick). Additionally, we've added support for Gemini models, in particular Gemini 2.0 Nano and 2.5 Pro (experimental and preview). With the new additions, SQL Assistant supports more than 20 language models so you can select the one best suited to your needs.
 
-![SQL Assistant - New Models](https:///assets.timescale.com/docs/images/sql-assistant-new-models.png)
+![SQL Assistant - New Models](https://assets.timescale.com/docs/images/sql-assistant-new-models.png)
 
 ## 🪵 TimescaleDB v2.19, new service overview page, and log improvements
 <Label type="date">April 11, 2025</Label>
