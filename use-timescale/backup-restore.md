@@ -60,15 +60,32 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 <Availability products={['cloud']} />
 
-To recover your $SERVICE_SHORT from a destructive or unwanted action, create a point-in-time recovery fork. You can recover a $SERVICE_SHORT to any point within the period [defined by your pricing plan][pricing-and-account-management]. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time of recovery.
+To recover your $SERVICE_SHORT from a destructive or unwanted action, create a point-in-time recovery fork. You can 
+recover a $SERVICE_SHORT to any point within the period [defined by your pricing plan][pricing-and-account-management].
+The provision time for the recovery fork is typically less than twenty minutes, but can take longer depending on the 
+amount of WAL to be replayed. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time 
+of recovery.
 
-Since the point-in-time recovery is done in a fork, to migrate your
-application to the point of recovery, change the connection
-strings in your application to use the fork. The provision time for the
-recovery fork is typically less than twenty minutes, but can take longer
-depending on the amount of WAL to be replayed.
+All tiered data remains recoverable during the PITR period. When restoring to any point-in-time recovery fork, your
+$SERVICE_SHORT contains all data that existed at that moment - whether it was stored in high-performance or low-cost
+storage. PITR works in the following way:
 
-To avoid paying for compute for the recovery fork and the original $SERVICE_SHORT, pause the original to only pay storage costs.
+- **Recovery behavior**
+  - Data restored from a PITR point is placed into high-performance storage
+  - The original tiered data remains in as a separate copy
+  - The $SERVICE_SHORT state matches the recovery point exactly, including tiered chunk references in the OSM catalog
+
+- **Reference tracking**
+  - $CLOUD_LONG tracks which parquet files correspond to tiered chunks
+  - When chunks are untiered and re-tiered, new data is written to different locations without overwriting the originals
+
+- **Data lifecycle**
+  - Tiered data is only considered `dropped` after the PITR retention period expires
+  - For billing purposes, tiered data stops being charged once chunks are no longer referenced (untiered/deleted)
+  - No charges apply for tiered data after service deletion
+
+To avoid paying for compute for the recovery fork and the original $SERVICE_SHORT, pause the original to only pay 
+storage costs.
 
 You initiate a point-in-time recovery from a same-region or cross-region backup in $CONSOLE_LONG:
 
@@ -92,7 +109,11 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 1.  Confirm by clicking `Create recovery fork`.
 
     A fork of the $SERVICE_SHORT is created. The recovered $SERVICE_SHORT shows in `Services` with a label specifying which $SERVICE_SHORT it has been forked from.
-1.  Update the connection strings in your app to use the fork.
+1.  Update the connection strings in your app
+
+    Since the point-in-time recovery is done in a fork, to migrate your
+    application to the point of recovery, change the connection
+    strings in your application to use the fork.
 
 </Procedure>
 
