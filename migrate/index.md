@@ -1,6 +1,6 @@
 ---
-title: Sync, import, and migrate your data to Tiger Cloud
-excerpt: In Tiger Cloud, you can easily import individual files, migrate from other databases, or sync directly so that your data from another source is continuously updated 
+title: Sync, import, and migrate your data to Tiger
+excerpt: In Tiger, you can easily import individual files, migrate from other databases, or sync directly so that your data from another source is continuously updated 
 products: [cloud, self_hosted]
 keywords: [import, sync, migrate, RDS]
 tags: [import, sync, migrate, RDS]

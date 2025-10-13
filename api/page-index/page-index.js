@@ -286,6 +286,36 @@ module.exports = [
         ],
       },
       {
+        title: "UUIDv7 functions",
+        href: "uuid-functions",
+        children: [
+          {
+            title: "generate_uuidv7",
+            href: "generate_uuidv7",                    
+          },
+          {
+              title: "to_uuidv7",
+              href: "to_uuidv7",                    
+          },
+          {
+              title: "to_uuidv7_boundary",
+              href: "to_uuidv7_boundary",                    
+          },
+          {
+              title: "uuid_timestamp",
+              href: "uuid_timestamp",                    
+          },
+          {
+              title: "uuid_timestamp_micros",
+              href: "uuid_timestamp_micros",                    
+          },
+          {
+              title: "uuid_version",
+              href: "uuid_version",                    
+          },
+        ],            
+      },
+      {
         title: "Hyperfunctions",
         type: "directory",
         href: "hyperfunctions",
@@ -560,10 +590,10 @@ module.exports = [
       {
         title: "Service configuration",
         href: "configuration",
-        excerpt: "Configure Tiger Postgres",
+        excerpt: "Configure your Tiger services",
         children: [
           {
-            title: "Tiger Postgres configuration",
+            title: "TimescaleDB configuration",
             href: "tiger-postgres",
             excerpt: "Configure PostgreSQL and TimescaleDB",
           },
