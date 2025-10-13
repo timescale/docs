@@ -1,6 +1,6 @@
 ---
 title: Manage high availability
-excerpt: Tiger Cloud ensures high availability of your service by creating replicas that take over in case of the primary node downtime. Create and set up high availability replicas in Tiger Cloud Console
+excerpt: Tiger ensures high availability of your service by creating replicas that take over in case of the primary node downtime. Create and set up high availability replicas in Tiger Console
 products: [cloud]
 keywords: [high availability, replicas]
 tags: [failover, availability zones, replication, wal]
@@ -14,9 +14,12 @@ import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 
 # Manage high availability
 
-For $SERVICE_LONGs with very low tolerance for downtime, $CLOUD_LONG offers 
-High Availability (HA) replicas. HA replicas significantly reduce the risk of downtime and data loss due to 
-system failure, and enable $SERVICE_SHORTs to avoid downtime during routine maintenance.
+For $SERVICE_LONGs where every second of uptime matters, $CLOUD_LONG delivers High Availability (HA) replicas. 
+These replicas safeguard your data and keep your $SERVICE_SHORT running smoothly, even in the face of unexpected failures. 
+By minimizing downtime and protecting against data loss, HA replicas ensure business continuity and give you the confidence 
+to operate without interruption, including during routine maintenance.
+
+![HA replicas in Tiger Platform](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ha-architecture-diagram.svg)
 
 This page shows you how to choose the best high availability option for your $SERVICE_SHORT.
 

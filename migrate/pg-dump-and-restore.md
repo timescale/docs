@@ -1,6 +1,6 @@
 ---
 title: Migrate with downtime
-excerpt: Migrate a hypertable or an entire database to Tiger Cloud with native Postgres commands. Use `pg_dump` and `pg_restore` to move less than 100GB of data
+excerpt: Migrate a hypertable or an entire database to Tiger with native Postgres commands. Use `pg_dump` and `pg_restore` to move less than 100GB of data
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]

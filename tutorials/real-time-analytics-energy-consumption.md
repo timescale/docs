@@ -1,6 +1,6 @@
 ---
-title: Real-time analytics with Tiger Cloud and Grafana
-excerpt: Integrate Grafana with a Tiger Cloud service and make insights based on visualization of data optimized for size and speed in the columnstore
+title: Real-time analytics with Tiger and Grafana
+excerpt: Integrate Grafana with a Tiger service and make insights based on visualization of data optimized for size and speed in the columnstore
 products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---

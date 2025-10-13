@@ -1,6 +1,6 @@
 <Highlight
   type="cloud"
-  header="Try Tiger Cloud"
+  header="Try Tiger"
 >
 
 $CLOUD_LONG is a high-performance, developer-focused cloud that provides $PG services enhanced 
