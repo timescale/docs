@@ -70,19 +70,11 @@ All tiered data remains recoverable during the PITR period. When restoring to an
 $SERVICE_SHORT contains all data that existed at that moment - whether it was stored in high-performance or low-cost
 storage. 
 
-- **Recovery behavior**
-  - Data restored from a PITR point is placed into high-performance storage
-  - The tiered data, as of that point in time, remains in tiered storage
-  - The $SERVICE_SHORT state matches the recovery point exactly, including tiered chunk references in the OSM catalog
+When you restore a recovery fork:
+- Data restored from a PITR point is placed into high-performance storage
+- The tiered data, as of that point in time, remains in tiered storage
 
-- **Reference tracking**
-  - $CLOUD_LONG tracks which parquet files correspond to tiered chunks
-  - When chunks are untiered and re-tiered, new data is written to different locations without overwriting the originals
 
-- **Data lifecycle**
-  - Tiered data is only considered `dropped` after the PITR retention period expires
-  - For billing purposes, tiered data stops being charged once chunks are no longer referenced (untiered/deleted)
-  - No charges apply for tiered data after service deletion
 
 To avoid paying for compute for the recovery fork and the original $SERVICE_SHORT, pause the original to only pay 
 storage costs.
