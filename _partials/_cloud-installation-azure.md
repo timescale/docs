@@ -2,15 +2,9 @@
 
 You create a $ACCOUNT_LONG to manage your $SERVICE_SHORTs and data in a centralized and efficient manner in $CONSOLE. From there, you can create and delete $SERVICE_SHORTs, run queries, manage access and billing, integrate other services, contact support, and more.
 
-<Tabs label="Create a Tiger Cloud account" persistKey="source-cloud">
-
-<Tab title="Tiger Cloud" label="tiger-cloud">
-
-You create a standalone account to manage $CLOUD_LONG as a separate unit in your infrastructure, which includes separate billing and invoicing.
+To set up $CLOUD_LONG:
 
 <Procedure>
-
-To set up $CLOUD_LONG:
 
 1. **Sign up for a 30-day free trial**
 
@@ -23,23 +17,6 @@ To set up $CLOUD_LONG:
    Your answers help us optimize $SERVICE_LONGs for your use cases.
 
 </Procedure>
-
-</Tab>
-
-<Tab title="Azure Marketplace" label="azure">
-
-To have $CLOUD_LONG as a part of your Azure infrastructure, you create a $ACCOUNT_LONG through AWS Marketplace. In this
-case, $CLOUD_LONG is a line item in your Azure invoice.
-
-<Procedure>
-
-To set up $CLOUD_LONG via Azure:
-
-</Procedure>
-
-</Tab>
-
-</Tabs>
 
 [tsc-portal]: https://console.cloud.timescale.com/
 [timescale-website]: https://www.timescale.com/

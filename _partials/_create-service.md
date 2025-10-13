@@ -2,11 +2,11 @@
 
 1. In the [$SERVICE_SHORT creation page][create-service], choose the capability to match your business needs: `Real-time analytics`, `AI-focused`, or `Hybrid applications`.
 
-   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
+   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-service.png)
 
    To create a plain $PG $SERVICE_SHORT, without any additional capabilities, click `Looking for plain PostgreSQL?` in the top right.
 
-1. Follow the next steps in `Create a service` to configure the region, compute size, environment, availability, connectivity, and $SERVICE_SHORT name. Then click `Create service`.
+1. Follow the next steps in `Create a service` to configure the cloud, region, compute size, environment, availability, connectivity, and $SERVICE_SHORT name. Then click `Create service`.
 
    Your $SERVICE_SHORT is constructed and ready to use in a few seconds.
 
