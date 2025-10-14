@@ -6,11 +6,13 @@ keywords: [backups, restore]
 tags: [recovery, failures]
 ---
 
+import PitrIntro from "versionContent/_partials/_pitr-intro.mdx";
+
 # Back up and recover your $SERVICE_SHORTs
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+<Tabs label="Tiger on AWS and Azure" persistKey="tiger-platform-clouds">
 
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
+<Tab title="Tiger on AWS" label="aws-cloud">
 
 $CLOUD_LONG automatically handles backup for your $SERVICE_SHORTs using the `pgBackRest` tool. You don't need to perform backups manually. What's more, with [cross-region backup][cross-region], you are protected when an entire AWS region goes down.
 
@@ -64,15 +66,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 <Availability products={['cloud']} />
 
-To recover your $SERVICE_SHORT from a destructive or unwanted action, create a point-in-time recovery fork. You can recover a $SERVICE_SHORT to any point within the period [defined by your pricing plan][pricing-and-account-management]. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time of recovery.
-
-Since the point-in-time recovery is done in a fork, to migrate your
-application to the point of recovery, change the connection
-strings in your application to use the fork. The provision time for the
-recovery fork is typically less than twenty minutes, but can take longer
-depending on the amount of WAL to be replayed.
-
-To avoid paying for compute for the recovery fork and the original $SERVICE_SHORT, pause the original to only pay storage costs.
+<PitrIntro />
 
 You initiate a point-in-time recovery from a same-region or cross-region backup in $CONSOLE_LONG:
 
@@ -120,7 +114,7 @@ On [$SCALE and $PERFORMANCE][pricing-and-account-management] $PRICING_PLANs, you
 
 Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. This means that you always have a full backup available for the current and previous week:
 
-![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
+![Backup in Tiger](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
 In the event of a storage failure, a $SERVICE_SHORT automatically recovers from a backup
 to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, you can [create a point-in-time recovery fork][create-fork].
@@ -129,15 +123,7 @@ to the point of failure. If the whole availability zone goes down, your $SERVICE
 
 <Availability products={['cloud']} />
 
-To recover your $SERVICE_SHORT from a destructive or unwanted action, create a point-in-time recovery fork. You can recover a $SERVICE_SHORT to any point within the period [defined by your pricing plan][pricing-and-account-management]. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time of recovery.
-
-Since the point-in-time recovery is done in a fork, to migrate your
-application to the point of recovery, change the connection
-strings in your application to use the fork. The provision time for the
-recovery fork is typically less than twenty minutes, but can take longer
-depending on the amount of WAL to be replayed.
-
-To avoid paying for compute for the recovery fork and the original $SERVICE_SHORT, pause the original to only pay storage costs.
+<PitrIntro />
 
 You initiate a point-in-time recovery in $CONSOLE_LONG:
 
