@@ -1,6 +1,6 @@
 ---
-title: Storage on Tiger Cloud
-excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier. Tiger Cloud tiered storage makes sure you cut costs while having data available for analytical queries
+title: Storage on Tiger
+excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier. Tiger tiered storage makes sure you cut costs while having data available for analytical queries
 products: [cloud]
 price_plans: [scale, enterprise, performance]
 keywords: [tiered storage]
@@ -9,9 +9,9 @@ tags: [storage, data management]
 
 # Storage
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+<Tabs label="Tiger on AWS and Azure" persistKey="tiger-platform-clouds">
 
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
+<Tab title="Tiger on AWS" label="aws-cloud">
 
 Tiered storage is a [hierarchical storage management architecture][hierarchical-storage] for 
 [real-time analytics][create-service] $SERVICE_SHORTs you create in [$CLOUD_LONG](https://console.cloud.timescale.com/).
@@ -49,7 +49,7 @@ In this section, you:
 
 </Tab>
 
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+<Tab title="Tiger on Azure" label="azure-cloud">
 
 $CLOUD_LONG stores your data in high-performance storage optimized for frequent querying. Based on [AWS EBS gp3][aws-gp3], the high-performance storage provides you with up to 16 TB and 16,000 IOPS. Its [$HYPERCORE row-columnar storage engine][hypercore], designed specifically for real-time analytics, enables you to compress your data by up to 98%, while improving performance. 
 
