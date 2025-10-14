@@ -11,10 +11,6 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 # Upload a file into your $SERVICE_SHORT using $CONSOLE_LONG
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
-
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
-
 You can upload files into your $SERVICE_SHORT using $CONSOLE_LONG. This page explains how to upload CSV, Parquet, and text files, from your local machine and from an S3 bucket.
 
 <Tabs label="Upload files using Tiger Console" persistKey="console-import">
@@ -28,6 +24,8 @@ $CONSOLE_LONG enables you to drag and drop files to upload from your local machi
 ## Prerequisites
 
 <ImportPrerequisitesCloudNoConnection />
+
+<NotSupportedAzure />
 
 <Tabs label="Upload files from a local machine" persistKey="file-import">
 
@@ -129,6 +127,8 @@ $CONSOLE_LONG enables you to upload CSV and Parquet files, including archives co
    - [IAM Role][credentials-iam].
    - [Public anonymous user][credentials-public].
 
+<NotSupportedAzure />
+
 <Tabs label="Import files from S3" persistKey="file-import">
 
 <Tab title="From CSV" label="import-csv">
@@ -207,18 +207,10 @@ To import a Parquet file from an S3 bucket:
 
 </Tabs>
 
-
 And that is it, you have imported your data to your $SERVICE_LONG.
 
-</Tab>
 
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
 
-<NotSupportedAzure />
-
-</Tab>
-
-</Tabs>
 
 
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console

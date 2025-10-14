@@ -12,10 +12,6 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 # Integrate data lakes with $CLOUD_LONG
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
-
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
-
 $LAKE_LONG enables you to build real-time applications alongside efficient data pipeline management within a single 
 system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. 
 
@@ -33,6 +29,8 @@ Tiger Lake is currently in private beta. Please contact us to request access.
 ## Prerequisites
 
 <IntegrationPrereqsCloud/>
+
+<NotSupportedAzure />
 
 ## Integrate a data lake with your $SERVICE_LONG
 
@@ -338,15 +336,7 @@ data lake:
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
 * The Iceberg namespace is hard coded to `timescaledb`, a custom namespace value is work in progress.
 
-</Tab>
 
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
-
-<NotSupportedAzure />
-
-</Tab>
-
-</Tabs>
 
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
