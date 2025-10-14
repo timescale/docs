@@ -1,6 +1,6 @@
 ---
-title: Connect to a Tiger Cloud service with psql 
-excerpt: psql enables you to type in queries interactively, issue them to Postgres, and see the query results. Connect to your Tiger Cloud service using psql
+title: Connect to a Tiger service with psql 
+excerpt: psql enables you to type in queries interactively, issue them to Postgres, and see the query results. Connect to your Tiger service using psql
 products: [cloud, self_hosted]
 keywords: [connect, psql]
 ---
