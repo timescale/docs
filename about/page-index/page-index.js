@@ -27,7 +27,7 @@ module.exports = [
       {
         title: "Changelog",
         href: "changelog",
-        excerpt: "A summary of the latest changes to Tiger Cloud.",
+        excerpt: "A summary of the latest changes to Tiger.",
       },
       {
         title: "TimescaleDB editions",
