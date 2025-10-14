@@ -29,7 +29,7 @@ To start using $CLOUD_LONG for your data:
 
 Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
 
-Under the Free pricing plan, you can create up to 2 $SERVICE_SHORTs with limited resources. See [Pricing and account management][pricing-plans] for details. To create a $SERVICE_SHORT under a paid plan: 
+Under the Free plan, you can create up to 2 $SERVICE_SHORTs with limited resources. See [Pricing and account management][pricing-plans] for details. To create a $SERVICE_SHORT under a paid plan: 
 
 <Procedure>
 
