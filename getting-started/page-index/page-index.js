@@ -23,6 +23,11 @@ module.exports = [
         excerpt: "Create a Tiger service and connect to it",
       },
       {
+        title: "DevOps as code with Tiger",
+        href: "get-started-devops-as-code",
+        excerpt: "Set up secure authentication for the Tiger REST API and create your first service",
+      },
+      {
         title: "Run your queries from Tiger Console",
         href: "run-queries-from-console",
         excerpt: "Run your queries securely from inside Tiger Console",
