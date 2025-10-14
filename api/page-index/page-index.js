@@ -590,10 +590,10 @@ module.exports = [
       {
         title: "Service configuration",
         href: "configuration",
-        excerpt: "Configure Tiger Postgres",
+        excerpt: "Configure your Tiger services",
         children: [
           {
-            title: "Tiger Postgres configuration",
+            title: "TimescaleDB configuration",
             href: "tiger-postgres",
             excerpt: "Configure PostgreSQL and TimescaleDB",
           },

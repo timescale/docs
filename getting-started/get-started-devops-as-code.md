@@ -1,6 +1,6 @@
 ---
-title: "DevOps as code with Tiger Cloud"
-excerpt: "Configure secure authentication and create a new database service using the Tiger Cloud REST API"
+title: "DevOps as code with Tiger"
+excerpt: "Configure secure authentication and manage the resources in your Tiger project using REST, the cli or MCP."
 keywords:
   - authentication
   - service creation

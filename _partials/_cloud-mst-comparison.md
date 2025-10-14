@@ -1,6 +1,6 @@
 <Highlight
   type="cloud"
-  header="Tiger Cloud or MST?"
+  header="Tiger or MST?"
 >
 
 $CLOUD_LONG is a high-performance developer focused cloud that provides $PG services enhanced 

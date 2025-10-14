@@ -373,7 +373,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **pgVector**: a $PG extension that adds vector similarity search capabilities for AI and machine learning applications. See [pgvector][ai-pgvector].
 
-**pgai on Tiger Cloud**: a cloud solution for building search, RAG, and AI agents with $PG. Enables calling AI embedding and generation models directly from the database using SQL. See [pgai][ai-pgai].
+**pgai on $CLOUD_LONG**: a cloud solution for building search, RAG, and AI agents with $PG. Enables calling AI embedding and generation models directly from the database using SQL. See [pgai][ai-pgai].
 
 **pgvectorscale**: a performance enhancement for pgvector featuring StreamingDiskANN indexing, binary quantization compression, and label-based filtering. See [pgvectorscale][ai-pgvectorscale].
 

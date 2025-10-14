@@ -18,7 +18,7 @@ instance on any local system, from source.
 
 This section shows you how to:
 
-* [Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgresql) - set up
+* [Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgres) - set up
   a self-hosted $PG instance to efficiently run TimescaleDB1.
 * [Add the $TIMESCALE_DB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
   performance improvements on a database.
