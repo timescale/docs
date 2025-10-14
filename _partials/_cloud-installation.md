@@ -20,10 +20,7 @@ To set up $CLOUD_LONG:
 
     In the confirmation email, click the link supplied.
 
-1. **Select the [pricing plan][pricing-plans]** 
-
-   - Free plan: click `Get started`.
-   - Performance plan: click `Try for free`, answer the requirements questions to help us optimize $SERVICE_LONGs for your use cases, then optionally book a consult with a $COMPANY Solutions Engineer.
+1. **Select the [pricing plan][pricing-plans]**
 
    You are now logged into $CONSOLE_LONG. You can change the pricing plan to better accommodate your growing needs on the [`Billing` page][console-billing]. 
 
@@ -56,13 +53,13 @@ To set up $CLOUD_LONG via AWS:
 
    Add your details, then click `Start your free trial`. If you want to link an existing $ACCOUNT_LONG to AWS, log in with your existing credentials.  
 
+1. **Select the [pricing plan][pricing-plans]**
+
+   You are now logged into $CONSOLE_LONG. You can change the pricing plan later to better accommodate your growing needs on the [`Billing` page][console-billing].
+
 1. **In `Confirm AWS Marketplace connection`, click `Connect`**
 
     Your $CLOUD_LONG and AWS accounts are now connected.
-
-1. **Answer the requirements questions**
-
-   Your answers help us optimize $SERVICE_LONGs for your use cases.
 
 </Procedure>
 

@@ -4,19 +4,31 @@ real-time analytics, and vector search—all in a single database alongside tran
 You get one system that handles live data ingestion, late and out-of-order updates, and low latency queries, with the performance, reliability, and scalability your app needs. Ideal for IoT, crypto, finance, SaaS, and a myriad other domains, $CLOUD_LONG allows you to build data-heavy, mission-critical apps while retaining the familiarity and reliability of $PG.
 
 A $SERVICE_LONG is a single optimised $PG instance extended with innovations in the database engine and cloud 
-infrastructure to deliver speed without compromise. A $SERVICE_LONG instance is 10-1000x faster at scale! A $SERVICE_SHORT 
+infrastructure to deliver speed without compromise. A $SERVICE_LONG is 10-1000x faster at scale! It 
 is ideal for applications requiring strong data consistency, complex relationships, and advanced querying capabilities. 
 Get ACID compliance, extensive SQL support, JSON handling, and extensibility through custom functions, data types, and 
-extensions. To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
+extensions. 
 
-- **Real-time analytics**: store and query [time-series data][what-is-time-series] at scale for 
-   real-time analytics and other use cases. Get faster time-based queries with $HYPERTABLEs, $CAGGs, and columnar storage. Save money by compressing data into the $COLUMNSTORE, moving cold data to low-cost bottomless storage in Amazon S3, and deleting old data with automated policies. 
-- **AI-focused**: build AI applications from start to scale. Get fast and accurate similarity search 
-   with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with 
-   the pgai extension.
-- **Hybrid applications**: get a full set of tools to develop applications that combine time-based data and AI.
+You create $SERVICE_SHORTs in a project in your $CLOUD_LONG account. You have one project in an account, but you can have multiple $SERVICE_SHORTs in a project. A $SERVICE_SHORT houses a single $PG database. 
 
-All $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][live-migration], 
+You create free and standard $SERVICE_SHORTs in $CONSOLE_LONG, depending on your [$PRICING_PLAN][pricing-plans]. A free $SERVICE_SHORT comes at zero cost and gives you limited resources to get to know $CLOUD_LONG. Once you are ready to try out more advanced features, you can switch to a paid plan and convert your free $SERVICE_SHORT to a standard one.
+
+![Tiger pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
+
+To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
+
+- Standard $SERVICE_SHORTs:
+
+  - **Real-time analytics**: store and query [time-series data][what-is-time-series] at scale for 
+     real-time analytics and other use cases. Get faster time-based queries with $HYPERTABLEs, $CAGGs, and columnar storage. Save money by compressing data into the $COLUMNSTORE, moving cold data to low-cost bottomless storage in Amazon S3, and deleting old data with automated policies. 
+  - **AI-focused**: build AI applications from start to scale. Get fast and accurate similarity search 
+     with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with 
+     the pgai extension.
+  - **Hybrid applications**: get a full set of tools to develop applications that combine time-based data and AI.
+
+- Free $SERVICE_SHORTs: $PG with $TIMESCALE_DB and vector extensions. 
+
+All standard $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][live-migration], 
 [automatic backups and PITR][automatic-backups], [high availability][high-availability], [$READ_REPLICAs][readreplica], [data forking][operations-forking], [connection pooling][connection-pooling], [tiered storage][data-tiering], 
 [usage-based storage][how-plans-work], secure in-$CONSOLE [SQL editing][in-console-editors], $SERVICE_SHORT [metrics][metrics] 
 and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp;and much more. $CLOUD_LONG continuously monitors your $SERVICE_SHORTs and prevents common $PG out-of-memory crashes.
@@ -35,4 +47,5 @@ and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 
