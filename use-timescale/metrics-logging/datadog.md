@@ -14,10 +14,6 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 # Export telemetry data to Datadog
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
-
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
-
 You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Datadog][datadog]. The available metrics include CPU usage, RAM usage, and storage. This integration is available for [Scale or Enterprise][pricing-plan-features] pricing plans.
 
 This page shows you how to create a Datadog exporter in $CONSOLE, and manage the lifecycle of data exporters.
@@ -25,6 +21,8 @@ This page shows you how to create a Datadog exporter in $CONSOLE, and manage the
 ## Prerequisites
 
 <PrereqsCloud />
+
+<NotSupportedAzure />
 
 ## Create a data exporter
 
@@ -39,15 +37,7 @@ This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 <ManageDataExporter />
 
-</Tab>
 
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
-
-<NotSupportedAzure />
-
-</Tab>
-
-</Tabs>
 
 [datadog]: https://www.datadoghq.com
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token

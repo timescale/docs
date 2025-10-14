@@ -12,26 +12,12 @@ cloud_ui:
 
 # Metrics and logging
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
-
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
-
 Find metrics and logs for your $SERVICE_SHORTs in $CONSOLE, or integrate with third-party monitoring services:
 
 *   [Monitor][monitor] your $SERVICE_SHORTs in $CONSOLE.
 *   Export metrics to [Datadog][datadog].
 *   Export metrics to [Amazon Cloudwatch][cloudwatch].
 *   Export metrics to [Prometheus][prometheus].
-
-</Tab>
-
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
-
-[Monitor][monitor] your $SERVICE_SHORTs in $CONSOLE.
-
-</Tab>
-
-</Tabs>
 
 
 [prometheus]: /use-timescale/:currentVersion:/metrics-logging/metrics-to-prometheus/

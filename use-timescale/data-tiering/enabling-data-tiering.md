@@ -15,10 +15,6 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 # Manage storage and tiering
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
-
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
-
 The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier:
 
 - You use [high-performance storage][high-performance-storage] to store and query frequently accessed data. 
@@ -59,7 +55,11 @@ This storage type gives you up to 16 TB of storage and is available under [all $
 
 <Availability products={['cloud']} price_plans={['enterprise']} />
 
-This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
+This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. 
+
+<NotSupportedAzure />
+
+To get enhanced storage:
 
 <Procedure>
 
@@ -92,6 +92,8 @@ You change from enhanced storage to standard in the same way. If you are using o
 
 You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually. 
 
+<NotSupportedAzure />
+
 ### Enable tiered storage
 
 You enable tiered storage from the `Overview` tab in $CONSOLE.
@@ -107,12 +109,6 @@ You enable tiered storage from the `Overview` tab in $CONSOLE.
    Once enabled, you can proceed to [tier data manually][manual-tier] or [set up tiering policies][tiering-policies]. When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
 </Procedure>
-
-<Highlight type="note">
-
-Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans only.
-
-</Highlight>
 
 ### Automate tiering with policies
 
@@ -290,16 +286,6 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
    ```
 
 </Procedure>
-
-</Tab>
-
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
-
-<NotSupportedAzure />
-
-</Tab>
-
-</Tabs>
 
 
 [data-retention]: /use-timescale/:currentVersion:/data-retention/

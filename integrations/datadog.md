@@ -13,10 +13,6 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 # Integrate Datadog with $CLOUD_LONG
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
-
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
-
 [Datadog][datadog] is a cloud-based monitoring and analytics platform that provides comprehensive visibility into
 applications, infrastructure, and systems through real-time monitoring, logging, and analytics.
 
@@ -40,6 +36,8 @@ This page explains how to:
   You need your [Datadog API key][datadog-api-key] to follow this procedure.
 
 - Install [Datadog Agent][datadog-agent-install].
+
+<NotSupportedAzure />
 
 ## Monitor $SERVICE_LONG metrics with Datadog
 
@@ -137,15 +135,8 @@ metrics about your $SERVICE_LONGs.
 Metrics for your $SERVICE_LONG are now visible in Datadog. Check the Datadog $PG integration documentation for a
 comprehensive list of [metrics][datadog-postgres-metrics] collected.
 
-</Tab>
 
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
 
-<NotSupportedAzure />
-
-</Tab>
-
-</Tabs>
 
 [datadog]: https://www.datadoghq.com/
 [datadog-agent-install]: https://docs.datadoghq.com/getting_started/agent/#installation

@@ -14,13 +14,11 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 # Secure your $CLOUD_LONG services with $VPC Peering and AWS PrivateLink
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
-
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
-
 You use Virtual Private Cloud ($VPC) peering to ensure that your $SERVICE_LONGs are 
 only accessible through your secured AWS infrastructure. This reduces the potential 
 attack vector surface and improves security.
+
+<NotSupportedAzure />
 
 The data isolation architecture that ensures a highly secure connection between your apps and 
 $CLOUD_LONG is:
@@ -220,15 +218,6 @@ Migration takes a few minutes to complete and requires a change to DNS settings 
 $SERVICE_SHORT. The $SERVICE_SHORT is not accessible during this time. If you receive a DNS error, allow
 some time for DNS propagation.
 
-</Tab>
-
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
-
-<NotSupportedAzure />
-
-</Tab>
-
-</Tabs>
 
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups:

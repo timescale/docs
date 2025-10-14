@@ -11,10 +11,6 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 # Querying tiered data
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
-
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
-
 Once rarely used data is tiered and migrated to the object storage tier, it can still be queried 
 with standard SQL by enabling the `timescaledb.enable_tiered_reads` GUC. 
 By default, the GUC is set to `false`, so that queries do not touch tiered data.
@@ -29,6 +25,8 @@ Your hypertable is spread across the tiers, so queries and `JOIN`s work and fetc
 
 By default, tiered data is not accessed by queries. Querying tiered data may slow down query performance 
 as the data is not stored locally on the high-performance storage tier. See [Performance considerations](#performance-considerations).
+
+<NotSupportedAzure />
 
 ## Enable querying tiered data for a single query
 
@@ -192,12 +190,5 @@ Queries over tiered data are expected to be slower than over local data. However
 
 * Text and non-native types (JSON, JSONB, GIS) filtering is slower when querying tiered data.
 
-</Tab>
 
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
 
-<NotSupportedAzure />
-
-</Tab>
-
-</Tabs>

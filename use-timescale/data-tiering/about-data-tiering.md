@@ -2,7 +2,6 @@
 title: About Tiger storage tiers 
 excerpt: Learn how Tiger helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
 products: [cloud]
-price_plans: [scale, enterprise]
 keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
@@ -14,10 +13,6 @@ import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billi
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # About storage tiers
-
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
-
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier. You use the high-performance tier for data that requires quick access, and the object tier for rarely used historical data. Tiering policies move older data asynchronously and periodically from high-performance to low-cost storage, sparing you the need to do it manually. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. 
 
@@ -36,7 +31,11 @@ $CLOUD_LONG high-performance storage comes in the following types:
 
 ## Low-cost storage
 
+<Availability products={['cloud']} price_plans={['enterprise','scale']} />
+
 Once you [enable tiered storage][manage-tiering], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
+
+<NotSupportedAzure />
 
 Apache Parquet allows for more efficient scans across longer time periods, and $CLOUD_LONG uses other metadata and query optimizations to reduce the amount of data that needs to be fetched to satisfy a query, such as: 
 
@@ -125,16 +124,6 @@ The low-cost storage tier comes with the following limitations:
 *   **Number of dimensions**: you cannot use tiered storage with hypertables
     partitioned on more than one dimension. Make sure your hypertables are
     partitioned on time only, before you enable tiered storage.
-
-</Tab>
-
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
-
-<NotSupportedAzure />
-
-</Tab>
-
-</Tabs>
 
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
