@@ -1,6 +1,6 @@
 ---
 title: Simulate an IoT sensor dataset
-excerpt: It is often necessary to simulate IoT datasets, for example, when testing a new system. Simulate an IOT dataset in your Tiger Cloud service
+excerpt: It is often necessary to simulate IoT datasets, for example, when testing a new system. Simulate an IOT dataset in your Tiger service
 products: [cloud, self_hosted, mst]
 keywords: [IoT, simulate]
 ---
