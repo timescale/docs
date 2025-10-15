@@ -32,7 +32,7 @@ The following metrics are represented by graphs:
 - Storage I/O, in ops/sec
 - Storage bandwidth, in MiB/sec
 
-The [Free pricing plan][pricing-plans] only includes the storage used metrics.
+The [Free pricing plan][pricing-plans] only includes storage metrics.
 
 When you hit the limits:
 
