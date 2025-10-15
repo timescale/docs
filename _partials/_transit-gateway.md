@@ -2,11 +2,11 @@
 
    1. In `Security` > `VPC`, click `Create a VPC`:
 
-      ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-cloud.png)
+      ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-console.png)
 
    1.  Choose your region and IP range, name your VPC, then click `Create VPC`:
 
-       ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-cloud.png)
+       ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png)
 
        Your $SERVICE_SHORT and Peering $VPC must be in the same AWS region. The number of Peering $VPCs you can create in your project depends on your [pricing plan][pricing-plans]. If you need another Peering $VPC, either contact [support@tigerdata.com](mailto:support@tigerdata.com) or change your plan in [$CONSOLE][console-login].
 
@@ -15,7 +15,7 @@
        1. In the `VPC Peering` column, click `Add`.
        1. Provide your AWS account ID, Transit Gateway ID, CIDR ranges, and AWS region. $CLOUD_LONG creates a new isolated connection for every unique Transit Gateway ID. 
        
-         ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-cloud.png)
+         ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-console.png)
  
        1. Click `Add connection`.
 

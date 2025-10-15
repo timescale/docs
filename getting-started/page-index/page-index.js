@@ -15,17 +15,22 @@ module.exports = [
         title: "Start coding with TigerData",
         href: "start-coding-with-timescale",
         excerpt:
-          "Integrate Tiger Cloud with your app using your preferred programming language",
+          "Integrate Tiger with your app using your preferred programming language",
       },
       {
-        title: "Create a Tiger Cloud service",
+        title: "Create a Tiger service",
         href: "services",
-        excerpt: "Create a Tiger Cloud service and connect to it",
+        excerpt: "Create a Tiger service and connect to it",
       },
       {
-        title: "Run your queries from Tiger Cloud Console",
+        title: "DevOps as code with Tiger",
+        href: "get-started-devops-as-code",
+        excerpt: "Set up secure authentication for the Tiger REST API and create your first service",
+      },
+      {
+        title: "Run your queries from Tiger Console",
         href: "run-queries-from-console",
-        excerpt: "Run your queries securely from inside Tiger Cloud Console",
+        excerpt: "Run your queries securely from inside Tiger Console",
       },
     ],
   },

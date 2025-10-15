@@ -8,7 +8,7 @@ module.exports = [
       {
         title: "Find by Console location",
         overrideHref: "/console",
-        excerpt: "Browse topics by Tiger Cloud Console location.",
+        excerpt: "Browse topics by Tiger Console location.",
         type: "placeholder",
       },
       {

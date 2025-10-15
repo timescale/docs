@@ -590,10 +590,10 @@ module.exports = [
       {
         title: "Service configuration",
         href: "configuration",
-        excerpt: "Configure Tiger Postgres",
+        excerpt: "Configure your Tiger services",
         children: [
           {
-            title: "Tiger Postgres configuration",
+            title: "TimescaleDB configuration",
             href: "tiger-postgres",
             excerpt: "Configure PostgreSQL and TimescaleDB",
           },
@@ -616,6 +616,12 @@ module.exports = [
         href: "api-tag-overview",
         description:
           "An overview of what different tags represent in the API section of TigerData Documentation.",
+      },
+      {
+        title: "Tiger Cloud REST API",
+        href: "api-reference",
+        description:
+          "A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.",
       },
       {
         title: "Glossary",
