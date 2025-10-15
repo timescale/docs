@@ -39,8 +39,38 @@ You can use the following global flags with $CLI_LONG:
 
 <GLOBALFLAGS />
 
+
+## Configuration parameters
+
+By default, $CLI_LONG stores your configuration in `~/.config/tiger/config.yaml`. The name of these
+variables matches the flags you use to update them. However, you can override them using the following
+environmental variables:
+
+- **Configuration parameters**
+  - `TIGER_CONFIG_DIR`: path to configuration directory (default: ~/.config/tiger)
+  - `TIGER_API_URL`: $REST_LONG base endpoint (default: https://console.cloud.timescale.com/public/api/v1)
+  - `TIGER_CONSOLE_URL`: URL to $CONSOLE (default: https://console.cloud.timescale.com)
+  - `TIGER_GATEWAY_URL`: URL to the $CONSOLE gateway (default: https://console.cloud.timescale.com/api)
+  - `TIGER_DOCS_MCP`: Enable/disable docs MCP proxy (default: true)
+  - `TIGER_DOCS_MCP_URL`: URL to the MCP server for $COMPANY docs (default: https://mcp.tigerdata.com/docs)
+  - `TIGER_PROJECT_ID`: ID for the project updated when you call $CLI_SHORT commands 
+  - `TIGER_SERVICE_ID`: ID for the service updated when you call $CLI_SHORT commands
+  - `TIGER_OUTPUT`: output format (json, yaml, or table)
+  - `TIGER_ANALYTICS`: enable or disable analytics (default: true)
+  - `TIGER_PASSWORD_STORAGE`: password storage method (keyring, pgpass, or none)
+  - `TIGER_DEBUG`: Enable/disable debug logging (default: false)
+
+- **Authentication parameters**
+
+  To authenticate without using the interactive login, set the following with your [client credentials][rest-api-credentials]:
+
+  - `TIGER_PUBLIC_KEY`: public key 
+  - `TIGER_SECRET_KEY`: secret key
+
+
 [rest-api-reference]: /api/:currentVersion:/api-reference/
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
 [curl]: https://curl.se/
+[rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
