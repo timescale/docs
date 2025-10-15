@@ -9,10 +9,13 @@ cloud_ui:
 ---
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
 
 # About $SERVICE_LONGs
 
 <CloudIntro />
+
+<ServiceIntro />
 
 ## Learn more about $CLOUD_LONG
 

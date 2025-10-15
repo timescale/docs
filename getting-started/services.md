@@ -7,6 +7,7 @@ content_group: Getting started
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
+import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
@@ -14,6 +15,10 @@ import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 # Create a $SERVICE_LONG
 
 <CloudIntro />
+
+## What is a $SERVICE_LONG?
+
+<ServiceIntro />
 
 <ServiceOverview />
 
