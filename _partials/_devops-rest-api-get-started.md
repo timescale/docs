@@ -81,13 +81,13 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
      -u "${TIGERDATA_ACCESS_KEY}:${TIGERDATA_SECRET_KEY}" \
      -H "Content-Type: application/json" \
      -d '{
-         "name": "my-first-service",
-         "addons": "time-series",
-         "region_code": "us-east-1",
-         "replica_count": 1,
-         "cpu_millis": 1000,
-         "memory_gbs": 4
-     }'
+        "name": "my-first-service",  
+        "addons": ["time-series"],  
+        "region_code": "us-east-1",  
+        "replica_count": 1,  
+        "cpu_millis": "1000",
+        "memory_gbs": "4"
+        }'
    ```
    $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
    read-replication. You see something like:
