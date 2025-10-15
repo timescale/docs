@@ -1,4 +1,4 @@
-1. ** Install $CLI_LONG**
+1. **Install $CLI_LONG**
 
    Use the Terminal to install the $CLI_SHORT:
    <Tabs label="Install Tiger CLI" persistKey="os">
@@ -49,7 +49,7 @@
     <Tab title="x-platform" label="xplatform">
 
     ```shell
-    curl -fsSL https://tiger-cli-releases.s3.amazonaws.com/install/install.sh | sh
+    curl -fsSL https://cli.tigerdata.com/install.sh | sh
     ```
 
     </Tab>
