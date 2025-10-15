@@ -63,7 +63,10 @@
       ```shell
       tiger auth login
       ```
-      $CLI_LONG opens $CONSOLE_SHORT in your browser. Login, then click `Authorize`.  
+      $CLI_LONG opens $CONSOLE_SHORT in your browser. Login, then click `Authorize`. 
+
+      You can have a maximum of 10 active client credentials. If you get an error, open [credentials][rest-api-credentials]
+      and delete an unused credential. 
 
    1. Select a $PROJECT_LONG. 
 

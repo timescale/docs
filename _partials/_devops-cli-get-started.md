@@ -30,6 +30,10 @@ Create a new $SERVICE_LONG using $CLI_LONG:
 <Procedure>
 
 1. **Submit a service creation request**
+
+   $CLI_LONG creates a default service depending on your [pricing plan][pricing-plans]:
+   * **Free plan**: shared CPU/memory and the `time-series` and `ai` add-ons
+   * **Standard plan**: 0.5 CPU and 2 GB memory with the `time-series` add-on
    ```shell
    tiger service create
    ```
@@ -44,6 +48,10 @@ Create a new $SERVICE_LONG using $CLI_LONG:
     ⏳ Waiting for service to be ready (wait timeout: 30m0s)...
     ⏳ Service status: QUEUED...
     🎉 Service is ready and running!
+   🔌 Run 'tiger db connect' to connect to your new service
+    ...
+    Service properties
+    ...
    ```
    This $SERVICE_SHORT is set as default by the $CLI_SHORT.
 
@@ -78,3 +86,4 @@ And that is it, you are ready to use $CLI_LONG to manage your $SERVICE_SHORTs in
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
 [curl]: https://curl.se/
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
