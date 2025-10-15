@@ -11,13 +11,18 @@ cloud_ui:
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
 import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
+import BillingForInactiveServices from "versionContent/_partials/_billing-for-inactive-services.mdx";
 
 # Pricing plans and account management
 
 As we enhance our offerings and align them with your evolving needs,
 $PRICING_PLANs provide more value, flexibility, and efficiency for your business.
 Whether you're a growing startup or a well-established enterprise, our plans
-are structured to support your journey towards greater success. This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
+are structured to support your journey towards greater success. 
+
+![Tiger pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
+
+This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
 
 $PRICING_PLAN_CAPs give you:
 
@@ -57,15 +62,45 @@ provisioning your $SERVICE_SHORTs or later, as your needs grow.
 [low-cost bottomless storage in S3][data-tiering] for other data. The high-performance storage offers you up to 64 TB of compressed 
 (typically 80-100 TB uncompressed) data and is metered on your average GB consumption per hour. We can help you compress your data by up to 98% so you pay even less. <TieredStorageBilling />
 For easy upgrades, each $SERVICE_SHORT stores the $TIMESCALE_DB binaries. This contributes up to 900 MB to overall storage, which amounts to less than $.80/month in additional storage costs.
+
+## How your bill is calculated
+
+You are billed at the end of each month in arrears. Your monthly invoice
+includes an itemized cost accounting for each $SERVICE_LONG and any additional charges.
+
+$CLOUD_LONG charges are based on consumption and your pricing plan:
+
+- **Compute**: metered on an hourly basis. You can scale compute up and down at any time.
+- **Storage**: metered based on your average GB consumption per hour. Storage grows and shrinks automatically
+  with your data.
+
+For example, over the last month your $SERVICE_LONG has been running compute for 500 hours total:
+
+- 375 hours with 2 CPU
+- 125 hours 4 CPU
+
+and consumed high-performance storage for 720 hours total:
+
+- 200 hours with 100 GB
+- 520 hours with 150 GB
+
+**Compute cost** = (`375` x `hourly price for 2 CPU`) + (`125` x `hourly price for 4 CPU`)
+
+**High-performance storage cost** = (`200` x `100 GB` x `hourly price per GB`) + (`520` x `150 GB` x `hourly price per GB`)
+
+<BillingForInactiveServices />
+
+Some add-ons such as tiered storage, HA replicas, and connection pooling may incur
+additional charges. These charges are clearly marked in your billing snapshot in $CONSOLE.
   
 ## Use $CLOUD_LONG for free
 
-Are you just starting out with $CLOUD_LONG? On our Free pricing plan, you can create zero-cost $SERVICE_SHORTs with [limited  resources][plan-features].
+Are you just starting out with $CLOUD_LONG? On our Free pricing plan, you can create up to 2 zero-cost $SERVICE_SHORTs with [limited  resources][plan-features]. When a free $SERVICE_SHORT reaches the resource limit, it converts to the read-only state. 
 
 Ready to try a more feature-rich paid plan? Request a 30-day free trial of our $PERFORMANCE or $SCALE plan with no credit card required. During your trial, if a $SERVICE_SHORT doesn’t receive any queries for 7 days, it is paused to conserve resources. Your data remains intact during the trial, and you can easily resume your $SERVICE_SHORT in $CONSOLE. After your trial ends, we may remove your data unless you’ve added a payment method.
 
 After you have completed your 30-day trial period, choose the 
-[$PRICING_PLAN][plan-features] that suits your business and engineering needs. When you upgrade from the free plan, you still have access to up to two zero-cost $SERVICE_SHORTs. 
+[$PRICING_PLAN][plan-features] that suits your business and engineering needs. And even when you upgrade from the Free pricing plan, you can still have up to 2 zero-cost $SERVICE_SHORTs—or convert the ones you already have into standard ones, to have more resources. 
 
 If you want to try out features in a higher $PRICING_PLAN before upgrading, once you become a paying user, we can enable some features in the higher plan so you can run your tests. 
 
@@ -86,6 +121,8 @@ $SERVICE_SHORTs’ performance, and any need to scale your $SERVICE_SHORTs or up
 
 $CONSOLE_SHORT also shows your month-to-date accrued charges, as well as a forecast of your expected 
 month-end bill. Your previous invoices are also available as PDFs for download.
+
+<BillingForInactiveServices />
 
 ## $COMPANY support 
 
@@ -170,27 +207,6 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | JOIN services (Jumpstart Onboarding and INtegration)          |                     |                                        | Available at minimum spend                     | ✓                                                |
 
 For a personalized quote, [get in touch with $COMPANY][contact-company].
-
-## Example billing calculation
-
-You are billed at the end of each month in arrears, based on your actual usage that month. Your monthly invoice 
-includes an itemized cost accounting for each $SERVICE_LONG and any additional charges.
-
-$CLOUD_LONG charges are based on consumption: 
-
-- **Compute**: metered on an hourly basis. You can scale compute up and down at any time.  
-- **Storage**: metered based on your average GB consumption per hour. Storage grows and shrinks automatically 
-  with your data.
-
-Your monthly price for compute and storage is computed similarly. For example, over the last month your
-$SERVICE_LONG has been running compute for 500 hours total:
-  - 375 hours with 2 CPU 
-  - 125 hours 4 CPU 
-   
-**Compute cost** = (`375` x `hourly price for 2 CPU`) + (`125` x `hourly price for 4 CPU`)  
- 
-Some add-ons such as Elastic storage, Tiered storage, and Connection pooling may incur 
-additional charges. These charges are clearly marked in your billing snapshot in $CONSOLE.
 
 ## Manage your $CLOUD_LONG $PRICING_PLAN
 
