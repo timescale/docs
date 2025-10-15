@@ -1,6 +1,6 @@
 ---
-title: Integrate data lakes with Tiger Cloud
-excerpt: Unifies the Tiger Cloud operational architecture with data lake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
+title: Integrate data lakes with Tiger
+excerpt: Unifies the Tiger operational architecture with data lake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [data lake, lakehouse, s3, iceberg]
@@ -14,7 +14,7 @@ import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 $LAKE_LONG enables you to build real-time applications alongside efficient data pipeline management within a single 
 system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. 
 
-![Tiger Lake architecture](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-lake-integration-tiger-cloud.svg)
+![Tiger Lake architecture](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-lake-integration-tiger.svg)
 
 $LAKE_LONG is a native integration enabling synchronization between $HYPERTABLEs and relational tables
 running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 

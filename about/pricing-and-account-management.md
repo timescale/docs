@@ -17,7 +17,7 @@ import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 As we enhance our offerings and align them with your evolving needs,
 $PRICING_PLANs provide more value, flexibility, and efficiency for your business.
 Whether you're a growing startup or a well-established enterprise, our plans
-are structured to support your journey towards greater success.
+are structured to support your journey towards greater success. This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
 
 $PRICING_PLAN_CAPs give you:
 
@@ -198,8 +198,8 @@ You handle all details about your $CLOUD_LONG project including updates to your 
 payment methods, and add-ons in the [billing section in $CONSOLE][cloud-billing]:
 
 <img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-billing.png"
-alt="Adding a payment method in Tiger Cloud"/>
+src="https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-billing.png"
+alt="Adding a payment method in Tiger"/>
 
 - **Details**: an overview of your $PRICING_PLAN, usage, and payment details. You can add up 
   to three credit cards to your `Wallet`. If you prefer to pay by invoice, 

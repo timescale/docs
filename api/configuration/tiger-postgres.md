@@ -1,8 +1,6 @@
 ---
-title: Tiger Postgres configuration and tuning
-excerpt: Configure the Tiger Postgres settings related to policies, query planning and execution, distributed 
-  hypertables, and 
-  administration
+title: TimescaleDB configuration and tuning
+excerpt: Configure the TimescaleDB settings related to policies, query planning and execution, distributed hypertables, and administration
 products: [cloud]
 keywords: [configuration, settings]
 tags: [tune]
@@ -10,7 +8,7 @@ tags: [tune]
 
 import TimescaleDBConfig from "versionContent/_partials/_timescaledb-config.mdx";
 
-# $TIGER_POSTGRES configuration and tuning
+# $TIMESCALE_DB configuration and tuning
 
 <TimescaleDBConfig />
 

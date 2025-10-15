@@ -1,6 +1,6 @@
 ---
 title: Analyze financial tick data - Set up the dataset
-excerpt: Ingest and set up a financial dataset in Tiger Cloud to run real-time analytical queries on it
+excerpt: Ingest and set up a financial dataset in Tiger to run real-time analytical queries on it
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
