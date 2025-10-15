@@ -6,7 +6,7 @@
   <li>
     <p>
       Sign in to the{" "}
-      <a href="https://console.cloud.timescale.com/">Tiger Cloud Console</a> and click <code>Create service</code>.
+      <a href="https://console.cloud.timescale.com/">Tiger Console</a> and click <code>Create service</code>.
     </p>
   </li>
   <li>
@@ -26,7 +26,7 @@
         class="main-content__illustration"
         width={1375} height={944}
         src="https://assets.timescale.com/docs/images/tsc-create-service-demo.png"
-        alt="Create a new service in the Tiger Cloud Console"
+        alt="Create a new service in the Tiger Console"
       />
     </li>
   )}

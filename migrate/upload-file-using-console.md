@@ -1,6 +1,6 @@
 ---
-title: Upload a file into your service using Tiger Cloud Console
-excerpt: You can upload CSV, Parquet, and text files into your service using Tiger Cloud Console. Just drag and drop from your local machine, or provide a path to the file in S3
+title: Upload a file into your service using Tiger Console
+excerpt: You can upload CSV, Parquet, and text files into your service using Tiger Console. Just drag and drop from your local machine, or provide a path to the file in S3
 products: [cloud]
 keywords: [import]
 ---
@@ -13,7 +13,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
 You can upload files into your $SERVICE_SHORT using $CONSOLE_LONG. This page explains how to upload CSV, Parquet, and text files, from your local machine and from an S3 bucket.
 
-<Tabs label="Upload files using Tiger Cloud Console" persistKey="console-import">
+<Tabs label="Upload files using Tiger Console" persistKey="console-import">
 
 <Tab title="From a local machine" label="local-import">
 
@@ -35,12 +35,12 @@ To upload a CSV file to your $SERVICE_SHORT:
 
 1. **Select your $SERVICE_SHORT in [$CONSOLE_SHORT][console], then click `Actions` > `Import data` > `Upload your files` > `Upload CSV file`**
 
-   ![Import from CSV into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-csv-file.png)
+   ![Import from CSV into Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-import-csv-file.png)
 
 1. **Click to browse, or drag the file to import**
 1. **Configure the import**
 
-   ![Configure the CSV import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-csv-file-import.png)
+   ![Configure the CSV import in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-configure-csv-file-import.png)
 
    - Set a delimiter.
    - Toggle to skip or keep the header.
@@ -64,12 +64,12 @@ To upload a Parquet file to your $SERVICE_SHORT:
 
 1. **Select your $SERVICE_SHORT in [$CONSOLE_SHORT][console], then click `Actions` > `Import data` > `Upload your files` > `Upload Parquet file`**
 
-   ![Import from Parquet into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-parquet-file.png)
+   ![Import from Parquet into Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-import-parquet-file.png)
 
 1. **Click to browse, or drag the file to import**
 1. **Configure the import**
 
-   ![Configure the Parquet import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-parquet-file-import.png)
+   ![Configure the Parquet import in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-configure-parquet-file-import.png)
 
    - Select to ingest the data into an existing table or create a new one.
    - Provide the new or existing table name.
@@ -91,14 +91,14 @@ To upload a TXT or MD file to your $SERVICE_SHORT:
 
 1. **Select your $SERVICE_SHORT in $CONSOLE_SHORT, then click `Actions` > `Import data` > `Upload your files` > `Upload Text file`**
 
-   ![Import from a text file into Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-txt-file.png)
+   ![Import from a text file into Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-import-txt-file.png)
 
 1. **Click to browse, or drag and drop the file to import**
 1. **Configure the import**
 
    Provide a name to create a new table, or select an existing table to add data to. 
 
-   ![Configure the text file import in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-configure-txt-file-import.png)
+   ![Configure the text file import in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-configure-txt-file-import.png)
 
 1. **Click `Upload files`**
 
@@ -139,7 +139,7 @@ To import a CSV file from an S3 bucket:
 
 1. **Select your file in the S3 bucket**
 
-   ![Import CSV from S3 in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/import-csv-file-from-s3.png)
+   ![Import CSV from S3 in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/import-csv-file-from-s3.png)
 
    1. Provide your file path.
    1. Select `CSV` in the file type dropdown.
@@ -150,7 +150,7 @@ To import a CSV file from an S3 bucket:
 
 1. **Configure the import**
 
-   ![Configure CSV import from S3 in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-csv-file-import-from-s3.png)
+   ![Configure CSV import from S3 in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-csv-file-import-from-s3.png)
 
    - Set a delimiter.
    - Toggle to skip or keep the header.
@@ -176,7 +176,7 @@ To import a Parquet file from an S3 bucket:
 
 1. **Select your file in the S3 bucket**
 
-   ![Import Parquet from S3 in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-parquet-file-from-s3.png)
+   ![Import Parquet from S3 in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-import-parquet-file-from-s3.png)
 
    1. Provide your file path.
    1. Select `Parquet` in the file type dropdown.

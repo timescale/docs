@@ -21,14 +21,14 @@ You can try it for free for 30 days.
 
 This section shows you how to connect $CLOUD_LONG as a data source in [Grafana][grafana-homepage].
 
-## Configure Tiger Cloud as a data source
+## Configure $CLOUD_LONG as a data source
 
 To configure $CLOUD_LONGas a data source you need to create a service,
 and then configure $CLOUD_LONGas the data source in Grafana.
 
 <Procedure>
 
-### Create a Tiger Cloud service
+### Create a $SERVICE_LONG
 
 1.  Sign in to the [$CONSOLE][tsc-portal].
 1.  Click `Create service`.

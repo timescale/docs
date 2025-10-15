@@ -1,6 +1,6 @@
 ---
 title: Sync data from Postgres to your service
-excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger Cloud service in real time
+excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger service in real time
 products: [cloud]
 price_plans: [performance, scale, enterprise]
 keywords: [migration, low-downtime, backup]
@@ -20,7 +20,7 @@ $SERVICE_SHORT, in real time. You run the connector continuously, turning $PG in
 $SERVICE_SHORT as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on 
 your replica data.
 
-![Tiger Cloud connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-connector-overview.png)
+![Tiger connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-connector-overview.png)
 
 The $PG_CONNECTOR in $CLOUD_LONG leverages the well-established $PG logical replication protocol. By relying on this protocol,
 $CLOUD_LONG ensures compatibility, familiarity, and a broader knowledge base—making it easier for you to adopt the connector
@@ -53,7 +53,7 @@ You use the $PG_CONNECTOR for data synchronization, rather than migration. This 
 
 <Tabs label="Postgres source connector" persistKey="source-database">
 
-<Tab title="Tiger Cloud Console" label="tiger-cloud">
+<Tab title="Tiger Console" label="tiger-cloud">
 
 <LivesyncConsole />
 

@@ -6,13 +6,13 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
 
-   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-services-view.png)
+   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
    Connect using data mode or SQL editor in $CONSOLE, or psql in the command line:
 
-   <Tabs label="Connect to your Tiger Cloud service" persistKey="sql-editor">
+   <Tabs label="Connect to your Tiger service" persistKey="sql-editor">
 
    <Tab title="Data mode in Console" label="data-mode">
 
@@ -24,7 +24,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
    1. Select your $SERVICE_SHORT in the connection drop-down in the top right. 
 
-      ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-data-mode-connection-dropdown.png)
+      ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png)
 
    1. Run a test query:
 
@@ -48,7 +48,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
    
    1. Click `SQL editor`. 
 
-      ![Check a $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ops-mode-sql-editor.png)
+      ![Check a $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-ops-mode-sql-editor.png)
 
    1. Run a test query:
 
