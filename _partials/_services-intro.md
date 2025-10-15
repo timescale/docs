@@ -4,7 +4,7 @@ is ideal for applications requiring strong data consistency, complex relationshi
 Get ACID compliance, extensive SQL support, JSON handling, and extensibility through custom functions, data types, and
 extensions.
 
-You create $SERVICE_SHORTs in a project in your $CLOUD_LONG account. You have one project in an account, and you can have multiple $SERVICE_SHORTs in a project. A $SERVICE_SHORT houses a single $PG database.
+Each $SERVICE_SHORT is associated with a project in a $CLOUD_LONG account. Each account has one project, and each project can have multiple $SERVICE_SHORTs. Each user is a [member of one or more projects][rbac].
 
 You create free and standard $SERVICE_SHORTs in $CONSOLE_LONG, depending on your [$PRICING_PLAN][pricing-plans]. A free $SERVICE_SHORT comes at zero cost and gives you limited resources to get to know $CLOUD_LONG. Once you are ready to try out more advanced features, you can switch to a paid plan and convert your free $SERVICE_SHORT to a standard one.
 
@@ -47,3 +47,4 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[rbac]: /use-timescale/:currentVersion:/security/members/
