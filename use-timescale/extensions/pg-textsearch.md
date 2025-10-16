@@ -38,8 +38,6 @@ the following best practice:
 
 <IntegrationPrereqs />
 
-* Search tables with text columns
-
 ## Install pg_textsearch 
 
 To install this $PG extension: 
