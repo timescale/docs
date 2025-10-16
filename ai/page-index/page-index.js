@@ -8,6 +8,11 @@ module.exports = [
       "Information about pgai on TigerData and how to use it.",
     children: [
       {
+        title: "Integrate Tiger with your AI assistant",
+        href: "mcp-server",
+        excerpt: "Manage your services and optimize your schema and queries with your AI Assistant",
+      },
+      {
         title: "Key vector database concepts",
         href: "key-vector-database-concepts-for-understanding-pgvector",
         excerpt: "Key concepts for working with pgvector data in Postgres",

@@ -13,16 +13,13 @@ tags:
   - authentication
 ---
 
-
 import RESTGS from "versionContent/_partials/_devops-rest-api-get-started.mdx";
 import CLIGS from "versionContent/_partials/_devops-cli-get-started.mdx";
-import MCPGS from "versionContent/_partials/_devops-mcp-get-started.mdx";
 
 # DevOps as code with $CLOUD_LONG
 
-$COMPANY supplies a clean, programmatic control layer for $CLOUD_LONG. This includes RESTful APIs, CLI commands, and 
-MCP endpoints that let humans, machines, and AI agents easily provision, configure, and manage $SERVICE_LONG 
-programmatically. 
+$COMPANY supplies a clean, programmatic control layer for $CLOUD_LONG. This includes RESTful APIs and CLI commands 
+that enable humans, machines, and AI agents easily provision, configure, and manage $SERVICE_LONG programmatically. 
 
 <Tabs label="Install TimescaleDB" persistKey="devops-platform">
 
@@ -32,16 +29,11 @@ programmatically.
 
 </Tab>
 
-<Tab title="Tiger Cli" label="rest">
+<Tab title="Tiger Cli" label="cli">
 
 <CLIGS />
 
 </Tab>
 
-<Tab title="MCP server" label="rest">
-
-<MCPGS />
-
-</Tab>
 
 </Tabs>
