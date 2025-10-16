@@ -182,6 +182,7 @@ That beats working. Let the $MCP_LONG do it all for you.
 
 ## $CLI_LONG commands for $MCP_SHORT
 
+<MCPCOMMANDSCLI />
 
 ## Global flags
 
