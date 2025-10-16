@@ -1,6 +1,6 @@
 ---
 title: Energy consumption data tutorial - set up compression
-excerpt: Compress the sample dataset with Tiger Cloud to store the energy consumption data more efficiently
+excerpt: Compress the sample dataset with Tiger to store the energy consumption data more efficiently
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]

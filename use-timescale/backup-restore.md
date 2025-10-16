@@ -1,6 +1,6 @@
 ---
-title: Back up and recover your Tiger Cloud services
-excerpt: See how and when Tiger Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
+title: Back up and recover your Tiger services
+excerpt: See how and when Tiger backs up your data, making sure you always have something to fall back on in case of disaster recovery
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]
@@ -17,7 +17,7 @@ On [$SCALE and $PERFORMANCE][pricing-and-account-management] $PRICING_PLANs, you
 
 Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. This means that you always have a full backup available for the current and previous week: 
 
-![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
+![Backup in Tiger](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
 In the event of a storage failure, a $SERVICE_SHORT automatically recovers from a backup
 to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, you can [create a point-in-time recovery fork][create-fork].
@@ -36,7 +36,7 @@ You enable cross-region backup when you create a $SERVICE_SHORT, or configure it
 
 1. In `Cross-region backup`, select the region in the dropdown and click `Enable backup`. 
 
-   ![Create cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/create-cross-region-backup-in-tiger-cloud.png)
+   ![Create cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/create-cross-region-backup-in-tiger-console.png)
 
    You can now see the backup, its region, and creation date in a list. 
 
@@ -50,7 +50,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 1. Click the trash icon next to the existing backup to disable it. 
 
-   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/cross-region-backup-list-in-tiger-cloud.png)
+   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/cross-region-backup-list-in-tiger-console.png)
 
 1. Create a new backup in a different region. 
 
@@ -60,19 +60,28 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 <Availability products={['cloud']} />
 
-To recover your $SERVICE_SHORT from a destructive or unwanted action, create a point-in-time recovery fork. You can recover a $SERVICE_SHORT to any point within the period [defined by your pricing plan][pricing-and-account-management]. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time of recovery.
+To recover your $SERVICE_SHORT from a destructive or unwanted action, create a point-in-time recovery fork. You can 
+recover a $SERVICE_SHORT to any point within the period [defined by your pricing plan][pricing-and-account-management].
+The provision time for the recovery fork is typically less than twenty minutes, but can take longer depending on the 
+amount of WAL to be replayed. The original $SERVICE_SHORT stays untouched to avoid losing data created since the time 
+of recovery.
 
-Since the point-in-time recovery is done in a fork, to migrate your
-application to the point of recovery, change the connection
-strings in your application to use the fork. The provision time for the
-recovery fork is typically less than twenty minutes, but can take longer
-depending on the amount of WAL to be replayed.
+All tiered data remains recoverable during the PITR period. When restoring to any point-in-time recovery fork, your
+$SERVICE_SHORT contains all data that existed at that moment - whether it was stored in high-performance or low-cost
+storage. 
 
-To avoid paying for compute for the recovery fork and the original $SERVICE_SHORT, pause the original to only pay storage costs.
+When you restore a recovery fork:
+- Data restored from a PITR point is placed into high-performance storage
+- The tiered data, as of that point in time, remains in tiered storage
+
+
+
+To avoid paying for compute for the recovery fork and the original $SERVICE_SHORT, pause the original to only pay 
+storage costs.
 
 You initiate a point-in-time recovery from a same-region or cross-region backup in $CONSOLE_LONG:
 
-<Tabs label="Point-in-time recovery in Tiger Cloud Console">
+<Tabs label="Point-in-time recovery in Tiger Console">
 
 <Tab title="Same-region backup">
 
@@ -84,7 +93,7 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 1.  Select the recovery point, ensuring the correct time zone (UTC offset).
 1.  Configure the fork.
 
-    ![Create recovery fork](https://assets.timescale.com/docs/images/tiger-cloud-console/create-recovery-fork-tiger-cloud.png)
+    ![Create recovery fork](https://assets.timescale.com/docs/images/tiger-cloud-console/create-recovery-fork-tiger-console.png)
 
     You can configure the compute resources, add an HA replica, tag your fork, and
     add a connection pooler. Best practice is to match
@@ -92,7 +101,11 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 1.  Confirm by clicking `Create recovery fork`.
 
     A fork of the $SERVICE_SHORT is created. The recovered $SERVICE_SHORT shows in `Services` with a label specifying which $SERVICE_SHORT it has been forked from.
-1.  Update the connection strings in your app to use the fork.
+1.  Update the connection strings in your app
+
+    Since the point-in-time recovery is done in a fork, to migrate your
+    application to the point of recovery, change the connection
+    strings in your application to use the fork.
 
 </Procedure>
 

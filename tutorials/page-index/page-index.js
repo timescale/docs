@@ -69,7 +69,7 @@ module.exports = [
       {
         title: "Analyze financial tick data ",
         href: "financial-tick-data",
-        excerpt: "Use Tiger Cloud to store financial tick data",
+        excerpt: "Use Tiger to store financial tick data",
         children: [
           {
             title: "Ingest data into a service",

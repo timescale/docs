@@ -9,7 +9,7 @@ tags: [tune]
 import TimescaleDBConfig from "versionContent/_partials/_timescaledb-config.mdx";
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
 
-# $TIGER_POSTGRES configuration and tuning
+# $TIMESCALE_DB configuration and tuning
 
 Just as you can tune settings in $PG, $TIMESCALE_DB provides a number of configuration
 settings that may be useful to your specific installation and performance needs. These can
