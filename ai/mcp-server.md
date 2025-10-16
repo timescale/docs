@@ -178,12 +178,10 @@ That beats working. Let the $MCP_LONG do it all for you.
 
 ## $MCP_LONG commands
 
-<MCPCOMMANDS />
 
 
 ## $CLI_LONG commands for $MCP_SHORT
 
-<MCPCOMMANDSCLI />
 
 ## Global flags
 
