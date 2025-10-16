@@ -1,18 +1,10 @@
 ---
-title: "Integrate Tiger with your AI Assistant"
-excerpt: "Manage your services and optimize your schema and queries with your AI Assistant"
-keywords:
-  - authentication
-  - service creation
-  - API setup
-  - security
-tags:
-  - setup
-  - security
-  - services
-  - authentication
+title: Integrate Tiger with your AI Assistant
+excerpt: Manage your services and optimize your schema and queries using your AI Assistant
+products: [cloud, self_hosted]
+keywords: [ai, mcp, server, security]
+tags: [ai]
 ---
-
 
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 import CLIINSTALL from "versionContent/_partials/_devops-cli-install.mdx";
