@@ -20,6 +20,7 @@ import MCPCOMMANDS from "versionContent/_partials/_devops-mcp-commands.mdx";
 import MCPCOMMANDSCLI from "versionContent/_partials/_devops-mcp-commands-cli.mdx";
 import GLOBALFLAGS from "versionContent/_partials/_devops-cli-global-flags.mdx";
 
+
 # Integrate Tiger with your AI Assistant
 
 The $MCP_LONG provides access to your $CLOUD_LONG resources through Claude and other AI assistants. $MCP_SHORT 
@@ -127,7 +128,9 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
    please tell me what service optimizations i should do before migration. 
    
    ```
+   
    You see something like:
+
    ```shell
    ⏺ For migrating a database with 25 million rows to Tiger, here are the key service optimizations to do before migration:
 
@@ -195,7 +198,6 @@ That beats working. Let the $MCP_LONG do it all for you.
 You can use the following $CLI_LONG global flags when you run the $MCP_SHORT:
 
 <GLOBALFLAGS />
-
 
 
 [rest-api-reference]: /api/:currentVersion:/api-reference/
