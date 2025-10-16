@@ -1,6 +1,6 @@
 ---
 title: Optimize full text search with BM25
-excerpt: Set up and optimize BM25-based full-text search using pg_textsearch extension for efficient ranked text searching
+excerpt: Set up and optimize BM25-based full-text search using the pg_textsearch extension
 keywords: [pg_textsearch, BM25, full-text search, text search, ranking, hybrid search]
 tags: [search, indexing, performance, BM25]
 ---
@@ -12,11 +12,11 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 $PG full-text search at scale consistently hits a wall where performance degrades catastrophically. 
 $COMPANY's [pg_textsearch][pg_textsearch-repo] brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
-with a memtable architecture for efficient indexing and ranking. pg_textsearch integrates seamlessly with SQL and 
+with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and 
 provides better search quality and performance than the $PG built-in full-text search.
 
-BM25 scores in pg_textsearch are returned as negative values, where lower (more negative) numbers indicate better 
-matches. pg_textsearch implements the following:
+BM25 scores in `pg_textsearch` are returned as negative values, where lower (more negative) numbers indicate better 
+matches. `pg_textsearch` implements the following:
 
 * **Corpus-aware ranking**: BM25 uses inverse document frequency to weight rare terms higher
 * **Term frequency saturation**: prevents documents with excessive term repetition from dominating results
@@ -26,19 +26,19 @@ matches. pg_textsearch implements the following:
 This page shows you how to install `pg_textsearch`, configure BM25 indexes, and optimize your search capabilities using
 the following best practice: 
 
-* **Memory planning**: Size your `index_memory_limit` based on corpus vocabulary and document count
-* **Language configuration**: Choose appropriate text search configurations for your data language
-* **Hybrid search**: Combine with pgvector or pgvectorscale for applications requiring both semantic and keyword search
-* **Query optimization**: Use score thresholds to filter low-relevance results
-* **Index monitoring**: Regularly check index usage and memory consumption
+* **Memory planning**: size your `index_memory_limit` based on corpus vocabulary and document count
+* **Language configuration**: choose appropriate text search configurations for your data language
+* **Hybrid search**: combine with pgvector or pgvectorscale for applications requiring both semantic and keyword search
+* **Query optimization**: use score thresholds to filter low-relevance results
+* **Index monitoring**: regularly check index usage and memory consumption
 
-<EA1125 /> this preview release is designed for development and staging environments. It is not recommended for use with hypertables
+<EA1125 /> this preview release is designed for development and staging environments. It is not recommended for use with hypertables.
 
 ## Prerequisites
 
 <IntegrationPrereqs />
 
-* Tables with text columns you want to search
+* Search tables with text columns
 
 ## Install pg_textsearch 
 
@@ -70,7 +70,7 @@ To install this $PG extension:
 
 </Procedure>
 
-You have installed pg_textsearch on $CLOUD_LONG.
+You have installed `pg_textsearch` on $CLOUD_LONG.
 
 ## Create BM25 indexes on your data
 
@@ -110,7 +110,7 @@ To create a BM25 index with pg_textsearch:
    WITH (text_config='english');
    ```
 
-   bm25 supports single-column indexes only. 
+   BM25 supports single-column indexes only. 
 
 </Procedure>
 
@@ -167,7 +167,7 @@ You have optimized your search queries for BM25 ranking.
 
 ## Build hybrid search with semantic and keyword search
 
-Combine pg_textsearch with pgvector or pgvectorscale to build powerful hybrid search systems that use both semantic vector search and keyword BM25 search.
+Combine `pg_textsearch` with `pgvector` or `pgvectorscale` to build powerful hybrid search systems that use both semantic vector search and keyword BM25 search.
 
 <Procedure>
 
@@ -264,7 +264,7 @@ You have implemented hybrid search combining semantic and keyword search.
 
 ## Configuration options
 
-Customize pg_textsearch behavior for your specific use case and data characteristics.
+Customize `pg_textsearch` behavior for your specific use case and data characteristics.
 
 <Procedure>
 
@@ -316,7 +316,7 @@ Customize pg_textsearch behavior for your specific use case and data characteris
 
 </Procedure>
 
-You have configured pg_textsearch for optimal performance. For production applications, consider implementing result 
+You have configured `pg_textsearch` for optimal performance. For production applications, consider implementing result 
 caching and pagination to improve user experience with large result sets.
 
 ## Current limitations
