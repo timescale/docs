@@ -26,7 +26,20 @@ data by time and location.
     UPDATE rides SET pickup_geom = ST_Transform(ST_SetSRID(ST_MakePoint(pickup_longitude,pickup_latitude),4326),2163),
        dropoff_geom = ST_Transform(ST_SetSRID(ST_MakePoint(dropoff_longitude,dropoff_latitude),4326),2163);
     ```
-    This updates 10,906,860 rows of data on both columns, it takes a while. Coffee is your friend.  
+    This updates 10,906,860 rows of data on both columns, it takes a while. Coffee is your friend.
+    
+    You might run into this error while the update happens
+
+       `Error: tuple decompression limit exceeded by operation
+        Error Code: 53400
+        Details: current limit: 100000, tuples decompressed: 10906860
+        Hint: Consider increasing timescaledb.max_tuples_decompressed_per_dml_transaction or set to 0 (unlimited).`
+    
+    To fix this, use
+
+    ```sql
+    SET timescaledb.max_tuples_decompressed_per_dml_transaction TO 0;
+    ```
 
 </Procedure>
 
