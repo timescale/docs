@@ -63,7 +63,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
    ```shell
    claude
    ```
-   Claude automatically runs your $MCP_SHORT server that enables you to interact with $CLOUD_SHORT from your
+   Claude automatically runs your $MCP_SHORT server that enables you to interact with $CLOUD_LONG from your
    AI Assistant. 
 
 1. **Check your $MCP_LONG configuration**
@@ -178,7 +178,7 @@ That beats working. Let the $MCP_LONG do it all for you.
 
 ## $MCP_LONG commands
 
-
+<MCPCOMMANDS />
 
 ## $CLI_LONG commands for $MCP_SHORT
 
