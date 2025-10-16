@@ -106,11 +106,11 @@ To create a BM25 index with pg_textsearch:
 
    ```sql
    CREATE INDEX products_search_idx ON products
-   USING pg_textsearch(description)
+   USING bm25(description)
    WITH (text_config='english');
    ```
-   
-   pg_textsearch supports single-column indexes only. 
+
+   bm25 supports single-column indexes only. 
 
 </Procedure>
 
@@ -171,6 +171,10 @@ Combine pg_textsearch with pgvector or pgvectorscale to build powerful hybrid se
 
 <Procedure>
 
+1. **Enable the [vectorscale][pg-vectorscale] extension on your $SERVICE_LONG**
+   ```sql
+    CREATE EXTENSION IF NOT EXISTS vectorscale CASCADE;
+    ```
 1. **Create a table with both text content and vector embeddings**
 
    ```sql
@@ -191,7 +195,7 @@ Combine pg_textsearch with pgvector or pgvectorscale to build powerful hybrid se
 
    -- Keyword index for BM25 search
    CREATE INDEX articles_content_idx ON articles
-   USING pg_textsearch(content)
+   USING bm25(content)
    WITH (text_config='english');
    ```
 
@@ -199,34 +203,47 @@ Combine pg_textsearch with pgvector or pgvectorscale to build powerful hybrid se
 
    ```sql
    WITH vector_search AS (
-       SELECT id,
-              ROW_NUMBER() OVER (ORDER BY embedding <=> '[0.1, 0.2, ...]'::vector) AS rank
-       FROM articles
-       ORDER BY embedding <=> '[0.1, 0.2, ...]'::vector
-       LIMIT 20
+     SELECT id,
+            ROW_NUMBER() OVER (ORDER BY embedding <=> '[0.1, 0.2, 0.3]'::vector) AS rank
+     FROM articles
+     ORDER BY embedding <=> '[0.1, 0.2, 0.3]'::vector
+     LIMIT 20
    ),
    keyword_search AS (
-       SELECT id,
-              ROW_NUMBER() OVER (ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')) AS rank
-       FROM articles
-       ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')
-       LIMIT 20
+     SELECT id,
+            ROW_NUMBER() OVER (ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')) AS rank
+     FROM articles
+     ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')
+     LIMIT 20
    )
-   SELECT
-       a.id,
-       a.title,
-       COALESCE(1.0 / (60 + v.rank), 0.0) + COALESCE(1.0 / (60 + k.rank), 0.0) AS combined_score
+   SELECT a.id,
+          a.title,
+          COALESCE(1.0 / (60 + v.rank), 0.0) + COALESCE(1.0 / (60 + k.rank), 0.0) AS combined_score
    FROM articles a
    LEFT JOIN vector_search v ON a.id = v.id
    LEFT JOIN keyword_search k ON a.id = k.id
    WHERE v.id IS NOT NULL OR k.id IS NOT NULL
    ORDER BY combined_score DESC
-   LIMIT 10;
+   LIMIT 10; 
    ```
 
 1. **Adjust relative weights for different search types**
 
    ```sql
+     WITH vector_search AS (
+     SELECT id,
+            ROW_NUMBER() OVER (ORDER BY embedding <=> '[0.1, 0.2, 0.3]'::vector) AS rank
+     FROM articles
+     ORDER BY embedding <=> '[0.1, 0.2, 0.3]'::vector
+     LIMIT 20
+   ),
+   keyword_search AS (
+     SELECT id,
+            ROW_NUMBER() OVER (ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')) AS rank
+     FROM articles
+     ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')
+     LIMIT 20
+   )
    SELECT
        a.id,
        a.title,
@@ -279,21 +296,23 @@ Customize pg_textsearch behavior for your specific use case and data characteris
    ```sql
    -- Adjust term frequency saturation (k1) and length normalization (b)
    CREATE INDEX products_custom_idx ON products
-   USING pg_textsearch(description)
+   USING bm25(description)
    WITH (text_config='english', k1=1.5, b=0.8);
    ```
 
-1. **Monitor index usage and memory consumption**
+   1. **Monitor index usage and memory consumption**
 
-   ```sql
-   -- Check index usage statistics
-   SELECT schemaname, tablename, indexname, idx_scan, idx_tup_read
-   FROM pg_stat_user_indexes
-   WHERE indexrelid::regclass::text ~ 'pg_textsearch';
+      - Check index usage statistics
+          ```sql
+          SELECT schemaname, relname, indexrelname, idx_scan, idx_tup_read
+          FROM pg_stat_user_indexes
+          WHERE indexrelid::regclass::text ~ 'bm25';
+          ```
 
-   -- View detailed index information
-   SELECT tp_debug_dump_index('products_search_idx');
-   ```
+      - View detailed index information
+          ```sql
+          SELECT bm25_debug_dump_index('products_search_idx');
+          ```
 
 </Procedure>
 
@@ -316,3 +335,4 @@ These limitations will be addressed in upcoming releases with disk-based segment
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [recip-rank-fusion]: https://en.wikipedia.org/wiki/Mean_reciprocal_rank
+[pg-vectorscale]: /ai/:currentVersion:/sql-interface-for-pgvector-and-timescale-vector/#installing-the-pgvector-and-pgvectorscale-extensions
