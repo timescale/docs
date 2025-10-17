@@ -17,8 +17,7 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
     - _Real-time analytics_: store and query [time-series data][what-is-time-series] at scale for
       real-time analytics and other use cases. Get faster time-based queries with $HYPERTABLEs, $CAGGs, and columnar storage. Save money by compressing data into the $COLUMNSTORE, moving cold data to low-cost bottomless storage in Amazon S3, and deleting old data with automated policies.
     - _AI-focused_: build AI applications from start to scale. Get fast and accurate similarity search
-      with the pgvector and pgvectorscale extensions. Create vector embeddings and perform LLM reasoning on your data with
-      the pgai extension.
+      with the pgvector and pgvectorscale extensions.
     - _Hybrid applications_: get a full set of tools to develop applications that combine time-based data and AI.
 
   All standard $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][live-migration],
