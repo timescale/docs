@@ -196,7 +196,7 @@ $SERVICE_LONG has been running compute for 500 hours total:
 
 **Compute cost** = (`375` x `hourly price for 2 CPU`) + (`125` x `hourly price for 4 CPU`)
 
-Some add-ons such as Elastic storage, Tiered storage, and Connection pooling may incur
+Some add-ons such as tiered storage, HA replicas, and connection pooling may incur
 additional charges. These charges are clearly marked in your billing snapshot in $CONSOLE.
 
 ## Manage your $CLOUD_LONG $PRICING_PLAN
