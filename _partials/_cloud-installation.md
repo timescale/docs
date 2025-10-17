@@ -16,11 +16,13 @@ To set up $CLOUD_LONG:
 
    Open [Sign up for $CLOUD_LONG][timescale-signup] and add your details, then click `Start your free trial`. You receive a confirmation email in your inbox.
 
-1.  **In the confirmation email, click the link supplied and sign in to [$CONSOLE][tsc-portal]**
+1. **Confirm your email address**
 
-1. **Answer the requirements questions**
+    In the confirmation email, click the link supplied.
 
-    Your answers help us optimize $SERVICE_LONGs for your use cases.
+1. **Select the [pricing plan][pricing-plans]**
+
+   You are now logged into $CONSOLE_LONG. You can change the pricing plan to better accommodate your growing needs on the [`Billing` page][console-billing]. 
 
 </Procedure>
 
@@ -51,13 +53,13 @@ To set up $CLOUD_LONG via AWS:
 
    Add your details, then click `Start your free trial`. If you want to link an existing $ACCOUNT_LONG to AWS, log in with your existing credentials.  
 
+1. **Select the [pricing plan][pricing-plans]**
+
+   You are now logged into $CONSOLE_LONG. You can change the pricing plan later to better accommodate your growing needs on the [`Billing` page][console-billing].
+
 1. **In `Confirm AWS Marketplace connection`, click `Connect`**
 
     Your $CLOUD_LONG and AWS accounts are now connected.
-
-1. **Answer the requirements questions**
-
-   Your answers help us optimize $SERVICE_LONGs for your use cases.
 
 </Procedure>
 
@@ -71,3 +73,5 @@ To set up $CLOUD_LONG via AWS:
 [aws-paygo]: https://aws.amazon.com/marketplace/pp/prodview-iestawpo5ihca?applicationId=AWSMPContessa&ref_=beagle&sr=0-1
 [aws-annual-commit]: https://aws.amazon.com/marketplace/pp/prodview-ezxwlmjyr6x4u?applicationId=AWSMPContessa&ref_=beagle&sr=0-2
 [timescale-signup]: https://console.cloud.timescale.com/signup
+[console-billing]: https://console.cloud.timescale.com/dashboard/billing/plans
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
