@@ -4,7 +4,7 @@ is ideal for applications requiring strong data consistency, complex relationshi
 Get ACID compliance, extensive SQL support, JSON handling, and extensibility through custom functions, data types, and
 extensions.
 
-Each $SERVICE_SHORT is associated with a project in a $CLOUD_LONG account. Each account has one project, and each project can have multiple $SERVICE_SHORTs. Each user is a [member of one or more projects][rbac].
+Each $SERVICE_SHORT is associated with a project in $CLOUD_LONG. Each project can have multiple $SERVICE_SHORTs. Each user is a [member of one or more projects][rbac].
 
 You create free and standard $SERVICE_SHORTs in $CONSOLE_LONG, depending on your [$PRICING_PLAN][pricing-plans]. A free $SERVICE_SHORT comes at zero cost and gives you limited resources to get to know $CLOUD_LONG. Once you are ready to try out more advanced features, you can switch to a paid plan and convert your free $SERVICE_SHORT to a standard one.
 
