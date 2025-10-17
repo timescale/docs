@@ -90,7 +90,7 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
         }'
    ```
    $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
-   read-replication. You see something like:
+   read replication. You see something like:
    ```terminaloutput
    {
      "service_id":"asdfasdfasdf","project_id":"asdasdfasf","name":"my-first-service",

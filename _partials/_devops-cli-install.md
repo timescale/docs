@@ -1,6 +1,6 @@
 1. **Install $CLI_LONG**
 
-   Use the Terminal to install the $CLI_SHORT:
+   Use the terminal to install the $CLI_SHORT:
    <Tabs label="Install Tiger CLI" persistKey="os">
 
     <Tab title="Debian" label="debian">
@@ -63,7 +63,7 @@
       ```shell
       tiger auth login
       ```
-      $CLI_LONG opens $CONSOLE_SHORT in your browser. Login, then click `Authorize`. 
+      $CLI_LONG opens $CONSOLE_SHORT in your browser. Log in, then click `Authorize`. 
 
       You can have a maximum of 10 active client credentials. If you get an error, open [credentials][rest-api-credentials]
       and delete an unused credential. 

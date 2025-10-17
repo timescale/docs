@@ -29,7 +29,7 @@ that enable humans, machines, and AI agents easily provision, configure, and man
 
 </Tab>
 
-<Tab title="Tiger Cli" label="cli">
+<Tab title="Tiger CLI" label="cli">
 
 <CLIGS />
 
