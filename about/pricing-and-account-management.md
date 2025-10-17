@@ -72,7 +72,7 @@ Ready to try a more feature-rich paid plan? Request a 30-day free trial of our $
 After you have completed your 30-day trial period, choose the 
 [$PRICING_PLAN][plan-features] that suits your business and engineering needs. And even when you upgrade from the Free pricing plan, you can still have up to 2 zero-cost $SERVICE_SHORTs—or convert the ones you already have into standard ones, to have more resources. 
 
-If you want to try out features in a higher $PRICING_PLAN before upgrading, once you become a paying user, we can enable some features in the higher plan so you can run your tests. 
+If you want to try out features in a higher $PRICING_PLAN before upgrading, contact us. 
 
 ## Upgrade or downgrade your pricing plans at any time
 
