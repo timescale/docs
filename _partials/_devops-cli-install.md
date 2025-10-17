@@ -38,7 +38,7 @@
 
     </Tab>
 
-    <Tab title="MacOs" label="macos">
+    <Tab title="MacOS" label="macos">
 
     ```shell
     brew install --cask timescale/tap/tiger-cli
