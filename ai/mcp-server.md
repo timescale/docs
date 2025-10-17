@@ -1,5 +1,5 @@
 ---
-title: Integrate Tiger with your AI Assistant
+title: Integrate Tiger Cloud with your AI Assistant
 excerpt: Manage your services and optimize your schema and queries using your AI Assistant
 products: [cloud, self_hosted]
 keywords: [ai, mcp, server, security]
@@ -13,7 +13,7 @@ import MCPCOMMANDSCLI from "versionContent/_partials/_devops-mcp-commands-cli.md
 import GLOBALFLAGS from "versionContent/_partials/_devops-cli-global-flags.mdx";
 
 
-# Integrate Tiger with your AI Assistant
+# Integrate Tiger Cloud with your AI Assistant
 
 The $MCP_LONG provides access to your $CLOUD_LONG resources through Claude and other AI Assistants. $MCP_SHORT 
 mirrors the functionality of $CLI_LONG and is integrated directly into the $CLI_SHORT binary. You manage your

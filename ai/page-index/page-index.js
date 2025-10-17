@@ -5,10 +5,10 @@ module.exports = [
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Information about pgai on TigerData and how to use it.",
+      "Information about pgai on Tiger Data and how to use it.",
     children: [
       {
-        title: "Integrate Tiger with your AI assistant",
+        title: "Integrate Tiger Cloud with your AI assistant",
         href: "mcp-server",
         excerpt: "Manage your services and optimize your schema and queries with your AI Assistant",
       },
