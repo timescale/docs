@@ -157,6 +157,28 @@ module.exports = [
             excerpt: "Tiger services operations, Service management tab",
           },
           {
+            title: "Service forks",
+            href: "forks",
+            excerpt: "Fork databases for testing, development, CI/CD, and disaster recovery",
+            children: [
+              {
+                title: "Quick start",
+                href: "quickstart",
+                excerpt: "Create your first fork with Console, CLI, or GitHub Actions",
+              },
+              {
+                title: "Strategies and limitations",
+                href: "performance",
+                excerpt: "Fork strategies, trade-offs, and important constraints",
+              },
+              {
+                title: "GitHub Actions integration",
+                href: "github-actions",
+                excerpt: "Automate fork creation in CI/CD workflows",
+              },
+            ],
+          },
+          {
             title: "Manually change resources",
             href: "change-resources",
             excerpt: "Manually adjust your service resources",
