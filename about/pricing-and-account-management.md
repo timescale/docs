@@ -62,36 +62,6 @@ provisioning your $SERVICE_SHORTs or later, as your needs grow.
 [low-cost bottomless storage in S3][data-tiering] for other data. The high-performance storage offers you up to 64 TB of compressed 
 (typically 80-100 TB uncompressed) data and is metered on your average GB consumption per hour. We can help you compress your data by up to 98% so you pay even less. <TieredStorageBilling />
 For easy upgrades, each $SERVICE_SHORT stores the $TIMESCALE_DB binaries. This contributes up to 900 MB to overall storage, which amounts to less than $.80/month in additional storage costs.
-
-## How your bill is calculated
-
-You are billed at the end of each month in arrears. Your monthly invoice
-includes an itemized cost accounting for each $SERVICE_LONG and any additional charges.
-
-$CLOUD_LONG charges are based on consumption and your pricing plan:
-
-- **Compute**: metered on an hourly basis. You can scale compute up and down at any time.
-- **Storage**: metered based on your average GB consumption per hour. Storage grows and shrinks automatically
-  with your data.
-
-For example, over the last month your $SERVICE_LONG has been running compute for 500 hours total:
-
-- 375 hours with 2 CPU
-- 125 hours 4 CPU
-
-and consumed high-performance storage for 720 hours total:
-
-- 200 hours with 100 GB
-- 520 hours with 150 GB
-
-**Compute cost** = (`375` x `hourly price for 2 CPU`) + (`125` x `hourly price for 4 CPU`)
-
-**High-performance storage cost** = (`200` x `100 GB` x `hourly price per GB`) + (`520` x `150 GB` x `hourly price per GB`)
-
-<BillingForInactiveServices />
-
-Some add-ons such as tiered storage, HA replicas, and connection pooling may incur
-additional charges. These charges are clearly marked in your billing snapshot in $CONSOLE.
   
 ## Use $CLOUD_LONG for free
 
@@ -207,6 +177,27 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | JOIN services (Jumpstart Onboarding and INtegration)          |                     |                                        | Available at minimum spend                     | ✓                                                |
 
 For a personalized quote, [get in touch with $COMPANY][contact-company].
+
+## Example billing calculation
+
+You are billed at the end of each month in arrears, based on your actual usage that month. Your monthly invoice
+includes an itemized cost accounting for each $SERVICE_LONG and any additional charges.
+
+$CLOUD_LONG charges are based on consumption:
+
+- **Compute**: metered on an hourly basis. You can scale compute up and down at any time.
+- **Storage**: metered based on your average GB consumption per hour. Storage grows and shrinks automatically
+  with your data.
+
+Your monthly price for compute and storage is computed similarly. For example, over the last month your
+$SERVICE_LONG has been running compute for 500 hours total:
+- 375 hours with 2 CPU
+- 125 hours 4 CPU
+
+**Compute cost** = (`375` x `hourly price for 2 CPU`) + (`125` x `hourly price for 4 CPU`)
+
+Some add-ons such as Elastic storage, Tiered storage, and Connection pooling may incur
+additional charges. These charges are clearly marked in your billing snapshot in $CONSOLE.
 
 ## Manage your $CLOUD_LONG $PRICING_PLAN
 
