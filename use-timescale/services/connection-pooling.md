@@ -2,6 +2,7 @@
 title: Connection pooling
 excerpt: Connection pooling is reusing existing connections instead of creating a new one each time a client requests access to the database. Create connection poolers in Tiger Console to boost your database performance
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [connection pooling, pooler, connections, services]
 cloud_ui:
     path:

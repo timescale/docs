@@ -2,6 +2,7 @@
 title: Tiger regions
 excerpt: The AWS regions available for Tiger services
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 ---
 
 import Regions from "versionContent/_partials/_timescale-cloud-regions.mdx";

@@ -2,6 +2,7 @@
 title: Sync data from Postgres to your service
 excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger service in real time
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]
 ---

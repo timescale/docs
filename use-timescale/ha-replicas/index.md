@@ -2,6 +2,7 @@
 title: High availability and read replication
 excerpt: Tiger enables you to reduce the risk of service downtime and power read-intensive apps with database replication. Learn about the available replication types
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [high availability, replicas]
 tags: [failover, replication, ha]
 cloud_ui:

@@ -89,7 +89,7 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 
 1.  In [$CONSOLE][console], from the `Services` list, ensure the $SERVICE_SHORT
     you want to recover has a status of `Running` or `Paused`.
-1.  Navigate to `Operations` > `Backup & restore` and click `Create recovery fork`. 
+1.  Navigate to `Operations` > `Service management` and click `Create recovery fork`. 
 1.  Select the recovery point, ensuring the correct time zone (UTC offset).
 1.  Configure the fork.
 

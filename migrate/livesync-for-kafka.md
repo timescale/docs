@@ -2,6 +2,7 @@
 title: Stream data from Kafka into your service
 excerpt: Stream data from Kafka into a Tiger service in order to store, query, and analyze your Kafka events efficiently
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [stream, kafka, connect]
 tags: [stream, connector]
 ---
