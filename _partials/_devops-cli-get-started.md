@@ -38,7 +38,7 @@ Create a new $SERVICE_LONG using $CLI_LONG:
    tiger service create
    ```
    $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
-   read-replication. You see something like:
+   read replication. You see something like:
    ```terminaloutput
     🚀 Creating service 'db-11111' (auto-generated name)...
     ✅ Service creation request accepted!
