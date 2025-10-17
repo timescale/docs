@@ -49,7 +49,7 @@
     <Tab title="x-platform" label="xplatform">
 
     ```shell
-    curl -fsSL https://cli.tigerdata.com/install.sh | sh
+    curl -fsSL https://cli.tigerdata.com | sh
     ```
 
     </Tab>

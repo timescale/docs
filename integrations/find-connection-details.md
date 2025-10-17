@@ -37,7 +37,7 @@ Retrieve the connection details for your $SERVICE_LONG:
 
 ## Find your project and service ID
 
-To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LONG:
+To retrieve the connection details for your $PROJECT_LONG project and $SERVICE_LONG:
 
 <Procedure>
 
@@ -95,7 +95,7 @@ such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
  
    1. Click `Create credentials`, then copy `Public key` and `Secret key` locally.
 
-      ![Retrive the service id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png)
+      ![Create client credentials in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png)
 
        This is the only time you see the `Secret key`. After this, only the `Public key` is visible in this page. 
 

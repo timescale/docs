@@ -31,9 +31,9 @@ Create a new $SERVICE_LONG using $CLI_LONG:
 
 1. **Submit a service creation request**
 
-   $CLI_LONG creates a default service depending on your [pricing plan][pricing-plans]:
+   Depending on your [pricing plan][pricing-plans], $CLI_LONG creates a service for you:
    * **Free plan**: shared CPU/memory and the `time-series` and `ai` add-ons
-   * **Standard plan**: 0.5 CPU and 2 GB memory with the `time-series` add-on
+   * **Paid plan**: 0.5 CPU and 2 GB memory with the `time-series` add-on
    ```shell
    tiger service create
    ```
