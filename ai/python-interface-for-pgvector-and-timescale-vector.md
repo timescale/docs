@@ -73,7 +73,7 @@ The client constructor takes three required arguments:
 
 | name           | description                                                                               |
 |----------------|-------------------------------------------------------------------------------------------|
-| `service_url`    | Tiger service URL / connection string                                               |
+| `service_url`    | $SERVICE_LONG URL / connection string                                                     |
 | `table_name`     | Name of the table to use for storing the embeddings. Think of this as the collection name |
 | `num_dimensions` | Number of dimensions in the vector                                                        |
 

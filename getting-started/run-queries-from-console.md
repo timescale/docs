@@ -1,6 +1,6 @@
 ---
-title: Run your queries from Tiger Console
-excerpt: Choose the right tool to manage your data. Tiger offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
+title: Run your queries from Tiger Cloud Console
+excerpt: Choose the right tool to manage your data. Tiger Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
 products: [cloud]
 content_group: Getting started
 ---

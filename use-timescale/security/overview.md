@@ -1,6 +1,6 @@
 ---
-title: About security in Tiger
-excerpt: Learn how Tiger protects your data with secure development practices, as well as configurable features that restrict access to your services
+title: About security in Tiger Cloud
+excerpt: Learn how Tiger Cloud protects your data with secure development practices, as well as configurable features that restrict access to your services
 products: [cloud]
 keywords: [security]
 tags: [encryption, VPC, privacy]

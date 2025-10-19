@@ -1,5 +1,5 @@
 ---
-title: Try the key features in TigerData products
+title: Try the key features in Tiger Data products
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
 products: [cloud, self_hosted, mst]
 content_group: Getting started
@@ -83,7 +83,7 @@ relational and time-series data from external files.
     
        <Tabs label="Upload data" persistKey="sql-editor">
 
-       <Tab title="Tiger Console" label="data-mode">
+       <Tab title="Tiger Cloud Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.

@@ -1,6 +1,6 @@
 ---
-title: TigerData glossary of terms
-excerpt: Find definitions of the key terms used in TigerData documentation, real-time analytics, and database industry
+title: Tiger Data glossary of terms
+excerpt: Find definitions of the key terms used in Tiger Data documentation, real-time analytics, and database industry
 tags: [glossary, definition]
 products: [cloud, mst, self_hosted]
 ---

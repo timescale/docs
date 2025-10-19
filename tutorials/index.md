@@ -1,6 +1,6 @@
 ---
 title: Tutorials
-excerpt: Tiger can be used in various sectors, and for various purposes. Follow our tutorials to see it used for real-time data analysis in the energy, finance, IoT, and other sectors
+excerpt: Tiger Cloud can be used in various sectors, and for various purposes. Follow our tutorials to see it used for real-time data analysis in the energy, finance, IoT, and other sectors
 products: [cloud, mst, self_hosted]
 ---
 

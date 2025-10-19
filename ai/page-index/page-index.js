@@ -5,7 +5,7 @@ module.exports = [
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Information about pgai on TigerData and how to use it.",
+      "Information about pgai on Tiger Data and how to use it.",
     children: [
       {
         title: "Key vector database concepts",

@@ -1,6 +1,6 @@
 ---
-title: About Tiger storage tiers 
-excerpt: Learn how Tiger helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
+title: About Tiger Cloud storage tiers 
+excerpt: Learn how Tiger Cloud helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [tiered storage]

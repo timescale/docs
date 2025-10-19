@@ -1,6 +1,6 @@
 ---
 title: Sync data from Postgres to your service
-excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger service in real time
+excerpt: Synchronize updates to your primary Postgres database with the corresponding Tiger Cloud service in real time
 products: [cloud]
 price_plans: [performance, scale, enterprise]
 keywords: [migration, low-downtime, backup]
@@ -20,7 +20,7 @@ $SERVICE_SHORT, in real time. You run the connector continuously, turning $PG in
 $SERVICE_SHORT as a logical replica. This enables you to leverage $CLOUD_LONG’s real-time analytics capabilities on 
 your replica data.
 
-![Tiger connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-connector-overview.png)
+![$CLOUD_LONG connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-connector-overview.png)
 
 The $PG_CONNECTOR in $CLOUD_LONG leverages the well-established $PG logical replication protocol. By relying on this protocol,
 $CLOUD_LONG ensures compatibility, familiarity, and a broader knowledge base—making it easier for you to adopt the connector
@@ -49,11 +49,11 @@ You use the $PG_CONNECTOR for data synchronization, rather than migration. This 
 * Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
-<EarlyAccessNoRelease />: this source Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the TigerData Community</a>. 
+<EarlyAccessNoRelease />: this source Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the Tiger Community</a>. 
 
 <Tabs label="Postgres source connector" persistKey="source-database">
 
-<Tab title="Tiger Console" label="tiger-cloud">
+<Tab title="Tiger Cloud Console" label="tiger-cloud">
 
 <LivesyncConsole />
 

@@ -1,6 +1,6 @@
 ---
 title: Billing and account management
-excerpt: Manage billing and account information for your TigerData account
+excerpt: Manage billing and account information for your Tiger Data account
 products: [cloud]
 keywords: [billing, accounts, admin]
 tags: [payment, billing, costs]
@@ -20,7 +20,7 @@ $PRICING_PLANs provide more value, flexibility, and efficiency for your business
 Whether you're a growing startup or a well-established enterprise, our plans
 are structured to support your journey towards greater success. 
 
-![Tiger pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
+![$CLOUD_LONG pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
 
 This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
 

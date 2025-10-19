@@ -45,7 +45,7 @@ installation, substituting the target port, IP address, username, and password
 for those of your managed TimescaleDB instance:
 
 ```yaml
-# prometheus.yml for monitoring a Tiger service
+# prometheus.yml for monitoring a Tiger Cloud service
 global:
  scrape_interval:     10s
  evaluation_interval: 10s

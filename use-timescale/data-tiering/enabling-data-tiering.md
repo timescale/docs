@@ -1,6 +1,6 @@
 ---
 title: Manage storage and tiering
-excerpt: Configure high-performance and low-cost object storage tiers in Tiger Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
+excerpt: Configure high-performance and low-cost object storage tiers in Tiger Cloud Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [tiered storage]

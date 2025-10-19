@@ -1,6 +1,6 @@
 ---
-title: Create your first Tiger service
-excerpt: Tiger offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Console
+title: Create your first Tiger Cloud service
+excerpt: Tiger Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Cloud Console
 products: [cloud]
 content_group: Getting started
 ---
