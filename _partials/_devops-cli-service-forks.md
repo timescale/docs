@@ -55,7 +55,6 @@ To manage development forks:
        You see something like:
         ```terminaloutput
         🗑️  Delete request accepted for service 'trgbobserv'.
-        ⏳ Waiting for service 'trgbobserv' to be deleted
         ✅ Service 'trgbobserv' has been successfully deleted.
         ```
 
