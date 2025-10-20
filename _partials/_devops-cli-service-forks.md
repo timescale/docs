@@ -11,8 +11,7 @@ To manage development forks:
    ```shell
     tiger service fork tgrservice --now --no-wait --name bob   
    ```
-   By default a fork matches the resource of the parent $SERVICE_LONGs. For paid plans use the `cpu_millis` and 
-   `memory_gbs` for dedicated resources. 
+   By default a fork matches the resource of the parent $SERVICE_LONGs. For paid plans specify `--cpu` and/or `--memory` for dedicated resources.
 
    You see something like:
 
