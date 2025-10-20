@@ -26,8 +26,8 @@ $EON_LONG:
 
 - **Unlocks hidden value**: your data in Slack, GitHub, and Linear already contain the insights you need. $EON_SHORT makes them accessible.
 - **Enables faster decisions**: no need to search or ask around, you get answers in seconds.
-- **Is easy to use**: $EON_SHORT runs a $AGENTS_SHORT and MCP servers statelessly in a lightweight Docker container.
-- **Integrates seamlessly with $CLOUD_LONG**: $EON_SHORT creates a free $SERVICE_LONG so you securely and reliably store 
+- **Is easy to use**: $EON_SHORT runs a $AGENTS_SHORT and MCP servers statelessly in lightweight Docker containers.
+- **Integrates seamlessly with $CLOUD_LONG**: $EON_SHORT uses a $SERVICE_LONG so you securely and reliably store 
     your company data. Prefer to self-host? Use a [$PG instance with $TIMESCALE_DB][install-self-hosted].
 
 $EON_LONGs real-time ingestion system connects to Slack and captures everything: every message, reaction, edit, and 
@@ -66,7 +66,7 @@ and runs the following components for you:
 - A listener Slack app that passes questions to the $AGENTS_SHORT when you @tag it in a public channel, and returns the 
   AI analysis on your data
 
-All local components are run in a lightweight Docker container.
+All local components are run in lightweight Docker containers via Docker Compose.
 
 This section shows you how to run the $EON_SHORT setup to configure $EON_SHORT to connect to your Slack app, and give them access to your
 data and analytics stored in $CLOUD_LONG.
