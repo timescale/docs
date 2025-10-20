@@ -27,7 +27,7 @@ $EON_LONG:
 - **Unlocks hidden value**: your data in Slack, GitHub, and Linear already contain the insights you need. $EON_SHORT makes them accessible.
 - **Enables faster decisions**: no need to search or ask around, you get answers in seconds.
 - **Is easy to use**: $EON_SHORT runs a $AGENTS_SHORT and MCP servers statelessly in a lightweight Docker container.
-- **Integrates seamless with $CLOUD_LONG**: $EON_SHORT creates a free $SERVICE_LONG so you securely and reliably store 
+- **Integrates seamlessly with $CLOUD_LONG**: $EON_SHORT creates a free $SERVICE_LONG so you securely and reliably store 
     your company data. Prefer to self-host? Use a [$PG instance with $TIMESCALE_DB][install-self-hosted].
 
 This page shows you how to install and run $EON_SHORT.
@@ -37,8 +37,8 @@ This page shows you how to install and run $EON_SHORT.
 <PrereqAccount />
 
 - [Install Docker][install-docker] on your developer device
-- Rights to create an [Anthropic API key][claude-api-key]
-- Rights to create a [GitHub token][github-token] 
+- Have rights to create an [Anthropic API key][claude-api-key]
+- Have rights to create a [GitHub token][github-token] 
 
 ## Interactive setup
 
@@ -46,7 +46,7 @@ $EON_LONG is a production-ready repository running [$CLI_LONG][tiger-cli] and [$
 and runs the following components for you:
 
 - An ingest Slack app that consumes all messages and reactions from public channels in your Slack workspace
-- A [$AGENTS_SHORT][tiger-agents] that analyse your company data for you 
+- A [$AGENTS_SHORT][tiger-agents] that analyzes your company data for you 
 - A $SERVICE_LONG instance that stores data from the Slack apps
 - MCP servers that connect data sources to $EON_SHORT 
 - A listener Slack app that passes questions to the $AGENTS_SHORT when you @tag it in a public channel, and returns the 
@@ -61,7 +61,7 @@ data and analytics stored in $CLOUD_LONG.
 
 1. **Install $EON_LONG to manage and run your AI-powered Slack bots**
 
-    In a local folder, run the following command from the terminal.
+    In a local folder, run the following command from the terminal:
     ```shell
     git clone git@github.com:timescale/tiger-eon.git
     ```
@@ -90,7 +90,7 @@ data and analytics stored in $CLOUD_LONG.
 
 1. **Create the ingest Slack app**
 
-   1. In terminal, name your ingest Slack app:
+   1. In the terminal, name your ingest Slack app:
 
       1. $EON_SHORT proposes to create an ingest app called `tiger-slack-ingest`, press `Enter`. 
       1. Do the same for the App description.
@@ -104,7 +104,7 @@ data and analytics stored in $CLOUD_LONG.
   
    1. Add the Slack app manifest:
       1. In terminal press `Enter`. The setup prints the Slack app manifest to terminal and adds it to your clipboard. 
-      1. In the Slack `Create app from manifest` window, paste the manifest, 
+      1. In the Slack `Create app from manifest` window, paste the manifest.
       1. Click `Next`, then click `Create`.   
 
    1. Configure an app-level token
@@ -112,7 +112,7 @@ data and analytics stored in $CLOUD_LONG.
        1. In your app settings, go to `Basic Information`.
        1. Scroll to `App-Level Tokens`.
        1. Click `Generate Token and Scopes`.
-       1. Add a `Token Name`, then click `Add Scope` add `connections:write` then click `Generate`.
+       1. Add a `Token Name`, then click `Add Scope` add `connections:write`, then click `Generate`.
        1. Copy the `xapp-*` token and click `Done`.
        1. In terminal, paste the token, then press `Enter`.
 
@@ -149,11 +149,11 @@ data and analytics stored in $CLOUD_LONG.
 
 1. **Give $EON_SHORT access to private repositories**
    
-   1. The setup asks if you would like to `include access to private repositories`. Press `y`.
+   1. The setup asks if you would like to include access to private repositories. Press `y`.
    1. Follow the GitHub token creation process.  
-   1. In the $EON_SHORT setup add your organization name, then past the GitHub token. 
+   1. In the $EON_SHORT setup add your organization name, then paste the GitHub token. 
 
-   The setup sets up a new $SERVICE_LONG for you called `tiger-eon` then starts $EON_SHORT in Docker.  
+   The setup sets up a new $SERVICE_LONG for you called `tiger-eon`, then starts $EON_SHORT in Docker.  
 
    ![Eon running in Docker](https://assets.timescale.com/docs/images/tiger-eon-docker-services.png)
  
@@ -166,7 +166,7 @@ You have created:
 
 ## Integrate $EON_SHORT in your Slack workspace
 
-To enable your AI assistant to analyse your data for you when you ask a question, open a public channel,  
+To enable your AI Assistant to analyze your data for you when you ask a question, open a public channel,  
 invite `@eon` to join, then ask a question: 
 
 ![Eon running in Docker](https://assets.timescale.com/docs/images/tiger-eon-slack-channel-add.png)

@@ -16,7 +16,7 @@ business, technical, and operations questions in your Slack channels.
 
 ![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-agent/query-in-slack.png)
 
-$AGENTS_LONG can handle concurrent conversations with enterprise-grade reliability. They has the following features:
+$AGENTS_LONG can handle concurrent conversations with enterprise-grade reliability. They have the following features:
 
 - **Durable and atomic event handling**: $PG-backed event claiming ensures exactly-once processing, even under high concurrency and failure conditions
 - **Bounded concurrency**: fixed worker pools prevent resource exhaustion while maintaining predictable performance under load
