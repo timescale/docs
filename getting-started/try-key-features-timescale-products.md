@@ -18,8 +18,8 @@ $CLOUD_LONG offers managed database services that provide a stable and reliable 
 applications. 
 
 Each $SERVICE_LONG is a single optimised $PG instance extended with innovations such as $TIMESCALE_DB in the database 
-engine, in a cloud infrastructure that delivers speed without compromise. A radically faster $PG for transactional, 
-analytical and agentic workloads at scale.
+engine, in a cloud infrastructure that delivers speed without sacrifice. A radically faster $PG for transactional, 
+analytical, and agentic workloads at scale.
 
 $CLOUD_LONG scales $PG to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 

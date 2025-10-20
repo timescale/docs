@@ -37,7 +37,7 @@ case, $CLOUD_LONG is a line item in your AWS invoice.
 
 To set up $CLOUD_LONG via AWS:
 
-1. **Open [AWS Marketplace][aws-marketplace] and search for `Tiger`** 
+1. **Open [AWS Marketplace][aws-marketplace] and search for `Tiger Cloud`** 
 
    You see two pricing options, [pay-as-you-go][aws-paygo] and [annual commit][aws-annual-commit]. 
 
