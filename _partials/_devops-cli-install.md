@@ -58,7 +58,7 @@
  
 1. **Set up API credentials**
 
-   1. Log $CLI_LONG into your $ACCOUNT_LONG
+   1. Log $CLI_LONG into your $ACCOUNT_LONG:
  
       ```shell
       tiger auth login
