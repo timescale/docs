@@ -22,8 +22,8 @@ including:
 - Configuration
 - An admin `tsdbadmin` user with a new password
 
-Forks are fully independent. Changes to the fork don't affect the parent $SERVICE_SHORT, you can query
-them, run migrations, add indexes, or test new features.
+Forks are fully independent. Changes to the fork don't affect the parent $SERVICE_SHORT. You can query
+them, run migrations, add indexes, or test new features against the fork without affecting the original service.
 
 Forks are a powerful way to share production-scale data safely. BI and data science teams often need access to real
 datasets to build models or generate insights. With forkable $SERVICE_SHORTs, you easily create instant, zero-copy
