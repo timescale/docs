@@ -33,6 +33,7 @@ your specific needs.
 ## Prerequisites
 
 <PrereqAccount />
+
 * The [uv package manager][uv-install]
 * An [Anthropic API key][claude-api-key]
 * Optional: [Logfire token][logfire]
