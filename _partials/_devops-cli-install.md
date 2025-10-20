@@ -1,4 +1,4 @@
-1. ** Install $CLI_LONG**
+1. **Install $CLI_LONG**
 
    Use the terminal to install the $CLI_SHORT:
    <Tabs label="Install Tiger CLI" persistKey="os">

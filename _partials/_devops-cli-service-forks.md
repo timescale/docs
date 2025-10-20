@@ -18,14 +18,14 @@ To manage development forks:
     ```terminaloutput
     🍴 Forking service 'tgrservice' to create 'bob' at current state...
     ✅ Fork request accepted!
-    📋 New Service ID: trgbobserv
+    📋 New Service ID: <service_id>
     🔐 Password saved to system keyring for automatic authentication
-    🎯 Set service 'trgbobserv' as default service.
+    🎯 Set service '<service_id>' as default service.
     ⏳ Service is being forked. Use 'tiger service list' to check status.
     ┌───────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────┐
     │     PROPERTY      │                                              VALUE                                               │
     ├───────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────┤
-    │ Service ID        │ trgbobserv                                                                                       │
+    │ Service ID        │ <service_id>                                                                                       │
     │ Name              │ bob                                                                                              │
     │ Status            │                                                                                                  │
     │ Type              │ TIMESCALEDB                                                                                      │
@@ -43,19 +43,19 @@ To manage development forks:
     1. Use the CLI to request $SERVICE_SHORT delete:
 
        ```shell
-       tiger service delete trgbobserv  
+       tiger service delete <service_id>  
        ```
     1. Validate the $SERVICE_SHORT delete:
 
         ```terminaloutput
-        Are you sure you want to delete service 'trgbobserv'? This operation cannot be undone.
-        Type the service ID 'trgbobserv' to confirm:
-        trgbobserv
+        Are you sure you want to delete service '<service_id>'? This operation cannot be undone.
+        Type the service ID '<service_id>' to confirm:
+        <service_id>
         ```
        You see something like:
         ```terminaloutput
-        🗑️  Delete request accepted for service 'trgbobserv'.
-        ✅ Service 'trgbobserv' has been successfully deleted.
+        🗑️  Delete request accepted for service '<service_id>'.
+        ✅ Service '<service_id>' has been successfully deleted.
         ```
 
 </Procedure>

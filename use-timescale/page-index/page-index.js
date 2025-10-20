@@ -610,7 +610,7 @@ module.exports = [
         href: "backup-restore",
       },
       {
-        title: "Developer service forks",
+        title: "Fork services",
         href: "fork-services",
       },
       {

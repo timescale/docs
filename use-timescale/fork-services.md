@@ -1,5 +1,5 @@
 ---
-title: Developer service forks
+title: Fork services
 excerpt: With developer forks, spin up a branch, run your test, throw it away, or merge it back.
 products: [cloud]
 price_plans: [performance, scale, enterprise]
@@ -10,7 +10,7 @@ tags: [recovery, failures]
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import CLIFORKS from "versionContent/_partials/_devops-cli-service-forks.mdx";
 
-# Developer $SERVICE_SHORT forks
+# Fork $SERVICE_SHORTs
 
 Modern development is highly iterative. Developers and AI agents need safe spaces to test changes before deploying them
 to production. Forkable $SERVICE_SHORTs make this natural and easy. Spin up a branch, run your test, throw it away, or
@@ -27,8 +27,8 @@ them, run migrations, add indexes, or test new features against the fork without
 
 Forks are a powerful way to share production-scale data safely. BI and data science teams often need access to real
 datasets to build models or generate insights. With forkable $SERVICE_SHORTs, you easily create fast, zero-copy
-branches of a production $SERVICE_SHORT that is isolated from production, but contains all the data needed for
-analysis. You share this fork with your analytics teams in seconds. This dramatically reduces friction getting insights
+branches of a production $SERVICE_SHORT that are isolated from production, but contain all the data needed for
+analysis. You can share this fork with your analytics teams in seconds. This dramatically reduces friction getting insights
 from live data. 
 
 ## Understand $SERVICE_SHORT forks
@@ -58,10 +58,10 @@ The retention period for point-in-time recovery and forking depends on your [pri
 
 ### Fork creation speed
 
-Fork creation speed depends on your pricing plan.
+Fork creation speed depends on your type of service you want to create:
 
-- Free plan: ~30-90 seconds. Uses a Copy-on-Write storage architecture with zero-copy between a fork and the parent.
-- Paid plan: varies with the size of your $SERVICE_SHORT, typically 5-20+ minutes. Uses tradional storage architecture
+- Free: ~30-90 seconds. Uses a Copy-on-Write storage architecture with zero-copy between a fork and the parent.
+- Paid: varies with the size of your $SERVICE_SHORT, typically 5-20+ minutes. Uses tradional storage architecture
    with backup restore + WAL replay.
 
 ### Billing

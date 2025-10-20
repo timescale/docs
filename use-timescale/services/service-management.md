@@ -72,7 +72,7 @@ alt="Fork a Tiger service"
 
 </Procedure>
 
-## Create a development fork
+## Create a service fork using the $CLI_SHORT
 
 <CLIFORKS />
 

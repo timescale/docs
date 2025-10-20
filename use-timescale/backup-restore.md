@@ -63,7 +63,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 </Procedure>
 
-## Recover your data in a point-in-time fork
+## Create a point-in-time recovery fork
 
 <Availability products={['cloud']} />
 
@@ -128,7 +128,7 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 </Tabs>
 
 
-## Create a development fork
+## Create a service fork
 
 <CLIFORKS />
 
