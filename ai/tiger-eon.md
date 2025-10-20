@@ -30,6 +30,20 @@ $EON_LONG:
 - **Integrates seamlessly with $CLOUD_LONG**: $EON_SHORT creates a free $SERVICE_LONG so you securely and reliably store 
     your company data. Prefer to self-host? Use a [$PG instance with $TIMESCALE_DB][install-self-hosted].
 
+$EON_LONGs real-time ingestion system connects to Slack and captures everything: every message, reaction, edit, and 
+channel update. It can also process historical Slack exports. $EON_SHORT had instant access to years 
+of institutional knowledge from the very beginning.
+
+All of this data is stored in your $SERVICE_LONG as time-series data: conversations are events unfolding over time, 
+and $CLOUD_LONG is purpose-built for precisely this. Your data is optimized by
+
+- Automatically partitioning the data into 7-day chunks for efficient queries
+- Compressing the data after 45 days to save space
+- Segmenting by channel for faster retrieval
+
+When someone asks $EON_SHORT a question, it uses simple SQL to instantly retrieve the full thread context, related 
+conversations, and historical decisions. No rate limits. No API quotas. Just direct access to your data.
+
 This page shows you how to install and run $EON_SHORT.
 
 ## Prerequisites
