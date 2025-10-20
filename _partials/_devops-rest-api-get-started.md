@@ -58,12 +58,12 @@ proper authentication headers.
     - One or more $SERVICE_SHORTs:
 
       ```terminaloutput
-      [{"service_id":"a59clooxoe","project_id":"c8nmagk8zh","name":"events",
-      "region_code":"eu-central-1","addons":"time-series",
-      "created":"2025-09-09T08:37:15.816443Z","paused":false,"status":"READY",
-      "resources":[{"id":"101228","spec":{"cpu_millis":500,"memory_gbs":2,"volume_type":""}}],
-      "metadata":{"environment":"DEV"},"endpoint":{"host":"oh.yeah.tsdb.cloud.timescale.com",
-      "port":12345}}] 
+      [{"service_id":"tgrservice","project_id":"tgrproject","name":"tiger-eon",
+      "region_code":"us-east-1","service_type":"TIMESCALEDB",
+      "created":"2025-10-20T12:21:28.216172Z","paused":false,"status":"READY",
+      "resources":[{"id":"104977","spec":{"cpu_millis":500,"memory_gbs":2,"volume_type":""}}],
+      "metadata":{"environment":"DEV"},
+      "endpoint":{"host":"tgrservice.tgrproject.tsdb.cloud.timescale.com","port":11111}}]
       ```
 
 </Procedure>
@@ -92,17 +92,14 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
    $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
    read replication. You see something like:
    ```terminaloutput
-   {
-     "service_id":"asdfasdfasdf","project_id":"asdasdfasf","name":"my-first-service",
-     "region_code":"us-east-1", "addons":"time-series",
-     "created":"2025-09-09T09:24:31.997767396Z", "paused":false,"status":"READY",
-     "resources":[{"id":"101240",
-     "spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
-     "metadata":{"environment":"PROD"},
-     "endpoint":{"host":"oh.yeah.tsdb.cloud.timescale.com","port":123435},
-     "initial_password":"very-secret",
-     "ha_replicas":{"sync_replica_count":0,"replica_count":1}
-   } 
+    {"service_id":"tgrservice","project_id":"tgrproject","name":"my-first-service",
+    "region_code":"us-east-1","service_type":"TIMESCALEDB",
+    "created":"2025-10-20T22:29:33.052075713Z","paused":false,"status":"QUEUED",
+    "resources":[{"id":"105120","spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
+    "metadata":{"environment":"PROD"},
+    "endpoint":{"host":"tgrservice.tgrproject.tsdb.cloud.timescale.com","port":00001},
+    "initial_password":"notTellingYou",
+    "ha_replicas":{"sync_replica_count":0,"replica_count":1}}
    ```
 
 1. Save `service_id` from the response to a variable:
@@ -121,11 +118,13 @@ Create a new $SERVICE_SHORT using the $REST_LONG:
   ```
 You see something like:
   ```terminaloutput
-    {"service_id":"tgrservice","project_id":"tgrproject","name":"my-first-service","region_code":"us-east-1",
-    "addons":"time-series","created":"2025-09-30T12:08:54.438785Z","paused":false,"status":"READY",
-    "resources":[{"id":"102879","spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
-    "metadata":{"environment":"DEV"},"endpoint":{"host":"ohhhh.yeahhhhh.tsdb.cloud.timescale.com","port":33867},
-    "ha_replicas":{"sync_replica_count":0,"replica_count":1}}  
+    {"service_id":"tgrservice","project_id":"tgrproject","name":"my-first-service",
+    "region_code":"us-east-1","service_type":"TIMESCALEDB",
+    "created":"2025-10-20T22:29:33.052075Z","paused":false,"status":"READY",
+    "resources":[{"id":"105120","spec":{"cpu_millis":1000,"memory_gbs":4,"volume_type":""}}],
+    "metadata":{"environment":"DEV"},
+    "endpoint":{"host":"tgrservice.tgrproject.tsdb.cloud.timescale.com","port":11111},
+    "ha_replicas":{"sync_replica_count":0,"replica_count":1}}
   ```
 
 </Procedure>

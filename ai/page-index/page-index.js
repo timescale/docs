@@ -5,7 +5,7 @@ module.exports = [
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Information about pgai on Tiger Data and how to use it.",
+      "Integrate AI with your Tiger Data products",
     children: [
       {
         title: "Integrate Tiger Cloud with your AI Assistant",
