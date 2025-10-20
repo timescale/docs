@@ -56,7 +56,7 @@ Retrieve all services within a project.
     "project_id": "jz22xtzemv",
     "name": "my-production-db",
     "region_code": "eu-central-1",
-    "service_type": "time-series",
+    "service_type": "TIMESCALEDB",
     "status": "READY",
     "created": "2024-01-15T10:30:00Z",
     "paused": false,
