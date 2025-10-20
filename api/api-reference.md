@@ -89,7 +89,7 @@ Create a new Tiger Postgres service. This is an asynchronous operation.
 ```json
 {
   "name": "test-2",
-  "addons": "time-series",
+  "addons": ["time-series"],
   "region_code": "eu-central-1",
   "cpu_millis": 1000,
   "memory_gbs": 4
