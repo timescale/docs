@@ -1,5 +1,5 @@
 ---
-title: Back up, fork, and recover services
+title: Backup and recover services
 excerpt: Tiger Cloud backs up your data, making sure you always have something to fall back on for disaster recovery
 products: [cloud]
 keywords: [backups, restore]
@@ -8,10 +8,10 @@ tags: [recovery, failures]
 
 import CLIFORKS from "versionContent/_partials/_devops-cli-service-forks.mdx";
 
-# Back up, fork, and recover $SERVICE_SHORT
+# Backup and recover $SERVICE_SHORTs
 
 $CLOUD_LONG provides comprehensive backup and recovery solutions to protect your data, including automatic daily backups, 
-cross-region protection, point-in-time recovery, and development forks for testing and collaboration.
+cross-region protection and point-in-time recovery.
 
 ## Automatic backups
 
@@ -63,7 +63,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 </Procedure>
 
-## Create a point-in-time recovery fork
+## Recover your data in a point-in-time fork
 
 <Availability products={['cloud']} />
 
@@ -99,6 +99,7 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 1.  Confirm by clicking `Create recovery fork`.
 
     A fork of the $SERVICE_SHORT is created. The recovered $SERVICE_SHORT shows in `Services` with a label specifying which $SERVICE_SHORT it has been forked from.
+
 1.  Update the connection strings in your app to use the fork.
 
 </Procedure>
