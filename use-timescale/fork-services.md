@@ -33,7 +33,7 @@ from live data.
 
 ## Understand $SERVICE_SHORT forks
 
-You use $SERVICE_SHORT forks for disaster recovery, CI/CD automation, and testing and development. For example, you 
+You can use $SERVICE_SHORT forks for disaster recovery, CI/CD automation, and testing and development. For example, you 
 can automatically test a major $PG upgrade on a fork before applying it to your production $SERVICE_SHORT. 
 
 $CLOUD_LONG offers the following fork strategies:
