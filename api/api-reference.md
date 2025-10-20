@@ -305,6 +305,7 @@ Deactivate the connection pooler for a service.
 {
   "message": "Connection pooler disabled successfully"
 }
+```
 
 ### Fork a Service
 
