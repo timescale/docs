@@ -29,7 +29,7 @@ Create a new $SERVICE_LONG using $CLI_LONG:
 
 <Procedure>
 
-1. **Submit a service creation request**
+1. **Submit a $SERVICE_SHORT creation request**
 
    Depending on your [pricing plan][pricing-plans], $CLI_LONG creates a $SERVICE_SHORT for you:
    * **Free plan**: shared CPU/memory and the `time-series` and `ai` add-ons
