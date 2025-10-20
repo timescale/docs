@@ -1,6 +1,6 @@
 ---
-title: Back up, fork, and recover services
-excerpt: Tiger Cloud backs up your data, making sure you always have something to fall back on for disaster recovery
+title: Developer service forks
+excerpt: With developer forks, spin up a branch, run your test, throw it away, or merge it back.
 products: [cloud]
 price_plans: [performance, scale, enterprise]
 keywords: [backups, restore]
@@ -10,7 +10,7 @@ tags: [recovery, failures]
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import CLIFORKS from "versionContent/_partials/_devops-cli-service-forks.mdx";
 
-# Fork $SERVICE_SHORTs
+# Developer $SERVICE_SHORT forks
 
 Modern development is highly iterative. Developers and AI agents need safe spaces to test changes before deploying them
 to production. Forkable $SERVICE_SHORTs make this natural and easy. Spin up a branch, run your test, throw it away, or

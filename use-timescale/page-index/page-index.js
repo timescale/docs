@@ -605,7 +605,7 @@ module.exports = [
         href: "backup-restore",
       },
       {
-        title: "Fork services",
+        title: "Developer service forks",
         href: "fork-services",
       },
       {
