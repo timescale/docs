@@ -224,7 +224,7 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 [cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details
 [commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
 [pricing-plans]: https://www.timescale.com/pricing
-[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [production-support]: https://www.timescale.com/support
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
 [aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing

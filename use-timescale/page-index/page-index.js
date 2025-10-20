@@ -601,8 +601,12 @@ module.exports = [
         ],
       },
       {
-        title: "Back up, fork, and recover services",
+        title: "Backup and recover services",
         href: "backup-restore",
+      },
+      {
+        title: "Fork services",
+        href: "fork-services",
       },
       {
         title: "Jobs",

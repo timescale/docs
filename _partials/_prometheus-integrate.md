@@ -209,4 +209,4 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
 [prometheus-authentication]: https://prometheus.io/docs/guides/basic-auth/
 [scrape-targets]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
