@@ -37,7 +37,7 @@ Retrieve the connection details for your $SERVICE_LONG:
 
 ## Find your project and service ID
 
-To retrieve the connection details for your $PROJECT_LONG project and $SERVICE_LONG:
+To retrieve the connection details for your $PROJECT_LONG and $SERVICE_LONG:
 
 <Procedure>
 

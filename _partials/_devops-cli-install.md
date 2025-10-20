@@ -68,7 +68,7 @@
       You can have a maximum of 10 active client credentials. If you get an error, open [credentials][rest-api-credentials]
       and delete an unused credential. 
 
-   1. Select a $PROJECT_LONG. 
+   1. Select a $PROJECT_LONG:
 
       ```terminaloutput
       Auth URL is: https://console.cloud.timescale.com/oauth/authorize?client_id=lotsOfURLstuff
@@ -87,19 +87,19 @@
       If that fails, the key is stored in `~/.config/tiger/api-key` with restricted file permissions (600).
       $CLI_LONG stores your configuration in `~/.config/tiger/config.yaml`.
     
-1. **Test your authenticated connection to $CLOUD_LONG by listing services**
+1. **Test your authenticated connection to $CLOUD_LONG by listing $SERVICE_SHORTs**
 
     ```bash
     tiger service list
     ```
 
    This call returns something like:
-    - No services:
+    - No $SERVICE_SHORTs:
       ```terminaloutput
       🏜️  No services found! Your project is looking a bit empty.
       🚀 Ready to get started? Create your first service with: tiger service create
       ```
-    - One or more services:
+    - One or more $SERVICE_SHORTs:
 
       ```terminaloutput
       ┌────────────┬─────────────────────┬────────┬─────────────┬──────────────┬──────────────────┐

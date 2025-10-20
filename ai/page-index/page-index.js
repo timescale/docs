@@ -8,7 +8,7 @@ module.exports = [
       "Information about pgai on Tiger Data and how to use it.",
     children: [
       {
-        title: "Integrate Tiger Cloud with your AI assistant",
+        title: "Integrate Tiger Cloud with your AI Assistant",
         href: "mcp-server",
         excerpt: "Manage your services and optimize your schema and queries with your AI Assistant",
       },

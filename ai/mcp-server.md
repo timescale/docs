@@ -17,7 +17,7 @@ import GLOBALFLAGS from "versionContent/_partials/_devops-cli-global-flags.mdx";
 
 The $MCP_LONG provides access to your $CLOUD_LONG resources through Claude and other AI Assistants. $MCP_SHORT 
 mirrors the functionality of $CLI_LONG and is integrated directly into the $CLI_SHORT binary. You manage your
-$CLOUD_LONG resources including VPCs, services, read replicas, and related infrastructure using natural language 
+$CLOUD_LONG resources including $VPCs, $SERVICE_SHORTs, read replicas, and related infrastructure using natural language 
 from your AI Assistant. As $MCP_SHORT is integrated with the $COMPANY documentation, ask any question and you 
 will get the best answer.
 
@@ -40,7 +40,7 @@ The $MCP_SHORT is bundled with $CLI_LONG:
 
 <CLIINSTALL />
 
-1. **Configure your AI Assistant to interact with the $PROJECT_SHORTs and $SERVICE_SHORTs in your $ACCOUNT_LONG**
+1. **Configure your AI Assistant to interact with the $PROJECT_SHORT and $SERVICE_SHORTs in your $ACCOUNT_LONG**
 
    For example:
    ```shell
@@ -72,7 +72,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
    ```
    You see something like:
    ```shell
-   MCP server is active. I can see the following TigerData-related tools available:
+   MCP server is active. I can see the following Tiger Data-related tools available:
 
    - mcp__tiger__get_guide - Retrieve TimescaleDB guides and best practices
    - mcp__tiger__semantic_search_postgres_docs - Search PostgreSQL documentation
@@ -82,7 +82,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
    - mcp__tiger__tiger_service_show - Show detailed service information
    - mcp__tiger__tiger_service_update_password - Update service passwords
 
-   Is there something specific you'd like to do with the TigerData MCP server?
+   Is there something specific you'd like to do with the Tiger Data MCP server?
    ```
 
 1. **Ask a basic question about your $SERVICE_SHORTs**
@@ -116,7 +116,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
 
    For example:
    ```shell
-   >  I need to migrate a database with 25 million rows of data to Tiger, 
+   >  I need to migrate a database with 25 million rows of data to Tiger Cloud, 
    please tell me what service optimizations i should do before migration. 
    
    ```
@@ -124,7 +124,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
    You see something like:
 
    ```shell
-   ⏺ For migrating a database with 25 million rows to Tiger, here are the key service optimizations to do before migration:
+   ⏺ For migrating a database with 25 million rows to Tiger Cloud, here are the key service optimizations to do before migration:
 
    Pre-Migration Service Optimizations
 
@@ -132,7 +132,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
      - For 25M rows, start with at least 2 CPU/8GB or 4 CPU/16GB
      - You can scale up during migration if needed, then scale down after
 
-   2. Enable the appropriate add-ons:
+   2. Enable the appropriate addons:
      - Use time-series addon if you are working with time-series data
      - Use ai addon if you need vector/AI capabilities
 
