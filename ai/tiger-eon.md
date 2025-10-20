@@ -51,8 +51,12 @@ This page shows you how to install and run $EON_SHORT.
 <PrereqAccount />
 
 - [Install Docker][install-docker] on your developer device
+- Install [$CLI_LONG][tiger-cli]
 - Have rights to create an [Anthropic API key][claude-api-key]
-- Have rights to create a [GitHub token][github-token] 
+- Optionally:
+  - Have rights to create a [GitHub token][github-token]
+  - Have rights to create a [Logfire token][logfire-token]
+  - Have rights to create a [Linear token][linear-token]
 
 ## Interactive setup
 
@@ -79,18 +83,14 @@ data and analytics stored in $CLOUD_LONG.
     ```shell
     git clone git@github.com:timescale/tiger-eon.git
     ```
-
-1. **Configure $EON_SHORT**
-
-   The $EON_SHORT setup creates and configures the Slack apps and the $SERVICE_LONG for $EON_SHORT to run correctly:
-   
+ 
 1. **Start the $EON_SHORT setup**
    
    ```shell
    cd tiger-eon
    ./setup-tiger-eon.sh
    ```
-   You see a resume of the setup procedure. Type `y` and press `Enter`.
+   You see a summary of the setup procedure. Type `y` and press `Enter`.
    
 1. **Create the $SERVICE_LONG to use with $EON_SHORT**
    
@@ -112,6 +112,7 @@ data and analytics stored in $CLOUD_LONG.
       $EON_SHORT opens `Your Apps` in https://api.slack.com/apps/.
    
    1. Start configuring your ingest app in Slack:
+   
       In the Slack `Your Apps` page: 
       1. Click `Create New App`, click `From an manifest`, then select a workspace. 
       1. Click `Next`. Slack opens `Create app from manifest`. 
@@ -201,3 +202,5 @@ invite `@eon` to join, then ask a question:
 [tiger-agents]: https://github.com/timescale/tiger-agents-for-work
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [install-self-hosted]: /self-hosted/:currentVersion:/install/
+[logfire-token]: http://logfire.pydantic.dev/docs/how-to-guides/create-write-tokens/
+[linear-token]: https://linear.app/docs/api-and-webhooks#api-keys
