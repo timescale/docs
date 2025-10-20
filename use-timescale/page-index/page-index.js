@@ -584,6 +584,11 @@ module.exports = [
         excerpt: "The Postgres extensions installed in each Tiger service",
         children: [
           {
+            title: "Optimize full text search with BM25",
+            href: "pg-textsearch",
+            excerpt: "Set up and optimize BM25-based full-text search for efficient ranked text searching",
+          },
+          {
             title: "Create a chatbot using pgvector",
             href: "pgvector",
             excerpt: "Using the pgvector Postgres extension",
