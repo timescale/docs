@@ -606,7 +606,7 @@ module.exports = [
         ],
       },
       {
-        title: "Backup and recover services",
+        title: "Back up and recover services",
         href: "backup-restore",
       },
       {

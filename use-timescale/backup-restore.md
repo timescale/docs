@@ -1,5 +1,5 @@
 ---
-title: Backup and recover services
+title: Back up and recover services
 excerpt: Tiger Cloud backs up your data, making sure you always have something to fall back on for disaster recovery
 products: [cloud]
 keywords: [backups, restore]
@@ -8,7 +8,7 @@ tags: [recovery, failures]
 
 import CLIFORKS from "versionContent/_partials/_devops-cli-service-forks.mdx";
 
-# Backup and recover $SERVICE_SHORTs
+# Back up and recover $SERVICE_SHORTs
 
 $CLOUD_LONG provides comprehensive backup and recovery solutions to protect your data, including automatic daily backups, 
 cross-region protection, and point-in-time recovery.

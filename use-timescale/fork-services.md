@@ -73,9 +73,9 @@ a paid plan to a free plan service.
   - Copy-on-Write: you are only billed for storage for the chunks that diverge from the parent $SERVICE_SHORT.
   - Traditional: you are billed for storage for the whole $SERVICE_SHORT.
 - Object storage tier:
-   - [Tiered data][data-tiering] is shared across forks using Copy-on-Write and traditional storage:
-   - Chunks in tiered storage are only billed once, regardless of the number of forks
-   - Only new or modified chunks in a fork incur additional costs
+  - [Tiered data][data-tiering] is shared across forks using Copy-on-Write and traditional storage:
+  - Chunks in tiered storage are only billed once, regardless of the number of forks
+  - Only new or modified chunks in a fork incur additional costs
 
 For details, see [Replicas and forks with tiered data][tiered-forks].
 
@@ -171,7 +171,7 @@ To fork your $SERVICE_LONG using GitHub actions:
 [pitr]: /use-timescale/:currentVersion:/backup-restore/point-in-time-recovery/
 [rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/#rapid-recovery
 [cross-region]: /use-timescale/:currentVersion:/backup-restore#enable-cross-region-backup
-[create-fork]: /use-timescale/:currentVersion:/backup-restore#create-a-point-in-time-recovery-fork
+[create-fork]: /use-timescale/:currentVersion:/backup-restore#recover-your-data-in-a-point-in-time-fork
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
