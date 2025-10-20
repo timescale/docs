@@ -84,7 +84,7 @@
       If only one $PROJECT_SHORT is associated with your $ACCOUNT_SHORT, this step is not shown. 
 
       Where possible, $CLI_LONG stores your authentication information in the system keychain/credential manager. 
-      If that fails, the key is stored in `~/.config/tiger/api-key` with restricted file permissions (600).
+      If that fails, the credentials are stored in `~/.config/tiger/credentials` with restricted file permissions (600).
       $CLI_LONG stores your configuration in `~/.config/tiger/config.yaml`.
     
 1. **Test your authenticated connection to $CLOUD_LONG by listing $SERVICE_SHORTs**
