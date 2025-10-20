@@ -751,7 +751,7 @@ Disassociate a service from its VPC.
   "project_id": "string",
   "name": "string",
   "region_code": "string",
-  "service_type": "time-series|ai|none",
+  "service_type": "TIMESCALEDB|POSTGRES|VECTOR",
   "created": "2024-01-15T10:30:00Z",
   "initial_password": "string",
   "paused": false,
