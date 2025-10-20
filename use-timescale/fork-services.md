@@ -26,7 +26,7 @@ Forks are fully independent. Changes to the fork don't affect the parent $SERVIC
 them, run migrations, add indexes, or test new features against the fork without affecting the original service.
 
 Forks are a powerful way to share production-scale data safely. BI and data science teams often need access to real
-datasets to build models or generate insights. With forkable $SERVICE_SHORTs, you easily create instant, zero-copy
+datasets to build models or generate insights. With forkable $SERVICE_SHORTs, you easily create fast, zero-copy
 branches of a production $SERVICE_SHORT that is isolated from production, but contains all the data needed for
 analysis. You share this fork with your analytics teams in seconds. This dramatically reduces friction getting insights
 from live data. 
