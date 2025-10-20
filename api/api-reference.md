@@ -32,12 +32,13 @@ curl -X GET "https://console.cloud.timescale.com/public/api/v1/projects/{project
 
 ## Service Management
 
-You use this endpoint to create and manage the following Tiger Postgres services:
+You use this endpoint to create a Tiger Cloud service with one of more of the following addons:
 
-- `time-series`: a Tiger Postgres instance optimized for real-time analytics service For time-stamped data like events,
+- `time-series`: a Tiger Cloud service optimized for real-time analytics service For time-stamped data like events,
   prices, metrics, sensor readings, or any information that changes over time
-- `none`: a vanilla Postgres instance
-- `ai`: a Tiger Postgres instance with vector extensions
+- `ai`: a Tiger Cloud service instance with vector extensions
+
+To create a vanilla Postgres instance, set `addons` to an empty list `[]` when you create a new service
 
 ### List All Services
 
@@ -55,7 +56,7 @@ Retrieve all services within a project.
     "project_id": "jz22xtzemv",
     "name": "my-production-db",
     "region_code": "eu-central-1",
-    "addons": "time-series",
+    "service_type": "time-series",
     "status": "READY",
     "created": "2024-01-15T10:30:00Z",
     "paused": false,
@@ -83,7 +84,7 @@ Retrieve all services within a project.
 POST /projects/{project_id}/services
 ```
 
-Create a new Tiger Postgres service. This is an asynchronous operation.
+Create a new Tiger Cloud service. This is an asynchronous operation.
 
 **Request Body:**
 ```json
@@ -103,7 +104,7 @@ Create a new Tiger Postgres service. This is an asynchronous operation.
   "project_id": "jz22xtzemv",
   "name": "test-2",
   "region_code": "eu-central-1",
-  "addons": "time-series",
+  "service_type": "time-series",
   "created": "2025-09-04T20:46:46.265680278Z",
   "paused": false,
   "status": "READY",
@@ -129,10 +130,10 @@ Create a new Tiger Postgres service. This is an asynchronous operation.
 ```
 
 **Service Types:**
-- `TIMESCALEDB`: a Tiger Postgres instance optimized for real-time analytics service For time-stamped data like events,
+- `TIMESCALEDB`: a Tiger Cloud service instance optimized for real-time analytics service For time-stamped data like events,
    prices, metrics, sensor readings, or any information that changes over time
 - `POSTGRES`: a vanilla Postgres instance
-- `VECTOR`: a Tiger Postgres instance with vector extensions
+- `VECTOR`: a Tiger Cloud service instance with vector extensions
 
 ### Get a Service
 
@@ -149,7 +150,7 @@ Retrieve details of a specific service.
   "project_id": "jz22xtzemv",
   "name": "test-2",
   "region_code": "eu-central-1",
-  "addons": "time-series",
+  "service_type": "time-series",
   "created": "2025-09-04T20:46:46.26568Z",
   "paused": false,
   "status": "READY",
@@ -330,7 +331,7 @@ Create a new, independent service by taking a snapshot of an existing one.
     "project_id": "jz22xtzemv",
     "name": "fork-test2",
     "region_code": "eu-central-1",
-    "addons": "time-series",
+    "service_type": "time-series",
     "created": "2025-09-04T20:54:09.53380732Z",
     "paused": false,
     "status": "READY",
@@ -750,7 +751,7 @@ Disassociate a service from its VPC.
   "project_id": "string",
   "name": "string",
   "region_code": "string",
-  "addons": "time-series|ai|none",
+  "service_type": "time-series|ai|none",
   "created": "2024-01-15T10:30:00Z",
   "initial_password": "string",
   "paused": false,

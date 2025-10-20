@@ -102,14 +102,11 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
 
    For example:
    ```shell
-   Can you create a new ai service called bob with a read replica for me please
+   Can you create a new ai service called bob with a replica for me please
    ```
    You see something like:
    ```shell
     tiger - Create Database Service (MCP)(name: "bob", addons: ["ai"], replicas: 1, wait: false)
-   ...
-   Do you want to proceed?
-   ❯ 1. Yes 
    ```
 
 1. **Find best practice for things you need to do**

@@ -31,7 +31,7 @@ Create a new $SERVICE_LONG using $CLI_LONG:
 
 1. **Submit a $SERVICE_SHORT creation request**
 
-   Depending on your [pricing plan][pricing-plans], $CLI_LONG creates a $SERVICE_SHORT for you:
+   By default, $CLI_LONG creates a $SERVICE_SHORT for you that matches your [pricing plan][pricing-plans]:
    * **Free plan**: shared CPU/memory and the `time-series` and `ai` add-ons
    * **Paid plan**: 0.5 CPU and 2 GB memory with the `time-series` add-on
    ```shell
@@ -42,16 +42,27 @@ Create a new $SERVICE_LONG using $CLI_LONG:
    ```terminaloutput
     🚀 Creating service 'db-11111' (auto-generated name)...
     ✅ Service creation request accepted!
-    📋 Service ID: happyservice 
+    📋 Service ID: tgrservice 
     🔐 Password saved to system keyring for automatic authentication
-    🎯 Set service 'happyservice' as default service.
+    🎯 Set service 'tgrservice' as default service.
     ⏳ Waiting for service to be ready (wait timeout: 30m0s)...
-    ⏳ Service status: QUEUED...
     🎉 Service is ready and running!
    🔌 Run 'tiger db connect' to connect to your new service
-    ...
-    Service properties
-    ...
+   ┌───────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────┐
+   │     PROPERTY      │                                              VALUE                                               │
+   ├───────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────┤
+   │ Service ID        │ tgrservice                                                                                       │
+   │ Name              │ db-11111                                                                                         │
+   │ Status            │ READY                                                                                            │
+   │ Type              │ TIMESCALEDB                                                                                      │
+   │ Region            │ us-east-1                                                                                        │
+   │ CPU               │ 0.5 cores (500m)                                                                                 │
+   │ Memory            │ 2 GB                                                                                             │
+   │ Direct Endpoint   │ tgrservice.tgrproject.tsdb.cloud.timescale.com:39004                                             │
+   │ Created           │ 2025-10-20 20:33:46 UTC                                                                          │
+   │ Connection String │ postgresql://tsdbadmin@tgrservice.tgrproject.tsdb.cloud.timescale.com:0007/tsdb?sslmode=require │
+   │ Console URL       │ https://console.cloud.timescale.com/dashboard/services/tgrservice                                │
+   └───────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────┘
    ```
    This $SERVICE_SHORT is set as default by the $CLI_SHORT.
 
