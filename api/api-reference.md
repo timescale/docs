@@ -35,10 +35,11 @@ curl -X GET "https://console.cloud.timescale.com/public/api/v1/projects/{project
 You use this endpoint to create a Tiger Cloud service with one of more of the following addons:
 
 - `time-series`: a Tiger Cloud service optimized for real-time analytics service For time-stamped data like events,
-  prices, metrics, sensor readings, or any information that changes over time
-- `ai`: a Tiger Cloud service instance with vector extensions
+  prices, metrics, sensor readings, or any information that changes over time.
+- `ai`: a Tiger Cloud service instance with vector extensions.
 
-To create a vanilla Postgres instance, set `addons` to an empty list `[]` when you create a new service
+To have multiple addons when you create a new service, set `"addons": ["time-series", "ai"]`, to create a 
+vanilla Postgres instance, set `addons` to an empty list `[]`.
 
 ### List All Services
 
