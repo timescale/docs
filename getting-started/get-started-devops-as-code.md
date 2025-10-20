@@ -23,17 +23,16 @@ that enable humans, machines, and AI agents easily provision, configure, and man
 
 <Tabs label="Setup your DevOps tooling" persistKey="devops-platform">
 
-<Tab title="Tiger REST API" label="rest">
-
-<RESTGS />
-
-</Tab>
-
 <Tab title="Tiger CLI" label="cli">
 
 <CLIGS />
 
 </Tab>
 
+<Tab title="Tiger REST API" label="rest">
+
+<RESTGS />
+
+</Tab>
 
 </Tabs>
