@@ -73,7 +73,7 @@ a paid plan to a free plan service.
   - Copy-on-Write: you are only billed for storage for the chunks that diverge from the parent $SERVICE_SHORT.
   - Traditional: you are billed for storage for the whole $SERVICE_SHORT.
 - Object storage tier:
-  - [Tiered data][data-tiering] is shared across forks using Copy-on-Write and traditional storage:
+  - [Tiered data][data-tiering] is shared across forks using copy-on-write and traditional storage:
   - Chunks in tiered storage are only billed once, regardless of the number of forks
   - Only new or modified chunks in a fork incur additional costs
 
