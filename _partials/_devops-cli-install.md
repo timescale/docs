@@ -1,6 +1,6 @@
 1. ** Install $CLI_LONG**
 
-   Use the Terminal to install the $CLI_SHORT:
+   Use the terminal to install the $CLI_SHORT:
    <Tabs label="Install Tiger CLI" persistKey="os">
 
     <Tab title="Debian" label="debian">

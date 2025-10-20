@@ -48,13 +48,13 @@ $CLOUD_LONG offers the following fork strategies:
   - You want the fastest possible fork creation
   - Slightly behind current data is acceptable
 
-- `timestamp` - fork from a specific point in time within your [retention period][pricing].
+- `timestamp`: fork from a specific point in time within your [retention period][pricing].
   Use when:
   - Disaster recovery from a known-good state
   - Investigating issues that occurred at a specific time
   - Testing "what-if" scenarios from historical data
 
-The retention period for Point-in-time recovery and forking depends on your [pricing plan][pricing-plan-features].
+The retention period for point-in-time recovery and forking depends on your [pricing plan][pricing-plan-features].
 
 ### Fork creation speed
 

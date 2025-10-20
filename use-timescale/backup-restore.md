@@ -11,7 +11,7 @@ import CLIFORKS from "versionContent/_partials/_devops-cli-service-forks.mdx";
 # Backup and recover $SERVICE_SHORTs
 
 $CLOUD_LONG provides comprehensive backup and recovery solutions to protect your data, including automatic daily backups, 
-cross-region protection and point-in-time recovery.
+cross-region protection, and point-in-time recovery.
 
 ## Automatic backups
 
