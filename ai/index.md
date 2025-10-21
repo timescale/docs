@@ -1,6 +1,6 @@
 ---
 title: Integrate AI with Tiger Data
-excerpt: Build AI assistants with Tiger Data using pgvector, Tiger Eon, Tiger Agents, and MCP server for seamless data integration
+excerpt: Build AI Assistants with Tiger Data using pgvector, Tiger Eon, Tiger Agents, and MCP server for seamless data integration
 products: [cloud, mst, self_hosted]
 keywords: [ai, vector, pgvector, pgvectorscale, pgai, tiger-eon, tiger-agents, mcp-server]
 tags: [ai, vector, agents, assistants]
@@ -54,7 +54,7 @@ The [$MCP_LONG](/ai/:currentVersion:/mcp-server/) integrates directly with popul
 - Access comprehensive $COMPANY documentation during development
 - Use secure authentication and access control
 
-Use the $MCP_SHORT when you want to manage $COMPANY resources from your AI assistant.
+Use the $MCP_SHORT when you want to manage $COMPANY resources from your AI Assistant.
 
 
 <!-- vale Google.Headings = NO -->
