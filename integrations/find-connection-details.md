@@ -1,6 +1,6 @@
 ---
 title: Find your connection details
-excerpt: You connect to Tiger or self-hosted TimescaleDB using your connection details. Learn where to find them
+excerpt: You connect to Tiger Cloud or self-hosted TimescaleDB using your connection details. Learn where to find them
 products: [cloud, mst, self_hosted]
 keywords: [connect, Managed Service for TimescaleDB, Timescale]
 ---
@@ -33,7 +33,7 @@ Retrieve the connection details for your $SERVICE_LONG:
 
    Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in `Service info` > `Connection info` > `More details`. If necessary, click `Forgot your password?` to get a new one.
 
-   ![Tiger service connection details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-service-connection-details.png)
+   ![$SERVICE_LONG connection details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-service-connection-details.png)
 
 ## Find your project and service ID
 

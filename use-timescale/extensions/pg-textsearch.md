@@ -3,6 +3,7 @@ title: Optimize full text search with BM25
 excerpt: Set up and optimize BM25-based full-text search using the pg_textsearch extension
 keywords: [pg_textsearch, BM25, full-text search, text search, ranking, hybrid search]
 tags: [search, indexing, performance, BM25]
+products: [cloud, self_hosted]
 ---
 
 import EA1125 from "versionContent/_partials/_early_access_11_25.mdx";

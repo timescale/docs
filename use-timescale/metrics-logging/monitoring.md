@@ -1,8 +1,7 @@
 ---
-title: Monitor your Tiger services
-excerpt: View logs, metrics, and performance insights for your services in Tiger. Get actionable tips to improve your service performance
+title: Monitor your Tiger Cloud services
+excerpt: View logs, metrics, and performance insights for your services in Tiger Cloud. Get actionable tips to improve your service performance
 products: [cloud]
-price_plans: [performance, scale, enterprise]
 keywords: [monitoring]
 tags: [telemetry, monitor]
 ---
@@ -39,6 +38,8 @@ The following metrics are represented by graphs:
 - Storage used, in GiB
 - Storage I/O, in ops/sec
 - Storage bandwidth, in MiB/sec
+
+The [Free pricing plan][pricing-plans] only includes storage metrics.
 
 When you hit the limits:
 
@@ -249,3 +250,4 @@ For more examples and detailed explanations, see the [blog post on identifying p
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [locked-memory]: https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html
 [memory-settings]: https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-MEMORY
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

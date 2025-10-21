@@ -590,7 +590,7 @@ module.exports = [
       {
         title: "Service configuration",
         href: "configuration",
-        excerpt: "Configure your Tiger services",
+        excerpt: "Configure your Tiger Cloud services",
         children: [
           {
             title: "TimescaleDB configuration",
@@ -615,7 +615,7 @@ module.exports = [
         title: "API Reference Tag Overview",
         href: "api-tag-overview",
         description:
-          "An overview of what different tags represent in the API section of TigerData Documentation.",
+          "An overview of what different tags represent in the API section of Tiger Data Documentation.",
       },
       {
         title: "Tiger Cloud REST API",
@@ -627,7 +627,7 @@ module.exports = [
         title: "Glossary",
         href: "glossary",
         description:
-          "Comprehensive glossary of technical terms, concepts, and terminology used in TigerData documentation and the time-series database industry.",
+          "Comprehensive glossary of technical terms, concepts, and terminology used in Tiger Data documentation and the time-series database industry.",
       },
       {
         title: "Compression (Old API, replaced by Hypercore)",

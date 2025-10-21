@@ -1,6 +1,6 @@
 ---
 title: Export metrics to Amazon Cloudwatch
-excerpt: Amazon Cloudwatch is a monitoring and observability service. Create an exporter in Tiger and export telemetry metrics of your service
+excerpt: Amazon Cloudwatch is a monitoring and observability service. Create an exporter in Tiger Cloud and export telemetry metrics of your service
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integration, metrics, Cloudwatch, alerting]

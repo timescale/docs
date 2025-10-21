@@ -1,6 +1,6 @@
 ---
 title: Service configuration
-excerpt: Use the default PostgreSQL server configuration settings for your Tiger service, or customize them as needed
+excerpt: Use the default PostgreSQL server configuration settings for your Tiger Cloud service, or customize them as needed
 keywords: [configure]
 products: [self_hosted, cloud]
 ---
