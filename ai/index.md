@@ -45,9 +45,9 @@ You get:
 
 Use $AGENTS_SHORT when you need reliable, customizable AI agents for high-volume conversations.
 
-## $MCP_SHORT for direct AI assistant integration
+## $MCP_SHORT for direct AI Assistant integration
 
-The [$MCP_LONG](/ai/:currentVersion:/mcp-server/) integrates directly with popular AI assistants. You can:
+The [$MCP_LONG](/ai/:currentVersion:/mcp-server/) integrates directly with popular AI Assistants. You can:
 
 - Work with Claude Code, Cursor, VS Code, and other editors
 - Manage $SERVICE_SHORTs and optimize queries through natural language
