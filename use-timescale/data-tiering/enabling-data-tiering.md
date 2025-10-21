@@ -291,4 +291,4 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
 [high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
 [low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
-[cloud-regions]: /use-timescale/:currentVersion:/regions/
+[cloud-regions]: /about/:currentVersion:/supported-platforms/#available-regions

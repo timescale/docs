@@ -132,11 +132,6 @@ module.exports = [
         ],
       },
       {
-        title: "Tiger Cloud regions",
-        href: "regions",
-        excerpt: "Tiger Cloud AWS regions",
-      },
-      {
         title: "Tiger Cloud services",
         href: "services",
         excerpt: "About Tiger Cloud services",

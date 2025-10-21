@@ -222,7 +222,7 @@ some time for DNS propagation.
 [console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [timescale-support]: https://www.timescale.com/contact/
-[tsc-regions]: /use-timescale/:currentVersion:/regions/
+[tsc-regions]: /about/:currentVersion:/supported-platforms/#available-regions
 [aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#create-a-peering-vpc-in-timescale-console
 [aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
 [aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws
