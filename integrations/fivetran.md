@@ -1,5 +1,5 @@
 ---
-title: Integrate Fivetran with Tiger
+title: Integrate Fivetran with Tiger Cloud
 excerpt: Fivetran is a fully managed data pipeline platform that simplifies extract, transform, and load processes. Integrate Fivetran with Tiger Cloud for seamless data synchronization
 products: [cloud, self_hosted]
 keywords: [Fivetran, PostgreSQL, connection, integrate]

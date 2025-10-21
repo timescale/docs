@@ -681,7 +681,7 @@ module.exports = [
             title: "Connect with a stricter SSL mode",
             href: "strict-ssl",
             excerpt:
-              "Connect to Tiger CLoud with a stricter SSL mode of verify-ca or verify-full",
+              "Connect to Tiger Cloud with a stricter SSL mode of verify-ca or verify-full",
           },
           {
             title: "Connect securely from any cloud",

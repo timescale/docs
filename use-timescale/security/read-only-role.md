@@ -14,7 +14,7 @@ As tsdmadmin, you can use standard $PG means to create other roles or assign ind
 
 <Highlight type="important">
 
-The database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT do not overlap with the $PROJECT_LONG user roles. This page describes the database-level roles. For user roles available in $CONSOLE_SHORT, see [Control user access to $PROJECT_LONG][console-rbac].
+The database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT do not overlap with the $PROJECT_LONG user roles. This page describes the database-level roles. For user roles available in $CONSOLE_SHORT, see [Control user access to $PROJECT_LONGs][console-rbac].
 
 </Highlight>
 
