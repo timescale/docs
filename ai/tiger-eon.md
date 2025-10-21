@@ -12,30 +12,30 @@ import PrereqAccount from "versionContent/_partials/_prereqs-cloud-project-and-s
 
 Your business already has the answers in Slack threads, GitHub pull requests, Linear tasks, your own docs, Salesforce 
 service tickets, anywhere you store data. However, those answers are scattered, hard to find, and often forgotten. 
-$EON_LONG automatically integrates $AGENTS_LONG with your organizational data so you can let AI assistants analyse your 
+$EON_LONG automatically integrates $AGENTS_LONG with your organizational data so you can let AI Assistants analyze your 
 company data and give you the answers you need. For example:
 - What did we ship last week?
 - What's blocking the release?
 - Summarize the latest GitHub pull requests.
 
-$EON_SHORT responds instantly, pulling from the tools you already use. No new UI, no new workflow — just answers in Slack.
+$EON_SHORT responds instantly, pulling from the tools you already use. No new UI, no new workflow, just answers in Slack.
 
 ![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-eon-big-question.png)
 
 $EON_LONG:
 
-- **Unlocks hidden value**: your data in Slack, GitHub, and Linear already contain the insights you need. $EON_SHORT makes them accessible.
+- **Unlocks hidden value**: your data in Slack, GitHub, and Linear already contains the insights you need. $EON_SHORT makes them accessible.
 - **Enables faster decisions**: no need to search or ask around, you get answers in seconds.
 - **Is easy to use**: $EON_SHORT runs a $AGENTS_SHORT and MCP servers statelessly in lightweight Docker containers.
 - **Integrates seamlessly with $CLOUD_LONG**: $EON_SHORT uses a $SERVICE_LONG so you securely and reliably store 
     your company data. Prefer to self-host? Use a [$PG instance with $TIMESCALE_DB][install-self-hosted].
 
-$EON_LONGs real-time ingestion system connects to Slack and captures everything: every message, reaction, edit, and 
+$EON_LONG's real-time ingestion system connects to Slack and captures everything: every message, reaction, edit, and 
 channel update. It can also process historical Slack exports. $EON_SHORT had instant access to years 
 of institutional knowledge from the very beginning.
 
 All of this data is stored in your $SERVICE_LONG as time-series data: conversations are events unfolding over time, 
-and $CLOUD_LONG is purpose-built for precisely this. Your data is optimized by
+and $CLOUD_LONG is purpose-built for precisely this. Your data is optimized by:
 
 - Automatically partitioning the data into 7-day chunks for efficient queries
 - Compressing the data after 45 days to save space
@@ -72,7 +72,7 @@ and runs the following components for you:
 
 All local components are run in lightweight Docker containers via Docker Compose.
 
-This section shows you how to run the $EON_SHORT setup to configure $EON_SHORT to connect to your Slack app, and give them access to your
+This section shows you how to run the $EON_SHORT setup to configure $EON_SHORT to connect to your Slack app, and give it  access to your
 data and analytics stored in $CLOUD_LONG.
 
 <Procedure>
@@ -122,14 +122,14 @@ data and analytics stored in $CLOUD_LONG.
       1. In the Slack `Create app from manifest` window, paste the manifest.
       1. Click `Next`, then click `Create`.   
 
-   1. Configure an app-level token
+   1. Configure an app-level token:
 
        1. In your app settings, go to `Basic Information`.
        1. Scroll to `App-Level Tokens`.
        1. Click `Generate Token and Scopes`.
        1. Add a `Token Name`, then click `Add Scope` add `connections:write`, then click `Generate`.
        1. Copy the `xapp-*` token and click `Done`.
-       1. In terminal, paste the token, then press `Enter`.
+       1. In the terminal, paste the token, then press `Enter`.
 
    1. Configure a bot user OAuth token:
 
@@ -138,7 +138,7 @@ data and analytics stored in $CLOUD_LONG.
        1. In your app settings, under `Settings`, click `Install App`.
        1. Click `Install to <workspace name>`, then click `Allow`.
        1. Copy the `xoxb-` Bot User OAuth Token locally.
-       1. In terminal, paste the token, then press `Enter`.    
+       1. In the terminal, paste the token, then press `Enter`.    
 
 1. **Create the $EON_SHORT Slack app**
 

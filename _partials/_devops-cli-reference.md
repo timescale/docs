@@ -54,13 +54,13 @@ environmental variables:
     - `TIGER_API_URL`: $REST_LONG base endpoint (default: https://console.cloud.timescale.com/public/api/v1)
     - `TIGER_CONSOLE_URL`: URL to $CONSOLE (default: https://console.cloud.timescale.com)
     - `TIGER_GATEWAY_URL`: URL to the $CONSOLE gateway (default: https://console.cloud.timescale.com/api)
-    - `TIGER_DOCS_MCP`: enable/disable docs MCP proxy (default: true)
+    - `TIGER_DOCS_MCP`: enable/disable docs MCP proxy (default: `true`)
     - `TIGER_DOCS_MCP_URL`: URL to the $MCP_SHORT for $COMPANY docs (default: https://mcp.tigerdata.com/docs)
     - `TIGER_SERVICE_ID`: ID for the $SERVICE_SHORT updated when you call $CLI_SHORT commands
     - `TIGER_ANALYTICS`: enable or disable analytics (default: `true`)
     - `TIGER_PASSWORD_STORAGE`: password storage method (keyring, pgpass, or none)
     - `TIGER_DEBUG`: enable/disable debug logging (default: `false`)
-    - `TIGER_COLOR`: Set to `false` to disable colored output (default: `true`)
+    - `TIGER_COLOR`: set to `false` to disable colored output (default: `true`)
     
 
 - **Authentication parameters**

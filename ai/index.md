@@ -8,12 +8,12 @@ tags: [ai, vector, agents, assistants]
 
 # Integrate AI with Tiger Data
 
-You can build and deploy AI assistants that understand, analyze, and act on your organizational data using
+You can build and deploy AI Assistants that understand, analyze, and act on your organizational data using
 $COMPANY. Whether you're building semantic search applications, recommendation systems, or intelligent agents 
 that answer complex business questions, $COMPANY provides the tools and infrastructure you need.
 
 $COMPANY's AI ecosystem combines $PG with advanced vector capabilities, intelligent agents, and seamless 
-integrations. Your AI assistants can:
+integrations. Your AI Assistants can:
 
 - Access organizational knowledge from Slack, GitHub, Linear, and other data sources
 - Understand context using advanced vector search and embeddings across large datasets
@@ -43,7 +43,7 @@ You get:
 - Integration with specialized data sources through MCP servers
 - Complete observability and monitoring with Logfire
 
-Use $AGENTS_SHORT when you need reliable, customizable AI agents for high-volume conversations.
+Use $AGENTS_LONG when you need reliable, customizable AI agents for high-volume conversations.
 
 ## $MCP_SHORT for direct AI Assistant integration
 

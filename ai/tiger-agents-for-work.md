@@ -34,9 +34,9 @@ your specific needs.
 
 <PrereqAccount />
 
-* The [uv package manager][uv-install]
-* An [Anthropic API key][claude-api-key]
-* Optional: [Logfire token][logfire]
+* Install the [uv package manager][uv-install]
+* Get an [Anthropic API key][claude-api-key]
+* Optional: get a [Logfire token][logfire]
 
 ## Create a Slack app
 
@@ -105,7 +105,7 @@ You have created a Slack app and obtained the necessary tokens for $AGENTS_SHORT
 ## Install and configure your $AGENTS_SHORT instance
 
 $AGENTS_LONG are a production-ready library and CLI written in Python that you use to create Slack-native AI agents.
-This section shows you how to configure a $AGENTS_SHORT to connect to your Slack app, and give them access to your
+This section shows you how to configure a $AGENTS_SHORT to connect to your Slack app, and give it access to your
 data and analytics stored in $CLOUD_LONG.
 
 <Procedure>
@@ -180,7 +180,7 @@ data and analytics stored in $CLOUD_LONG.
        If you open the explorer in [$CONSOLE][portal-ops-mode], you can see the tables used by your $AGENTS_SHORT.          
 
     1. In Slack, open a public channel app and ask $AGENTS_SHORT a couple of questions. You see the response in your 
-       public channel and log messages in the Terminal.
+       public channel and log messages in the terminal.
    
       ![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-agent/query-in-terminal.png)
 
@@ -212,7 +212,7 @@ your users need. For example, to add the $COMPANY MCP server to your $AGENTS_SHO
       "allow_sampling": false
     },
     ```
-    To avoid errors, delete all entries in `mcp_config.json` with invalid URLS. For example the `github` entry with `http://github-mcp-server/mcp`.     
+    To avoid errors, delete all entries in `mcp_config.json` with invalid URLs. For example the `github` entry with `http://github-mcp-server/mcp`.     
 
 1. **Restart your $AGENTS_SHORT**
    ```bash
@@ -242,7 +242,7 @@ To change the way your $AGENTS_SHORTs interact with users in your Slack app:
 1. **Update the prompt**
 
    For example, in `prompts/system_prompt.md`, add another item in the `Response Protocol` section to fine tune 
-   the behaviour of your $AGENTS_SHORTs. For example:
+   the behavior of your $AGENTS_SHORTs. For example:
    ```shell
    5. Be snarky but vaguely amusing 
    ```
