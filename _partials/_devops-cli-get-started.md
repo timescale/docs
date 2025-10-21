@@ -1,4 +1,6 @@
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
+import CLIINSTALL from "versionContent/_partials/_devops-cli-install.mdx";
+import CLIREF from "versionContent/_partials/_devops-cli-reference.mdx";
 
 $CLI_LONG is a command-line interface that you use to manage $CLOUD_LONG resources
 including VPCs, services, read replicas, and related infrastructure. $CLI_LONG calls $REST_LONG to communicate with 
@@ -16,131 +18,22 @@ service.
 
 <Procedure>
 
-1. **Install $CLI_LONG**
-
-   Use the terminal to install the $CLI_SHORT: 
-   <Tabs label="Install Tiger CLI" persistKey="os">
-
-    <Tab title="Debian" label="debian">
-
-    ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo os=any dist=any bash
-    sudo apt-get install tiger-cli
-    ```
-    
-    </Tab>
-    
-    <Tab title="Ubuntu" label="ubuntu">
-
-    ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.deb.sh | sudo os=any dist=any bash
-    sudo apt-get install tiger-cli
-    ```
-    </Tab>
-    
-    <Tab title="Red Hat" label="redhat">
-   
-    ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo os=rpm_any dist=rpm_any bash
-    sudo yum install tiger-cli
-    ```
-   
-    </Tab>
-    
-    <Tab title="Fedora" label="fedora">
-
-    ```shell
-    curl -s https://packagecloud.io/install/repositories/timescale/tiger-cli/script.rpm.sh | sudo os=rpm_any dist=rpm_any bash
-    sudo yum install tiger-cli
-    ```
-    
-    </Tab>
-
-    <Tab title="MacOs" label="macos">
-
-    ```shell
-    brew install --cask timescale/tap/tiger-cli
-    ```
-
-    </Tab>
-
-    <Tab title="x-platform" label="xplatform">
-
-    ```shell
-    curl -fsSL https://tiger-cli-releases.s3.amazonaws.com/install/install.sh | sh
-    ```
-
-    </Tab>
-
-    </Tabs>
- 
-1. **Set up API credentials**
-
-   1. Log $CLI_LONG into your $ACCOUNT_LONG:
- 
-      ```shell
-      tiger auth login
-      ```
-      $CLI_LONG opens $CONSOLE_SHORT in your browser. Log in, then click `Authorize`.  
-
-   1. Log $CLI_LONG into your $ACCOUNT_LONG
-
-      ```shell
-      tiger auth login
-      ```
-      $CLI_LONG opens $CONSOLE_SHORT in your browser. Login, then click `Authorize`.
-
-   1. Select a $PROJECT_LONG.
-
-      ```terminaloutput
-      Auth URL is: https://console.cloud.timescale.com/oauth/authorize?client_id=lotsOfURLstuff
-      Opening browser for authentication...
-      Select a project:
-
-      > 1. Tiger Project (tgrproject)
-      2. YourCompany (Company wide project) (cpnproject)
-      3. YourCompany Department (dptproject)
-
-      Use ↑/↓ arrows or number keys to navigate, enter to select, q to quit  
-      ```  
-      If only one $PROJECT_SHORT is associated with your $ACCOUNT_SHORT, this step is not shown.
-
-      Where possible, $CLI_LONG stores your authentication information in the system keychain/credential manager.
-      If that fails, the key is stored in `~/.config/tiger/api-key` with restricted file permissions (600).
-      $CLI_LONG stores your configuration in `~/.config/tiger/config.yaml`.
- 
-1. **Test your authenticated connection to $CLOUD_LONG by listing services**
-
-    ```bash
-    tiger service list
-    ```
-
-   This call returns something like:
-    - No services:
-      ```terminaloutput
-      🏜️  No services found! Your project is looking a bit empty.
-      🚀 Ready to get started? Create your first service with: tiger service create
-      ```
-    - One or more services:
-
-      ```terminaloutput
-      ┌────────────┬─────────────────────┬────────┬─────────────┬──────────────┬──────────────────┐
-      │ SERVICE ID │        NAME         │ STATUS │    TYPE     │    REGION    │     CREATED      │
-      ├────────────┼─────────────────────┼────────┼─────────────┼──────────────┼──────────────────┤
-      │ tgrservice │ tiger-agent-service │ READY  │ TIMESCALEDB │ eu-central-1 │ 2025-09-25 16:09 │
-      └────────────┴─────────────────────┴────────┴─────────────┴──────────────┴──────────────────┘
-      ```
+<CLIINSTALL />
 
 </Procedure>
 
 
-## Create your first service
+## Create your first $SERVICE_LONG
 
 Create a new $SERVICE_LONG using $CLI_LONG:
 
 <Procedure>
 
-1. **Submit a service creation request**
+1. **Submit a $SERVICE_SHORT creation request**
+
+   By default, $CLI_LONG creates a $SERVICE_SHORT for you that matches your [pricing plan][pricing-plans]:
+   * **Free plan**: shared CPU/memory and the `time-series` and `ai` capabilities
+   * **Paid plan**: 0.5 CPU and 2 GB memory with the `time-series` capability
    ```shell
    tiger service create
    ```
@@ -149,12 +42,27 @@ Create a new $SERVICE_LONG using $CLI_LONG:
    ```terminaloutput
     🚀 Creating service 'db-11111' (auto-generated name)...
     ✅ Service creation request accepted!
-    📋 Service ID: happyservice 
+    📋 Service ID: tgrservice 
     🔐 Password saved to system keyring for automatic authentication
-    🎯 Set service 'happyservice' as default service.
+    🎯 Set service 'tgrservice' as default service.
     ⏳ Waiting for service to be ready (wait timeout: 30m0s)...
-    ⏳ Service status: QUEUED...
     🎉 Service is ready and running!
+   🔌 Run 'tiger db connect' to connect to your new service
+   ┌───────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────┐
+   │     PROPERTY      │                                              VALUE                                               │
+   ├───────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────┤
+   │ Service ID        │ tgrservice                                                                                       │
+   │ Name              │ db-11111                                                                                         │
+   │ Status            │ READY                                                                                            │
+   │ Type              │ TIMESCALEDB                                                                                      │
+   │ Region            │ us-east-1                                                                                        │
+   │ CPU               │ 0.5 cores (500m)                                                                                 │
+   │ Memory            │ 2 GB                                                                                             │
+   │ Direct Endpoint   │ tgrservice.tgrproject.tsdb.cloud.timescale.com:39004                                             │
+   │ Created           │ 2025-10-20 20:33:46 UTC                                                                          │
+   │ Connection String │ postgresql://tsdbadmin@tgrservice.tgrproject.tsdb.cloud.timescale.com:0007/tsdb?sslmode=require │
+   │ Console URL       │ https://console.cloud.timescale.com/dashboard/services/tgrservice                                │
+   └───────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────┘
    ```
    This $SERVICE_SHORT is set as default by the $CLI_SHORT.
 
@@ -182,56 +90,11 @@ Create a new $SERVICE_LONG using $CLI_LONG:
 
 And that is it, you are ready to use $CLI_LONG to manage your $SERVICE_SHORTs in $CLOUD_LONG.
 
-## Commands
-
-You can use the following commands with $CLI_LONG. For more information on each command, use the `-h` flag. For example: 
-`tiger auth login -h`
-
-| Command | Subcommand                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|---------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| auth    |                                                     | Manage authentication and the credentials for your $ACCOUNT_LONG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 
-|         | login                                               | Create an authenticated connection to your $ACCOUNT_LONG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|         | logout                                              | Remove the credentials used to create authenticated connections to $CLOUD_LONG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|         | whoami                                              | Show information about the current user                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| version |                                                     | Show information about the currently installed version of $CLI_LONG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|         | set `<key>` `<value>`                               | Set a specific value in your configuration. For example, `tiger config set debug true`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| config  |                                                     | Manage your $CLI_LONG configuration                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|         | show                                                | Show the current configuration                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|         | unset `<key>`                                       | Clear the value of a configuration parameter. For example, `tiger config unset debug`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|         | reset                                               | Reset the configuration to the defaults. This also logs you out from the current $PROJECT_LONG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 
-| service |                                                     | Manage the $SERVICE_LONGs in this $PROJECT_SHORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|         | create `--addons=` | Create a new $SERVICE_SHORT in this $PROJECT_SHORT. Possible addons are: <ul><li><strong>time-series</strong>: with the Timescaledb and Timescaledb Toolkit extensions</li><li><strong>ai</strong>: with the Timescaledb, Timescaledb Toolkit, vector and vectorscale extensions </li><li><strong>free</strong>: free services have fixed compute of 0.25 CPU, 1 GiB RAM, and up to 500mb storage.</li><li><strong>none</strong>: vanilla Postgres</li></ul> All services have Tiger features such as Tiger Storage, Security, Monitoring and compliance. If you do not use the `addons` flag, the default service is `time-series`. |
-|         | describe `<service-id>`                             | Show detailed information about a specific $SERVICE_SHORT in this $PROJECT_SHORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|         | delete `<service-id>`                               | Delete a $SERVICE_SHORT from this $PROJECT_SHORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|         | fork `<service-id>`                                 | Fork of an existing database service. Key features are: <ul><li><strong>Timing options</strong>: `--now`, `--last-snapshot`, `--to-timestamp`</li><li><strong>Resource configuration</strong>: `--cpu`, `--memory`</li><li><strong>Naming</strong>: `--name <name>` . Defaults to {source-service-name}-fork </li><li><strong>Wait behavior</strong>: `--no-wait`, `--wait-timeout`</li><li><strong>Default service</strong>: `--no-set-default`</li> </ul>                                                                                                                                                                          |
-|         | list                                                | List all the $SERVICE_SHORTs in this $PROJECT_SHORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|         | update-password `<service-id>`                      | Update the password for a $SERVICE_SHORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| db      |                                                     | Database operations and management                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|         | connect `<service-id>`                              | Connect to a $SERVICE_SHORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|         | connection-string `<service-id>`                    | Retrieve the connection string for a $SERVICE_SHORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|         | test-connection `<service-id>`                      | Test the connectivity to a $SERVICE_SHORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 
-| mcp     |                                                     | Manage the $MCP_LONG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|         | start                                               | Start the $MCP_LONG. This is the same as `tiger mcp start stdio`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|         | start `stdio` \| `http`                             | Start the $MCP_LONG with stdio or HTTP transport                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-
-## Flags
-
-You can use the following global flags with $CLI_LONG:
-
-| Flag | Default         | Description                                                           |
-|--|-----------------|-----------------------------------------------------------------------|
-| --analytics             | `true`          | Set to `false` to disable usage analytics                           |
-| --config-dir string     | `.config/tiger` | Set the directory that holds `config.yaml`                            |
-| --debug                 | No debugging    | Enable debug logging                                                  |
-| -o, --output string     | table           | Set the output format. Options are `json`, `yaml`, or `table`               |
-| --password-storage string | keyring         | Set the password storage method. Options are `keyring`, `pgpass`, or `none` |
-| --project-id string      | -               | Set the $PROJECT_LONG to manage                              | 
-| --service-id string      | -               | Set the $SERVICE_LONG to manage |
-
-
+<CLIREF />
 
 [rest-api-reference]: /api/:currentVersion:/api-reference/
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
 [curl]: https://curl.se/
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

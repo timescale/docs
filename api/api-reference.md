@@ -32,12 +32,14 @@ curl -X GET "https://console.cloud.timescale.com/public/api/v1/projects/{project
 
 ## Service Management
 
-You use this endpoint to create and manage the following Tiger Postgres services:
+You use this endpoint to create a Tiger Cloud service with one of more of the following addons:
 
-- `TIMESCALEDB`: a Tiger Postgres instance optimized for real-time analytics service For time-stamped data like events,
-  prices, metrics, sensor readings, or any information that changes over time
-- `POSTGRES`: a vanilla Postgres instance
-- `VECTOR`: a Tiger Postgres instance with vector extensions
+- `time-series`: a Tiger Cloud service optimized for real-time analytics. For time-stamped data like events,
+  prices, metrics, sensor readings, or any information that changes over time.
+- `ai`: a Tiger Cloud service instance with vector extensions.
+
+To have multiple addons when you create a new service, set `"addons": ["time-series", "ai"]`. To create a 
+vanilla Postgres instance, set `addons` to an empty list `[]`.
 
 ### List All Services
 
@@ -83,13 +85,13 @@ Retrieve all services within a project.
 POST /projects/{project_id}/services
 ```
 
-Create a new Tiger Postgres service. This is an asynchronous operation.
+Create a new Tiger Cloud service. This is an asynchronous operation.
 
 **Request Body:**
 ```json
 {
   "name": "test-2",
-  "service_type": "TIMESCALEDB",
+  "addons": ["time-series"],
   "region_code": "eu-central-1",
   "cpu_millis": 1000,
   "memory_gbs": 4
@@ -129,10 +131,10 @@ Create a new Tiger Postgres service. This is an asynchronous operation.
 ```
 
 **Service Types:**
-- `TIMESCALEDB`: a Tiger Postgres instance optimized for real-time analytics service For time-stamped data like events,
+- `TIMESCALEDB`: a Tiger Cloud service instance optimized for real-time analytics service For time-stamped data like events,
    prices, metrics, sensor readings, or any information that changes over time
 - `POSTGRES`: a vanilla Postgres instance
-- `VECTOR`: a Tiger Postgres instance with vector extensions
+- `VECTOR`: a Tiger Cloud service instance with vector extensions
 
 ### Get a Service
 
@@ -304,6 +306,7 @@ Deactivate the connection pooler for a service.
 {
   "message": "Connection pooler disabled successfully"
 }
+```
 
 ### Fork a Service
 
