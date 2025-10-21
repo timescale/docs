@@ -1,6 +1,6 @@
 ---
-title: Peer your Tiger services with AWS Transit Gateway
-excerpt: Securely connect to your Tiger services from AWS, GCP, Azure, or any other cloud or on-premise environment 
+title: Peer your Tiger Cloud services with AWS Transit Gateway
+excerpt: Securely connect to your Tiger Cloud services from AWS, GCP, Azure, or any other cloud or on-premise environment 
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [AWS, transit gateway]

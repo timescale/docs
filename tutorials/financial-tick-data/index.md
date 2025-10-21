@@ -1,6 +1,6 @@
 ---
 title: Analyze financial tick data with TimescaleDB
-excerpt: Use Tiger to store financial tick data and create candlestick views to perform real-time analysis of price changes
+excerpt: Use Tiger Cloud to store financial tick data and create candlestick views to perform real-time analysis of price changes
 products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]

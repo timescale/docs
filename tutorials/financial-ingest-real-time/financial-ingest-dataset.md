@@ -1,6 +1,6 @@
 ---
 title: Ingest real-time financial websocket data - Set up the dataset
-excerpt: Ingest and set up a sample dataset in Tiger to run real-time analysis of financial data
+excerpt: Ingest and set up a sample dataset in Tiger Cloud to run real-time analysis of financial data
 products: [cloud, self_hosted, mst]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]

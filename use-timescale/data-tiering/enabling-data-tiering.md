@@ -1,8 +1,8 @@
 ---
 title: Manage storage and tiering
-excerpt: Configure high-performance and low-cost object storage tiers in Tiger Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
+excerpt: Configure high-performance and low-cost object storage tiers in Tiger Cloud Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
-price_plans: [performance, scale, enterprise]
+price_plans: [scale, enterprise, performance]
 keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
@@ -102,12 +102,6 @@ You enable tiered storage from the `Overview` tab in $CONSOLE.
    Once enabled, you can proceed to [tier data manually][manual-tier] or [set up tiering policies][tiering-policies]. When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
 </Procedure>
-
-<Highlight type="note">
-
-Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans only.
-
-</Highlight>
 
 ### Automate tiering with policies
 
@@ -297,4 +291,4 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
 [high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
 [low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
-[cloud-regions]: /use-timescale/:currentVersion:/regions/
+[cloud-regions]: /about/:currentVersion:/supported-platforms/#available-regions

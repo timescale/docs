@@ -1,6 +1,6 @@
 ---
 title: Low-downtime migrations with dual-write and backfill
-excerpt: Migrate a hypertable or your entire database to Tiger with low downtime using dual-write and backfill
+excerpt: Migrate a hypertable or your entire database to Tiger Cloud with low downtime using dual-write and backfill
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]

@@ -3,29 +3,29 @@ module.exports = [
     title: "Get started",
     href: "getting-started",
     defaultOpen: true,
-    excerpt: "Get started with TigerData",
+    excerpt: "Get started with Tiger Data",
     children: [
       {
-        title: "Try the key TigerData features",
+        title: "Try the key Tiger Data features",
         href: "try-key-features-timescale-products",
         excerpt:
-          "Improve database performance with Hypertables, time bucketing, continuous aggregates, compression, data tiering, and high availability",
+          "Improve database performance with hypertables, time bucketing, continuous aggregates, compression, data tiering, and high availability",
       },
       {
-        title: "Start coding with TigerData",
+        title: "Start coding with Tiger Data",
         href: "start-coding-with-timescale",
         excerpt:
-          "Integrate Tiger with your app using your preferred programming language",
+          "Integrate Tiger Cloud with your app using your preferred programming language",
       },
       {
-        title: "Create a Tiger service",
+        title: "Create a Tiger Cloud service",
         href: "services",
-        excerpt: "Create a Tiger service and connect to it",
+        excerpt: "Create a Tiger Cloud service and connect to it",
       },
       {
-        title: "Run your queries from Tiger Console",
+        title: "Run your queries from Tiger Cloud Console",
         href: "run-queries-from-console",
-        excerpt: "Run your queries securely from inside Tiger Console",
+        excerpt: "Run your queries securely from inside Tiger Cloud Console",
       },
     ],
   },
