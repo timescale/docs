@@ -62,4 +62,4 @@ width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-confirm.webp"
 alt="Confirm Tiger configuration changes"/>
 
-[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
