@@ -12,6 +12,16 @@ module.exports = [
         href: "mcp-server",
         excerpt: "Manage your services and optimize your schema and queries with your AI Assistant",
       },
+      {        
+        title: "Aggregate organizational data with AI agents",
+        href: "tiger-eon",
+        excerpt: "Unify company knowledge with slack-native AI agents",
+      },
+      {
+        title: "Integrate a slack-native AI agent",
+        href: "tiger-agents-for-work",
+        excerpt: "Configure a Slack-native AI agent to do what you want",
+      },
       {
         title: "Key vector database concepts",
         href: "key-vector-database-concepts-for-understanding-pgvector",
