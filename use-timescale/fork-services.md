@@ -25,11 +25,10 @@ including:
 Forks are fully independent. Changes to the fork don't affect the parent $SERVICE_SHORT. You can query
 them, run migrations, add indexes, or test new features against the fork without affecting the original service.
 
-Forks are a powerful way to share production-scale data safely. BI and data science teams often need access to real
-datasets to build models or generate insights. With forkable $SERVICE_SHORTs, you easily create fast, zero-copy
+Forks are a powerful way to share production-scale data safely. Testing, BI and data science teams often need access 
+to real datasets to build models or generate insights. With forkable $SERVICE_SHORTs, you easily create fast, zero-copy
 branches of a production $SERVICE_SHORT that are isolated from production, but contain all the data needed for
-analysis. You can share this fork with your analytics teams in seconds. This dramatically reduces friction getting insights
-from live data. 
+analysis. Rapid fork creation dramatically reduces friction getting insights from live data. 
 
 ## Understand $SERVICE_SHORT forks
 
@@ -66,8 +65,10 @@ Fork creation speed depends on your type of service you want to create:
 
 ### Billing
 
-You can fork a service created in the free plan to a free or a paid plan. However, you cannot fork a service created in 
-a paid plan to a free plan service. 
+You can fork a free $SERVICE_SHORT to a free or a paid $SERVICE_SHORT. However, you cannot fork a paid
+$SERVICE_SHORT to a free $SERVICE_SHORT. 
+
+Billing on storage works in the following way:
 
 - High-performance storage:
   - Copy-on-Write: you are only billed for storage for the chunks that diverge from the parent $SERVICE_SHORT.
