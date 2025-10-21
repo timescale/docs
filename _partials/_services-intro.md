@@ -1,5 +1,7 @@
+import FreeBeta from "versionContent/_partials/_free-plan-beta.mdx";
+
 A $SERVICE_LONG is a single optimised $PG instance extended with innovations in the database engine and cloud
-infrastructure to deliver speed without compromise. A $SERVICE_LONG is 10-1000x faster at scale! It
+infrastructure to deliver speed without sacrifice. A $SERVICE_LONG is 10-1000x faster at scale! It
 is ideal for applications requiring strong data consistency, complex relationships, and advanced querying capabilities.
 Get ACID compliance, extensive SQL support, JSON handling, and extensibility through custom functions, data types, and
 extensions.
@@ -8,7 +10,9 @@ Each $SERVICE_SHORT is associated with a project in $CLOUD_LONG. Each project ca
 
 You create free and standard $SERVICE_SHORTs in $CONSOLE_LONG, depending on your [$PRICING_PLAN][pricing-plans]. A free $SERVICE_SHORT comes at zero cost and gives you limited resources to get to know $CLOUD_LONG. Once you are ready to try out more advanced features, you can switch to a paid plan and convert your free $SERVICE_SHORT to a standard one.
 
-![Tiger pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
+![$CLOUD_LONG pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
+
+<FreeBeta />
 
 To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 

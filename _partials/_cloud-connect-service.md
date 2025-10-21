@@ -12,7 +12,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
    Connect using data mode or SQL editor in $CONSOLE, or psql in the command line:
 
-   <Tabs label="Connect to your Tiger service" persistKey="sql-editor">
+   <Tabs label="Connect to your Tiger Cloud service" persistKey="sql-editor">
 
    <Tab title="Data mode in Console" label="data-mode">
 

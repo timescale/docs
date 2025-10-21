@@ -1,6 +1,6 @@
 ---
-title: Monitor your Tiger services
-excerpt: View logs, metrics, and performance insights for your services in Tiger. Get actionable tips to improve your service performance
+title: Monitor your Tiger Cloud services
+excerpt: View logs, metrics, and performance insights for your services in Tiger Cloud. Get actionable tips to improve your service performance
 products: [cloud]
 keywords: [monitoring]
 tags: [telemetry, monitor]

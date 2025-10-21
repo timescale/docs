@@ -7,27 +7,27 @@ module.exports = [
       {
         title: "Sync from Postgres",
         href: "livesync-for-postgresql",
-        excerpt: "Synchronize updates to a primary Postgres database instance with a Tiger service in real time",
+        excerpt: "Synchronize updates to a primary Postgres database instance with a Tiger Cloud service in real time",
       },
       {
         title: "Sync from S3",
         href: "livesync-for-s3",
-        excerpt: "Synchronize data from S3 with a Tiger service in real time",
+        excerpt: "Synchronize data from S3 with a Tiger Cloud service in real time",
       },
       {
         title: "Stream from Kafka",
         href: "livesync-for-kafka",
-        excerpt: "Stream events from Kafka into your Tiger service",
+        excerpt: "Stream events from Kafka into your Tiger Cloud service",
       },
       {
         title: "Upload a file using Console",
         href: "upload-file-using-console",
-        excerpt: "Upload files into a Tiger service using Console",
+        excerpt: "Upload files into a Tiger Cloud service using Console",
       },
       {
         title: "Upload a file using the terminal",
         href: "upload-file-using-terminal",
-        excerpt: "Upload files into a Tiger service using the terminal",
+        excerpt: "Upload files into a Tiger Cloud service using the terminal",
       },
       {
         title: "Migrate with downtime",

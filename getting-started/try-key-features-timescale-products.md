@@ -1,5 +1,5 @@
 ---
-title: Try the key features in TigerData products
+title: Try the key features in Tiger Data products
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
 products: [cloud, self_hosted, mst]
 content_group: Getting started
@@ -18,8 +18,8 @@ $CLOUD_LONG offers managed database services that provide a stable and reliable 
 applications. 
 
 Each $SERVICE_LONG is a single optimised $PG instance extended with innovations such as $TIMESCALE_DB in the database 
-engine, in a cloud infrastructure that delivers speed without compromise. A radically faster $PG for transactional, 
-analytical and agentic workloads at scale.
+engine, in a cloud infrastructure that delivers speed without sacrifice. A radically faster $PG for transactional, 
+analytical, and agentic workloads at scale.
 
 $CLOUD_LONG scales $PG to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
@@ -83,7 +83,7 @@ relational and time-series data from external files.
     
        <Tabs label="Upload data" persistKey="sql-editor">
 
-       <Tab title="Tiger Console" label="data-mode">
+       <Tab title="Tiger Cloud Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.

@@ -1,6 +1,6 @@
 ---
-title: Back up and recover your Tiger services
-excerpt: See how and when Tiger backs up your data, making sure you always have something to fall back on in case of disaster recovery
+title: Back up and recover your Tiger Cloud services
+excerpt: See how and when Tiger Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]
@@ -81,7 +81,7 @@ storage costs.
 
 You initiate a point-in-time recovery from a same-region or cross-region backup in $CONSOLE_LONG:
 
-<Tabs label="Point-in-time recovery in Tiger Console">
+<Tabs label="Point-in-time recovery in Tiger Cloud Console">
 
 <Tab title="Same-region backup">
 

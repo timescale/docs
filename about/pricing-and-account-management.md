@@ -1,6 +1,6 @@
 ---
 title: Billing and account management
-excerpt: Manage billing and account information for your TigerData account
+excerpt: Manage billing and account information for your Tiger Data account
 products: [cloud]
 keywords: [billing, accounts, admin]
 tags: [payment, billing, costs]
@@ -12,6 +12,7 @@ cloud_ui:
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
 import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 import BillingForInactiveServices from "versionContent/_partials/_billing-for-inactive-services.mdx";
+import FreeBeta from "versionContent/_partials/_free-plan-beta.mdx";
 
 # Pricing plans and account management
 
@@ -20,7 +21,7 @@ $PRICING_PLANs provide more value, flexibility, and efficiency for your business
 Whether you're a growing startup or a well-established enterprise, our plans
 are structured to support your journey towards greater success. 
 
-![Tiger pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
+![$CLOUD_LONG pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
 
 This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
 
@@ -67,7 +68,9 @@ For easy upgrades, each $SERVICE_SHORT stores the $TIMESCALE_DB binaries. This c
 
 Are you just starting out with $CLOUD_LONG? On our Free pricing plan, you can create up to 2 zero-cost $SERVICE_SHORTs with [limited resources][plan-features]. When a free $SERVICE_SHORT reaches the resource limit, it converts to a read-only state. 
 
-Ready to try a more feature-rich paid plan? Activate a 30-day free trial of our $PERFORMANCE (no credit card required) or $SCALE plan. During your trial, if a $SERVICE_SHORT doesn’t receive any queries for 7 days, it is paused to conserve resources. Your data remains intact during the trial, and you can easily resume your $SERVICE_SHORT in $CONSOLE. After your trial ends, we may remove your data unless you’ve added a payment method.
+<FreeBeta />
+
+Ready to try a more feature-rich paid plan? Activate a 30-day free trial of our $PERFORMANCE (no credit card required) or $SCALE plan. After your trial ends, we may remove your data unless you’ve added a payment method.
 
 After you have completed your 30-day trial period, choose the 
 [$PRICING_PLAN][plan-features] that suits your business and engineering needs. And even when you upgrade from the Free pricing plan, you can still have up to 2 zero-cost $SERVICE_SHORTs—or convert the ones you already have into standard ones, to have more resources. 
@@ -119,10 +122,12 @@ region. This is because our cloud provider (AWS) prices infrastructure different
 
 The available $PRICING_PLANs are:
 
-* **Free**: for small non-production projects. 
+* **Free**: for small non-production projects.
 * **$PERFORMANCE**: for cost-focused, smaller projects. No credit card required to start.
 * **$SCALE**: for developers handling critical and demanding apps.
 * **$ENTERPRISE**: for enterprises with mission-critical apps.
+
+<FreeBeta />
 
 The features included in each [$PRICING_PLAN][pricing-plans] are:
 

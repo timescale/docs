@@ -2,7 +2,7 @@
 
 You create a $ACCOUNT_LONG to manage your $SERVICE_SHORTs and data in a centralized and efficient manner in $CONSOLE. From there, you can create and delete $SERVICE_SHORTs, run queries, manage access and billing, integrate other services, contact support, and more.
 
-<Tabs label="Create a Tiger account" persistKey="source-cloud">
+<Tabs label="Create a Tiger Cloud account" persistKey="source-cloud">
 
 <Tab title="Tiger" label="tiger-cloud">
 
@@ -37,7 +37,7 @@ case, $CLOUD_LONG is a line item in your AWS invoice.
 
 To set up $CLOUD_LONG via AWS:
 
-1. **Open [AWS Marketplace][aws-marketplace] and search for `Tiger`** 
+1. **Open [AWS Marketplace][aws-marketplace] and search for `Tiger Cloud`** 
 
    You see two pricing options, [pay-as-you-go][aws-paygo] and [annual commit][aws-annual-commit]. 
 

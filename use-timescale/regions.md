@@ -1,6 +1,6 @@
 ---
-title: Tiger regions
-excerpt: The AWS regions available for Tiger services
+title: Tiger Cloud regions
+excerpt: The AWS regions available for Tiger Cloud services
 products: [cloud]
 price_plans: [performance, scale, enterprise]
 ---
