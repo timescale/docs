@@ -167,6 +167,8 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Euclidean distance**: a measure of the straight-line distance between two points in multidimensional space.
 
+**Exactly-once**: a message is delivered and processed precisely once. There is no loss and no duplicates.
+
 **Explain**: a [$PG](#postgresql) command that shows the execution plan for a query, useful for performance analysis.
 
 **Event sourcing**: an architectural pattern storing all changes as a sequence of events, naturally fitting time-series database capabilities.

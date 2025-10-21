@@ -37,11 +37,11 @@ Retrieve the connection details for your $SERVICE_LONG:
 
 ## Find your project and service ID
 
-To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LONG:
+To retrieve the connection details for your $PROJECT_LONG and $SERVICE_LONG:
 
 <Procedure>
 
-1. **Retreive your project ID**:
+1. **Retrieve your project ID**:
 
    In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Copy` next to the project ID.
    ![Retrive the project id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-project-id.png)
@@ -50,6 +50,56 @@ To retrieve the connection details for your $CLOUD_LONG project and $SERVICE_LON
 
    Click the dots next to the service, then click `Copy` next to the service ID.
    ![Retrive the service id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-service-id.png)
+
+</Procedure>
+
+## Create client credentials 
+
+You use client credentials to obtain access tokens outside of the user context.
+
+To retrieve the connection details for your $CLOUD_LONG project for programmatic usage 
+such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
+
+<Procedure>
+
+1. **Open the settings for your project**:
+
+   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Project settings`.
+
+1. **Create client credentials**:
+ 
+   1. Click `Create credentials`, then copy `Public key` and `Secret key` locally.
+
+      ![Retrive the service id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png)
+
+       This is the only time you see the `Secret key`. After this, only the `Public key` is visible in this page. 
+
+   1. Click `Done`.
+
+</Procedure>
+
+## Create client credentials 
+
+You use client credentials to obtain access tokens outside of the user context.
+
+To retrieve the connection details for your $CLOUD_LONG project for programmatic usage 
+such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
+
+<Procedure>
+
+1. **Open the settings for your project**:
+
+   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Project settings`.
+
+1. **Create client credentials**:
+ 
+   1. Click `Create credentials`, then copy `Public key` and `Secret key` locally.
+
+      ![Create client credentials in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png)
+
+       This is the only time you see the `Secret key`. After this, only the `Public key` is visible in this page. 
+
+   1. Click `Done`.
 
 </Procedure>
 
@@ -73,3 +123,6 @@ In the `Services` page of the $MST_CONSOLE_LONG, click the service you want to c
 
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [postgres-config]: https://www.postgresql.org/docs/current/runtime-config-file-locations.html
+[rest-api-reference]: /api/:currentVersion:/api-reference/
+[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
+[create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials

@@ -107,5 +107,5 @@ $CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can secur
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc
 [security-at-timescale]: https://www.timescale.com/security
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [open-support-ticket]: https://console.cloud.timescale.com/dashboard/support
