@@ -4,7 +4,7 @@ You create a $ACCOUNT_LONG to manage your $SERVICE_SHORTs and data in a centrali
 
 <Tabs label="Create a Tiger Cloud account" persistKey="source-cloud">
 
-<Tab title="Tiger" label="tiger-cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
 
 You create a standalone account to manage $CLOUD_LONG as a separate unit in your infrastructure, which includes separate billing and invoicing.
 

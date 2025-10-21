@@ -27,9 +27,9 @@ resources in your $ACCOUNT_LONG through the $MCP_LONG using your AI Assistant.
 
 <RESTPrereqs />
 
-* An AI Assistant installed on your developer device with an active API key
+* Install an AI Assistant on your developer device with an active API key.
 
-  The following AI Assistants are automatically configured by the $MCP_LONG: `claude-code`, `cursor`, `windsurf`, `codex`, `gemini/gemini-cli`, `vscode/code/vs-code`
+  The following AI Assistants are automatically configured by the $MCP_LONG: `claude-code`, `cursor`, `windsurf`, `codex`, `gemini/gemini-cli`, `vscode/code/vs-code`.
   You can also [manually configure][manual-config] $MCP_SHORT.
 
 ## Install and configure $MCP_SHORT
@@ -189,7 +189,7 @@ That beats working. Let the $MCP_SHORT do it all for you.
 
 ## Manually configure the $MCP_SHORT
 
-If your MCP client is not supported by `tiger mcp install`. follow the client's instructions to install 
+If your MCP client is not supported by `tiger mcp install`, follow the client's instructions to install 
 MCP servers. For example, many clients use a JSON file like the following that use `tiger mcp start` to
 start $MCP_LONG:
 
