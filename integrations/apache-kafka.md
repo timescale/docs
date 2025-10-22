@@ -1,6 +1,6 @@
 ---
-title: Integrate Apache Kafka with Tiger  
-excerpt: Apache Kafka is a distributed event streaming platform used for high-performance data pipelines. Learn how to integrate Apache Kafka with Tiger to manage and analyze streaming data
+title: Integrate Apache Kafka with Tiger Cloud  
+excerpt: Apache Kafka is a distributed event streaming platform used for high-performance data pipelines. Learn how to integrate Apache Kafka with Tiger Cloud to manage and analyze streaming data
 products: [cloud, self_hosted]
 keywords: [Apache Kafka, integrations]
 ---

@@ -1,6 +1,6 @@
 ---
-title: Integrate Amazon CloudWatch with Tiger 
-excerpt: Amazon CloudWatch is a monitoring and observability service. Export telemetry data from your Tiger service with time-series and analytics capability to Amazon CloudWatch
+title: Integrate Amazon CloudWatch with Tiger Cloud
+excerpt: Amazon CloudWatch is a monitoring and observability service. Export telemetry data from your Tiger Cloud service with time-series and analytics capability to Amazon CloudWatch
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integrate]
@@ -34,7 +34,7 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 <ManageDataExporter />
 
 [projects]: /use-timescale/:currentVersion:/security/members/
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-signup]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GettingSetup.html
 

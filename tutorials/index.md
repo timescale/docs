@@ -1,6 +1,6 @@
 ---
 title: Tutorials
-excerpt: Tiger can be used in various sectors, and for various purposes. Follow our tutorials to see it used for real-time data analysis in the energy, finance, IoT, and other sectors
+excerpt: Tiger Cloud can be used in various sectors, and for various purposes. Follow our tutorials to see it used for real-time data analysis in the energy, finance, IoT, and other sectors
 products: [cloud, mst, self_hosted]
 ---
 
@@ -23,7 +23,7 @@ graphing your results.
 - **IoT**
   - [Simulate an IoT sensor dataset][iot]: simulate an IoT sensor dataset and run simple queries on it.
 - **Cookbooks**
-  - [$COMPANY community cookbook][cookbooks]: get suggestions from the $TIMESCALE_DB community about how to resolve common issues.
+  - [$PRODUCT_PREFIX community cookbook][cookbooks]: get suggestions from the $PRODUCT_PREFIX community about how to resolve common issues.
 
 
 [rta-energy]: /tutorials/:currentVersion:/real-time-analytics-energy-consumption
