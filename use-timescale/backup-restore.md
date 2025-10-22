@@ -43,7 +43,7 @@ You enable cross-region backup when you create a $SERVICE_SHORT, or configure it
 
 1. In `Cross-region backup`, select the region in the dropdown and click `Enable backup`. 
 
-   ![Create cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/create-cross-region-backup-in-tiger-console.png)
+   ![Create cross-region backup](https://assets.timescale.com/docs/images/tiger-on-azure/create-cross-region-backup-in-tiger-console.png)
 
    You can now see the backup, its region, and creation date in a list. 
 
@@ -57,7 +57,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 1. Click the trash icon next to the existing backup to disable it. 
 
-   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/cross-region-backup-list-in-tiger-console.png)
+   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-on-azure/cross-region-backup-list-in-tiger-console.png)
 
 1. Create a new backup in a different region. 
 

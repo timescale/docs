@@ -52,11 +52,11 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Select the exporter in the drop-down, then click `Attach exporter`.
 
-      ![Attach a Prometheus exporter to a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/attach-prometheus-exporter-tiger-console.png)
+      ![Attach a Prometheus exporter to a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/attach-prometheus-exporter-tiger-console.png)
 
    The exporter is now attached to your $SERVICE_SHORT. To unattach it, click the trash icon in the exporter list. 
 
-      ![Unattach a Prometheus exporter from a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/unattach-prometheus-exporter-tiger-console.png)
+      ![Unattach a Prometheus exporter from a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/unattach-prometheus-exporter-tiger-console.png)
 
 1. **Configure the Prometheus scrape target**
 
