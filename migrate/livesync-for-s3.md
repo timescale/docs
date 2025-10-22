@@ -9,6 +9,7 @@ tags: [recovery, logical backup, replication]
 
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Sync data from S3
 
@@ -62,6 +63,8 @@ The $S3_CONNECTOR continuously imports data from an Amazon S3 bucket into your d
         - `s3:ListBucket`.
        
     - [Public anonymous user][credentials-public].
+
+<NotSupportedAzure />
 
 ## Limitations
 
@@ -161,6 +164,8 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 And that is it, you are using the $S3_CONNECTOR to synchronize all the data, or specific files, from an S3 bucket to your 
 $SERVICE_LONG in real time.
+
+
 
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
