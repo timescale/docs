@@ -1,6 +1,6 @@
 ---
-title: Integrate Datadog with Tiger
-excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Tiger service with time-series and analytics capability to Datadog
+title: Integrate Datadog with Tiger Cloud
+excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Tiger Cloud service with time-series and analytics capability to Datadog
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integrate]
@@ -143,7 +143,7 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [datadog-agent-restart]: https://docs.datadoghq.com/agent/configuration/agent-commands/#start-stop-and-restart-the-agent
 [projects]: /use-timescale/:currentVersion:/security/members/
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/

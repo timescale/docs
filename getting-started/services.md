@@ -1,6 +1,6 @@
 ---
-title: Create your first Tiger service
-excerpt: Tiger offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Console
+title: Create your first Tiger Cloud service
+excerpt: Tiger Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Cloud Console
 products: [cloud]
 content_group: Getting started
 ---
@@ -8,6 +8,7 @@ content_group: Getting started
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import InstallAzure from "versionContent/_partials/_cloud-installation-azure.mdx";
 import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
+import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
 import CreateService from "versionContent/_partials/_create-service.mdx";
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import ServiceOverviewAzure from "versionContent/_partials/_service-overview-azure.mdx";
@@ -24,6 +25,10 @@ import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-az
 <Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 <CloudIntro />
+
+## What is a $SERVICE_LONG?
+
+<ServiceIntro />
 
 <ServiceOverview />
 
@@ -87,4 +92,4 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [timescaledb]: https://docs.tigerdata.com/#TimescaleDB
-
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

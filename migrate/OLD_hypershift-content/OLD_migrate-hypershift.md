@@ -1,6 +1,6 @@
 ---
-title: Migrate to Tiger with Hypershift
-excerpt: Migrate an existing Postgres database to Tiger using Hypershift
+title: Migrate to Tiger Cloud with Hypershift
+excerpt: Migrate an existing Postgres database to Tiger Cloud using Hypershift
 products: [cloud]
 keywords: [data migration, Hypershift]
 tags: [ingest, Hypershift, postgresql]
@@ -16,7 +16,7 @@ import HypershiftIntro from "versionContent/_partials/_hypershift-intro.mdx";
 
 Before you begin, make sure you have:
 
-*   Signed up for your [free Tiger account][cloud-install].
+*   Signed up for your [free $ACCOUNT_LONG][cloud-install].
 *   Installed [Docker][docker-install].
 
 Before you begin the migration, it is recommended that you create an index on

@@ -1,6 +1,6 @@
 ---
 title: Analytics on transport and geospatial data
-excerpt: Simulate and analyze a transport dataset in your Tiger service
+excerpt: Simulate and analyze a transport dataset in your Tiger Cloud service
 products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
