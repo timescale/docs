@@ -5,17 +5,18 @@ products: [cloud]
 content_group: Getting started
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import InstallAzure from "versionContent/_partials/_cloud-installation-azure.mdx";
-import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
-import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
-import CreateService from "versionContent/_partials/_create-service.mdx";
-import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
-import ServiceOverviewAzure from "versionContent/_partials/_service-overview-azure.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
-import CloudIntroAzure from "versionContent/_partials/_cloud-intro-azure.mdx";
-import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
+import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import StartUsingCloud from "versionContent/_partials/_start-using-cloud.mdx";
+import Install from "versionContent/_partials/_cloud-installation.mdx";
+import CreateService from "versionContent/_partials/_create-service.mdx";
+import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
+import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+
+import InstallAzure from "versionContent/_partials/_cloud-installation-azure.mdx";
+import ServiceIntroAzure from "versionContent/_partials/_services-intro-azure.mdx";
+import ServiceOverviewAzure from "versionContent/_partials/_service-overview-azure.mdx";
 import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-azure.mdx";
 
 # Create a $SERVICE_LONG
@@ -34,9 +35,11 @@ import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-az
 
 <StartUsingCloud />
 
+## Create a $ACCOUNT_LONG
+
 <Install />
 
-## Create a $SERVICE_LONG
+## Create a $SERVICE_SHORT
 
 Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
 
@@ -54,15 +57,21 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 <Tab title="Tiger Cloud on Azure" label="azure-cloud">
 
-<CloudIntroAzure />
+<CloudIntro />
+
+## What is a $SERVICE_LONG?
+
+<ServiceIntroAzure />
 
 <ServiceOverviewAzure />
 
 <StartUsingCloudAzure />
 
+## Create a $ACCOUNT_LONG
+
 <InstallAzure />
 
-## Create a $SERVICE_LONG
+## Create a $SERVICE_SHORT
 
 Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database.
 
