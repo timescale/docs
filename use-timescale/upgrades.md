@@ -1,6 +1,6 @@
 ---
 title: Maintenance and upgrades
-excerpt: Keep your Tiger service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of Postgres
+excerpt: Keep your Tiger Cloud service up to date. Learn about minor and major migrations, maintenance windows, and updating your version of Postgres
 products: [cloud]
 keywords: [updates, upgrades, maintenance]
 cloud_ui:

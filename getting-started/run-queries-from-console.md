@@ -1,11 +1,12 @@
 ---
-title: Run your queries from Tiger Console
-excerpt: Choose the right tool to manage your data. Tiger offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
+title: Run your queries from Tiger Cloud Console
+excerpt: Choose the right tool to manage your data. Tiger Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
 products: [cloud]
 content_group: Getting started
 ---
 
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 # Run your queries from $CONSOLE
 
@@ -29,6 +30,8 @@ If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [ps
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
 ![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode.png)
+
+<NotAvailableFreePlan />
 
 Available features are:
 
@@ -118,6 +121,8 @@ use that in the $DATA_MODE.
 ## $SQL_ASSISTANT_SHORT
 
 $SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] is a chat-like interface that harnesses the power of AI to help you write, fix, and organize SQL faster and more accurately. Ask $SQL_ASSISTANT_SHORT to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, get answers to any questions you can think of.
+
+<NotAvailableFreePlan />
 
 <!--
 <div class="relative w-fit mx-auto">

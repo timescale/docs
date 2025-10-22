@@ -12,7 +12,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 [pgAdmin][pgadmin] is a feature-rich open-source administration and development platform for $PG. It is available for Chrome, Firefox, Edge, and
 Safari browsers, or can be installed on Microsoft Windows, Apple macOS, or various Linux flavors.
 
-![Tiger pgadmin](https://assets.timescale.com/docs/images/timescale-cloud-pgadmin.png)
+![$CLOUD_LONG pgadmin](https://assets.timescale.com/docs/images/timescale-cloud-pgadmin.png)
 
 This page explains how to integrate pgAdmin with your $SERVICE_LONG.
 

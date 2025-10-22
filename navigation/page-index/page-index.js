@@ -8,7 +8,7 @@ module.exports = [
       {
         title: "Find by Console location",
         overrideHref: "/console",
-        excerpt: "Browse topics by Tiger Console location.",
+        excerpt: "Browse topics by Tiger Cloud Console location.",
         type: "placeholder",
       },
       {
@@ -20,7 +20,7 @@ module.exports = [
       {
         title: "Full search",
         overrideHref: "/search/?query=Tiger",
-        excerpt: "Search TigerData docs, blog, and forum.",
+        excerpt: "Search Tiger Data docs, blog, and forum.",
         type: "placeholder",
       },
     ],

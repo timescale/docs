@@ -1,6 +1,6 @@
 ---
 title: Export metrics to Datadog
-excerpt: Datadog is a cloud-based monitoring, observability, and security platform. Create an exporter in Tiger and export telemetry metrics of your service
+excerpt: Datadog is a cloud-based monitoring, observability, and security platform. Create an exporter in Tiger Cloud and export telemetry metrics of your service
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integration, metrics, datadog, alerting]
@@ -41,5 +41,5 @@ This section shows you how to attach, monitor, edit, and delete a data exporter.
 [console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [projects]: /use-timescale/:currentVersion:/security/members/

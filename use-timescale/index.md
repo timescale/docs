@@ -1,6 +1,6 @@
 ---
-title: Use TigerData products
-excerpt: Create hypertables and continuous aggregates, compress your data, manage your projects, and use other features available in Tiger and TimescaleDB
+title: Use Tiger Data products
+excerpt: Create hypertables and continuous aggregates, compress your data, manage your projects, and use other features available in Tiger Cloud and TimescaleDB
 ---
 
 # Use $COMPANY products 

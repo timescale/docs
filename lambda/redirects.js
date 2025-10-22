@@ -797,7 +797,11 @@ module.exports = [
   },
   {
     from: "/use-timescale/latest/services/regions",
-    to: "https://docs.tigerdata.com/use-timescale/latest/regions/"
+    to: "https://docs.tigerdata.com/about/latest/supported-platforms/#available-regions"
+  },
+  {
+    from: "/use-timescale/latest/regions/",
+    to: "https://docs.tigerdata.com/about/latest/supported-platforms/#available-regions"
   },
   {
     from: "/use-timescale/latest/services/replicas/",

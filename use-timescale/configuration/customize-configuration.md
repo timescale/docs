@@ -1,6 +1,6 @@
 ---
 title: Configure database parameters
-excerpt: Customize standard Postgres configuration and specific Tiger options for each service individually
+excerpt: Customize standard Postgres configuration and specific Tiger Cloud options for each service individually
 products: [cloud]
 keywords: [configure, services, settings]
 cloud_ui:
@@ -45,7 +45,7 @@ outside of that field saves the value to be applied.
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-change.webp"
-alt="Change Tiger configuration parameters"/>
+alt="Change Tiger Cloud configuration parameters"/>
 
 ### Apply configuration changes
 
@@ -60,6 +60,6 @@ required. Click `Confirm` to apply the changes, and restart if necessary.
 <img class="main-content__illustration"
 width={1375} height={944}
 src="https://assets.timescale.com/docs/images/tsc-settings-confirm.webp"
-alt="Confirm Tiger configuration changes"/>
+alt="Confirm Tiger Cloud configuration changes"/>
 
-[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

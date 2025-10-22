@@ -1,28 +1,14 @@
-## Create a $ACCOUNT_LONG
+import CreateAccountConsole from "versionContent/_partials/_create-account-console.mdx";
 
 You create a $ACCOUNT_LONG to manage your $SERVICE_SHORTs and data in a centralized and efficient manner in $CONSOLE. From there, you can create and delete $SERVICE_SHORTs, run queries, manage access and billing, integrate other services, contact support, and more.
 
-<Tabs label="Create a Tiger account" persistKey="source-cloud">
+<Tabs label="Create a Tiger Cloud account" persistKey="source-cloud">
 
-<Tab title="Tiger" label="tiger-cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
 
 You create a standalone account to manage $CLOUD_LONG as a separate unit in your infrastructure, which includes separate billing and invoicing.
 
-<Procedure>
-
-To set up $CLOUD_LONG:
-  
-1. **Sign up for a 30-day free trial** 
-
-   Open [Sign up for $CLOUD_LONG][timescale-signup] and add your details, then click `Start your free trial`. You receive a confirmation email in your inbox.
-
-1.  **In the confirmation email, click the link supplied and sign in to [$CONSOLE][tsc-portal]**
-
-1. **Answer the requirements questions**
-
-    Your answers help us optimize $SERVICE_LONGs for your use cases.
-
-</Procedure>
+<CreateAccountConsole />
 
 </Tab>
 
@@ -35,7 +21,7 @@ case, $CLOUD_LONG is a line item in your AWS invoice.
 
 To set up $CLOUD_LONG via AWS:
 
-1. **Open [AWS Marketplace][aws-marketplace] and search for `Tiger`** 
+1. **Open [AWS Marketplace][aws-marketplace] and search for `Tiger Cloud`** 
 
    You see two pricing options, [pay-as-you-go][aws-paygo] and [annual commit][aws-annual-commit]. 
 
@@ -51,13 +37,13 @@ To set up $CLOUD_LONG via AWS:
 
    Add your details, then click `Start your free trial`. If you want to link an existing $ACCOUNT_LONG to AWS, log in with your existing credentials.  
 
+1. **Select the [pricing plan][pricing-plans]**
+
+   You are now logged into $CONSOLE_LONG. You can change the pricing plan later to better accommodate your growing needs on the [`Billing` page][console-billing].
+
 1. **In `Confirm AWS Marketplace connection`, click `Connect`**
 
     Your $CLOUD_LONG and AWS accounts are now connected.
-
-1. **Answer the requirements questions**
-
-   Your answers help us optimize $SERVICE_LONGs for your use cases.
 
 </Procedure>
 
@@ -71,3 +57,5 @@ To set up $CLOUD_LONG via AWS:
 [aws-paygo]: https://aws.amazon.com/marketplace/pp/prodview-iestawpo5ihca?applicationId=AWSMPContessa&ref_=beagle&sr=0-1
 [aws-annual-commit]: https://aws.amazon.com/marketplace/pp/prodview-ezxwlmjyr6x4u?applicationId=AWSMPContessa&ref_=beagle&sr=0-2
 [timescale-signup]: https://console.cloud.timescale.com/signup
+[console-billing]: https://console.cloud.timescale.com/dashboard/billing/plans
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
