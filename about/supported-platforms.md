@@ -33,13 +33,9 @@ See the available [service capabilities][service-types] and [regions][regions].
 
 ### Available service capabilities
 
-<Availability products={['cloud']} price_plans={['enterprise', 'scale', 'performance']} />
-
 <ServiceTypes />
 
 ### Available regions
-
-<Availability products={['cloud']} price_plans={['enterprise', 'scale', 'performance']} />
 
 <Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
 
