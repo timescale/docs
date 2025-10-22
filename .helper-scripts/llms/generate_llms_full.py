@@ -36,28 +36,27 @@ class TigerDataDocumentationGenerator:
         self.link_references = {}
         self.processed_files = set()
         
-        # Load variables from remote vars.js and add comprehensive mappings
+        # Load variables aligned with vars.js from timescale/web-documentation
         self.variables = self._load_comprehensive_variables()
 
     def _load_comprehensive_variables(self) -> Dict[str, str]:
-        """Load comprehensive variable mappings."""
+        """Load comprehensive variable mappings aligned with vars.js."""
         return {
-            # General Variables
+            # General Variables (aligned with vars.js)
             '$PRODUCT_PREFIX': 'Tiger',
             '$COMPANY': 'Tiger Data',
             '$COMPANY_URL': 'https://www.tigerdata.com',
             '$PG': 'Postgres',
-            
-            # Pricing Variables
+
+            # Pricing Variables (aligned with vars.js)
             '$PRICING_PLAN_CAP': 'Pricing plan',
             '$PRICING_PLAN': 'pricing plan',
             '$SCALE': 'Scale',
-            '$PERFORMANCE': 'Performance', 
+            '$PERFORMANCE': 'Performance',
             '$ENTERPRISE': 'Enterprise',
-            
-            # Product Variables
+
+            # Product Variables (aligned with vars.js)
             '$CLOUD_LONG': 'Tiger Cloud',
-            '$CLOUD_SHORT': 'Tiger Cloud',
             '$LAKE_LONG': 'Tiger Lake',
             '$LAKE_SHORT': 'Tiger Lake',
             '$TIMESCALE_DB': 'TimescaleDB',
@@ -65,8 +64,99 @@ class TigerDataDocumentationGenerator:
             '$PRODUCTS_CL_DB': 'Tiger Cloud and TimescaleDB',
             '$TDB_APACHE': 'TimescaleDB Apache 2 Edition',
             '$TDB_COMMUNITY': 'TimescaleDB Community Edition',
-            
-            # Service Variables
+
+            # Self-hosted Variables (from vars.js)
+            '$SELF_SHORT_CAP': 'Self-hosted',
+            '$SELF_SHORT': 'self-hosted',
+            '$SELF_LONG_CAP': 'Self-hosted TimescaleDB',
+            '$SELF_LONG': 'self-hosted TimescaleDB',
+
+            # Console Variables (from vars.js)
+            '$CONSOLE': 'Tiger Cloud Console',
+            '$CONSOLE_LONG': 'Tiger Cloud Console',
+            '$CONSOLE_SHORT': 'Console',
+
+            # CLI Variables (from vars.js)
+            '$CLI_LONG': 'Tiger CLI',
+            '$CLI_SHORT': 'CLI',
+
+            # REST API Variables (from vars.js)
+            '$REST_LONG': 'Tiger REST API',
+            '$REST_SHORT': 'REST API',
+
+            # Eon Variables (from vars.js)
+            '$EON_SHORT': 'Eon',
+            '$EON_LONG': 'Tiger Eon',
+
+            # MCP Variables (from vars.js)
+            '$MCP_LONG': 'Tiger Model Context Protocol Server',
+            '$MCP_SHORT': 'Tiger MCP Server',
+
+            # Agents Variables (from vars.js)
+            '$AGENTS_LONG': 'Tiger Agents for Work',
+            '$AGENTS_SHORT': 'Tiger Agent',
+            '$AGENTS_CLI': 'Tiger Agent CLI',
+
+            # Connector Variables (from vars.js)
+            '$S3_CONNECTOR': 'source S3 connector',
+            '$S3_CONNECTOR_CAP': 'Source S3 connector',
+            '$PG_CONNECTOR': 'source Postgres connector',
+            '$PG_CONNECTOR_CAP': 'Source Postgres connector',
+
+            # Additional Tool Variables (from vars.js)
+            '$SQL_ASSISTANT_LONG': 'Tiger Cloud SQL assistant',
+            '$CLOUD_EDITOR': 'Tiger Cloud SQL editor',
+            '$SKIPSCAN_LONG': 'Tiger Data SkipScan',
+            '$SKIPSCAN_SHORT': 'SkipScan',
+            '$PGAI_LONG': 'pgai on Tiger Data',
+            '$PGAI_SHORT': 'pgai',
+            '$PGVECTORSCALE': 'pgvectorscale',
+            '$PG_SPOT': 'pgspot',
+            '$PG_VECTORIZER': 'PgVectorizer',
+
+            # URL Variables (from vars.js)
+            '$CONSOLE_URL': 'https://console.cloud.timescale.com/',
+            '$MST_CONSOLE_URL': 'https://portal.managed.timescale.com/',
+            '$POPSQL_URL': 'https://popsql.com/',
+            '$WEBSITE_MARKETING': 'www.tigerdata.com',
+            '$WEBSITE_DOCS': 'docs.tigerdata.com/',
+            '$CONTACT_SALES': 'sales@tigerdata.com',
+            '$CONTACT_COMPANY': 'https://www.tigerdata.com/contact/',
+
+            # Project Variables (from vars.js)
+            '$PROJECT_SHORT_CAP': 'Project',
+            '$ACCOUNT_SHORT': 'account',
+
+            # Service Variables (from vars.js)
+            '$TIGER_POSTGRES': 'Tiger Postgres',
+            '$SERVICE_SHORT_CAP': 'Service',
+            '$MST_SERVICE_LONG': 'Managed Service for TimescaleDB service',
+            '$MST_SERVICE_SHORT': 'MST service',
+
+            # Feature Variables (from vars.js)
+            '$HYPERTABLE_CAP': 'Hypertable',
+            '$HYPERCORE_CAP': 'Hypercore',
+            '$ROWSTORE_CAP': 'Rowstore',
+            '$COLUMNSTORE_CAP': 'Columnstore',
+            '$CHUNK_CAP': 'Chunk',
+            '$CHUNK_SKIPPING_CAP': 'Chunk skipping',
+            '$CHUNK_SKIPPING': 'chunk skipping',
+            '$MAT_HYPERTABLE_CAP': 'Materialized hypertable',
+            '$MAT_HYPERTABLE': 'materialized hypertable',
+            '$CAGG_CAP': 'Continuous aggregate',
+            '$RTAGG_CAP': 'Real-time aggregate',
+            '$RTAGG': 'real-time aggregate',
+            '$TIME_BUCKET_CAP': 'Time bucket',
+            '$HA_REPLICA_CAP': 'High-availability replica',
+            '$HA_REPLICA_SHORT': 'HA replica',
+            '$READ_REPLICA_CAP': 'Read replica',
+            '$JOB_CAP': 'Job',
+            '$PAR_COPY_CAP': 'Parallel copy',
+            '$PAR_COPY': 'parallel copy',
+            '$OPS_MODE_CAP': 'Ops mode',
+            '$DATA_MODE_CAP': 'Data mode',
+
+            # Legacy Service Variables (keeping for compatibility)
             '$SERVICE_LONG': 'Tiger Cloud service',
             '$SERVICE_SHORT': 'service',
             '$MST_LONG': 'Managed Service for TimescaleDB',
@@ -74,11 +164,7 @@ class TigerDataDocumentationGenerator:
             '$MST_SERVICE_SHORT': 'service',
             '$MST_SERVICE_LONG': 'service',
             '$MST_CONSOLE_SHORT': 'MST Console',
-            '$CONSOLE': 'Console',
-            '$CONSOLE_LONG': 'Tiger Cloud Console',
-            '$CONSOLE_SHORT': 'Console',
-            '$SELF_LONG': 'self-hosted TimescaleDB',
-            '$SELF_SHORT': 'self-hosted TimescaleDB',
+            '$MST_CONSOLE_LONG': 'MST Console',
             
             # Feature Variables
             '$HYPERTABLE': 'hypertable',
