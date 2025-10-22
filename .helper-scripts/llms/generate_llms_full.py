@@ -124,6 +124,7 @@ class TigerDataDocumentationGenerator:
             '$CONTACT_COMPANY': 'https://www.tigerdata.com/contact/',
 
             # Project Variables (from vars.js)
+            '$PROJECT_LONG': 'Tiger Cloud project',
             '$PROJECT_SHORT_CAP': 'Project',
             '$ACCOUNT_SHORT': 'account',
 
@@ -211,11 +212,8 @@ class TigerDataDocumentationGenerator:
             # Account & Project Variables
             '$ACCOUNT_LONG': 'Tiger Data account',
             '$PROJECT_SHORT': 'project',
-            '$JOB': 'job',
             '$SOURCE': 'source',
             '$TARGET': 'target',
-            '$VPC': 'VPC',
-            '$DATA_MODE': 'data mode',
             
             # Tool Variables
             '$TOOLKIT_LONG': 'TimescaleDB Toolkit',
@@ -227,20 +225,30 @@ class TigerDataDocumentationGenerator:
             '$TIGER_POSTGRES': 'TimescaleDB',
             '$POSTGRESQL': 'PostgreSQL',
             
-            # Additional Variables
-            '$OPS_MODE': 'operations mode',
+            # Additional Variables (aligned with vars.js)
+            '$OPS_MODE': 'ops mode',
             '$SQL_EDITOR': 'SQL editor',
-            '$MST_CONSOLE_LONG': 'MST Console',
             '$POPSQL': 'PopSQL',
-            '$ACCOUNT_SHORT': 'account',
-            '$PROJECT_LONG': 'Tiger Data project',
             '$HA_REPLICA': 'high availability replica',
-            '$TIME_BUCKET': 'time_bucket',
+            '$TIME_BUCKET': 'time bucket',
             '$BODY': 'body',
             '$__': '_',
             '$SERVICE_URL_WITH_PORT': 'service URL with port',
-            '$IO_BOOST': 'IO boost',
+            '$IO_BOOST': 'I/O boost',
             '$DB_NAME': 'database name',
+            '$VPC': 'VPC',
+
+            # Missing variables from vars.js
+            '$JOB': 'job',
+            '$CAGG': 'continuous aggregate',
+            '$RTAGG': 'real-time aggregate',
+            '$TIME_BUCKET': 'time bucket',
+            '$HA_REPLICA': 'high-availability replica',
+            '$READ_REPLICA': 'read replica',
+            '$PAR_COPY': 'parallel copy',
+            '$CHUNK_SKIPPING': 'chunk skipping',
+            '$MAT_HYPERTABLE': 'materialized hypertable',
+            '$DATA_MODE': 'data mode',
             
             # Compound Variables (mixed case patterns)
             'Hypercore_CAP': 'Hypercore',
@@ -470,9 +478,28 @@ class TigerDataDocumentationGenerator:
 
     def replace_variables(self, content: str) -> str:
         """Replace $VARIABLES with their actual values, including pluralized forms."""
-        # First handle exact matches
-        for var, replacement in self.variables.items():
-            content = content.replace(var, replacement)
+        import re
+
+        # First handle template literal style ${VARIABLE} patterns
+        def replace_template_literal(match):
+            var_name = match.group(1)
+            full_var = f'${var_name}'
+            if full_var in self.variables:
+                return self.variables[full_var]
+            return match.group(0)  # Return original if not found
+
+        # Replace ${VARIABLE} patterns
+        content = re.sub(r'\$\{([A-Z0-9_]+)\}', replace_template_literal, content)
+
+        # Then handle exact $VARIABLE matches using regex with word boundaries
+        def replace_exact_variable(match):
+            var_name = match.group(0)
+            if var_name in self.variables:
+                return self.variables[var_name]
+            return var_name
+
+        # Replace $VARIABLE patterns with proper boundaries to avoid partial matches
+        content = re.sub(r'\$[A-Z0-9_]+(?=\s|[^A-Z0-9_]|$)', replace_exact_variable, content)
         
         # Then handle pluralized variables (e.g., $HYPERTABLE_CAPs -> hypertables)
         import re
@@ -497,13 +524,13 @@ class TigerDataDocumentationGenerator:
             return match.group(0)  # Return original if no base variable found
         
         # Pattern to match $VARIABLE_CAP + suffix (like s, ed, ing, etc.)
-        content = re.sub(r'\$([A-Z_]+)_CAP([a-z]+)', replace_pluralized, content)
-        
+        content = re.sub(r'\$([A-Z0-9_]+)_CAP([a-z]+)', replace_pluralized, content)
+
         # Also handle direct pluralization like $HYPERTABLEs
         def replace_direct_plural(match):
             var_name = match.group(1)
             suffix = match.group(2)
-            
+
             # Look up the base variable
             base_var = f'${var_name}'
             if base_var in self.variables:
@@ -518,9 +545,9 @@ class TigerDataDocumentationGenerator:
                 else:
                     return base_replacement + suffix.lower()
             return match.group(0)
-        
+
         # Pattern to match $VARIABLE + suffix
-        content = re.sub(r'\$([A-Z_]+)([a-z]+)', replace_direct_plural, content)
+        content = re.sub(r'\$([A-Z0-9_]+)([a-z]+)', replace_direct_plural, content)
         
         return content
 
