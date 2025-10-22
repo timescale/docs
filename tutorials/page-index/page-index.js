@@ -20,7 +20,7 @@ module.exports = [
         excerpt: "Simulate and query an IoT sensor dataset",
       },
       {
-        title: "TigerData community cookbook",
+        title: "Tiger community cookbook",
         href: "cookbook",
         excerpt: "Code examples from the community that help you with loads of common conundrums.",
       },
@@ -69,7 +69,7 @@ module.exports = [
       {
         title: "Analyze financial tick data ",
         href: "financial-tick-data",
-        excerpt: "Use Tiger to store financial tick data",
+        excerpt: "Use Tiger Cloud to store financial tick data",
         children: [
           {
             title: "Ingest data into a service",

@@ -1,6 +1,6 @@
 ---
 title: Ingest real-time financial data using WebSocket
-excerpt: Ingest time-series data into Tiger using a websocket connection
+excerpt: Ingest time-series data into Tiger Cloud using a websocket connection
 products: [cloud, self_hosted, mst]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]

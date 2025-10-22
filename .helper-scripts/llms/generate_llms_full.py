@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-TigerData Documentation LLM Generator
+Tiger Data Documentation LLM Generator
 
 This script generates a comprehensive llms-full.txt file for LLM training from 
-TigerData documentation. It processes all markdown files following the page-index.js
+Tiger Data documentation. It processes all markdown files following the page-index.js
 structure and applies various transformations.
 
 Features:
@@ -44,7 +44,7 @@ class TigerDataDocumentationGenerator:
         return {
             # General Variables
             '$PRODUCT_PREFIX': 'Tiger',
-            '$COMPANY': 'TigerData', 
+            '$COMPANY': 'Tiger Data',
             '$COMPANY_URL': 'https://www.tigerdata.com',
             '$PG': 'Postgres',
             
@@ -56,18 +56,18 @@ class TigerDataDocumentationGenerator:
             '$ENTERPRISE': 'Enterprise',
             
             # Product Variables
-            '$CLOUD_LONG': 'Tiger',
-            '$CLOUD_SHORT': 'Tiger',
+            '$CLOUD_LONG': 'Tiger Cloud',
+            '$CLOUD_SHORT': 'Tiger Cloud',
             '$LAKE_LONG': 'Tiger Lake',
             '$LAKE_SHORT': 'Tiger Lake',
             '$TIMESCALE_DB': 'TimescaleDB',
-            '$PRODUCTS_ALL': 'TigerData products',
-            '$PRODUCTS_CL_DB': 'Tiger and TimescaleDB',
+            '$PRODUCTS_ALL': 'Tiger Data products',
+            '$PRODUCTS_CL_DB': 'Tiger Cloud and TimescaleDB',
             '$TDB_APACHE': 'TimescaleDB Apache 2 Edition',
             '$TDB_COMMUNITY': 'TimescaleDB Community Edition',
             
             # Service Variables
-            '$SERVICE_LONG': 'Tiger service',
+            '$SERVICE_LONG': 'Tiger Cloud service',
             '$SERVICE_SHORT': 'service',
             '$MST_LONG': 'Managed Service for TimescaleDB',
             '$MST_SHORT': 'MST',
@@ -75,7 +75,7 @@ class TigerDataDocumentationGenerator:
             '$MST_SERVICE_LONG': 'service',
             '$MST_CONSOLE_SHORT': 'MST Console',
             '$CONSOLE': 'Console',
-            '$CONSOLE_LONG': 'Tiger Console',
+            '$CONSOLE_LONG': 'Tiger Cloud Console',
             '$CONSOLE_SHORT': 'Console',
             '$SELF_LONG': 'self-hosted TimescaleDB',
             '$SELF_SHORT': 'self-hosted TimescaleDB',
@@ -83,7 +83,7 @@ class TigerDataDocumentationGenerator:
             # Feature Variables
             '$HYPERTABLE': 'hypertable',
             '$HYPERTABLES': 'hypertables',
-            '$HYPERCORE': 'Hypercore',
+            '$HYPERCORE': 'hypercore',
             '$COLUMNSTORE': 'columnstore',
             '$ROWSTORE': 'rowstore',
             '$CHUNK': 'chunk',
@@ -123,7 +123,7 @@ class TigerDataDocumentationGenerator:
             '$DOCS': 'docs',
             
             # Account & Project Variables
-            '$ACCOUNT_LONG': 'TigerData account',
+            '$ACCOUNT_LONG': 'Tiger Data account',
             '$PROJECT_SHORT': 'project',
             '$JOB': 'job',
             '$SOURCE': 'source',
@@ -147,7 +147,7 @@ class TigerDataDocumentationGenerator:
             '$MST_CONSOLE_LONG': 'MST Console',
             '$POPSQL': 'PopSQL',
             '$ACCOUNT_SHORT': 'account',
-            '$PROJECT_LONG': 'TigerData project',
+            '$PROJECT_LONG': 'Tiger Data project',
             '$HA_REPLICA': 'high availability replica',
             '$TIME_BUCKET': 'time_bucket',
             '$BODY': 'body',
@@ -758,7 +758,7 @@ class TigerDataDocumentationGenerator:
 
     def generate_documentation(self) -> str:
         """Generate the complete documentation."""
-        print("Starting TigerData documentation generation...")
+        print("Starting Tiger Data documentation generation...")
         
         # Get ordered sections from main page index
         ordered_sections = self.parse_main_page_index()
@@ -819,7 +819,7 @@ class TigerDataDocumentationGenerator:
 
 def main():
     """Main function to generate the documentation."""
-    print("TigerData Documentation LLM Generator")
+    print("Tiger Data Documentation LLM Generator")
     print("=" * 50)
     
     # Create generator instance

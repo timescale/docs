@@ -1,6 +1,6 @@
 ---
-title: About Tiger services
-excerpt: A Tiger service is a 100% Postgres database instance that you use as is, or extend with capabilities specific to your business needs. Learn more about services and available features
+title: About Tiger Cloud services
+excerpt: A Tiger Cloud service is a 100% Postgres database instance that you use as is, or extend with capabilities specific to your business needs. Learn more about services and available features
 products: [cloud]
 keywords: [services]
 cloud_ui:
@@ -9,10 +9,13 @@ cloud_ui:
 ---
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
 
 # About $SERVICE_LONGs
 
 <CloudIntro />
+
+<ServiceIntro />
 
 ## Learn more about $CLOUD_LONG
 

@@ -1,23 +1,23 @@
 module.exports = [
   {
-    title: "About TigerData products",
+    title: "About Tiger Data products",
     href: "about",
     defaultOpen: true,
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Additional information about TigerData products, their features, and supported platforms",
+      "Additional information about Tiger Data products, their features, and supported platforms",
     children: [
       {
-        title: "TigerData architecture for real-time analytics",
+        title: "Tiger Data architecture for real-time analytics",
         href: "whitepaper",
         excerpt:
-          "A whitepaper detailing the architectural choices and optimizations for real-time analytics that power TigerData products",
+          "A whitepaper detailing the architectural choices and optimizations for real-time analytics that power Tiger Data products",
       },
       {
         title: "Pricing plans and account management",
         href: "pricing-and-account-management",
-        excerpt: "Pricing plans for Tiger services",
+        excerpt: "Pricing plans for Tiger Cloud services",
       },
       {
         title: "Feature comparison",
@@ -27,7 +27,7 @@ module.exports = [
       {
         title: "Changelog",
         href: "changelog",
-        excerpt: "A summary of the latest changes to Tiger.",
+        excerpt: "A summary of the latest changes to Tiger Cloud",
       },
       {
         title: "TimescaleDB editions",
@@ -37,12 +37,12 @@ module.exports = [
       {
         title: "Supported platforms",
         href: "supported-platforms",
-        excerpt: "The platforms and systems supported by TigerData products",
+        excerpt: "The platforms and systems supported by Tiger Data products",
       },
       {
-        title: "Contribute to TigerData",
+        title: "Contribute to Tiger Data",
         href: "contribute-to-timescale",
-        excerpt: "Contribute to the codebase and documentation of TigerData products",
+        excerpt: "Contribute to the codebase and documentation of Tiger Data products",
       },
       {
         title: "Release notes",

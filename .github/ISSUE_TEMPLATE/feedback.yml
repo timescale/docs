@@ -1,5 +1,5 @@
 name: Feedback
-description: Help us improve the TigerData documentation site by leaving your feedback
+description: Help us improve the Tiger Data documentation site by leaving your feedback
 title: "[Feedback]"
 labels: ["documentation", "feedback", "community"]
 body:
@@ -24,7 +24,7 @@ body:
   - type: textarea
     id: improvements
     attributes:
-      label: How could we improve the TigerData documentation site?
+      label: How could we improve the Tiger Data documentation site?
       placeholder: Send us your ideas!
   - type: markdown
     attributes:
