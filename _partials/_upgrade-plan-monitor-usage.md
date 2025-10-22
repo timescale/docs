@@ -1,7 +1,9 @@
-## Upgrade or downgrade your pricing plans at any time
+import BillingForInactiveServices from "versionContent/_partials/_billing-for-inactive-services.mdx";
 
-You can easily upgrade or downgrade between the $PERFORMANCE and $SCALE plans
-whenever you want using [$CONSOLE][cloud-login]. If you switch your $PRICING_PLAN mid-month,
+You can upgrade or downgrade between the Free, $PERFORMANCE, and $SCALE plans
+whenever you want using [$CONSOLE][cloud-login]. To downgrade to the Free plan, you must only have free services running in your project.
+
+If you switch your $PRICING_PLAN mid-month,
 your prices are prorated to when you switch. Your $SERVICE_SHORTs are not interrupted when you switch, so
 you can keep working without any hassle. To move to $ENTERPRISE, [get in touch with $COMPANY][contact-company].
 
@@ -13,6 +15,9 @@ $SERVICE_SHORTs’ performance, and any need to scale your $SERVICE_SHORTs or up
 
 $CONSOLE_SHORT also shows your month-to-date accrued charges, as well as a forecast of your expected
 month-end bill. Your previous invoices are also available as PDFs for download.
+
+<BillingForInactiveServices />
+
 
 [cloud-login]: https://console.cloud.timescale.com/
 [contact-company]: https://www.tigerdata.com/contact/

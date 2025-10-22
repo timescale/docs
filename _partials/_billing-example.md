@@ -1,5 +1,3 @@
-## Example billing calculation
-
 You are billed at the end of each month in arrears, based on your actual usage that month. Your monthly invoice
 includes an itemized cost accounting for each $SERVICE_LONG and any additional charges.
 

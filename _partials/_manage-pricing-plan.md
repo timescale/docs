@@ -1,5 +1,3 @@
-## Manage your $CLOUD_LONG $PRICING_PLAN
-
 You handle all details about your $CLOUD_LONG project including updates to your $PRICING_PLAN,
 payment methods, and add-ons in the [billing section in $CONSOLE][cloud-billing]:
 
