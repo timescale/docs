@@ -1,4 +1,5 @@
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 [Prometheus][prometheus] is an open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.
 
@@ -19,6 +20,8 @@ To follow the steps on this page:
   - Create a target [$SELF_LONG][enable-timescaledb] instance. You need your [connection details][connection-info].
   - [Install Postgres Exporter][install-exporter].
   To reduce latency and potential data transfer costs, install Prometheus and Postgres Exporter on a machine in the same AWS region as your $SERVICE_LONG.
+
+<NotSupportedAzure />
 
 ## Export $SERVICE_LONG telemetry to Prometheus
 

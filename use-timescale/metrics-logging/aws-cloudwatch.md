@@ -10,6 +10,7 @@ tags: [telemetry, monitor]
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Export telemetry data to AWS Cloudwatch
 
@@ -21,6 +22,8 @@ This page shows you how to create an Amazon CloudWatch exporter in $CONSOLE, and
 ## Prerequisites
 
 <PrereqsCloud />
+
+<NotSupportedAzure />
 
 ## Create a data exporter
 
@@ -34,6 +37,8 @@ tools. You create an exporter on the [$PROJECT_SHORT level][projects], in the sa
 This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 <ManageDataExporter />
+
+
 
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-docs]: https://docs.aws.amazon.com/cloudwatch/index.html

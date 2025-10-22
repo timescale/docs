@@ -7,7 +7,9 @@ keywords: [integrate]
 ---
 
 import PrometheusIntegrate from "versionContent/_partials/_prometheus-integrate.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate Prometheus with $CLOUD_LONG
 
 <PrometheusIntegrate />
+

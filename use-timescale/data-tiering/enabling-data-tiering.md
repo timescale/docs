@@ -11,6 +11,7 @@ cloud_ui:
 ---
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Manage storage and tiering
 
@@ -54,7 +55,11 @@ This storage type gives you up to 16 TB of storage and is available under [all $
 
 <Availability products={['cloud']} price_plans={['enterprise']} />
 
-This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
+This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. 
+
+<NotSupportedAzure />
+
+To get enhanced storage:
 
 <Procedure>
 
@@ -86,6 +91,8 @@ You change from enhanced storage to standard in the same way. If you are using o
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
 You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually. 
+
+<NotSupportedAzure />
 
 ### Enable tiered storage
 
@@ -279,6 +286,7 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
    ```
 
 </Procedure>
+
 
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
 [console]: https://console.cloud.timescale.com/dashboard/services
