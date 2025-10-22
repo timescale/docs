@@ -329,7 +329,7 @@ These limitations will be addressed in upcoming releases with disk-based segment
 
 
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
-[pg_textsearch-repo]: https://github.com/timescale/tapir
+[pg_textsearch-repo]: https://github.com/timescale/pg_textsearch
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
