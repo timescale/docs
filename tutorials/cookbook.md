@@ -1,5 +1,5 @@
 ---
-title: TigerData cookbook
+title: Tiger Data cookbook
 excerpt: Browse code examples from the Tiger community that resolve common issues and provide solutions for non-standard tasks
 products: [cloud, self_hosted, mst]
 ---

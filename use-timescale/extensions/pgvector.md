@@ -251,10 +251,10 @@ Before you begin, make sure you have:
     ###############################################################################
     # Setup your database to insert embeddings
     ###############################################################################
-    # Get a Tiger / Postgres database connection string by reading local .env file
+    # Get a Tiger Cloud / Postgres database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to Postgres database in Tiger using connection string
+    # Connect to Postgres database in Tiger Cloud using connection string
     conn = psycopg2.connect(connection_string)
     cur = conn.cursor()
 
@@ -384,10 +384,10 @@ Before you begin, make sure you have:
     _ = load_dotenv(find_dotenv())
     openai.api_key  = os.environ['OPENAI_API_KEY']
 
-    # Get Tiger / Postgres database connection string by reading local .env file
+    # Get Tiger Cloud / Postgres database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to Postgres Tiger service using connection string
+    # Connect to Postgres Tiger Cloud service using connection string
     conn = psycopg2.connect(connection_string)
 
     ###############################################################################
@@ -450,14 +450,14 @@ Before you begin, make sure you have:
         messages = [
             {"role": "system", "content": system_message},
             {"role": "user", "content": f"{delimiter}{user_input}{delimiter}"},
-            {"role": "assistant", "content": f"Relevant TigerData case studies information: \n {related_docs[0] [0]} \n {related_docs[1][0]} {related_docs[2][0]}"}
+            {"role": "assistant", "content": f"Relevant Tiger Data case studies information: \n {related_docs[0] [0]} \n {related_docs[1][0]} {related_docs[2][0]}"}
         ]
 
         final_response = get_completion_from_messages(messages)
         return final_response
     ###############################################################################
 
-    # Question about a TigerData blog post we want the model to answer
+    # Question about a Tiger Data blog post we want the model to answer
     input = "How does Density use TimescaleDB?"
     # Get a response from the model using most reelvant documents from the database
     response = process_input_with_retrieval(input)
