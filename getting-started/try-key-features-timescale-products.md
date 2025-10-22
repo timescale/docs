@@ -1,5 +1,5 @@
 ---
-title: Try the key features in TigerData products
+title: Try the key features in Tiger Data products
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
 products: [cloud, self_hosted, mst]
 content_group: Getting started
@@ -10,6 +10,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 # Try the key features in $COMPANY products
 
@@ -17,8 +18,8 @@ $CLOUD_LONG offers managed database services that provide a stable and reliable 
 applications. 
 
 Each $SERVICE_LONG is a single optimised $PG instance extended with innovations such as $TIMESCALE_DB in the database 
-engine, in a cloud infrastructure that delivers speed without compromise. A radically faster $PG for transactional, 
-analytical and agentic workloads at scale.
+engine, in a cloud infrastructure that delivers speed without sacrifice. A radically faster $PG for transactional, 
+analytical, and agentic workloads at scale.
 
 $CLOUD_LONG scales $PG to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
@@ -82,7 +83,7 @@ relational and time-series data from external files.
     
        <Tabs label="Upload data" persistKey="sql-editor">
 
-       <Tab title="Tiger Console" label="data-mode">
+       <Tab title="Tiger Cloud Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.
@@ -165,7 +166,7 @@ relational and time-series data from external files.
 
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
-    - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
+    - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs. <NotAvailableFreePlan />
     - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted $TIMESCALE_DB deployment from Terminal.
 
@@ -210,7 +211,7 @@ For example, yesterday's market data.
    90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
    saved, click `Explorer` > `public` > `crypto_ticks`. 
 
-   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-columstore-data-savings.png )
+   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-columstore-data-savings.png )
 
 </Procedure>
 
@@ -240,6 +241,8 @@ $CONSOLE. You can also do this using psql.
 <Tabs label="Upload data to " persistKey="sql-editor">
 
 <Tab title="Data mode" label="data-mode">
+
+<NotAvailableFreePlan />
 
 <Procedure>
 
@@ -336,6 +339,8 @@ a $CAGG, run the query part of the $CAGG
 
 ## Slash storage charges 
 
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
+
 In the previous sections, you used $CAGGs to make fast analytical queries, and
 $HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
 you create tiering policies to move rarely accessed data to the object store. The object store is 
@@ -344,8 +349,6 @@ low-cost bottomless data storage built on Amazon S3. However, no matter the tier
 tier and generates the response.
 
 ![Tiered storage](https://assets.timescale.com/docs/images/tiered-storage.png )
-
-Data tiering is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
 
 To set up data tiering: 
 
@@ -357,7 +360,7 @@ To set up data tiering:
    
    1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
 
-      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-console.png)
+      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png)
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
@@ -391,14 +394,14 @@ To set up data tiering:
 
 ## Reduce the risk of downtime and data loss
 
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
+
 By default, all $SERVICE_LONGs have rapid recovery enabled. However, if your app has very low tolerance 
 for downtime, $CLOUD_LONG offers $HA_REPLICAs. HA replicas are exact, up-to-date copies 
 of your database hosted in multiple AWS availability zones (AZ) within the same region as your primary node.
 HA replicas automatically take over operations if the original primary data node becomes unavailable. 
 The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of 
-data loss during failover.
-
-High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
+data loss during failover. 
 
 <HASetup />
 

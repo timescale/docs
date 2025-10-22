@@ -18,55 +18,49 @@ information, see the [drop_chunks][drop_chunks] section. This implements a data
 retention policy and removes data on a schedule. Only one retention policy may
 exist per hypertable.
 
+When you create a retention policy on a hypertable with an integer based time column, you must set the 
+[integer_now_func][set_integer_now_func] to match your data. If you are seeing `invalid value` issues when you 
+call `add_retention_policy`, set `VERBOSITY verbose` to see the full context.
+
 ## Samples
 
-Create a data retention policy to discard chunks greater than 6 months old:
+- **Create a data retention policy to discard chunks greater than 6 months old**:
 
-```sql
-SELECT add_retention_policy('conditions', drop_after => INTERVAL '6 months');
-```
+    ```sql
+    SELECT add_retention_policy('conditions', drop_after => INTERVAL '6 months');
+    ```
+    When you call `drop_after`, the time data range present in the partitioning time column is used to select the target
+    chunks.
+ 
+- **Create a data retention policy with an integer-based time column**:
 
-Create a data retention policy with an integer-based time column:
+    ```sql
+    SELECT add_retention_policy('conditions', drop_after => BIGINT '600000');
+    ```
 
-```sql
-SELECT add_retention_policy('conditions', drop_after => BIGINT '600000');
-```
+- **Create a data retention policy to discard chunks created before 6 months**:
 
-Create a data retention policy to discard chunks created before 6 months:
+    ```sql
+    SELECT add_retention_policy('conditions', drop_created_before => INTERVAL '6 months');
+    ```
+    When you call `drop_created_before`, chunks created 3 months ago are selected.
 
-```sql
-SELECT add_retention_policy('conditions', drop_created_before => INTERVAL '6 months');
-```
+## Arguments
 
-Note above that when `drop_after` is used then the time data range
-present in the partitioning time column is used to select the target
-chunks. Whereas, when `drop_created_before` is used then the chunks
-which were created 3 months ago are selected.
+| Name | Type | Default | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|-|-|-|-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`relation`|REGCLASS|-|✔| Name of the hypertable or continuous aggregate to create the policy for                                                                                                                                                                                                                                                                                                                                                                         |
+|`drop_after`|INTERVAL or INTEGER|-|✔| Chunks fully older than this interval when the policy is run are dropped. <BR/> You specify `drop_after` differently depending on the hypertable time column type: <ul><li>TIMESTAMP, TIMESTAMPTZ, and DATE: use INTERVAL type</li><li>Integer-based timestamps: use INTEGER type. You must set <a href="https://docs.tigerdata.com/api/latest/hypertable/set_integer_now_func/">integer_now_func</a> to match your data</li></ul> |
+|`schedule_interval`|INTERVAL|`NULL`|✖| The interval between the finish time of the last execution and the next start.                                                                                                                                                                                                                                                                                                                                                                  |
+|`initial_start`|TIMESTAMPTZ|`NULL`|✖| Time the policy is first run. If omitted, then the schedule interval is the interval between the finish time of the last execution and the next start. If provided, it serves as the origin with respect to which the next_start is calculated.                                                                                                                                                                                                 |
+|`timezone`|TEXT|`NULL`|✖| A valid time zone. If `initial_start` is also specified, subsequent executions of the retention policy are aligned on its initial start. However, daylight savings time (DST) changes may shift this alignment. Set to a valid time zone if this is an issue you want to mitigate. If omitted, UTC bucketing is performed.                                                                                                                      |
+|`if_not_exists`|BOOLEAN|`false`|✖| Set to `true` to avoid an error if the `drop_chunks_policy` already exists. A notice is issued instead.                                                                                                                                                                                                                                                                                                                                         |
+|`drop_created_before`|INTERVAL|`NULL`|✖| Chunks with creation time older than this cut-off point are dropped. The cut-off point is computed as `now() - drop_created_before`. Not supported for continuous aggregates yet.                                                                                                                                                                                                                                                               |
 
-## Required arguments
+You specify `drop_after` differently depending on the hypertable time column type:
 
-|Name|Type|Description|
-|-|-|-|
-|`relation`|REGCLASS|Name of the hypertable or continuous aggregate to create the policy for|
-|`drop_after`|INTERVAL or INTEGER|Chunks fully older than this interval when the policy is run are dropped|
-|`schedule_interval`|INTERVAL|The interval between the finish time of the last execution and the next start. Defaults to NULL.|
-|`initial_start`|TIMESTAMPTZ|Time the policy is first run. Defaults to NULL. If omitted, then the schedule interval is the interval between the finish time of the last execution and the next start. If provided, it serves as the origin with respect to which the next_start is calculated.|
-|`timezone`|TEXT|A valid time zone. If `initial_start` is also specified, subsequent executions of the retention policy are aligned on its initial start. However, daylight savings time (DST) changes may shift this alignment. Set to a valid time zone if this is an issue you want to mitigate. If omitted, UTC bucketing is performed. Defaults to `NULL`.|
-
-The `drop_after` parameter should be specified differently depending on the
-type of the time column of the hypertable:
-
-*   For hypertables with TIMESTAMP, TIMESTAMPTZ, and DATE time columns: the time
-interval should be an INTERVAL type.
-*   For hypertables with integer-based timestamps: the time interval should be an
-integer type (this requires the [integer_now_func][set_integer_now_func] to be set).
-
-## Optional arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`if_not_exists`|BOOLEAN|Set to `true` to avoid an error if the `drop_chunks_policy` already exists. A notice is issued instead. Defaults to `false`.|
-|`drop_created_before`|INTERVAL|Chunks with creation time older than this cut-off point are dropped. The cut-off point is computed as `now() - drop_created_before`. Defaults to `NULL`. Not supported for continuous aggregates yet.|
+*  TIMESTAMP, TIMESTAMPTZ, and DATE time columns: the time interval should be an INTERVAL type.
+*  Integer-based timestamps: the time interval should be an integer type. You must set the [integer_now_func][set_integer_now_func].
 
 ## Returns
 

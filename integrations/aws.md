@@ -1,6 +1,6 @@
 ---
-title: Integrate Amazon Web Services with Tiger  
-excerpt: AWS enables you to build, run, and manage applications across cloud, hybrid, and edge environments with AI, analytics, security, and scalable infrastructure. Integrate AWS with Tiger using AWS Transit Gateway
+title: Integrate Amazon Web Services with Tiger Cloud
+excerpt: AWS enables you to build, run, and manage applications across cloud, hybrid, and edge environments with AI, analytics, security, and scalable infrastructure. Integrate AWS with Tiger Cloud using AWS Transit Gateway
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [AWS, integrations]

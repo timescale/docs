@@ -1,6 +1,6 @@
 ---
 title: Integrate Terraform with Tiger
-excerpt: Manage your Tiger services with a Terraform provider
+excerpt: Manage your Tiger Cloud services with a Terraform provider
 products: [cloud, self_hosted]
 keywords: [Terraform, configuration, deployment]
 tags: [integrate]
@@ -52,7 +52,7 @@ You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE
          }
        }
 
-       # Authenticate using client credentials generated in Tiger Console.
+       # Authenticate using client credentials generated in Tiger Cloud Console.
        # When required, these credentials will change to a short-lived JWT to do the calls.
        provider "timescale" {
         project_id = var.ts_project_id

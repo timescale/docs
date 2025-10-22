@@ -1,8 +1,7 @@
 ---
-title: Storage on Tiger
+title: Storage on Tiger Cloud
 excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier. Tiger tiered storage makes sure you cut costs while having data available for analytical queries
 products: [cloud]
-price_plans: [scale, enterprise, performance]
 keywords: [tiered storage]
 tags: [storage, data management]
 ---

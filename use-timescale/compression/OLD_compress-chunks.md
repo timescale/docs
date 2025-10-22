@@ -20,7 +20,7 @@ Compression alters data on your disk, so always back up before you start.
 
 ## Set a compression policy
 
-You can set a compression policy on a hypertable directly from the Tiger Console.
+You can set a compression policy on a hypertable directly from the Tiger Cloud Console.
 
 <Procedure>
 

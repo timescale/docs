@@ -1,7 +1,8 @@
 ---
 title: Virtual Private Cloud
-excerpt: Virtual Private Cloud peering ensures that your Tiger services are only accessible through your secured AWS infrastructure. Set up VPC peering in Tiger Console
+excerpt: Virtual Private Cloud peering ensures that your Tiger Cloud services are only accessible through your secured AWS infrastructure. Set up VPC peering in Tiger Cloud Console
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]
 cloud_ui:
@@ -225,7 +226,7 @@ some time for DNS propagation.
 [console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [timescale-support]: https://www.timescale.com/contact/
-[tsc-regions]: /use-timescale/:currentVersion:/regions/
+[tsc-regions]: /about/:currentVersion:/supported-platforms/#available-regions
 [aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#create-a-peering-vpc-in-timescale-console
 [aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
 [aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws
