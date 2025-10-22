@@ -1,5 +1,5 @@
 ---
-title: Integrate <third-party tool name> with Tiger 
+title: Integrate <third-party tool name> with Tiger Cloud
 excerpt: SEO friendly explanation of why the user will do it
 keywords: [<third-party tool name>]
 ---
