@@ -1,11 +1,12 @@
 ---
-title: Back up and recover your Tiger services
-excerpt: See how and when Tiger backs up your data, making sure you always have something to fall back on in case of disaster recovery
+title: Back up and recover your Tiger Cloud services
+excerpt: See how and when Tiger Cloud backs up your data, making sure you always have something to fall back on in case of disaster recovery
 products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, failures]
 ---
 
+import CLIFORKS from "versionContent/_partials/_devops-cli-service-forks.mdx";
 import PitrIntro from "versionContent/_partials/_pitr-intro.mdx";
 
 # Back up and recover your $SERVICE_SHORTs
@@ -14,16 +15,21 @@ import PitrIntro from "versionContent/_partials/_pitr-intro.mdx";
 
 <Tab title="Tiger on AWS" label="aws-cloud">
 
-$CLOUD_LONG automatically handles backup for your $SERVICE_SHORTs using the `pgBackRest` tool. You don't need to perform backups manually. What's more, with [cross-region backup][cross-region], you are protected when an entire AWS region goes down.
+$CLOUD_LONG provides comprehensive backup and recovery solutions to protect your data, including automatic daily backups, 
+cross-region protection, and point-in-time recovery.
 
-$CLOUD_LONG automatically creates one full backup every week, and
-incremental backups every day in the same region as your $SERVICE_SHORT. 
+## Automatic backups
 
-On [$SCALE and $PERFORMANCE][pricing-and-account-management] $PRICING_PLANs, you can check the list of backups for the previous 14 days in $CONSOLE_LONG. To do so, select your $SERVICE_SHORT, then click `Operations` > `Backup and restore` > `Backup history`. 
+$CLOUD_LONG automatically handles backup for your $SERVICE_LONGs using the `pgBackRest` tool. You don't need to perform 
+backups manually. What's more, with [cross-region backup][cross-region], you are protected when an entire AWS region goes down.
 
-Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. This means that you always have a full backup available for the current and previous week: 
+$CLOUD_LONG automatically creates one full backup every week, and incremental backups every day in the same region as 
+your $SERVICE_SHORT. Additionally, all [Write-Ahead Log (WAL)][wal] files are retained back to the oldest full backup. 
+This means that you always have a full backup available for the current and previous week:
 
-![Backup in Tiger](https://assets.timescale.com/docs/images/database-backup-recovery.png)
+![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
+
+On [$SCALE and $PERFORMANCE][pricing-and-account-management] $PRICING_PLANs, you can check the list of backups for the previous 14 days in $CONSOLE_LONG. To do so, select your $SERVICE_SHORT, then click `Operations` > `Backup and restore` > `Backup history`.
 
 In the event of a storage failure, a $SERVICE_SHORT automatically recovers from a backup
 to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, you can [create a point-in-time recovery fork][create-fork].
@@ -42,7 +48,7 @@ You enable cross-region backup when you create a $SERVICE_SHORT, or configure it
 
 1. In `Cross-region backup`, select the region in the dropdown and click `Enable backup`. 
 
-   ![Create cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/create-cross-region-backup-in-tiger-console.png)
+   ![Create cross-region backup](https://assets.timescale.com/docs/images/tiger-on-azure/create-cross-region-backup-in-tiger-console.png)
 
    You can now see the backup, its region, and creation date in a list. 
 
@@ -56,7 +62,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 1. Click the trash icon next to the existing backup to disable it. 
 
-   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-cloud-console/cross-region-backup-list-in-tiger-console.png)
+   ![Disable cross-region backup](https://assets.timescale.com/docs/images/tiger-on-azure/cross-region-backup-list-in-tiger-console.png)
 
 1. Create a new backup in a different region. 
 
@@ -70,7 +76,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 You initiate a point-in-time recovery from a same-region or cross-region backup in $CONSOLE_LONG:
 
-<Tabs label="Point-in-time recovery in Tiger Console">
+<Tabs label="Point-in-time recovery in Tiger Cloud Console">
 
 <Tab title="Same-region backup">
 
@@ -78,7 +84,7 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 
 1.  In [$CONSOLE][console], from the `Services` list, ensure the $SERVICE_SHORT
     you want to recover has a status of `Running` or `Paused`.
-1.  Navigate to `Operations` > `Backup & restore` and click `Create recovery fork`. 
+1.  Navigate to `Operations` > `Service management` and click `Create recovery fork`. 
 1.  Select the recovery point, ensuring the correct time zone (UTC offset).
 1.  Configure the fork.
 
@@ -90,7 +96,12 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 1.  Confirm by clicking `Create recovery fork`.
 
     A fork of the $SERVICE_SHORT is created. The recovered $SERVICE_SHORT shows in `Services` with a label specifying which $SERVICE_SHORT it has been forked from.
-1.  Update the connection strings in your app to use the fork.
+
+1.  Update the connection strings in your app
+
+    Since the point-in-time recovery is done in a fork, to migrate your
+    application to the point of recovery, change the connection
+    strings in your application to use the fork.
 
 </Procedure>
 
@@ -103,6 +114,10 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 </Tab>
 
 </Tabs>
+
+## Create a service fork
+
+<CLIFORKS />
 
 </Tab>
 
@@ -146,6 +161,10 @@ You initiate a point-in-time recovery in $CONSOLE_LONG:
 1.  Update the connection strings in your app to use the fork.
 
 </Procedure>
+
+## Create a service fork
+
+<CLIFORKS />
 
 </Tab>
 

@@ -1,6 +1,6 @@
 ---
 title: Live migration
-excerpt: Migrate your entire database to Tiger with low downtime
+excerpt: Migrate your entire database to Tiger Cloud with low downtime
 products: [cloud]
 keywords: [migration, low-downtime, backup]
 tags: [recovery, logical backup, replication]

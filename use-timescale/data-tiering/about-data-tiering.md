@@ -1,8 +1,7 @@
 ---
-title: About Tiger storage tiers 
-excerpt: Learn how Tiger helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
+title: About Tiger Cloud storage tiers 
+excerpt: Learn how Tiger Cloud helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
 products: [cloud]
-price_plans: [scale, enterprise]
 keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
@@ -30,6 +29,8 @@ $CLOUD_LONG high-performance storage comes in the following types:
 [See the differences][aws-storage-types] in the underlying AWS storage. You [enable enhanced storage][enable-enhanced] as needed in $CONSOLE. 
 
 ## Low-cost storage
+
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
 Once you [enable tiered storage][manage-tiering], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
 

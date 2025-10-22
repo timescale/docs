@@ -1,11 +1,12 @@
 ---
-title: Run your queries from Tiger Console
-excerpt: Choose the right tool to manage your data. Tiger offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
+title: Run your queries from Tiger Cloud Console
+excerpt: Choose the right tool to manage your data. Tiger Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
 products: [cloud]
 content_group: Getting started
 ---
 
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 # Run your queries from $CONSOLE
 
@@ -29,6 +30,8 @@ If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [ps
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
 ![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode.png)
+
+<NotAvailableFreePlan />
 
 Available features are:
 
@@ -54,7 +57,7 @@ To connect to a $SERVICE_SHORT:
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`:
 
-   ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-services-view.png)
+   ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
@@ -118,6 +121,8 @@ use that in the $DATA_MODE.
 ## $SQL_ASSISTANT_SHORT
 
 $SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] is a chat-like interface that harnesses the power of AI to help you write, fix, and organize SQL faster and more accurately. Ask $SQL_ASSISTANT_SHORT to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, get answers to any questions you can think of.
+
+<NotAvailableFreePlan />
 
 <!--
 <div class="relative w-fit mx-auto">
@@ -208,7 +213,7 @@ $SQL_ASSISTANT_SHORT settings are:
 $SQL_EDITOR is an integrated secure UI that you use to run queries and see the results
 for a $SERVICE_LONG.
 
-![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-ops-mode-sql-editor.png)
+![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor.png)
 
 To enable or disable $SQL_EDITOR in your $SERVICE_SHORT, click `Operations` > `Service management`, then
 update the setting for $SQL_EDITOR.
@@ -221,13 +226,13 @@ To use $SQL_EDITOR:
 
     In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
 
-    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-ops-mode-sql-editor-empty.png)
+    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor-empty.png)
 
 1. **Run a test query**
 
     Type `SELECT CURRENT_DATE;` in the UI and click `Run`. The results appear in the lower window:
 
-    ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-a-query-in-tiger-ops-mode-sql-editor.png)
+    ![Run a simple query](https://assets.timescale.com/docs/images/tiger-on-azure/run-a-query-in-tiger-ops-mode-sql-editor.png)
 
 </Procedure>
 

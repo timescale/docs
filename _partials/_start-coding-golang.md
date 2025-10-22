@@ -126,7 +126,7 @@ result in faster database queries:
 
         //run a simple query to check our connection
         var greeting string
-        err = dbpool.QueryRow(ctx, "select 'Hello, TigerData (but concurrently)'").Scan(&greeting)
+        err = dbpool.QueryRow(ctx, "select 'Hello, Tiger Data (but concurrently)'").Scan(&greeting)
         if err != nil {
             fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
             os.Exit(1)
