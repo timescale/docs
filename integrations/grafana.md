@@ -1,6 +1,6 @@
 ---
-title: Integrate Grafana and Tiger Cloud
-excerpt: Grafana enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored. Integrate Grafana with Tiger Cloud
+title: Integrate Grafana and Tiger
+excerpt: Grafana enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored. Integrate Grafana with Tiger
 products: [cloud, self_hosted]
 keywords: [Grafana, visualizations, analytics, monitoring]
 ---
@@ -94,7 +94,7 @@ Grafana time-series panels include a time filter:
 
     When you visualize this query in Grafana, you see this:
 
-    ![Tiger Cloud service and Grafana query results](https://assets.timescale.com/docs/images/grafana_query_results.png)
+    ![$SERVICE_LONG and Grafana query results](https://assets.timescale.com/docs/images/grafana_query_results.png)
 
     You can adjust the `time_bucket` function and compare the graphs:
     
@@ -112,7 +112,7 @@ Grafana time-series panels include a time filter:
     
     When you visualize this query, it looks like this:
 
-   ![Tiger Cloud service and Grafana query results in time buckets](https://assets.timescale.com/docs/images/grafana_query_results_5m.png)
+   ![$SERVICE_LONG and Grafana query results in time buckets](https://assets.timescale.com/docs/images/grafana_query_results_5m.png)
 
 </Procedure>
 
@@ -175,7 +175,7 @@ tutorial as a starting point.
     
     You now have a visualization that looks like this: 
 
-    ![Tiger Cloud service and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
+    ![$SERVICE_LONG and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
        
 
 </Procedure>

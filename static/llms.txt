@@ -1,20 +1,20 @@
-# TigerData Documentation
+# Tiger Data Documentation
 
-Over 3 million TigerData databases power customer-facing applications. Speed without sacrifice for real-time analytics, time series, and vector workloads. Creators of TimescaleDB.
+Over 3 million Tiger Data databases power customer-facing applications. Speed without sacrifice for real-time analytics, time series, and vector workloads. Creators of TimescaleDB.
 
 Tiger Cloud is the modern Postgres data platform for all your applications. It enhances Postgres to handle time series, events, real-time analytics, and vector search—all in a single database alongside transactional workloads.
 
 You get one system that handles live data ingestion, late and out-of-order updates, and low latency queries, with the performance, reliability, and scalability your app needs. Ideal for IoT, crypto, finance, SaaS, and a myriad other domains, Tiger Cloud allows you to build data-heavy, mission-critical apps while retaining the familiarity and reliability of PostgreSQL.
 
-This repository contains the complete documentation for TigerData products available at https://docs.tigerdata.com/.
+This repository contains the complete documentation for Tiger Data products available at https://docs.tigerdata.com/.
 
 ## Getting Started
 
-- [Get started overview](https://docs.tigerdata.com/getting-started/latest/): Introduction to TigerData products and services
+- [Get started overview](https://docs.tigerdata.com/getting-started/latest/): Introduction to Tiger Data products and services
 - [Create a Tiger Cloud service](https://docs.tigerdata.com/getting-started/latest/services/): Learn about Tiger Cloud capabilities and create your first service
 - [Run queries from Tiger Cloud Console](https://docs.tigerdata.com/getting-started/latest/run-queries-from-console/): Use the SQL editor and SQL Assistant in Tiger Cloud
-- [Try key TigerData features](https://docs.tigerdata.com/getting-started/latest/try-key-features-timescale-products/): Explore hypertables, time buckets, compression, and continuous aggregates
-- [Start coding with TigerData](https://docs.tigerdata.com/getting-started/latest/start-coding-with-timescale/): Connect and code with your preferred programming language
+- [Try key Tiger Data features](https://docs.tigerdata.com/getting-started/latest/try-key-features-timescale-products/): Explore hypertables, time buckets, compression, and continuous aggregates
+- [Start coding with Tiger Data](https://docs.tigerdata.com/getting-started/latest/start-coding-with-timescale/): Connect and code with your preferred programming language
 
 ## Core Features and Functionality
 
@@ -360,7 +360,7 @@ This repository contains the complete documentation for TigerData products avail
 - [Administration functions](https://docs.tigerdata.com/api/latest/administration/): Administrative operations
 - [Informational views](https://docs.tigerdata.com/api/latest/informational-views/): System information views
 
-## About TigerData
+## About Tiger Data
 
 - [About overview](https://docs.tigerdata.com/about/latest/): Company and product information
 - [Pricing and account management](https://docs.tigerdata.com/about/latest/pricing-and-account-management/): Pricing plans and billing
@@ -368,7 +368,7 @@ This repository contains the complete documentation for TigerData products avail
 - [Changelog](https://docs.tigerdata.com/about/latest/changelog/): Latest product updates
 - [Release notes](https://docs.tigerdata.com/about/latest/release-notes/): Version release information
 - [Whitepaper](https://docs.tigerdata.com/about/latest/whitepaper/): Technical architecture paper
-- [Contribute to TigerData](https://docs.tigerdata.com/about/latest/contribute-to-timescale/): Community contribution guide
+- [Contribute to Tiger Data](https://docs.tigerdata.com/about/latest/contribute-to-timescale/): Community contribution guide
 
 ## Contributing
 

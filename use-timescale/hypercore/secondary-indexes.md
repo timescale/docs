@@ -1,7 +1,7 @@
 ---
 title: Improve query and upsert performance
 excerpt: Use segmenting and ordering data in the columnstore to make lookup queries 1,185x and upserts 224x faster
-products: [cloud, self_hosted]
+products: [cloud, mst, self_hosted]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
 

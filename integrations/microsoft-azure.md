@@ -1,5 +1,5 @@
 ---
-title: Integrate Microsoft Azure with Tiger Cloud 
+title: Integrate Microsoft Azure with Tiger Cloud
 excerpt: Microsoft Azure enables you to build, deploy, and manage applications across cloud, hybrid, and edge environments. Integrate Microsoft Azure with Tiger Cloud using AWS Transit Gateway
 products: [cloud]
 price_plans: [scale, enterprise]

@@ -1,5 +1,5 @@
 ---
-title: Integrate Google Cloud with Tiger Cloud 
+title: Integrate Google Cloud with Tiger Cloud
 excerpt: Google Cloud enables you to deploy, manage, and scale cloud-based applications, databases, and data processing workflows. Integrate Google Cloud with Tiger Cloud using AWS Transit Gateway
 products: [cloud]
 price_plans: [scale, enterprise]

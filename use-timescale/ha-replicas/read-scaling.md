@@ -9,9 +9,11 @@ tags: [replicas, scaling, ha]
 
 # Read scaling
 
-You use $READ_REPLICA sets in $CLOUD_LONG for horizontal read scaling, to power your read-intensive apps and business intelligence tooling. Additionally, using the replica sets to serve reads for your app unloads the primary data instance and enables your $SERVICE_SHORT to improve ingest performance. 
-This is particularly useful when read traffic is very spiky and risks impacting ingest performance, or where reads have 
-a lower priority to writes.
+When read-intensive workloads compete with high ingest rates, your primary data instance can become a bottleneck. Spiky query traffic, analytical dashboards, and business intelligence tools risk slowing down ingest performance and disrupting critical write operations.
+
+With $READ_REPLICA sets in $CLOUD_LONG, you can scale reads horizontally and keep your applications responsive. By offloading queries to replicas, your $SERVICE_SHORT maintains high ingest throughput while serving large or unpredictable read traffic with ease. This approach not only protects write performance but also gives you confidence that your read-heavy apps and BI workloads will run smoothly—even under pressure.
+
+![Read scaling in Timescale](https://assets.timescale.com/docs/images/read-scaling-timescale.png)
 
 This page shows you how to create and manage $READ_REPLICA sets in $CONSOLE.
 
@@ -20,8 +22,6 @@ This page shows you how to create and manage $READ_REPLICA sets in $CONSOLE.
 A $READ_REPLICA is a read-only copy of your primary database instance. Queries on $READ_REPLICAs have minimal impact on the performance of the primary instance. This enables you to interact with up-to-date production data for analysis, or to scale out reads beyond the limits of your primary instance. $READ_REPLICA_CAPs can be short-lived and deleted when a session of data analysis is complete, or long-running to power an application or a business intelligence tool. 
 
 A $READ_REPLICA set in $CLOUD_LONG is a group of one or more $READ_REPLICA nodes that are accessed through the same endpoint. You query each set as a single replica. $CLOUD_LONG balances the load between the nodes in the set for you.
-
-![Read scaling in Timescale](https://assets.timescale.com/docs/images/read-scaling-timescale.png)
 
 You can create as many $READ_REPLICA sets as you need. For security and resource isolation, each $READ_REPLICA set has unique connection details.
 
@@ -50,7 +50,7 @@ To create a secure $READ_REPLICA set for your read-intensive apps:
 
     Configure the number of nodes, compute size, connection pooling, and the name for your replica, then click `Create read replica set`.
 
-   ![Create a read replica set in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/create-read-replica-set-tiger-cloud-console.png)
+   ![Create a read replica set in $CONSOLE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-read-replica-set-tiger-console.png)
 
 1. **Save the connection information**
 
@@ -78,11 +78,11 @@ To change the compute and storage configuration of your $READ_REPLICA set:
 
 1. **In [$CONSOLE][timescale-console-services], expand and click the $READ_REPLICA set under your primary $SERVICE_SHORT**
 
-   ![Read replicas in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-sets-tiger-cloud-console.png)
+   ![Read replicas in $CONSOLE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/read-replica-sets-tiger-console.png)
 
 1. **Click `Operations` > `Compute and storage`**
 
-   ![Read replica compute and storage in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-set-config.png)
+   ![Read replica compute and storage in $CONSOLE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-set-config-tiger-console.png)
 
 1. **Change the replica configuration and click `Apply`**
 
@@ -102,7 +102,7 @@ is measured in bytes, against the current state of the primary instance. To chec
 
    You see a list of configured $READ_REPLICA sets for this $SERVICE_SHORT, including their status and lag:
 
-   ![Read replica sets](https://assets.timescale.com/docs/images/tiger-cloud-console/configured-replica-set-tiger-cloud.png)
+   ![Read replica sets](https://assets.timescale.com/docs/images/tiger-on-azure/configured-replica-set-tiger-console.png)
 
 1. **Configure the allowable lag**
 

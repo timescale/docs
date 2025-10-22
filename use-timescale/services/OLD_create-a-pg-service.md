@@ -1,6 +1,6 @@
 ---
 title: Create a Postgres service
-excerpt: Create a Postgres service in Tiger Cloud
+excerpt: Create a Postgres service in Tiger
 products: [cloud]
 keywords: [services, Postgres, create, install]
 ---
@@ -12,7 +12,7 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 <EarlyAccess />
 
 $CLOUD_LONG is a hosted, cloud-native service that allows you to
-quickly spin up new Tiger $PG. In addition to your $SERVICE_LONGs, you can also create $SERVICE_SHORTs 
+quickly spin up new $SERVICE_LONGs. In addition to your $SERVICE_LONGs, you can also create $SERVICE_SHORTs 
 run standard $PG, without $TIMESCALE_DB's time-series capabilities. $PG services are less expensive to
 run than $SERVICE_LONGs, so they are a great option if you're running
 relational databases alongside your time-series databases.
@@ -36,7 +36,7 @@ running, see the [Getting Started section][cloud-install].
     <img
         class="main-content__illustration"
         src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-create-pgservice.png"
-        alt="Create a new Postgres service in the Tiger Cloud"
+        alt="Create a new Postgres service in the Tiger"
     />
 
 </Procedure>
@@ -48,7 +48,7 @@ time-series services:
 <img
     class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-view-pgservice.png"
-    alt="A running Postgres service with a running Tiger Cloud service in the Tiger Cloud Console"
+    alt="A running Postgres service with a running Tiger Cloud service in Tiger Cloud Console"
 />
 
 [cloud-install]: /getting-started/latest/

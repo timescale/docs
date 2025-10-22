@@ -1,5 +1,5 @@
 ---
-title: Try the key features in TigerData products
+title: Try the key features in Tiger Data products
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
 products: [cloud, self_hosted, mst]
 content_group: Getting started
@@ -10,14 +10,18 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 # Try the key features in $COMPANY products
 
 $CLOUD_LONG offers managed database services that provide a stable and reliable environment for your
-applications. Each $SERVICE_SHORT is an instance of $TIGER_POSTGRES, a radically faster $PG for
-transactional, analytical and agentic workloads at scale.
+applications. 
 
-$CLOUD_LONG scales $TIGER_POSTGRES to ingest and query vast amounts of live data. $CLOUD_LONG 
+Each $SERVICE_LONG is a single optimised $PG instance extended with innovations such as $TIMESCALE_DB in the database 
+engine, in a cloud infrastructure that delivers speed without sacrifice. A radically faster $PG for transactional, 
+analytical, and agentic workloads at scale.
+
+$CLOUD_LONG scales $PG to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
 costs down. For example: 
 * The $HYPERCORE row-columnar engine in $TIMESCALE_DB makes queries up to 350x faster, ingests 44% faster, and reduces 
@@ -162,7 +166,7 @@ relational and time-series data from external files.
 
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
-    - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
+    - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs. <NotAvailableFreePlan />
     - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted $TIMESCALE_DB deployment from Terminal.
 
@@ -207,7 +211,7 @@ For example, yesterday's market data.
    90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
    saved, click `Explorer` > `public` > `crypto_ticks`. 
 
-   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-columstore-data-savings.png )
+   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-columstore-data-savings.png )
 
 </Procedure>
 
@@ -219,7 +223,7 @@ $CAGG_CAPs are a kind of $HYPERTABLE that is refreshed automatically in
 the background as new data is added, or old data is modified. Changes to your dataset are tracked, 
 and the $HYPERTABLE behind the $CAGG is automatically updated in the background.
 
-![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png )
+![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png)
 
 You create $CAGGs on uncompressed data in high-performance storage. They continue to work 
 on [data in the $COLUMNSTORE][test-drive-enable-compression]
@@ -237,6 +241,8 @@ $CONSOLE. You can also do this using psql.
 <Tabs label="Upload data to " persistKey="sql-editor">
 
 <Tab title="Data mode" label="data-mode">
+
+<NotAvailableFreePlan />
 
 <Procedure>
 
@@ -295,9 +301,9 @@ $CONSOLE. You can also do this using psql.
 <Procedure>
 
 1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to**
-1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate`** next to the `crypto_ticks` hypertable. 
-   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-cloud.png )
+1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate` next to the `crypto_ticks` hypertable**
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**
+   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-console.png )
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql
    CREATE MATERIALIZED VIEW assets_candlestick_daily
@@ -333,6 +339,8 @@ a $CAGG, run the query part of the $CAGG
 
 ## Slash storage charges 
 
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
+
 In the previous sections, you used $CAGGs to make fast analytical queries, and
 $HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
 you create tiering policies to move rarely accessed data to the object store. The object store is 
@@ -341,8 +349,6 @@ low-cost bottomless data storage built on Amazon S3. However, no matter the tier
 tier and generates the response.
 
 ![Tiered storage](https://assets.timescale.com/docs/images/tiered-storage.png )
-
-Data tiering is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
 
 To set up data tiering: 
 
@@ -354,7 +360,7 @@ To set up data tiering:
    
    1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
 
-   ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-cloud-console.png)
+      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png)
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
@@ -388,14 +394,14 @@ To set up data tiering:
 
 ## Reduce the risk of downtime and data loss
 
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
+
 By default, all $SERVICE_LONGs have rapid recovery enabled. However, if your app has very low tolerance 
 for downtime, $CLOUD_LONG offers $HA_REPLICAs. HA replicas are exact, up-to-date copies 
 of your database hosted in multiple AWS availability zones (AZ) within the same region as your primary node.
 HA replicas automatically take over operations if the original primary data node becomes unavailable. 
 The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of 
-data loss during failover.
-
-High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
+data loss during failover. 
 
 <HASetup />
 

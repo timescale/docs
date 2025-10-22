@@ -2,6 +2,7 @@
 title: Virtual Private Cloud
 excerpt: Virtual Private Cloud peering ensures that your Tiger Cloud services are only accessible through your secured AWS infrastructure. Set up VPC peering in Tiger Cloud Console
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]
 cloud_ui:
@@ -69,11 +70,11 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
 
 1.  **In [$CONSOLE > Security > VPC][console-vpc], click `Create a VPC`**
 
-    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-cloud.png)
+    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-console.png)
 
 1.  **Choose your region and IP range, name your $VPC, then click `Create VPC`**
 
-    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-cloud.png)
+    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png)
 
     The IP ranges of the Peering $VPC and Customer VPC should not overlap. 
 
@@ -82,7 +83,7 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
     1. In the `VPC Peering` column, click `Add`.
     2. Enter information about your existing Customer VPC, then click `Add Connection`.
 
-       ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-cloud.png)
+       ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-console.png)
 
     <VpcLimitations />
 
@@ -221,7 +222,7 @@ some time for DNS propagation.
 [console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [timescale-support]: https://www.timescale.com/contact/
-[tsc-regions]: /use-timescale/:currentVersion:/regions/
+[tsc-regions]: /about/:currentVersion:/supported-platforms/#available-regions
 [aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#create-a-peering-vpc-in-timescale-console
 [aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
 [aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws

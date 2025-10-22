@@ -1,4 +1,4 @@
-<Highlight type="cloud" header="Try for free on Tiger Cloud" button="Try for free">
+<Highlight type="cloud" header="Try for free on Tiger" button="Try for free">
 
 <ul>
 <li> Get started at the click of a button </li>

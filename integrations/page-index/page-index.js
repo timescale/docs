@@ -4,7 +4,7 @@ module.exports = [
     href: "integrations",
     filePath: "index.md",
     excerpt:
-      "Integrate third-party solutions with Tiger Cloud",
+      "Integrate third-party solutions with Tiger",
     children: [
       {
         title: "Find your connection details",
@@ -119,7 +119,7 @@ module.exports = [
       {
         title: "psql",
         href: "psql",
-        excerpt: "Connect to TigerData products with psql",
+        excerpt: "Connect to Tiger Data products with psql",
       },
       {
         title: "qStudio",

@@ -1,6 +1,6 @@
 ---
 title: Service management
-excerpt: Manage your Tiger Cloud service from the Operations dashboard in Tiger Cloud console. Fork the service, reset your password, pause or delete a service, and more
+excerpt: Manage your Tiger Cloud service from the Operations dashboard in Tiger Cloud Console. Fork the service, reset your password, pause or delete a service, and more
 products: [cloud]
 keywords: [services, operations, forks]
 tags: [manage, admin, passwords, pause, stop, terminate]
@@ -9,6 +9,8 @@ cloud_ui:
         - [services, :serviceId, operations, management]
         - [create_services, fork, :serviceId]
 ---
+
+import CLIFORKS from "versionContent/_partials/_devops-cli-service-forks.mdx";
 
 # $SERVICE_SHORT_CAP management
 
@@ -46,8 +48,6 @@ data discrepancy between $SERVICE_SHORTs.
 
 <Procedure>
 
-### Forking a $SERVICE_SHORT
-
 1.  In $CONSOLE_LONG, from the `Services` list, ensure the $SERVICE_SHORT
     you want to form has a status of `Running` or `Paused`, then click the name
     of the $SERVICE_SHORT you want to fork.
@@ -72,7 +72,12 @@ alt="Fork a Tiger Cloud service"
 
 </Procedure>
 
-### Reset your $SERVICE_SHORT password
+## Create a service fork using the $CLI_SHORT
+
+<CLIFORKS />
+
+
+## Reset your $SERVICE_SHORT password
 
 You can reset your $SERVICE_SHORT password from the `Operations` dashboard. This is the
 password you use to connect to your $SERVICE_SHORT, not the password for $CONSOLE. To reset your $CONSOLE_SHORT password, navigate to the `Account` page.
@@ -86,14 +91,14 @@ digest algorithm 5) are cryptographic authentication mechanisms. $CONSOLE_LONG
 uses SCRAM by default. It is more secure and strongly recommended. The MD5
 option is provided for compatibility with older clients.
 
-### Pause a $SERVICE_SHORT
+## Pause a $SERVICE_SHORT
 
 You can pause a $SERVICE_SHORT if you want to stop it running temporarily. When you
 pause a $SERVICE_SHORT, you are no longer billed for compute resources. However, you do
 need to continue paying for any storage you are using. Pausing a $SERVICE_SHORT ensures
 that it is still available, and is ready to be restarted at any time.
 
-### Delete a $SERVICE_SHORT
+## Delete a $SERVICE_SHORT
 
 You can delete a $SERVICE_SHORT to remove it completely. This removes the $SERVICE_SHORT
 and its underlying data from the server. You cannot recover a deleted

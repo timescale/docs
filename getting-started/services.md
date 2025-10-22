@@ -5,51 +5,45 @@ products: [cloud]
 content_group: Getting started
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
-import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
+import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
+import StartUsingCloud from "versionContent/_partials/_start-using-cloud.mdx";
+import Install from "versionContent/_partials/_cloud-installation.mdx";
+import CreateService from "versionContent/_partials/_create-service.mdx";
+import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+
+import InstallAzure from "versionContent/_partials/_cloud-installation-azure.mdx";
+import ServiceIntroAzure from "versionContent/_partials/_services-intro-azure.mdx";
+import ServiceOverviewAzure from "versionContent/_partials/_service-overview-azure.mdx";
+import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-azure.mdx";
 
 # Create a $SERVICE_LONG
 
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
+
 <CloudIntro />
+
+## What is a $SERVICE_LONG?
+
+<ServiceIntro />
 
 <ServiceOverview />
 
-To start using $CLOUD_LONG for your data:
+<StartUsingCloud />
 
-1. [Create a $ACCOUNT_LONG][create-an-account]: register to get access to $CONSOLE as a centralized point to administer and interact with your data.
-1. [Create a $SERVICE_LONG][create-a-service]: that is, a $PG database instance, powered by [$TIMESCALE_DB][timescaledb], built for production, and extended with cloud features like transparent data tiering to object storage.
-1. [Connect to your $SERVICE_LONG][connect-to-your-service]: to run queries, add and migrate your data from other sources.
+## Create a $ACCOUNT_LONG
 
 <Install />
 
-## Create a $SERVICE_LONG
+## Create a $SERVICE_SHORT
 
 Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
 
-<Procedure>
-
-1. In the [$SERVICE_SHORT creation page][create-service], choose the capability to match your business needs: `Real-time analytics`, `AI-focused`, or `Hybrid applications`. 
-
-   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
-
-   To create a plain $PG $SERVICE_SHORT, without any additional capabilities, click `Looking for plain PostgreSQL?` in the top right.
-   
-1. Follow the next steps in `Create a service` to configure the region, compute size, environment, availability, connectivity, and $SERVICE_SHORT name. Then click `Create service`.
-
-   Your $SERVICE_SHORT is constructed and ready to use in a few seconds. 
-
-1. Click `Download the config` and store the configuration information you need to connect to this $SERVICE_SHORT in a secure location.
-
-   This file contains the passwords and configuration information you need to connect to your $SERVICE_SHORT using the
-   $CONSOLE $DATA_MODE, from the command line, or using third-party database administration tools.
-
-If you choose to go directly to the $SERVICE_SHORT overview, [Connect to your $SERVICE_SHORT][connect-to-your-service] 
-shows you how to connect.
-
-</Procedure> 
+<CreateService />
 
 ## Connect to your $SERVICE_SHORT
 
@@ -59,6 +53,41 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 <WhereNext />
 
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<CloudIntro />
+
+## What is a $SERVICE_LONG?
+
+<ServiceIntroAzure />
+
+<ServiceOverviewAzure />
+
+<StartUsingCloudAzure />
+
+## Create a $ACCOUNT_LONG
+
+<InstallAzure />
+
+## Create a $SERVICE_SHORT
+
+Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database.
+
+<CreateService />
+
+## Connect to your $SERVICE_SHORT
+
+To run queries and perform other operations, connect to your $SERVICE_SHORT:
+
+<Connect />
+
+<WhereNext />
+
+</Tab>
+
+</Tabs>
 
 [tsc-portal]: https://console.cloud.timescale.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/
@@ -72,4 +101,4 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [timescaledb]: https://docs.tigerdata.com/#TimescaleDB
-
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
