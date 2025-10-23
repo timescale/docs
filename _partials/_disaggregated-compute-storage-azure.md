@@ -1,5 +1,3 @@
-import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
-
 With $CLOUD_LONG, you are not limited to pre-set compute and storage. Get as much as you need when
 provisioning your $SERVICE_SHORTs or later, as your needs grow.
 

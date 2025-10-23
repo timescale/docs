@@ -1,6 +1,7 @@
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 import CLIINSTALL from "versionContent/_partials/_devops-cli-install.mdx";
 import CLIREF from "versionContent/_partials/_devops-cli-reference.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 $CLI_LONG is a command-line interface that you use to manage $CLOUD_LONG resources
 including VPCs, services, read replicas, and related infrastructure. $CLI_LONG calls $REST_LONG to communicate with 
@@ -12,6 +13,8 @@ service.
 ## Prerequisites
 
 <RESTPrereqs />
+
+<NotSupportedAzure />
 
 
 ## Install and configure $CLI_LONG
