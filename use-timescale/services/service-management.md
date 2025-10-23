@@ -91,6 +91,17 @@ digest algorithm 5) are cryptographic authentication mechanisms. $CONSOLE_LONG
 uses SCRAM by default. It is more secure and strongly recommended. The MD5
 option is provided for compatibility with older clients.
 
+## Change the $SERVICE_SHORT environment
+
+In $CLOUD_LONG, you can create $SERVICE_SHORTs for a development or production environment, and tag them accordingly: 
+
+- Development $SERVICE_SHORTs are suitable for less demanding tasks, such as ad hoc analytics, testing, or application building. Development $SERVICE_SHORTs have no delete protection. 
+- Production $SERVICE_SHORTs are suitable for mission-critical applications like client-facing dashboards or APIs. Production $SERVICE_SHORTs are protected from deletion. 
+
+$CLOUD_LONG applies upgrades differently to development and production $SERVICE_SHORTs. See [Maintenance and upgrades][maintenance-upgrades].
+
+To change the environment of an existing $SERVICE_SHORT, select it in the $CONSOLE_LONG, then click `Operations` > `Environment` and change the tag under `Change service environment`.
+
 ## Pause a $SERVICE_SHORT
 
 You can pause a $SERVICE_SHORT if you want to stop it running temporarily. When you
@@ -103,3 +114,5 @@ that it is still available, and is ready to be restarted at any time.
 You can delete a $SERVICE_SHORT to remove it completely. This removes the $SERVICE_SHORT
 and its underlying data from the server. You cannot recover a deleted
 $SERVICE_SHORT.
+
+[maintenance-upgrades]: /use-timescale/:currentVersion:/upgrades/#minor-software-upgrades
