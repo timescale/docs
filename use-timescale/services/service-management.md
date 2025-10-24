@@ -93,7 +93,7 @@ option is provided for compatibility with older clients.
 
 ## Change the $SERVICE_SHORT environment
 
-In $CLOUD_LONG, you can create $SERVICE_SHORTs for a development or production environment, and tag them accordingly: 
+In $CLOUD_LONG, you create $SERVICE_SHORTs for the following environments: 
 
 - Development $SERVICE_SHORTs are suitable for less demanding tasks, such as ad hoc analytics, testing, or application building. Development $SERVICE_SHORTs have no delete protection. 
 - Production $SERVICE_SHORTs are suitable for mission-critical applications like client-facing dashboards or APIs. Production $SERVICE_SHORTs are protected from deletion. 
