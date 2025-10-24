@@ -12,7 +12,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 # Optimize full text search with BM25 
 
 $PG full-text search at scale consistently hits a wall where performance degrades catastrophically. 
-$COMPANY's [pg_textsearch][pg_textsearch-repo] brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
+$COMPANY's pg_textsearch brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
 with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and 
 provides better search quality and performance than the $PG built-in full-text search.
 
@@ -329,7 +329,6 @@ These limitations will be addressed in upcoming releases with disk-based segment
 
 
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
-[pg_textsearch-repo]: https://github.com/timescale/pg_textsearch
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
