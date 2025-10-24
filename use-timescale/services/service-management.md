@@ -96,7 +96,7 @@ option is provided for compatibility with older clients.
 In $CLOUD_LONG, you create $SERVICE_SHORTs for the following environments: 
 
 - Development $SERVICE_SHORTs: for less demanding tasks, such as ad hoc analytics, testing, or application building. Development $SERVICE_SHORTs have no delete protection. 
-- Production $SERVICE_SHORTs are suitable for mission-critical applications like client-facing dashboards or APIs. Production $SERVICE_SHORTs are protected from deletion. 
+- Production $SERVICE_SHORTs: for mission-critical applications like client-facing dashboards or APIs. Production $SERVICE_SHORTs have delete protection. 
 
 $CLOUD_LONG applies upgrades differently to development and production $SERVICE_SHORTs. See [Maintenance and upgrades][maintenance-upgrades].
 
