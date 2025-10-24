@@ -10,18 +10,27 @@ products: [cloud]
 All the latest features and updates to $CLOUD_LONG.
 
 ## 🧠 🐅 ☁️ AI and Tiger Cloud major changes!
-<Label type="date">October 23, 2025</Label>
+<Label type="date">October 24, 2025</Label>
 
-### 👋 Free plan and free services on Tiger Cloud
-We've added a [new plan](https://www.tigerdata.com/blog/introducing-agentic-postgres-free-plan-experiment-ai-on-postgres) in Tiger Cloud…Free!  This new plan sits alongside the Performance, Scale and Enterprise plans.  With the Free plan you can create up to two free services for prototyping.  No cost, no trial, just free.  Our free services have shared compute and 750 MiB storage each, and if you are already on a different plan, you also get access to two free services to go alongside your standard services.  This plan is great for using AI tools like Claude code, alongside our Tiger CLI and MCP server.
-### **>_** Tiger CLI for Tiger Cloud
-We have released a new [CLI](https://github.com/timescale/tiger-cli) that lets you control Tiger Cloud from the terminal.  Everything from signing up, to spinning up services, to executing SQL on running services is now possible outside of the web console.  Check out the public GitHub repo for information on how to download and use this new tool.
-### 🎓 MCP server for PostgreSQL and TimescaleDB
-Our new [MCP server](https://docs.tigerdata.com/ai/latest/mcp-server/) enables AI agents to interact with the database and also understand how to use it well. We’ve taken our 10+ years of Postgres experience and distilled it into a set of built-in master prompts. This gives agents safe, structured access to the database through high-level tools for schema design, query tuning, migrations, and more.  You can install it locally with the Tiger CLI
-### 🌊 Fluid Storage
-We are previewing a new distributed storage layer on Cloud that allows instant forks, snapshots, and automatic scaling (up or down) without downtime or over-provisioning. In benchmark testing, a single volume sustains throughput over 100,000 IOPS!  Fluid storage currently backs our new Tiger Cloud free services.
-### 🔍 pg_textsearch extension released for preview on Tiger Cloud
-This new extension enables BM25 on PostgreSQL leading to significant improvements in text search over vanilla keyword search.  See the [new section in the docs](https://docs.tigerdata.com/use-timescale/latest/extensions/pg-textsearch/) for more information.
+### 👋 Free pricing plan and free services 
+
+We've added a [new pricing plan](https://www.tigerdata.com/blog/introducing-agentic-postgres-free-plan-experiment-ai-on-postgres) in Tiger Cloud—a Free one! This new plan sits alongside the Performance, Scale, and Enterprise plans. With the Free plan, you can create up to two free services for prototyping. No cost, no trial, just free. Our free services have shared compute and 750 MiB storage each, and if you are already on a different plan, you also get access to two free services in addition to your standard ones. The free plan is great for using AI tools like Claude Code alongside Tiger CLI and Tiger MCP.
+
+### **>_** Tiger CLI 
+
+We have released a new [CLI](https://github.com/timescale/tiger-cli) that lets you control Tiger Cloud from the terminal.  Everything from signing up, to spinning up services, to executing SQL on running services is now possible outside of the Tiger Cloud Console. Check out [our docs](https://docs.tigerdata.com/getting-started/latest/get-started-devops-as-code/) for how to download and use this new tool.
+
+### 🎓 Tiger MCP for Postgres and TimescaleDB
+
+Our new [MCP server](https://docs.tigerdata.com/ai/latest/mcp-server/) enables AI agents to interact with the database and  understand how to use it well. We’ve taken our 10+ years of Postgres experience and distilled it into a set of built-in master prompts. This gives agents safe, structured access to the database through high-level tools for schema design, query tuning, migrations, and more.  You can install it locally with Tiger CLI.
+
+### 🌊 Fluid Storage 
+
+We are previewing a new distributed storage layer on Tiger Cloud that allows instant forks, snapshots, and automatic scaling up or down, without downtime or over-provisioning. In benchmark testing, a single volume sustains throughput of over 100,000 IOPS! Fluid Storage currently backs our new Tiger Cloud free services.
+
+### 🔍 pg_textsearch extension preview
+
+This new extension enables BM25 on Postgres, which leads to significant improvements in text search over vanilla keyword search.  See [our docs](https://docs.tigerdata.com/use-timescale/latest/extensions/pg-textsearch/) for details.
 
 ## TimescaleDB 2.22.1 – configurable indexing, enhanced partitioning, and faster queries
 <Label type="date">October 10, 2025</Label>
