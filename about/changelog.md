@@ -14,7 +14,7 @@ All the latest features and updates to $CLOUD_LONG.
 
 ### 👋 Free pricing plan and free services 
 
-We've added a [new pricing plan](https://www.tigerdata.com/blog/introducing-agentic-postgres-free-plan-experiment-ai-on-postgres) in Tiger Cloud—a Free one! This new plan sits alongside the Performance, Scale, and Enterprise plans. With the Free plan, you can create up to two free services for prototyping. No cost, no trial, just free. Our free services have shared compute and 750 MiB storage each, and if you are already on a different plan, you also get access to two free services in addition to your standard ones. The free plan is great for using AI tools like Claude Code alongside Tiger CLI and Tiger MCP.
+We've added a [new pricing plan](https://www.tigerdata.com/blog/introducing-agentic-postgres-free-plan-experiment-ai-on-postgres) in Tiger Cloud—the Free one! This new plan sits alongside the Performance, Scale, and Enterprise plans. With the Free plan, you can create up to two free services for prototyping. No cost, no trial, just free. Our free services have shared compute and 750 MiB storage each. And if you are already on a different plan, you also get access to two free services in addition to your standard ones. The Free plan is great for using AI tools like Claude Code alongside Tiger CLI and Tiger MCP.
 
 ### **>_** Tiger CLI 
 
