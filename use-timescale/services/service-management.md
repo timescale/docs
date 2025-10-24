@@ -100,7 +100,14 @@ In $CLOUD_LONG, you create $SERVICE_SHORTs for the following environments:
 
 $CLOUD_LONG [applies upgrades differently][maintenance-upgrades] to development and production $SERVICE_SHORTs. 
 
-To change the environment of an existing $SERVICE_SHORT, select it in the $CONSOLE_LONG, then click `Operations` > `Environment` and change the tag under `Change service environment`.
+To change the environment of an existing $SERVICE_SHORT:
+
+<Procedure>
+
+1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to update.
+1. Click `Operations` > `Environment`, then change the tag under `Change service environment`.
+
+</Procedure>
 
 ## Pause a $SERVICE_SHORT
 
@@ -116,3 +123,4 @@ and its underlying data from the server. You cannot recover a deleted
 $SERVICE_SHORT.
 
 [maintenance-upgrades]: /use-timescale/:currentVersion:/upgrades/#minor-software-upgrades
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
