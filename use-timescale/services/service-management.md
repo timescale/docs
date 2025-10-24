@@ -91,6 +91,24 @@ digest algorithm 5) are cryptographic authentication mechanisms. $CONSOLE_LONG
 uses SCRAM by default. It is more secure and strongly recommended. The MD5
 option is provided for compatibility with older clients.
 
+## Change the $SERVICE_SHORT environment
+
+In $CLOUD_LONG, you create $SERVICE_SHORTs for the following environments: 
+
+- Development $SERVICE_SHORTs: for less demanding tasks, such as ad hoc analytics, testing, or application building. Development $SERVICE_SHORTs have no delete protection. 
+- Production $SERVICE_SHORTs: for mission-critical applications like client-facing dashboards or APIs. Production $SERVICE_SHORTs have delete protection. 
+
+$CLOUD_LONG [applies upgrades differently][maintenance-upgrades] to development and production $SERVICE_SHORTs. 
+
+To change the environment of an existing $SERVICE_SHORT:
+
+<Procedure>
+
+1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to update.
+1. Click `Operations` > `Environment`, then change the tag under `Change service environment`.
+
+</Procedure>
+
 ## Pause a $SERVICE_SHORT
 
 You can pause a $SERVICE_SHORT if you want to stop it running temporarily. When you
@@ -103,3 +121,6 @@ that it is still available, and is ready to be restarted at any time.
 You can delete a $SERVICE_SHORT to remove it completely. This removes the $SERVICE_SHORT
 and its underlying data from the server. You cannot recover a deleted
 $SERVICE_SHORT.
+
+[maintenance-upgrades]: /use-timescale/:currentVersion:/upgrades/#minor-software-upgrades
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
