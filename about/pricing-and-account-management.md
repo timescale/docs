@@ -38,6 +38,10 @@ If you create a $ACCOUNT_LONG from AWS Marketplace, the pricing options are pay-
 
 <DisaggregatedComputeStorage />
 
+## How your bill is calculated
+
+<BillingExample />
+
 ## Use $CLOUD_LONG for free
 
 <CloudFreeTrial />
@@ -66,10 +70,6 @@ region. This is because our cloud provider (AWS) prices infrastructure different
 
 <AwsFeatures />
 
-## Example billing calculation
-
-<BillingExample />
-
 ## Manage your $CLOUD_LONG $PRICING_PLAN
 
 <ManagePricing />
@@ -90,6 +90,10 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 ## Disaggregated, consumption-based compute and storage
 
 <DisaggregatedComputeStorageAzure />
+
+## How your bill is calculated
+
+<BillingExample />
 
 ## Use $CLOUD_LONG for free
 
@@ -116,10 +120,6 @@ region. This is because our cloud provider prices infrastructure differently bas
 ## Features included in each pricing plan
 
 <AzureFeatures />
-
-## Example billing calculation
-
-<BillingExample />
 
 ## Manage your $CLOUD_LONG $PRICING_PLAN
 
