@@ -8,14 +8,14 @@ tags: [change]
 
 # Altering and updating table schemas
 
-To modify the schema of an existing hypertable, you can use the `ALTER TABLE`
-command. When you change the hypertable schema, the changes are also propagated
-to each underlying chunk.
+To modify the schema of an existing $HYPERTABLE, you can use the `ALTER TABLE`
+command. When you change the $HYPERTABLE schema, the changes are also propagated
+to each underlying $CHUNK.
 
 <Highlight type="note">
 
-While you can change the schema of an existing hypertable, you cannot change
-the schema of a continuous aggregate. For continuous aggregates, the only
+While you can change the schema of an existing $HYPERTABLE, you cannot change
+the schema of a $CAGG. For $CAGGs, the only
 permissible changes are renaming a view, setting a schema, changing the owner,
 and adjusting other parameters.
 
@@ -45,9 +45,9 @@ ALTER TABLE distributors
 This scans the table to verify that existing rows meet the constraint, but does
 not require a table rewrite.
 
-## Altering hypertables with columnstore enabled
+## Altering $HYPERTABLEs with $COLUMNSTORE enabled
 
-Most common schema modifications work on hypertables with columnstore enabled, including adding
+Most common schema modifications work on $HYPERTABLEs with $COLUMNSTORE enabled, including adding
 columns, renaming columns, dropping columns, adding constraints, setting NOT NULL,
 and changing defaults. However, some operations are blocked, the most common of them being:
 
@@ -64,16 +64,16 @@ ERROR: operation not supported on hypertables that have columnstore enabled
 
 If you encounter this error, you need to:
 
-1. Stop any columnstore policy
-2. Convert the affected chunks back into rowstore
-3. Disable columnstore
+1. Stop any $COLUMNSTORE policy
+2. Convert the affected $CHUNKs back into $ROWSTORE
+3. Disable $COLUMNSTORE
 4. Perform the schema change
-5. Re-enable columnstore and restart the policy
+5. Re-enable $COLUMNSTORE and restart the policy
 
-### Example: Changing column type on a hypertable with columnstore enabled
+### Example: change the column type on a $HYPERTABLE with $COLUMNSTORE enabled
 
-This example shows how to change a column's data type on a hypertable with
-columnstore enabled, which requires conversion to rowstore:
+This example shows how to change a column's data type on a $HYPERTABLE with
+$COLUMNSTORE enabled, which requires conversion to $ROWSTORE:
 
 ```sql
 -- Step 1: Check if you have a columnstore policy and note its settings
@@ -85,7 +85,6 @@ WHERE proc_name = 'policy_compression'
 SELECT alter_job(<job_id>, scheduled => false);
 
 -- Step 3: Convert all chunks back to rowstore
--- For all chunks:
 SELECT decompress_chunk(show_chunks('conditions'));
 
 -- Step 4: Disable columnstore (required for some operations)
@@ -109,7 +108,7 @@ SELECT alter_job(<job_id>, scheduled => true);
 SELECT compress_chunk(show_chunks('conditions'));
 ```
 
-For more information about PostgreSQL ALTER TABLE operations, see the
-[$PG ALTER TABLE documentation][postgres-alter-table].
+For more information about $PG `ALTER TABLE` operations, see the
+[$PG `ALTER TABLE` documentation][postgres-alter-table].
 
 [postgres-alter-table]: https://www.postgresql.org/docs/current/sql-altertable.html
