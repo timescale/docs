@@ -17,7 +17,7 @@ UUIDv7 is ideal anywhere you create lots of records over time. Advantages are:
 
 - **No extra column required to partition by time with sortability**: you can sort UUIDv7 instances by their value. This 
     is useful for ordering records by creation time without the need for a separate timestamp column.
-- **Indexing performance**: UUIDv7s increase with time, so new rows are append near the end of a B-tree. This results in 
+- **Indexing performance**: UUIDv7s increase with time, so new rows are appended near the end of a B-tree. This results in 
     fewer page splits, less fragmentation, faster inserts, and efficient time-range scans.
 - **Easy keyset pagination**: `WHERE id > :cursor` and natural sharding.
 - **UUID**: safe across services, replicas, and unique across distributed systems.
@@ -32,7 +32,7 @@ FROM events e, ref
 WHERE uuid_timestamp(e.event_id) >= ref.t0 - INTERVAL '2 days';
 ```
 
-Using UUIDv7 means that chunks are excludes at startup, the the query time is reduced to 550ms:
+Using UUIDv7 means that chunks are excluded at startup, and the query time is reduced to 550 ms:
 
 ```sql
 WITH ref AS (SELECT now() AS t0)
@@ -48,7 +48,7 @@ You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and mor
 - **High-rate event logs for observability and metrics**: 
 
    UUIDv7 gives you globally unique IDs for traceability and time windows such as “last hour”, without the need for a 
-   separate `created_at` column. UUIDv7 create less churn because inserts land at the end of the index, and you can 
+   separate `created_at` column. UUIDv7 creates less churn because inserts land at the end of the index, and you can 
    filter by time using UUIDv7 objects.
 
   - Last hour:
