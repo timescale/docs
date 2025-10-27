@@ -93,7 +93,7 @@ SELECT decompress_chunk(c)
 FROM show_chunks('conditions', older_than => INTERVAL '1 month') c;
 
 -- Step 4: Disable columnstore (required for some operations)
-ALTER TABLE conditions SET (timescaledb.enable_columnstore = false);
+ALTER TABLE conditions SET (timescaledb.columnstore = false);
 
 -- Step 5: Perform the schema modification
 ALTER TABLE conditions
