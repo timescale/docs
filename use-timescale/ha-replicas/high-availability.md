@@ -73,7 +73,7 @@ The following table summarizes the differences between these HA configurations:
 | Cost composition | Primary + async (2x) |Primary + 2 async (3x)|Primary + 1 async + 1 sync (3x)|
 | Tier | Performance, Scale, and Enterprise  |Scale and Enterprise|Scale and Enterprise|
 
-The `High` and `Highest` HA strategies are available with the [Scale and the Enterprise][pricing-plans] pricing plans.
+The `High` and `Highest` HA strategies are available with the [$SCALE and the $ENTERPRISE][pricing-plans] $PRICING_PLANs.
 
 To enable HA for a $SERVICE_SHORT:  
 

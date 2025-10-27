@@ -8,7 +8,7 @@
 
        ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png)
 
-       Your $SERVICE_SHORT and Peering $VPC must be in the same AWS region. The number of Peering $VPCs you can create in your project depends on your [pricing plan][pricing-plans]. If you need another Peering $VPC, either contact [support@tigerdata.com](mailto:support@tigerdata.com) or change your plan in [$CONSOLE][console-login].
+       Your $SERVICE_SHORT and Peering $VPC must be in the same AWS region. The number of Peering $VPCs you can create in your project depends on your [$PRICING_PLAN][pricing-plans]. If you need another Peering $VPC, either contact [support@tigerdata.com](mailto:support@tigerdata.com) or change your plan in [$CONSOLE][console-login].
 
    1.  Add a peering connection:
 
