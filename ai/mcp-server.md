@@ -15,13 +15,13 @@ import GLOBALFLAGS from "versionContent/_partials/_devops-cli-global-flags.mdx";
 
 # Integrate Tiger Cloud with your AI Assistant
 
-The $MCP_LONG provides access to your $CLOUD_LONG resources through Claude and other AI Assistants. $MCP_SHORT 
+$MCP_LONG provides access to your $CLOUD_LONG resources through Claude and other AI Assistants. $MCP_SHORT 
 mirrors the functionality of $CLI_LONG and is integrated directly into the $CLI_SHORT binary. You manage your
 $CLOUD_LONG resources using natural language from your AI Assistant. As $MCP_SHORT is integrated with the 
 $COMPANY documentation, ask any question and you will get the best answer.
 
 This page shows you how to install $CLI_LONG and set up secure authentication for $MCP_SHORT, then manage the
-resources in your $ACCOUNT_LONG through the $MCP_LONG using your AI Assistant.
+resources in your $ACCOUNT_LONG through $MCP_LONG using your AI Assistant.
 
 ## Prerequisites
 
@@ -29,12 +29,12 @@ resources in your $ACCOUNT_LONG through the $MCP_LONG using your AI Assistant.
 
 * Install an AI Assistant on your developer device with an active API key.
 
-  The following AI Assistants are automatically configured by the $MCP_LONG: `claude-code`, `cursor`, `windsurf`, `codex`, `gemini/gemini-cli`, `vscode/code/vs-code`.
+  The following AI Assistants are automatically configured by $MCP_LONG: `claude-code`, `cursor`, `windsurf`, `codex`, `gemini/gemini-cli`, `vscode/code/vs-code`.
   You can also [manually configure][manual-config] $MCP_SHORT.
 
 ## Install and configure $MCP_SHORT
 
-The $MCP_SHORT is bundled with $CLI_LONG:
+$MCP_SHORT is bundled with $CLI_LONG:
 
 <Procedure>
 
@@ -64,7 +64,7 @@ The $MCP_SHORT is bundled with $CLI_LONG:
 
 </Procedure>
 
-And that is it, you are ready to use the $MCP_LONG to manage your $SERVICE_SHORTs in $CLOUD_LONG.
+And that is it, you are ready to use $MCP_LONG to manage your $SERVICE_SHORTs in $CLOUD_LONG.
 
 ## Manage the resources in your $ACCOUNT_LONG through your AI Assistant
 
@@ -77,7 +77,7 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
    ```shell
    claude
    ```
-   Claude automatically runs the $MCP_SHORT server that enables you to interact with $CLOUD_LONG from your
+   Claude automatically runs $MCP_SHORT server that enables you to interact with $CLOUD_LONG from your
    AI Assistant. 
 
 1. **Check your $MCP_LONG configuration**
@@ -185,9 +185,9 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
 
 </Procedure>
 
-That beats working. Let the $MCP_SHORT do it all for you.
+That beats working. Let $MCP_SHORT do it all for you.
 
-## Manually configure the $MCP_SHORT
+## Manually configure $MCP_SHORT
 
 If your MCP client is not supported by `tiger mcp install`, follow the client's instructions to install 
 MCP servers. For example, many clients use a JSON file like the following that use `tiger mcp start` to
@@ -217,7 +217,7 @@ start $MCP_LONG:
 
 ## Global flags
 
-You can use the following $CLI_LONG global flags when you run the $MCP_SHORT:
+You can use the following $CLI_LONG global flags when you run $MCP_SHORT:
 
 <GLOBALFLAGS />
 
