@@ -252,7 +252,7 @@ To use $SQL_EDITOR:
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [console]: https://console.cloud.timescale.com
 [create-chart]: https://docs.popsql.com/docs/creating-charts
-[create-cloud-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
+[create-cloud-account]: /getting-started/:currentVersion:/services/#create-an-account
 [create-dashboard]: https://docs.popsql.com/docs/creating-dashboards
 [create-schedule]: https://docs.popsql.com/docs/scheduled-queries
 [install-psql]: /integrations/:currentVersion:/psql/
