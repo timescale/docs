@@ -106,10 +106,7 @@ ALTER TABLE conditions SET (
 SELECT alter_job(<job_id>, scheduled => true);
 
 -- Step 8: Optionally, manually convert the chunks to columnstore immediately
-SELECT compress_chunk(chunk_schema || '.' || chunk_name)
-FROM timescaledb_information.chunks
-WHERE hypertable_name = 'conditions'
-  AND is_compressed = false;
+SELECT compress_chunk(show_chunks('conditions'));
 ```
 
 For more information about PostgreSQL ALTER TABLE operations, see the
