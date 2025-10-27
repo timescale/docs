@@ -13,10 +13,12 @@ command. When you change the hypertable schema, the changes are also propagated
 to each underlying chunk.
 
 <Highlight type="note">
+
 While you can change the schema of an existing hypertable, you cannot change
 the schema of a continuous aggregate. For continuous aggregates, the only
 permissible changes are renaming a view, setting a schema, changing the owner,
 and adjusting other parameters.
+
 </Highlight>
 
 For example, to add a new column called `address` to a table called `distributors`:
@@ -120,5 +122,4 @@ WHERE hypertable_name = 'conditions'
 For more information about PostgreSQL ALTER TABLE operations, see the
 [$PG ALTER TABLE documentation][postgres-alter-table].
 
-[compression-schema-mods]: /use-timescale/:currentVersion:/compression/modify-a-schema/
 [postgres-alter-table]: https://www.postgresql.org/docs/current/sql-altertable.html
