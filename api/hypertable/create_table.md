@@ -24,12 +24,16 @@ a $HYPERTABLE is partitioned on the time dimension. To add secondary dimensions 
 [add_dimension][add-dimension]. To convert an existing relational table into a $HYPERTABLE, call 
 [create_hypertable][create_hypertable].
 
-As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data 
-is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast 
-scanning and aggregation, optimizing performance for analytical workloads while also saving significant storage space. 
+This columnar format enables fast scanning and aggregation, optimizing performance for analytical workloads while also saving significant storage space. 
 In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by up to 98%, and organized for efficient, 
 large-scale queries. This columnar format enables fast scanning and aggregation, optimizing performance for analytical 
 workloads. You can also manually [convert chunks][convert_to_columnstore] in a $HYPERTABLE to the $COLUMNSTORE.
+
+When you create a $HYPERTABLE using `CREATE TABLE WITH`, $TIMESCALE_DB automatically creates a
+[columnstore policy][add_columnstore_policy] that converts your data to the $COLUMNSTORE after an interval that matches
+the default [chunk_interval][create_table_arguments]. You can customize this policy later using [alter_job][alter_job_samples].
+However, to change the `after` or `created_before`, the compression settings, or the $HYPERTABLE the policy is acting
+on, you must [remove the columnstore policy][remove_columnstore_policy] and [add a new one][add_columnstore_policy].
 
 $HYPERTABLE_CAP to $HYPERTABLE foreign keys are not allowed, all other combinations are permitted.
 
@@ -46,27 +50,23 @@ arguments specific to $TIMESCALE_DB.
 
 - **Create a $HYPERTABLE partitioned on the time dimension and enable $COLUMNSTORE**:
 
-   1. Create the $HYPERTABLE:
+   ```sql
+   CREATE TABLE crypto_ticks (
+      "time" TIMESTAMPTZ,
+      symbol TEXT,
+      price DOUBLE PRECISION,
+      day_volume NUMERIC
+   ) WITH (
+     tsdb.hypertable,
+     tsdb.partition_column='time',
+     tsdb.segmentby='symbol',
+     tsdb.orderby='time DESC'
+   );
+   ```
 
-     ```sql
-     CREATE TABLE crypto_ticks (
-        "time" TIMESTAMPTZ,
-        symbol TEXT,
-        price DOUBLE PRECISION,
-        day_volume NUMERIC
-     ) WITH (
-       tsdb.hypertable,
-       tsdb.partition_column='time',
-       tsdb.segmentby='symbol', 
-       tsdb.orderby='time DESC'
-     );
-     ```
-  
-   1. Enable $HYPERCORE by adding a columnstore policy:
-  
-      ```sql
-      CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
-      ```
+   When you create a $HYPERTABLE using `CREATE TABLE WITH`, $TIMESCALE_DB automatically creates a
+  [columnstore policy][add_columnstore_policy] that uses the chunk interval as the compression interval, with a default 
+   schedule interval of 1 day. 
 
 - **Create a $HYPERTABLE partitioned on the time with fewer chunks based on time interval**:
 
@@ -113,9 +113,7 @@ arguments specific to $TIMESCALE_DB.
    
     </tab>
 
-    </Terminal> 
-
-   
+    </Terminal>
 
 - **Enable data compression during ingestion**:
 
@@ -186,7 +184,7 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [declarative-partitioning]: https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-DECLARATIVE
 [inheritance]: https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-USING-INHERITANCE
-[migrate-data]: /api/:currentVersion:/hypertable/create_table/#arguments
+[create_table_arguments]: /api/:currentVersion:/hypertable/create_table/#arguments
 [dimension-info]: /api/:currentVersion:/hypertable/create_table/#dimension-info
 [chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [about-constraints]: /use-timescale/:currentVersion:/schema-management/about-constraints
@@ -210,3 +208,5 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
 [uuidv7_functions]: /api/:currentVersion:/uuid-functions/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[alter_job_samples]: /api/:currentVersion:/jobs-automation/alter_job/#samples
