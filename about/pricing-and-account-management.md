@@ -1,6 +1,6 @@
 ---
 title: Billing and account management
-excerpt: Manage billing and account information for your TigerData account
+excerpt: Manage billing and account information for your Tiger Data account
 products: [cloud]
 keywords: [billing, accounts, admin]
 tags: [payment, billing, costs]
