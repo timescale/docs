@@ -77,4 +77,4 @@ ORDER BY bucket
 
 ![btc vs eth](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/pct_change.png)
 
-[lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
+[lag]: https://www.pgtutorial.com/postgresql-window-functions/postgresql-lag/

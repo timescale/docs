@@ -120,4 +120,4 @@ OHLCV values.
 [intraday-tutorial]: /tutorials/:currentVersion:/
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
+[lag]: https://www.pgtutorial.com/postgresql-window-functions/postgresql-lag/

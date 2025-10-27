@@ -13,7 +13,7 @@ You use pgai to power production grade AI applications. `timescale_vector` is th
 
 Before you get started with `timescale_vector`:
 
-- [Sign up for pgai on Tiger](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try pgai on $CLOUD_LONG. 
+- [Sign up for pgai on $CLOUD_LONG](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try pgai on $CLOUD_LONG. 
 - [Follow the Get Started Tutorial](https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html): 
 Learn how to use pgai on $CLOUD_LONG for semantic search on a real-world dataset.
 
@@ -73,7 +73,7 @@ The client constructor takes three required arguments:
 
 | name           | description                                                                               |
 |----------------|-------------------------------------------------------------------------------------------|
-| `service_url`    | Tiger service URL / connection string                                               |
+| `service_url`    | $SERVICE_LONG URL / connection string                                                     |
 | `table_name`     | Name of the table to use for storing the embeddings. Think of this as the collection name |
 | `num_dimensions` | Number of dimensions in the vector                                                        |
 

@@ -1,6 +1,6 @@
 ---
 title: Connect with a stricter SSL mode
-excerpt: While require is the default SSL mode used to connect to Tiger services, you can also configure the connection with a stricter mode, such as verify-ca or verify-full. Learn how to set it up
+excerpt: While require is the default SSL mode used to connect to Tiger Cloud services, you can also configure the connection with a stricter mode, such as verify-ca or verify-full. Learn how to set it up
 products: [cloud]
 keywords: [security]
 tags: [ssl]

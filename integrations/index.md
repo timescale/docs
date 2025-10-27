@@ -1,6 +1,6 @@
 ---
 title: Integrations
-excerpt: Built on Postgres, Tiger can integrate with the same array of third-party solutions. See integration procedures for the most popular and requested third-party services
+excerpt: Built on Postgres, Tiger Cloud can integrate with the same array of third-party solutions. See integration procedures for the most popular and requested third-party services
 products: [cloud, self_hosted]
 keywords: [integrations]
 tags: [integrations]
@@ -252,7 +252,7 @@ Some of the most in-demand integrations are listed below.
 [signoz]: https://signoz.io/docs/integrations/postgresql/
 [sqlalchemy]: https://docs.sqlalchemy.org/en/20/dialects/postgresql.html
 [sequelize]: https://sequelize.org/docs/v7/databases/postgres/
-[stepzen]: https://stepzen.com/docs/quick-start/with-database-postgresql
+[stepzen]: https://www.ibm.com/docs/en/api-connect-graphql/saas?topic=apis-tutorial-create-graphql-api-postgresql-database
 [stitch]: https://stitch-docs.netlify.app/docs/integrations/databases/postgresql
 [streamlit]: https://docs.streamlit.io/develop/tutorials/databases/postgresql
 [striim]: https://www.striim.com/connectors/postgresql/

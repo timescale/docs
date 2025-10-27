@@ -1,18 +1,19 @@
 ---
-title: Upload a file into your service using Tiger Console
-excerpt: You can upload CSV, Parquet, and text files into your service using Tiger Console. Just drag and drop from your local machine, or provide a path to the file in S3
+title: Upload a file into your service using Tiger Cloud Console
+excerpt: You can upload CSV, Parquet, and text files into your service using Tiger Cloud Console. Just drag and drop from your local machine, or provide a path to the file in S3
 products: [cloud]
 keywords: [import]
 ---
 
 import ImportPrerequisitesCloudNoConnection from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 # Upload a file into your $SERVICE_SHORT using $CONSOLE_LONG
 
 You can upload files into your $SERVICE_SHORT using $CONSOLE_LONG. This page explains how to upload CSV, Parquet, and text files, from your local machine and from an S3 bucket.
 
-<Tabs label="Upload files using Tiger Console" persistKey="console-import">
+<Tabs label="Upload files using Tiger Cloud Console" persistKey="console-import">
 
 <Tab title="From a local machine" label="local-import">
 
@@ -114,6 +115,8 @@ To upload a TXT or MD file to your $SERVICE_SHORT:
 <Tab title="From S3" label="s3-import">
 
 $CONSOLE_LONG enables you to upload CSV and Parquet files, including archives compressed using GZIP and ZIP, by connecting to an S3 bucket.
+
+<NotAvailableFreePlan />
 
 ## Prerequisites
 

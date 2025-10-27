@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "Use TigerData products",
+    title: "Use Tiger Data products",
     href: "use-timescale",
     defaultOpen: true,
     filePath: "index.md",
@@ -132,29 +132,24 @@ module.exports = [
         ],
       },
       {
-        title: "Tiger regions",
-        href: "regions",
-        excerpt: "Tiger AWS regions",
-      },
-      {
-        title: "Tiger services",
+        title: "Tiger Cloud services",
         href: "services",
-        excerpt: "About Tiger services",
+        excerpt: "About Tiger Cloud services",
         children: [
           {
             title: "Services overview",
             href: "service-overview",
-            excerpt: "Tiger services overview",
+            excerpt: "Tiger Cloud services overview",
           },
           {
             title: "Service explorer",
             href: "service-explorer",
-            excerpt: "Tiger services explorer",
+            excerpt: "Tiger Cloud services explorer",
           },
           {
             title: "Service management",
             href: "service-management",
-            excerpt: "Tiger services operations, Service management tab",
+            excerpt: "Tiger Cloud services operations",
           },
           {
             title: "Manually change resources",
@@ -164,10 +159,10 @@ module.exports = [
           {
             title: "Connection pooling",
             href: "connection-pooling",
-            excerpt: "Using a connection pool with your Tiger services",
+            excerpt: "Using a connection pool with your Tiger Cloud services",
           },
           {
-            title: "Troubleshooting Tiger services",
+            title: "Troubleshooting Tiger Cloud services",
             href: "troubleshooting",
             type: "placeholder",
           },
@@ -316,24 +311,24 @@ module.exports = [
       {
         title: "Configuration",
         href: "configuration",
-        excerpt: "Configure your Tiger service",
+        excerpt: "Configure your Tiger Cloud service",
         children: [
           {
             title: "About Configuration",
             href: "about-configuration",
             excerpt:
-              "Overview of configuration options and methods for Postgres and Tiger",
+              "Overview of configuration options and methods for Postgres and Tiger Cloud",
           },
           {
             title: "Customize configuration",
             href: "customize-configuration",
-            excerpt: "Customize your Tiger database configuration",
+            excerpt: "Customize your Tiger Cloud database configuration",
           },
           {
             title: "Advanced parameters",
             href: "advanced-parameters",
             excerpt:
-              "Configure advanced database parameters for your Tiger service",
+              "Configure advanced database parameters for your Tiger Cloud service",
           },
           {
             title: "Troubleshooting",
@@ -345,7 +340,7 @@ module.exports = [
       {
         title: "Alerting",
         href: "alerting",
-        excerpt: "Configure alerting in Tiger",
+        excerpt: "Configure alerting in Tiger Cloud",
       },
       {
         title: "Data retention",
@@ -381,7 +376,7 @@ module.exports = [
         ],
       },
       {
-        title: "Tiered storage",
+        title: "Storage",
         href: "data-tiering",
         excerpt:
           "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
@@ -532,12 +527,12 @@ module.exports = [
       {
         title: "Metrics and logging",
         href: "metrics-logging",
-        excerpt: "Tiger metrics and logging",
+        excerpt: "Tiger Cloud metrics and logging",
         children: [
           {
-            title: "Monitor Tiger services",
+            title: "Monitor Tiger Cloud services",
             href: "monitoring",
-            excerpt: "Tiger service monitoring",
+            excerpt: "Tiger Cloud service monitoring",
           },
           {
             title: "Export to Amazon Cloudwatch",
@@ -559,12 +554,12 @@ module.exports = [
       {
         title: "High availability and read scaling",
         href: "ha-replicas",
-        excerpt: "Tiger high availability and read scaling",
+        excerpt: "Tiger Cloud high availability and read scaling",
         children: [
           {
             title: "Manage high availability",
             href: "high-availability",
-            excerpt: "Set up HA replicas on Tiger for high availability",
+            excerpt: "Set up HA replicas on Tiger Cloud for high availability",
           },
           {
             title: "Read scaling",
@@ -576,12 +571,12 @@ module.exports = [
       {
         title: "Maintenance and upgrades",
         href: "upgrades",
-        excerpt: "Keep your Tiger service up-to-date",
+        excerpt: "Keep your Tiger Cloud service up-to-date",
       },
       {
-        title: "Tiger Postgres extensions",
+        title: "Tiger Cloud Postgres extensions",
         href: "extensions",
-        excerpt: "The Postgres extensions installed in each Tiger service",
+        excerpt: "The Postgres extensions installed in each Tiger Cloud service",
         children: [
           {
             title: "Optimize full text search with BM25",
@@ -606,8 +601,12 @@ module.exports = [
         ],
       },
       {
-        title: "Back up and recover your services",
+        title: "Back up and recover services",
         href: "backup-restore",
+      },
+      {
+        title: "Fork services",
+        href: "fork-services",
       },
       {
         title: "Jobs",
@@ -644,17 +643,17 @@ module.exports = [
       {
         title: "Security",
         href: "security",
-        excerpt: "Learn how your Tiger instance is secured",
+        excerpt: "Learn how your Tiger Cloud instance is secured",
         children: [
           {
             title: "Security overview",
             href: "overview",
-            excerpt: "Get an overview of Tiger security",
+            excerpt: "Get an overview of Tiger Cloud security",
           },
           {
             title: "Control user access to projects",
             href: "members",
-            excerpt: "Project and user role management in Tiger",
+            excerpt: "Project and user role management in Tiger Cloud",
           },
           {
             title: "Manage data security in your service",
@@ -664,36 +663,36 @@ module.exports = [
           {
             title: "SAML authentication",
             href: "saml",
-            excerpt: "SAML / SSO authentication for your Tiger account",
+            excerpt: "SAML / SSO authentication for your Tiger Cloud account",
           },
           {
             title: "Multi-factor authentication",
             href: "multi-factor-authentication",
-            excerpt: "Multi-factor authentication for your Tiger account",
+            excerpt: "Multi-factor authentication for your Tiger Cloud account",
           },
           {
             title: "Client credentials",
             href: "client-credentials",
             excerpt:
-              "Client credentials to programmatically access your Tiger account",
+              "Client credentials to programmatically access your Tiger Cloud account",
           },
           {
             title: "Connect with a stricter SSL mode",
             href: "strict-ssl",
             excerpt:
-              "Connect to Tiger with a stricter SSL mode of verify-ca or verify-full",
+              "Connect to Tiger Cloud with a stricter SSL mode of verify-ca or verify-full",
           },
           {
             title: "Connect securely from any cloud",
             href: "transit-gateway",
             excerpt:
-              "Peer your Tiger service with AWS Transit Gateway",
+              "Peer your Tiger Cloud service with AWS Transit Gateway",
           },
           {
             title: "VPC peering and AWS PrivateLink",
             href: "vpc",
             excerpt:
-              "Secure your Tiger services with VPC peering and AWS PrivateLink",
+              "Secure your Tiger Cloud services with VPC peering and AWS PrivateLink",
           },
           {
             title: "IP allow list",
@@ -706,17 +705,17 @@ module.exports = [
       {
         title: "Limitations",
         href: "limitations",
-        excerpt: "Current limitations of TigerData product features",
+        excerpt: "Current limitations of Tiger Data product features",
       },
       {
-        title: "Integrate data lakes with Tiger",
+        title: "Integrate data lakes with Tiger Cloud",
         href: "tigerlake",
-        excerpt: "Unifies the Tiger operational architecture with the data lake (S3 + Iceberg) architectures",
+        excerpt: "Unifies the Tiger Cloud operational architecture with the data lake (S3 + Iceberg) architectures",
       },
       {
-        title: "Troubleshoot TigerData products",
+        title: "Troubleshoot Tiger Data products",
         href: "troubleshoot-timescaledb",
-        excerpt: "Troubleshooting Tiger and TimescaleDB",
+        excerpt: "Troubleshooting Tiger Cloud and TimescaleDB",
       },
       {
         title: "Compression (Old API, replaced by hypercore)",
