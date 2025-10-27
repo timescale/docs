@@ -14,16 +14,16 @@ import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 import BillingForInactiveServices from "versionContent/_partials/_billing-for-inactive-services.mdx";
 import FreeBeta from "versionContent/_partials/_free-plan-beta.mdx";
 
-# Pricing plans and account management
+# $PRICING_PLAN_CAPs and account management
 
 As we enhance our offerings and align them with your evolving needs,
 $PRICING_PLANs provide more value, flexibility, and efficiency for your business.
 Whether you're a growing startup or a well-established enterprise, our plans
 are structured to support your journey towards greater success. 
 
-![$CLOUD_LONG pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
+![$CLOUD_LONG $PRICING_PLANs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
 
-This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
+This page explains $PRICING_PLANs for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
 
 $PRICING_PLAN_CAPs give you:
 
@@ -93,21 +93,21 @@ additional charges. These charges are clearly marked in your billing snapshot in
   
 ## Use $CLOUD_LONG for free
 
-Are you just starting out with $CLOUD_LONG? On our Free pricing plan, you can create up to 2 zero-cost $SERVICE_SHORTs with [limited resources][plan-features]. When a free $SERVICE_SHORT reaches the resource limit, it converts to a read-only state. 
+Are you just starting out with $CLOUD_LONG? On our $FREE $PRICING_PLAN, you can create up to 2 zero-cost $SERVICE_SHORTs with [limited resources][plan-features]. When a free $SERVICE_SHORT reaches the resource limit, it converts to a read-only state. 
 
 <FreeBeta />
 
 Ready to try a more feature-rich paid plan? Activate a 30-day free trial of our $PERFORMANCE (no credit card required) or $SCALE plan. After your trial ends, we may remove your data unless you’ve added a payment method.
 
-After you have completed your 30-day trial period, choose the 
-[$PRICING_PLAN][plan-features] that suits your business and engineering needs. And even when you upgrade from the Free pricing plan, you can still have up to 2 zero-cost $SERVICE_SHORTs—or convert the ones you already have into standard ones, to have more resources. 
+After you have completed your 30-day trial period, choose the
+[$PRICING_PLAN][plan-features] that suits your business and engineering needs. And even when you upgrade from the $FREE $PRICING_PLAN, you can still have up to 2 zero-cost $SERVICE_SHORTs—or convert the ones you already have into standard ones, to have more resources. 
 
 If you want to try out features in a higher $PRICING_PLAN before upgrading, contact us. 
 
-## Upgrade or downgrade your pricing plans at any time
+## Upgrade or downgrade your $PRICING_PLANs at any time
 
-You can upgrade or downgrade between the Free, $PERFORMANCE, and $SCALE plans 
-whenever you want using [$CONSOLE][cloud-login]. To downgrade to the Free plan, you must only have free services running in your project. 
+You can upgrade or downgrade between the $FREE, $PERFORMANCE, and $SCALE plans
+whenever you want using [$CONSOLE][cloud-login]. To downgrade to the $FREE plan, you must only have free services running in your project. 
 
 If you switch your $PRICING_PLAN mid-month, 
 your prices are prorated to when you switch. Your $SERVICE_SHORTs are not interrupted when you switch, so 
@@ -145,11 +145,11 @@ bill.
 Storage is priced the same across all regions. However, compute prices vary depending on the 
 region. This is because our cloud provider (AWS) prices infrastructure differently based on region.
 
-## Features included in each pricing plan
+## Features included in each $PRICING_PLAN
 
 The available $PRICING_PLANs are:
 
-* **Free**: for small non-production projects.
+* **$FREE**: for small non-production projects.
 * **$PERFORMANCE**: for cost-focused, smaller projects. No credit card required to start.
 * **$SCALE**: for developers handling critical and demanding apps.
 * **$ENTERPRISE**: for enterprises with mission-critical apps.
@@ -158,7 +158,7 @@ The available $PRICING_PLANs are:
 
 The features included in each [$PRICING_PLAN][pricing-plans] are:
 
-| Feature                                                       | Free                              | $PERFORMANCE                           | $SCALE                                         | $ENTERPRISE                                      |
+| Feature                                                       | $FREE                              | $PERFORMANCE                           | $SCALE                                         | $ENTERPRISE                                      |
 |---------------------------------------------------------------|-----------------------------------|----------------------------------------|------------------------------------------------|--------------------------------------------------|
 | **Compute and storage**                                       |                                   |                                        |                                                |                                                  |
 | Number of $SERVICE_SHORTs	                                    | Up to 2 free services             | Up to 2 free and 4 standard services 	 | Up to 2 free and and unlimited standard services	  | Up to 2 free and and unlimited standard services |

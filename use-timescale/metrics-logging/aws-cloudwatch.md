@@ -13,8 +13,8 @@ import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-export
 
 # Export telemetry data to AWS Cloudwatch
 
-You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Amazon CloudWatch][cloudwatch]. Available metrics include CPU usage, RAM usage, and storage. This integration is available for [Scale or Enterprise][pricing-plan-features]
-pricing plans.
+You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Amazon CloudWatch][cloudwatch]. Available metrics include CPU usage, RAM usage, and storage. This integration is available for [$SCALE or $ENTERPRISE][pricing-plan-features]
+$PRICING_PLANs.
 
 This page shows you how to create an Amazon CloudWatch exporter in $CONSOLE, and manage the lifecycle of data exporters.
 

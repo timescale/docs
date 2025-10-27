@@ -13,7 +13,7 @@ import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter
 
 # Export telemetry data to Datadog
 
-You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Datadog][datadog]. The available metrics include CPU usage, RAM usage, and storage. This integration is available for [Scale or Enterprise][pricing-plan-features] pricing plans.
+You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Datadog][datadog]. The available metrics include CPU usage, RAM usage, and storage. This integration is available for [$SCALE or $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 This page shows you how to create a Datadog exporter in $CONSOLE, and manage the lifecycle of data exporters.
 
