@@ -101,7 +101,7 @@ ALTER TABLE conditions
 
 -- Step 6: Re-enable columnstore with original settings
 ALTER TABLE conditions SET (
-  timescaledb.enable_columnstore = true,
+  timescaledb.columnstore = true,
   timescaledb.compress_orderby = 'time DESC',
   timescaledb.compress_segmentby = 'device_id'
 );
