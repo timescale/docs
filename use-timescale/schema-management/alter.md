@@ -86,10 +86,7 @@ SELECT alter_job(<job_id>, scheduled => false);
 
 -- Step 3: Convert all chunks back to rowstore
 -- For all chunks:
-SELECT decompress_chunk(chunk_schema || '.' || chunk_name)
-FROM timescaledb_information.chunks
-WHERE hypertable_name = 'conditions'
-  AND is_compressed = true;
+SELECT decompress_chunk(show_chunks('conditions'));
 
 -- Or for specific time ranges:
 SELECT decompress_chunk(c)
