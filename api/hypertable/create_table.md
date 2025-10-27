@@ -89,26 +89,22 @@ arguments specific to $TIMESCALE_DB.
     <tab label='Postgres 17 and lower'>
   
     ```sql
-     -- For optimal compression on the ID column, first enable UUIDv7 compression 
-     SET enable_uuid_compression=true;
-     -- Then create your table
+     -- UUIDv7 compression is enabled by default
      CREATE TABLE events (
         id  uuid PRIMARY KEY DEFAULT generate_uuidv7(),
         payload jsonb
-     ) WITH (tsdb.hypertable, tsdb.partition_column = 'id');   
+     ) WITH (tsdb.hypertable, tsdb.partition_column = 'id');
     ```
     </tab>
 
     <tab label='Postgres v18'>
 
      ```sql
-     -- For optimal compression on the ID column, first enable UUIDv7 compression 
-     SET enable_uuid_compression=true;
-     -- Then create your table
+     -- UUIDv7 compression is enabled by default
      CREATE TABLE events (
         id  uuid PRIMARY KEY DEFAULT uuidv7(),
         payload jsonb
-     ) WITH (tsdb.hypertable, tsdb.partition_column = 'id');   
+     ) WITH (tsdb.hypertable, tsdb.partition_column = 'id');
     ```    
    
     </tab>
