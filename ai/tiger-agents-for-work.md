@@ -221,7 +221,7 @@ your users need. For example, to add the $COMPANY MCP server to your $AGENTS_SHO
 
 </Procedure>
 
-You have configured your $AGENTS_SHORT to connect to the $MCP_SHORT. For more information, 
+You have configured your $AGENTS_SHORT to connect to $MCP_SHORT. For more information, 
 see [MCP Server Configuration][mcp-configuration-docs].
 
 ## Customize prompts for personalization
