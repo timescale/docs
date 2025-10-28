@@ -8,6 +8,7 @@ keywords: [hypertables, create]
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Optimize time-series data in hypertables
 
@@ -24,8 +25,8 @@ time. Typically, you partition hypertables on columns that hold time values.
 ## Create a hypertable
 
 Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table]. 
-For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will use 
-most often to filter your data:
+For [efficient queries][secondary-indexes], remember to `segmentby` the column you will use most often to filter your 
+data:
  
 ```sql
 CREATE TABLE conditions (
@@ -36,13 +37,13 @@ CREATE TABLE conditions (
    humidity    DOUBLE PRECISION  NULL
 ) WITH (
    tsdb.hypertable,
-   tsdb.partition_column='time',
    tsdb.segmentby = 'device',
    tsdb.orderby = 'time DESC'
 );
 
 ```
-<OldCreateHypertable />
+
+<CreateHypertablePolicyNote />
 
 To convert an existing table with data in it, call `create_hypertable` on that table with
 [`migrate_data` to `true`][api-create-hypertable-arguments]. However, if you have a lot of data, this may take a long time.
@@ -50,23 +51,6 @@ To convert an existing table with data in it, call `create_hypertable` on that t
 ## Speed up data ingestion
  
 <HypercoreDirectCompress />  
-
-## Optimize cooling data in the $COLUMNSTORE
-
-As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data
-is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast
-scanning and aggregation, optimizing performance for analytical workloads while also saving significant storage space.
-In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by up to 98%, and organized for efficient,
-large-scale queries. This columnar format enables fast scanning and aggregation, optimizing performance for analytical
-workloads.
-
-To optimize your data, add a $COLUMNSTORE policy:
-
-```sql
-CALL add_columnstore_policy('conditions', after => INTERVAL '1d');
-```
-
-You can also manually [convert chunks][convert_to_columnstore] in a $HYPERTABLE to the $COLUMNSTORE.
 
 ## Alter a hypertable
 
@@ -118,7 +102,6 @@ All data chunks belonging to the hypertable are deleted.
 
 [postgres-altertable]: https://www.postgresql.org/docs/current/sql-altertable.html
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [install]: /getting-started/:currentVersion:/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
 [postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
@@ -129,7 +112,5 @@ All data chunks belonging to the hypertable are deleted.
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
-[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
 [uuidv7_functions]: /api/:currentVersion:/uuid-functions/

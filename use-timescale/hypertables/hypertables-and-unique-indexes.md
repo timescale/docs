@@ -46,7 +46,6 @@ To create a unique index on a $HYPERTABLE:
         value FLOAT
       ) WITH (
         tsdb.hypertable,
-        tsdb.partition_column='time',
         tsdb.segmentby = 'device_id',
         tsdb.orderby = 'time DESC'
       );

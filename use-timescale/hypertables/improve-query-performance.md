@@ -43,7 +43,6 @@ Adjusting your hypertable chunk interval can improve performance in your databas
       humidity    DOUBLE PRECISION  NULL
    ) WITH (
       tsdb.hypertable,
-      tsdb.partition_column='time',
       tsdb.chunk_interval='1 day'
    );
    ```

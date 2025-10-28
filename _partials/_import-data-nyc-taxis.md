@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
 
 <HypertableIntro />
@@ -53,13 +53,12 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
                total_amount NUMERIC
              ) WITH (
                tsdb.hypertable,
-               tsdb.partition_column='pickup_datetime',
                tsdb.create_default_indexes=false,
                tsdb.segmentby='vendor_id',
                tsdb.orderby='pickup_datetime DESC'
              );
              ```
-             <OldCreateHypertable />
+             <CreateHypertablePolicyNote />
    
          1.  Add another dimension to partition your $HYPERTABLE more efficiently:
              ```sql

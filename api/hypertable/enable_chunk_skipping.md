@@ -65,8 +65,7 @@ CREATE TABLE conditions (
    temperature DOUBLE PRECISION  NULL,
    humidity    DOUBLE PRECISION  NULL
 ) WITH (
-   tsdb.hypertable,
-   tsdb.partition_column='time'
+   tsdb.hypertable
 );
 
 SELECT enable_chunk_skipping('conditions', 'device_id');

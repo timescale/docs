@@ -6,6 +6,8 @@ transactional capabilities.
 
 $HYPERCORE_CAP dynamically stores data in the most efficient format for its lifecycle:
 
+![Move from rowstore to columstore in hypercore](https://assets.timescale.com/docs/images/hypercore.png )
+
 * **Row-based storage for recent data**: the most recent chunk (and possibly more) is always stored in the $ROWSTORE, 
    ensuring fast inserts, updates, and low-latency single record queries. Additionally, row-based storage is used as a 
    writethrough for inserts and updates to columnar storage.

@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes]
 ---
 
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+
 # Indexing data
 
 You can use an index on your database to speed up read operations. You can
@@ -56,13 +58,14 @@ CREATE TABLE conditions (
   humidity    DOUBLE PRECISION  NULL
 ) WITH (
   tsdb.hypertable,
-  tsdb.partition_column='time',
   tsdb.create_default_indexes=false
 );
 ```
+<Highlight type="note" >
 
 <OldCreateHypertable />
 
+</Highlight> 
 
 ## Best practices for indexing
 

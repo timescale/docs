@@ -7,6 +7,7 @@ keywords: [hypertables]
 
 import HypertableOverview from 'versionContent/_partials/_hypertable-intro.mdx';
 import ChunkInterval from "versionContent/_partials/_chunk-interval.mdx";
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 
 # Hypertables
 
@@ -100,7 +101,6 @@ For example:
    )
    WITH(
       timescaledb.hypertable,
-      timescaledb.partition_column='time',
       timescaledb.chunk_interval='1 day'
    );
    ```

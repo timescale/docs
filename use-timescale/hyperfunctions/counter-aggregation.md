@@ -113,7 +113,6 @@ going on in each part.
         PRIMARY KEY (measure_id, ts)
     ) WITH (
       tsdb.hypertable,
-      tsdb.partition_column='ts',
       tsdb.chunk_interval='15 days'
     );
     ```

@@ -353,8 +353,7 @@ CREATE TABLE location (
   latitude FLOAT,
   longitude FLOAT
 ) WITH (
-  tsdb.hypertable,
-  tsdb.partition_column='time'
+  tsdb.hypertable
 );
 ```
 

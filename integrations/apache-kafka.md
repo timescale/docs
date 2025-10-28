@@ -93,8 +93,7 @@ To prepare your $SERVICE_LONG for Kafka integration:
     name TEXT,
     city TEXT
    ) WITH (
-     tsdb.hypertable,
-     tsdb.partition_column='created_at'
+     tsdb.hypertable
    );
    ```
    <OldCreateHypertable />   

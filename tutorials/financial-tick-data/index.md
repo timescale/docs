@@ -48,9 +48,6 @@ This tutorial shows you how to ingest real-time time-series data into a $SERVICE
     [Twelve Data][twelve-data] into your $TIMESCALE_DB database.
 1.  [Query your dataset][financial-tick-query]: create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
-1.  [Compress your data using hypercore][financial-tick-compress]: learn how to store and query
-your financial tick data more efficiently using compression feature of $TIMESCALE_DB.
-
 
 To create candlestick views, query the aggregated data, and visualize the data in Grafana, see the
 [ingest real-time websocket data section][advanced-websocket].

@@ -34,8 +34,7 @@ CREATE TABLE conditions (
     location   INTEGER REFERENCES locations (id),
     PRIMARY KEY(time, device_id)
 ) WITH (
-    tsdb.hypertable,
-    tsdb.partition_column='time'
+    tsdb.hypertable
 );
 ```
 

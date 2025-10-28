@@ -48,8 +48,7 @@ To simulate a dataset, run the following queries:
       cpu DOUBLE PRECISION,
       FOREIGN KEY (sensor_id) REFERENCES sensors (id)
     ) WITH (
-      tsdb.hypertable,
-      tsdb.partition_column='time'
+      tsdb.hypertable
     );
     ```
     <OldCreateHypertable />

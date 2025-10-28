@@ -11,6 +11,8 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
+
 
 # Try the key features in $COMPANY products
 
@@ -79,7 +81,7 @@ relational and time-series data from external files.
 
        To more fully understand how to create a $HYPERTABLE, how $HYPERTABLEs work, and how to optimize them for 
        performance by tuning $CHUNK intervals and enabling chunk skipping, see 
-       [the $HYPERTABLEs documentation][hypertables-section]. 
+       [the $HYPERTABLEs documentation][hypertables-section].
     
        <Tabs label="Upload data" persistKey="sql-editor">
 
@@ -128,7 +130,6 @@ relational and time-series data from external files.
                   day_volume NUMERIC
                 ) WITH (
                    tsdb.hypertable,
-                   tsdb.partition_column='time',
                    tsdb.segmentby = 'symbol'
                 );
                 ```
@@ -161,6 +162,8 @@ relational and time-series data from external files.
        </Tab>
         
        </Tabs>
+    
+       <CreateHypertablePolicyNote />
    
 1.  **Have a quick look at your data**  
 
@@ -171,47 +174,6 @@ relational and time-series data from external files.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted $TIMESCALE_DB deployment from Terminal.
 
     <TryItOutCodeBlock queryId="getting-started-crypto-srt-orderby" />
-
-</Procedure>
-
-## Enhance query performance for analytics
-
-$HYPERCORE_CAP is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for real-time 
-analytics and
-powered by time-series data. The advantage of $HYPERCORE is its ability to seamlessly switch between row-oriented and
-column-oriented storage. This flexibility enables $TIMESCALE_DB to deliver the best of both worlds, solving the key
-challenges in real-time analytics.
-
-![Move from rowstore to columstore in hypercore](https://assets.timescale.com/docs/images/hypercore.png )
-
-When $TIMESCALE_DB converts $CHUNKs from the $ROWSTORE to the $COLUMNSTORE, multiple records are grouped into a single row.
-The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk
-space, you can reduce your $CHUNK size by up to 98%, and can also speed up your queries. This helps you save on storage costs,
-and keeps your queries operating at lightning speed.
-
-$HYPERCORE is enabled by default when you call [CREATE TABLE][hypertable-create-table]. Best practice is to compress
-data that is no longer needed for highest performance queries, but is still accessed regularly in the $COLUMNSTORE.
-For example, yesterday's market data.
-
-<Procedure>
-
-1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
-
-   For example, yesterday's data:
-   ``` sql
-   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
-   ```
-   If you have not configured a `segmentby` column, $TIMESCALE_DB chooses one for you based on the data in your 
-   $HYPERTABLE. For more information on how to tune your $HYPERTABLEs for the best performance, see 
-   [efficient queries][secondary-indexes].
-
-1. **View your data space saving**
-
-   When you convert data to the $COLUMNSTORE, as well as being optimized for analytics, it is compressed by more than
-   90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
-   saved, click `Explorer` > `public` > `crypto_ticks`. 
-
-   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-columstore-data-savings.png )
 
 </Procedure>
 

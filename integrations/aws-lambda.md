@@ -46,8 +46,7 @@ Create a table in $SERVICE_LONG to store time-series data.
      sensor_id TEXT NOT NULL,
      value DOUBLE PRECISION NOT NULL
    ) WITH (
-     tsdb.hypertable,
-     tsdb.partition_column='time'
+     tsdb.hypertable
    );
    ```
    <OldCreateHypertable />   

@@ -40,8 +40,7 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
           origin_time timestamptz NOT NULL, 
           name TEXT
       ) WITH (
-        tsdb.hypertable,
-        tsdb.partition_column='time'
+        tsdb.hypertable
       );
       ```
      <OldCreateHypertable />   
