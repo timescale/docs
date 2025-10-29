@@ -67,7 +67,7 @@
 | `enable_tiered_reads` | `BOOLEAN` | `true` | Enable reading of tiered data by including a foreign table representing the data in the object storage into the query plan |
 | `enable_transparent_decompression` | `BOOLEAN` | `true` | Enable transparent decompression when querying hypertable |
 | `enable_tss_callbacks` | `BOOLEAN` | `true` | Enable ts_stat_statements callbacks |
-| `enable_uuid_compression` | `BOOLEAN` | `false` | Enable uuid compression |
+| `enable_uuid_compression` | `BOOLEAN` | `true` | Enable uuid compression |
 | `enable_vectorized_aggregation` | `BOOLEAN` | `true` | Enable vectorized aggregation for compressed data |
 | `last_tuned` | `STRING` | `NULL` |  records last time timescaledb-tune ran |
 | `last_tuned_version` | `STRING` | `NULL` |  version of timescaledb-tune used to tune |
