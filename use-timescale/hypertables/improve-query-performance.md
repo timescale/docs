@@ -5,7 +5,6 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes, chunks]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import ChunkInterval from "versionContent/_partials/_chunk-interval.mdx";
 import EarlyAccess2171 from "versionContent/_partials/_early_access_2_17_1.mdx";
 
@@ -46,8 +45,6 @@ Adjusting your hypertable chunk interval can improve performance in your databas
       tsdb.chunk_interval='1 day'
    );
    ```
-
-   <OldCreateHypertable />
 
 1. **Check current setting for chunk intervals**
 

@@ -6,7 +6,6 @@ keywords: [hypertables, create]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 

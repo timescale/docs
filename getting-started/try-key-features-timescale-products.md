@@ -7,7 +7,6 @@ content_group: Getting started
 
 import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
@@ -133,8 +132,6 @@ relational and time-series data from external files.
                    tsdb.segmentby = 'symbol'
                 );
                 ```
-                
-                <OldCreateHypertable />
    
           - For the relational data:
       

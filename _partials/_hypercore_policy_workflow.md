@@ -1,4 +1,3 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import CreateHypertableProcedure from "versionContent/_partials/_hypercore_create_hypertable_columnstore_policy.mdx";
 
 <Procedure>
