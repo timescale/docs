@@ -1,3 +1,8 @@
+<Highlight type="important">
+
+$PG 15 support is deprecated and will be removed from $TIMESCALE_DB in June 2026.
+
+</Highlight>
 
 | $TIMESCALE_DB version |$PG 18|$PG 17|$PG 16|$PG 15|$PG 14|$PG 13|$PG 12|$PG 11|$PG 10|
 |-----------------------|-|-|-|-|-|-|-|-|-|

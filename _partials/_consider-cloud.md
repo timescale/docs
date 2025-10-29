@@ -1,4 +1,4 @@
-<Highlight type="cloud" header="Try for free on Tiger" button="Try for free">
+<Highlight type="cloud" header="Try for free on Tiger Cloud" button="Try for free">
 
 $CLOUD_LONG is a fully managed service with automatic backup and restore, high
 availability with replication, seamless scaling and resizing, and much more. You
