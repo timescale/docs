@@ -9,6 +9,59 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## S3 Source Connector and Crypto Early Acces
+<Label type="date">October 31, 2025</Label>
+
+### 🔐 Crypto Payments — Early Access! 
+
+### What’s new
+
+You can now pay your Tiger Cloud invoices with stablecoins through Stripe’s crypto payments.
+
+### Supported currencies
+- **USDC** (Ethereum, Solana, Polygon, Base)
+- **USDP** (Ethereum, Solana)
+- **USDG** (Ethereum)
+
+### Eligibility
+- Paid customer for ≥1 month  
+- No outstanding invoices  
+- $500–$10,000 monthly spend  
+
+For higher spend, simply contact us!
+
+### How it works
+Each month, customers receive a Stripe crypto payment link to pay their prior month’s invoice in USD.  
+**Note:** Payments must be completed within 7 days.
+
+### How to join
+Request access via the **Billing page** ➡️
+
+[[ image 1 ]]
+
+### ✨ Detailed S3 Source Connector Progress Screen
+
+We’ve introduced major improvements to the **S3 Source Connector** to enhance observability and provide deeper visibility into connector performance. This update helps users quickly understand the overall state of the connector, take action faster, and trace the complete lifecycle of every imported file.
+
+#### What’s New
+
+- **Cumulative summary** of total imported, queued, and failed files  
+- **Search** capability across all files  
+- **Detailed file statuses** including:
+  - In-queue  
+  - In-progress  
+  - Completed  
+  - Error  
+  - Retry  
+  - Resolve  
+  - Cancelled  
+- **Filtering** by file status  
+- **Bulk retry** option for all failed files  
+- **Lifecycle history** showing file progression across states and time spent in each  
+- **Auto-refresh** option (every minute) for real-time updates
+
+[[ image 2 ]] 
+
 ## 🧠 🐅 ☁️ AI and Tiger Cloud major changes!
 <Label type="date">October 24, 2025</Label>
 
