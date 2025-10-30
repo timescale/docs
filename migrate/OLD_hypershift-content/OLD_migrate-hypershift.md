@@ -16,7 +16,7 @@ import HypershiftIntro from "versionContent/_partials/_hypershift-intro.mdx";
 
 Before you begin, make sure you have:
 
-*   Signed up for your [free Tiger Cloud account][cloud-install].
+*   Signed up for your [free $ACCOUNT_LONG][cloud-install].
 *   Installed [Docker][docker-install].
 
 Before you begin the migration, it is recommended that you create an index on

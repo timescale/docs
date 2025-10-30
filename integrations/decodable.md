@@ -1,8 +1,8 @@
 ---
-title: Integrate Decodable with Tiger Cloud 
+title: Integrate Decodable with Tiger Cloud
 excerpt: Decodable enables you to build, run, and manage data pipelines effortlessly. Seamlessly integrate Decodable with Tiger Cloud to unlock real-time data processing capabilities
 products: [cloud, self_hosted]
-keywords: [Decodable, Tiger Cloud]
+keywords: [Decodable, Tiger]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";

@@ -39,7 +39,7 @@ After a maintenance upgrade, the DNS name remains the same. However, the IP addr
 ## Minor software upgrades
 
 If you do not [manually upgrade $TIMESCALE_DB][minor-manual-upgrade] for non-critical upgrades,
-$CLOUD_LONG performs upgrades automatically in the next available maintenance window. The upgrade is first applied to your $SERVICE_SHORTs tagged `#dev`, and three weeks later to those tagged `#prod`. [Subscribe][subscribe] to get an email notification before your `#prod` $SERVICE_SHORTs are upgraded. You can upgrade your `#prod` $SERVICE_SHORTs manually sooner, if needed. 
+$CLOUD_LONG performs upgrades automatically in the next available maintenance window. The upgrade is first applied to your $SERVICE_SHORTs tagged `#dev`, and three weeks later to those tagged `#prod`. [Subscribe][subscribe] to get an email notification before your `#prod` $SERVICE_SHORTs are upgraded. You can upgrade your `#prod` $SERVICE_SHORTs manually sooner, if needed. See [Service management][service-management] for how to manage $SERVICE_SHORT tags. 
 
 Most upgrades that occur during your maintenance windows do not require any downtime. This means that there is no 
 $SERVICE_SHORT outage during the upgrade. However, all connections and transactions in progress during the upgrade are 
@@ -211,7 +211,7 @@ To change your maintenance window:
    In [$CONSOLE][cloud-login], select the $SERVICE_SHORT you want to manage.
 1. **Set your maintenance window**
    1. Click `Operations` > `Environment`, then click  `Change maintenance window`.
-       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-maintenance-upgrades.png)
+       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-maintenance-upgrades.png)
    1. Select the maintence window start time, then click `Apply`.
 
    Maintenance windows can run for up to four hours.
@@ -238,3 +238,4 @@ To change your maintenance window:
 [hareplica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [subscribe]: https://status.timescale.com/
+[service-management]: /use-timescale/:currentVersion:/services/service-management/#change-the-service-environment

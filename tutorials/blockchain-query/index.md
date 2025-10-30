@@ -1,6 +1,6 @@
 ---
 title: Query the Bitcoin blockchain
-excerpt: Learn to use Tiger Cloud to query and analyze transactions on a blockchain as you would any other time-series data. In this tutorial, you use Tiger Cloud to ingest, store, and analyze transactions
+excerpt: Learn to use Tiger Cloud to query and analyze transactions on a blockchain as you would any other time-series data. In this tutorial, you use Tiger to ingest, store, and analyze transactions
 products: [cloud, self_hosted, mst]
 keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]

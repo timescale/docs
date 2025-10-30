@@ -52,7 +52,7 @@ JOINS in TimescaleDB must meet the following conditions:
 *   You can use an `INNER`, `LEFT`, and `LATERAL` joins; no other join type is supported.
 *   Joins on the materialized hypertable of a continuous aggregate are not supported.
 *   Hierarchical continuous aggregates can be created on top of a continuous
-    aggregate with a `JOIN` clause, but cannot themselves have a `JOIN` clauses.
+    aggregate with a `JOIN` clause, but cannot themselves have a `JOIN` clause.
 
 ### JOIN examples
 
@@ -141,7 +141,7 @@ See the following `JOIN` examples on continuous aggregates:
     ```
     TimescaleDB v2.16.x and higher.
 
-- `INNER JOIN` between an hypertable and multiple $PG tables:
+- `INNER JOIN` between a hypertable and multiple $PG tables:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
@@ -154,7 +154,7 @@ See the following `JOIN` examples on continuous aggregates:
     ```
    TimescaleDB v2.16.x and higher.
 
-- `LEFT JOIN` between an hypertable and a $PG table:
+- `LEFT JOIN` between a hypertable and a $PG table:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS
@@ -166,7 +166,7 @@ See the following `JOIN` examples on continuous aggregates:
     ```
     TimescaleDB v2.16.x and higher.
 
-- `LATERAL JOIN` between an hypertable and a sub-query:
+- `LATERAL JOIN` between a hypertable and a subquery:
 
     ```sql
     CREATE MATERIALIZED VIEW conditions_by_day WITH (timescaledb.continuous) AS

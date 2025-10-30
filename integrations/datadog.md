@@ -19,11 +19,11 @@ This page explains how to:
 
 - [Monitor $SERVICE_LONG metrics with Datadog][datadog-monitor-cloud]
 
-  This integration is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
+  This integration is available for [$SCALE and $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 - Configure Datadog Agent to collect metrics for your $SERVICE_LONG
 
-   This integration is available for all pricing plans.
+   This integration is available for all $PRICING_PLANs.
 
 
 ## Prerequisites
@@ -143,7 +143,7 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [datadog-agent-restart]: https://docs.datadoghq.com/agent/configuration/agent-commands/#start-stop-and-restart-the-agent
 [projects]: /use-timescale/:currentVersion:/security/members/
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/

@@ -9,6 +9,53 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## 🧠 🐅 ☁️ AI and Tiger Cloud major changes!
+<Label type="date">October 24, 2025</Label>
+
+### 👋 Free pricing plan and free services 
+
+We've added a [new pricing plan](https://www.tigerdata.com/blog/introducing-agentic-postgres-free-plan-experiment-ai-on-postgres) in Tiger Cloud—the Free one! This new plan sits alongside the Performance, Scale, and Enterprise plans. With the Free plan, you can create up to two free services for prototyping. No cost, no trial, just free. Our free services have shared compute and 750 MiB storage each. And if you are already on a different plan, you also get access to two free services in addition to your standard ones. The Free plan is great for using AI tools like Claude Code alongside Tiger CLI and Tiger MCP.
+
+### **>_** Tiger CLI 
+
+We have released a new [CLI](https://github.com/timescale/tiger-cli) that lets you control Tiger Cloud from the terminal.  Everything from signing up, to spinning up services, to executing SQL on running services is now possible outside of the Tiger Cloud Console. Check out [our docs](https://docs.tigerdata.com/getting-started/latest/get-started-devops-as-code/) for how to download and use this new tool.
+
+### 🎓 Tiger MCP for Postgres and TimescaleDB
+
+Our new [MCP server](https://docs.tigerdata.com/ai/latest/mcp-server/) enables AI agents to interact with the database and  understand how to use it well. We’ve taken our 10+ years of Postgres experience and distilled it into a set of built-in master prompts. This gives agents safe, structured access to the database through high-level tools for schema design, query tuning, migrations, and more.  You can install it locally with Tiger CLI.
+
+### 🌊 Fluid Storage 
+
+We are previewing a new distributed storage layer on Tiger Cloud that allows instant forks, snapshots, and automatic scaling up or down, without downtime or over-provisioning. In benchmark testing, a single volume sustains throughput of over 100,000 IOPS! Fluid Storage currently backs our new Tiger Cloud free services.
+
+### 🔍 pg_textsearch extension preview
+
+This new extension enables BM25 on Postgres, which leads to significant improvements in text search over vanilla keyword search.  See [our docs](https://docs.tigerdata.com/use-timescale/latest/extensions/pg-textsearch/) for details.
+
+## TimescaleDB 2.22.1 – configurable indexing, enhanced partitioning, and faster queries
+<Label type="date">October 10, 2025</Label>
+
+[TimescaleDB 2.22.1](https://github.com/timescale/timescaledb/releases) introduces major performance and flexibility improvements across indexing, compression, and query execution. TimescaleDB 2.22.1 was released on September 30th and is now available to all users of Tiger.
+
+### Highlighted features
+
+* **Configurable sparse indexes:** manually configure sparse indexes (min-max or bloom) on one or more columns of compressed hypertables, optimizing query performance for specific workloads and reducing I/O. In previous versions, these were automatically created based on heuristics and could not be modified.
+
+* **UUIDv7 support:** native support for UUIDv7 for both compression and partitioning. UUIDv7 embeds a time component, improving insert locality and enabling efficient time-based range queries while maintaining global uniqueness.
+
+    * **Vectorized UUID compression:** new vectorized compression for UUIDv7 columns doubles query performance and improves storage efficiency by up to 30%.
+    
+    * **UUIDv7 partitioning:** hypertables can now be partitioned on UUIDv7 columns, combining time-based chunking with globally unique IDs—ideal for large-scale event and log data.
+
+* **Multi-column SkipScan:** expands SkipScan to support multiple distinct keys, delivering millisecond-fast deduplication and `DISTINCT ON` queries across billions of rows. Learn more in our [blog post](https://www.tigerdata.com/blog/skipscan-in-timescaledb-why-distinct-was-slow-how-we-built-it-and-how-you-can-use-it) and [documentation](https://docs.tigerdata.com/use-timescale/latest/query-data/skipscan/).
+* **Compression improvements:** default `segmentby` and `orderby` settings are now applied at compression time for each chunk, automatically adapting to evolving data patterns for better performance. This was previously set at the hypertable level and fixed across all chunks.
+
+### Deprecations
+
+The experimental Hypercore Table Access Method (TAM) has been removed in this release following advancements in the columnstore architecture.
+
+For a comprehensive list of changes, refer to the TimescaleDB [2.22](https://github.com/timescale/timescaledb/releases/tag/2.22.0) & [2.22.1](https://github.com/timescale/timescaledb/releases/tag/2.22.1) release notes.
+
 ## Kafka Source Connector (beta)
 <Label type="date">September 19, 2025</Label>
 
@@ -500,7 +547,7 @@ This release adds a number of bug fixes including:
 
 The data mode's SQL Assistant now includes support for the latest models from OpenAI and Llama: GPT-4.1 (including mini and nano) and Llama 4 (Scout and Maverick). Additionally, we've added support for Gemini models, in particular Gemini 2.0 Nano and 2.5 Pro (experimental and preview). With the new additions, SQL Assistant supports more than 20 language models so you can select the one best suited to your needs.
 
-![SQL Assistant - New Models](https:///assets.timescale.com/docs/images/sql-assistant-new-models.png)
+![SQL Assistant - New Models](https://assets.timescale.com/docs/images/sql-assistant-new-models.png)
 
 ## 🪵 TimescaleDB v2.19, new service overview page, and log improvements
 <Label type="date">April 11, 2025</Label>
@@ -895,7 +942,7 @@ Highlighted features in TimescaleDB v2.17 are:
 
 ### HIPAA compliance
 
-Timescale Cloud's [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-plan) is now HIPAA (Health Insurance Portability and Accountability Act) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they meet regulatory requirements while building compliant applications.
+Timescale Cloud's [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-pricing-plan) is now HIPAA (Health Insurance Portability and Accountability Act) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they meet regulatory requirements while building compliant applications.
 
 ### Expanded logging within Timescale Console
 

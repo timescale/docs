@@ -1,6 +1,6 @@
 ---
 title: Postgres extensions
-excerpt: Tiger Cloud comes with a number of TigerData and Postgres extensions enabled by default. See all the extensions you can enable for your service
+excerpt: Tiger Cloud comes with a number of Tiger Data and Postgres extensions enabled by default. See all the extensions you can enable for your service
 products: [cloud]
 keywords: [services, settings, extensions]
 tags: [extensions]
@@ -16,13 +16,14 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 
 ## $COMPANY extensions
 
-| Extension                                  | Description                        | Enabled by default                                  |
-|--------------------------------------------|------------------------------------|-----------------------------------------------------|
-| [pgai][pgai]                               | Helper functions for AI workflows  | For [AI-focused][services] $SERVICE_SHORTs          |
-| [pgvector][pgvector]                       | Vector similarity search for $PG   | For [AI-focused][services] $SERVICE_SHORTs          |
-| [pgvectorscale][pgvectorscale]             | Advanced indexing for vector data  | For [AI-focused][services] $SERVICE_SHORTs          |
-| [timescaledb_toolkit][timescaledb-toolkit] | TimescaleDB Toolkit                | For [Real-time analytics][services] $SERVICE_SHORTs |
-| [timescaledb][timescaledb]                 | TimescaleDB                        | For all $SERVICE_SHORTs                             |
+| Extension                                   | Description                                | Enabled by default                                                    |
+|---------------------------------------------|--------------------------------------------|-----------------------------------------------------------------------|
+| [pgai][pgai]                                | Helper functions for AI workflows          | For [AI-focused][services] $SERVICE_SHORTs                            |
+| [pg_textsearch][pg_textsearch]              | [BM25][bm25-wiki]-based full-text search   | Currently early access. For development and staging environments only |
+| [pgvector][pgvector]                        | Vector similarity search for $PG           | For [AI-focused][services] $SERVICE_SHORTs                            |
+| [pgvectorscale][pgvectorscale]              | Advanced indexing for vector data          | For [AI-focused][services] $SERVICE_SHORTs                            |
+| [timescaledb_toolkit][timescaledb-toolkit]  | TimescaleDB Toolkit                        | For [Real-time analytics][services] $SERVICE_SHORTs                   |
+| [timescaledb][timescaledb]                  | TimescaleDB                                | For all $SERVICE_SHORTs                                               |
 
 ## $PG built-in extensions
 
@@ -74,20 +75,20 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 
 ## Third-party extensions
 
-| Extension                                        | Description                                                                      | Enabled by default                                   |
-|--------------------------------------------------|----------------------------------------------------------------------------------|------------------------------------------------------|
-| [h3][h3]                                         | H3 bindings for $PG                                                              | -                                                    |
-| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging                                     | -                                                    |
-| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                                            | -                                                    |
+| Extension                                        | Description                                                             | Enabled by default                                   |
+|--------------------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------|
+| [h3][h3]                                         | H3 bindings for $PG                                                     | -                                                    |
+| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging                            | -                                                    |
+| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                                   | -                                                    |
 | [pg_cron][pgcron]                                | SQL commands that you can schedule and run directly inside the database | [Contact us](mailto:support@tigerdata.com) to enable |
-| [pg_repack][pgrepack]                            | Table reorganization in $PG with minimal locks                                   | -                                                    | 
-| [pgrouting][pgrouting]                           | Geospatial routing functionality                                                 | -                                                    |
-| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions                       | -                                                    |
-| [postgis_raster][postgis-raster]                 | PostGIS raster types and functions                                               | -                                                    |
-| [postgis_sfcgal][postgis-sfcgal]                 | PostGIS SFCGAL functions                                                         | -                                                    |
-| [postgis_tiger_geocoder][postgis-tiger-geocoder] | PostGIS tiger geocoder and reverse geocoder                                      | -                                                    |
-| [postgis_topology][postgis-topology]             | PostGIS topology spatial types and functions                                     | -                                                    |
-| [unit][unit]                                     | SI units for $PG                                                                 | -                                                    |
+| [pg_repack][pgrepack]                            | Table reorganization in $PG with minimal locks                          | -                                                    | 
+| [pgrouting][pgrouting]                           | Geospatial routing functionality                                        | -                                                    |
+| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions              | -                                                    |
+| [postgis_raster][postgis-raster]                 | PostGIS raster types and functions                                      | -                                                    |
+| [postgis_sfcgal][postgis-sfcgal]                 | PostGIS SFCGAL functions                                                | -                                                    |
+| [postgis_tiger_geocoder][postgis-tiger-geocoder] | PostGIS $CLOUD_LONG geocoder and reverse geocoder                       | -                                                    |
+| [postgis_topology][postgis-topology]             | PostGIS topology spatial types and functions                            | -                                                    |
+| [unit][unit]                                     | SI units for $PG                                                        | -                                                    |
 
 [amcheck]: https://www.postgresql.org/docs/current/amcheck.html
 [autoinc]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-AUTOINC
@@ -138,6 +139,7 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [refint]: https://www.postgresql.org/docs/current/contrib-spi.html
 [seg]: https://www.postgresql.org/docs/current/seg.html
 [pgcrypto]: /use-timescale/:currentVersion:/extensions/pgcrypto/
+[pg_textsearch]: /use-timescale/:currentVersion:/extensions/pg-textsearch/
 [sslinfo]: https://www.postgresql.org/docs/current/sslinfo.html
 [tablefunc]: https://www.postgresql.org/docs/current/tablefunc.html
 [tcn]: https://www.postgresql.org/docs/current/tcn.html
@@ -153,3 +155,4 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [timescale-extensions]: #timescale-extensions
 [third-party]: #third-party-extensions
 [services]: /getting-started/:currentVersion:/
+[bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25

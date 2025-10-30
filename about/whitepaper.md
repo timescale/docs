@@ -1,8 +1,8 @@
 ---
-title: TigerData architecture for real-time analytics
+title: Tiger Data architecture for real-time analytics
 excerpt: A whitepaper detailing the architectural choices and optimizations for real-time analytics that power TimescaleDB and Tiger Cloud
 products: [cloud, mst, self_hosted]
-keywords: [real-time analytics, tiger cloud, timescaledb, time-series, whitepaper]
+keywords: [real-time analytics, Tiger, timescaledb, time-series, whitepaper]
 ---
 # $COMPANY architecture for real-time analytics
 
@@ -20,7 +20,7 @@ scalability while preserving $PG’s reliability and transactional guarantees.
 Want to read this whitepaper from the comfort of your own computer?
 
 <center>
-   <Tag type="download">[TigerData architecture for real-time analytics (PDF)](https://assets.timescale.com/docs/downloads/tigerdata-whitepaper.pdf)</Tag>
+   <Tag type="download">[Tiger Data architecture for real-time analytics (PDF)](https://assets.timescale.com/docs/downloads/tigerdata-whitepaper.pdf)</Tag>
 </center>
 
 

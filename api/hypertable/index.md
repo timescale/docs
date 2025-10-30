@@ -1,15 +1,15 @@
 ---
 title: Hypertables and chunks
-excerpt: Tiger CloudAPI reference for dealing with hypertables and chunks. Includes all SQL functions and views related to managing hypertables, chunks, dimensions, tablespaces, and indexing
+excerpt: TigerAPI reference for dealing with hypertables and chunks. Includes all SQL functions and views related to managing hypertables, chunks, dimensions, tablespaces, and indexing
 keywords: [hypertables, chunks]
 products: [cloud, mst, self_hosted]
 ---
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
-import HypertableIntro from "versionContent/_partials/_hypertable-intro.mdx";
+import HypertableOverview from "versionContent/_partials/_hypertable-intro.mdx";
 
 # Hypertables and chunks
 
-<HypertableIntro />
+<HypertableOverview />
 
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].

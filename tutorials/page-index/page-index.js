@@ -20,7 +20,7 @@ module.exports = [
         excerpt: "Simulate and query an IoT sensor dataset",
       },
       {
-        title: "TigerData community cookbook",
+        title: "Tiger community cookbook",
         href: "cookbook",
         excerpt: "Code examples from the community that help you with loads of common conundrums.",
       },

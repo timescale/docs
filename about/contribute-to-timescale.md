@@ -1,5 +1,5 @@
 ---
-title: Contribute to TigerData
+title: Contribute to Tiger Data
 excerpt: We welcome all contributions! Learn to contribute to the TimescaleDB code base and the documentation
 products: [self_hosted]
 keywords: [contribute]

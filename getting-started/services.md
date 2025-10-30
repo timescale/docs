@@ -7,6 +7,7 @@ content_group: Getting started
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
+import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
@@ -14,6 +15,10 @@ import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 # Create a $SERVICE_LONG
 
 <CloudIntro />
+
+## What is a $SERVICE_LONG?
+
+<ServiceIntro />
 
 <ServiceOverview />
 
@@ -25,19 +30,19 @@ To start using $CLOUD_LONG for your data:
 
 <Install />
 
-## Create a $SERVICE_LONG
+## Create a $SERVICE_SHORT
 
 Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
 
+To create a free or standard $SERVICE_SHORT: 
+
 <Procedure>
 
-1. In the [$SERVICE_SHORT creation page][create-service], choose the capability to match your business needs: `Real-time analytics`, `AI-focused`, or `Hybrid applications`. 
+1. In the [$SERVICE_SHORT creation page][create-service], click `+ New service`. 
 
-   ![Create a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/create-tiger-cloud-service.png)
-
-   To create a plain $PG $SERVICE_SHORT, without any additional capabilities, click `Looking for plan PostgreSQL?` in the top right.
+   Follow the wizard to configure your $SERVICE_SHORT depending on its type.
    
-1. Follow the next steps in `Create a service` to configure the region, compute size, environment, availability, connectivity, and $SERVICE_SHORT name. Then click `Create service`.
+1. Click `Create service`.
 
    Your $SERVICE_SHORT is constructed and ready to use in a few seconds. 
 
@@ -48,6 +53,8 @@ Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_S
 
 If you choose to go directly to the $SERVICE_SHORT overview, [Connect to your $SERVICE_SHORT][connect-to-your-service] 
 shows you how to connect.
+
+You can [manage, pause, or delete][service-management] your $SERVICE_SHORT at any time from $CONSOLE. 
 
 </Procedure> 
 
@@ -63,8 +70,8 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [tsc-portal]: https://console.cloud.timescale.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/
 [install-psql]: /integrations/:currentVersion:/psql/
-[create-an-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
-[create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
+[create-an-account]: /getting-started/:currentVersion:/services/#create-an-account
+[create-a-service]: /getting-started/:currentVersion:/services/#create-a-service
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [create-a-hypertable]: /getting-started/:currentVersion:/services/#create-a-hypertable
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
@@ -72,4 +79,5 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [timescaledb]: https://docs.tigerdata.com/#TimescaleDB
-
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[service-management]: /use-timescale/:currentVersion:/services/service-management/

@@ -2,7 +2,7 @@
 title: Release notes
 excerpt: Get an overview of the new features, improvements, and fixes released in every version of Tiger Cloud and TimescaleDB
 products: [cloud, self_hosted]
-keywords: [TimescaleDB, Tiger Cloud, TimescaleDB Toolkit, pgai, pgvectorscale, pgspot, live-migration, upgrades, updates, releases]
+keywords: [TimescaleDB, Tiger, TimescaleDB Toolkit, pgai, pgvectorscale, pgspot, live-migration, upgrades, updates, releases]
 ---
 
 # Release notes

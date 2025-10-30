@@ -10,7 +10,7 @@ products: [self_hosted, cloud]
 $SERVICE_LONG use the default $PG server configuration settings. You can optimize your $SERVICE_SHORT configuration
 using the following $TIMESCALE_DB and Grand Unified Configuration (GUC) parameters. 
 
-* [$TIGER_POSTGRES configuration and tuning][tigerpostgres-config]
+* [$TIMESCALE_DB configuration and tuning][tigerpostgres-config]
 * [Grand Unified Configuration (GUC) parameters][gucs]
 
 [tigerpostgres-config]: /api/:currentVersion:/configuration/tiger-postgres/

@@ -1,12 +1,12 @@
 module.exports = [
   {
-    title: "Use TigerData products",
+    title: "Use Tiger Data products",
     href: "use-timescale",
     defaultOpen: true,
     filePath: "index.md",
     pageComponents: ["content-list"],
     excerpt:
-      "How to connect to Tiger Cloud, administer, and configure the database.",
+      "How to connect to Tiger, administer, and configure the database.",
     children: [
       {
         title: "Hypertables",
@@ -132,11 +132,6 @@ module.exports = [
         ],
       },
       {
-        title: "Tiger Cloud regions",
-        href: "regions",
-        excerpt: "Tiger Cloud AWS regions",
-      },
-      {
         title: "Tiger Cloud services",
         href: "services",
         excerpt: "About Tiger Cloud services",
@@ -144,7 +139,7 @@ module.exports = [
           {
             title: "Services overview",
             href: "service-overview",
-            excerpt: "Tiger services overview",
+            excerpt: "Tiger Cloud services overview",
           },
           {
             title: "Service explorer",
@@ -154,7 +149,7 @@ module.exports = [
           {
             title: "Service management",
             href: "service-management",
-            excerpt: "Tiger Cloud services operations, Service management tab",
+            excerpt: "Tiger Cloud services operations",
           },
           {
             title: "Manually change resources",
@@ -211,7 +206,7 @@ module.exports = [
           {
             title: "About querying data",
             href: "about-query-data",
-            excerpt: "Learn how to query data in Tiger Cloud",
+            excerpt: "Learn how to query data in Tiger",
           },
           {
             title: "SELECT data",
@@ -381,7 +376,7 @@ module.exports = [
         ],
       },
       {
-        title: "Tiered storage",
+        title: "Storage",
         href: "data-tiering",
         excerpt:
           "Save on storage costs by tiering older data to a low-cost bottomless object storage tier",
@@ -569,7 +564,7 @@ module.exports = [
           {
             title: "Read scaling",
             href: "read-scaling",
-            excerpt: "Understand how read scaling works in Tiger Cloud",
+            excerpt: "Understand how read scaling works in Tiger",
           },
         ],
       },
@@ -583,6 +578,11 @@ module.exports = [
         href: "extensions",
         excerpt: "The Postgres extensions installed in each Tiger Cloud service",
         children: [
+          {
+            title: "Optimize full text search with BM25",
+            href: "pg-textsearch",
+            excerpt: "Set up and optimize BM25-based full-text search for efficient ranked text searching",
+          },
           {
             title: "Create a chatbot using pgvector",
             href: "pgvector",
@@ -601,8 +601,12 @@ module.exports = [
         ],
       },
       {
-        title: "Back up and recover your services",
+        title: "Back up and recover services",
         href: "backup-restore",
+      },
+      {
+        title: "Fork services",
+        href: "fork-services",
       },
       {
         title: "Jobs",
@@ -701,7 +705,7 @@ module.exports = [
       {
         title: "Limitations",
         href: "limitations",
-        excerpt: "Current limitations of TigerData product features",
+        excerpt: "Current limitations of Tiger Data product features",
       },
       {
         title: "Integrate data lakes with Tiger Cloud",
@@ -709,7 +713,7 @@ module.exports = [
         excerpt: "Unifies the Tiger Cloud operational architecture with the data lake (S3 + Iceberg) architectures",
       },
       {
-        title: "Troubleshoot TigerData products",
+        title: "Troubleshoot Tiger Data products",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting Tiger Cloud and TimescaleDB",
       },

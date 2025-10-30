@@ -1,6 +1,6 @@
 ---
 title: Create a chatbot using pgvector
-excerpt: pgvector is an open-source extension for Postgres that enables efficient vector similarity search and can be used with Tiger CLoud. Learn to use pgvector to create a chatbot
+excerpt: pgvector is an open-source extension for Postgres that enables efficient vector similarity search and can be used with Tiger. Learn to use pgvector to create a chatbot
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgvector]
 tags: [extensions, pgvector]
@@ -19,7 +19,7 @@ For more information about these functions and the options available, see the
 ## Use the `pgvector` extension to create a `chatbot`
 
 The `pgvector` $PG extension allows you to create, store, and query
-OpenAI [vector embeddings][vector-embeddings] in $TIGER_POSTGRES. This page shows you how to 
+OpenAI [vector embeddings][vector-embeddings] in a $PG database instance. This page shows you how to 
 use [retrieval augmented generation (RAG)][rag-docs] to create a chatbot that combines
 your data with ChatGPT using OpenAI and `pgvector`. RAG provides a solution to the
 problem that a foundational model such as GPT-3 or GPT-4 could be missing some
@@ -450,14 +450,14 @@ Before you begin, make sure you have:
         messages = [
             {"role": "system", "content": system_message},
             {"role": "user", "content": f"{delimiter}{user_input}{delimiter}"},
-            {"role": "assistant", "content": f"Relevant TigerData case studies information: \n {related_docs[0] [0]} \n {related_docs[1][0]} {related_docs[2][0]}"}
+            {"role": "assistant", "content": f"Relevant Tiger Data case studies information: \n {related_docs[0] [0]} \n {related_docs[1][0]} {related_docs[2][0]}"}
         ]
 
         final_response = get_completion_from_messages(messages)
         return final_response
     ###############################################################################
 
-    # Question about a TigerData blog post we want the model to answer
+    # Question about a Tiger Data blog post we want the model to answer
     input = "How does Density use TimescaleDB?"
     # Get a response from the model using most reelvant documents from the database
     response = process_input_with_retrieval(input)

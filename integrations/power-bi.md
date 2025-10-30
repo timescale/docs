@@ -1,5 +1,5 @@
 ---
-title: Integrate Power BI with Tiger Cloud
+title: Integrate Power BI with Tiger
 excerpt: Integrate Tiger Cloud with Power BI for advanced data visualization.
 products: [cloud, self_hosted]
 keywords: [Power BI, visualizations, analysis, real-time]

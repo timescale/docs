@@ -6,6 +6,7 @@ content_group: Getting started
 ---
 
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 # Run your queries from $CONSOLE
 
@@ -28,7 +29,9 @@ If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [ps
 
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
-![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-data-mode-schema-chart.png)
+![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode.png)
+
+<NotAvailableFreePlan />
 
 Available features are:
 
@@ -54,19 +57,19 @@ To connect to a $SERVICE_SHORT:
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`:
 
-   ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-services-view.png)
+   ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
    In the [$DATA_MODE][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT in the connection drop-down:
 
-   ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-data-mode-connection-dropdown.png)
+   ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png)
 
 1. **Run a test query**
 
    Type `SELECT CURRENT_DATE;` in `Scratchpad` and click `Run`:
 
-   ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-cloud.png)
+   ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-console.png)
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][portal-ops-mode]
@@ -118,6 +121,8 @@ use that in the $DATA_MODE.
 ## $SQL_ASSISTANT_SHORT
 
 $SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] is a chat-like interface that harnesses the power of AI to help you write, fix, and organize SQL faster and more accurately. Ask $SQL_ASSISTANT_SHORT to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, get answers to any questions you can think of.
+
+<NotAvailableFreePlan />
 
 <!--
 <div class="relative w-fit mx-auto">
@@ -193,7 +198,7 @@ For best results with $SQL_ASSISTANT_SHORT:
 Security and privacy is prioritized in $CONSOLE. In [$DATA_MODE][portal-data-mode], $PROJECT_SHORT members
 manage $SQL_ASSISTANT_SHORT settings under [`User name` > `Settings` > `SQL Assistant`][sql-editor-settings].
 
-![SQL assistant settings](https://assets.timescale.com/docs/images/sql-editor-preferences.png)
+![SQL assistant settings](https://assets.timescale.com/docs/images/tiger-console-sql-editor-preferences.png)
 
 $SQL_ASSISTANT_SHORT settings are:
 
@@ -208,7 +213,7 @@ $SQL_ASSISTANT_SHORT settings are:
 $SQL_EDITOR is an integrated secure UI that you use to run queries and see the results
 for a $SERVICE_LONG.
 
-![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-sqleditor.png)
+![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-ops-mode-sql-editor.png)
 
 To enable or disable $SQL_EDITOR in your $SERVICE_SHORT, click `Operations` > `Service management`, then
 update the setting for $SQL_EDITOR.
@@ -221,13 +226,13 @@ To use $SQL_EDITOR:
 
     In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
 
-    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ops-mode-sql-editor.png)
+    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-ops-mode-sql-editor-empty.png)
 
 1. **Run a test query**
 
     Type `SELECT CURRENT_DATE;` in the UI and click `Run`. The results appear in the lower window:
 
-    ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-a-query-in-ops-mode-sql-editor.png)
+    ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-a-query-in-tiger-ops-mode-sql-editor.png)
 
 </Procedure>
 
@@ -247,7 +252,7 @@ To use $SQL_EDITOR:
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [console]: https://console.cloud.timescale.com
 [create-chart]: https://docs.popsql.com/docs/creating-charts
-[create-cloud-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
+[create-cloud-account]: /getting-started/:currentVersion:/services/#create-an-account
 [create-dashboard]: https://docs.popsql.com/docs/creating-dashboards
 [create-schedule]: https://docs.popsql.com/docs/scheduled-queries
 [install-psql]: /integrations/:currentVersion:/psql/

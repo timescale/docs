@@ -2,7 +2,7 @@ module.exports = [
   {
     title: "Import and sync",
     href: "migrate",
-    excerpt: "Import, ingest, migrate data, and connect to Tiger Cloud",
+    excerpt: "Import, ingest, migrate data, and connect to Tiger",
     children: [
       {
         title: "Sync from Postgres",
