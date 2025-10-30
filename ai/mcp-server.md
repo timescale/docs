@@ -207,7 +207,7 @@ start $MCP_LONG:
 }   
 ```
 
-## $MCP_LONG commands
+## $MCP_LONG tools
 
 <MCPCOMMANDS />
 
