@@ -4,7 +4,7 @@ With $CLOUD_LONG, you are not limited to pre-set compute and storage. Get as muc
 provisioning your $SERVICE_SHORTs or later, as your needs grow.
 
 * **Compute**: pay only for the compute resources you run. Compute is metered on an hourly
-  basis, and you can [scale it up to 64,000 IOPS][change-compute] at any time. You can also [scale out using replicas][read-replication]
+  basis, and you can [scale it up to 64 CPU][change-compute] at any time. You can also [scale out using replicas][read-replication]
   as your application grows. We also provide services to help you lower your compute needs
   while improving query performance. $CLOUD_LONG is very efficient and generally needs less compute than other databases to deliver
   the same performance. The best way to size your needs is to sign up for a free trial and test
