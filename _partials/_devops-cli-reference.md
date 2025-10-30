@@ -45,25 +45,49 @@ You can use the following global flags with $CLI_LONG:
 
 ## Configuration parameters
 
-By default, $CLI_LONG stores your configuration in `~/.config/tiger/config.yaml`. The name of these
-variables matches the flags you use to update them. However, you can override them using the following
-environmental variables:
+By default, $CLI_LONG stores your configuration in `~/.config/tiger/config.yaml`.
 
-- **Configuration parameters**
-    - `TIGER_CONFIG_DIR`: path to configuration directory (default: `~/.config/tiger`)
-    - `TIGER_API_URL`: $REST_LONG base endpoint (default: https://console.cloud.timescale.com/public/api/v1)
-    - `TIGER_CONSOLE_URL`: URL to $CONSOLE (default: https://console.cloud.timescale.com)
-    - `TIGER_GATEWAY_URL`: URL to the $CONSOLE gateway (default: https://console.cloud.timescale.com/api)
-    - `TIGER_DOCS_MCP`: enable/disable docs MCP proxy (default: `true`)
-    - `TIGER_DOCS_MCP_URL`: URL to $MCP_SHORT for $COMPANY docs (default: https://mcp.tigerdata.com/docs)
-    - `TIGER_SERVICE_ID`: ID for the $SERVICE_SHORT updated when you call $CLI_SHORT commands
-    - `TIGER_ANALYTICS`: enable or disable analytics (default: `true`)
-    - `TIGER_PASSWORD_STORAGE`: password storage method (keyring, pgpass, or none)
-    - `TIGER_DEBUG`: enable/disable debug logging (default: `false`)
-    - `TIGER_COLOR`: set to `false` to disable colored output (default: `true`)
-    
+### Configuration Options
 
-- **Authentication parameters**
+All configuration options can be set via `tiger config set <key> <value>`:
+
+- `analytics` - Enable/disable analytics (default: `true`)
+- `color` - Enable/disable colored output (default: `true`)
+- `debug` - Enable/disable debug logging (default: `false`)
+- `docs_mcp` - Enable/disable docs MCP proxy (default: `true`)
+- `output` - Output format: `json`, `yaml`, or `table` (default: `table`)
+- `password_storage` - Password storage method: `keyring`, `pgpass`, or `none` (default: `keyring`)
+- `service_id` - Default service ID
+- `version_check_interval` - How often the CLI will check for new versions, 0 to disable (default: `24h`)
+
+### Environment Variables
+
+Environment variables override configuration file values. All variables use the `TIGER_` prefix:
+
+- `TIGER_ANALYTICS` - Enable/disable analytics
+- `TIGER_COLOR` - Enable/disable colored output
+- `TIGER_CONFIG_DIR` - Path to configuration directory (default: `~/.config/tiger`)
+- `TIGER_DEBUG` - Enable/disable debug logging
+- `TIGER_DOCS_MCP` - Enable/disable docs MCP proxy
+- `TIGER_OUTPUT` - Output format: `json`, `yaml`, or `table`
+- `TIGER_PASSWORD_STORAGE` - Password storage method: `keyring`, `pgpass`, or `none`
+- `TIGER_SERVICE_ID` - Default service ID
+- `TIGER_VERSION_CHECK_INTERVAL` - How often the CLI will check for new versions, 0 to disable
+
+### Global Flags
+
+These flags are available on all commands and take precedence over both environment variables and configuration file values:
+
+- `--analytics` - Enable/disable analytics
+- `--color` - Enable/disable colored output
+- `--config-dir <path>` - Path to configuration directory (default: `~/.config/tiger`)
+- `--debug` - Enable/disable debug logging
+- `--password-storage <method>` - Password storage method: `keyring`, `pgpass`, or `none`
+- `--service-id <id>` - Specify service ID
+- `--skip-update-check` - Skip checking for updates on startup (default: `false`)
+- `-h, --help` - Show help information
+
+### Authentication parameters
 
   To authenticate without using the interactive login, either: 
   - Set the following parameters with your [client credentials][rest-api-credentials], then `login`:
