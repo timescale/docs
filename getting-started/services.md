@@ -92,8 +92,8 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [tsc-portal]: https://console.cloud.timescale.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/
 [install-psql]: /integrations/:currentVersion:/psql/
-[create-an-account]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-account
-[create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
+[create-an-account]: /getting-started/:currentVersion:/services/#create-an-account
+[create-a-service]: /getting-started/:currentVersion:/services/#create-a-service
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [create-a-hypertable]: /getting-started/:currentVersion:/services/#create-a-hypertable
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services

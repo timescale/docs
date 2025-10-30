@@ -20,11 +20,11 @@ This page explains how to:
 
 - [Monitor $SERVICE_LONG metrics with Datadog][datadog-monitor-cloud]
 
-  This integration is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
+  This integration is available for [$SCALE and $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 - Configure Datadog Agent to collect metrics for your $SERVICE_LONG
 
-   This integration is available for all pricing plans.
+   This integration is available for all $PRICING_PLANs.
 
 
 ## Prerequisites

@@ -8,18 +8,17 @@ products: [cloud, mst, self_hosted]
 
 # UUIDv7 functions <Tag type="community">Community</Tag>
 
-
-UUIDv7 is a time-ordered UUID that includes a Unix timestamp (with millisecond precision) in its first 48 bits. Like 
-other UUIDs, it uses 6 bits for version and variant info, and the remaining 74 bits are random.
+UUIDv7 is a time-ordered UUID that includes a Unix timestamp with millisecond precision in its first 48 bits. Like 
+other UUIDs it uses 6 bits for version and variant info. The remaining 74 bits are random.
 
 ![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
 
-UUIDv7 is ideal anywhere you create lots of records over time, not only observability. Advantages are:
+UUIDv7 is ideal anywhere you create lots of records over time. Advantages are:
 
 - **No extra column required to partition by time with sortability**: you can sort UUIDv7 instances by their value. This 
-   is useful for ordering records by creation time without the need for a separate timestamp column.
-- **Indexing performance**: UUIDv7s increase with time, so new rows append near the end of a B-tree instead of 
-   This results in fewer page splits, less fragmentation, faster inserts, and efficient time-range scans.
+    is useful for ordering records by creation time without the need for a separate timestamp column.
+- **Indexing performance**: UUIDv7s increase with time, so new rows are appended near the end of a B-tree. This results in 
+    fewer page splits, less fragmentation, faster inserts, and efficient time-range scans.
 - **Easy keyset pagination**: `WHERE id > :cursor` and natural sharding.
 - **UUID**: safe across services, replicas, and unique across distributed systems.
 
@@ -33,7 +32,7 @@ FROM events e, ref
 WHERE uuid_timestamp(e.event_id) >= ref.t0 - INTERVAL '2 days';
 ```
 
-Using UUIDv7 excludes chunks at startup and reduces the query time to 550ms:
+Using UUIDv7 means that chunks are excluded at startup, and the query time is reduced to 550 ms:
 
 ```sql
 WITH ref AS (SELECT now() AS t0)
@@ -42,16 +41,14 @@ FROM events e, ref
 WHERE e.event_id >= to_uuidv7_boundary(ref.t0 - INTERVAL '2 days')
 ```
 
-
-
 You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and more.
     
 ## Examples
 
 - **High-rate event logs for observability and metrics**: 
 
-   UUIDv7 gives you globally unique IDs (for traceability) and time windows (“last hour”), without the need for a 
-   separate `created_at` column. UUIDv7 create less churn because inserts land at the end of the index, and you can 
+   UUIDv7 gives you globally unique IDs for traceability and time windows such as “last hour”, without the need for a 
+   separate `created_at` column. UUIDv7 creates less churn because inserts land at the end of the index, and you can 
    filter by time using UUIDv7 objects.
 
   - Last hour:
@@ -65,8 +62,8 @@ You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and mor
 
 - **Workflow / durable execution runs**: 
 
-   Each run needs a stable ID for joins and retries, and you often ask “what started since X?”. UUIDs help by serving
-   both as the primary key and a time cursor across services. For example:
+   Each run needs a stable ID for joins and retries. UUIDs help by serving both as the primary key and a time cursor. 
+   For example:
 
     ```sql
     SELECT run_id, status
@@ -86,16 +83,13 @@ You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and mor
     ORDER BY id;
     ```
 
-
-
-
 ## Functions
 
-- [generate_uuidv7()][generate_uuidv7]: generate a version 7 UUID based on current time
-- [to_uuidv7()][to_uuidv7]: create a version 7 UUID from a PostgreSQL timestamp
-- [to_uuidv7_boundary()][to_uuidv7_boundary]: create a version 7 "boundary" UUID from a PostgreSQL timestamp
-- [uuid_timestamp()][uuid_timestamp]: extract a PostgreSQL timestamp from a version 7 UUID
-- [uuid_timestamp_micros()][uuid_timestamp_micros]: extract a PostgreSQL timestamp with microsecond precision from a version 7 UUID
+- [generate_uuidv7()][generate_uuidv7]: generate a version 7 UUID based on the current time
+- [to_uuidv7()][to_uuidv7]: create a version 7 UUID from a $PG timestamp
+- [to_uuidv7_boundary()][to_uuidv7_boundary]: create a version 7 "boundary" UUID from a $PG timestamp
+- [uuid_timestamp()][uuid_timestamp]: extract a $PG timestamp from a version 7 UUID
+- [uuid_timestamp_micros()][uuid_timestamp_micros]: extract a $PG timestamp with microsecond precision from a version 7 UUID
 - [uuid_version()][uuid_version]: extract the version of a UUID
 
 [generate_uuidv7]: /api/:currentVersion:/uuid-functions/generate_uuidv7/
