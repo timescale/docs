@@ -140,8 +140,6 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Decompress**: the process of restoring compressed data to its original, uncompressed state.
 
-**Developer Agent**: a specialized [Agent](#agent) you use for coding, debugging and devops-as-code. 
-
 **Delta**: the difference between two values, commonly used in counter aggregations to calculate the change over time.
 
 **DHCP (Dynamic Host Configuration Protocol)**: a network management protocol used to automatically assign IP addresses and other network configuration parameters.
