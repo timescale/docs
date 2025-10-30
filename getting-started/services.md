@@ -54,6 +54,8 @@ To create a free or standard $SERVICE_SHORT:
 If you choose to go directly to the $SERVICE_SHORT overview, [Connect to your $SERVICE_SHORT][connect-to-your-service] 
 shows you how to connect.
 
+You can [manage, pause, or delete][service-management] your $SERVICE_SHORT at any time from $CONSOLE. 
+
 </Procedure> 
 
 ## Connect to your $SERVICE_SHORT
@@ -78,3 +80,4 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [timescaledb]: https://docs.tigerdata.com/#TimescaleDB
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[service-management]: /use-timescale/:currentVersion:/services/service-management/
