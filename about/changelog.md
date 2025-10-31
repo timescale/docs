@@ -9,41 +9,38 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
-## S3 Source Connector and Crypto Early Acces
+## S3 source connector and crypto payments
 <Label type="date">October 31, 2025</Label>
 
-### 🔐 Crypto Payments — Early Access! 
+### 🔐 Crypto payments — early access!
 
-### What’s new
+You can now pay your Tiger Cloud invoices with stablecoins through Stripe’s crypto payments. Each month, you can receive a Stripe crypto payment link to pay the prior month’s invoice in USD. Request access via the `Billing` page in Tiger Console.
 
-You can now pay your Tiger Cloud invoices with stablecoins through Stripe’s crypto payments.
+![Crypto payments](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-cloud-crypto-payment.png)
 
-### Supported currencies
+**Note:** Payments must be completed within 7 days.
+
+Supported currencies:
+
 - **USDC** (Ethereum, Solana, Polygon, Base)
 - **USDP** (Ethereum, Solana)
 - **USDG** (Ethereum)
 
-### Eligibility
-- Paid customer for ≥1 month  
+Eligibility:
+
+- Paid customer for 1 month or more  
 - No outstanding invoices  
 - $500–$10,000 monthly spend  
 
-For higher spend, simply contact us!
+For a higher spend, simply contact us!
 
-### How it works
-Each month, customers receive a Stripe crypto payment link to pay their prior month’s invoice in USD.  
-**Note:** Payments must be completed within 7 days.
+### ✨ Detailed S3 source connector progress screen
 
-### How to join
-Request access via the **Billing page** ➡️
+We’ve introduced major improvements to the S3 source connector on Tiger Cloud, to enhance observability and provide deeper visibility into connector performance. This update will help you quickly understand the overall state of the connector, take action faster, and trace the complete lifecycle of every imported file.
 
-[[ image 1 ]]
+![S3 connector stats](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-details.png)
 
-### ✨ Detailed S3 Source Connector Progress Screen
-
-We’ve introduced major improvements to the **S3 Source Connector** to enhance observability and provide deeper visibility into connector performance. This update helps users quickly understand the overall state of the connector, take action faster, and trace the complete lifecycle of every imported file.
-
-#### What’s New
+The improvements include:
 
 - **Cumulative summary** of total imported, queued, and failed files  
 - **Search** capability across all files  
@@ -59,8 +56,6 @@ We’ve introduced major improvements to the **S3 Source Connector** to enhance 
 - **Bulk retry** option for all failed files  
 - **Lifecycle history** showing file progression across states and time spent in each  
 - **Auto-refresh** option (every minute) for real-time updates
-
-[[ image 2 ]] 
 
 ## 🧠 🐅 ☁️ AI and Tiger Cloud major changes!
 <Label type="date">October 24, 2025</Label>
