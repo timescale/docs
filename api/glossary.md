@@ -191,7 +191,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 <a id="free-tiger-service" href=""></a>
 
-**Free $SERVICE_SHORT**: a free instance of $CLOUD_LONG with limited resources. You can create up to two free $SERVICE_SHORTs under any pricing plan. When a free $SERVICE_SHORT reaches the resource limit, it converts to the read-only state. You can convert a free $SERVICE_SHORT to a [standard one](#standard-tiger-service) under paid pricing plans.  
+**Free $SERVICE_SHORT**: a free instance of $CLOUD_LONG with limited resources. You can create up to two free $SERVICE_SHORTs under any $PRICING_PLAN. When a free $SERVICE_SHORT reaches the resource limit, it converts to the read-only state. You can convert a free $SERVICE_SHORT to a [standard one](#standard-tiger-service) under paid $PRICING_PLANs.  
 
 **FTP (File Transfer Protocol)**: a standard network protocol used for transferring files between a client and server on a computer network.
 

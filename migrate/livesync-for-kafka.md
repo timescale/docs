@@ -9,12 +9,13 @@ tags: [stream, connector]
 
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Stream data from Kafka
 
 You use the Kafka source connector in $CLOUD_LONG to stream events from Kafka into your $SERVICE_SHORT. $CLOUD_LONG connects to your Confluent Cloud Kafka cluster and Schema Registry using SASL/SCRAM authentication and service account–based API keys. Only the Avro format is currently supported [with some limitations][limitations]. 
 
-This page explains how to connect $CLOUD_LONG to your Confluence Cloud Kafka cluster.
+This page explains how to connect $CLOUD_LONG to your Confluent Cloud Kafka cluster.
 
 <EarlyAccessNoRelease />: the Kafka source connector is not yet supported for production use.
 
@@ -24,6 +25,8 @@ This page explains how to connect $CLOUD_LONG to your Confluence Cloud Kafka clu
 
 - [Sign up][confluence-signup] for Confluence Cloud.
 - [Create][create-kafka-cluster] a Kafka cluster in Confluence Cloud.
+
+<NotSupportedAzure />
 
 ## Access your Kafka cluster in Confluent Cloud
 

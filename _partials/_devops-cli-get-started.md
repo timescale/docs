@@ -1,6 +1,7 @@
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 import CLIINSTALL from "versionContent/_partials/_devops-cli-install.mdx";
 import CLIREF from "versionContent/_partials/_devops-cli-reference.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 $CLI_LONG is a command-line interface that you use to manage $CLOUD_LONG resources
 including VPCs, services, read replicas, and related infrastructure. $CLI_LONG calls $REST_LONG to communicate with 
@@ -12,6 +13,8 @@ service.
 ## Prerequisites
 
 <RESTPrereqs />
+
+<NotSupportedAzure />
 
 
 ## Install and configure $CLI_LONG
@@ -31,9 +34,9 @@ Create a new $SERVICE_LONG using $CLI_LONG:
 
 1. **Submit a $SERVICE_SHORT creation request**
 
-   By default, $CLI_LONG creates a $SERVICE_SHORT for you that matches your [pricing plan][pricing-plans]:
-   * **Free plan**: shared CPU/memory and the `time-series` and `ai` capabilities
-   * **Paid plan**: 0.5 CPU and 2 GB memory with the `time-series` capability
+   By default, $CLI_LONG creates a $SERVICE_SHORT for you that matches your [$PRICING_PLAN][pricing-plans]:
+   * **$FREE**: shared CPU/memory and the `time-series` and `ai` capabilities
+   * **Paid $PRICING_PLAN**: 0.5 CPU and 2 GB memory with the `time-series` capability
    ```shell
    tiger service create
    ```

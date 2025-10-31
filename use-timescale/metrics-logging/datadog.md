@@ -10,16 +10,19 @@ tags: [telemetry, monitor]
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Export telemetry data to Datadog
 
-You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Datadog][datadog]. The available metrics include CPU usage, RAM usage, and storage. This integration is available for [Scale or Enterprise][pricing-plan-features] pricing plans.
+You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Datadog][datadog]. The available metrics include CPU usage, RAM usage, and storage. This integration is available for [$SCALE or $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 This page shows you how to create a Datadog exporter in $CONSOLE, and manage the lifecycle of data exporters.
 
 ## Prerequisites
 
 <PrereqsCloud />
+
+<NotSupportedAzure />
 
 ## Create a data exporter
 
@@ -33,6 +36,8 @@ tools. You create an exporter on the [$PROJECT_SHORT level][projects], in the sa
 This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 <ManageDataExporter />
+
+
 
 [datadog]: https://www.datadoghq.com
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token

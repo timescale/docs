@@ -12,6 +12,7 @@ import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-
 import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Try the key features in $COMPANY products
 
@@ -299,6 +300,8 @@ a $CAGG, run the query part of the $CAGG
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
+<NotSupportedAzure />
+
 In the previous sections, you used $CAGGs to make fast analytical queries, and
 $HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
 you create tiering policies to move rarely accessed data to the object store. The object store is 
@@ -318,7 +321,7 @@ To set up data tiering:
    
    1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
 
-      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-console.png)
+      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png)
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 

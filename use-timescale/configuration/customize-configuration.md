@@ -32,7 +32,7 @@ To modify configuration parameters, first select the $SERVICE_SHORT that you wan
 modify. This displays the $SERVICE_SHORT details, with these tabs across the top:
 `Overview`, `Actions`, `Explorer`, `Monitoring`, `Connections`, `SQL Editor`, `Operations`, and `AI`. Select `Operations`, then `Database parameters`.
 
-![Database configuration parameters](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-service-configuration-parameters.png)
+![Database configuration parameters](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-configuration-parameters.png)
 
 ### Modify basic parameters
 

@@ -5,14 +5,25 @@ products: [cloud]
 content_group: Getting started
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
+import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import StartUsingCloud from "versionContent/_partials/_start-using-cloud.mdx";
+import Install from "versionContent/_partials/_cloud-installation.mdx";
+import CreateService from "versionContent/_partials/_create-service.mdx";
+import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
+import InstallAzure from "versionContent/_partials/_cloud-installation-azure.mdx";
+import ServiceIntroAzure from "versionContent/_partials/_services-intro-azure.mdx";
+import ServiceOverviewAzure from "versionContent/_partials/_service-overview-azure.mdx";
+import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-azure.mdx";
+
 # Create a $SERVICE_LONG
+
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 <CloudIntro />
 
@@ -22,11 +33,9 @@ import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
 <ServiceOverview />
 
-To start using $CLOUD_LONG for your data:
+<StartUsingCloud />
 
-1. [Create a $ACCOUNT_LONG][create-an-account]: register to get access to $CONSOLE as a centralized point to administer and interact with your data.
-1. [Create a $SERVICE_LONG][create-a-service]: that is, a $PG database instance, powered by [$TIMESCALE_DB][timescaledb], built for production, and extended with cloud features like transparent data tiering to object storage.
-1. [Connect to your $SERVICE_LONG][connect-to-your-service]: to run queries, add and migrate your data from other sources.
+## Create a $ACCOUNT_LONG
 
 <Install />
 
@@ -34,27 +43,7 @@ To start using $CLOUD_LONG for your data:
 
 Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database. 
 
-To create a free or standard $SERVICE_SHORT: 
-
-<Procedure>
-
-1. In the [$SERVICE_SHORT creation page][create-service], click `+ New service`. 
-
-   Follow the wizard to configure your $SERVICE_SHORT depending on its type.
-   
-1. Click `Create service`.
-
-   Your $SERVICE_SHORT is constructed and ready to use in a few seconds. 
-
-1. Click `Download the config` and store the configuration information you need to connect to this $SERVICE_SHORT in a secure location.
-
-   This file contains the passwords and configuration information you need to connect to your $SERVICE_SHORT using the
-   $CONSOLE $DATA_MODE, from the command line, or using third-party database administration tools.
-
-If you choose to go directly to the $SERVICE_SHORT overview, [Connect to your $SERVICE_SHORT][connect-to-your-service] 
-shows you how to connect.
-
-</Procedure> 
+<CreateService />
 
 ## Connect to your $SERVICE_SHORT
 
@@ -64,6 +53,41 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 <WhereNext />
 
+</Tab>
+
+<Tab title="Tiger Cloud on Azure" label="azure-cloud">
+
+<CloudIntro />
+
+## What is a $SERVICE_LONG?
+
+<ServiceIntroAzure />
+
+<ServiceOverviewAzure />
+
+<StartUsingCloudAzure />
+
+## Create a $ACCOUNT_LONG
+
+<InstallAzure />
+
+## Create a $SERVICE_SHORT
+
+Now that you have an active $ACCOUNT_LONG, you create and manage your $SERVICE_SHORTs in $CONSOLE. When you create a $SERVICE_SHORT, you effectively create a blank $PG database with additional $CLOUD_LONG features available under your $PRICING_PLAN. You then add or migrate your data into this database.
+
+<CreateService />
+
+## Connect to your $SERVICE_SHORT
+
+To run queries and perform other operations, connect to your $SERVICE_SHORT:
+
+<Connect />
+
+<WhereNext />
+
+</Tab>
+
+</Tabs>
 
 [tsc-portal]: https://console.cloud.timescale.com/
 [services-how-to]: /use-timescale/:currentVersion:/services/

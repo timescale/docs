@@ -1,4 +1,5 @@
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 [Prometheus][prometheus] is an open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.
 
@@ -20,6 +21,8 @@ To follow the steps on this page:
   - [Install Postgres Exporter][install-exporter].
   To reduce latency and potential data transfer costs, install Prometheus and Postgres Exporter on a machine in the same AWS region as your $SERVICE_LONG.
 
+<NotSupportedAzure />
+
 ## Export $SERVICE_LONG telemetry to Prometheus
 
 To export your data, do the following:
@@ -30,7 +33,7 @@ To export your data, do the following:
 
 <Procedure>
 
-To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. To scrape other metrics, use Postgres Exporter as described for $SELF_LONG. The Prometheus exporter is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
+To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. To scrape other metrics, use Postgres Exporter as described for $SELF_LONG. The Prometheus exporter is available for [$SCALE and $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 1. **Create a Prometheus exporter**
 
@@ -52,11 +55,11 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Select the exporter in the drop-down, then click `Attach exporter`.
 
-      ![Attach a Prometheus exporter to a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/attach-prometheus-exporter-tiger-console.png)
+      ![Attach a Prometheus exporter to a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/attach-prometheus-exporter-tiger-console.png)
 
    The exporter is now attached to your $SERVICE_SHORT. To unattach it, click the trash icon in the exporter list. 
 
-      ![Unattach a Prometheus exporter from a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/unattach-prometheus-exporter-tiger-console.png)
+      ![Unattach a Prometheus exporter from a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/unattach-prometheus-exporter-tiger-console.png)
 
 1. **Configure the Prometheus scrape target**
 

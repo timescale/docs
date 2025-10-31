@@ -28,17 +28,17 @@ You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot
 
 1. **Enter your trusted IP addresses**
 
-   The number of IP addresses that you can include in one list depends on your [pricing plan][pricing-plans]. 
+   The number of IP addresses that you can include in one list depends on your [$PRICING_PLAN][pricing-plans]. 
 
    ![Add IP addresses to allow list](https://assets.timescale.com/docs/images/tiger-cloud-console/add-ip-addresses-to-allow-list-tiger-console.png)
 
 1. **Name your allow list and click `Create IP Allow List`**
 
-   Click `+ Create IP Allow List` to create another list. The number of IP allow lists you can create depends on your [pricing plan][pricing-plans].
+   Click `+ Create IP Allow List` to create another list. The number of IP allow lists you can create depends on your [$PRICING_PLAN][pricing-plans].
 
 1. **Select a $SERVICE_LONG, then click `Operations` > `Security` > `IP Allow List`**
 
-   ![Attach IP allow list](https://assets.timescale.com/docs/images/tiger-cloud-console/attach-ip-allow-list-tiger-console.png)
+   ![Attach IP allow list](https://assets.timescale.com/docs/images/tiger-on-azure/attach-ip-allow-list-tiger-console.png)
 
 1. **Select the list in the drop-down and click `Apply`** 
 

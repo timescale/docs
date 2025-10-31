@@ -53,7 +53,7 @@ $CLOUD_LONG offers the following fork strategies:
   - Investigating issues that occurred at a specific time
   - Testing "what-if" scenarios from historical data
 
-The retention period for point-in-time recovery and forking depends on your [pricing plan][pricing-plan-features].
+The retention period for point-in-time recovery and forking depends on your [$PRICING_PLAN][pricing-plan-features].
 
 ### Fork creation speed
 
