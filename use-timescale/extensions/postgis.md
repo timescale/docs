@@ -6,7 +6,7 @@ keywords: [services, settings, extensions, postgis]
 tags: [extensions, postgis]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Analyze geospatial data using postgis
 
@@ -68,7 +68,7 @@ particular location.
       tsdb.hypertable
     );
     ```
-    <OldCreateHypertable />
+    <CreateHypertablePolicyNote />
 
 1. To support efficient queries, create an index on the `state_id` column:
 

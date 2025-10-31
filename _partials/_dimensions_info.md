@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 ### Dimension info
 
@@ -50,7 +50,7 @@ Create a by-range dimension builder. You can partition `by_range` on it's own.
    );
    ```
    
-   <OldCreateHypertable />
+   <CreateHypertablePolicyNote />
 
    This is the default partition, you do not need to add it explicitly.
 

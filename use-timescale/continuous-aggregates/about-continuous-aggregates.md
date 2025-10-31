@@ -8,7 +8,7 @@ keywords: [continuous aggregates]
 import CaggsFunctionSupport from "versionContent/_partials/_caggs-function-support.mdx";
 import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
 import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # About continuous aggregates
 
@@ -80,11 +80,8 @@ CREATE TABLE conditions (
 );
 ```
 
-<Highlight type="note" >
+<CreateHypertablePolicyNote />
 
-<OldCreateHypertable />
-
-</Highlight>
 
 See the following `JOIN` examples on continuous aggregates:
 

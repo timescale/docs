@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, unique indexes, primary keys]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Enforce constraints with unique indexes
 
@@ -50,7 +50,7 @@ To create a unique index on a $HYPERTABLE:
         tsdb.orderby = 'time DESC'
       );
       ```
-   <OldCreateHypertable />
+   <CreateHypertablePolicyNote />
 
 1. **Create a unique index on the $HYPERTABLE**
 

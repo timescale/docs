@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Indexing data
 
@@ -61,11 +61,8 @@ CREATE TABLE conditions (
   tsdb.create_default_indexes=false
 );
 ```
-<Highlight type="note" >
 
-<OldCreateHypertable />
-
-</Highlight> 
+<CreateHypertablePolicyNote />
 
 ## Best practices for indexing
 

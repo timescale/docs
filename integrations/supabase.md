@@ -6,7 +6,7 @@ keywords: [integrate]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Integrate Supabase with $CLOUD_LONG
 
@@ -43,7 +43,7 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
         tsdb.hypertable
       );
       ```
-     <OldCreateHypertable />   
+     <CreateHypertablePolicyNote />   
 
 1. **Optimize cooling data for analytics**
 

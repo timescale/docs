@@ -10,7 +10,7 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 import EarlyAccess2171 from "versionContent/_partials/_early_access_2_17_1.mdx";
 
 <!-- vale Google.Headings = NO -->
@@ -71,7 +71,7 @@ CREATE TABLE conditions (
 SELECT enable_chunk_skipping('conditions', 'device_id');
 ```
 
-<OldCreateHypertable />
+<CreateHypertablePolicyNote />
 
 ## Arguments
 
