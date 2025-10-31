@@ -2,12 +2,12 @@ You handle all details about your $CLOUD_LONG project including updates to your 
 payment methods, and add-ons in the [billing section in $CONSOLE][cloud-billing]:
 
 <img class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-billing.png"
+src="https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-billing-page.png"
 alt="Adding a payment method in Timescale"/>
 
 - **Details**: an overview of your $PRICING_PLAN, usage, and payment details. You can add up
   to three credit cards to your `Wallet`. If you prefer to pay by invoice,
-  [contact $COMPANY][contact-company] and ask to change to corporate billing.
+  [contact $COMPANY][contact-company] and ask to change to corporate billing. You can also request early access to paying with crypto.
 
 - **Emails**: the addresses $COMPANY uses to communicate with you. Payment
   confirmations and alerts are sent to the email address you signed up with.
