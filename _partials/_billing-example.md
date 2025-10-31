@@ -1,3 +1,5 @@
+import BillingForInactiveServices from "versionContent/_partials/_billing-for-inactive-services.mdx";
+
 You are billed at the end of each month in arrears. Your monthly invoice
 includes an itemized cost accounting for each $SERVICE_LONG and any additional charges.
 
@@ -22,4 +24,6 @@ and consumed high-performance storage for 720 hours total:
 
 Some add-ons such as tiered storage, HA replicas, and connection pooling may incur
 additional charges. These charges are clearly marked in your billing snapshot in $CONSOLE.
+
+<BillingForInactiveServices />
   

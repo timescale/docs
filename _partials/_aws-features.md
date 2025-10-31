@@ -63,3 +63,5 @@ For a personalized quote, [get in touch with $COMPANY][contact-company].
 
 [pricing-plans]: https://www.timescale.com/pricing
 [contact-company]: https://www.tigerdata.com/contact/
+[hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
+[commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
