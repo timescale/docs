@@ -33,10 +33,7 @@ Bloom indexes are not retrofitted, existing chunks need to be fully recompressed
 you converted chunks to $COLUMNSTORE using $TIMESCALE_DB v2.19.3 or below, to enable bloom filters on that data you have 
 to convert those chunks to the $ROWSTORE, then convert them back to the $COLUMNSTORE. 
 
-To view the policies that you set or the policies that already exist,
-see [informational views][informational-views]. You can customize a policy later using [alter_job][alter_job_samples].
-However, to change the `after` or `created_before`, the compression settings, or the $HYPERTABLE the policy is acting
-on, you must [remove the columnstore policy][remove_columnstore_policy] and [add a new one][add_columnstore_policy]. 
+To view the policies that you set or the policies that already exist, see [informational views][informational-views]. 
 
 A $COLUMNSTORE policy is applied on a per-chunk basis. If you remove an existing policy and then add a new one, the new 
 policy applies only to the chunks that have not yet been converted to $COLUMNSTORE. The existing chunks in the 

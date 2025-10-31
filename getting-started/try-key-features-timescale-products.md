@@ -132,6 +132,7 @@ relational and time-series data from external files.
                    tsdb.segmentby = 'symbol'
                 );
                 ```
+                <CreateHypertablePolicyNote />
    
           - For the relational data:
       
@@ -159,8 +160,6 @@ relational and time-series data from external files.
        </Tab>
         
        </Tabs>
-    
-       <CreateHypertablePolicyNote />
    
 1.  **Have a quick look at your data**  
 
