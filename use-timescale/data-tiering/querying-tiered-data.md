@@ -7,6 +7,8 @@ keywords: [ tiered storage, tiering ]
 tags: [ storage, data management ]
 ---
 
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+
 # Querying tiered data
 
 Once rarely used data is tiered and migrated to the object storage tier, it can still be queried 
@@ -23,6 +25,8 @@ Your hypertable is spread across the tiers, so queries and `JOIN`s work and fetc
 
 By default, tiered data is not accessed by queries. Querying tiered data may slow down query performance 
 as the data is not stored locally on the high-performance storage tier. See [Performance considerations](#performance-considerations).
+
+<NotSupportedAzure />
 
 ## Enable querying tiered data for a single query
 
@@ -185,4 +189,6 @@ Queries over tiered data are expected to be slower than over local data. However
   At the moment, queries against tiered data work best when the query optimizer can apply planning time optimizations.
 
 * Text and non-native types (JSON, JSONB, GIS) filtering is slower when querying tiered data.
+
+
 

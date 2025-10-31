@@ -11,6 +11,7 @@ tags:
   - security
   - services
   - authentication
+products: [cloud]
 ---
 
 import RESTGS from "versionContent/_partials/_devops-rest-api-get-started.mdx";
