@@ -72,7 +72,7 @@ arguments specific to $TIMESCALE_DB.
    When you create a $HYPERTABLE using `CREATE TABLE WITH`, $TIMESCALE_DB automatically creates a
    [columnstore policy][add_columnstore_policy] that uses the chunk interval as the compression interval, with a default 
    schedule interval of 1 day. The default partitioning column is automatically selected as the first column with a 
-   timestamp data type. 
+   timestamp or timestampz data type. 
 
 - **Create a $HYPERTABLE partitioned on the time with fewer chunks based on time interval**:
 

@@ -46,9 +46,7 @@ $HYPERTABLE.
 
 To create a $COLUMNSTORE job:
 
-<Procedure>
-
-1. **Enable $COLUMNSTORE**
+- **Enable $COLUMNSTORE**
 
     For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
     use most often to filter your data.
@@ -75,7 +73,7 @@ To create a $COLUMNSTORE job:
      ```
      <OldCreateHypertable />
 
-1. **Add a policy to move chunks to the $COLUMNSTORE at a specific time interval**
+- **Add a policy to move chunks to the $COLUMNSTORE at a specific time interval**
 
    For example:
 
@@ -118,7 +116,7 @@ To create a $COLUMNSTORE job:
       ```
 
 
-1. **View the policies that you set or the policies that already exist** 
+- **View the policies that you set or the policies that already exist** 
 
    ``` sql
    SELECT * FROM timescaledb_information.jobs
@@ -126,7 +124,7 @@ To create a $COLUMNSTORE job:
    ```
    See [timescaledb_information.jobs][informational-views].
 
-</Procedure>
+
 
 ## Arguments
 
