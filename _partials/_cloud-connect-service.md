@@ -6,7 +6,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
 
-   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-services-view.png)
+   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png)
 
 1. **Connect to your $SERVICE_SHORT**
 
@@ -48,7 +48,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
    
    1. Click `SQL editor`. 
 
-      ![Check a $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-ops-mode-sql-editor.png)
+      ![Check a $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor-empty.png)
 
    1. Run a test query:
 

@@ -8,6 +8,7 @@ keywords: [data lake, lakehouse, s3, iceberg]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate data lakes with $CLOUD_LONG
 
@@ -28,6 +29,8 @@ Tiger Lake is currently in private beta. Please contact us to request access.
 ## Prerequisites
 
 <IntegrationPrereqsCloud/>
+
+<NotSupportedAzure />
 
 ## Integrate a data lake with your $SERVICE_LONG
 
@@ -360,6 +363,9 @@ data lake:
 * Data in a $HYPERTABLE that has been moved to the [low-cost object storage tier][data-tiering] is not synced.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
+
+
+
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/

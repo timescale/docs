@@ -8,8 +8,10 @@ keywords: [Azure, integrations]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate Microsoft Azure with $CLOUD_LONG
+
 
 [Microsoft Azure][azure] is a cloud computing platform and services suite, offering infrastructure, AI, analytics, security, and developer tools to help businesses build, deploy, and manage applications.
 
@@ -20,6 +22,7 @@ This page explains how to integrate your Microsoft Azure infrastructure with $CL
 <IntegrationPrereqsCloud />
 
 - Set up [AWS Transit Gateway][gtw-setup].
+<NotSupportedAzure />
 
 ## Connect your Microsoft Azure infrastructure to your $SERVICE_LONGs
 
@@ -36,6 +39,10 @@ To connect to $CLOUD_LONG:
 </Procedure>
 
 You have successfully integrated your Microsoft Azure infrastructure with $CLOUD_LONG.
+
+
+
+
 
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
 [gtw-setup]: https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html

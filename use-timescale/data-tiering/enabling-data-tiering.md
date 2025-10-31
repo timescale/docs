@@ -11,6 +11,7 @@ cloud_ui:
 ---
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Manage storage and tiering
 
@@ -44,7 +45,7 @@ This storage type gives you up to 16 TB of storage and is available under [all $
    - Under the [$PERFORMANCE $PRICING_PLAN][pricing-plans], IOPS is set to 3,000 - 5,000 autoscale and cannot be changed.
    - Under the [$SCALE and $ENTERPRISE $PRICING_PLANs][pricing-plans], IOPS is set to 5,000 - 8,000 autoscale and can be upgraded to 16,000 IOPS.
 
-   ![Default standard storage in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/high-performance-storage-tiger-console.png)
+   ![Default standard storage in Tiger](https://assets.timescale.com/docs/images/tiger-on-azure/high-performance-storage-tiger-console.png)
 
 1. **Click `Apply`**
 
@@ -54,14 +55,18 @@ This storage type gives you up to 16 TB of storage and is available under [all $
 
 <Availability products={['cloud']} price_plans={['enterprise']} />
 
-This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
+This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. 
+
+<NotSupportedAzure />
+
+To get enhanced storage:
 
 <Procedure>
 
 1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
 1. **Select `Enhanced` in the `Storage type` dropdown**
 
-    ![Enhanced storage in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-enhanced-storage-tiger-console.png)
+    ![Enhanced storage in Tiger](https://assets.timescale.com/docs/images/tiger-on-azure/enable-enhanced-storage-tiger-console.png)
 
     <Highlight type="note">
 
@@ -73,7 +78,7 @@ This storage type gives you up to 64 TB and 32,000 IOPS, and is available under 
    
     Select between 8,000, 16,000, 24,000, and 32,0000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
 
-   ![I/O boost in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/set-io-boost-tiger-console.png)
+   ![I/O boost in Tiger](https://assets.timescale.com/docs/images/tiger-on-azure/set-io-boost-tiger-console.png)
 
 1. **Click `Apply`**
 
@@ -87,6 +92,8 @@ You change from enhanced storage to standard in the same way. If you are using o
 
 You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually. 
 
+<NotSupportedAzure />
+
 ### Enable tiered storage
 
 You enable tiered storage from the `Overview` tab in $CONSOLE.
@@ -97,7 +104,7 @@ You enable tiered storage from the `Overview` tab in $CONSOLE.
 
 1. **In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`**
 
-   ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-console.png)
+   ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png)
 
    Once enabled, you can proceed to [tier data manually][manual-tier] or [set up tiering policies][tiering-policies]. When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
@@ -279,6 +286,7 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
    ```
 
 </Procedure>
+
 
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
 [console]: https://console.cloud.timescale.com/dashboard/services

@@ -9,12 +9,13 @@ tags: [recovery, logical backup, replication]
 
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Sync data from S3
 
 You use the $S3_CONNECTOR in $CLOUD_LONG to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. The connector runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
-![$CLOUD_LONG overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-connector-overview.png)
+![$CLOUD_LONG overview](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png)
 
 You can use the $S3_CONNECTOR to synchronize your existing and new data. Here's what the connector can do:
 
@@ -63,6 +64,8 @@ The $S3_CONNECTOR continuously imports data from an Amazon S3 bucket into your d
        
     - [Public anonymous user][credentials-public].
 
+<NotSupportedAzure />
+
 ## Limitations
 
 - **File naming**:
@@ -100,7 +103,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect the source S3 bucket to the target $SERVICE_SHORT**
 
-   ![Connect $CLOUD_LONG to S3 bucket](https://assets.timescale.com/docs/images/tiger-cloud-console/s3-connector-tiger-console.png)
+   ![Connect $CLOUD_LONG to S3 bucket](https://assets.timescale.com/docs/images/tiger-on-azure/s3-connector-tiger-console.png)
 
    1. Click `Connectors` > `Amazon S3`.
    1. Click the pencil icon, then set the name for the new connector.
@@ -137,18 +140,18 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
     1. To view the amount of data replicated, click `Connectors`. The diagram in `Connector data flow` gives you an overview of the connectors you have created, their status, and how much data has been replicated.
 
-       ![$CLOUD_LONG connectors overview](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-connector-overview.png)
+       ![$CLOUD_LONG connectors overview](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png)
 
     1. To view file import statistics and logs, click `Connectors` > `Source connectors`, then select the name of your connector in the table.
 
-       ![S3 connector stats](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-import-stats.png)
+       ![S3 connector stats](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-stats.png)
 
 
 1. **Manage the connector**
 
     1. To pause the connector, click `Connectors` > `Source connectors`. Open the three-dot menu next to your connector in the table, then click `Pause`.
 
-      ![Edit S3 connector](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-pause.png)
+      ![Edit S3 connector](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-pause.png)
 
     1. To edit the connector, click `Connectors` > `Source connectors`. Open the three-dot menu next to your connector in the table, then click `Edit` and scroll down to `Modify your Connector`. You must pause the connector before editing it. 
 
@@ -161,6 +164,8 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 And that is it, you are using the $S3_CONNECTOR to synchronize all the data, or specific files, from an S3 bucket to your 
 $SERVICE_LONG in real time.
+
+
 
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 [lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
