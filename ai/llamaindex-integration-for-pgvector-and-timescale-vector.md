@@ -1,12 +1,12 @@
 ---
-title: LlamaIndex Integration for pgvector and TigerData Vector
-excerpt: LlamaIndex integration for TigerData Vector
+title: LlamaIndex Integration for pgvector and Tiger Data Vector
+excerpt: LlamaIndex integration for Tiger Data Vector
 products: [cloud]
-keywords: [ai, vector, pgvector, TigerData vector, python, llamaindex]
+keywords: [ai, vector, pgvector, Tiger Data vector, python, llamaindex]
 tags: [ai, vector, python, llamaindex]
 ---
 
-## LlamaIndex integration for pgvector and TigerData Vector
+## LlamaIndex integration for pgvector and Tiger Data Vector
 
 [LlamaIndex](https://www.llamaindex.ai/) is a popular data framework for connecting custom data sources to large language models (LLMs). $COMPANY Vector has a native LlamaIndex integration that supports all the features of pgvector and $COMPANY Vector. It enables you to use $COMPANY Vector as a vector store and leverage all its capabilities in your applications built with LlamaIndex.
 

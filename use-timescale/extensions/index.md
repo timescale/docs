@@ -1,6 +1,6 @@
 ---
 title: Postgres extensions
-excerpt: Tiger comes with a number of TigerData and Postgres extensions enabled by default. See all the extensions you can enable for your service
+excerpt: Tiger Cloud comes with a number of Tiger Data and Postgres extensions enabled by default. See all the extensions you can enable for your service
 products: [cloud]
 keywords: [services, settings, extensions]
 tags: [extensions]
@@ -75,20 +75,20 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 
 ## Third-party extensions
 
-| Extension                                        | Description                                                                      | Enabled by default                                   |
-|--------------------------------------------------|----------------------------------------------------------------------------------|------------------------------------------------------|
-| [h3][h3]                                         | H3 bindings for $PG                                                              | -                                                    |
-| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging                                     | -                                                    |
-| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                                            | -                                                    |
+| Extension                                        | Description                                                             | Enabled by default                                   |
+|--------------------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------|
+| [h3][h3]                                         | H3 bindings for $PG                                                     | -                                                    |
+| [pgaudit][pgaudit]                               | Detailed session and/or object audit logging                            | -                                                    |
+| [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                                   | -                                                    |
 | [pg_cron][pgcron]                                | SQL commands that you can schedule and run directly inside the database | [Contact us](mailto:support@tigerdata.com) to enable |
-| [pg_repack][pgrepack]                            | Table reorganization in $PG with minimal locks                                   | -                                                    | 
-| [pgrouting][pgrouting]                           | Geospatial routing functionality                                                 | -                                                    |
-| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions                       | -                                                    |
-| [postgis_raster][postgis-raster]                 | PostGIS raster types and functions                                               | -                                                    |
-| [postgis_sfcgal][postgis-sfcgal]                 | PostGIS SFCGAL functions                                                         | -                                                    |
-| [postgis_tiger_geocoder][postgis-tiger-geocoder] | PostGIS tiger geocoder and reverse geocoder                                      | -                                                    |
-| [postgis_topology][postgis-topology]             | PostGIS topology spatial types and functions                                     | -                                                    |
-| [unit][unit]                                     | SI units for $PG                                                                 | -                                                    |
+| [pg_repack][pgrepack]                            | Table reorganization in $PG with minimal locks                          | -                                                    | 
+| [pgrouting][pgrouting]                           | Geospatial routing functionality                                        | -                                                    |
+| [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions              | -                                                    |
+| [postgis_raster][postgis-raster]                 | PostGIS raster types and functions                                      | -                                                    |
+| [postgis_sfcgal][postgis-sfcgal]                 | PostGIS SFCGAL functions                                                | -                                                    |
+| [postgis_tiger_geocoder][postgis-tiger-geocoder] | PostGIS $CLOUD_LONG geocoder and reverse geocoder                       | -                                                    |
+| [postgis_topology][postgis-topology]             | PostGIS topology spatial types and functions                            | -                                                    |
+| [unit][unit]                                     | SI units for $PG                                                        | -                                                    |
 
 [amcheck]: https://www.postgresql.org/docs/current/amcheck.html
 [autoinc]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-AUTOINC

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-TigerData Documentation LLM Generator
+Tiger Data Documentation LLM Generator
 
 This script generates a comprehensive llms-full.txt file for LLM training from 
-TigerData documentation. It processes all markdown files following the page-index.js
+Tiger Data documentation. It processes all markdown files following the page-index.js
 structure and applies various transformations.
 
 Features:
@@ -36,54 +36,141 @@ class TigerDataDocumentationGenerator:
         self.link_references = {}
         self.processed_files = set()
         
-        # Load variables from remote vars.js and add comprehensive mappings
+        # Load variables aligned with vars.js from timescale/web-documentation
         self.variables = self._load_comprehensive_variables()
 
     def _load_comprehensive_variables(self) -> Dict[str, str]:
-        """Load comprehensive variable mappings."""
+        """Load comprehensive variable mappings aligned with vars.js."""
         return {
-            # General Variables
+            # General Variables (aligned with vars.js)
             '$PRODUCT_PREFIX': 'Tiger',
-            '$COMPANY': 'TigerData', 
+            '$COMPANY': 'Tiger Data',
             '$COMPANY_URL': 'https://www.tigerdata.com',
             '$PG': 'Postgres',
-            
-            # Pricing Variables
+
+            # Pricing Variables (aligned with vars.js)
             '$PRICING_PLAN_CAP': 'Pricing plan',
             '$PRICING_PLAN': 'pricing plan',
             '$SCALE': 'Scale',
-            '$PERFORMANCE': 'Performance', 
+            '$PERFORMANCE': 'Performance',
             '$ENTERPRISE': 'Enterprise',
-            
-            # Product Variables
-            '$CLOUD_LONG': 'Tiger',
-            '$CLOUD_SHORT': 'Tiger',
+
+            # Product Variables (aligned with vars.js)
+            '$CLOUD_LONG': 'Tiger Cloud',
             '$LAKE_LONG': 'Tiger Lake',
             '$LAKE_SHORT': 'Tiger Lake',
             '$TIMESCALE_DB': 'TimescaleDB',
-            '$PRODUCTS_ALL': 'TigerData products',
-            '$PRODUCTS_CL_DB': 'Tiger and TimescaleDB',
+            '$PRODUCTS_ALL': 'Tiger Data products',
+            '$PRODUCTS_CL_DB': 'Tiger Cloud and TimescaleDB',
             '$TDB_APACHE': 'TimescaleDB Apache 2 Edition',
             '$TDB_COMMUNITY': 'TimescaleDB Community Edition',
-            
-            # Service Variables
-            '$SERVICE_LONG': 'Tiger service',
+
+            # Self-hosted Variables (from vars.js)
+            '$SELF_SHORT_CAP': 'Self-hosted',
+            '$SELF_SHORT': 'self-hosted',
+            '$SELF_LONG_CAP': 'Self-hosted TimescaleDB',
+            '$SELF_LONG': 'self-hosted TimescaleDB',
+
+            # Console Variables (from vars.js)
+            '$CONSOLE': 'Tiger Cloud Console',
+            '$CONSOLE_LONG': 'Tiger Cloud Console',
+            '$CONSOLE_SHORT': 'Console',
+
+            # CLI Variables (from vars.js)
+            '$CLI_LONG': 'Tiger CLI',
+            '$CLI_SHORT': 'CLI',
+
+            # REST API Variables (from vars.js)
+            '$REST_LONG': 'Tiger REST API',
+            '$REST_SHORT': 'REST API',
+
+            # Eon Variables (from vars.js)
+            '$EON_SHORT': 'Eon',
+            '$EON_LONG': 'Tiger Eon',
+
+            # MCP Variables (from vars.js)
+            '$MCP_LONG': 'Tiger Model Context Protocol Server',
+            '$MCP_SHORT': 'Tiger MCP Server',
+
+            # Agents Variables (from vars.js)
+            '$AGENTS_LONG': 'Tiger Agents for Work',
+            '$AGENTS_SHORT': 'Tiger Agent',
+            '$AGENTS_CLI': 'Tiger Agent CLI',
+
+            # Connector Variables (from vars.js)
+            '$S3_CONNECTOR': 'source S3 connector',
+            '$S3_CONNECTOR_CAP': 'Source S3 connector',
+            '$PG_CONNECTOR': 'source Postgres connector',
+            '$PG_CONNECTOR_CAP': 'Source Postgres connector',
+
+            # Additional Tool Variables (from vars.js)
+            '$SQL_ASSISTANT_LONG': 'Tiger Cloud SQL assistant',
+            '$CLOUD_EDITOR': 'Tiger Cloud SQL editor',
+            '$SKIPSCAN_LONG': 'Tiger Data SkipScan',
+            '$SKIPSCAN_SHORT': 'SkipScan',
+            '$PGAI_LONG': 'pgai on Tiger Data',
+            '$PGAI_SHORT': 'pgai',
+            '$PGVECTORSCALE': 'pgvectorscale',
+            '$PG_SPOT': 'pgspot',
+            '$PG_VECTORIZER': 'PgVectorizer',
+
+            # URL Variables (from vars.js)
+            '$CONSOLE_URL': 'https://console.cloud.timescale.com/',
+            '$MST_CONSOLE_URL': 'https://portal.managed.timescale.com/',
+            '$POPSQL_URL': 'https://popsql.com/',
+            '$WEBSITE_MARKETING': 'www.tigerdata.com',
+            '$WEBSITE_DOCS': 'docs.tigerdata.com/',
+            '$CONTACT_SALES': 'sales@tigerdata.com',
+            '$CONTACT_COMPANY': 'https://www.tigerdata.com/contact/',
+
+            # Project Variables (from vars.js)
+            '$PROJECT_LONG': 'Tiger Cloud project',
+            '$PROJECT_SHORT_CAP': 'Project',
+            '$ACCOUNT_SHORT': 'account',
+
+            # Service Variables (from vars.js)
+            '$TIGER_POSTGRES': 'Tiger Postgres',
+            '$SERVICE_SHORT_CAP': 'Service',
+            '$MST_SERVICE_LONG': 'Managed Service for TimescaleDB service',
+            '$MST_SERVICE_SHORT': 'MST service',
+
+            # Feature Variables (from vars.js)
+            '$HYPERTABLE_CAP': 'Hypertable',
+            '$HYPERCORE_CAP': 'Hypercore',
+            '$ROWSTORE_CAP': 'Rowstore',
+            '$COLUMNSTORE_CAP': 'Columnstore',
+            '$CHUNK_CAP': 'Chunk',
+            '$CHUNK_SKIPPING_CAP': 'Chunk skipping',
+            '$CHUNK_SKIPPING': 'chunk skipping',
+            '$MAT_HYPERTABLE_CAP': 'Materialized hypertable',
+            '$MAT_HYPERTABLE': 'materialized hypertable',
+            '$CAGG_CAP': 'Continuous aggregate',
+            '$RTAGG_CAP': 'Real-time aggregate',
+            '$RTAGG': 'real-time aggregate',
+            '$TIME_BUCKET_CAP': 'Time bucket',
+            '$HA_REPLICA_CAP': 'High-availability replica',
+            '$HA_REPLICA_SHORT': 'HA replica',
+            '$READ_REPLICA_CAP': 'Read replica',
+            '$JOB_CAP': 'Job',
+            '$PAR_COPY_CAP': 'Parallel copy',
+            '$PAR_COPY': 'parallel copy',
+            '$OPS_MODE_CAP': 'Ops mode',
+            '$DATA_MODE_CAP': 'Data mode',
+
+            # Legacy Service Variables (keeping for compatibility)
+            '$SERVICE_LONG': 'Tiger Cloud service',
             '$SERVICE_SHORT': 'service',
             '$MST_LONG': 'Managed Service for TimescaleDB',
             '$MST_SHORT': 'MST',
             '$MST_SERVICE_SHORT': 'service',
             '$MST_SERVICE_LONG': 'service',
             '$MST_CONSOLE_SHORT': 'MST Console',
-            '$CONSOLE': 'Console',
-            '$CONSOLE_LONG': 'Tiger Console',
-            '$CONSOLE_SHORT': 'Console',
-            '$SELF_LONG': 'self-hosted TimescaleDB',
-            '$SELF_SHORT': 'self-hosted TimescaleDB',
+            '$MST_CONSOLE_LONG': 'MST Console',
             
             # Feature Variables
             '$HYPERTABLE': 'hypertable',
             '$HYPERTABLES': 'hypertables',
-            '$HYPERCORE': 'Hypercore',
+            '$HYPERCORE': 'hypercore',
             '$COLUMNSTORE': 'columnstore',
             '$ROWSTORE': 'rowstore',
             '$CHUNK': 'chunk',
@@ -123,13 +210,10 @@ class TigerDataDocumentationGenerator:
             '$DOCS': 'docs',
             
             # Account & Project Variables
-            '$ACCOUNT_LONG': 'TigerData account',
+            '$ACCOUNT_LONG': 'Tiger Data account',
             '$PROJECT_SHORT': 'project',
-            '$JOB': 'job',
             '$SOURCE': 'source',
             '$TARGET': 'target',
-            '$VPC': 'VPC',
-            '$DATA_MODE': 'data mode',
             
             # Tool Variables
             '$TOOLKIT_LONG': 'TimescaleDB Toolkit',
@@ -141,20 +225,30 @@ class TigerDataDocumentationGenerator:
             '$TIGER_POSTGRES': 'TimescaleDB',
             '$POSTGRESQL': 'PostgreSQL',
             
-            # Additional Variables
-            '$OPS_MODE': 'operations mode',
+            # Additional Variables (aligned with vars.js)
+            '$OPS_MODE': 'ops mode',
             '$SQL_EDITOR': 'SQL editor',
-            '$MST_CONSOLE_LONG': 'MST Console',
             '$POPSQL': 'PopSQL',
-            '$ACCOUNT_SHORT': 'account',
-            '$PROJECT_LONG': 'TigerData project',
             '$HA_REPLICA': 'high availability replica',
-            '$TIME_BUCKET': 'time_bucket',
+            '$TIME_BUCKET': 'time bucket',
             '$BODY': 'body',
             '$__': '_',
             '$SERVICE_URL_WITH_PORT': 'service URL with port',
-            '$IO_BOOST': 'IO boost',
+            '$IO_BOOST': 'I/O boost',
             '$DB_NAME': 'database name',
+            '$VPC': 'VPC',
+
+            # Missing variables from vars.js
+            '$JOB': 'job',
+            '$CAGG': 'continuous aggregate',
+            '$RTAGG': 'real-time aggregate',
+            '$TIME_BUCKET': 'time bucket',
+            '$HA_REPLICA': 'high-availability replica',
+            '$READ_REPLICA': 'read replica',
+            '$PAR_COPY': 'parallel copy',
+            '$CHUNK_SKIPPING': 'chunk skipping',
+            '$MAT_HYPERTABLE': 'materialized hypertable',
+            '$DATA_MODE': 'data mode',
             
             # Compound Variables (mixed case patterns)
             'Hypercore_CAP': 'Hypercore',
@@ -384,9 +478,28 @@ class TigerDataDocumentationGenerator:
 
     def replace_variables(self, content: str) -> str:
         """Replace $VARIABLES with their actual values, including pluralized forms."""
-        # First handle exact matches
-        for var, replacement in self.variables.items():
-            content = content.replace(var, replacement)
+        import re
+
+        # First handle template literal style ${VARIABLE} patterns
+        def replace_template_literal(match):
+            var_name = match.group(1)
+            full_var = f'${var_name}'
+            if full_var in self.variables:
+                return self.variables[full_var]
+            return match.group(0)  # Return original if not found
+
+        # Replace ${VARIABLE} patterns
+        content = re.sub(r'\$\{([A-Z0-9_]+)\}', replace_template_literal, content)
+
+        # Then handle exact $VARIABLE matches using regex with word boundaries
+        def replace_exact_variable(match):
+            var_name = match.group(0)
+            if var_name in self.variables:
+                return self.variables[var_name]
+            return var_name
+
+        # Replace $VARIABLE patterns with proper boundaries to avoid partial matches
+        content = re.sub(r'\$[A-Z0-9_]+(?=\s|[^A-Z0-9_]|$)', replace_exact_variable, content)
         
         # Then handle pluralized variables (e.g., $HYPERTABLE_CAPs -> hypertables)
         import re
@@ -411,13 +524,13 @@ class TigerDataDocumentationGenerator:
             return match.group(0)  # Return original if no base variable found
         
         # Pattern to match $VARIABLE_CAP + suffix (like s, ed, ing, etc.)
-        content = re.sub(r'\$([A-Z_]+)_CAP([a-z]+)', replace_pluralized, content)
-        
+        content = re.sub(r'\$([A-Z0-9_]+)_CAP([a-z]+)', replace_pluralized, content)
+
         # Also handle direct pluralization like $HYPERTABLEs
         def replace_direct_plural(match):
             var_name = match.group(1)
             suffix = match.group(2)
-            
+
             # Look up the base variable
             base_var = f'${var_name}'
             if base_var in self.variables:
@@ -432,9 +545,9 @@ class TigerDataDocumentationGenerator:
                 else:
                     return base_replacement + suffix.lower()
             return match.group(0)
-        
+
         # Pattern to match $VARIABLE + suffix
-        content = re.sub(r'\$([A-Z_]+)([a-z]+)', replace_direct_plural, content)
+        content = re.sub(r'\$([A-Z0-9_]+)([a-z]+)', replace_direct_plural, content)
         
         return content
 
@@ -758,7 +871,7 @@ class TigerDataDocumentationGenerator:
 
     def generate_documentation(self) -> str:
         """Generate the complete documentation."""
-        print("Starting TigerData documentation generation...")
+        print("Starting Tiger Data documentation generation...")
         
         # Get ordered sections from main page index
         ordered_sections = self.parse_main_page_index()
@@ -819,7 +932,7 @@ class TigerDataDocumentationGenerator:
 
 def main():
     """Main function to generate the documentation."""
-    print("TigerData Documentation LLM Generator")
+    print("Tiger Data Documentation LLM Generator")
     print("=" * 50)
     
     # Create generator instance

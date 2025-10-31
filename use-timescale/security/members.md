@@ -1,6 +1,6 @@
 ---
-title: Control access to Tiger projects
-excerpt: Manage your projects and services in Tiger Console. Add and delete users, assign roles, join and leave projects, transfer project ownership, and configure authentication
+title: Control access to Tiger Cloud projects
+excerpt: Manage your projects and services in Tiger Cloud Console. Add and delete users, assign roles, join and leave projects, transfer project ownership, and configure authentication
 products: [cloud]
 keywords: [members, projects, admin, roles]
 tags: [users]
@@ -60,9 +60,9 @@ To add a user to a $PROJECT_SHORT:
 When you are asked to join a $PROJECT_SHORT, $CONSOLE sends you an invitation email. Follow the
 instructions in the invitation email to join the $PROJECT_SHORT:
 
-<Tabs label="Join a Tiger project">
+<Tabs label="Join a Tiger Cloud project">
 
-<Tab title="New Tiger user">
+<Tab title="New Tiger Cloud user">
 
 <Procedure>
 
@@ -78,7 +78,7 @@ instructions in the invitation email to join the $PROJECT_SHORT:
     
 </Tab>
 
-<Tab title="Existing Tiger user">
+<Tab title="Existing Tiger Cloud user">
 
 <Procedure>
 
@@ -157,7 +157,7 @@ To transfer $PROJECT_SHORT ownership:
 
 </Procedure>
 
-If you have the [Enterprise pricing plan][pricing-plans], and log in to $CLOUD_LONG using [SAML authentication][saml]
+If you have the [$ENTERPRISE $PRICING_PLAN][pricing-plans], and log in to $CLOUD_LONG using [SAML authentication][saml]
 or have not enabled [two-factor authentication][2fa], [contact support](https://www.tigerdata.com/contact) to transfer
 $PROJECT_SHORT ownership.
 

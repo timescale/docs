@@ -1,6 +1,6 @@
 ---
-title: Integrate data lakes with Tiger
-excerpt: Unifies the Tiger operational architecture with data lake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
+title: Integrate data lakes with Tiger Cloud
+excerpt: Unifies the Tiger Cloud operational architecture with data lake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [data lake, lakehouse, s3, iceberg]
@@ -8,6 +8,7 @@ keywords: [data lake, lakehouse, s3, iceberg]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate data lakes with $CLOUD_LONG
 
@@ -28,6 +29,8 @@ Tiger Lake is currently in private beta. Please contact us to request access.
 ## Prerequisites
 
 <IntegrationPrereqsCloud/>
+
+<NotSupportedAzure />
 
 ## Integrate a data lake with your $SERVICE_LONG
 
@@ -73,7 +76,7 @@ To connect a $SERVICE_LONG to your data lake:
       - ARN of the S3Table bucket
       - ARN of a role with permissions to write to the table bucket   
 
-   Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+   Provisioning takes a couple of minutes.
 
 </Procedure>
 
@@ -95,7 +98,7 @@ To connect a $SERVICE_LONG to your data lake:
    
    ```shell
    aws cloudformation create-stack \
-    --capabilities CapabilityIAM \
+    --capabilities CAPABILITY_IAM \
     --template-url https://tigerlake.s3.us-east-1.amazonaws.com/tigerlake-connect-cloudformation.yaml \
     --region <Region> \
     --stack-name <StackName> \
@@ -117,7 +120,7 @@ To connect a $SERVICE_LONG to your data lake:
       - ARN of the S3Table bucket
       - ARN of a role with permissions to write to the table bucket
 
-   Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+   Provisioning takes a couple of minutes.
 
 </Procedure>
 
@@ -210,7 +213,7 @@ To connect a $SERVICE_LONG to your data lake:
       - ARN of the S3Table bucket
       - ARN of a role with permissions to write to the table bucket
 
-   Provisioning takes a couple of minutes, during this time the $SERVICE_SHORT is restarted.
+   Provisioning takes a couple of minutes.
 
 </Procedure>
 
@@ -233,14 +236,19 @@ statement:
 ```sql
 ALTER TABLE <table_name> SET (
   tigerlake.iceberg_sync = true | false,
-  tigerlake.iceberg_partitionby = '<partition_specification>'
+  tigerlake.iceberg_partitionby = '<partition_specification>',
+  tigerlake.iceberg_namespace = '<namespace>',
+  tigerlake.iceberg_table = '<table>'
 )
 ```
 
 * `tigerlake.iceberg_sync`: `boolean`, set to `true` to start streaming, or `false` to stop the stream. A stream 
   **cannot** resume after being stopped. 
 * `tigerlake.iceberg_partitionby`: optional property to define a partition specification in Iceberg. By default the 
-   Iceberg table is partitioned as `day(<time-column of $HYPERTABLE>)`. This default behavior is only applicable to $HYPERTABLEs. For more information, see [partitioning][partitioning].
+   Iceberg table is partitioned as `day(<time-column of $HYPERTABLE>)`. This default behavior is only applicable  
+   to $HYPERTABLEs. For more information, see [partitioning][partitioning].
+* `tigerlake.iceberg_namespace`: optional property to set a namespace, the default is `timescaledb`.
+* `tigerlake.iceberg_table`: optional property to specify a different table name. If no name is specified the $PG table name is used.
 
 ### Partitioning intervals
 
@@ -320,18 +328,44 @@ data lake:
    When you change the partition, you **do not** have to pause the sync to Iceberg. 
    Apache Iceberg handles the partitioning operation in function of the internal implementation.
 
+**Specify a different namespace**
+
+   By default, tables are created in the the `timescaledb` namespace. To specify a different namespace when you start the sync, use the  `tigerlake.iceberg_namespace` property. For example:
+   
+   ```sql
+   ALTER TABLE my_hypertable SET (
+     tigerlake.iceberg_sync = true,
+     tigerlake.iceberg_namespace = 'my_namespace'
+   );
+   ```
+
+**Specify a different Iceberg table name**
+
+   The table name in Iceberg is the same as the source table in $CLOUD_LONG. 
+   Some services do not allow mixed case, or have other constraints for table names. 
+   To define a different table name for the Iceberg table at sync start,  use the `tigerlake.iceberg_table` property. For example: 
+   
+   ```sql
+   ALTER TABLE Mixed_CASE_TableNAME SET (
+     tigerlake.iceberg_sync = true,
+     tigerlake.iceberg_table = 'my_table_name'
+   );
+   ```
+
 ## Limitations
 
-* Only $PG 17.4 is supported. Services running $PG 17.5 are downgraded to 17.4.
-* Consistent ingestion rates of over 50000 records / second can lead to a lost replication slot.
+* Service requires $PG 17.6 and above is supported.
+* Consistent ingestion rates of over 30000 records / second can lead to a lost replication slot. Burst can be feathered out over time. 
 * [Amazon S3 Tables Iceberg REST][aws-s3-tables] catalog only is supported.
 * In order to collect deletes made to data in the columstore, certain columnstore optimizations are disabled for $HYPERTABLEs.
+* [Direct Compress][direct-compress] is not supported.
 * The `TRUNCATE` statement is not supported, and does not truncate data in the corresponding Iceberg table.
 * Data in a $HYPERTABLE that has been moved to the [low-cost object storage tier][data-tiering] is not synced.
-* Renaming a table in $PG stops the sync to Iceberg and causes unexpected behavior.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
-* The Iceberg namespace is hard coded to `timescaledb`, a custom namespace value is work in progress.
+
+
+
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
 [aws-athena]: https://aws.amazon.com/athena/
@@ -351,3 +385,4 @@ data lake:
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [aws-s3-tables]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[direct-compress]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#speed-up-data-ingestion

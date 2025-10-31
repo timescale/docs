@@ -1,8 +1,7 @@
 ---
-title: Monitor your Tiger services
-excerpt: View logs, metrics, and performance insights for your services in Tiger. Get actionable tips to improve your service performance
+title: Monitor your Tiger Cloud services
+excerpt: View logs, metrics, and performance insights for your services in Tiger Cloud. Get actionable tips to improve your service performance
 products: [cloud]
-price_plans: [performance, scale, enterprise]
 keywords: [monitoring]
 tags: [telemetry, monitor]
 ---
@@ -30,7 +29,7 @@ This pages explains what specific data you get at each point.
 $CLOUD_LONG shows you CPU, memory, and storage metrics for up to 30 previous days and with down to 10-second granularity.
 To access metrics, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Metrics`:
 
-![Service metrics](https://assets.timescale.com/docs/images/tiger-cloud-console/service-metrics-tiger-console.png)
+![Service metrics](https://assets.timescale.com/docs/images/tiger-on-azure/service-metrics-tiger-console.png)
 
 The following metrics are represented by graphs:
 
@@ -39,6 +38,8 @@ The following metrics are represented by graphs:
 - Storage used, in GiB
 - Storage I/O, in ops/sec
 - Storage bandwidth, in MiB/sec
+
+The [$FREE $PRICING_PLAN][pricing-plans] only includes storage metrics.
 
 When you hit the limits:
 
@@ -94,7 +95,7 @@ $CLOUD_LONG shows you detailed logs for your $SERVICE_SHORT, which you can filte
 
 To access logs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Logs`:
 
-![Find logs faster](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-service-logs.png)
+![Find logs faster](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-logs.png)
 
 ## Insights
 
@@ -102,7 +103,7 @@ Insights help you get a comprehensive understanding of how your queries perform 
 
 To view insights, select your $SERVICE_SHORT, then click `Monitoring` > `Insights`. Search or filter queries by type, maximum execution time, and time frame.
 
-![Insights](https://assets.timescale.com/docs/images/tiger-cloud-console/insights-overview-tiger-console.png)
+![Insights](https://assets.timescale.com/docs/images/tiger-on-azure/insights-overview-tiger-console.png)
 
 Insights include `Metrics`, `Current lock contention`, and `Queries`. 
 
@@ -137,7 +138,7 @@ query. Check out the last update value at the top of the query table to identify
 
 Click a query in the list to see the drill-down view. This view not only helps you identify spikes and unexpected behaviors, but also offers information to optimize your query.
 
-![Queries drill-down view](https://assets.timescale.com/docs/images/tiger-cloud-console/query-drill-down-view-tiger-console.png)
+![Queries drill-down view](https://assets.timescale.com/docs/images/tiger-on-azure/query-drill-down-view-tiger-console.png)
 
 This view includes the following graphs:
 
@@ -156,11 +157,11 @@ $CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along wi
 
 1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
 
-   ![Jobs](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-jobs.png)
+   ![Jobs](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-jobs.png)
 
 1. Click a $JOB ID in the list to view its config and run history:
 
-   ![Job details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-job-details.png)
+   ![Job details](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-job-details.png)
 
 1. Click the pencil icon to edit the $JOB config:
 
@@ -174,7 +175,7 @@ $CLOUD_LONG lists current and past connections to your $SERVICE_SHORT. This incl
 
 To view connections, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Connections`. Expand the query underneath each connection to see the full SQL.
 
-![Connections](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-service-connections.png)
+![Connections](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-connections.png)
 
 Click the trash icon next to a connection in the list to terminate it. A lock icon means that a connection cannot be terminated; hover over the icon to see the reason.
 
@@ -184,7 +185,7 @@ $CLOUD_LONG offers specific tips on configuring your $SERVICE_SHORT. This includ
 
 To view recommendations, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Recommendations`:
 
-![Recommendations](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-recommendations.png)
+![Recommendations](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-cloud-console-recommendations.png)
 
 ## Query-level statistics with `pg_stat_statements`
 
@@ -249,3 +250,4 @@ For more examples and detailed explanations, see the [blog post on identifying p
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [locked-memory]: https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html
 [memory-settings]: https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-MEMORY
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

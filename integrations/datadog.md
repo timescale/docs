@@ -1,6 +1,6 @@
 ---
-title: Integrate Datadog with Tiger
-excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Tiger service with time-series and analytics capability to Datadog
+title: Integrate Datadog with Tiger Cloud
+excerpt: Datadog is a cloud-based monitoring and analytics platform. Export telemetry data from your Tiger Cloud service with time-series and analytics capability to Datadog
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integrate]
@@ -9,6 +9,7 @@ keywords: [integrate]
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate Datadog with $CLOUD_LONG
 
@@ -19,11 +20,11 @@ This page explains how to:
 
 - [Monitor $SERVICE_LONG metrics with Datadog][datadog-monitor-cloud]
 
-  This integration is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
+  This integration is available for [$SCALE and $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 - Configure Datadog Agent to collect metrics for your $SERVICE_LONG
 
-   This integration is available for all pricing plans.
+   This integration is available for all $PRICING_PLANs.
 
 
 ## Prerequisites
@@ -35,6 +36,8 @@ This page explains how to:
   You need your [Datadog API key][datadog-api-key] to follow this procedure.
 
 - Install [Datadog Agent][datadog-agent-install].
+
+<NotSupportedAzure />
 
 ## Monitor $SERVICE_LONG metrics with Datadog
 
@@ -132,6 +135,9 @@ metrics about your $SERVICE_LONGs.
 Metrics for your $SERVICE_LONG are now visible in Datadog. Check the Datadog $PG integration documentation for a
 comprehensive list of [metrics][datadog-postgres-metrics] collected.
 
+
+
+
 [datadog]: https://www.datadoghq.com/
 [datadog-agent-install]: https://docs.datadoghq.com/getting_started/agent/#installation
 [datadog-postgres]: https://docs.datadoghq.com/integrations/postgres/
@@ -143,7 +149,7 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [datadog-agent-restart]: https://docs.datadoghq.com/agent/configuration/agent-commands/#start-stop-and-restart-the-agent
 [projects]: /use-timescale/:currentVersion:/security/members/
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/

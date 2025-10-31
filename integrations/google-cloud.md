@@ -1,6 +1,6 @@
 ---
-title: Integrate Google Cloud with Tiger  
-excerpt: Google Cloud enables you to deploy, manage, and scale cloud-based applications, databases, and data processing workflows. Integrate Google Cloud with Tiger using AWS Transit Gateway
+title: Integrate Google Cloud with Tiger Cloud
+excerpt: Google Cloud enables you to deploy, manage, and scale cloud-based applications, databases, and data processing workflows. Integrate Google Cloud with Tiger Cloud using AWS Transit Gateway
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [Google Cloud, integrations]
@@ -8,6 +8,7 @@ keywords: [Google Cloud, integrations]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate Google Cloud with $CLOUD_LONG
 
@@ -20,6 +21,7 @@ This page explains how to integrate your Google Cloud infrastructure with $CLOUD
 <IntegrationPrereqsCloud />
 
 - Set up [AWS Transit Gateway][gtw-setup].
+<NotSupportedAzure />
 
 ## Connect your Google Cloud infrastructure to your $SERVICE_LONGs
 
@@ -36,6 +38,12 @@ To connect to $CLOUD_LONG:
 </Procedure>
 
 You have successfully integrated your Google Cloud infrastructure with $CLOUD_LONG.
+
+
+
+
+
+
 
 [google-cloud]: https://cloud.google.com/?hl=en
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/

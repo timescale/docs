@@ -1,11 +1,12 @@
 ---
-title: Integrate Amazon CloudWatch with Tiger 
-excerpt: Amazon CloudWatch is a monitoring and observability service. Export telemetry data from your Tiger service with time-series and analytics capability to Amazon CloudWatch
+title: Integrate Amazon CloudWatch with Tiger Cloud
+excerpt: Amazon CloudWatch is a monitoring and observability service. Export telemetry data from your Tiger Cloud service with time-series and analytics capability to Amazon CloudWatch
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
@@ -24,6 +25,8 @@ This pages explains how to export telemetry data from your $SERVICE_LONG into Cl
 
 - Sign up for [Amazon CloudWatch][cloudwatch-signup].
 
+<NotSupportedAzure />
+
 ## Create a data exporter
 
 A $CLOUD_LONG data exporter sends telemetry data from a $SERVICE_LONG to a third-party monitoring
@@ -33,8 +36,11 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 
 <ManageDataExporter />
 
+
+
+
 [projects]: /use-timescale/:currentVersion:/security/members/
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-signup]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GettingSetup.html
 

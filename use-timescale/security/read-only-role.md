@@ -1,12 +1,12 @@
 ---
-title: Manage data security in your Tiger service
+title: Manage data security in your Tiger Cloud service
 excerpt: Learn about the available user roles to access data in your database
 products: [cloud]
 keywords: [client credentials, accounts, users, members, read-only, security]
 tags: [authentication, credentials, members, security]
 ---
 
-# Manage data security in your Tiger service
+# Manage data security in your $SERVICE_LONG
 
 When you create a $SERVICE_SHORT, $CLOUD_LONG assigns you the tsdmadmin role. This role has full permissions to modify data in your $SERVICE_SHORT. However, $CLOUD_LONG does not provide superuser access. tsdmadmin is not a superuser. 
 
@@ -14,7 +14,7 @@ As tsdmadmin, you can use standard $PG means to create other roles or assign ind
 
 <Highlight type="important">
 
-The database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT do not overlap with the $PROJECT_LONG user roles. This page describes the database-level roles. For user roles available in $CONSOLE_SHORT, see [Control user access to Tiger projects][console-rbac].
+The database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT do not overlap with the $PROJECT_LONG user roles. This page describes the database-level roles. For user roles available in $CONSOLE_SHORT, see [Control user access to $PROJECT_LONGs][console-rbac].
 
 </Highlight>
 

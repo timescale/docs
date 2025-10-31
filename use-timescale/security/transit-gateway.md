@@ -1,6 +1,6 @@
 ---
-title: Peer your Tiger services with AWS Transit Gateway
-excerpt: Securely connect to your Tiger services from AWS, GCP, Azure, or any other cloud or on-premise environment 
+title: Peer your Tiger Cloud services with AWS Transit Gateway
+excerpt: Securely connect to your Tiger Cloud services from AWS, GCP, Azure, or any other cloud or on-premise environment 
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [AWS, transit gateway]
@@ -11,10 +11,13 @@ cloud_ui:
 ---
 
 import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Securely connect to $CLOUD_LONG using AWS Transit Gateway
 
 [AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your $CLOUD_LONG from AWS, Google Cloud, Microsoft Azure, or any other cloud or on-premise environment.
+
+<NotSupportedAzure />
 
 You use AWS Transit Gateway as a traffic controller for your network. Instead of setting up multiple direct connections to different clouds, on-premise data centers, and other AWS services, you connect everything to AWS Transit Gateway. This simplifies your network and makes it easier to manage and scale.
 
@@ -87,7 +90,7 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 
 </Tabs>
 
-You can now securely access your $SERVICE_SHORTs in $CLOUD_LONG. 
+You can now securely access your $SERVICE_SHORTs in $CLOUD_LONG.
 
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

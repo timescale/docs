@@ -1,6 +1,6 @@
 ---
 title: Metrics and logging
-excerpt: Tiger enables you to monitor your services using the built-in metrics or by integrating third-party services. See the options available in Tiger Console
+excerpt: Tiger Cloud enables you to monitor your services using the built-in metrics or by integrating third-party services. See the options available in Tiger Cloud Console
 products: [cloud]
 keywords: [metrics, logs, admin]
 tags: [payment]
@@ -18,6 +18,7 @@ Find metrics and logs for your $SERVICE_SHORTs in $CONSOLE, or integrate with th
 *   Export metrics to [Datadog][datadog].
 *   Export metrics to [Amazon Cloudwatch][cloudwatch].
 *   Export metrics to [Prometheus][prometheus].
+
 
 [prometheus]: /use-timescale/:currentVersion:/metrics-logging/metrics-to-prometheus/
 [datadog]: /use-timescale/:currentVersion:/metrics-logging/datadog/

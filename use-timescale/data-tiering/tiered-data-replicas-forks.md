@@ -1,13 +1,15 @@
 ---
 title: Replicas and forks with tiered data
-excerpt: While having replicas of your Tiger service usually entails additional storage costs, tiering data to object storage means your replicas come for free. Learn how this works under the hood
+excerpt: While having replicas of your Tiger Cloud service usually entails additional storage costs, tiering data to object storage means your replicas come for free. Learn how this works under the hood
 products: [cloud]
 price_plans: [scale, enterprise]
 keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
-# How tiered data works on replicas and forks 
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+
+# How tiered data works on replicas and forks
 
 There is one more thing that makes Tiered Storage even more amazing: when you keep data in the low-cost object storage tier,
 you pay for this data only once, regardless of whether you have a [high-availability replica][ha-replica]
@@ -18,6 +20,8 @@ When creating one (or more) forks, you won't be billed for data shared with the 
 
 If you decide to tier more data that's not in the primary, you will pay to store it in the low-cost tier,
 but you will still see substantial savings by moving that data from the high-performance tier of the fork to the cheaper object storage tier.
+
+<NotSupportedAzure />
 
 ## How this works behind the scenes
 
@@ -67,6 +71,7 @@ In addition to that, we delay hard deleting the data by 14 days, so that in case
 In the case of such a restore, new references are added to the deleted tiered chunks, so they are not any more candidates for a hard deletion. 
 
 Once 14 days pass after soft deleting the data,that is the number of references to the tiered data drop to 0, we hard delete the tiered data.
+
 
 [ha-replica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/#read-replicas

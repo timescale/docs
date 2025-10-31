@@ -1,7 +1,8 @@
 ---
 title: Virtual Private Cloud
-excerpt: Virtual Private Cloud peering ensures that your Tiger services are only accessible through your secured AWS infrastructure. Set up VPC peering in Tiger Console
+excerpt: Virtual Private Cloud peering ensures that your Tiger Cloud services are only accessible through your secured AWS infrastructure. Set up VPC peering in Tiger Cloud Console
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [PrivateLink, AWS, vpc, services, operations, ]
 tags: [aws]
 cloud_ui:
@@ -10,12 +11,15 @@ cloud_ui:
 ---
 
 import VpcLimitations from "versionContent/_partials/_vpc-limitations.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Secure your $CLOUD_LONG services with $VPC Peering and AWS PrivateLink
 
 You use Virtual Private Cloud ($VPC) peering to ensure that your $SERVICE_LONGs are 
 only accessible through your secured AWS infrastructure. This reduces the potential 
 attack vector surface and improves security.
+
+<NotSupportedAzure />
 
 The data isolation architecture that ensures a highly secure connection between your apps and 
 $CLOUD_LONG is:
@@ -215,13 +219,14 @@ Migration takes a few minutes to complete and requires a change to DNS settings 
 $SERVICE_SHORT. The $SERVICE_SHORT is not accessible during this time. If you receive a DNS error, allow
 some time for DNS propagation.
 
+
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups:
 [console-login]: https://console.cloud.timescale.com/
 [console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
 [console-services]: https://console.cloud.timescale.com/dashboard/services
 [timescale-support]: https://www.timescale.com/contact/
-[tsc-regions]: /use-timescale/:currentVersion:/regions/
+[tsc-regions]: /about/:currentVersion:/supported-platforms/#available-regions
 [aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#create-a-peering-vpc-in-timescale-console
 [aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
 [aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws

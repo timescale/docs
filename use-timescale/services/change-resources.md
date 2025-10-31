@@ -1,7 +1,8 @@
 ---
 title: Manually change compute resources
-excerpt: Tiger charges for the storage you actually use, and handles disk resize for you. You can also manually resize the compute resources available to your Tiger services with minimal downtime
+excerpt: Tiger Cloud charges for the storage you actually use, and handles disk resize for you. You can also manually resize the compute resources available to your Tiger Cloud services with minimal downtime
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [services, operation, storage]
 tags: [disk space, resources, oom, memory]
 cloud_ui:
@@ -24,7 +25,7 @@ You can change the CPU and memory allocation for your $SERVICE_SHORT at any time
 minimal downtime, usually less than a minute. The new resources become available as soon as 
 the $SERVICE_SHORT restarts. You can change the CPU and memory allocation up or down, as frequently as required. 
 
-![Change resources](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-update-cpu-manually.png)
+![Change resources](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-update-cpu-manually.png)
 
 Note that:
 
@@ -72,7 +73,7 @@ memory than is available.
 
 When this happens, an `OOM killer` process shuts down $PG processes using
 `SIGKILL` commands until the memory usage falls below the upper limit. Because
-this kills the entire server process, it usually requires a restart. 
+this kills the entire server process, it usually requires a restart.
 
 To prevent $SERVICE_SHORT disruption caused by OOM errors, $CLOUD_LONG attempts to
 shut down only the query that caused the problem. This means that the
@@ -84,11 +85,11 @@ operate normally.
    ```yml
    2021-09-09 18:15:08 UTC [560567]:TimescaleDB: LOG: server process (PID 2351983) was terminated by signal 9: Killed
    ```
-   
-   Wait for the $SERVICE_SHORT to come back online before reconnecting.
 
-* $CLOUD_LONG shuts the client connection only 
-  
+  Wait for the $SERVICE_SHORT to come back online before reconnecting.
+
+* $CLOUD_LONG shuts the client connection only
+
   If $CLOUD_LONG successfully guards the $SERVICE_SHORT against the OOM killer, it shuts
   down only the client connection that was using too much memory. This prevents
   the entire $SERVICE_SHORT from shutting down, so you can reconnect immediately. The error log looks like this:

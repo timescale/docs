@@ -1,6 +1,6 @@
 ---
-title: About security in Tiger
-excerpt: Learn how Tiger protects your data with secure development practices, as well as configurable features that restrict access to your services
+title: About security in Tiger Cloud
+excerpt: Learn how Tiger Cloud protects your data with secure development practices, as well as configurable features that restrict access to your services
 products: [cloud]
 keywords: [security]
 tags: [encryption, VPC, privacy]
@@ -90,13 +90,13 @@ has mandatory recurring training regarding the applicable policies.
 
 ## HIPAA compliance
 
-The $CLOUD_LONG [Enterprise plan][pricing-plan-features] is Health Insurance Portability and Accountability Act 
+The $CLOUD_LONG [$ENTERPRISE plan][pricing-plan-features] is Health Insurance Portability and Accountability Act 
 (HIPAA) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they 
 meet regulatory requirements while building compliant applications.
 
 ## SOC 2 compliance
 
-$CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can securely manage customer data in alignment with industry standards for security, availability, processing integrity, confidentiality, and privacy. It helps businesses meet trust requirements while confidently building applications that handle sensitive information. The annual SOC 2 report is available to customers on the Scale or Enterprise pricing plans. Open a [support ticket][open-support-ticket] to get access to it.
+$CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can securely manage customer data in alignment with industry standards for security, availability, processing integrity, confidentiality, and privacy. It helps businesses meet trust requirements while confidently building applications that handle sensitive information. The annual SOC 2 report is available to customers on the $SCALE or $ENTERPRISE $PRICING_PLANs. Open a [support ticket][open-support-ticket] to get access to it.
 
 [timescale-privacy-policy]: https://www.timescale.com/legal/privacy
 [tsc-tos]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
@@ -107,5 +107,5 @@ $CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can secur
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc
 [security-at-timescale]: https://www.timescale.com/security
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [open-support-ticket]: https://console.cloud.timescale.com/dashboard/support
