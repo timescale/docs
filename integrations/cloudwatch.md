@@ -6,6 +6,7 @@ price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
@@ -24,6 +25,8 @@ This pages explains how to export telemetry data from your $SERVICE_LONG into Cl
 
 - Sign up for [Amazon CloudWatch][cloudwatch-signup].
 
+<NotSupportedAzure />
+
 ## Create a data exporter
 
 A $CLOUD_LONG data exporter sends telemetry data from a $SERVICE_LONG to a third-party monitoring
@@ -32,6 +35,9 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 <CloudWatchExporter />
 
 <ManageDataExporter />
+
+
+
 
 [projects]: /use-timescale/:currentVersion:/security/members/
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

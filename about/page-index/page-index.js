@@ -6,7 +6,7 @@ module.exports = [
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Additional information about Tiger Data, including how to contribute, and release notes",
+      "Additional information about Tiger Data products, their features, and supported platforms",
     children: [
       {
         title: "Tiger Data architecture for real-time analytics",
@@ -20,9 +20,14 @@ module.exports = [
         excerpt: "Pricing plans for Tiger Cloud services",
       },
       {
+        title: "Feature comparison",
+        href: "feature-comparison",
+        excerpt: "Feature comparison for Tiger Cloud and self-hosted TimescaleDB.",
+      },
+      {
         title: "Changelog",
         href: "changelog",
-        excerpt: "A summary of the latest changes to all Tiger Data products.",
+        excerpt: "A summary of the latest changes to Tiger Cloud",
       },
       {
         title: "TimescaleDB editions",
