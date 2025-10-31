@@ -1,4 +1,5 @@
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 [Prometheus][prometheus] is an open-source monitoring system with a dimensional data model, flexible query language, and a modern alerting approach.
 
@@ -19,6 +20,8 @@ To follow the steps on this page:
   - Create a target [$SELF_LONG][enable-timescaledb] instance. You need your [connection details][connection-info].
   - [Install Postgres Exporter][install-exporter].
   To reduce latency and potential data transfer costs, install Prometheus and Postgres Exporter on a machine in the same AWS region as your $SERVICE_LONG.
+
+<NotSupportedAzure />
 
 ## Export $SERVICE_LONG telemetry to Prometheus
 
@@ -52,11 +55,11 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Select the exporter in the drop-down, then click `Attach exporter`.
 
-      ![Attach a Prometheus exporter to a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/attach-prometheus-exporter-tiger-console.png)
+      ![Attach a Prometheus exporter to a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/attach-prometheus-exporter-tiger-console.png)
 
    The exporter is now attached to your $SERVICE_SHORT. To unattach it, click the trash icon in the exporter list. 
 
-      ![Unattach a Prometheus exporter from a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/unattach-prometheus-exporter-tiger-console.png)
+      ![Unattach a Prometheus exporter from a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/unattach-prometheus-exporter-tiger-console.png)
 
 1. **Configure the Prometheus scrape target**
 

@@ -10,6 +10,7 @@ cloud_ui:
 ---
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # About storage tiers
 
@@ -33,6 +34,8 @@ $CLOUD_LONG high-performance storage comes in the following types:
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
 Once you [enable tiered storage][manage-tiering], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
+
+<NotSupportedAzure />
 
 Apache Parquet allows for more efficient scans across longer time periods, and $CLOUD_LONG uses other metadata and query optimizations to reduce the amount of data that needs to be fetched to satisfy a query, such as: 
 
@@ -121,6 +124,7 @@ The low-cost storage tier comes with the following limitations:
 *   **Number of dimensions**: you cannot use tiered storage with hypertables
     partitioned on more than one dimension. Make sure your hypertables are
     partitioned on time only, before you enable tiered storage.
+
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
