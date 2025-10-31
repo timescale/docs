@@ -16,7 +16,7 @@ import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 Retrieve statistics about the chunks in the $COLUMNSTORE
 
 `chunk_columnstore_stats` returns the size of chunks in the $COLUMNSTORE, these values are computed when you call either:
-- [CREATE TABLE][hypertable-create-table]: create a $HYPERTABLE with an default [job][job] that automatically
+- [CREATE TABLE][hypertable-create-table]: create a $HYPERTABLE with a default [job][job] that automatically
   moves chunks in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval.  
 - [add_columnstore_policy][add_columnstore_policy]: create a [job][job] on an existing $HYPERTABLE that automatically 
   moves chunks in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval.

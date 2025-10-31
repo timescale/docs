@@ -19,12 +19,12 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
 Create a [job][job] that automatically moves chunks in a hypertable to the $COLUMNSTORE after a 
 specific time interval.
 
-- **$CAGGs**:
+- **$CAGG_CAPs**:
 
    You first call `ALTER MATERIALIZED VIEW` to enable the $COLUMNSTORE on a $CAGG, then create the job that converts
    your data to the $COLUMNSTORE with a call to `add_columnstore_policy`.
 
-- **$HYPERTABLEs**:  
+- **$HYPERTABLE_CAPs**:  
 
    <CreateHypertablePolicyNote />
 

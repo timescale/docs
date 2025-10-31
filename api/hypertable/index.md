@@ -15,7 +15,7 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
 For more information about using hypertables, including chunk size partitioning,
 see the [hypertable section][hypertable-docs].
 
-To create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+To create a [$HYPERTABLE][hypertables-section] for your time-series data, use [CREATE TABLE][hypertable-create-table].
 For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
 use most often to filter your data. For example:
 
