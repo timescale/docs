@@ -1,4 +1,4 @@
-## Create an $ACCOUNT_SHORT
+import CreateAccountConsole from "versionContent/_partials/_create-account-console.mdx";
 
 You create a $ACCOUNT_LONG to manage your $SERVICE_SHORTs and data in a centralized and efficient manner in $CONSOLE. From there, you can create and delete $SERVICE_SHORTs, run queries, manage access and billing, integrate other services, contact support, and more.
 
@@ -8,23 +8,7 @@ You create a $ACCOUNT_LONG to manage your $SERVICE_SHORTs and data in a centrali
 
 You create a standalone account to manage $CLOUD_LONG as a separate unit in your infrastructure, which includes separate billing and invoicing.
 
-<Procedure>
-
-To set up $CLOUD_LONG:
-  
-1. **Sign up for a 30-day free trial** 
-
-   Open [Sign up for $CLOUD_LONG][timescale-signup] and add your details, then click `Start your free trial`. You receive a confirmation email in your inbox.
-
-1. **Confirm your email address**
-
-    In the confirmation email, click the link supplied.
-
-1. **Select the [pricing plan][pricing-plans]**
-
-   You are now logged into $CONSOLE_LONG. You can change the pricing plan to better accommodate your growing needs on the [`Billing` page][console-billing]. 
-
-</Procedure>
+<CreateAccountConsole />
 
 </Tab>
 
