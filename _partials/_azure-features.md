@@ -15,7 +15,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | Number of $SERVICE_SHORTs	                                    | Up to 2 free services             | Up to 2 free and 4 standard services 	 | Up to 2 free and and unlimited standard services	  | Up to 2 free and and unlimited standard services |
 | CPU limit per $SERVICE_SHORT                                  | Shared                            | 	Up to 8 CPU	                          | Up to 32 CPU	                                  | Up to 64 CPU                                     |
 | Memory limit per $SERVICE_SHORT                               | Shared                            | 	Up to 32 GB                           | 	Up to 128 GB                                  | 	Up to 256 GB                                    |
-| Storage limit per $SERVICE_SHORT	                             | 750 MB                            | Up to 16 TB	                           | Up to 16 TB	                                   | Up to 64 TB                                      |
+| Storage limit per $SERVICE_SHORT	                             | 750 MB                            | Up to 16 TB	                           | Up to 16 TB	                                   | Up to 16 TB                                      |
 | Independently scale compute and storage	                      |                                   | Standard services only                 | 	Standard services only	                           | Standard services only                           |
 | **Data services and workloads**                               |                                   |                                        |                                                |
 | Relational                                                    | ✓                                 | ✓                                      | ✓                                              | ✓                                                |
@@ -28,7 +28,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 | **Storage and performance**                                   |                                   |                                        |                                                |                                                  |
 | IOPS                                                          | Shared	                           | 	3,000 - 5,000	                        | 5,000 - 8,000                                  | 5,000 - 8,000                                    |
 | Bandwidth (autoscales)	                                       | Shared                            | 125 - 250 Mbps                         | 	250 - 500 Mbps                                | 	Up to 500 mbps                                  |
-| I/O boost	                                                    |                                   |                                        | 	Add-on: <br/>Up to 16K IOPS, 1000 Mbps BW	    | Add-on: <br/>Up to 32K IOPS, 4000 Mbps BW        |
+| I/O boost	                                                    |                                   |                                        | 	Add-on: <br/>Up to 16K IOPS, 1000 Mbps BW	    | Add-on: <br/>Up to 16K IOPS, 1000 Mbps BW        |
 | **Availability and monitoring**                               |                                   |                                        |                                                |                                                  |
 | High-availability replicas <br/>(Automated multi-AZ failover) |                                   | ✓                                      | ✓                                              | ✓                                                |
 | Read replicas		                                               |                                   |                                        | ✓                                              | ✓                                                |
@@ -59,3 +59,5 @@ For a personalized quote, [get in touch with $COMPANY][contact-company].
 
 [pricing-plans]: https://www.timescale.com/pricing
 [contact-company]: https://www.tigerdata.com/contact/
+[hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
+[commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service

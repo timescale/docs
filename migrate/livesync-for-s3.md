@@ -144,7 +144,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
     1. To view file import statistics and logs, click `Connectors` > `Source connectors`, then select the name of your connector in the table.
 
-       ![S3 connector stats](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-stats.png)
+       ![S3 connector stats](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-details.png)
 
 
 1. **Manage the connector**
