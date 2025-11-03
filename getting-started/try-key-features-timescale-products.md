@@ -11,6 +11,8 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+import SupportPlans from "versionContent/_partials/_support-plans.mdx";
 
 # Try the key features in $COMPANY products
 
@@ -211,7 +213,7 @@ For example, yesterday's market data.
    90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
    saved, click `Explorer` > `public` > `crypto_ticks`. 
 
-   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-columstore-data-savings.png )
+   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-columstore-data-savings.png )
 
 </Procedure>
 
@@ -341,6 +343,8 @@ a $CAGG, run the query part of the $CAGG
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
+<NotSupportedAzure />
+
 In the previous sections, you used $CAGGs to make fast analytical queries, and
 $HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
 you create tiering policies to move rarely accessed data to the object store. The object store is 
@@ -360,7 +364,7 @@ To set up data tiering:
    
    1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
 
-      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-console.png)
+      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png)
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
@@ -406,6 +410,10 @@ data loss during failover.
 <HASetup />
 
 For more information, see [High availability][high-availability].
+
+## $CLOUD_LONG support
+
+<SupportPlans />
 
 What next? See the [use case tutorials][tutorials], interact with the data in your $SERVICE_LONG using
 [your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of
