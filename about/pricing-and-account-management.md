@@ -50,7 +50,7 @@ If you create a $ACCOUNT_LONG from AWS Marketplace, the pricing options are pay-
 
 <UpgradeMonitor />
 
-## $COMPANY support
+## $CLOUD_LONG support
 
 <SupportPlans />
 
@@ -103,7 +103,7 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 
 <UpgradeMonitor />
 
-## $COMPANY support
+## $CLOUD_LONG support
 
 <SupportPlans />
 
