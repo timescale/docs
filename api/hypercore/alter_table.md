@@ -66,7 +66,6 @@ ALTER TABLE <table_name> SET (timescaledb.enable_columnstore,
    timescaledb.compress_segmentby = '<column_name> [, ...]',
    timescaledb.sparse_index = '<index>(<column_name>), <index>(<column_name>)'
    timescaledb.compress_chunk_time_interval='interval',
-   SET ACCESS METHOD { new_access_method | DEFAULT },
    ALTER <column name> SET NOT NULL,
    ADD CONSTRAINT <constraint_name> UNIQUE (<column name>, ... ) 
 );
