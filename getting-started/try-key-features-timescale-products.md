@@ -12,6 +12,7 @@ import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
 import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+import SupportPlans from "versionContent/_partials/_support-plans.mdx";
 
 # Try the key features in $COMPANY products
 
@@ -409,6 +410,10 @@ data loss during failover.
 <HASetup />
 
 For more information, see [High availability][high-availability].
+
+## $CLOUD_LONG support
+
+<SupportPlans />
 
 What next? See the [use case tutorials][tutorials], interact with the data in your $SERVICE_LONG using
 [your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of
