@@ -29,7 +29,7 @@ To export your data, do the following:
 
 <Tabs label="Export metrics to Prometheus" persistKey="source-database">
 
-<Tab title="Tiger" label="tiger-cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
 
 <Procedure>
 
