@@ -11,12 +11,6 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 
 # $TIMESCALE_DB configuration and tuning
 
-Just as you can tune settings in $PG, $TIMESCALE_DB provides a number of configuration
-settings that may be useful to your specific installation and performance needs. These can
-also be set within the `postgresql.conf` file or as command-line parameters
-when starting $PG.
-when starting $PG.
-
 <TimescaleDBConfig />
 
 ## Distributed hypertables
