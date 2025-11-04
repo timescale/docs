@@ -19,8 +19,8 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Adaptive query optimization**: dynamic query plan adjustment based on actual execution statistics and data distribution patterns, improving performance over time.
 
-<a id="agent"></a>
-**Agent**: a system that uses prompts, and other logic to act autonomously or semi-autonomously.
+<a id="agent" href=""></a>
+**Agent**: a system that uses prompts and other logic to act autonomously or semi-autonomously.
 
 **AI agent**: See [Agent](#agent). 
 
@@ -402,7 +402,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Predictive maintenance**: the use of time-series data to forecast equipment failure, common in IoT and industrial applications.
 
-**Prompt**: an input or instruction you give to an Agent. A prompt is normally text, but may be multimodal. For example, images and text.
+**Prompt**: an input or instruction you give to an [Agent](#agent). A prompt is normally text, but may be multimodal. For example, images and text.
 
 <a id="postgresql" href=""></a>
 **$PG**: an open-source object-relational database system known for its reliability, robustness, and performance.
