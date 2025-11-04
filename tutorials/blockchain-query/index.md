@@ -28,8 +28,6 @@ This tutorial covers:
 1.  [Ingest data into a $SERVICE_SHORT][blockchain-dataset]: set up and connect to a $SERVICE_LONG, create tables and $HYPERTABLEs, and ingest data.  
 1.  [Query your data][blockchain-query]: obtain information, including finding the most recent transactions on the blockchain, and 
    gathering information about the transactions using aggregation functions.
-1.  [Compress your data using $HYPERCORE][blockchain-compress]: compress data that is no longer needed for highest performance queries, but is still accessed regularly
-    for real-time analytics.
 
 When you've completed this tutorial, you can use the same dataset to  [Analyze the Bitcoin data][analyze-blockchain], 
 using $TIMESCALE_DB hyperfunctions.

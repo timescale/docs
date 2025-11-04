@@ -4,6 +4,8 @@ excerpt: Use segmenting and ordering data in the columnstore to make lookup quer
 products: [cloud, mst, self_hosted]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
+
 
 # Improve query and upsert performance
 
@@ -67,10 +69,11 @@ CREATE TABLE metrics (
   device_id INT,
   data JSONB
 ) WITH (
-  tsdb.hypertable,
-  tsdb.partition_column='time'
+  tsdb.hypertable
 );
 ```
+
+<CreateHypertablePolicyNote />
 
 <Procedure>
 

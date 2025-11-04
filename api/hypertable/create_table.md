@@ -9,6 +9,9 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
+
+import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 import Since2200 from "versionContent/_partials/_since_2_20_0.mdx";
 import DimensionInfo from "versionContent/_partials/_dimensions_info.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
@@ -24,21 +27,28 @@ a $HYPERTABLE is partitioned on the time dimension. To add secondary dimensions 
 [add_dimension][add-dimension]. To convert an existing relational table into a $HYPERTABLE, call 
 [create_hypertable][create_hypertable].
 
-As the data cools and becomes more suited for analytics, [add a columnstore policy][add_columnstore_policy] so your data 
-is automatically converted to the $COLUMNSTORE after a specific time interval. This columnar format enables fast 
-scanning and aggregation, optimizing performance for analytical workloads while also saving significant storage space. 
-In the $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by up to 98%, and organized for efficient, 
-large-scale queries. This columnar format enables fast scanning and aggregation, optimizing performance for analytical 
-workloads. You can also manually [convert chunks][convert_to_columnstore] in a $HYPERTABLE to the $COLUMNSTORE.
+<CreateHypertablePolicyNote />
 
 $HYPERTABLE_CAP to $HYPERTABLE foreign keys are not allowed, all other combinations are permitted.
 
-The [$COLUMNSTORE][hypercore] settings are applied on a per-chunk basis. You can change the settings by calling [ALTER TABLE][alter_table_hypercore] without first converting the entire $HYPERTABLE back to the [$ROWSTORE][hypercore]. The new settings apply only to the chunks that have not yet been converted to $COLUMNSTORE, the existing chunks in the $COLUMNSTORE do not change. Similarly, if you [remove an existing columnstore policy][remove_columnstore_policy] and then [add a new one][add_columnstore_policy], the new policy applies only to the unconverted chunks. This means that chunks with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE. 
+The [$COLUMNSTORE][hypercore] settings are applied on a per-chunk basis. You can change the settings by calling 
+[ALTER TABLE][alter_table_hypercore] without first converting the entire $HYPERTABLE back to the [$ROWSTORE][hypercore]. 
+The new settings apply only to the chunks that have not yet been converted to $COLUMNSTORE, the existing chunks in the 
+$COLUMNSTORE do not change. Similarly, if you [remove an existing columnstore policy][remove_columnstore_policy] and then 
+[add a new one][add_columnstore_policy], the new policy applies only to the unconverted chunks. This means that chunks 
+with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE. 
 
-$TIMESCALE_DB calculates default $COLUMNSTORE settings for each chunk when it is created. These settings apply to each chunk, and not the entire hypertable. To explicitly disable the defaults, set a setting to an empty string. 
+$TIMESCALE_DB calculates default $COLUMNSTORE settings for each chunk when it is created. These settings apply to each 
+chunk, and not the entire hypertable. To explicitly disable the defaults, set a setting to an empty string. 
 
 `CREATE TABLE` extends the standard $PG [CREATE TABLE][pg-create-table]. This page explains the features and 
 arguments specific to $TIMESCALE_DB. 
+
+<Highlight type="note" >
+
+<OldCreateHypertable />
+
+</Highlight> 
 
 <Since2200 />
 
@@ -46,27 +56,23 @@ arguments specific to $TIMESCALE_DB.
 
 - **Create a $HYPERTABLE partitioned on the time dimension and enable $COLUMNSTORE**:
 
-   1. Create the $HYPERTABLE:
+   ```sql
+   CREATE TABLE crypto_ticks (
+      "time" TIMESTAMPTZ,
+      symbol TEXT,
+      price DOUBLE PRECISION,
+      day_volume NUMERIC
+   ) WITH (
+     tsdb.hypertable,
+     tsdb.segmentby='symbol',
+     tsdb.orderby='time DESC'
+   );
+   ```
 
-     ```sql
-     CREATE TABLE crypto_ticks (
-        "time" TIMESTAMPTZ,
-        symbol TEXT,
-        price DOUBLE PRECISION,
-        day_volume NUMERIC
-     ) WITH (
-       tsdb.hypertable,
-       tsdb.partition_column='time',
-       tsdb.segmentby='symbol', 
-       tsdb.orderby='time DESC'
-     );
-     ```
-  
-   1. Enable $HYPERCORE by adding a columnstore policy:
-  
-      ```sql
-      CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
-      ```
+   When you create a $HYPERTABLE using `CREATE TABLE WITH`, $TIMESCALE_DB automatically creates a
+   [columnstore policy][add_columnstore_policy] that uses the chunk interval as the compression interval, with a default 
+   schedule interval of 1 day. The default partitioning column is automatically selected as the first column with a 
+   timestamp or timestampz data type. 
 
 - **Create a $HYPERTABLE partitioned on the time with fewer chunks based on time interval**:
 
@@ -77,7 +83,6 @@ arguments specific to $TIMESCALE_DB.
     value float
    ) WITH (
     tsdb.hypertable,
-    tsdb.partition_column='time',
     tsdb.chunk_interval=3453
    );
    ```
@@ -109,9 +114,7 @@ arguments specific to $TIMESCALE_DB.
    
     </tab>
 
-    </Terminal> 
-
-   
+    </Terminal>
 
 - **Enable data compression during ingestion**:
 
@@ -119,7 +122,7 @@ arguments specific to $TIMESCALE_DB.
 
     1. Create a $HYPERTABLE:
      ```sql
-     CREATE TABLE t(time timestamptz, device text, value float) WITH (tsdb.hypertable,tsdb.partition_column='time');
+     CREATE TABLE t(time timestamptz, device text, value float) WITH (tsdb.hypertable);
      ```
    1. Copy data into the $HYPERTABLE:
      You achieve the highest insert rate using binary format. CSV and text format are also supported.
@@ -157,17 +160,17 @@ WITH (
 )
 ```
 
-| Name                           | Type             | Default                                                                                                                                                                                                                           | Required                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|--------------------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `tsdb.hypertable`              |BOOLEAN| `true`                                                                                                                                                                                                                            | ✖                                                           | Create a new [hypertable][hypertable-docs] for time-series data rather than a standard $PG relational table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `tsdb.partition_column`        |TEXT| `true`                                                                                                                                                                                                                            | ✖                                                           | Set the time column to automatically partition your time-series data by.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `tsdb.chunk_interval`          |TEXT| `7 days`                                                                                                                                                                                                                          | ✖                                                           | Change this to better suit your needs. For example, if you set `chunk_interval` to 1 day, each chunk stores data from the same day. Data from different days is stored in different chunks.                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `tsdb.create_default_indexes`  | BOOLEAN | `true`                                                                                                                                                                                                                            | ✖                                                           | Set to `false` to not automatically create indexes. <br/> The default indexes are: <ul><li>On all hypertables, a descending index on `partition_column`</li><li>On hypertables with space partitions, an index on the space parameter and `partition_column`</li></ul>                                                                                                                                                                                                                                                                                                                                                                          |
-| `tsdb.associated_schema`       |REGCLASS| `_timescaledb_internal`                                                                                                                                                                                                           |  ✖  | Set the schema name for internal hypertable tables.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `tsdb.associated_table_prefix` |TEXT| `_hyper`                                                                                                                                                                                                                          | ✖  | Set the prefix for the names of internal hypertable chunks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `tsdb.orderby`                 |TEXT| Descending order on the time column in `table_name`.                                                                                                                                                                              | ✖| The order in which items are used in the $COLUMNSTORE. Specified in the same way as an `ORDER BY` clause in a `SELECT` query. Setting `tsdb.orderby` automatically creates an implicit min/max sparse index on the `orderby` column.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `tsdb.segmentby`               |TEXT| $TIMESCALE_DB looks at [`pg_stats`](https://www.postgresql.org/docs/current/view-pg-stats.html) and determines an appropriate column based on the data cardinality and distribution. If `pg_stats` is not available, $TIMESCALE_DB looks for an appropriate column from the existing indexes. | ✖| Set the list of columns used to segment data in the $COLUMNSTORE for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|`tsdb.sparse_index`| TEXT | $TIMESCALE_DB evaluates the columns you already have indexed, checks which data types are a good fit for sparse indexing, then creates a sparse index as an optimization.                                                         | ✖ | Configure the sparse indexes for compressed chunks. Requires setting `tsdb.orderby`. Supported index types include: <li> `bloom(<column_name>)`: a probabilistic index, effective for `=` filters. Cannot be applied to `tsdb.orderby` columns.</li> <li> `minmax(<column_name>)`: stores min/max values for each compressed chunk. Setting `tsdb.orderby` automatically creates an implicit min/max sparse index on the `orderby` column. </li> Define multiple indexes using a comma-separated list. You can set only one index per column. Set to an empty string to avoid using sparse indexes and explicitly disable the default behavior. |
+| Name                           | Type             | Default                                                                                                                                                                                                                                                                                       | Required                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|--------------------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `tsdb.hypertable`              |BOOLEAN| `true`                                                                                                                                                                                                                                                                                        | ✖                                                           | Create a new [hypertable][hypertable-docs] for time-series data rather than a standard $PG relational table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `tsdb.partition_column`        |TEXT| The first column in the table with a timestamp data type                                                                                                                                                                                                                                      | ✖                                                           | Set the time column to automatically partition your time-series data by.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `tsdb.chunk_interval`          |TEXT| `7 days`                                                                                                                                                                                                                                                                                      | ✖                                                           | Change this to better suit your needs. For example, if you set `chunk_interval` to 1 day, each chunk stores data from the same day. Data from different days is stored in different chunks.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `tsdb.create_default_indexes`  | BOOLEAN | `true`                                                                                                                                                                                                                                                                                        | ✖                                                           | Set to `false` to not automatically create indexes. <br/> The default indexes are: <ul><li>On all hypertables, a descending index on `partition_column`</li><li>On hypertables with space partitions, an index on the space parameter and `partition_column`</li></ul>                                                                                                                                                                                                                                                                                                                                                                     |
+| `tsdb.associated_schema`       |REGCLASS| `_timescaledb_internal`                                                                                                                                                                                                                                                                       |  ✖  | Set the schema name for internal hypertable tables.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `tsdb.associated_table_prefix` |TEXT| `_hyper`                                                                                                                                                                                                                                                                                      | ✖  | Set the prefix for the names of internal hypertable chunks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `tsdb.orderby`                 |TEXT| Descending order on the time column in `table_name`.                                                                                                                                                                                                                                          | ✖| The order in which items are used in the $COLUMNSTORE. Specified in the same way as an `ORDER BY` clause in a `SELECT` query. Setting `tsdb.orderby` automatically creates an implicit min/max sparse index on the `orderby` column.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `tsdb.segmentby`               |TEXT| $TIMESCALE_DB looks at [`pg_stats`](https://www.postgresql.org/docs/current/view-pg-stats.html) and determines an appropriate column based on the data cardinality and distribution. If `pg_stats` is not available, $TIMESCALE_DB looks for an appropriate column from the existing indexes. | ✖| Set the list of columns used to segment data in the $COLUMNSTORE for `table`. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|`tsdb.sparse_index`| TEXT | $TIMESCALE_DB evaluates the columns you already have indexed, checks which data types are a good fit for sparse indexing, then creates a sparse index as an optimization.                                                                                                                     | ✖ | Configure the sparse indexes for compressed chunks. Requires setting `tsdb.orderby`. Supported index types include: <li> `bloom(<column_name>)`: a probabilistic index, effective for `=` filters. Cannot be applied to `tsdb.orderby` columns.</li> <li> `minmax(<column_name>)`: stores min/max values for each compressed chunk. Setting `tsdb.orderby` automatically creates an implicit min/max sparse index on the `orderby` column. </li> Define multiple indexes using a comma-separated list. You can set only one index per column. Set to an empty string to avoid using sparse indexes and explicitly disable the default behavior. |
 
 
 
@@ -182,7 +185,7 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [declarative-partitioning]: https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-DECLARATIVE
 [inheritance]: https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-USING-INHERITANCE
-[migrate-data]: /api/:currentVersion:/hypertable/create_table/#arguments
+[create_table_arguments]: /api/:currentVersion:/hypertable/create_table/#arguments
 [dimension-info]: /api/:currentVersion:/hypertable/create_table/#dimension-info
 [chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [about-constraints]: /use-timescale/:currentVersion:/schema-management/about-constraints
@@ -203,6 +206,7 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
 [uuidv7_functions]: /api/:currentVersion:/uuid-functions/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[alter_job_samples]: /api/:currentVersion:/jobs-automation/alter_job/#samples

@@ -712,7 +712,7 @@ class TigerDataDocumentationGenerator:
                     print(f"Replaced {component_name} using default path: {default_path}")
         
         # Remove or replace components that don't have clear partials
-        orphaned_components = ['Installation', 'Skip', 'OldCreateHypertable', 'PolicyVisualizerDownsampling', 'APIReference', 'Since2180']
+        orphaned_components = ['Installation', 'Skip', 'OldCreateHypertable', 'CreateHypertablePolicyNote', 'PolicyVisualizerDownsampling', 'APIReference', 'Since2180']
         for component_name in orphaned_components:
             # Handle both normal and spaced component tags
             component_tags = [
