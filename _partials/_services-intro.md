@@ -1,6 +1,6 @@
 import FreeBeta from "versionContent/_partials/_free-plan-beta.mdx";
 
-A $SERVICE_LONG is a single optimised $PG instance extended with innovations in the database engine and cloud
+A $SERVICE_LONG is a single optimized $PG instance extended with innovations in the database engine and cloud
 infrastructure to deliver speed without sacrifice. A $SERVICE_LONG is 10-1000x faster at scale! It
 is ideal for applications requiring strong data consistency, complex relationships, and advanced querying capabilities.
 Get ACID compliance, extensive SQL support, JSON handling, and extensibility through custom functions, data types, and

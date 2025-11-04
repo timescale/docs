@@ -38,7 +38,7 @@ You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot
 
 1. **Select a $SERVICE_LONG, then click `Operations` > `Security` > `IP Allow List`**
 
-   ![Attach IP allow list](https://assets.timescale.com/docs/images/tiger-cloud-console/attach-ip-allow-list-tiger-console.png)
+   ![Attach IP allow list](https://assets.timescale.com/docs/images/tiger-on-azure/attach-ip-allow-list-tiger-console.png)
 
 1. **Select the list in the drop-down and click `Apply`** 
 
