@@ -69,9 +69,7 @@ time                          | location | temperature | humidity
 
 ## Direct compress on INSERT
 
-When you create a $HYPERTABLE using [CREATE TABLE ... WITH ...][hypertable-create-table], $TIMESCALE_DB creates a
-[columnstore policy][add_columnstore_policy] that automatically converts your data to the $COLUMNSTORE after an interval
-that matches the default [chunk_interval][create_table_arguments]. This columnar format enables fast scanning and
+This columnar format enables fast scanning and
 aggregation, optimizing performance for analytical workloads while also saving significant storage space. In the
 $COLUMNSTORE conversion, $HYPERTABLE chunks are compressed by up to 98%, and organized for efficient, large-scale
 queries.
