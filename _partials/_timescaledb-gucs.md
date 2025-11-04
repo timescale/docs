@@ -23,7 +23,7 @@
 | `enable_bulk_decompression` | `BOOLEAN` | `true` | Increases throughput of decompression, but might increase query memory usage |
 | `enable_cagg_reorder_groupby` | `BOOLEAN` | `true` | Enable group by clause reordering for continuous aggregates |
 | `enable_cagg_sort_pushdown` | `BOOLEAN` | `true` | Enable pushdown of ORDER BY clause for continuous aggregates |
-| `enable_cagg_wal_based_invalidation` | `BOOLEAN` | `false` | Use WAL to track changes to hypertables for continuous aggregates. This is not meant for production use. |
+| `enable_cagg_wal_based_invalidation` | `BOOLEAN` | `false` | Use WAL to track changes to hypertables for continuous aggregates. This feature is early access from TimescaleDB v2.23.0 |
 | `enable_cagg_watermark_constify` | `BOOLEAN` | `true` | Enable constifying cagg watermark for real-time caggs |
 | `enable_cagg_window_functions` | `BOOLEAN` | `false` | Allow window functions in continuous aggregate views |
 | `enable_chunk_append` | `BOOLEAN` | `true` | Enable using chunk append node |
@@ -45,7 +45,7 @@
 | `enable_direct_compress_copy` | `BOOLEAN` | `false` | Enable experimental support for direct compression during COPY |
 | `enable_direct_compress_copy_client_sorted` | `BOOLEAN` | `false` | Correct handling of data sorting by the user is required for this option. |
 | `enable_direct_compress_copy_sort_batches` | `BOOLEAN` | `true` | Enable batch sorting during direct compress COPY |
-| `enable_direct_compress_insert` | `BOOLEAN` | `false` | Enable experimental support for direct compression during INSERT |
+| `enable_direct_compress_insert` | `BOOLEAN` | `false` | Enable support for direct compression during INSERT. This feature is early access from TimescaleDB v2.23.0 |
 | `enable_direct_compress_insert_client_sorted` | `BOOLEAN` | `false` | Correct handling of data sorting by the user is required for this option. |
 | `enable_direct_compress_insert_sort_batches` | `BOOLEAN` | `true` | Enable batch sorting during direct compress INSERT |
 | `enable_dml_decompression` | `BOOLEAN` | `true` | Enable DML decompression when modifying compressed hypertable |
