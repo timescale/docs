@@ -16,7 +16,7 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
 # ALTER TABLE ($HYPERCORE)<Tag type="community" content="community" />
 
 Enable the $COLUMNSTORE or change the $COLUMNSTORE settings for a $HYPERTABLE. The settings are applied on a per-chunk 
-basis. You do not need to convert the entire $HYPERTABLE back to the $ROWSTORE before changing the settings. The new 
+basis. You **do not** need to convert the entire $HYPERTABLE back to the $ROWSTORE before changing the settings. The new 
 settings apply only to the chunks that have not yet been converted to $COLUMNSTORE, the existing chunks in the 
 $COLUMNSTORE do not change. This means that chunks with different $COLUMNSTORE settings can co-exist in the 
 same $HYPERTABLE.

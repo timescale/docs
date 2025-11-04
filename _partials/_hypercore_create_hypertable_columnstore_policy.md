@@ -16,9 +16,9 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
          price DOUBLE PRECISION,
          day_volume NUMERIC
        ) WITH (
-        tsdb.hypertable,
-        tsdb.segmentby='symbol', 
-        tsdb.orderby='time DESC'
+         timescaledb.hypertable,
+         timescaledb.segmentby='symbol', 
+         timescaledb.orderby='time DESC'
        );
        ```
        <CreateHypertablePolicyNote />
@@ -28,7 +28,7 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
          ```sql
          ALTER MATERIALIZED VIEW assets_candlestick_daily set (
             timescaledb.enable_columnstore = true, 
-            timescaledb.segmentby = 'symbol' );
+            timescaledb.segmentby = 'symbol');
          ``` 
          Before you say `huh`, a $CAGG is a specialized $HYPERTABLE.
 

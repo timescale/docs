@@ -30,7 +30,7 @@ specific time interval.
 
 When $COLUMNSTORE is enabled, [bloom filters][bloom-filters] are enabled by default, and every new chunk has a bloom index.
 Bloom indexes are not retrofitted, existing chunks need to be fully recompressed to have the bloom indexes present. If 
-you converted chunks to $COLUMNSTORE using $TIMESCALE_DB v2.19.3 or below, to enable bloom filters on that data you have 
+you converted chunks to $COLUMNSTORE using $TIMESCALE_DB [v2.19.3](tsdb-release-2-19-3) or below, to enable bloom filters on that data you have 
 to convert those chunks to the $ROWSTORE, then convert them back to the $COLUMNSTORE. 
 
 To view the policies that you set or the policies that already exist, see [informational views][informational-views]. 
@@ -52,9 +52,9 @@ To create a $COLUMNSTORE job:
     use most often to filter your data.
     * [Use `ALTER MATERIALIZED VIEW` for a continuous aggregate][compression_continuous-aggregate]
       ```sql
-      ALTER MATERIALIZED VIEW assets_candlestick_daily set (
+      ALTER MATERIALIZED VIEW assets_candlestick_daily SET (
          timescaledb.enable_columnstore = true, 
-         timescaledb.segmentby = 'symbol' );
+         timescaledb.segmentby = 'symbol');
       ```
 
    * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]. The columnstore policy is created automatically.
@@ -164,3 +164,4 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 [create_table_arguments]: /api/:currentVersion:/hypertable/create_table/#arguments
 [alter_job_samples]: /api/:currentVersion:/jobs-automation/alter_job/#samples
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[tsdb-release-2-19-3]: https://github.com/timescale/timescaledb/releases/tag/2.19.3
