@@ -60,7 +60,7 @@ module.exports = [
               "Set up a dataset so you can analyze the Bitcoin blockchain",
           },
           {
-            title: "Analyse the data",
+            title: "Analyze the data",
             href: "analyze-blockchain-query",
             excerpt: "Analyze the Bitcoin blockchain dataset with TimescaleDB hyperfunctions",
           },
