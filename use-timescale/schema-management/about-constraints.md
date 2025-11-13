@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [schemas, constraints]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # About constraints
 
@@ -34,12 +34,11 @@ CREATE TABLE conditions (
     location   INTEGER REFERENCES locations (id),
     PRIMARY KEY(time, device_id)
 ) WITH (
-    tsdb.hypertable,
-    tsdb.partition_column='time'
+    tsdb.hypertable
 );
 ```
 
-<OldCreateHypertable />
+<CreateHypertablePolicyNote />
 
 This example also references values in another `locations` table using a foreign
 key constraint.

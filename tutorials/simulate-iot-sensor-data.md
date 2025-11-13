@@ -5,8 +5,7 @@ products: [cloud, self_hosted, mst]
 keywords: [IoT, simulate]
 ---
 
-
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Simulate an IoT sensor dataset
@@ -48,11 +47,10 @@ To simulate a dataset, run the following queries:
       cpu DOUBLE PRECISION,
       FOREIGN KEY (sensor_id) REFERENCES sensors (id)
     ) WITH (
-      tsdb.hypertable,
-      tsdb.partition_column='time'
+      tsdb.hypertable
     );
     ```
-    <OldCreateHypertable />
+    <CreateHypertablePolicyNote />
    
 1. **Populate the `sensors` table**:
 

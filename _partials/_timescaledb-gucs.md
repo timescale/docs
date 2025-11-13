@@ -23,6 +23,7 @@
 | `enable_bulk_decompression` | `BOOLEAN` | `true` | Increases throughput of decompression, but might increase query memory usage |
 | `enable_cagg_reorder_groupby` | `BOOLEAN` | `true` | Enable group by clause reordering for continuous aggregates |
 | `enable_cagg_sort_pushdown` | `BOOLEAN` | `true` | Enable pushdown of ORDER BY clause for continuous aggregates |
+| `enable_cagg_wal_based_invalidation` | `BOOLEAN` | `false` | Use WAL to track changes to hypertables for continuous aggregates. This feature is early access from TimescaleDB v2.23.0 |
 | `enable_cagg_watermark_constify` | `BOOLEAN` | `true` | Enable constifying cagg watermark for real-time caggs |
 | `enable_cagg_window_functions` | `BOOLEAN` | `false` | Allow window functions in continuous aggregate views |
 | `enable_chunk_append` | `BOOLEAN` | `true` | Enable using chunk append node |
@@ -44,6 +45,9 @@
 | `enable_direct_compress_copy` | `BOOLEAN` | `false` | Enable experimental support for direct compression during COPY |
 | `enable_direct_compress_copy_client_sorted` | `BOOLEAN` | `false` | Correct handling of data sorting by the user is required for this option. |
 | `enable_direct_compress_copy_sort_batches` | `BOOLEAN` | `true` | Enable batch sorting during direct compress COPY |
+| `enable_direct_compress_insert` | `BOOLEAN` | `false` | Enable support for direct compression during INSERT. This feature is early access from TimescaleDB v2.23.0 |
+| `enable_direct_compress_insert_client_sorted` | `BOOLEAN` | `false` | Correct handling of data sorting by the user is required for this option. |
+| `enable_direct_compress_insert_sort_batches` | `BOOLEAN` | `true` | Enable batch sorting during direct compress INSERT |
 | `enable_dml_decompression` | `BOOLEAN` | `true` | Enable DML decompression when modifying compressed hypertable |
 | `enable_dml_decompression_tuple_filtering` | `BOOLEAN` | `true` | Recheck tuples during DML decompression to only decompress batches with matching tuples |
 | `enable_event_triggers` | `BOOLEAN` | `false` | Enable event triggers for chunks creation |
@@ -67,12 +71,11 @@
 | `enable_tiered_reads` | `BOOLEAN` | `true` | Enable reading of tiered data by including a foreign table representing the data in the object storage into the query plan |
 | `enable_transparent_decompression` | `BOOLEAN` | `true` | Enable transparent decompression when querying hypertable |
 | `enable_tss_callbacks` | `BOOLEAN` | `true` | Enable ts_stat_statements callbacks |
-| `enable_uuid_compression` | `BOOLEAN` | `false` | Enable uuid compression |
+| `enable_uuid_compression` | `BOOLEAN` | `true` | Enable uuid compression |
 | `enable_vectorized_aggregation` | `BOOLEAN` | `true` | Enable vectorized aggregation for compressed data |
 | `last_tuned` | `STRING` | `NULL` |  records last time timescaledb-tune ran |
 | `last_tuned_version` | `STRING` | `NULL` |  version of timescaledb-tune used to tune |
 | `license` | `STRING` | `TS_LICENSE_DEFAULT` |  Determines which features are enabled |
-| `materializations_per_refresh_window` | `INTEGER` | `10` | The maximal number of individual refreshes per cagg refresh. If more refreshes need to be performed, they are merged into a larger single refresh.<br />min: `0`, max: `INT_MAX` |
 | `max_cached_chunks_per_hypertable` | `INTEGER` | `1024` | Maximum number of chunks stored in the cache<br />min: `0`, max: `65536` |
 | `max_open_chunks_per_insert` | `INTEGER` | `1024` | Maximum number of open chunk tables per insert<br />min: `0`, max: `PG_INT16_MAX` |
 | `max_tuples_decompressed_per_dml_transaction` | `INTEGER` | `100000` | If the number of tuples exceeds this value, an error will be thrown and transaction rolled back. Setting this to 0 sets this value to unlimited number of tuples decompressed.<br />min: `0`, max: `2147483647` |
@@ -81,4 +84,4 @@
 | `skip_scan_run_cost_multiplier` | `REAL` | `1.0` | Default is 1.0 i.e. regularly estimated SkipScan run cost, 0.0 will make SkipScan to have run cost = 0<br />min: `0.0`, max: `1.0` |
 | `telemetry_level` | `ENUM` | `TELEMETRY_DEFAULT` | Level used to determine which telemetry to send |
 
-Version: [2.22.1](https://github.com/timescale/timescaledb/releases/tag/2.22.1)
+Version: [2.23.0](https://github.com/timescale/timescaledb/releases/tag/2.23.0)

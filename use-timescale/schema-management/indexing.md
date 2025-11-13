@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes]
 ---
 
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
+
 # Indexing data
 
 You can use an index on your database to speed up read operations. You can
@@ -56,13 +58,11 @@ CREATE TABLE conditions (
   humidity    DOUBLE PRECISION  NULL
 ) WITH (
   tsdb.hypertable,
-  tsdb.partition_column='time',
   tsdb.create_default_indexes=false
 );
 ```
 
-<OldCreateHypertable />
-
+<CreateHypertablePolicyNote />
 
 ## Best practices for indexing
 

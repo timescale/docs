@@ -1,5 +1,5 @@
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 ## Optimize time-series data in hypertables
 
@@ -20,11 +20,10 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
       price DOUBLE PRECISION NULL,
       day_volume INT NULL
     ) WITH (
-       tsdb.hypertable,
-       tsdb.partition_column='time'
+       tsdb.hypertable
     );
     ```
-   <OldCreateHypertable />
+   <CreateHypertablePolicyNote />
 
 1.  **Create an index to support efficient queries** 
 

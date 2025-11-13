@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [queries, hyperfunctions, analytics]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Perform advanced analytical queries
 
@@ -353,12 +353,11 @@ CREATE TABLE location (
   latitude FLOAT,
   longitude FLOAT
 ) WITH (
-  tsdb.hypertable,
-  tsdb.partition_column='time'
+  tsdb.hypertable
 );
 ```
 
-<OldCreateHypertable />
+<CreateHypertablePolicyNote />
 
 You can use the first table, which gives a distinct set of vehicles, to
 perform a `LATERAL JOIN` against the location table:
