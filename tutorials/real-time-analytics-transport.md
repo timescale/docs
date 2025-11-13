@@ -31,40 +31,6 @@ of data optimized for size and speed in the columnstore.
 
 <ImportData />
 
-## Optimize your data for real-time analytics
-
-
-When $TIMESCALE_DB converts a chunk to the columnstore, it automatically creates a different schema for your
-data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when
-you write to and read from the columstore.
-
-To increase the speed of your analytical queries by a factor of 10 and reduce storage costs by up to 90%, convert data 
-to the columnstore:
-
-<Procedure>
-
-1. **Connect to your $SERVICE_LONG**
-
-   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
-   You can also connect to your $SERVICE_SHORTusing [psql][connect-using-psql].
-
-1. **Add a policy to convert chunks to the columnstore at a specific time interval**
-
-   For example, convert data older than 8 days old to the columstore:
-   ``` sql
-   CALL add_columnstore_policy('rides', INTERVAL '8 days');
-   ```
-   See [add_columnstore_policy][add_columnstore_policy].
-
-   The data you imported for this tutorial is from 2016, it was already added to the $COLUMNSTORE by default. However, 
-   you get the idea. To see the space savings in action, follow [Try the key $COMPANY features][try-timescale-features].
-
-</Procedure>
-
-Just to hit this one home, by converting cooling data to the columnstore, you have increased the speed of your analytical 
-queries by a factor of 10, and reduced storage by up to 90%.
-   
-
 <GrafanaConnect />
 
 ## Monitor performance over time
@@ -131,7 +97,6 @@ your data.
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
 [compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
 [alter_job]: /api/:currentVersion:/actions/alter_job/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/

@@ -67,7 +67,7 @@ hypertable. Additionally, all functions and their arguments included in
       end_offset => INTERVAL '1 day',
       schedule_interval => INTERVAL '1 hour');
     ```
-
+    
 </Procedure>
 
 You can use most $PG aggregate functions in continuous aggregations. To

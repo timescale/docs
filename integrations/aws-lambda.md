@@ -6,7 +6,7 @@ keywords: [connect, integrate, aws, lambda]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Integrate AWS Lambda with Tiger
 
@@ -46,11 +46,10 @@ Create a table in $SERVICE_LONG to store time-series data.
      sensor_id TEXT NOT NULL,
      value DOUBLE PRECISION NOT NULL
    ) WITH (
-     tsdb.hypertable,
-     tsdb.partition_column='time'
+     tsdb.hypertable
    );
    ```
-   <OldCreateHypertable />   
+   <CreateHypertablePolicyNote />   
 
 </Procedure>
 
