@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
 
 <HypertableIntro />
@@ -38,12 +38,11 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
                value   double precision                       not null
              ) WITH (
                tsdb.hypertable,
-               tsdb.partition_column='created',
                tsdb.segmentby = 'type_id',
                tsdb.orderby = 'created DESC'
              );
              ```
-             <OldCreateHypertable />
+             <CreateHypertablePolicyNote />
    
       1. Upload the dataset to your $SERVICE_SHORT
          ```sql

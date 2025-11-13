@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 ### Dimension info
 
@@ -46,12 +46,11 @@ Create a by-range dimension builder. You can partition `by_range` on it's own.
       temperature DOUBLE PRECISION  NULL,
       humidity    DOUBLE PRECISION  NULL
    ) WITH (
-      tsdb.hypertable,
-      tsdb.partition_column='time'
+      tsdb.hypertable
    );
    ```
    
-   <OldCreateHypertable />
+   <CreateHypertablePolicyNote />
 
    This is the default partition, you do not need to add it explicitly.
 
@@ -152,8 +151,7 @@ CREATE TABLE conditions (
    temperature DOUBLE PRECISION  NULL,
    humidity    DOUBLE PRECISION  NULL
 ) WITH (
-   tsdb.hypertable,
-   tsdb.partition_column='time',
+   tsdb.hypertable
    tsdb.chunk_interval='1 day'
 );
 

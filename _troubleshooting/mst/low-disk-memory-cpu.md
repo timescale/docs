@@ -27,13 +27,19 @@ When your database reaches 90% of your allocated disk, memory, or CPU resources,
 an automated message with the text above is sent to your email address.
 
 You can resolve this by logging in to your $MST_LONG
-account and increasing your available resources. From the $MST_LONG Dashboard, select the $MST_SERVICE_SHORT that you want to increase resources
-for. In the `Overview` tab, locate the `Service Plan` section, and click
-`Upgrade Plan`. Select the plan that suits your requirements, and click
-`Upgrade` to enable the additional resources.
+account and changing your plan to increase your available resources:
+
+<Procedure>
+
+1. From the $MST_LONG Dashboard, select the $MST_SERVICE_SHORT that you want to increase resources
+for.
+1. Click `Service Settings` > `Service summary` > `Change Plan`. 
+1. Select the suitable plan and click `Change Plan`.
+
+</Procedure>
 
 If you run out of resources regularly, you might need to consider using your
-resources more efficiently. Consider enabling [Hypercore][setup-hypercore],
+resources more efficiently. Consider enabling [hypercore][setup-hypercore],
 using [continuous aggregates][howto-caggs], or
 [configuring data retention][howto-dataretention] to reduce the amount of
 resources your database uses.

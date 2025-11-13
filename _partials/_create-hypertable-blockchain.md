@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
 
 ## Optimize time-series data using hypertables
@@ -31,13 +31,12 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        details JSONB
     ) WITH (
        tsdb.hypertable,
-       tsdb.partition_column='time',
        tsdb.segmentby='block_id', 
        tsdb.orderby='time DESC'
     );
     ```
                 
-    <OldCreateHypertable />
+    <CreateHypertablePolicyNote />
 
 1.  Create an index on the `hash` column to make queries for individual
     transactions faster:

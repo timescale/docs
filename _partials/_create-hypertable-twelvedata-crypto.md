@@ -1,5 +1,5 @@
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 ## Optimize time-series data in a hypertable
 
@@ -25,12 +25,11 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
         day_volume NUMERIC
     ) WITH (
        tsdb.hypertable,
-       tsdb.partition_column='time',
        tsdb.segmentby='symbol', 
        tsdb.orderby='time DESC'
     );
     ```
-   <OldCreateHypertable />
+   <CreateHypertablePolicyNote />
    
 </Procedure>
 

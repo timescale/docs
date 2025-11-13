@@ -100,7 +100,6 @@ For example:
    )
    WITH(
       timescaledb.hypertable,
-      timescaledb.partition_column='time',
       timescaledb.chunk_interval='1 day'
    );
    ```

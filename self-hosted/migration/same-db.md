@@ -6,7 +6,7 @@ keywords: [data migration, Postgres]
 tags: [import]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Migrate data to TimescaleDB from the same $PG instance
 
@@ -65,7 +65,7 @@ Migrate your data into $TIMESCALE_DB from within the same database.
 
     </Terminal>
 
-    <OldCreateHypertable />
+    <CreateHypertablePolicyNote />
 
 1.  Insert data from the old table to the new table.
 

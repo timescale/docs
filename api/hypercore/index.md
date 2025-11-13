@@ -8,9 +8,9 @@ api:
   license: community
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 import HypercoreIntro from "versionContent/_partials/_hypercore-intro.mdx";
+import CreateHypertableProcedure from "versionContent/_partials/_hypercore_create_hypertable_columnstore_policy.mdx";
 
 # Hypercore
 
@@ -24,43 +24,7 @@ Best practice for using $HYPERCORE is to:
 
 <Procedure>
 
-1. **Enable $COLUMNSTORE**
-
-   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
-   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
-   use most often to filter your data. For example:
-
-   * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]
-
-     ```sql
-     CREATE TABLE crypto_ticks (
-        "time" TIMESTAMPTZ,
-        symbol TEXT,
-        price DOUBLE PRECISION,
-        day_volume NUMERIC
-     ) WITH (
-       tsdb.hypertable,
-       tsdb.partition_column='time',
-       tsdb.segmentby='symbol', 
-       tsdb.orderby='time DESC'
-     );
-     ```
-     <OldCreateHypertable />
-
-   * [Use `ALTER MATERIALIZED VIEW` for a continuous aggregate][compression_continuous-aggregate]
-     ```sql
-     ALTER MATERIALIZED VIEW assets_candlestick_daily set (
-        timescaledb.enable_columnstore = true, 
-        timescaledb.segmentby = 'symbol' );
-     ```
-
-1. **Add a policy to move chunks to the $COLUMNSTORE at a specific time interval**
-
-   For example, 7 days after the data was added to the table:
-   ``` sql
-   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '7d');
-   ```
-   See [add_columnstore_policy][add_columnstore_policy].
+<CreateHypertableProcedure />
 
 1. **View the policies that you set or the policies that already exist**
 
