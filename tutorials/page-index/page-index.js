@@ -40,12 +40,6 @@ module.exports = [
             href: "beginner-blockchain-query",
             excerpt: "Query the Bitcoin blockchain dataset",
           },
-          {
-            title: "Compress your data using hypercore",
-            href: "blockchain-compress",
-            excerpt:
-              "Compress the dataset so you can store the Bitcoin blockchain more efficiently",
-          },
         ],
       },
       {
@@ -60,7 +54,7 @@ module.exports = [
               "Set up a dataset so you can analyze the Bitcoin blockchain",
           },
           {
-            title: "Analyse the data",
+            title: "Analyze the data",
             href: "analyze-blockchain-query",
             excerpt: "Analyze the Bitcoin blockchain dataset with TimescaleDB hyperfunctions",
           },
@@ -80,12 +74,6 @@ module.exports = [
             title: "Query the data",
             href: "financial-tick-query",
             excerpt: "Query and visualize financial tick data",
-          },
-          {
-            title: "Compress your data using hypercore",
-            href: "financial-tick-compress",
-            excerpt:
-              "Compress the dataset so you can store the data more efficiently",
           },
         ],
       },

@@ -8,6 +8,7 @@ keywords: [continuous aggregates]
 import CaggsFunctionSupport from "versionContent/_partials/_caggs-function-support.mdx";
 import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
 import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # About continuous aggregates
 
@@ -75,10 +76,12 @@ CREATE TABLE conditions (
   device_id INTEGER,
   temperature FLOAT8
 ) WITH (
-  tsdb.hypertable,
-  tsdb.partition_column='time'
+  tsdb.hypertable
 );
 ```
+
+<CreateHypertablePolicyNote />
+
 
 See the following `JOIN` examples on continuous aggregates:
 

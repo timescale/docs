@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 
 ## Optimize time-series data in hypertables
@@ -14,7 +14,6 @@ same way. You use regular $PG tables for relational data.
 <Procedure>
 
 1. **Create a $HYPERTABLE to store the taxi trip data**
-
 
     ```sql
     CREATE TABLE "rides"(
@@ -38,11 +37,10 @@ same way. You use regular $PG tables for relational data.
         total_amount NUMERIC
     ) WITH (
        tsdb.hypertable,
-       tsdb.partition_column='pickup_datetime',
        tsdb.create_default_indexes=false
     );
     ```
-    <OldCreateHypertable />
+    <CreateHypertablePolicyNote />
 
 1.  **Add another dimension to partition your $HYPERTABLE more efficiently**
 

@@ -4,7 +4,7 @@ excerpt: When collecting data from counters, interruptions usually cause the cou
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, gauges, counters]
 ---
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Counter aggregation
 
@@ -113,11 +113,10 @@ going on in each part.
         PRIMARY KEY (measure_id, ts)
     ) WITH (
       tsdb.hypertable,
-      tsdb.partition_column='ts',
       tsdb.chunk_interval='15 days'
     );
     ```
-   <OldCreateHypertable />
+   <CreateHypertablePolicyNote />
 
 1.  Create a counter aggregate and the extrapolated delta function:
 

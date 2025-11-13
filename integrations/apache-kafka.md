@@ -7,7 +7,7 @@ keywords: [Apache Kafka, integrations]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import IntegrationApacheKafka from "versionContent/_partials/_integration-apache-kafka-install.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Integrate Apache Kafka with $CLOUD_LONG
 
@@ -93,11 +93,10 @@ To prepare your $SERVICE_LONG for Kafka integration:
     name TEXT,
     city TEXT
    ) WITH (
-     tsdb.hypertable,
-     tsdb.partition_column='created_at'
+     tsdb.hypertable
    );
    ```
-   <OldCreateHypertable />   
+   <CreateHypertablePolicyNote />   
 
 </Procedure>
 
