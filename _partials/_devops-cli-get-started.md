@@ -40,6 +40,10 @@ Create a new $SERVICE_LONG using $CLI_LONG:
    ```shell
    tiger service create
    ```
+   To control the $SERVICE_SHORT configuration, use the [`service create` flags][cli-create-custom-service]. For 
+   example, to create a free service if you are in a paid $PRICING_PLAN, call 
+   `tiger service create --memory shared --cpu shared`.
+
    $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
    read replication. You see something like:
    ```terminaloutput
@@ -101,3 +105,4 @@ And that is it, you are ready to use $CLI_LONG to manage your $SERVICE_SHORTs in
 [create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
 [curl]: https://curl.se/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[cli-create-custom-service]: /getting-started/:currentVersion:/get-started-devops-as-code/#commands

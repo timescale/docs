@@ -106,6 +106,9 @@
     },
     {
       "pattern": "^https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html"
+    },
+    {
+      "pattern": "^https://portal.support.timescale.com/login"
     }
   ]
 }
