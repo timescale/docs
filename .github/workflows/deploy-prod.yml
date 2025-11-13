@@ -18,12 +18,12 @@ jobs:
           token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-docs-content-prod
-  trigger-amplify:
-    name: Trigger Amplify build
+  trigger-vercel:
+    name: Trigger Vercel build
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Amplify Webhook
+      - name: Trigger Vercel Webhook
         env:
-          WEBHOOK_URL: ${{ secrets.AMPLIFY_WEBHOOK_URL }}
+          WEBHOOK_URL: ${{ secrets.VERCEL_WEBHOOK_URL }}
         run: |
           curl -X POST "$WEBHOOK_URL"
