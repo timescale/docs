@@ -295,7 +295,7 @@ For JSONB columns, $TIMESCALE_DB uses a two-layer compression approach:
    modern compression algorithms like `lz4` by setting the `default_toast_compression`
    configuration parameter.
 
-You can check your current TOAST compression setting:
+To check your current TOAST compression setting:
 
 ```sql
 SHOW default_toast_compression;
