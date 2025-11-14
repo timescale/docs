@@ -302,7 +302,7 @@ SHOW default_toast_compression;
 ```
 
 This two-layer approach ensures that JSONB data is compressed efficiently
-regardless of its characteristics, using dictionary compression when beneficial
+regardless of its characteristics.
 and falling back to LZ-based compression when dictionary compression is not effective.
 
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
