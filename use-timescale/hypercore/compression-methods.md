@@ -287,11 +287,9 @@ For JSONB columns, $TIMESCALE_DB uses a two-layer compression approach:
    its own dictionary compression to the JSONB data. This works well when JSONB
    values have high repetition. It does not perform when each JSONB value is unique or nearly unique.
 
-2. **$PS TOAST compression**: If dictionary compression does not  perform, $TiimescaleDB skips to enable 
-   well (for example, when each JSONB value is unique or nearly unique),
-   TimescaleDB skips compression and allows PostgreSQL to handle the data using
+2. **$PG TOAST compression**: if dictionary compression does not perform, $TIMESCALE_DB skips compression and allows $PG to handle the data using
    its TOAST (The Oversized-Attribute Storage Technique) compression. By default,
-   PostgreSQL uses `pglz` compression. To configure  $PG to use more 
+   $PG uses `pglz` compression. To configure $PG to use more 
    modern compression algorithms like `lz4`, set the `default_toast_compression`
    configuration parameter.
 
@@ -300,10 +298,6 @@ To check your current TOAST compression setting:
 ```sql
 SHOW default_toast_compression;
 ```
-
-This two-layer approach ensures that JSONB data is compressed efficiently
-regardless of its characteristics.
-and falling back to LZ-based compression when dictionary compression is not effective.
 
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [manual-compression]: /use-timescale/:currentVersion:/compression/manual-compression/
