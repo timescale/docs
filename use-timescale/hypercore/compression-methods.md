@@ -292,7 +292,7 @@ For JSONB columns, $TIMESCALE_DB uses a two-layer compression approach:
    TimescaleDB skips compression and allows PostgreSQL to handle the data using
    its TOAST (The Oversized-Attribute Storage Technique) compression. By default,
    PostgreSQL uses `pglz` compression. To configure  $PG to use more 
-   modern compression algorithms like `lz4` by setting the `default_toast_compression`
+   modern compression algorithms like `lz4`, set the `default_toast_compression`
    configuration parameter.
 
 To check your current TOAST compression setting:
