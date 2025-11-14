@@ -16,7 +16,7 @@ TimescaleDB v2.23 was released on October 29th and is now available on Tiger Clo
 
 ### Highlighted features in TimescaleDB v2.23.0
 
-- Simplified hypertable creation: starting with TimescaleDB is now even easier with less configuration and smarter defaults. [Create a hypertable](https://docs.tigerdata.com/api/latest/hypertable/create_table/#samples) in only one step with automatic selection of all parameters. This includes:
+- Simplified hypertable creation: now even easier with less configuration and smarter defaults. [Create a hypertable](https://docs.tigerdata.com/api/latest/hypertable/create_table/#samples) in only one step with automatic selection of all parameters. This includes:
     - Automatic selection of the partitioning column: TimescaleDB automatically selects a partitioning column so you no longer need to specify which column to use during creation.
     - Automatic columnstore policy: TimescaleDB enables the columnstore by default and automatically creates a columnstore policy that runs after one chunk interval (defaults to 7 days).
 - UUIDv7 compression enabled by default: the UUIDv7 vectorized compression and query acceleration introduced in 2.22 are now enabled by default. You automatically benefit from ~30% storage savings and up to 2x faster query performance.
