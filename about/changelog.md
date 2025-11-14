@@ -27,7 +27,7 @@ TimescaleDB v2.23 was released on October 29th and is now available on Tiger Clo
 
 ### Deprecations
 
-- PostgreSQL 15 deprecation: TimescaleDB will continue supporting PostgreSQL 15 until June 2026, after which support will be removed. We recommend that you begin planning upgrades to PostgreSQL 16 or higher to ensure continued access to performance improvements, security updates, and new TimescaleDB features. See [Supported platforms](https://docs.tigerdata.com/about/latest/supported-platforms/#postgres-timescaledb-support-matrix) for currently supported versions. 
+- Postgres 15 deprecation: TimescaleDB will continue supporting Postgres 15 until June 2026, after which support will be removed. We recommend that you begin planning upgrades to Postgres 16 or higher to ensure continued access to performance improvements, security updates, and new TimescaleDB features. See [Supported platforms](https://docs.tigerdata.com/about/latest/supported-platforms/#postgres-timescaledb-support-matrix) for currently supported versions. 
 - WAL-based invalidation: introduced as a tech preview in 2.22, WAL-based invalidation will be sunset in the upcoming releases. The approach was not the right architecture to address customers hitting IOPS limits during continuous aggregate invalidation tracking. This release already removes the trigger, and we are adding more improvements in upcoming releases to address IOPS. The first step is to gate the feature behind a GUC, and remove it in an upcoming release.
 
 For a comprehensive list of changes, refer to the [TimescaleDB 2.23 release notes](https://github.com/timescale/timescaledb/blob/main/CHANGELOG.md#2230-2025-10-29).
