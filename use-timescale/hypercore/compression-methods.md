@@ -283,7 +283,7 @@ not using a dictionary in that scenario.
 
 For JSONB columns, $TIMESCALE_DB uses a two-layer compression approach:
 
-1. **TimescaleDB dictionary compression**: First, TimescaleDB attempts to apply
+1. **$TIMESCALE_DB dictionary compression**: $TIMESCALE_DB attempts to apply
    its own dictionary compression to the JSONB data. This works well when JSONB
    values have high repetition.
 
