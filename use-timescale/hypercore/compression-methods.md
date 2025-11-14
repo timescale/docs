@@ -285,7 +285,7 @@ For JSONB columns, $TIMESCALE_DB uses a two-layer compression approach:
 
 1. **$TIMESCALE_DB dictionary compression**: $TIMESCALE_DB attempts to apply
    its own dictionary compression to the JSONB data. This works well when JSONB
-   values have high repetition.
+   values have high repetition. It does not perform when each JSONB value is unique or nearly unique.
 
 2. **PostgreSQL TOAST compression**: If dictionary compression doesn't perform
    well (for example, when each JSONB value is unique or nearly unique),
