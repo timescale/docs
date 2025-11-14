@@ -9,6 +9,29 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## TimescaleDB v2.23 – improved getting started, automatic columnstore, and faster continuous aggregate invalidation tracking
+<Label type="date">November 14, 2025</Label>
+
+TimescaleDB v2.23 was released on October 29th and is now available on Tiger Cloud. 
+
+### Highlighted features in TimescaleDB v2.23.0
+
+- Simplified hypertable creation: starting with TimescaleDB is now even easier with less configuration and smarter defaults. [Create a hypertable](https://docs.tigerdata.com/api/latest/hypertable/create_table/#samples) in only one step with automatic selection of all parameters. This includes:
+    - Automatic selection of the partitioning column: TimescaleDB automatically selects a partitioning column so you no longer need to specify which column to use during creation.
+    - Automatic columnstore policy: TimescaleDB enables the columnstore by default and automatically creates a columnstore policy that runs after one chunk interval (defaults to 7 days).
+- UUIDv7 compression enabled by default: the UUIDv7 vectorized compression and query acceleration introduced in 2.22 are now enabled by default. You automatically benefit from ~30% storage savings and up to 2x faster query performance.
+- Direct-to-Columnstore (tech preview): this release adds `INSERT` support to Direct-to-Columnstore (Direct Compress), which previously supported only `COPY`. For more information, see our [documentation](https://docs.tigerdata.com/use-timescale/latest/write-data/insert/#direct-compress-on-insert) and [blog post](https://www.tigerdata.com/blog/introducing-direct-compress-up-to-40x-faster-leaner-data-ingestion-for-developers-tech-preview).
+- Relaxed locking for chunk merging: concurrency during chunk merges has been improved to eliminate potential deadlocks, enabling safer, faster background merges.
+- Unlogged hypertables: added the ability to set hypertables as `UNLOGGED`, improving insert and update performance for workloads where durability is not required. Ideal for large imports or transient datasets.
+- Continuous aggregates improvements: continuous aggregates no longer use triggers for invalidation tracking. The approach has been refactored resulting in 10–20% faster DML performance. [Set-returning functions](https://www.postgresql.org/docs/current/functions-srf.html) are now supported in continuous aggregate materialization queries ([community request #1717](https://github.com/timescale/timescaledb/issues/1717)).
+
+### Deprecations
+
+- PostgreSQL 15 deprecation: TimescaleDB will continue supporting PostgreSQL 15 until June 2026, after which support will be removed. We recommend that you begin planning upgrades to PostgreSQL 16 or higher to ensure continued access to performance improvements, security updates, and new TimescaleDB features. See [Supported platforms](https://docs.tigerdata.com/about/latest/supported-platforms/#postgres-timescaledb-support-matrix) for currently supported versions. 
+- WAL-based invalidation: introduced as a tech preview in 2.22, WAL-based invalidation will be sunset in the upcoming releases. The approach was not the right architecture to address customers hitting IOPS limits during continuous aggregate invalidation tracking. This release already removes the trigger, and we are adding more improvements in upcoming releases to address IOPS. The first step is to gate the feature behind a GUC, and remove it in an upcoming release.
+
+For a comprehensive list of changes, refer to the [TimescaleDB 2.23 release notes](https://github.com/timescale/timescaledb/blob/main/CHANGELOG.md#2230-2025-10-29).
+
 ## S3 source connector and crypto payments
 <Label type="date">October 31, 2025</Label>
 
