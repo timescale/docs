@@ -288,7 +288,7 @@ For JSONB columns, $TIMESCALE_DB uses a two-layer compression approach:
    values have high repetition. It does not perform when each JSONB value is unique or nearly unique.
 
 2. **$PG TOAST compression**: if dictionary compression does not perform, $TIMESCALE_DB skips compression and allows $PG to handle the data using
-   its TOAST (The Oversized-Attribute Storage Technique) compression. By default,
+   Oversized-Attribute Storage Technique (TOAST) compression. By default,
    $PG uses `pglz` compression. To configure $PG to use more 
    modern compression algorithms like `lz4`, set the `default_toast_compression`
    configuration parameter.
