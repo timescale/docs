@@ -7,6 +7,7 @@
 | `cagg_processing_wal_batch_size` | `INTEGER` | `10000` | Number of entries processed from the WAL at a go. Larger values take more memory but might be more efficient.<br />min: `1000`, max: `10000000` |
 | `compress_truncate_behaviour` | `ENUM` | `COMPRESS_TRUNCATE_ONLY` | Defines how truncate behaves at the end of compression. 'truncate_only' forces truncation. 'truncate_disabled' deletes rows instead of truncate. 'truncate_or_delete' allows falling back to deletion. |
 | `compression_batch_size_limit` | `INTEGER` | `1000` | Setting this option to a number between 1 and 999 will force compression to limit the size of compressed batches to that amount of uncompressed tuples.Setting this to 0 defaults to the max batch size of 1000.<br />min: `1`, max: `1000` |
+| `compression_batch_size_limit` | `INTEGER` | `1000` | Setting this option to a number between 1 and 999 will force compression to limit the size of compressed batches to that amount of uncompressed tuples.Setting this to 0 defaults to the max batch size of 1000.<br />min: `1`, max: `1000` |
 | `compression_orderby_default_function` | `STRING` | `"_timescaledb_functions.get_orderby_defaults"` | Function to use for calculating default order_by setting for compression |
 | `compression_segmentby_default_function` | `STRING` | `"_timescaledb_functions.get_segmentby_defaults"` | Function to use for calculating default segment_by setting for compression |
 | `current_timestamp_mock` | `STRING` | `NULL` |  this is for debugging purposes |
@@ -25,6 +26,7 @@
 | `enable_cagg_sort_pushdown` | `BOOLEAN` | `true` | Enable pushdown of ORDER BY clause for continuous aggregates |
 | `enable_cagg_wal_based_invalidation` | `BOOLEAN` | `false` | Use WAL to track changes to hypertables for continuous aggregates. This feature is early access from TimescaleDB v2.23.0 |
 | `enable_cagg_watermark_constify` | `BOOLEAN` | `true` | Enable constifying cagg watermark for real-time caggs |
+| `enable_cagg_window_functions` | `BOOLEAN` | `false` | Allow window functions in continuous aggregate views |
 | `enable_chunk_append` | `BOOLEAN` | `true` | Enable using chunk append node |
 | `enable_chunk_skipping` | `BOOLEAN` | `false` | Enable using chunk column stats to filter chunks based on column filters |
 | `enable_chunkwise_aggregation` | `BOOLEAN` | `true` | Enable the pushdown of aggregations to the chunk level |
