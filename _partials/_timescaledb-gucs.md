@@ -25,7 +25,6 @@
 | `enable_cagg_sort_pushdown` | `BOOLEAN` | `true` | Enable pushdown of ORDER BY clause for continuous aggregates |
 | `enable_cagg_wal_based_invalidation` | `BOOLEAN` | `false` | Use WAL to track changes to hypertables for continuous aggregates. This feature is early access from TimescaleDB v2.23.0 |
 | `enable_cagg_watermark_constify` | `BOOLEAN` | `true` | Enable constifying cagg watermark for real-time caggs |
-| `enable_cagg_window_functions` | `BOOLEAN` | `false` | Allow window functions in continuous aggregate views |
 | `enable_chunk_append` | `BOOLEAN` | `true` | Enable using chunk append node |
 | `enable_chunk_skipping` | `BOOLEAN` | `false` | Enable using chunk column stats to filter chunks based on column filters |
 | `enable_chunkwise_aggregation` | `BOOLEAN` | `true` | Enable the pushdown of aggregations to the chunk level |
