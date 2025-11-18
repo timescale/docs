@@ -69,18 +69,24 @@ And that is it! You have $TIMESCALE_DB running on a database on a self-hosted in
 The latest $TIMESCALE_DB releases for $PG are:
 
 *   <Tag type="download">
+
+    [Postgres 18: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.23.1/timescaledb-postgresql-18-windows-amd64.zip)
+
+    </Tag>
+
+*   <Tag type="download">
         
-     [Postgres 17: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.21.2/timescaledb-postgresql-17-windows-amd64.zip)
+     [Postgres 17: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.23.1/timescaledb-postgresql-17-windows-amd64.zip)
   
     </Tag>
 *   <Tag type="download">
         
-    [Postgres 16: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.21.2/timescaledb-postgresql-16-windows-amd64.zip)
+    [Postgres 16: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.23.1/timescaledb-postgresql-16-windows-amd64.zip)
   
     </Tag>
 *   <Tag type="download">
         
-    [Postgres 15: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.21.2/timescaledb-postgresql-15-windows-amd64.zip)
+    [Postgres 15: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.23.1/timescaledb-postgresql-15-windows-amd64.zip)
   
     </Tag>
 
