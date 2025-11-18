@@ -263,11 +263,21 @@ materialization threshold forward in time. This ensures that the threshold lags
 behind the point-in-time where data changes are common, and that most INSERTs do
 not require any extra writes.
 
-When data older than the invalidation threshold is changed, the maximum and
-minimum timestamps of the changed rows is logged, and the values are used to
-determine which rows in the aggregation table need to be recalculated. This
-logging does cause some write load, but because the threshold lags behind the
-area of data that is currently changing, the writes are small and rare.
+When data older than the invalidation threshold is changed, each transaction
+logs the minimum and maximum timestamps of the rows it modified.
+The continuous aggregate then identifies which complete time buckets are affected
+based on this per-transaction tracking. The range of buckets that are recalculated
+depends on transaction boundaries:
+
+* If you modify rows in the 10:00 bucket and rows in the 15:00 bucket within a
+  **single transaction**, all buckets from 10:00 to 15:00 (including intermediate
+  buckets 11:00, 12:00, 13:00, and 14:00) are recalculated during refresh.
+* If you modify rows in the 10:00 bucket in one transaction and rows in the 15:00
+  bucket in a **separate transaction**, only the 10:00 and 15:00 buckets are
+  recalculated. The intermediate buckets (11:00, 12:00, 13:00, 14:00) are not affected.
+
+This logging does cause some write load. However, the threshold lags behind the
+area of data that is currently changing, so the writes are small and rare.
 
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
 [cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
