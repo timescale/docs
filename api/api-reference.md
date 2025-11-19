@@ -276,6 +276,78 @@ Change the HA configuration for a service. This is an asynchronous operation.
 
 **Response:** `202 Accepted`
 
+### Stop a Service
+
+```http
+POST /projects/{project_id}/services/{service_id}/stop
+```
+
+Stop a running service. This is an asynchronous operation.
+
+**Response:** `202 Accepted`
+```json
+{
+  "service_id": "p7zm9wqqii",
+  "project_id": "jz22xtzemv",
+  "name": "test-2",
+  "region_code": "eu-central-1",
+  "service_type": "TIMESCALEDB",
+  "created": "2025-09-04T20:46:46.26568Z",
+  "paused": false,
+  "status": "PAUSING",
+  "resources": [
+      {
+          "id": "100927",
+          "spec": {
+              "cpu_millis": 1000,
+              "memory_gbs": 4,
+              "volume_type": ""
+          }
+      }
+  ],
+  "endpoint": {
+      "host": "p7zm8wqqii.jz4qxtzemv.tsdb.cloud.timescale.com",
+      "port": 35482
+  }
+}
+```
+
+### Start a Service
+
+```http
+POST /projects/{project_id}/services/{service_id}/start
+```
+
+Start a stopped service. This is an asynchronous operation.
+
+**Response:** `202 Accepted`
+```json
+{
+  "service_id": "p7zm9wqqii",
+  "project_id": "jz22xtzemv",
+  "name": "test-2",
+  "region_code": "eu-central-1",
+  "service_type": "TIMESCALEDB",
+  "created": "2025-09-04T20:46:46.26568Z",
+  "paused": false,
+  "status": "RESUMING",
+  "resources": [
+      {
+          "id": "100927",
+          "spec": {
+              "cpu_millis": 1000,
+              "memory_gbs": 4,
+              "volume_type": ""
+          }
+      }
+  ],
+  "endpoint": {
+      "host": "p7zm8wqqii.jz4qxtzemv.tsdb.cloud.timescale.com",
+      "port": 35482
+  }
+}
+```
+
 ### Connection Pooler Management
 
 #### Enable Connection Pooler
