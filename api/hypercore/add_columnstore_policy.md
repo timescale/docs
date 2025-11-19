@@ -30,7 +30,7 @@ specific time interval.
 
 When $COLUMNSTORE is enabled, [bloom filters][bloom-filters] are enabled by default, and every new chunk has a bloom index.
 Bloom indexes are not retrofitted, existing chunks need to be fully recompressed to have the bloom indexes present. If 
-you converted chunks to $COLUMNSTORE using $TIMESCALE_DB [v2.19.3](tsdb-release-2-19-3) or below, to enable bloom filters on that data you have 
+you converted chunks to $COLUMNSTORE using $TIMESCALE_DB [v2.19.3][tsdb-release-2-19-3] or below, to enable bloom filters on that data you have 
 to convert those chunks to the $ROWSTORE, then convert them back to the $COLUMNSTORE. 
 
 To view the policies that you set or the policies that already exist, see [informational views][informational-views]. 
