@@ -51,12 +51,28 @@ Continuous aggregates have some limitations of what types of queries they can
 support. For more information, see the
 [continuous aggregates section][cagg-how-tos].
 
-$TIMESCALE_DB v2.17.1 and greater dramatically decrease the amount
+In TimescaleDB v2.17.0 and greater (with PostgreSQL 15+), you can dramatically decrease the amount
 of data written on a continuous aggregate in the presence of a small number of changes,
-reduce the i/o cost of refreshing a continuous aggregate, and generate fewer Write-Ahead
-Logs (WAL), set the`timescaledb.enable_merge_on_cagg_refresh`
-configuration parameter to `TRUE`. This enables continuous aggregate
-refresh to use merge instead of deleting old materialized data and re-inserting.
+reduce the I/O cost of refreshing a continuous aggregate, and generate fewer Write-Ahead
+Logs (WAL) by enabling the `timescaledb.enable_merge_on_cagg_refresh`
+[GUC parameter][gucs]. This enables continuous aggregate
+refresh to use MERGE instead of deleting old materialized data and re-inserting.
+This is a session-level parameter that only works for finalized continuous aggregates
+that don't have compression enabled. It is disabled by default.
+
+To enable this parameter for your session:
+
+```sql
+SET timescaledb.enable_merge_on_cagg_refresh = ON;
+```
+
+To enable it at the database level:
+
+```sql
+ALTER DATABASE your_database SET timescaledb.enable_merge_on_cagg_refresh = ON;
+```
+
+For more information about GUC parameters, see the [configuration documentation][gucs].
 
 For more settings for continuous aggregates, see [timescaledb_information.continuous_aggregates][info-views].
 
@@ -125,3 +141,4 @@ For more information, see the [real-time aggregates][real-time-aggregates] secti
 [real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
 [refresh-cagg]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
 [info-views]: /api/:currentVersion:/informational-views/continuous_aggregates/
+[gucs]: /api/:currentVersion:/configuration/gucs/
