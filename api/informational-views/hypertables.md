@@ -29,14 +29,16 @@ SELECT create_hypertable('metrics','time');
 
 SELECT * from timescaledb_information.hypertables WHERE hypertable_name = 'metrics';
 
--[ RECORD 1 ]-------+--------
-hypertable_schema   | public
-hypertable_name     | metrics
-owner               | sven
-num_dimensions      | 1
-num_chunks          | 0
-compression_enabled | f
-tablespaces         | NULL
+-[ RECORD 1 ]-----------+-------------------------
+hypertable_schema       | public
+hypertable_name         | metrics
+owner                   | sven
+num_dimensions          | 1
+num_chunks              | 0
+compression_enabled     | f
+tablespaces             | NULL
+primary_dimension       | time
+primary_dimension_type  | timestamp with time zone
 ```
 
 ## Available columns
@@ -53,6 +55,8 @@ tablespaces         | NULL
 |`replication_factor`|SMALLINT| <Sunsetted2140 /> Replication factor for a distributed hypertable |
 |`data_nodes`|TEXT| <Sunsetted2140 /> Nodes on which hypertable is distributed        |
 |`tablespaces`|TEXT| Tablespaces attached to the hypertable                            |
+|`primary_dimension`|TEXT| Name of the primary (time) dimension column                       |
+|`primary_dimension_type`|TEXT| Data type of the primary dimension column                         |
 
 
 
