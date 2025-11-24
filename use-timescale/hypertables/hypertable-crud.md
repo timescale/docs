@@ -70,7 +70,7 @@ ALTER TABLE conditions
 If the column you are adding has the default value set to `NULL`, or has no
 default value, then adding a column is relatively fast. If you set the default
 to a non-null value, it takes longer, because it needs to fill in this value for
-all existing rows of all existing $CHUNK.
+all existing rows of all existing $CHUNKs.
 
 ### Rename a hypertable
 
@@ -100,6 +100,7 @@ The following restrictions apply:
 - For time dimension columns, you can only change to `TIMESTAMPTZ`, `TIMESTAMP`, `DATE`,
   `INTEGER` (smallint, integer, or bigint), or `UUID` (UUIDv7 only).
 - You cannot change the type of columns with custom partitioning functions.
+- You cannot change the type of columns for $HYPERTABLEs with $COLUMNSTORE enabled. See [Altering $HYPERTABLEs with $COLUMNSTORE enabled][alter-schema] for how to do it instead. 
 - For columns with statistics enabled, you can only change to integer or timestamp types.
   To change to other types, first disable statistics using `disable_column_stats`.
 
@@ -124,7 +125,7 @@ command:
 DROP TABLE weather;
 ```
 
-All data $CHUNK belonging to the $HYPERTABLE are deleted.
+All data $CHUNKs belonging to the $HYPERTABLE are deleted.
 
 [postgres-droptable]: https://www.postgresql.org/docs/current/sql-droptable.html
 [postgres-altertable]: https://www.postgresql.org/docs/current/sql-altertable.html
