@@ -1,4 +1,4 @@
-* This works for $PG databases only as source. $TIMESCALE_DB is not yet supported.
+* Using $TIMESCALE_DB as the source has limited support (no CAGGs).
 
 * The source must be running $PG 13 or later.
 
