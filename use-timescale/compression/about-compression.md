@@ -9,7 +9,7 @@ import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # About compression
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/">hypercore</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/">hypercore</a>. If you have already implemented compression, you do not need to migrate to hypercore.
 
 <CompressionIntro />
 

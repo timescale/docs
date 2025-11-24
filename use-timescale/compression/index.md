@@ -8,7 +8,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Compression (Replaced by [Hypercore][hypercore])
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/">hypercore</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/">hypercore</a>. 
+If you have already implemented compression, you do not need to migrate to hypercore.
 
 Time-series data can be compressed to reduce the amount of storage required, and
 increase the speed of some queries. This is a cornerstone feature of

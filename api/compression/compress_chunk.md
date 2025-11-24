@@ -15,6 +15,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 # compress_chunk() <Tag type="community">Community</Tag>
 
 <Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+If you have already implemented compression, you do not need to migrate to hypercore.
 
 The `compress_chunk` function is used for synchronous compression (or recompression, if necessary) of 
 a specific chunk. This is most often used instead of the

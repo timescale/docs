@@ -9,7 +9,7 @@ import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # Compression policy
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/real-time-analytics-in-hypercore/">Optimize your data for real-time analytics</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/real-time-analytics-in-hypercore/">Optimize your data for real-time analytics</a>. If you have already implemented compression, you do not need to migrate to hypercore.
 
 You can enable compression on individual hypertables, by declaring which column
 you want to segment by.

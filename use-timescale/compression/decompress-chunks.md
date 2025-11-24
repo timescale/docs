@@ -10,7 +10,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Decompression
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/convert_to_rowstore/">`convert_to_rowstore`</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/convert_to_rowstore/">`convert_to_rowstore`</a>. If you have already implemented compression, you do not need to migrate to hypercore.
 
 <Highlight type="important">
 

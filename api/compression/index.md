@@ -10,7 +10,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Compression (Old API, replaced by Hypercore) <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>.
+<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>. 
+If you have already implemented compression, you do not need to migrate to hypercore.
 
 Compression functionality is included in Hypercore. 
 
