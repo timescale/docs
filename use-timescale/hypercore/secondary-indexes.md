@@ -107,7 +107,6 @@ To illustrate, run the same query on a $HYPERTABLE, first without, then with opt
 
       ```sql
       ALTER TABLE metrics SET (
-        timescaledb.enable_columnstore = true,
         timescaledb.orderby = 'time',
         timescaledb.segmentby = 'device_id'
       );
