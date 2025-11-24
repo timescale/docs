@@ -60,7 +60,7 @@ at the right time. When you segment your data to access specific columns, your q
 For example, to access information about a single device with a specific `device_id`, you segment on the `device_id` column. 
 This enables you to run analytical queries on compressed data in the $COLUMNSTORE much faster.
 
-To illustrate, let's create a $HYPERTABLE and then run the same query on it with and without optimizations:
+To illustrate, run the same query on a $HYPERTABLE, first without, then with optimizations:
 
 <Procedure>
 
