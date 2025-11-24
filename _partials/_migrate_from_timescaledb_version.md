@@ -19,4 +19,4 @@ psql $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version here>';"
 
 For more information and guidance, consult the [Upgrade TimescaleDB] page.
 
-[Upgrade TimescaleDB]: https://docs.tigerdata.com/self-hosted/latest/upgrades/
+[Upgrade TimescaleDB]: https://www.tigerdata.com/docs/self-hosted/latest/upgrades/

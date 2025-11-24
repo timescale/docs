@@ -100,5 +100,5 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
 [what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
-[timescaledb]: https://docs.tigerdata.com/#TimescaleDB
+[timescaledb]: https://www.tigerdata.com/docs/#TimescaleDB
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

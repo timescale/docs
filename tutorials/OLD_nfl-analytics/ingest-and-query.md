@@ -223,7 +223,7 @@ multiple times per second during each play)
 
 <Highlight type="important">
 
-These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [$TOOLKIT_LONG](https://docs.tigerdata.com/use-timescale/latest/install-timescaledb-toolkit/) before you begin.
+These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [$TOOLKIT_LONG](https://www.tigerdata.com/docs/use-timescale/latest/install-timescaledb-toolkit/) before you begin.
 
 </Highlight>
 
