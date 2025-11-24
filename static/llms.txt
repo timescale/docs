@@ -379,4 +379,4 @@ To contribute to this documentation:
 4. Submit a pull request back to `latest`
 5. Sign the Contributor License Agreement (CLA) if this is your first contribution
 
-The documentation is built using Gatsby and automatically generates preview links for pull requests.
+The documentation is built using Gatsby framework and automatically generates preview links for pull requests.
