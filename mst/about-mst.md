@@ -49,7 +49,7 @@ When you have created, and named, a new Managed Service for TimescaleDB service,
 you cannot rename it. If you need to have your service running under a different
 name, you need to create a new service, and manually migrate the data. For more
 information about migrating data, see
-[migrating your data](https://docs.tigerdata.com/mst/latest/migrate-to-mst/).
+[migrating your data](https://www.tigerdata.com/docs/mst/latest/migrate-to-mst/).
 </Highlight>
 
 For information about billing on Managed Service for TimescaleDB, see the

@@ -24,7 +24,7 @@ Before you set up compression for the first time, read
 the compression
 [blog post](https://www.tigerdata.com/blog/building-columnar-compression-in-a-row-oriented-database)
 and
-[documentation](https://docs.tigerdata.com/use-timescale/latest/compression/).
+[documentation](https://www.tigerdata.com/docs/use-timescale/latest/compression/).
 </Highlight>
 
 You can also [compress chunks manually][compress_chunk], instead of using an

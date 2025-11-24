@@ -138,4 +138,4 @@ This needs to be taken into account when you define your $COLUMNSTORE settings.
 [iops]: https://en.wikipedia.org/wiki/IOPS
 [segmenting-and-ordering]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#segmenting-and-ordering-data
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
-[create-index]: https://docs.tigerdata.com/api/latest/hypertable/create_index/
+[create-index]: https://www.tigerdata.com/docs/api/latest/hypertable/create_index/

@@ -5,7 +5,7 @@ To start using $CLOUD_LONG for your data:
 1. [Connect to your $SERVICE_LONG][connect-to-your-service]: to run queries, add and migrate your data from other sources.
 
 
-[timescaledb]: https://docs.tigerdata.com/#TimescaleDB
+[timescaledb]: https://www.tigerdata.com/docs/#TimescaleDB
 [connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [create-an-account]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [create-a-service]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-service
