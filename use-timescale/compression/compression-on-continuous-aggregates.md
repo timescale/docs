@@ -9,7 +9,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Compress continuous aggregates
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/continuous-aggregates/compression-on-continuous-aggregates/">Convert continuous aggregates to the columnstore</a>. If you have already implemented compression, you do not need to migrate to hypercore.
+<Deprecated2180 /> Superseded by <a href="https://docs.tigerdata.com/use-timescale/latest/continuous-aggregates/compression-on-continuous-aggregates/">Convert continuous aggregates to the columnstore</a>. 
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Continuous aggregates are often used to downsample historical data. If the data is only used for analytical queries 
 and never modified, you can compress the aggregate to save on storage.

@@ -15,8 +15,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 # remove_compression_policy() <Tag type="community" content="community" />
 
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/remove_columnstore_policy/">remove_columnstore_policy()</a>.
-If you have already implemented compression, you do not need to migrate to hypercore.
+<Deprecated2180 /> Superseded by <a href="https://docs.tigerdata.com/api/latest/hypercore/remove_columnstore_policy/">remove_columnstore_policy()</a>.
+However, compression APIs are still supported, you do not need to migrate to hypercore.
 
 If you need to remove the compression policy. To restart policy-based
 compression you need to add the policy again. To view the policies that

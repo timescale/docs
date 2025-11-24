@@ -9,7 +9,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Designing for compression
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/">hypercore</a>. If you have already implemented compression, you do not need to migrate to hypercore.
+<Deprecated2180 /> Superseded by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/">hypercore</a>. However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 
 Time-series data can be unique, in that it needs to handle both shallow and wide

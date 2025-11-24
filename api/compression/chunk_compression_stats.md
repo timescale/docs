@@ -14,8 +14,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # chunk_compression_stats() <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/chunk_columnstore_stats/">chunk_columnstore_stats()</a>.
-If you have already implemented compression, you do not need to migrate to hypercore.
+<Deprecated2180 /> Superseded by <a href="https://docs.tigerdata.com/api/latest/hypercore/chunk_columnstore_stats/">chunk_columnstore_stats()</a>.
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Get chunk-specific statistics related to hypertable compression.
 All sizes are in bytes.
