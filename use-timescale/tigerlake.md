@@ -216,20 +216,19 @@ To connect a $SERVICE_LONG to your data lake:
 
 ## Stream data from your $SERVICE_LONG to your data lake
 
-When you start streaming, all data in the table is synchronized to Iceberg. This happens is two separate processes.
-One process takes a snapshot of the table, and starts streaming at approximately 300.000 records / second to the Iceberg table.
-The second process capatures the changes (CDC), and streams them at 30.000 events / second to a branch in the Iceberg table.
-Once the first process finishes the full import of the table snapshot, the two Iceberg table branches are merged. 
-This implies eventual consistency of the Iceberg table after starting the sync.
-
 Records are imported in time order, from oldest to newest. 
-For larger tables, an import can take some time, rough numbers range between 1 billion records / hour or 100 GB of data.
-The numbers vary depending on the table wide and complexity of the schema.
+Your $HYPERTABLE or relational table must have a primary key, or composite primary keys as a prerequisite to sync to Iceberg.
 
-Ingest bursts exceeding 30.000 records / second on synced table or a $HYPERTABLE can be handles for a certain amount of time and feathered out over time.
-Factors depend on the time the 30.000 records / second are exceeded and the increased number of additional records / second.
+When you start syncing, all data in the table is streamed to Iceberg in the following processes:
+* Table snapshot: stream data from a snapshot of the source table to the destination Iceberg table at
+approximately 300.000 records a second. For larger tables, import speeds are approximately 1 billion records
+or 100 GB of data an hour. However, these numbers vary on table width and the complexity of the schema.
+* Table changes: stream changes made to the source table (CDC) after the snapshot is taken to a branch of the
+destination Iceberg table. This happens at approximately 30.000 events a second. Ingest bursts exceeding this
+can be handled for a certain amount of time and feathered out over time. This depends on duration of the
+ingestion burst, and the amount of extra events to be handled.
 
-Your $HYPERTABLE or relational table must have a primary key, or composite primary keys as a prerequisite to sync to Iceberg. 
+Once the snapshot is fully imported, the snapshot and CDC Iceberg table branches are merged. Merging takes from a couple of seconds, to ten minutes for larger tables of 5TB or more. During this time, new events are held on the WAL. Once the merge is completed, events in the WAL are CDC'd to Iceberg. This implies eventual consistency of the Iceberg table after you started the the sync.
 
 To stream data from a $PG relational table, or a $HYPERTABLE in your $SERVICE_LONG to your data lake, run the following 
 statement:
