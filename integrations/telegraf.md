@@ -89,14 +89,12 @@ To create a Telegraf configuration that exports data to a hypertable in your $SE
 
       ```bash
       ## Templated statements to execute when creating a new table.
-      # create_templates = [
-      #   '''CREATE TABLE {{ .table }} ({{ .columns }})''',
-      # ]
-      #  table_template=`CREATE TABLE IF NOT EXISTS {TABLE}({COLUMNS}); SELECT create_hypertable({TABLELITERAL},by_range('time', INTERVAL '1 week'),if_not_exists := true);`
-
+      create_templates = [
+        '''CREATE TABLE IF NOT EXISTS {{ .table }} ({{ .columns }}) WITH (tsdb.hypertable, tsdb.chunk_interval='1 week')''',
+      ]
       ```
 
-      The `by_range` dimension builder was added to TimescaleDB 2.13.
+      This uses the modern `CREATE TABLE ... WITH (tsdb.hypertable)` interface introduced in TimescaleDB 2.20.
 
 </Procedure>
 
