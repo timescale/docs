@@ -94,8 +94,6 @@ To create a Telegraf configuration that exports data to a hypertable in your $SE
       ]
       ```
 
-      This uses the modern `CREATE TABLE ... WITH (tsdb.hypertable)` interface introduced in TimescaleDB 2.20.
-
 </Procedure>
 
 
@@ -108,7 +106,7 @@ $SERVICE_SHORT and query the metrics [hypertable][about-hypertables].
 
 1. **Collect system metrics using Telegraf**
 
-    Run the following command for a 30 seconds:  
+    Run the following command for 30 seconds:  
 
     ```bash
     telegraf --config telegraf.conf
