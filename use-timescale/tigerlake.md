@@ -362,6 +362,7 @@ data lake:
 * Data in a $HYPERTABLE that has been moved to the [low-cost object storage tier][data-tiering] is not synced.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
+* A $HYPERTABLE with long running continuous aggregates refresh transactions, plus 30 minutes, can cause issues with holding the replication slot too long. Please consider batching in these cases.
 
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
