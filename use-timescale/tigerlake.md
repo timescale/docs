@@ -7,7 +7,6 @@ keywords: [data lake, lakehouse, s3, iceberg]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
-import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate data lakes with $CLOUD_LONG
@@ -19,12 +18,6 @@ system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data la
 
 $LAKE_LONG is a native integration enabling synchronization between $HYPERTABLEs and relational tables
 running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
-
-<Highlight type="important">
-
-Tiger Lake is currently in private beta. Please contact us to request access.
-
-</Highlight>
 
 ## Prerequisites
 
@@ -223,12 +216,20 @@ To connect a $SERVICE_LONG to your data lake:
 
 ## Stream data from your $SERVICE_LONG to your data lake
 
-When you start streaming, all data in the table is synchronized to Iceberg. Records are imported in time order, from
-oldest to youngest. The write throughput is approximately 40.000 records / second. For larger tables, a full import can 
-take some time.
+When you start streaming, all data in the table is synchronized to Iceberg. This happens is two separate processes.
+One process takes a snapshot of the table, and starts streaming at approximately 300.000 records / second to the Iceberg table.
+The second process capatures the changes (CDC), and streams them at 30.000 events / second to a branch in the Iceberg table.
+Once the first process finishes the full import of the table snapshot, the two Iceberg table branches are merged. 
+This implies eventual consistency of the Iceberg table after starting the sync.
 
-For Iceberg to perform update or delete statements, your $HYPERTABLE or relational table must have a primary key. 
-This includes composite primary keys.
+Records are imported in time order, from oldest to newest. 
+For larger tables, an import can take some time, rough numbers range between 1 billion records / hour or 100 GB of data.
+The numbers vary depending on the table wide and complexity of the schema.
+
+Ingest bursts exceeding 30.000 records / second on synced table or a $HYPERTABLE can be handles for a certain amount of time and feathered out over time.
+Factors depend on the time the 30.000 records / second are exceeded and the increased number of additional records / second.
+
+Your $HYPERTABLE or relational table must have a primary key, or composite primary keys as a prerequisite to sync to Iceberg. 
 
 To stream data from a $PG relational table, or a $HYPERTABLE in your $SERVICE_LONG to your data lake, run the following 
 statement:
@@ -355,16 +356,12 @@ data lake:
 ## Limitations
 
 * Service requires $PG 17.6 and above is supported.
-* Consistent ingestion rates of over 30000 records / second can lead to a lost replication slot. Burst can be feathered out over time. 
 * [Amazon S3 Tables Iceberg REST][aws-s3-tables] catalog only is supported.
-* In order to collect deletes made to data in the columstore, certain columnstore optimizations are disabled for $HYPERTABLEs.
-* [Direct Compress][direct-compress] is not supported.
+* In order to collect deletes made to data in the columstore, certain columnstore optimizations are disabled for $HYPERTABLEs, this includes [Direct Compress][direct-compress].
 * The `TRUNCATE` statement is not supported, and does not truncate data in the corresponding Iceberg table.
 * Data in a $HYPERTABLE that has been moved to the [low-cost object storage tier][data-tiering] is not synced.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
-
-
 
 
 [cmc]: https://console.aws.amazon.com/cloudformation/
