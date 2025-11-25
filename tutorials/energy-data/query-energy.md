@@ -212,4 +212,4 @@ You may also want to check the energy consumption that occurs on a monthly basis
 
 </Procedure>
 
-[about-hyperfunctions]: https://docs.tigerdata.com/use-timescale/latest/hyperfunctions/about-hyperfunctions/
+[about-hyperfunctions]: https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/about-hyperfunctions/

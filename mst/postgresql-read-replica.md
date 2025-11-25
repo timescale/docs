@@ -15,7 +15,7 @@ see the documentation on [creating a read replica using the CLI][read-replica-cl
 
 <Highlight type="note">
 
-If you are running a $MST_LONG [Pro plan](https://docs.tigerdata.com/mst/latest/about-mst/#service-configuration-plans),
+If you are running a $MST_LONG [Pro plan](https://www.tigerdata.com/docs/mst/latest/about-mst/#service-configuration-plans),
 you have standby nodes available in a high availability setup. The standby nodes
 support read-only queries to reduce the effect of slow queries on the primary
 node.

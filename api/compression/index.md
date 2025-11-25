@@ -10,7 +10,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Compression (Old API, replaced by Hypercore) <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>.
+<Deprecated2180 /> Superseded by <a href="https://docs.timescale.com/api/latest/hypercore/">Hypercore</a>. 
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Compression functionality is included in Hypercore. 
 
@@ -23,7 +24,7 @@ Before you set up compression for the first time, read
 the compression
 [blog post](https://www.tigerdata.com/blog/building-columnar-compression-in-a-row-oriented-database)
 and
-[documentation](https://docs.tigerdata.com/use-timescale/latest/compression/).
+[documentation](https://www.tigerdata.com/docs/use-timescale/latest/compression/).
 </Highlight>
 
 You can also [compress chunks manually][compress_chunk], instead of using an
