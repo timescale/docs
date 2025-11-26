@@ -9,7 +9,8 @@ import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # Compression policy
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/hypercore/real-time-analytics-in-hypercore/">Optimize your data for real-time analytics</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/latest/hypercore/real-time-analytics-in-hypercore/">Optimize your data for real-time analytics</a>. 
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 You can enable compression on individual hypertables, by declaring which column
 you want to segment by.

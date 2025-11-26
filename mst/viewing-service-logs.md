@@ -28,5 +28,5 @@ Service logs included on the normal service price are stored only for a few
 days. Unless you are using logs integration to another service, older logs are
 not accessible.
 
-[REST API]: https://docs.timescale.com/mst/latest/
+[REST API]: https://www.tigerdata.com/docs/latest/
 [command-line-client]: https://github.com/aiven/aiven-client

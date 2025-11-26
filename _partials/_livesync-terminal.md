@@ -175,7 +175,7 @@ instance to a $SERVICE_LONG:
    As you run the $PG_CONNECTOR continuously, best practice is to run it as a Docker daemon.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.1.25 run \
+   docker run -d --rm --name livesync timescale/live-sync:v0.3.3 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET --table-map <table_map_as_json>
    ```
@@ -325,7 +325,7 @@ EOF
    Use the `--drop` flag to remove the replication slots created by the $PG_CONNECTOR on the source database.
 
    ```shell
-   docker run -it --rm --name livesync timescale/live-sync:v0.1.25 run \
+   docker run -it --rm --name livesync timescale/live-sync:v0.3.3 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET \
       --drop
