@@ -220,9 +220,37 @@ module.exports = [
         excerpt: "Uninstalling self-hosted TimescaleDB",
         children: [
           {
-            title: "Uninstall self-hosted TimescaleDB on macOS",
+            title: "Docker",
+            href: "uninstall-docker",
+            excerpt:
+                "Uninstall self-hosted TimescaleDB from Docker",
+          },
+          {
+            title: "Kubernetes",
+            href: "uninstall-kubernetes",
+            excerpt: "Uninstall self-hosted TimescaleDB from Kubernetes",
+          },
+          {
+            title: "Linux",
+            href: "uninstall-linux",
+            excerpt: "Uninstall self-hosted TimescaleDB from Linux",
+          },
+          {
+            title: "MacOS",
             href: "uninstall-timescaledb",
-            excerpt: "Uninstall self-hosted TimescaleDB on macOS",
+            excerpt: "Uninstall self-hosted TimescaleDB from MacOS",
+          },
+          {
+            title: "Windows",
+            href: "uninstall-windows",
+            excerpt:
+              "Uninstall self-hosted TimescaleDB from Windows",
+          },
+          {
+            title: "Source",
+            href: "uninstall-source",
+            excerpt:
+                "Uninstall self-hosted TimescaleDB installed from source",
           },
         ],
       },
