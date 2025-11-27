@@ -151,7 +151,7 @@ successfully.
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /integrations/:currentVersion:/psql/
-[upgrading-postgresql]: https://docs.timescale.com/mst/latest/
+[upgrading-postgresql]: https://www.tigerdata.com/docs/latest/
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore

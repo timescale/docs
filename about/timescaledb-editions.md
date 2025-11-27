@@ -169,7 +169,7 @@ You can access a hosted version of $TDB_COMMUNITY through
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.tigerdata.com/use-timescale/latest/query-data/skipscan/">SkipScan</a></td>
+    <td><a href="https://www.tigerdata.com/docs/use-timescale/latest/query-data/skipscan/">SkipScan</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -333,7 +333,7 @@ You can access a hosted version of $TDB_COMMUNITY through
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.tigerdata.com/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill#locf">locf</a></td>
+    <td><a href="https://www.tigerdata.com/docs/api/latest/hyperfunctions/gapfilling/time_bucket_gapfill#locf">locf</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -403,7 +403,7 @@ You can access a hosted version of $TDB_COMMUNITY through
     <td>✅</td>
   </tr>
    <tr>
-    <td><a href="https://docs.tigerdata.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight#rollup">rollup</a></td>
+    <td><a href="https://www.tigerdata.com/docs/api/latest/hyperfunctions/time-weighted-calculations/time_weight#rollup">rollup</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>

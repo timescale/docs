@@ -12,7 +12,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 // Provide context for the integration steps, for example, if an additional connector is used.
 
-// See https://docs.tigerdata.com/integrations/latest/grafana/ for an example. 
+// See https://www.tigerdata.com/docs/integrations/latest/grafana/ for an example. 
 
 ## Prerequisites
 
