@@ -11,8 +11,8 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
 
 # Optimize time-series data in hypertables
 
-Hypertables are designed for real-time analytics, they are $PG tables that automatically partition your data by
-time. Typically, you partition hypertables on columns that hold time values.
+$HYPERTABLE_CAP are designed for real-time analytics, they are $PG tables that automatically partition your data by
+time. Typically, you partition $HYPERTABLE on columns that hold time values.
 [Best practice is to use `timestamptz`][timestamps-best-practice] column type. However, you can also partition on 
 `date`, `integer`, `timestamp` and [UUIDv7][uuidv7_functions] types.
 
@@ -53,14 +53,13 @@ To convert an existing table with data in it, call `create_hypertable` on that t
 
 ## Alter a hypertable
 
-You can alter a hypertable, for example to add a column, by using the $PG
-[`ALTER TABLE`][postgres-altertable] command. This works for both regular and
-distributed hypertables.
+You can alter a $HYPERTABLE, for example to add a column, by using the $PG
+[`ALTER TABLE`][postgres-altertable] command. Some operations are not supported for $HYPERTABLE with $COLUMNSTORE enabled. See [Altering $HYPERTABLEs with $COLUMNSTORE enabled][alter-schema].
 
 ### Add a column to a hypertable
 
-You add a column to a hypertable using the `ALTER TABLE` command. In this
-example, the hypertable is named `conditions` and the new column is named
+You add a column to a $HYPERTABLE using the `ALTER TABLE` command. In this
+example, the $HYPERTABLE is named `conditions` and the new column is named
 `humidity`:
 
 ```sql
@@ -71,12 +70,12 @@ ALTER TABLE conditions
 If the column you are adding has the default value set to `NULL`, or has no
 default value, then adding a column is relatively fast. If you set the default
 to a non-null value, it takes longer, because it needs to fill in this value for
-all existing rows of all existing chunks.
+all existing rows of all existing $CHUNKs.
 
 ### Rename a hypertable
 
-You can change the name of a hypertable using the `ALTER TABLE` command. In this
-example, the hypertable is called `conditions`, and is being changed to the new
+You can change the name of a $HYPERTABLE using the `ALTER TABLE` command. In this
+example, the $HYPERTABLE is called `conditions`, and is being changed to the new
 name, `weather`:
 
 ```sql
@@ -84,21 +83,51 @@ ALTER TABLE conditions
   RENAME TO weather;
 ```
 
+### Change a column data type
+
+You can change the data type of a column in a $HYPERTABLE using the `ALTER TABLE`
+command. In this example, the `temperature` column data type is changed from `DOUBLE PRECISION`
+to `NUMERIC`:
+
+```sql
+ALTER TABLE conditions
+  ALTER COLUMN temperature TYPE NUMERIC;
+```
+
+The following restrictions apply:
+
+- You cannot change the type of `segmentby` columns.
+- For time dimension columns, you can only change to `TIMESTAMPTZ`, `TIMESTAMP`, `DATE`,
+  `INTEGER` (smallint, integer, or bigint), or `UUID` (UUIDv7 only).
+- You cannot change the type of columns with custom partitioning functions.
+- You cannot change the type of columns for $HYPERTABLEs with $COLUMNSTORE enabled. See [Altering $HYPERTABLEs with $COLUMNSTORE enabled][alter-schema] for how to do it instead. 
+- For columns with statistics enabled, you can only change to integer or timestamp types.
+  To change to other types, first disable statistics using `disable_column_stats`.
+
+### Drop a column
+
+You can drop a column from a $HYPERTABLE using the `ALTER TABLE` command. In this
+example, the `humidity` column is dropped from the `conditions` $HYPERTABLE:
+
+```sql
+ALTER TABLE conditions
+  DROP COLUMN humidity;
+```
+
+You cannot drop partitioning columns.
+
 ## Drop a hypertable
 
-Drop a hypertable using a standard $PG [`DROP TABLE`][postgres-droptable]
+Drop a $HYPERTABLE using a standard $PG [`DROP TABLE`][postgres-droptable]
 command:
 
 ```sql
 DROP TABLE weather;
 ```
 
-All data chunks belonging to the hypertable are deleted.
+All data $CHUNKs belonging to the $HYPERTABLE are deleted.
 
 [postgres-droptable]: https://www.postgresql.org/docs/current/sql-droptable.html
-
-
-
 [postgres-altertable]: https://www.postgresql.org/docs/current/sql-altertable.html
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [install]: /getting-started/:currentVersion:/
@@ -113,3 +142,4 @@ All data chunks belonging to the hypertable are deleted.
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
 [uuidv7_functions]: /api/:currentVersion:/uuid-functions/
+[alter-schema]: /use-timescale/:currentVersion:/schema-management/alter/#altering-hypertables-with-columnstore-enabled
