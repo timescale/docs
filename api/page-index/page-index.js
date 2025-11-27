@@ -34,6 +34,14 @@ module.exports = [
             href: "drop_chunks",
           },
           {
+            title: "create_chunk",
+            href: "create_chunk",
+          },
+          {
+            title: "drop_chunk",
+            href: "drop_chunk",
+          },
+          {
             title: "reorder_chunk",
             href: "reorder_chunk",
           },
