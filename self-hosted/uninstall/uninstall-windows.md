@@ -76,84 +76,17 @@ If you installed TimescaleDB on Windows, you can uninstall it without removing P
 
     Replace `<version>` with your PostgreSQL version number (for example, `17`).
 
-1.  **Uninstall TimescaleDB**
+1.  **Remove TimescaleDB files**
 
-    1.  Open the Windows Control Panel:
-        - Press `Win + R`, type `control`, and press Enter
-        - Or search for "Control Panel" in the Start menu
-
-    1.  Navigate to `Programs and Features` (or `Apps & features` in Windows 10/11)
-
-    1.  Find `TimescaleDB` in the list of installed programs
-
-    1.  Right-click `TimescaleDB` and select `Uninstall`, or click `Uninstall/Change`
-
-    1.  Follow the uninstallation wizard to complete the process
-
-    Alternatively, you can uninstall from PowerShell (run as Administrator):
+    Open PowerShell as Administrator and manually delete the TimescaleDB library and extension files:
 
     ```powershell
-    Get-WmiObject -Class Win32_Product -Filter "Name LIKE '%TimescaleDB%'" | ForEach-Object { $_.Uninstall() }
+    Remove-Item "C:\Program Files\PostgreSQL\<version>\lib\timescaledb*"
+    Remove-Item "C:\Program Files\PostgreSQL\<version>\share\extension\timescaledb*"
     ```
 
-1.  **Remove TimescaleDB files manually (if needed)**
-
-    If the uninstaller doesn't remove all files, manually delete the TimescaleDB directory:
-
-    ```
-    C:\Program Files\PostgreSQL\<version>\lib\timescaledb*
-    C:\Program Files\PostgreSQL\<version>\share\extension\timescaledb*
-    ```
-
-    You may need Administrator privileges to delete these files.
-
-1.  **Remove TimescaleDB tools (if installed)**
-
-    If you installed `timescaledb-tune` or other TimescaleDB tools separately, uninstall them through Programs and Features or delete them manually.
-
-1.  **Clean up the system PATH (optional)**
-
-    If TimescaleDB added any directories to your system PATH:
-
-    1.  Search for "environment variables" in the Windows Search tool
-    1.  Click `Edit the system environment variables`
-    1.  Click `Environment Variables`
-    1.  Under `System variables`, select `Path` and click `Edit`
-    1.  Remove any entries related to TimescaleDB
-    1.  Click `OK` to save
+    Replace `<version>` with your PostgreSQL version number (for example, `17`).
 
 </Procedure>
 
-## Verify uninstallation
 
-After completing the uninstallation steps, verify that TimescaleDB has been removed:
-
-1.  **Check that the extension is not loaded**
-
-    Connect to PostgreSQL:
-
-    ```bash
-    psql -U postgres
-    ```
-
-    List installed extensions:
-
-    ```sql
-    \dx
-    ```
-
-    TimescaleDB should not appear in the list. You should only see default PostgreSQL extensions like `plpgsql`.
-
-1.  **Verify the files are removed**
-
-    Check that the TimescaleDB DLL files are no longer in the PostgreSQL directory:
-
-    ```powershell
-    dir "C:\Program Files\PostgreSQL\*\lib\timescaledb*"
-    ```
-
-    This command should return no results if TimescaleDB has been successfully uninstalled.
-
-1.  **Check Programs and Features**
-
-    Open `Programs and Features` and verify that TimescaleDB is no longer listed.

@@ -25,28 +25,25 @@
 
     1. Complete the installation wizard.
 
+        During installation, the wizard will prompt you to run the `timescaledb-tune` script to optimize your $PG configuration. It is recommended to accept this option. For more information, see [configuration][config].
+
         If you see an error like `could not load library "C:/Program Files/PostgreSQL/17/lib/timescaledb-2.17.2.dll": The specified module could not be found.`, use
         [Dependencies][dependencies] to ensure that your system can find the compatible DLLs for this release of TimescaleDB.
 
-1.  **Tune your $PG instance for TimescaleDB**
+1.  **Restart the $PG service**
 
-     Run the `timescaledb-tune` script included in the `timescaledb-tools` package with TimescaleDB. For more
-            information, see [configuration][config].
+    After installation, restart $PG for the changes to take effect.
 
-1.  **Log in to $PG as `postgres`**
+    Open Services (press `Win + R`, type `services.msc`, and press Enter). Find the PostgreSQL service (usually named `postgresql-x64-<version>`), right-click it, and select `Restart`.
 
-    ```bash
-    sudo -u postgres psql
-    ```
-    You are in the psql shell.
+    Alternatively, from an Administrator Command Prompt or PowerShell:
 
-1. **Set the password for `postgres`**
-
-    ```bash
-    \password postgres
+    ```powershell
+    net stop postgresql-x64-<version>
+    net start postgresql-x64-<version>
     ```
 
-    When you have set the password, type `\q` to exit psql.
+    Replace `<version>` with your PostgreSQL version number (for example, `17`).
 
 </Procedure>
 
