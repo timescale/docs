@@ -24,8 +24,12 @@
     ```
     docker run -d --name timescaledb -p 5432:5432  -v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
     ```
-        
+
     If you are running multiple container instances, change the port each Docker instance runs on.
+
+    <Highlight type="note">
+    If you have a local $PG instance already running on port 5432, change the Docker port mapping to avoid conflicts. For example, use `-p 5433:5432` and adjust the connection string accordingly.
+    </Highlight>
 
     On UNIX-based systems, Docker modifies Linux IP tables to bind the container. If your system uses Linux Uncomplicated Firewall (UFW), Docker may
     [override your UFW port binding settings][override-binding]. To prevent this, add `DOCKER_OPTS="--iptables=false"` to `/etc/default/docker`.
@@ -35,8 +39,10 @@
     The default user and database are both `postgres`. You set the password in `POSTGRES_PASSWORD` in the previous step. The default command to connect to $PG is:
 
     ```bash
-    psql -d "postgres://postgres:password@localhost/postgres"
+    psql -d "postgres://postgres:password@127.0.0.1:5432/postgres"
     ```
+
+    If you changed the port mapping in step 2 (e.g., to 5433), update the port in the connection string accordingly.
 
 1.  **Check that $TIMESCALE_DB is installed**
 
@@ -120,6 +126,10 @@ information, see the [Docker documentation on logs][docker-logs].
 
     If you are running multiple container instances, change the port each Docker instance runs on.
 
+    <Highlight type="note">
+    If you have a local $PG instance already running on port 5432, change the Docker port mapping to avoid conflicts. For example, use `-p 5433:5432` and adjust the connection string accordingly.
+    </Highlight>
+
     On UNIX-based systems, Docker modifies Linux IP tables to bind the container. If your system uses Linux Uncomplicated Firewall (UFW), Docker may [override your UFW port binding settings][override-binding]. To prevent this, add `DOCKER_OPTS="--iptables=false"` to `/etc/default/docker`.
 
 1.  **Connect to a database on your $PG instance**
@@ -127,8 +137,10 @@ information, see the [Docker documentation on logs][docker-logs].
     The default user and database are both `postgres`. You set the password in `POSTGRES_PASSWORD` in the previous step. The default command to connect to $PG in this image is:
 
     ```bash
-    psql -d "postgres://postgres:password@localhost/postgres"
+    psql -d "postgres://postgres:password@127.0.0.1:5432/postgres"
     ```
+
+    If you changed the port mapping in step 2 (e.g., to 5433), update the port in the connection string accordingly.
 
 1.  **Check that $TIMESCALE_DB is installed**
 
