@@ -47,18 +47,14 @@
 
 1. **Enable a replication spot for Debezium**
 
-   1. Create a table for Debezium to listen to:
+   1. Create a hypertable for Debezium to listen to:
 
       ```sql
-      CREATE TABLE accounts (created_at TIMESTAMPTZ DEFAULT NOW(),
+      CREATE TABLE accounts (
+       created_at TIMESTAMPTZ DEFAULT NOW(),
        name TEXT,
-       city TEXT);
-      ```
-
-   1. Turn the table into a hypertable:
-
-      ```sql
-      SELECT create_hypertable('accounts', 'created_at');
+       city TEXT
+      ) WITH (tsdb.hypertable);
       ```
 
       Debezium also works with [$CAGGs][caggs].

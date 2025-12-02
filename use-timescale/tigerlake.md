@@ -7,7 +7,6 @@ keywords: [data lake, lakehouse, s3, iceberg]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
-import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate data lakes with $CLOUD_LONG
@@ -19,12 +18,6 @@ system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data la
 
 $LAKE_LONG is a native integration enabling synchronization between $HYPERTABLEs and relational tables
 running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
-
-<Highlight type="important">
-
-Tiger Lake is currently in private beta. Please contact us to request access.
-
-</Highlight>
 
 ## Prerequisites
 
@@ -223,12 +216,19 @@ To connect a $SERVICE_LONG to your data lake:
 
 ## Stream data from your $SERVICE_LONG to your data lake
 
-When you start streaming, all data in the table is synchronized to Iceberg. Records are imported in time order, from
-oldest to youngest. The write throughput is approximately 40.000 records / second. For larger tables, a full import can 
-take some time.
+Records are imported in time order, from oldest to newest. 
+Your $HYPERTABLE or relational table must have a primary key, or composite primary keys as a prerequisite to sync to Iceberg.
 
-For Iceberg to perform update or delete statements, your $HYPERTABLE or relational table must have a primary key. 
-This includes composite primary keys.
+When you start syncing, all data in the table is streamed to Iceberg in the following processes:
+* Table snapshot: stream data from a snapshot of the source table to the destination Iceberg table at
+approximately 300.000 records a second. For larger tables, import speeds are approximately 1 billion records
+or 100 GB of data an hour. However, these numbers vary on table width and the complexity of the schema.
+* Table changes: stream changes made to the source table (CDC) after the snapshot is taken to a branch of the
+destination Iceberg table. This happens at approximately 30.000 events a second. Ingest bursts exceeding this
+can be handled for a certain amount of time and feathered out over time. This depends on duration of the
+ingestion burst, and the amount of extra events to be handled.
+
+Once the snapshot is fully imported, the snapshot and CDC Iceberg table branches are merged. Merging takes from a couple of seconds, to ten minutes for larger tables of 5TB or more. During this time, new events are held on the WAL. Once the merge is completed, events in the WAL are CDC'd to Iceberg. This implies eventual consistency of the Iceberg table after you started the the sync.
 
 To stream data from a $PG relational table, or a $HYPERTABLE in your $SERVICE_LONG to your data lake, run the following 
 statement:
@@ -355,16 +355,13 @@ data lake:
 ## Limitations
 
 * Service requires $PG 17.6 and above is supported.
-* Consistent ingestion rates of over 30000 records / second can lead to a lost replication slot. Burst can be feathered out over time. 
 * [Amazon S3 Tables Iceberg REST][aws-s3-tables] catalog only is supported.
-* In order to collect deletes made to data in the columstore, certain columnstore optimizations are disabled for $HYPERTABLEs.
-* [Direct Compress][direct-compress] is not supported.
+* In order to collect deletes made to data in the columstore, certain columnstore optimizations are disabled for $HYPERTABLEs, this includes [Direct Compress][direct-compress].
 * The `TRUNCATE` statement is not supported, and does not truncate data in the corresponding Iceberg table.
 * Data in a $HYPERTABLE that has been moved to the [low-cost object storage tier][data-tiering] is not synced.
 * Writing to the same S3 table bucket from multiple services is not supported, bucket-to-service mapping is one-to-one.
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
-
-
+* A $HYPERTABLE with long running continuous aggregates refresh transactions, plus 30 minutes, can cause issues with holding the replication slot too long. Please consider batching in these cases.
 
 
 [cmc]: https://console.aws.amazon.com/cloudformation/

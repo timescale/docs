@@ -122,7 +122,7 @@ See the [full list of available variables][variables].
 
 ## Links
 
-- Internal page links: internal links do not need to include the domain name `https://docs.tigerdata.com`. Use the `:currentVersion:` variable instead of `latest` in the URL.
+- Internal page links: internal links do not need to include the domain name `https://www.tigerdata.com/docs`. Use the `:currentVersion:` variable instead of `latest` in the URL.
 - External links: input external links as is. 
 
 See [Formatting examples][formatting] for details. 
@@ -160,5 +160,5 @@ The previous documentation source is in the deprecated repository called [docs.t
 [github-docs]: https://github.com/timescale/docs
 [use-navigation]: use-timescale/page-index/page-index.js
 [formatting]: _partials/_formatting_examples.md
-[variables]: https://docs.tigerdata.com/variables-for-contributors/
+[variables]: https://www.tigerdata.com/docs/variables-for-contributors/
 [readme]: README.md

@@ -6,3 +6,6 @@ _notes/
 *.swp
 .helper-scripts/hyperfunctions/target/
 .vscode/settings.json
+package.json
+package-lock.json
+yarn.lock

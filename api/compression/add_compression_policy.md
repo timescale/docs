@@ -14,7 +14,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # add_compression_policy() <Tag type="community" content="community" />
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/add_columnstore_policy/">add_columnstore_policy()</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/add_columnstore_policy/">add_columnstore_policy()</a>. 
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Allows you to set a policy by which the system compresses a chunk
 automatically in the background after it reaches a given age.
