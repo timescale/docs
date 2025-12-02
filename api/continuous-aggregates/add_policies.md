@@ -10,14 +10,18 @@ api:
 products: [cloud, self_hosted, mst]
 ---
 
-import Experimental from "versionContent/_partials/_experimental.mdx";
-
 <!-- markdownlint-disable-next-line line-length -->
 # add_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
 Add refresh, compression, and data retention policies to a continuous aggregate
 in one step. The added compression and retention policies apply to the
 continuous aggregate, _not_ to the original hypertable.
+
+<Highlight type="warning">
+
+This experimental function will be removed in future, please use [`add_continuous_aggregate_policy()`](add_continuous_aggregate_policy) function to add a policy.
+
+</Highlight>
 
 ```sql
 timescaledb_experimental.add_policies(
@@ -29,14 +33,6 @@ timescaledb_experimental.add_policies(
      drop_after "any" = NULL)
 ) RETURNS BOOL
 ```
-
-<Experimental />
-
-<Highlight type="note">
-`add_policies()` does not allow the `schedule_interval` for the continuous aggregate to be set, instead using a default value of 1 hour. 
-
-If you would like to set this add your policies manually (see [`add_continuous_aggregate_policy`][add_continuous_aggregate_policy]).
-</Highlight>
 
 ## Samples
 

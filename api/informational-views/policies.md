@@ -11,8 +11,6 @@ api:
 products: [cloud, mst, self_hosted]
 ---
 
-import Experimental from "versionContent/_partials/_experimental.mdx";
-
 <!-- vale Google.Headings = NO -->
 <!-- markdownlint-disable-next-line line-length -->
 # timescaledb_experimental.policies <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
@@ -21,14 +19,18 @@ import Experimental from "versionContent/_partials/_experimental.mdx";
 The `policies` view provides information on all policies set on continuous
 aggregates.
 
+<Highlight type="warning">
+
+This experimental view will be removed in future, please query the [`timescaledb_information.jobs`](jobs-view) view.
+
+</Highlight>
+
 <Highlight type="note">
 
 Only policies applying to continuous aggregates are shown in this view. Policies
 applying to regular hypertables or regular materialized views are not displayed.
 
 </Highlight>
-
-<Experimental />
 
 ## Samples
 
@@ -84,3 +86,4 @@ hypertable_name   | _materialized_hypertable_2
 |`hypertable_schema`|Schema of the hypertable that contains the actual data for the continuous aggregate view|
 |`hypertable_name`|Name of the hypertable that contains the actual data for the continuous aggregate view|
 
+[jobs-view]: /api/:currentVersion:/jobs
