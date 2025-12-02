@@ -1,12 +1,22 @@
 ---
-title: Install and update TimescaleDB Toolkit
-excerpt: Install the TimescaleDB Toolkit extension to access more hyperfunctions and function pipelines
+title: Install, update, and uninstall TimescaleDB Toolkit
+excerpt: Install, update, and uninstall the TimescaleDB Toolkit extension to access more hyperfunctions and function pipelines
 products: [self_hosted]
-keywords: [Toolkit, installation, hyperfunctions, function pipelines]
+keywords: [Toolkit, installation, uninstallation, hyperfunctions, function pipelines]
 ---
 
 import ToolkitDebianBase from "versionContent/_partials/_toolkit-install-update-debian-base.mdx";
 import ToolkitRedhatBase from "versionContent/_partials/_toolkit-install-update-redhat-base.mdx";
+import ToolkitRockyBase from "versionContent/_partials/_toolkit-install-update-rocky-base.mdx";
+import ToolkitWindowsBase from "versionContent/_partials/_toolkit-install-update-windows-base.mdx";
+import ToolkitKubernetesBase from "versionContent/_partials/_toolkit-install-update-kubernetes-base.mdx";
+import ToolkitSourceBase from "versionContent/_partials/_toolkit-install-update-source-base.mdx";
+import ToolkitDebianUninstall from "versionContent/_partials/_toolkit-uninstall-debian-base.mdx";
+import ToolkitRedhatUninstall from "versionContent/_partials/_toolkit-uninstall-redhat-base.mdx";
+import ToolkitRockyUninstall from "versionContent/_partials/_toolkit-uninstall-rocky-base.mdx";
+import ToolkitWindowsUninstall from "versionContent/_partials/_toolkit-uninstall-windows-base.mdx";
+import ToolkitKubernetesUninstall from "versionContent/_partials/_toolkit-uninstall-kubernetes-base.mdx";
+import ToolkitSourceUninstall from "versionContent/_partials/_toolkit-uninstall-source-base.mdx";
 
 # Install and update $TIMESCALE_DB Toolkit
 
@@ -22,30 +32,6 @@ If you're using [$CLOUD_LONG][cloud], the $TOOLKIT_LONG is already installed. If
 *   Building from source. For more information, see the [$TOOLKIT_SHORT developer documentation][toolkit-gh-docs]
 
 <Tabs label="Install and update TimescaleDB Toolkit" persistKey="os">
-
-<Tab title="Debian" label="debian">
-
-<ToolkitDebianBase />
-
-</Tab>
-
-<Tab title="Ubuntu" label="ubuntu">
-
-<ToolkitDebianBase />
-
-</Tab>
-
-<Tab title="Red Hat" label="redhat">
-
-<ToolkitRedhatBase />
-
-</Tab>
-
-<Tab title="Fedora" label="fedora">
-
-<ToolkitRedhatBase />
-
-</Tab>
 
 <Tab title="Docker" label="docker">
 
@@ -65,6 +51,90 @@ For more information on running $TIMESCALE_DB using Docker, see
 ## Update $TOOLKIT_LONG
 
 To get the latest version of $TOOLKIT_SHORT, [update][update-docker] the $TIMESCALE_DB HA docker image.
+
+## Uninstall $TOOLKIT_LONG
+
+$TOOLKIT_SHORT is included in the TimescaleDB HA Docker image and cannot be uninstalled separately. To remove $TOOLKIT_SHORT, you need to remove the entire TimescaleDB container. See [Uninstall TimescaleDB from Docker][uninstall-docker].
+
+If you only want to remove the extension from a specific database without removing the container:
+
+<Procedure>
+
+1.  Connect to your database:
+
+    ```bash
+    docker exec -it timescaledb psql -U postgres -d <database_name>
+    ```
+
+1.  Drop the $TOOLKIT_SHORT extension:
+
+    ```sql
+    DROP EXTENSION IF EXISTS timescaledb_toolkit CASCADE;
+    ```
+
+    <Highlight type="warning">
+
+    Using `CASCADE` will drop all objects that depend on the $TOOLKIT_SHORT extension. Ensure you have backed up any data you want to keep.
+
+    </Highlight>
+
+</Procedure>
+
+</Tab>
+
+<Tab title="Kubernetes" label="kubernetes">
+
+<ToolkitKubernetesBase />
+
+<ToolkitKubernetesUninstall />
+
+</Tab>
+
+<Tab title="Linux" label="linux">
+
+<Tabs label="Choose your Linux distribution" persistKey="linux-distro">
+
+<Tab title="Debian" label="debian">
+
+<ToolkitDebianBase />
+
+<ToolkitDebianUninstall />
+
+</Tab>
+
+<Tab title="Ubuntu" label="ubuntu">
+
+<ToolkitDebianBase />
+
+<ToolkitDebianUninstall />
+
+</Tab>
+
+<Tab title="Red Hat" label="redhat">
+
+<ToolkitRedhatBase />
+
+<ToolkitRedhatUninstall />
+
+</Tab>
+
+<Tab title="Fedora" label="fedora">
+
+<ToolkitRedhatBase />
+
+<ToolkitRedhatUninstall />
+
+</Tab>
+
+<Tab title="RockyLinux" label="rocky">
+
+<ToolkitRockyBase />
+
+<ToolkitRockyUninstall />
+
+</Tab>
+
+</Tabs>
 
 </Tab>
 
@@ -144,7 +214,59 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
     </Highlight>
 
 </Procedure>
-    
+
+## Uninstall $TOOLKIT_LONG
+
+If you no longer need $TOOLKIT_SHORT, you can remove it without uninstalling $TIMESCALE_DB or $PG.
+
+<Procedure>
+
+1.  **Drop the $TOOLKIT_SHORT extension from your databases**
+
+    Connect to each database where $TOOLKIT_SHORT is enabled and remove the extension:
+
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+    At the `psql` prompt:
+
+    ```sql
+    DROP EXTENSION IF EXISTS timescaledb_toolkit CASCADE;
+    ```
+
+    Repeat this for all databases with $TOOLKIT_SHORT enabled. To exit psql, type `\q`.
+
+    <Highlight type="warning">
+
+    Using `CASCADE` will drop all objects that depend on the $TOOLKIT_SHORT extension. Ensure you have backed up any data you want to keep.
+
+    </Highlight>
+
+1.  **Uninstall the $TOOLKIT_SHORT package**
+
+    ```bash
+    brew uninstall timescaledb-toolkit
+    ```
+
+</Procedure>
+
+</Tab>
+
+<Tab title="Source" label="source">
+
+<ToolkitSourceBase />
+
+<ToolkitSourceUninstall />
+
+</Tab>
+
+<Tab title="Windows" label="windows">
+
+<ToolkitWindowsBase />
+
+<ToolkitWindowsUninstall />
+
 </Tab>
 
 </Tabs>
@@ -159,3 +281,4 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 [connect]: /integrations/:currentVersion:/find-connection-details/
 [update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
 [macos-install]: /self-hosted/:currentVersion:/install/installation-macos/
+[uninstall-docker]: /self-hosted/:currentVersion:/uninstall/

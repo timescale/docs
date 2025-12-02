@@ -825,102 +825,6 @@ If you're using dynamic provisioning with a storage class, the PersistentVolume 
 
 </Tab>
 
-<Tab title="Windows" label="windows">
-
-If you installed TimescaleDB on Windows using a package manager, you can uninstall it without removing PostgreSQL.
-
-<Procedure>
-
-## Uninstalling TimescaleDB from Windows
-
-1.  **Drop the TimescaleDB extension from your databases**
-
-    Open Command Prompt or PowerShell and connect to each database where TimescaleDB is enabled:
-
-    ```bash
-    psql -U postgres -d <database_name>
-    ```
-
-    At the `psql` prompt, remove the extension:
-
-    ```sql
-    DROP EXTENSION IF EXISTS timescaledb CASCADE;
-    ```
-
-    Repeat this for all databases with TimescaleDB enabled. To exit psql, type `\q`.
-
-    <Highlight type="warning">
-
-    Using `CASCADE` will drop all TimescaleDB-specific objects including hypertables, continuous aggregates, and retention policies. Ensure you have backed up any data you want to keep.
-
-    </Highlight>
-
-1.  **Remove TimescaleDB from shared_preload_libraries**
-
-    Locate your PostgreSQL configuration file. The default location is:
-
-    ```
-    C:\Program Files\PostgreSQL\<version>\data\postgresql.conf
-    ```
-
-    Open the file in a text editor (you may need to run the editor as Administrator).
-
-    Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
-
-    ```
-    shared_preload_libraries = 'timescaledb'
-    ```
-
-    to:
-
-    ```
-    shared_preload_libraries = ''
-    ```
-
-    If there are other extensions in the list, keep them and only remove `timescaledb`.
-
-    Save the file.
-
-1.  **Restart PostgreSQL**
-
-    Open Services (press `Win + R`, type `services.msc`, and press Enter).
-
-    Find the PostgreSQL service, right-click it, and select `Restart`.
-
-    Alternatively, from an Administrator Command Prompt or PowerShell:
-
-    ```powershell
-    pg_ctl restart
-    ```
-
-1.  **Uninstall TimescaleDB**
-
-    Open Control Panel and navigate to "Programs and Features" or "Add or Remove Programs".
-
-    Find "TimescaleDB" in the list of installed programs, select it, and click "Uninstall".
-
-    Follow the uninstaller prompts to complete the removal.
-
-1.  **Verify removal**
-
-    Connect to PostgreSQL and check that the extension is not available:
-
-    ```powershell
-    psql -U postgres
-    ```
-
-    Try to create the extension:
-
-    ```sql
-    CREATE EXTENSION timescaledb;
-    ```
-
-    You should see an error indicating the extension is not found. This confirms TimescaleDB has been successfully uninstalled.
-
-</Procedure>
-
-</Tab>
-
 <Tab title="macOS" label="macos">
 
 <Tabs label="Choose your package manager" persistKey="macos-pm">
@@ -1284,6 +1188,102 @@ Windows:
 1. Under `System variables` or `User variables`, select `Path` and click `Edit`
 1. Remove any entries related to TimescaleDB
 1. Click `OK` to save
+
+</Tab>
+
+<Tab title="Windows" label="windows">
+
+If you installed TimescaleDB on Windows using a package manager, you can uninstall it without removing PostgreSQL.
+
+<Procedure>
+
+## Uninstalling TimescaleDB from Windows
+
+1.  **Drop the TimescaleDB extension from your databases**
+
+    Open Command Prompt or PowerShell and connect to each database where TimescaleDB is enabled:
+
+    ```bash
+    psql -U postgres -d <database_name>
+    ```
+
+    At the `psql` prompt, remove the extension:
+
+    ```sql
+    DROP EXTENSION IF EXISTS timescaledb CASCADE;
+    ```
+
+    Repeat this for all databases with TimescaleDB enabled. To exit psql, type `\q`.
+
+    <Highlight type="warning">
+
+    Using `CASCADE` will drop all TimescaleDB-specific objects including hypertables, continuous aggregates, and retention policies. Ensure you have backed up any data you want to keep.
+
+    </Highlight>
+
+1.  **Remove TimescaleDB from shared_preload_libraries**
+
+    Locate your PostgreSQL configuration file. The default location is:
+
+    ```
+    C:\Program Files\PostgreSQL\<version>\data\postgresql.conf
+    ```
+
+    Open the file in a text editor (you may need to run the editor as Administrator).
+
+    Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
+
+    ```
+    shared_preload_libraries = 'timescaledb'
+    ```
+
+    to:
+
+    ```
+    shared_preload_libraries = ''
+    ```
+
+    If there are other extensions in the list, keep them and only remove `timescaledb`.
+
+    Save the file.
+
+1.  **Restart PostgreSQL**
+
+    Open Services (press `Win + R`, type `services.msc`, and press Enter).
+
+    Find the PostgreSQL service, right-click it, and select `Restart`.
+
+    Alternatively, from an Administrator Command Prompt or PowerShell:
+
+    ```powershell
+    pg_ctl restart
+    ```
+
+1.  **Uninstall TimescaleDB**
+
+    Open Control Panel and navigate to "Programs and Features" or "Add or Remove Programs".
+
+    Find "TimescaleDB" in the list of installed programs, select it, and click "Uninstall".
+
+    Follow the uninstaller prompts to complete the removal.
+
+1.  **Verify removal**
+
+    Connect to PostgreSQL and check that the extension is not available:
+
+    ```powershell
+    psql -U postgres
+    ```
+
+    Try to create the extension:
+
+    ```sql
+    CREATE EXTENSION timescaledb;
+    ```
+
+    You should see an error indicating the extension is not found. This confirms TimescaleDB has been successfully uninstalled.
+
+</Procedure>
 
 </Tab>
 
