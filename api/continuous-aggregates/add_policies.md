@@ -19,7 +19,7 @@ continuous aggregate, _not_ to the original hypertable.
 
 <Highlight type="warning">
 
-This experimental function will be removed in future, please use [`add_continuous_aggregate_policy()`](add_continuous_aggregate_policy) function to add a policy.
+This experimental function will be removed in future releases. Please use the [`add_continuous_aggregate_policy()`][add_continuous_aggregate_policy] function to add a policy.
 
 </Highlight>
 

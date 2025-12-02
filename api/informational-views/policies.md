@@ -21,7 +21,7 @@ aggregates.
 
 <Highlight type="warning">
 
-This experimental view will be removed in future, please query the [`timescaledb_information.jobs`](jobs-view) view.
+This experimental view will be removed in future releases. Please query the [`timescaledb_information.jobs`][jobs-view] view.
 
 </Highlight>
 
@@ -86,4 +86,4 @@ hypertable_name   | _materialized_hypertable_2
 |`hypertable_schema`|Schema of the hypertable that contains the actual data for the continuous aggregate view|
 |`hypertable_name`|Name of the hypertable that contains the actual data for the continuous aggregate view|
 
-[jobs-view]: /api/:currentVersion:/jobs
+[jobs-view]: /api/:currentVersion:/informational-views/jobs/

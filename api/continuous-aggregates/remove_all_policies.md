@@ -19,7 +19,7 @@ hypertable.
 
 <Highlight type="warning">
 
-This experimental function will be removed in future, please use [`remove_job()`](remove_job) function to delete a policy.
+This experimental function will be removed in future releases. Please use the [`delete_job()`][delete_job] function to delete policies.
 
 </Highlight>
 

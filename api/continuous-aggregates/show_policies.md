@@ -17,7 +17,7 @@ Show all policies that are currently set on a continuous aggregate.
 
 <Highlight type="warning">
 
-This experimental function will be removed in future, please query the [`timescaledb_information.jobs`](jobs-view) view.
+This experimental function will be removed in future releases. Please query the [`timescaledb_information.jobs`][jobs-view] view.
 
 </Highlight>
 
@@ -58,4 +58,4 @@ show_policies
 |-|-|-|
 |`show_policies`|`JSONB`|Details for each policy set on the continuous aggregate|
 
-[jobs-view]: /api/:currentVersion:/jobs
+[jobs-view]: /api/:currentVersion:/informational-views/jobs/

@@ -20,7 +20,7 @@ continuous aggregate, _not_ to the original hypertable.
 
 <Highlight type="warning">
 
-This experimental function will be removed in future, please use [`alter_job()`](alter_job) function to modify a policy.
+This experimental function will be removed in future releases. Please use the [`alter_job()`][alter_job] function to modify a policy.
 
 </Highlight>
 
