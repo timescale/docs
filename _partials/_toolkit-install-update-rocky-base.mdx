@@ -1,32 +1,33 @@
+
 ## Prerequisites
 
 To follow this procedure:
 
-- [Install $TIMESCALE_DB][red-hat-install].
-- Create a $TIMESCALE_DB repository in your `yum` `repo.d` directory.
+- [Install $TIMESCALE_DB][rocky-install].
+- Create a $TIMESCALE_DB repository in your `dnf` `repo.d` directory.
 
 ## Install $TOOLKIT_LONG
 
-These instructions use the `yum` package manager.
+These instructions use the `dnf` package manager.
 
 <Procedure>
 
 1.  Set up the repository:
 
     ```bash
-    curl -s https://packagecloud.io/install/repositories/timescale/timescaledb/script.deb.sh | sudo bash
+    curl -s https://packagecloud.io/install/repositories/timescale/timescaledb/script.rpm.sh | sudo bash
     ```
 
 1.  Update your local repository list:
 
     ```bash
-    yum update
+    dnf update
     ```
 
 1.  Install $TOOLKIT_LONG:
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-17
+    dnf install timescaledb-toolkit-postgresql-17
     ```
 
 1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
@@ -47,13 +48,13 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 1.  Update your local repository list:
 
     ```bash
-    yum update
+    dnf update
     ```
 
 1.  Install the latest version of $TOOLKIT_LONG:
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-17
+    dnf install timescaledb-toolkit-postgresql-17
     ```
 
 1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
@@ -78,7 +79,7 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 [debian-install]: /self-hosted/:currentVersion:/install/installation-linux/
 [docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
 [mst]: /mst/:currentVersion:/
-[red-hat-install]: /self-hosted/:currentVersion:/install/installation-linux/
+[rocky-install]: /self-hosted/:currentVersion:/install/installation-linux/
 [toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
 [connect]: /integrations/:currentVersion:/find-connection-details/
 [update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/

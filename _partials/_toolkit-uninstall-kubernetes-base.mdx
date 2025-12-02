@@ -1,0 +1,33 @@
+## Uninstall $TOOLKIT_LONG
+
+$TOOLKIT_SHORT is included in the TimescaleDB HA Docker image and cannot be uninstalled separately. To remove $TOOLKIT_SHORT, you need to remove the entire TimescaleDB deployment. See [Uninstall TimescaleDB from Kubernetes][uninstall-kubernetes].
+
+If you only want to remove the extension from a specific database without removing the deployment:
+
+<Procedure>
+
+1.  **Connect to your TimescaleDB pod**
+
+    ```shell
+    kubectl exec -it <pod-name> -- psql -U postgres -d <database_name>
+    ```
+
+    Replace `<pod-name>` with your TimescaleDB pod name (for example, `timescaledb-0`).
+
+1.  **Drop the $TOOLKIT_SHORT extension**
+
+    At the `psql` prompt:
+
+    ```sql
+    DROP EXTENSION IF EXISTS timescaledb_toolkit CASCADE;
+    ```
+
+    <Highlight type="warning">
+
+    Using `CASCADE` will drop all objects that depend on the $TOOLKIT_SHORT extension. Ensure you have backed up any data you want to keep.
+
+    </Highlight>
+
+</Procedure>
+
+[uninstall-kubernetes]: /self-hosted/:currentVersion:/uninstall/

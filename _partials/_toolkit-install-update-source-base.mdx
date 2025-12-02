@@ -1,0 +1,88 @@
+## Install $TOOLKIT_LONG
+
+To install $TOOLKIT_SHORT from source, follow the build and installation instructions in the [TimescaleDB Toolkit GitHub repository][toolkit-gh-install].
+
+After building and installing from source:
+
+<Procedure>
+
+1.  **Restart $PG**
+
+    Linux:
+    ```bash
+    sudo systemctl restart postgresql
+    ```
+
+    macOS with Homebrew:
+    ```bash
+    brew services restart postgresql@<version>
+    ```
+
+    Windows - Open Services (press `Win + R`, type `services.msc`, and press Enter).
+    Find the PostgreSQL service, right-click it, and select `Restart`.
+
+1.  **Connect to your database**
+
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+1.  **Create the $TOOLKIT_SHORT extension**
+
+    At the `psql` prompt:
+
+    ```sql
+    CREATE EXTENSION timescaledb_toolkit;
+    ```
+
+</Procedure>
+
+## Update $TOOLKIT_LONG
+
+To update $TOOLKIT_SHORT installed from source, rebuild and reinstall the latest version.
+
+<Procedure>
+
+1.  **Download the latest source code**
+
+    Follow the build instructions in the [TimescaleDB Toolkit GitHub repository][toolkit-gh-install] to download and build the latest version.
+
+1.  **Restart $PG**
+
+    Linux:
+    ```bash
+    sudo systemctl restart postgresql
+    ```
+
+    macOS with Homebrew:
+    ```bash
+    brew services restart postgresql@<version>
+    ```
+
+    Windows - Restart the PostgreSQL service via Services.
+
+1.  **Connect to your database**
+
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+1.  **Update the $TOOLKIT_SHORT extension**
+
+    At the `psql` prompt:
+
+    ```sql
+    ALTER EXTENSION timescaledb_toolkit UPDATE;
+    ```
+
+    <Highlight type="note">
+
+    For some $TOOLKIT_SHORT versions, you might need to disconnect and reconnect active
+    sessions.
+
+    </Highlight>
+
+</Procedure>
+
+[toolkit-gh-install]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
+[source-install]: /self-hosted/:currentVersion:/install/installation-source/

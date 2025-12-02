@@ -1,0 +1,106 @@
+## Uninstall $TOOLKIT_LONG
+
+If you installed $TOOLKIT_SHORT by building from source, you can uninstall it without removing $TIMESCALE_DB or $PG.
+
+<Procedure>
+
+1.  **Drop the $TOOLKIT_SHORT extension from your databases**
+
+    Connect to each database where $TOOLKIT_SHORT is enabled and remove the extension:
+
+    Linux/macOS:
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+    Windows:
+    ```powershell
+    psql -U postgres -d <database_name>
+    ```
+
+    At the `psql` prompt:
+
+    ```sql
+    DROP EXTENSION IF EXISTS timescaledb_toolkit CASCADE;
+    ```
+
+    Repeat this for all databases with $TOOLKIT_SHORT enabled. To exit psql, type `\q`.
+
+    <Highlight type="warning">
+
+    Using `CASCADE` will drop all objects that depend on the $TOOLKIT_SHORT extension. Ensure you have backed up any data you want to keep.
+
+    </Highlight>
+
+1.  **Remove $TOOLKIT_SHORT binaries**
+
+    Manually remove the $TOOLKIT_SHORT files from your $PG installation directory.
+
+    Find your $PG library directory:
+
+    Linux/macOS:
+    ```bash
+    pg_config --pkglibdir
+    ```
+
+    Windows:
+    ```powershell
+    pg_config --pkglibdir
+    ```
+
+    Remove $TOOLKIT_SHORT library files:
+
+    Linux/macOS:
+    ```bash
+    sudo rm $(pg_config --pkglibdir)/timescaledb_toolkit*.so
+    ```
+
+    Windows:
+    ```powershell
+    del "C:\Program Files\PostgreSQL\<version>\lib\timescaledb_toolkit*.dll"
+    ```
+
+    Find your $PG extension directory:
+
+    Linux/macOS:
+    ```bash
+    pg_config --sharedir
+    ```
+
+    Windows:
+    ```powershell
+    pg_config --sharedir
+    ```
+
+    Remove $TOOLKIT_SHORT extension files:
+
+    Linux/macOS:
+    ```bash
+    sudo rm -rf $(pg_config --sharedir)/extension/timescaledb_toolkit*
+    ```
+
+    Windows:
+    ```powershell
+    rmdir /s "C:\Program Files\PostgreSQL\<version>\share\extension\timescaledb_toolkit*"
+    ```
+
+    You may need Administrator privileges to delete these files on Windows.
+
+1.  **Restart $PG**
+
+    Linux:
+    ```bash
+    sudo systemctl restart postgresql
+    ```
+
+    macOS with Homebrew:
+    ```bash
+    brew services restart postgresql@<version>
+    ```
+
+    Windows - Open Services (press `Win + R`, type `services.msc`, and press Enter).
+    Find the PostgreSQL service, right-click it, and select `Restart`.
+
+</Procedure>
+
+[source-install]: /self-hosted/:currentVersion:/install/installation-source/

@@ -2,31 +2,25 @@
 
 To follow this procedure:
 
-- [Install $TIMESCALE_DB][red-hat-install].
-- Create a $TIMESCALE_DB repository in your `yum` `repo.d` directory.
+- [Install $TIMESCALE_DB][debian-install].
+- Add the $TIMESCALE_DB repository and the GPG key.
 
 ## Install $TOOLKIT_LONG
 
-These instructions use the `yum` package manager.
+These instructions use the `apt` package manager.
 
 <Procedure>
-
-1.  Set up the repository:
-
-    ```bash
-    curl -s https://packagecloud.io/install/repositories/timescale/timescaledb/script.deb.sh | sudo bash
-    ```
 
 1.  Update your local repository list:
 
     ```bash
-    yum update
+    sudo apt update
     ```
 
-1.  Install $TOOLKIT_LONG:
+1.  Install TimescaleDB Toolkit:
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-17
+    sudo apt install timescaledb-toolkit-postgresql-17
     ```
 
 1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
@@ -47,13 +41,13 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 1.  Update your local repository list:
 
     ```bash
-    yum update
+    apt update
     ```
 
-1.  Install the latest version of $TOOLKIT_LONG:
+1. Install the latest version of $TOOLKIT_LONG:
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-17
+    apt install timescaledb-toolkit-postgresql-17
     ```
 
 1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
@@ -71,7 +65,6 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
     </Highlight>
 
 </Procedure>
-
 
 [brew-install]: https://brew.sh
 [cloud]: /use-timescale/:currentVersion:/services/
