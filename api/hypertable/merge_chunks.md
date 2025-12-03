@@ -23,7 +23,7 @@ dimensions.
 Chunk merging has the following limitations. You cannot:
 
 * Merge chunks with tiered data
-* Read or write from the chunks while they are being merged
+* Write to the chunks while they are being merged
 
 <Since2180 />
 
@@ -41,6 +41,11 @@ Chunk merging has the following limitations. You cannot:
    CALL merge_chunks('{_timescaledb_internal._hyper_1_1_chunk, _timescaledb_internal._hyper_1_2_chunk, _timescaledb_internal._hyper_1_3_chunk}');
    ```
 
+- Merge two chunks concurrently, allowing reads:
+
+   ```sql
+   CALL merge_chunks('_timescaledb_internal._hyper_1_1_chunk', '_timescaledb_internal._hyper_1_2_chunk', concurrently => true);
+   ```
 
 ## Arguments
 
@@ -52,4 +57,6 @@ arguments.
 | Name               | Type        | Default | Required | Description                                    |
 |--------------------|-------------|--|--|------------------------------------------------|
 | `chunk1`, `chunk2` | REGCLASS    | - | ✖ | The two chunk to merge in partition order |
-| `chunks`           | REGCLASS[]  |- | ✖ | The array of chunks to merge in partition order |
+| `chunks`           | REGCLASS[]  | - | ✖ | The array of chunks to merge in partition order |
+| `concurrently`     | BOOL.       | false | ✖ | If set to `true` allow reads on the merging chunks |
+
