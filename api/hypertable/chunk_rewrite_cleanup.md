@@ -50,5 +50,5 @@ SELECT * FROM _timescaledb_catalog.chunk_rewrite;
 (0 rows)
 ```
 
-[merge-chunks]: /api/:currentVersion:/hypertable/merge-chunks
-[split-chunk]: /api/:currentVersion:/hypertable/split-chunk
+[merge-chunks]: /api/:currentVersion:/hypertable/merge_chunks
+[split-chunk]: /api/:currentVersion:/hypertable/split_chunk
