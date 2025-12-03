@@ -1,6 +1,5 @@
 ---
-
-api_name:_timescaledb_functions.chunk_rewrite_cleanup()
+api_name: _timescaledb_functions.chunk_rewrite_cleanup()
 excerpt: Clean up state from an aborted chunk rewrite operation
 topics: [hypertables]
 keywords: [hypertables, chunk, merge]
