@@ -1,4 +1,3 @@
-
 ---
 
 api_name:_timescaledb_functions.chunk_rewrite_cleanup()
