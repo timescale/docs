@@ -51,10 +51,11 @@ SELECT compress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 
 ## Optional arguments
 
-|Name|Type|Description|
-|---|---|---|
-| `if_not_compressed` | BOOLEAN | Disabling this will make the function error out on chunks that are already compressed. Defaults to true.|
-| `recompress` | BOOLEAN | Enabling will make the function recompress the chunk in-memory, which is less IO intensive. Defaults to false.|
+| Name                 | Type | Default | Required | Description                                                                                                                                        |
+|----------------------|--|---------|--|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the $COLUMNSTORE.                                                                                                      |
+| `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the $COLUMNSTORE.                                    |
+| `recompress`         | BOOLEAN | `false` |✖| Set to true to recompress. In-memory recompression will be attempted first; otherwise it will fall back to internal decompress/compress.                                                    |
 
 ## Returns
 
