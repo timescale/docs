@@ -8,13 +8,11 @@ keywords: [Toolkit, installation, uninstallation, hyperfunctions, function pipel
 import ToolkitDebianBase from "versionContent/_partials/_toolkit-install-update-debian-base.mdx";
 import ToolkitRedhatBase from "versionContent/_partials/_toolkit-install-update-redhat-base.mdx";
 import ToolkitRockyBase from "versionContent/_partials/_toolkit-install-update-rocky-base.mdx";
-import ToolkitWindowsBase from "versionContent/_partials/_toolkit-install-update-windows-base.mdx";
 import ToolkitKubernetesBase from "versionContent/_partials/_toolkit-install-update-kubernetes-base.mdx";
 import ToolkitSourceBase from "versionContent/_partials/_toolkit-install-update-source-base.mdx";
 import ToolkitDebianUninstall from "versionContent/_partials/_toolkit-uninstall-debian-base.mdx";
 import ToolkitRedhatUninstall from "versionContent/_partials/_toolkit-uninstall-redhat-base.mdx";
 import ToolkitRockyUninstall from "versionContent/_partials/_toolkit-uninstall-rocky-base.mdx";
-import ToolkitWindowsUninstall from "versionContent/_partials/_toolkit-uninstall-windows-base.mdx";
 import ToolkitKubernetesUninstall from "versionContent/_partials/_toolkit-uninstall-kubernetes-base.mdx";
 import ToolkitSourceUninstall from "versionContent/_partials/_toolkit-uninstall-source-base.mdx";
 
@@ -44,6 +42,8 @@ To get $TOOLKIT_SHORT, use the high availability image, `timescaledb-ha`:
 ```bash
 docker pull timescale/timescaledb-ha:pg17
 ```
+
+The $TOOLKIT_SHORT extension is pre-installed and pre-enabled in the `timescaledb-ha` image. Once you start the container, the extension is already active in your database and ready to use. No additional installation steps are required.
 
 For more information on running $TIMESCALE_DB using Docker, see
 [Install TimescaleDB from a Docker container][docker-install].
@@ -179,6 +179,19 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
     CREATE EXTENSION timescaledb_toolkit;
     ```
 
+    <Highlight type="warning">
+
+    If you encounter an error like `could not access file "$libdir/timescaledb_toolkit-X.XX.X"`, you may need to create a symlink from `.so` to `.dylib` format:
+
+    ```bash
+    ln -sf $(pg_config --pkglibdir)/timescaledb_toolkit-*.so \
+           $(pg_config --pkglibdir)/timescaledb_toolkit-*.dylib
+    ```
+
+    This is due to a known issue in the Homebrew formula where the library is installed with a `.so` extension, but PostgreSQL on macOS expects a `.dylib` extension.
+
+    </Highlight>
+
 </Procedure>
 
 ## Update $TOOLKIT_LONG
@@ -249,6 +262,14 @@ If you no longer need $TOOLKIT_SHORT, you can remove it without uninstalling $TI
     brew uninstall timescaledb-toolkit
     ```
 
+1.  **(Optional) Remove manual symlinks**
+
+    If you created a manual `.dylib` symlink as a workaround during installation, remove it:
+
+    ```bash
+    rm $(pg_config --pkglibdir)/timescaledb_toolkit-*.dylib 2>/dev/null || true
+    ```
+
 </Procedure>
 
 </Tab>
@@ -258,14 +279,6 @@ If you no longer need $TOOLKIT_SHORT, you can remove it without uninstalling $TI
 <ToolkitSourceBase />
 
 <ToolkitSourceUninstall />
-
-</Tab>
-
-<Tab title="Windows" label="windows">
-
-<ToolkitWindowsBase />
-
-<ToolkitWindowsUninstall />
 
 </Tab>
 

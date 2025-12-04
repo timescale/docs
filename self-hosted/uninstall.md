@@ -17,8 +17,6 @@ If you installed TimescaleDB using Docker, you can completely remove the Timesca
 
 <Procedure>
 
-## Uninstalling TimescaleDB from Docker
-
 1.  **Stop the running container**
 
     ```bash
@@ -133,8 +131,6 @@ These commands will remove all unused Docker resources, not just TimescaleDB. Us
 If you deployed TimescaleDB on Kubernetes, you can completely remove all associated resources including the StatefulSet, Service, PersistentVolumeClaim, Secret, and application deployments.
 
 <Procedure>
-
-## Uninstalling TimescaleDB from Kubernetes
 
 1.  **Back up your data (optional but recommended)**
 
@@ -319,13 +315,13 @@ If you're using dynamic provisioning with a storage class, the PersistentVolume 
 
 <Tab title="Linux" label="linux">
 
+Take the following steps based on your distribution:
+
 <Tabs label="Choose your Linux distribution" persistKey="linux-distro">
 
 <Tab title="Debian" label="debian">
 
 <Procedure>
-
-## Uninstalling TimescaleDB from Debian
 
 1.  **Drop the TimescaleDB extension from your databases**
 
@@ -425,8 +421,6 @@ If you're using dynamic provisioning with a storage class, the PersistentVolume 
 
 <Procedure>
 
-## Uninstalling TimescaleDB from Ubuntu
-
 1.  **Drop the TimescaleDB extension from your databases**
 
     Connect to each database where TimescaleDB is enabled and remove the extension:
@@ -524,8 +518,6 @@ If you're using dynamic provisioning with a storage class, the PersistentVolume 
 <Tab title="RHEL" label="rhel">
 
 <Procedure>
-
-## Uninstalling TimescaleDB from RHEL
 
 1.  **Drop the TimescaleDB extension from your databases**
 
@@ -625,8 +617,6 @@ If you're using dynamic provisioning with a storage class, the PersistentVolume 
 
 <Procedure>
 
-## Uninstalling TimescaleDB from Fedora
-
 1.  **Drop the TimescaleDB extension from your databases**
 
     Connect to each database where TimescaleDB is enabled and remove the extension:
@@ -724,8 +714,6 @@ If you're using dynamic provisioning with a storage class, the PersistentVolume 
 <Tab title="Rocky" label="rocky">
 
 <Procedure>
-
-## Uninstalling TimescaleDB from Rocky Linux
 
 1.  **Drop the TimescaleDB extension from your databases**
 
@@ -827,13 +815,13 @@ If you're using dynamic provisioning with a storage class, the PersistentVolume 
 
 <Tab title="macOS" label="macos">
 
+Uninstall $SELF_LONG with Homebrew or MacPorts. 
+
 <Tabs label="Choose your package manager" persistKey="macos-pm">
 
 <Tab title="Homebrew" label="homebrew">
 
 <Procedure>
-
-## Uninstalling TimescaleDB using Homebrew
 
 1.  **Drop the TimescaleDB extension from your databases**
 
@@ -893,8 +881,6 @@ If you're using dynamic provisioning with a storage class, the PersistentVolume 
 
 <Procedure>
 
-## Uninstalling TimescaleDB using MacPorts
-
 1.  **Drop the TimescaleDB extension from your databases**
 
     At the `psql` prompt, remove the TimescaleDB extension:
@@ -953,21 +939,37 @@ If you installed TimescaleDB by building from source, you can uninstall it witho
 
 <Procedure>
 
-## Uninstalling TimescaleDB installed from source
-
 1.  **Drop the TimescaleDB extension from your databases**
 
     Connect to each database where TimescaleDB is enabled and remove the extension:
 
-    Linux:
+    <Tabs label="Connect to database" persistKey="os-source-connect">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     sudo -u postgres psql -d <database_name>
     ```
 
-    Windows:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
+    ```bash
+    psql -U postgres -d <database_name>
+    ```
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
     ```powershell
     psql -U postgres -d <database_name>
     ```
+
+    </Tab>
+
+    </Tabs>
 
     At the `psql` prompt:
 
@@ -987,27 +989,64 @@ If you installed TimescaleDB by building from source, you can uninstall it witho
 
     Locate your PostgreSQL configuration file:
 
-    Linux:
+    <Tabs label="Locate config file" persistKey="os-source-config">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     psql -d postgres -c "SHOW config_file;"
     ```
 
-    Windows:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
+    ```bash
+    psql -d postgres -c "SHOW config_file;"
+    ```
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
     ```powershell
     psql -U postgres -d postgres -c "SHOW config_file;"
     ```
 
+    </Tab>
+
+    </Tabs>
+
     Edit the configuration file (you may need sudo/Administrator privileges):
 
-    Linux:
+    <Tabs label="Edit config file" persistKey="os-source-edit-config">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     sudo nano /path/to/postgresql.conf
     ```
 
-    Windows: Open the configuration file in a text editor as Administrator. The default location is:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
+    ```bash
+    sudo nano /path/to/postgresql.conf
+    ```
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
+    Open the configuration file in a text editor as Administrator. The default location is:
     ```
     C:\Program Files\PostgreSQL\<version>\data\postgresql.conf
     ```
+
+    </Tab>
+
+    </Tabs>
 
     Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
 
@@ -1027,7 +1066,10 @@ If you installed TimescaleDB by building from source, you can uninstall it witho
 
 1.  **Restart PostgreSQL**
 
-    Linux:
+    <Tabs label="Restart PostgreSQL" persistKey="os-source-restart">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     sudo service postgresql restart
     ```
@@ -1038,13 +1080,19 @@ If you installed TimescaleDB by building from source, you can uninstall it witho
     sudo systemctl restart postgresql
     ```
 
-    macOS with Homebrew:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
 
     ```bash
     brew services restart postgresql@<version>
     ```
 
-    Windows - Open Services (press `Win + R`, type `services.msc`, and press Enter).
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
+    Open Services (press `Win + R`, type `services.msc`, and press Enter).
 
     Find the PostgreSQL service, right-click it, and select `Restart`.
 
@@ -1054,89 +1102,212 @@ If you installed TimescaleDB by building from source, you can uninstall it witho
     pg_ctl restart
     ```
 
+    </Tab>
+
+    </Tabs>
+
 1.  **Remove TimescaleDB binaries**
 
     Manually remove the TimescaleDB files from your PostgreSQL installation directory.
 
     Find your PostgreSQL library directory:
 
-    Linux/macOS:
+    <Tabs label="Find library directory" persistKey="os-source-pkglibdir">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     pg_config --pkglibdir
     ```
 
-    Windows:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
+    ```bash
+    pg_config --pkglibdir
+    ```
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
     ```powershell
     pg_config --pkglibdir
     ```
 
+    </Tab>
+
+    </Tabs>
+
     Remove TimescaleDB library files:
 
-    Linux/macOS:
+    <Tabs label="Remove library files" persistKey="os-source-rm-lib">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     sudo rm $(pg_config --pkglibdir)/timescaledb*.so
     ```
 
-    Windows:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
+    ```bash
+    sudo rm $(pg_config --pkglibdir)/timescaledb*.so
+    ```
+
+    <Highlight type="note">
+
+    On macOS, you may also need to remove `.dylib` files:
+
+    ```bash
+    sudo rm $(pg_config --pkglibdir)/timescaledb*.dylib
+    ```
+
+    </Highlight>
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
     ```powershell
     del "C:\Program Files\PostgreSQL\<version>\lib\timescaledb*.dll"
     ```
 
+    </Tab>
+
+    </Tabs>
+
     Find your PostgreSQL extension directory:
 
-    Linux/macOS:
+    <Tabs label="Find extension directory" persistKey="os-source-sharedir">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     pg_config --sharedir
     ```
 
-    Windows:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
+    ```bash
+    pg_config --sharedir
+    ```
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
     ```powershell
     pg_config --sharedir
     ```
 
+    </Tab>
+
+    </Tabs>
+
     Remove TimescaleDB extension files:
 
-    Linux/macOS:
+    <Tabs label="Remove extension files" persistKey="os-source-rm-ext">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     sudo rm -rf $(pg_config --sharedir)/extension/timescaledb*
     ```
 
-    Windows:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
+    ```bash
+    sudo rm -rf $(pg_config --sharedir)/extension/timescaledb*
+    ```
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
     ```powershell
     rmdir /s "C:\Program Files\PostgreSQL\<version>\share\extension\timescaledb*"
     ```
 
-    You may need Administrator privileges to delete these files on Windows.
+    You may need Administrator privileges to delete these files.
+
+    </Tab>
+
+    </Tabs>
 
 1.  **(Optional) Remove the TimescaleDB source directory**
 
     If you no longer need the source code:
 
-    Linux/macOS:
+    <Tabs label="Remove source directory" persistKey="os-source-rm-dir">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     cd /path/to/parent/directory
     rm -rf timescaledb
     ```
 
-    Windows:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
+    ```bash
+    cd /path/to/parent/directory
+    rm -rf timescaledb
+    ```
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
     ```powershell
     cd \path\to\parent\directory
     rmdir /s timescaledb
     ```
 
+    </Tab>
+
+    </Tabs>
+
 1.  **Verify removal**
 
     Connect to PostgreSQL and check that the extension is not available:
 
-    Linux/macOS:
+    <Tabs label="Connect to verify" persistKey="os-source-verify">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     psql -U postgres
     ```
 
-    Windows:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
+    ```bash
+    psql -U postgres
+    ```
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
     ```powershell
     psql -U postgres
     ```
+
+    </Tab>
+
+    </Tabs>
 
     Try to create the extension:
 
@@ -1196,8 +1367,6 @@ Windows:
 If you installed TimescaleDB on Windows using a package manager, you can uninstall it without removing PostgreSQL.
 
 <Procedure>
-
-## Uninstalling TimescaleDB from Windows
 
 1.  **Drop the TimescaleDB extension from your databases**
 

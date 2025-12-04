@@ -8,18 +8,43 @@ After building and installing from source:
 
 1.  **Restart $PG**
 
-    Linux:
+    <Tabs label="Restart PostgreSQL" persistKey="source-os">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     sudo systemctl restart postgresql
     ```
 
-    macOS with Homebrew:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
     ```bash
     brew services restart postgresql@<version>
     ```
 
-    Windows - Open Services (press `Win + R`, type `services.msc`, and press Enter).
+    <Highlight type="note">
+
+    On macOS, if the extension fails to load after building from source, you may need to create symlinks for library compatibility. The build process creates `.dylib` files, but the extension may expect `.so` files:
+
+    ```bash
+    ln -sf $(pg_config --pkglibdir)/timescaledb_toolkit.dylib \
+           $(pg_config --pkglibdir)/timescaledb_toolkit.so
+    ```
+
+    </Highlight>
+
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
+    Open Services (press `Win + R`, type `services.msc`, and press Enter).
     Find the PostgreSQL service, right-click it, and select `Restart`.
+
+    </Tab>
+
+    </Tabs>
 
 1.  **Connect to your database**
 
@@ -49,17 +74,32 @@ To update $TOOLKIT_SHORT installed from source, rebuild and reinstall the latest
 
 1.  **Restart $PG**
 
-    Linux:
+    <Tabs label="Restart PostgreSQL" persistKey="source-os">
+
+    <Tab title="Linux" label="linux">
+
     ```bash
     sudo systemctl restart postgresql
     ```
 
-    macOS with Homebrew:
+    </Tab>
+
+    <Tab title="macOS" label="macos">
+
     ```bash
     brew services restart postgresql@<version>
     ```
 
-    Windows - Restart the PostgreSQL service via Services.
+    </Tab>
+
+    <Tab title="Windows" label="windows">
+
+    Open Services (press `Win + R`, type `services.msc`, and press Enter).
+    Find the PostgreSQL service, right-click it, and select `Restart`.
+
+    </Tab>
+
+    </Tabs>
 
 1.  **Connect to your database**
 
