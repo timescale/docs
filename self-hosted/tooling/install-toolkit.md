@@ -188,7 +188,7 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
            $(pg_config --pkglibdir)/timescaledb_toolkit-*.dylib
     ```
 
-    This is due to a known issue in the Homebrew formula where the library is installed with a `.so` extension, but PostgreSQL on macOS expects a `.dylib` extension.
+    This is due to a known issue in the Homebrew formula where the library is installed with a `.so` extension, but $PG on macOS expects a `.dylib` extension.
 
     </Highlight>
 
