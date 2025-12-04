@@ -46,6 +46,14 @@ module.exports = [
             href: "merge_chunks",
           },
           {
+            title: "merge_chunks_concurrently",
+            href: "merge_chunks_concurrently",
+          },
+          {
+            title: "chunk_rewrite_cleanup",
+            href: "chunk_rewrite_cleanup",
+          },
+          {
             title: "move_chunk",
             href: "move_chunk",
           },
