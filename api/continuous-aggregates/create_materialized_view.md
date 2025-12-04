@@ -55,8 +55,8 @@ of data written on a $CAGG in the presence of a small number of changes,
 reduce the I/O cost of refreshing a $CAGG, and generate fewer Write-Ahead
 Logs (WAL) by enabling the `timescaledb.enable_merge_on_cagg_refresh`
 [GUC parameter][gucs]. This enables $CAGG
-refresh to use MERGE instead of deleting old materialized data and re-inserting.
-This is a session-level parameter that only works for finalized $CAGGs
+refresh to use `MERGE` instead of deleting old materialized data and re-inserting.
+This parameter only works for finalized $CAGGs
 that don't have compression enabled. It is disabled by default.
 
 To enable this parameter for your session:
