@@ -112,7 +112,7 @@ in Unix time format, run the following:
  2025-01-01 11:00:00+01
 ```
 
-When you bucketing UUIDs, a regular TIMESTAMP WITH TIME ZONE value is returned.
+When you bucket UUIDs, a regular TIMESTAMP WITH TIME ZONE value is returned.
 
 ## Required arguments for interval time inputs
 
