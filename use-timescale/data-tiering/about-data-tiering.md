@@ -35,6 +35,8 @@ $CLOUD_LONG high-performance storage comes in the following types:
 
 Once you [enable tiered storage][manage-tiering], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
 
+<TieredStorageBilling />
+
 <NotSupportedAzure />
 
 Apache Parquet allows for more efficient scans across longer time periods, and $CLOUD_LONG uses other metadata and query optimizations to reduce the amount of data that needs to be fetched to satisfy a query, such as: 
@@ -88,8 +90,6 @@ The object storage tier is more than an archiving solution. It is also:
 - **Online:** your data is always there and can be [queried when needed][querying-tiered-data].
 
 By default, tiered data is not included when you query from a $SERVICE_LONG. To access tiered data, you [enable tiered reads][querying-tiered-data] for a query, a session, or even for all sessions. After you enable tiered reads, when you run regular SQL queries, a behind-the-scenes process transparently pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.  You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well.
-
-<TieredStorageBilling />
 
 The low-cost storage tier comes with the following limitations:
 

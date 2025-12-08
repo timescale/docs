@@ -37,8 +37,6 @@ The $S3_CONNECTOR continuously imports data from an Amazon S3 bucket into your d
 
 **Note**: the connector currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
-<EarlyAccessNoRelease />: this source S3 connector is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the Tiger Community</a>.
-
 ## Prerequisites
 
 <PrereqCloud />
