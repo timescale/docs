@@ -2,77 +2,57 @@
 title: Upsert data
 excerpt: Insert a new row or update an existing row in a hypertable using UPSERT
 products: [cloud, mst, self_hosted]
-keywords: [upsert, hypertables]
+keywords: [upsert, hypertables, bulk load, copy]
+tags: [insert, write, unique constraints]
 ---
 
 # Upsert data
 
-Upserting is an operation that performs both:
+Upserting is an operation to add data to your database where, if a matching row:
 
-*   Inserting a new row if a matching row doesn't already exist
-*   Either updating the existing row, or doing nothing, if a matching row
-    already exists
+* **Does not exist**: inserts a new row 
+* **Exists**: either updates the existing row, or does nothing
 
-Upserts only work when you have a unique index or constraint. A matching row is
-one that has identical values for the columns covered by the index or
-constraint.
+## Upsert, unique indexes and constraints
 
-<Highlight type="note">
-
-In $PG, a primary key is a unique index with a `NOT NULL` constraint.
+Upserts work when you have a unique index or constraint. A matching row is one that has identical values for the columns
+covered by the index or constraint. In $PG, a primary key is a unique index with a `NOT NULL` constraint.
 If you have a primary key, you automatically have a unique index.
 
-</Highlight>
-
-## Create a table with a unique constraint
-
-The examples in this section use a `conditions` table with a unique constraint
-on the columns `(time, location)`. To create a unique constraint, use `UNIQUE
-(<COLUMNS>)` while defining your table:
-
-```sql
-CREATE TABLE conditions (
-  time        TIMESTAMPTZ       NOT NULL,
-  location    TEXT              NOT NULL,
-  temperature DOUBLE PRECISION  NULL,
-  humidity    DOUBLE PRECISION  NULL,
-  UNIQUE (time, location)
-);
-```
-
-You can also create a unique constraint after the table is created. Use the
-syntax `ALTER TABLE ... ADD CONSTRAINT ... UNIQUE`. In this example, the
-constraint is named `conditions_time_location`:
-
-```sql
-ALTER TABLE conditions
-  ADD CONSTRAINT conditions_time_location
-    UNIQUE (time, location);
-```
-
-When you add a unique constraint to a table, you can't insert data that violates
-the constraint. In other words, if you try to insert data that has identical
-values to another row, within the columns covered by the constraint, you get an
-error.
-
-<Highlight type="note">
-
 Unique constraints must include all partitioning columns. That means unique
-constraints on a hypertable must include the time column. If you added other
-partitioning columns to your hypertable, the constraint must include those as
-well. For more information, see the section on
-[hypertables and unique indexes](/use-timescale/latest/hypertables/hypertables-and-unique-indexes/).
+constraints on a $HYPERTABLE must include the time column. If you added other
+partitioning columns to your $HYPERTABLE, the constraint must include those as
+well. For more information, see [$HYPERTABLE_CAPs and unique indexes][hypertables-and-unique-indexes].
 
-</Highlight>
 
-## Insert or update data to a table with a unique constraint
+The examples in this page use a `conditions` table with a unique constraint
+on the columns `(time, location)`. To create a unique constraint, either: 
 
-You can tell the database to insert new data if it doesn't violate the
-constraint, and to update the existing row if it does. Use the syntax `INSERT
-INTO ... VALUES ... ON CONFLICT ... DO UPDATE`.
+- Use `UNIQUE (<COLUMNS>)` when you define your table:
 
-For example, to update the `temperature` and `humidity` values if a row with the
-specified `time` and `location` already exists, run:
+    ```sql
+    CREATE TABLE conditions (
+      time        TIMESTAMPTZ       NOT NULL,
+      location    TEXT              NOT NULL,
+      temperature DOUBLE PRECISION  NULL,
+      humidity    DOUBLE PRECISION  NULL,
+      UNIQUE (time, location)
+    );
+    ```
+
+- Use `ALTER TABLE` after the table is created:
+
+    ```sql
+    ALTER TABLE conditions
+      ADD CONSTRAINT conditions_time_location
+        UNIQUE (time, location);
+    ```
+
+## Insert or update data
+
+To insert new data that doesn't violate the constraint, and to update the existing row if it does. Use the syntax 
+`INSERT INTO ... VALUES ... ON CONFLICT ... DO UPDATE`. For example, to update the `temperature` and `humidity` values 
+if a row with the specified `time` and `location` already exists, run:
 
 ```sql
 INSERT INTO conditions
@@ -82,12 +62,11 @@ INSERT INTO conditions
         humidity = excluded.humidity;
 ```
 
-## Insert or do nothing to a table with a unique constraint
+## Insert or do nothing
 
-You can also tell the database to do nothing if the constraint is violated. The
-new data is not inserted, and the old row is not updated. This is useful when
-writing many rows as one batch, to prevent the entire transaction from failing.
-The database engine skips the row and moves on.
+You can also do nothing if the constraint is violated. The new data is not inserted, and the old row is not updated,
+the database engine skips the row and moves on. This is useful to prevent the entire transaction from failing when 
+writing many rows as one batch.
 
 To insert or do nothing, use the syntax `INSERT INTO ... VALUES ... ON CONFLICT
 DO NOTHING`:
@@ -98,4 +77,47 @@ INSERT INTO conditions
   ON CONFLICT DO NOTHING;
 ```
 
+## Bulk upsert using COPY
+
+When you need to upsert large amounts of data, `COPY` is significantly faster than `INSERT`. However, `COPY` doesn't 
+support `ON CONFLICT` clauses directly. Best practice is to use a staging table. This two-step approach combines the 
+speed of `COPY` for bulk loading with the flexibility of `INSERT...ON CONFLICT` for upsert logic. For large datasets, 
+this is much faster than using `INSERT...ON CONFLICT` directly.
+
+To load data efficiently with `COPY`, then upsert:
+
+<Procedure>
+
+1. **Create a staging table with the same structure as the destination table**
+    ```sql
+    CREATE TEMP TABLE conditions_staging (LIKE conditions);
+    ```
+
+1. **Use `COPY` to bulk load data into the staging table**
+    ```sql
+    COPY conditions_staging(time, location, temperature, humidity)
+      FROM '/path/to/data.csv'
+      WITH (FORMAT CSV, HEADER);
+    ```
+
+1. **Upsert from the staging table to the destination table**
+    ```sql
+    INSERT INTO conditions
+      SELECT * FROM conditions_staging
+      ON CONFLICT (time, location) DO UPDATE
+        SET temperature = EXCLUDED.temperature,
+            humidity = EXCLUDED.humidity;
+    ```
+   To skip duplicate rows, set `ON CONFLICT (time, location) DO NOTHING`.
+
+1. **Clean up the staging table**
+    ```sql
+    DROP TABLE conditions_staging;
+    ```
+
+</Procedure>
+
+
 [postgres-upsert]: https://www.postgresql.org/docs/current/static/sql-insert.html#SQL-ON-CONFLICT
+[postgres-copy]: https://www.postgresql.org/docs/current/sql-copy.html
+[hypertables-and-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
