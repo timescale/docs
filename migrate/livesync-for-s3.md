@@ -8,7 +8,6 @@ tags: [recovery, logical backup, replication]
 ---
 
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
-import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Sync data from S3
@@ -37,7 +36,7 @@ The $S3_CONNECTOR continuously imports data from an Amazon S3 bucket into your d
 
 **Note**: the connector currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
-<EarlyAccessNoRelease />: this source S3 connector is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the Tiger Community</a>.
+The $S3_CONNECTOR is **Generally Available** and production ready. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the Tiger Community</a>.
 
 ## Prerequisites
 
@@ -138,6 +137,8 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 1. **Monitor synchronization**
 
+    The $S3_CONNECTOR provides comprehensive observability to give you maximum visibility into how the connector is performing. The monitoring experience includes summarized insights into connector state, quick actions, filtering and search to navigate to specific files, and detailed lifecycle tracking for each file being imported.
+
     1. To view the amount of data replicated, click `Connectors`. The diagram in `Connector data flow` gives you an overview of the connectors you have created, their status, and how much data has been replicated.
 
        ![$CLOUD_LONG connectors overview](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png)
@@ -145,6 +146,20 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
     1. To view file import statistics and logs, click `Connectors` > `Source connectors`, then select the name of your connector in the table.
 
        ![S3 connector stats](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-details.png)
+    
+    1. Use the monitoring dashboard to track file imports:
+       - **Cumulative report**: View total, imported, queued, and failed files at a glance
+       - **Search**: Find specific files across the list of imports
+       - **Filter by status**: Filter files based on their current status:
+         - `In-queue`: File is waiting to be processed
+         - `Processing`: File is currently being imported
+         - `Success`: File has been successfully imported
+         - `Error`: File import failed
+         - `Pending Retry`: File is queued for retry
+         - `Cancelled`: File import was cancelled
+       - **Bulk retry**: Retry all failed files with a single action
+       - **Lifecycle history**: View detailed file progression across states and time spent in each state
+       - **Auto-refresh**: Enable optional auto-refresh every minute to keep the view updated
 
 
 1. **Manage the connector**
