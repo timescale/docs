@@ -13,7 +13,7 @@ Upserting is an operation to add data to your database where, if a matching row:
 * **Does not exist**: inserts a new row 
 * **Exists**: either updates the existing row, or does nothing
 
-## Upsert, unique indexes and constraints
+## Upsert, unique indexes, and constraints
 
 Upserts work when you have a unique index or constraint. A matching row is one that has identical values for the columns
 covered by the index or constraint. In $PG, a primary key is a unique index with a `NOT NULL` constraint.
@@ -50,7 +50,7 @@ on the columns `(time, location)`. To create a unique constraint, either:
 
 ## Insert or update data
 
-To insert new data that doesn't violate the constraint, and to update the existing row if it does. Use the syntax 
+To insert new data that doesn't violate the constraint, and to update the existing row if it does, use the syntax 
 `INSERT INTO ... VALUES ... ON CONFLICT ... DO UPDATE`. For example, to update the `temperature` and `humidity` values 
 if a row with the specified `time` and `location` already exists, run:
 

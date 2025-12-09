@@ -28,7 +28,7 @@ INSERT INTO conditions(time, location, temperature, humidity)
 
 ## Insert multiple rows
 
-A more efficient method to row-by-row is to insert multiple rows into a $HYPERTABLE using a single 
+A more efficient method to insert row-by-row is to insert multiple rows into a $HYPERTABLE using a single 
 `INSERT` call. This works even for thousands of rows at a time. $TIMESCALE_DB batches the rows by chunk, then writes to 
 each chunk in a single transaction. 
 
@@ -68,7 +68,7 @@ time                          | location | temperature | humidity
 
 The `COPY` command is the most efficient way to load large amounts of data into a $HYPERTABLE. For 
 bulk data loading, `COPY` can be 2-3x faster or more than `INSERT`, especially when combined with 
-[direct compression][direct-compress].
+[direct compress][direct-compress].
 
 `COPY` supports loading from:
 
@@ -137,7 +137,7 @@ Incorrectly sorted data results in poor compression and query performance.
 
     - **Optimal batch size**: best results with batches of 1,000 to 10,000 records
     - **Cardinality**: high cardinality datasets do not compress well and may degrade query performance
-    - **Batch format**: The columnstore is optimized for 1,000 records per batch per segment
+    - **Batch format**: the columnstore is optimized for 1,000 records per batch per segment
     - **WAL efficiency**: compressed batches are written to WAL rather than individual tuples
     - **Continuous aggregates**: not supported with direct compress
     - **Unique constraints**: tables with unique constraints cannot use direct compress
