@@ -46,6 +46,14 @@
 
     </Tab>
 
+    <Tab title="Windows PowerShell" label="windows">
+
+    ```shell
+    irm https://cli.tigerdata.com/install.ps1 | iex
+    ```
+
+    </Tab>
+
     <Tab title="x-platform" label="xplatform">
 
     ```shell
