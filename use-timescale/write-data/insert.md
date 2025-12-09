@@ -44,8 +44,6 @@ INSERT INTO conditions
 
 
 ## Insert and return data
-
-In the same `INSERT` command, 
 You can return some or all of the inserted data by adding a `RETURNING` clause to the `INSERT` command. For example, 
 to return all the inserted data, run:
 

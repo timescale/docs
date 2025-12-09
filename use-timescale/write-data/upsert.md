@@ -8,10 +8,10 @@ tags: [insert, write, unique constraints]
 
 # Upsert data
 
-Upserting is an operation to add data to your database where, if a matching row:
+Upserting is an operation to add data to your database where:
 
-* **Does not exist**: inserts a new row 
-* **Exists**: either updates the existing row, or does nothing
+* **A matching row does not exist**: inserts a new row 
+* **A matching row exists**: either updates the existing row, or does nothing
 
 ## Upsert, unique indexes, and constraints
 
@@ -22,7 +22,7 @@ If you have a primary key, you automatically have a unique index.
 Unique constraints must include all partitioning columns. That means unique
 constraints on a $HYPERTABLE must include the time column. If you added other
 partitioning columns to your $HYPERTABLE, the constraint must include those as
-well. For more information, see [$HYPERTABLE_CAPs and unique indexes][hypertables-and-unique-indexes].
+well. For more information, see [Enforce constraints with unique indexes][hypertables-and-unique-indexes].
 
 
 The examples in this page use a `conditions` table with a unique constraint
