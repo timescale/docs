@@ -1,6 +1,6 @@
 ---
 title: Billing and account management
-excerpt: Manage billing and account information for your Tiger Data account
+excerpt: Manage billing and account information for your Tiger Data account for Tiger Cloud on AWS and Tiger Cloud on Azure
 products: [cloud]
 keywords: [billing, accounts, admin]
 tags: [payment, billing, costs]
