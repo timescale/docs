@@ -42,8 +42,11 @@ INSERT INTO conditions
     (NOW(), 'garage', 77.0, 65.2);
 ```
 
+If you `INSERT` unsorted data, call [convert_to_columnstore('<chunk_name>', recompress => true)][convert_to_columnstore] 
+on the $CHUNK to reorder and optimize your data. 
 
 ## Insert and return data
+
 You can return some or all of the inserted data by adding a `RETURNING` clause to the `INSERT` command. For example, 
 to return all the inserted data, run:
 
@@ -61,6 +64,9 @@ time                          | location | temperature | humidity
 2017-07-28 11:42:42.846621+00 | office   |        70.1 |     50.1
 (1 row)
 ```
+
+If you `INSERT` unsorted data, call [convert_to_columnstore('<chunk_name>', recompress => true)][convert_to_columnstore]
+on the $CHUNK to reorder and optimize your data.
 
 ## Bulk insert with COPY
 
@@ -100,6 +106,8 @@ bulk data loading, `COPY` can be 2-3x faster or more than `INSERT`, especially w
       WITH (FORMAT CSV);
     ```
 
+If you `COPY` unsorted data, call [convert_to_columnstore('<chunk_name>', recompress => true)][convert_to_columnstore]
+on the $CHUNK to reorder and optimize your data.
 
 ## Improve performance with direct compress
 
