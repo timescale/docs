@@ -34,11 +34,11 @@ CALL convert_to_columnstore('_timescaledb_internal._hyper_1_2_chunk');
 
 ## Arguments
 
-| Name                 | Type | Default | Required | Description                                                                                                                                        |
-|----------------------|--|---------|--|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the $COLUMNSTORE.                                                                                                      |
-| `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the $COLUMNSTORE.                                    |
-| `recompress`         | BOOLEAN | `false` |✖| Set to true to recompress. In-memory recompression will be attempted first; otherwise it will fall back to internal decompress/compress.                                                    |
+| Name                 | Type | Default | Required | Description                                                                                                                     |
+|----------------------|--|---------|--|---------------------------------------------------------------------------------------------------------------------------------|
+| `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the $COLUMNSTORE.                                                                                   |
+| `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the $COLUMNSTORE.                 |
+| `recompress`         | BOOLEAN | `false` |✖| Set to true to recompress. In-memory recompression is attempted first; it falls back to internal decompress/compress. |
 
 ## Returns
 
