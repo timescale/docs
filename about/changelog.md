@@ -28,7 +28,7 @@ Tiger Lake is now available as a public beta and ready for broader use. The publ
 
 **High-performance ingestion**
 * Decoupled CDC and full table import pipelines.
-* CDC ingest throughput: ~30,scale000 records/second.
+* CDC ingest throughput: ~30,000 records/second.
 * Initial full table import throughput: ~300,000 records/second.
 
 **Enhanced resilience and self-healing**
