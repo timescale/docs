@@ -131,7 +131,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    
    1. Choose `Create a new table for your data` or `Ingest data to an existing table`. 
    1. Choose the `Data type` for each column, then click `Continue`.
-   1. Configure the insert behavior when there is a conflict and click `Continue`. 
+   1. Configure the insert behavior when there is a conflict, then click `Continue`. 
    1. Choose the polling interval. This can be a minute, an hour, or a [cron expression][cron-expression].
    1. Click `Start Connector`.
 
