@@ -200,7 +200,7 @@ $CONSOLE. You can also do this using psql.
 
 <Tabs label="Upload data to " persistKey="sql-editor">
 
-<Tab title="Data mode" label="data-mode">
+<Tab title="Data view" label="data-mode">
 
 <NotAvailableFreePlan />
 
@@ -217,7 +217,7 @@ $CONSOLE. You can also do this using psql.
     For a $CAGG, data grouped using a $TIME_BUCKET is stored in a
     $PG `MATERIALIZED VIEW` in a $HYPERTABLE. `timescaledb.continuous` ensures that this data
     is always up to date.
-    In data mode, use the following code to create a $CAGG on the real-time data in
+    In $DATA_MODE, use the following code to create a $CAGG on the real-time data in
     the `crypto_ticks` table:
 
     ```sql
