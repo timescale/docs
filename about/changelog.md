@@ -21,7 +21,7 @@ We have updated the design of the navigation in Console to improve consistency, 
 
 ### Tiger Lake public beta
 
-Tiger Lake is now available as a public beta and ready for broader use. The public beta includes:
+Tiger Lake is now available in public beta and ready for broader use. The public beta includes:
 
 **Full DML support**
 * Replication of INSERT, UPDATE, and DELETE operations on hypertables and regular Postgres tables to Iceberg.
