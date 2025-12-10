@@ -20,10 +20,10 @@ In $CONSOLE you can use the following ways to run SQL queries against your $SERV
 
 - [$SQL_ASSISTANT_SHORT in the $DATA_MODE][sql-assistant]: write, fix, and organize SQL faster and more accurately.
 
-- [$SQL_EDITOR in the $OPS_MODE][run-sqleditor]: a simple $SQL_EDITOR in the $OPS_MODE that lets you run ad-hoc ephemeral
+- [$SQL_EDITOR][run-sqleditor]: a simple $SQL_EDITOR that lets you run ad-hoc ephemeral
   queries. This is useful for quick one-off tasks like creating an index on a small table or inspecting `pg_stat_statements`.
 
-If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
+If you prefer the command line to $CONSOLE editors, use [psql][install-psql].
 
 ## $DATA_MODE_CAP
 
@@ -38,7 +38,6 @@ Available features are:
 - **Real-time collaboration**: work with your team directly in the $DATA_MODE query editor with live presence and multiple
    cursors.
 - **[Schema browser][schema-browser]**: understand the structure of your $SERVICE_SHORT and see usage data on tables and columns.
-- **[$SQL_ASSISTANT_SHORT][sql-assistant]**: write, fix, and organize SQL faster and more accurately using AI.
 - **Autocomplete**: get suggestions as you type your queries.
 - **[Version history][version-history]**: access previous versions of a query from the built-in revision history, or connect to a git repo.
 - **[Charts][charts]**: visualize data from inside the UI rather than switch to Sheets or Excel.
@@ -46,6 +45,13 @@ Available features are:
 - **[Query variables][query-variables]**: use Liquid to parameterize your queries or use `if` statements.
 - **Cross-platform support**: work from [$CONSOLE][portal-data-mode] or download the [desktop app][popsql-desktop] for macOS, Windows, and Linux.
 - **Easy connection**: connect to $CLOUD_LONG, $PG, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more][popsql-connections].
+
+To start using the $DATA_MODE, open $CONSOLE and click `Data view`. This includes the following tabs:
+
+- **Files**: list all files in your project.
+- **Schemas**: list all schemas per database in your $SERVICE_SHORT.
+- **dbt**: create dbt macros and models. See the [documentation][popsql-dbt] for more.
+- **[$SQL_ASSISTANT_SHORT][sql-assistant]**: write, fix, and organize SQL faster and more accurately using AI.
 
 ### Connect to your $SERVICE_LONG in the $DATA_MODE
 
@@ -72,7 +78,7 @@ To connect to a $SERVICE_SHORT:
    ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-console.png)
 
 Quick recap. You:
-- Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][portal-ops-mode]
+- Manage your $SERVICE_SHORTs in [$CONSOLE][portal-ops-mode]
 - Manage your data in the [$DATA_MODE in $CONSOLE][portal-data-mode]
 - Store configuration and security information in your config file.
 
@@ -118,7 +124,7 @@ If you'd like to prevent write operations such as insert or update, instead
 of using the `tsdbadmin` user, create a read-only user for your $SERVICE_SHORT and
 use that in the $DATA_MODE.
 
-## $SQL_ASSISTANT_SHORT
+### $SQL_ASSISTANT_SHORT
 
 $SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] is a chat-like interface that harnesses the power of AI to help you write, fix, and organize SQL faster and more accurately. Ask $SQL_ASSISTANT_SHORT to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, get answers to any questions you can think of.
 
@@ -208,7 +214,7 @@ $SQL_ASSISTANT_SHORT settings are:
 * **Sample data**: to give the LLM more context so you have better SQL suggestions, enable sample data sharing in the $SQL_ASSISTANT_SHORT preferences.
 * **Telemetry**: to improve $SQL_ASSISTANT_SHORT, $COMPANY collects telemetry and usage data, including prompts, responses, and query metadata.
 
-## $OPS_MODE_CAP $SQL_EDITOR
+## $SQL_EDITOR
 
 $SQL_EDITOR is an integrated secure UI that you use to run queries and see the results
 for a $SERVICE_LONG.
@@ -224,7 +230,7 @@ To use $SQL_EDITOR:
 
 1.  **Open $SQL_EDITOR from $CONSOLE**
 
-    In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
+    In $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
 
     ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor-empty.png)
 
@@ -238,7 +244,7 @@ To use $SQL_EDITOR:
 
 ## Cloud $SQL_EDITOR licenses
 
-* **$SQL_EDITOR in the $OPS_MODE**: free for anyone with a [$ACCOUNT_LONG][create-cloud-account].
+* **$SQL_EDITOR**: free for anyone with a [$ACCOUNT_LONG][create-cloud-account].
 * **$DATA_MODE_CAP**: the number of seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
 
   [$SQL_ASSISTANT_SHORT][sql-assistant] is currently free for all users. In the future, limits or paid options may be
@@ -260,14 +266,14 @@ To use $SQL_EDITOR:
 [popsql-connections]: https://popsql.com/connections
 [popsql-desktop]: https://popsql.com/download
 [popsql-pricing]: https://popsql.com/pricing
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql=%2
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
 [project-members]: /use-timescale/:currentVersion:/security/members/
 [query-variables]: https://docs.popsql.com/docs/query-variables
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
-[run-popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
-[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor
+[run-popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-view
+[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [schedules]: https://docs.popsql.com/docs/scheduled-queries
 [schema-browser]: https://docs.popsql.com/docs/schema
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
@@ -277,3 +283,4 @@ To use $SQL_EDITOR:
 [timescale-console]: https://console.cloud.timescale.com/
 [version-history]: https://docs.popsql.com/docs/version-history
 [write-query]: https://docs.popsql.com/docs/writing-a-query  
+[popsql-dbt]: https://popsql.com/dbt

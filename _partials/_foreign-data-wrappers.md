@@ -189,7 +189,7 @@ You create $PG FDWs with the `postgres_fdw` extension. See [documenation][enable
 </Tabs>
 
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
-[sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor/
+[sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor/
 [connect]: /getting-started/:currentVersion:/run-queries-from-console/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [enable-fdw-docs]: https://www.postgresql.org/docs/current/postgres-fdw.html

@@ -214,4 +214,4 @@ And that is it, you have imported your data to your $SERVICE_LONG.
 
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
-[console]: hhttps://console.cloud.timescale.com/dashboard/services
+[console]: https://console.cloud.timescale.com/dashboard/services

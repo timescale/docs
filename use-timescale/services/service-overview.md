@@ -8,54 +8,47 @@ cloud_ui:
     path:
         - [services, :serviceId, overview]
 ---
-import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
-import ServiceUsers from "versionContent/_partials/_service-users.mdx";
 
 # About $SERVICE_LONGs
 
-<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
+When you log into [$CONSOLE][cloud-login], you see the $PROJECT_SHORT overview. 
 
-<Tab title="Tiger Cloud on AWS" label="aws-cloud">
+![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png)
 
-<ServiceOverview />
+The project view includes the following tabs:
 
-When you log into [$CONSOLE][cloud-login], you see the
-$PROJECT_SHORT overview. Click a $SERVICE_SHORT to view run-time data and connection information. 
-Click `Operations` to configure your $SERVICE_SHORT. 
+- `Services`: see all $SERVICE_SHORTs [created in your $PROJECT_SHORT][create-service] and their statuses.
+- `Security`:  create $VPCs and IP allowlists. See [Security][security] for details.
+- `Exporters`: export metrics and logs from your $SERVICE_SHORTs. See [Metrics and logging][metrics-logging] for details. 
+- `Settings`: create client credentials, add AI model API keys, and request a SOC 2 report.
+- `Users`: add and remove users in your $PROJECT_SHORT. See [Control user access to Tiger Cloud projects][members].
+- `Billing`: check usage, change $PRICING_PLANs, and manage payment methods. 
+- `Data view`: write queries with autocomplete, save them in folders, share them, and create charts/dashboards with the added power of AI. See [Run your queries from $CONSOLE][run-queries].
+
+Click a $SERVICE_SHORT to manage and configure it. Each $SERVICE_SHORT hosts a single database managed for you by $CLOUD_LONG.
+If you need more than one database, [create a new $SERVICE_SHORT][create-service].
 
 ![Select a query to edit](https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png)
 
-Each $SERVICE_SHORT hosts a single database managed for you by $CLOUD_LONG. 
-If you need more than one database, [create a new $SERVICE_SHORT][create-service].
+The individual $SERVICE_SHORT view includes the following tabs:
 
-## $SERVICE_SHORT_CAP users
+- `Overview`: get an overview of your $SERVICE_SHORT details, infrastructure, connection info, and performance optimization tips.
+- `Actions`: connect and import data into your $SERVICE_SHORT. See [Import and sync][import-sync].
+- `Explorer`: inspect objects and storage configuration for your $SERVICE_SHORT. See [$SERVICE_LONG explorer][service-explorer] for details.
+- `Monitoring`: get visibility into your $SERVICE_SHORT performance. See [Monitor your $SERVICE_LONGs][monitoring].
+- `Connectors`: sync or stream directly, so data from another source is continuously updated in your $SERVICE_SHORT. See [Import and sync][import-sync].
+- `SQL editor`: query your $SERVICE_SHORTs. See [Run your queries from $CONSOLE][run-queries].
+- `Operations`: fully manage your $SERVICE_SHORT. This includes configuring compute and storage, setting up replicas, backups, upgrades, and more. 
 
-<ServiceUsers />
-
-</Tab>
-
-<Tab title="Tiger Cloud on Azure" label="azure-cloud">
-
-<ServiceOverview />
-
-When you log into [$CONSOLE][cloud-login], you see the
-$PROJECT_SHORT overview. Click a $SERVICE_SHORT to view run-time data and connection information.
-Click `Operations` to configure your $SERVICE_SHORT.
-
-![Select a query to edit](https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png)
-
-Each $SERVICE_SHORT hosts a single database managed for you by $CLOUD_LONG.
-If you need more than one database, [create a new $SERVICE_SHORT][create-service].
-
-## $SERVICE_SHORT_CAP users
-
-<ServiceUsers />
-
-</Tab>
-
-</Tabs>
 
 [cloud-login]: https://console.cloud.timescale.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
+[create-service]: /getting-started/:currentVersion:/services/#create-a-service
+[security]: /use-timescale/:currentVersion:/security/
+[metrics-logging]: /use-timescale/:currentVersion:/metrics-logging/
+[members]: /use-timescale/:currentVersion:/security/members/
+[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
+[service-explorer]: /use-timescale/:currentVersion:/services/service-explorer/
+[import-sync]: /migrate/:currentVersion:/
+[monitoring]: /use-timescale/:currentVersion:/metrics-logging/monitoring/
 

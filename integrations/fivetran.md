@@ -90,4 +90,4 @@ You have successfully integrated Fivetran with $CLOUD_LONG.
 [sign-up-fivetran]: https://www.fivetran.com/
 [fivetran-dashboard-destinations]: https://fivetran.com/dashboard/destinations
 [fivetran-dashboard-connectors]: https://fivetran.com/dashboard/connections
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql=%2
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql

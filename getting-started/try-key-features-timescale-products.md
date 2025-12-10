@@ -330,7 +330,7 @@ To set up data tiering:
 
 1. **Set the time interval when data is tiered**
 
-    In $CONSOLE, click `Data view` to switch to the data mode, then enable data tiering on a $HYPERTABLE with the following query:
+    In $CONSOLE, click `Data view`, then enable data tiering on a $HYPERTABLE with the following query:
      ```sql
      SELECT add_tiering_policy('assets_candlestick_daily', INTERVAL '3 weeks');   
      ```
@@ -389,7 +389,7 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [deploy-self-hosted]: /self-hosted/:currentVersion:/install/
 [connect-to-your-service]: /getting-started/:currentVersion:/run-queries-from-console/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql=%2
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/

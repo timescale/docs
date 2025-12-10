@@ -165,7 +165,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql=%2
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/

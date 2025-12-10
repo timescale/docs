@@ -7,7 +7,6 @@ content_group: Getting started
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
-import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import StartUsingCloud from "versionContent/_partials/_start-using-cloud.mdx";
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import CreateService from "versionContent/_partials/_create-service.mdx";
@@ -30,7 +29,7 @@ import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-az
 
 <ServiceIntro />
 
-<ServiceOverview />
+See [About $SERVICE_LONGs][service-overview] for how to manage and query your $SERVICE_SHORTs.
 
 <StartUsingCloud />
 
@@ -62,7 +61,7 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 <ServiceIntroAzure />
 
-<ServiceOverview />
+See [About $SERVICE_LONGs][service-overview] for how to manage and query your $SERVICE_SHORTs.
 
 <StartUsingCloudAzure />
 
@@ -101,3 +100,4 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [timescaledb]: https://www.tigerdata.com/docs/#TimescaleDB
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[service-overview]: /use-timescale/:currentVersion:/services/service-overview/

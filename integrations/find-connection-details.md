@@ -65,7 +65,7 @@ such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
 
 1. **Open the settings for your project**:
 
-   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Project settings`.
+   In [$CONSOLE][console-services], click `Settings`.
 
 1. **Create client credentials**:
  
