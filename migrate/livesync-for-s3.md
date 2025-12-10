@@ -21,7 +21,7 @@ You can use the $S3_CONNECTOR to synchronize your existing and new data. Here's 
 * Sync data from an S3 bucket instance to a $SERVICE_LONG:
     - Use glob patterns to identify the objects to sync.
     - Watch an S3 bucket for new files and import them automatically. It runs on a configurable schedule and tracks processed files.
-    - **Important**: The connector processes files in [lexicographical order][lex-order]. It uses the name of the last file processed as a marker and fetches only files later in the alphabet in subsequent queries. Files added with names earlier in the alphabet than the marker are skipped and never synced. For example, if you add the file Bob when the marker is at Elephant, Bob is never processed. 
+    - **Important**: the connector processes files in [lexicographical order][lex-order]. It uses the name of the last file processed as a marker and fetches only files later in the alphabet in subsequent queries. Files added with names earlier in the alphabet than the marker are skipped and never synced. For example, if you add the file Bob when the marker is at Elephant, Bob is never processed. 
     - For large backlogs, check every minute until caught up. 
 
 * Sync data from multiple file formats:
@@ -131,7 +131,8 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    
    1. Choose `Create a new table for your data` or `Ingest data to an existing table`. 
    1. Choose the `Data type` for each column, then click `Continue`.
-   1. Choose the interval. This can be a minute, an hour, or use a [cron expression][cron-expression].
+   1. Configure the insert behavior when there is a conflict and click `Continue`. 
+   1. Choose the polling interval. This can be a minute, an hour, or a [cron expression][cron-expression].
    1. Click `Start Connector`.
 
       $CONSOLE starts the connection between the source database and the target $SERVICE_SHORT and displays the progress.
@@ -152,15 +153,15 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
        ![S3 connector stats](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-details.png)
     
-       The connector dashboard displays alk imports at a glance. Use this page to:
+       The connector dashboard displays all imports at a glance. Use this page to:
        - **Search by file name**: find specific files from the list of imports
-       - **Filter by status**: Filter files based on their current status:
+       - **Filter by status**: filter files based on their current status:
          - `All statuses`: all files
          - `Cancelled`: files where import is aborted
          - `Failure`: files where an error occurred during import      
          - `In Queue`: files that are awaiting processing 
          - `Paused`: files where processing is on hold
-         - `Pending Retry`: files that are requeued for processing  
+         - `Pending Retry`: files that are re-queued for processing  
          - `Running`: files currently being imported
          - `Success`: files that have been imported
        - **Bulk retry**: retry importing all files with the `Error` status
@@ -173,7 +174,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
        ![Edit S3 connector](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-pause.png)
 
-    1. To edit the connector, click `Connectors` > `Source connectors`. Open the three-dot menu next to your connector in the table, then click `Edit` and scroll down to `Modify your Connector`. You must pause the connector before editing it. 
+    1. To edit the connector, click `Connectors` > `Source connectors`. Open the three-dot menu next to your connector in the table, then click `Edit`. Select `Connector settings`. You must pause the connector before editing it. 
 
        ![S3 connector change config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-edit.png)
 
