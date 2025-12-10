@@ -12,9 +12,9 @@ All the latest features and updates to $CLOUD_LONG.
 ## New navigation in Console
 <Label type="date">December 5, 2025</Label>
 
-We have updated the design of the navigation in the Console to improve consitency, reduce distractions and make it easier and faster to navigate through the different menus.
+We have updated the design of the navigation in Console to improve consistency, reduce distractions, and make it easier and faster to navigate through the different menus.
 
-![New console navigation](https://assets.timescale.com/docs/images/console-new-navigation.png))
+![New console navigation](https://assets.timescale.com/docs/images/console-new-navigation.png)
 
 ## Tiger Lake public beta and S3 connector GA
 <Label type="date">November 28, 2025</Label>
@@ -26,32 +26,31 @@ Tiger Lake is now available as a public beta and ready for broader use. The publ
 **Full DML support**
 * Replication of INSERT, UPDATE, and DELETE operations on hypertables and regular Postgres tables to Iceberg.
 
-**High-Performance ingestion**
+**High-performance ingestion**
 * Decoupled CDC and full table import pipelines.
-* CDC ingest throughput: ~30,000 records/second
-* Initial full table import throughput: ~300,000 records/second
+* CDC ingest throughput: ~30,scale000 records/second.
+* Initial full table import throughput: ~300,000 records/second.
 
-**Enhanced resilience & self-Healing**
+**Enhanced resilience and self-healing**
 * Automatic recovery when a replication slot disappears — all data is correctly replayed, keeping Iceberg tables eventually consistent.
 * Seamless continuation from a failover node if the primary goes down, without restarting ingestion from scratch.
 
 **Improved deployment experience**
 * UI now validates ARNs before service deployment to prevent misconfiguration.
-* Validation & Scale Testing
+* Validation and scale testing.
 * Private beta users have successfully synced data continuously over long periods.
 * Verified compatibility with compressed and uncompressed hypertables.
 * Successfully synced a large hypertable with 75 billion rows totaling 7.3 TB on disk.
 
-Read [the documentation](https://www.tigerdata.com/docs/use-timescale/latest/tigerlake) to get started.
+Read the [documentation](https://www.tigerdata.com/docs/use-timescale/latest/tigerlake) to get started.
 
 ### S3 source connector general availability
 
-The S3 Source Connector is now production-ready, delivering major improvements in reliability, performance, and correctness across the entire ingestion pipeline. We resolved extensive issues related to file state transitions, workflow ordering, live sync consistency, and error handling, while adding support for retries, skipping files, better conflict handling, and more stable pause/resume behavior. Import operations are now more resilient, deterministic, and traceable, with clearer progress reporting and more accurate file and worker state visibility.
+The S3 source connector is now production-ready, delivering major improvements in reliability, performance, and correctness across the entire ingestion pipeline. We resolved extensive issues related to file state transitions, workflow ordering, live sync consistency, and error handling, while adding support for retries, skipping files, better conflict handling, and more stable pause/resume behavior. Import operations are now more resilient, deterministic, and traceable, with clearer progress reporting and more accurate file and worker state visibility.
 
 Performance and scalability have been significantly enhanced through better autoscaling, improved worker resource allocation, faster preview and import operations, optimized scheduling, reduced memory usage, and higher throughput for small and large files. 
 
-The user experience has been upgraded across the UI with improved file filtering, pagination, column mapping, input validation, clearer states and sizes, and more robust multi-step flows. Numerous bugs affecting import previews, table selection, schema handling, hypertable creation, and navigation were fixed. Combined, these changes make the S3 Source Connector significantly more stable, predictable, and user-friendly—ready for GA adoption.
-
+The user experience has been upgraded across the UI with improved file filtering, pagination, column mapping, input validation, clearer states and sizes, and more robust multi-step flows. Numerous bugs affecting import previews, table selection, schema handling, hypertable creation, and navigation were fixed. Combined, these changes make the S3 source connector significantly more stable, predictable, and user-friendly—ready for GA adoption.
 
 ## TimescaleDB v2.23 – improved getting started, automatic columnstore, and faster continuous aggregate invalidation tracking
 <Label type="date">November 14, 2025</Label>
