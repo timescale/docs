@@ -1,6 +1,6 @@
 ---
 title: Decompression
-excerpt: While TimescaleDB supports modifying compressed data, for bulk operations you need to decompress it first. Learn to decompress data manually
+excerpt: Manually decompress compressed chunks by name, time, or more precise constraints
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, backfilling]
 tags: [decompression]

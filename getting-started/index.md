@@ -1,6 +1,6 @@
 ---
 title: Get started with Tiger Data
-excerpt: Supercharge your real-time analytics on time-series data with Tiger Cloud. Create a free account, launch your first service, and use some of the advanced features
+excerpt: Supercharge your real-time analytics on time-series data with Tiger Cloud on AWS and Tiger Cloud on Azure. Create a free account, launch your first service, and use some of the advanced features
 products: [cloud]
 content_group: Getting started
 ---
