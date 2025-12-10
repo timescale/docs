@@ -16,7 +16,6 @@ import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
 import InstallAzure from "versionContent/_partials/_cloud-installation-azure.mdx";
 import ServiceIntroAzure from "versionContent/_partials/_services-intro-azure.mdx";
-import ServiceOverviewAzure from "versionContent/_partials/_service-overview-azure.mdx";
 import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-azure.mdx";
 
 # Create a $SERVICE_LONG
@@ -63,7 +62,7 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 <ServiceIntroAzure />
 
-<ServiceOverviewAzure />
+<ServiceOverview />
 
 <StartUsingCloudAzure />
 

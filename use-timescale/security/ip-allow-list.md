@@ -54,9 +54,11 @@ You create an IP allow list in the data mode settings.
 
 <Procedure>
 
-1. **In [$CONSOLE][console], toggle `Data`**
+1. **In [$CONSOLE][console], click `Data view`**
 
-1. **Click the $PROJECT_SHORT name in the upper left corner, then select `Settings`** 
+1. **Click the cog icon to open `Preferences` > `Settings`** 
+
+1. **Log into PopSQL**
 
 1. **Scroll down and toggle `IP Allowlist`**
 

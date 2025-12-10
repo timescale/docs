@@ -1,6 +1,6 @@
 ---
 title: Run your queries from Tiger Cloud Console
-excerpt: Choose the right tool to manage your data. Tiger Cloud offers the data mode, the SQL editor, and the SQL Assistant to better address your needs
+excerpt: Choose the right tool to manage your data. Tiger Cloud offers the data view, the SQL editor, and the SQL Assistant to better address your needs
 products: [cloud]
 content_group: Getting started
 ---
@@ -25,7 +25,7 @@ In $CONSOLE you can use the following ways to run SQL queries against your $SERV
 
 If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
 
-## 	Data mode 
+## $DATA_MODE_CAP
 
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
@@ -47,7 +47,7 @@ Available features are:
 - **Cross-platform support**: work from [$CONSOLE][portal-data-mode] or download the [desktop app][popsql-desktop] for macOS, Windows, and Linux.
 - **Easy connection**: connect to $CLOUD_LONG, $PG, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more][popsql-connections].
 
-### Connect to your $SERVICE_LONG in the data mode
+### Connect to your $SERVICE_LONG in the $DATA_MODE
 
 <Procedure>
 
@@ -61,7 +61,7 @@ To connect to a $SERVICE_SHORT:
 
 1. **Connect to your $SERVICE_SHORT**
 
-   In the [$DATA_MODE][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT in the connection drop-down:
+   Click [`Data view`][portal-data-mode] in $CONSOLE, then select a $SERVICE_SHORT in the connection drop-down:
 
    ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png)
 
@@ -86,7 +86,7 @@ Now you have used the $DATA_MODE in $CONSOLE, see how to easily do the following
 - [Create a dashboard of multiple query results][create-dashboard]
 - [Create schedules for your queries][create-schedule]
 
-### Data mode FAQ
+### $DATA_MODE_CAP FAQ
 
 #### What if my service is within a vpc?
 
@@ -196,7 +196,7 @@ For best results with $SQL_ASSISTANT_SHORT:
 ### Security, privacy, and data usage
 
 Security and privacy is prioritized in $CONSOLE. In [$DATA_MODE][portal-data-mode], $PROJECT_SHORT members
-manage $SQL_ASSISTANT_SHORT settings under [`User name` > `Settings` > `SQL Assistant`][sql-editor-settings].
+manage $SQL_ASSISTANT_SHORT settings under [`Preferences` > `SQL Assistant`][sql-editor-settings].
 
 ![SQL assistant settings](https://assets.timescale.com/docs/images/tiger-console-sql-editor-preferences.png)
 
@@ -239,7 +239,7 @@ To use $SQL_EDITOR:
 ## Cloud $SQL_EDITOR licenses
 
 * **$SQL_EDITOR in the $OPS_MODE**: free for anyone with a [$ACCOUNT_LONG][create-cloud-account].
-* **Data mode**: the number of seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
+* **$DATA_MODE_CAP**: the number of seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
 
   [$SQL_ASSISTANT_SHORT][sql-assistant] is currently free for all users. In the future, limits or paid options may be
   introduced as we work to build the best experience.
@@ -260,7 +260,7 @@ To use $SQL_EDITOR:
 [popsql-connections]: https://popsql.com/connections
 [popsql-desktop]: https://popsql.com/download
 [popsql-pricing]: https://popsql.com/pricing
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql=%2
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
 [project-members]: /use-timescale/:currentVersion:/security/members/

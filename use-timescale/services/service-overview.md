@@ -9,7 +9,6 @@ cloud_ui:
         - [services, :serviceId, overview]
 ---
 import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
-import ServiceOverviewAzure from "versionContent/_partials/_service-overview-azure.mdx";
 import ServiceUsers from "versionContent/_partials/_service-users.mdx";
 
 # About $SERVICE_LONGs
@@ -37,7 +36,7 @@ If you need more than one database, [create a new $SERVICE_SHORT][create-service
 
 <Tab title="Tiger Cloud on Azure" label="azure-cloud">
 
-<ServiceOverviewAzure />
+<ServiceOverview />
 
 When you log into [$CONSOLE][cloud-login], you see the
 $PROJECT_SHORT overview. Click a $SERVICE_SHORT to view run-time data and connection information.

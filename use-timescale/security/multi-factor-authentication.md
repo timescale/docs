@@ -30,8 +30,8 @@ Take the following steps to configure two-factor authentication:
 <Procedure>
 
 1.  Log in to [$CONSOLE][cloud-login] with your username and password. 2FA is not available if you log in with Google SSO. 
-1.  Click the `User name` icon in the bottom left of $CONSOLE and select `Account`.
-1.  In `Account`, click `Add two-factor authentication`.
+1.  Click the `User name` icon in the top right of $CONSOLE and select `Account settings`.
+1.  Click `Add two-factor authentication`.
 1.  On your mobile device, open Google Authenticator, tap `+`, and select
     `Scan a QR code`.
 1.  Scan the QR code provided by $CONSOLE in `Connect to an authenticator app` and click `Next`.
@@ -62,11 +62,9 @@ recovery codes, or lost access to them, you can generate another list. Generatin
 <Procedure>
 
 1.  Log in to [$CONSOLE][cloud-login] with your username and password.
-1.  Click the `User name` icon in the bottom left and select `Account`.
-1.  In `Account`, navigate to `Two-factor authentication`.
-1.  Click `Regenerate recovery codes`.
-1.  In `Two-factor authentication`, enter the verification code from
-    your authenticator app.
+1.  Click the `User name` icon in the top right and select `Account settings`.
+1.  In `Two-factor authentication`, click `Regenerate recovery codes`.
+1.  Enter the verification code from your authenticator app.
     Alternatively, if you do not have access to the authenticator app,
     click `Use recovery code instead` to enter a recovery code.
 1.  Click `Next`.
@@ -86,9 +84,8 @@ again with your new device.
 <Procedure>
 
 1.  Log in to [$CONSOLE][cloud-login] with your username and password.
-1.  Click the `User name` icon in the bottom left of $CONSOLE and select `Account`.
-1.  In `Account`, navigate to `Two-factor authentication`.
-1.  Click `Remove two-factor authentication`.
+1.  Click the `User name` icon in the top right of $CONSOLE and select `Account settings`.
+1.  In `Two-factor authentication`, click `Remove two-factor authentication`.
 1.  Enter the verification code from your authenticator app to confirm. Alternatively click `Use recovery code instead` to type the
     recovery code.
 1.  Click `Remove`.

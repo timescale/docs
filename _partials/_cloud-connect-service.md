@@ -10,17 +10,17 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
 1. **Connect to your $SERVICE_SHORT**
 
-   Connect using data mode or SQL editor in $CONSOLE, or psql in the command line:
+   Connect using $DATA_MODE or SQL editor in $CONSOLE, or psql in the command line:
 
    <Tabs label="Connect to your Tiger Cloud service" persistKey="sql-editor">
 
-   <Tab title="Data mode in Console" label="data-mode">
+   <Tab title="Data view in Console" label="data-mode">
 
    <NotAvailableFreePlan />
 
    <Procedure>
 
-   1. In $CONSOLE, toggle `Data`. 
+   1. In $CONSOLE, click `Data view`. 
 
    1. Select your $SERVICE_SHORT in the connection drop-down in the top right. 
 
@@ -102,7 +102,7 @@ Quick recap. You:
 - Store configuration and security information in your config file.
 
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql=%2
 [account-portal]: https://console.cloud.timescale.com/dashboard/account
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [install-psql]: /integrations/:currentVersion:/psql/

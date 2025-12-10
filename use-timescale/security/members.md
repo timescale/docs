@@ -43,7 +43,7 @@ To add a user to a $PROJECT_SHORT:
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`, then click `Add new user`.
+1.  In [$CONSOLE][cloud-login], click `Users`, then click `Add new user`.
 
 1.  Type the email address of the person that you want to add, select their role, and click `Invite
     user`.
@@ -112,7 +112,7 @@ $PROJECT_SHORT_CAP invitations are valid for 7 days. To resend a $PROJECT_SHORT 
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`.
+1.  In [$CONSOLE][cloud-login], click `Users`.
 
 1.  Next to the person you want to invite to your $PROJECT_SHORT, click `Resend invitation`.
 
@@ -126,7 +126,7 @@ To change the $PROJECT_SHORT you are currently working in:
 
 <Procedure>
 
-1. In [$CONSOLE][cloud-login], click the $PROJECT_SHORT name > `Current project` in the top left.
+1. In [$CONSOLE][cloud-login], click the arrows next to the $PROJECT_SHORT name in the top left.
 
    ![Change project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-project.png)
 
@@ -144,11 +144,9 @@ To transfer $PROJECT_SHORT ownership:
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`.
+1.  In [$CONSOLE][cloud-login], click `Users`.
 
 1.  Next to the person you want to transfer project ownership to, click `⋮` > `Transfer project ownership`.
-
-    ![Transfer project ownership in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-transfer-project-ownership.png)
 
     If you are unable to transfer ownership, hover over the greyed out button to see the details.
 
@@ -167,7 +165,7 @@ To stop working in a $PROJECT_SHORT:
 
 <Procedure>
 
-1. In [$CONSOLE][cloud-login], click `Invite users`.
+1. In [$CONSOLE][cloud-login], click `Users`.
 
 1. Click `⋮` > `Leave project`, then click `Leave`.
 
@@ -183,7 +181,7 @@ To change the role for another user:
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`.
+1.  In [$CONSOLE][cloud-login], click `Users`.
 
 1.  Next to the corresponding user, select another role in the dropdown. 
 
@@ -199,7 +197,7 @@ To remove a user's access to a $PROJECT_SHORT:
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`.
+1.  In [$CONSOLE][cloud-login], click `Users`.
 1.  Next to the person you want to remove, click `⋮` > `Remove`.
     ![Remove user in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-transfer-project-ownership.png)
 1.  In `Remove user`, click `Remove`.

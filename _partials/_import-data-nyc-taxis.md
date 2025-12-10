@@ -115,7 +115,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
-       - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
+       - **$DATA_MODE_CAP**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
        - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
        - **psql**: easily run queries on your $SERVICE_LONGs or $SELF_LONG deployment from Terminal.
 
@@ -165,7 +165,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql=%2
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/

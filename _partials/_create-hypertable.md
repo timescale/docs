@@ -9,7 +9,7 @@ To create a hypertable:
 
 1. **Connect to your service**
 
-    In $CONSOLE, click `Data`, then select a $SERVICE_SHORT.
+    In $CONSOLE, click `Data view`, then select a $SERVICE_SHORT.
 
 1. **Create a $PG table** 
 
@@ -29,7 +29,7 @@ To create a hypertable:
 
    You see the result immediately:
 
-   ![Data mode create table](https://assets.timescale.com/docs/images/data-mode-create-table.png)
+   ![Data view create table](https://assets.timescale.com/docs/images/data-mode-create-table.png)
 
 </Procedure>
 
