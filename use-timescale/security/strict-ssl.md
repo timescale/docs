@@ -5,6 +5,7 @@ products: [cloud]
 keywords: [security]
 tags: [ssl]
 ---
+<Availability products={['cloud']} price_plans={['enterprise', 'scale', 'performance']} />
 
 # Connect with a stricter SSL mode
 
