@@ -32,7 +32,7 @@ Tiger Lake is now available as a public beta and ready for broader use. The publ
 * Initial full table import throughput: ~300,000 records/second.
 
 **Enhanced resilience and self-healing**
-* Automatic recovery when a replication slot disappears — all data is correctly replayed, keeping Iceberg tables eventually consistent.
+* Automatic recovery when a replication slot disappears—all data is correctly replayed, keeping Iceberg tables eventually consistent.
 * Seamless continuation from a failover node if the primary goes down, without restarting ingestion from scratch.
 
 **Improved deployment experience**
