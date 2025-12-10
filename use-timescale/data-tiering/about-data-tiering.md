@@ -127,7 +127,7 @@ The low-cost storage tier comes with the following limitations:
 
 ## The tiered storage workflow
 
-The typical workflow for using tiered storage in $CLOUD_LONG is:
+The typical workflow to use tiered storage in $CLOUD_LONG is:
 
 <Procedure>
 
