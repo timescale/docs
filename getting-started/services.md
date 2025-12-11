@@ -1,5 +1,5 @@
 ---
-title: Create your first Tiger Cloud service
+title: Create your first service for Tiger Cloud on AWS and Tiger Cloud on Azure
 excerpt: Tiger Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Cloud Console
 products: [cloud]
 content_group: Getting started

@@ -161,13 +161,14 @@ Some of the most in-demand integrations are listed below.
 
 ## Workflow automation and no-code tools
 
-|       Name           | Description                                                               |
-|:--------------------:|---------------------------------------------------------------------------|
-| <img isIcon src='https://assets.timescale.com/docs/icons/appsmith-logo.png' alt='appsmith-logo' />[Appsmith][appsmith] | Create internal business applications with a low-code platform.           |
-|      <img isIcon src='https://assets.timescale.com/docs/icons/n8n-logo.png' alt='n8n-logo' />[n8n][n8n]      | Automate workflows and integrate services with a no-code platform.        |
-|   <img isIcon src='https://assets.timescale.com/docs/icons/retool-logo.png' alt='retool-logo' />[Retool][retool]   | Build custom internal tools quickly using a drag-and-drop interface.      |
-|  <img isIcon src='https://assets.timescale.com/docs/icons/tooljet-logo.png' alt='tooljet-logo' />[Tooljet][tooljet]  | Develop internal tools and business applications with a low-code builder. |
-|   <img isIcon src='https://assets.timescale.com/docs/icons/zapier-logo.png' alt='zapier-logo' />[Zapier][zapier]   | Automate workflows by connecting different applications and services.     |
+|                                                          Name                                                          | Description                                                                  |
+|:----------------------------------------------------------------------------------------------------------------------:|------------------------------------------------------------------------------|
+| <img isIcon src='https://assets.timescale.com/docs/icons/appsmith-logo.png' alt='appsmith-logo' />[Appsmith][appsmith] | Create internal business applications with a low-code platform.              |
+|         <img isIcon src='https://assets.timescale.com/docs/icons/dbos-logo.png' alt='n8n-logo' />[DBOS][dbos]          | Add durable workflows to your code and make apps resilient to any failure.   |
+|           <img isIcon src='https://assets.timescale.com/docs/icons/n8n-logo.png' alt='n8n-logo' />[n8n][n8n]           | Automate workflows and integrate services with a no-code platform.           |
+|     <img isIcon src='https://assets.timescale.com/docs/icons/retool-logo.png' alt='retool-logo' />[Retool][retool]     | Build custom internal tools quickly using a drag-and-drop interface.         |
+|   <img isIcon src='https://assets.timescale.com/docs/icons/tooljet-logo.png' alt='tooljet-logo' />[Tooljet][tooljet]   | Develop internal tools and business applications with a low-code builder.    |
+|     <img isIcon src='https://assets.timescale.com/docs/icons/zapier-logo.png' alt='zapier-logo' />[Zapier][zapier]     | Automate workflows by connecting different applications and services.        |
 
 [ads]: /integrations/:currentVersion:/azure-data-studio/
 [airbyte]: https://docs.airbyte.com/integrations/sources/postgres
@@ -192,6 +193,7 @@ Some of the most in-demand integrations are listed below.
 [data-center]: /integrations/:currentVersion:/corporate-data-center
 [dash0]: https://www.dash0.com/hub/integrations/int_tiger_service/overview
 [datadog]: /integrations/:currentVersion:/datadog/
+[dbos]: https://docs.dbos.dev/integrations/tigerdata
 [dbt]: https://dbt-timescaledb.debruyn.dev/
 [dbeaver]: /integrations/:currentVersion:/dbeaver/
 [debezium]: /integrations/:currentVersion:/debezium/

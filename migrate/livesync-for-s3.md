@@ -8,7 +8,6 @@ tags: [recovery, logical backup, replication]
 ---
 
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
-import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Sync data from S3
@@ -22,7 +21,7 @@ You can use the $S3_CONNECTOR to synchronize your existing and new data. Here's 
 * Sync data from an S3 bucket instance to a $SERVICE_LONG:
     - Use glob patterns to identify the objects to sync.
     - Watch an S3 bucket for new files and import them automatically. It runs on a configurable schedule and tracks processed files.
-    - **Important**: The connector processes files in [lexicographical order][lex-order]. It uses the name of the last file processed as a marker and fetches only files later in the alphabet in subsequent queries. Files added with names earlier in the alphabet than the marker are skipped and never synced. For example, if you add the file Bob when the marker is at Elephant, Bob is never processed. 
+    - **Important**: the connector processes files in [lexicographical order][lex-order]. It uses the name of the last file processed as a marker and fetches only files later in the alphabet in subsequent queries. Files added with names earlier in the alphabet than the marker are skipped and never synced. For example, if you add the file Bob when the marker is at Elephant, Bob is never processed. 
     - For large backlogs, check every minute until caught up. 
 
 * Sync data from multiple file formats:
@@ -37,7 +36,8 @@ The $S3_CONNECTOR continuously imports data from an Amazon S3 bucket into your d
 
 **Note**: the connector currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
-<EarlyAccessNoRelease />: this source S3 connector is not supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the Tiger Community</a>.
+The $S3_CONNECTOR is **Generally Available** and production ready. If you have any questions or feedback, join us in
+the [$COMPANY community][livesync-tiger-community].
 
 ## Prerequisites
 
@@ -131,31 +131,52 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    
    1. Choose `Create a new table for your data` or `Ingest data to an existing table`. 
    1. Choose the `Data type` for each column, then click `Continue`.
-   1. Choose the interval. This can be a minute, an hour, or use a [cron expression][cron-expression].
+   1. Configure the insert behavior when there is a conflict, then click `Continue`. 
+   1. Choose the polling interval. This can be a minute, an hour, or a [cron expression][cron-expression].
    1. Click `Start Connector`.
 
       $CONSOLE starts the connection between the source database and the target $SERVICE_SHORT and displays the progress.
 
 1. **Monitor synchronization**
 
-    1. To view the amount of data replicated, click `Connectors`. The diagram in `Connector data flow` gives you an overview of the connectors you have created, their status, and how much data has been replicated.
+    The $S3_CONNECTOR provides comprehensive observability that gives you maximum visibility on connector performance. 
+    This includes summarized insights into connector state, quick actions, filtering and search to easily find specific 
+    files, and detailed lifecycle tracking as each file is imported.
+
+    1. To view the amount of data replicated, click `Connectors`. 
+   
+      The diagram in `CONNECTOR DATA FLOW` shows the connectors you have created, their status, and how much data has been replicated.
 
        ![$CLOUD_LONG connectors overview](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png)
 
     1. To view file import statistics and logs, click `Connectors` > `Source connectors`, then select the name of your connector in the table.
 
        ![S3 connector stats](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-details.png)
-
+    
+       The connector dashboard displays all imports at a glance. Use this page to:
+       - **Search by file name**: find specific files from the list of imports
+       - **Filter by status**: filter files based on their current status:
+         - `All statuses`: all files
+         - `Cancelled`: files where import is aborted
+         - `Failure`: files where an error occurred during import      
+         - `In Queue`: files that are awaiting processing 
+         - `Paused`: files where processing is on hold
+         - `Pending Retry`: files that are re-queued for processing  
+         - `Running`: files currently being imported
+         - `Success`: files that have been imported
+       - **Bulk retry**: retry importing all files with the `Error` status
+       - **Lifecycle history**: view detailed information for all imports, and time spent in each status
+       - **Refresh every minute**: enable auto-refresh
 
 1. **Manage the connector**
 
     1. To pause the connector, click `Connectors` > `Source connectors`. Open the three-dot menu next to your connector in the table, then click `Pause`.
 
-      ![Edit S3 connector](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-pause.png)
+       ![Edit S3 connector](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-pause.png)
 
-    1. To edit the connector, click `Connectors` > `Source connectors`. Open the three-dot menu next to your connector in the table, then click `Edit` and scroll down to `Modify your Connector`. You must pause the connector before editing it. 
+    1. To edit the connector, click `Connectors` > `Source connectors`. Open the three-dot menu next to your connector in the table, then click `Edit`. Select `Connector settings`. You must pause the connector before editing it. 
 
-      ![S3 connector change config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-edit.png)
+       ![S3 connector change config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-edit.png)
 
     1. To pause or delete the connector, click `Connectors` > `Source connectors`, then open the three-dot menu on the right and select an option. You must pause the connector before deleting it. 
 
@@ -182,3 +203,4 @@ $SERVICE_LONG in real time.
 [cron-expression]: https://en.wikipedia.org/wiki/Cron#Cron_expression
 [confused-deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
 [connection-project-service-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
+[livesync-tiger-community]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
