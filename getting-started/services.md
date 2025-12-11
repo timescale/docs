@@ -59,8 +59,6 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 <ServiceIntroAzure />
 
-See [About $SERVICE_LONGs][service-overview] for how to manage and query your $SERVICE_SHORTs.
-
 <StartUsingCloudAzure />
 
 ## Create a $ACCOUNT_LONG
