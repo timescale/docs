@@ -29,8 +29,6 @@ import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-az
 
 <ServiceIntro />
 
-See [About $SERVICE_LONGs][service-overview] for how to manage and query your $SERVICE_SHORTs.
-
 <StartUsingCloud />
 
 ## Create a $ACCOUNT_LONG
@@ -100,4 +98,3 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [timescaledb]: https://www.tigerdata.com/docs/#TimescaleDB
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[service-overview]: /use-timescale/:currentVersion:/services/service-overview/

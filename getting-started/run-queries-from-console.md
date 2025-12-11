@@ -33,10 +33,17 @@ You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share y
 
 <NotAvailableFreePlan />
 
+To start using the $DATA_MODE, open $CONSOLE and click `Data view`. This includes the following tabs:
+
+- **Files**: list all files in your project.
+- **Schemas**: list all schemas per database in your $SERVICE_SHORT.
+- **dbt**: create dbt macros and models. See the [documentation][popsql-dbt] for more.
+- **[$SQL_ASSISTANT_SHORT][sql-assistant]**: write, fix, and organize SQL faster and more accurately using AI.
+
 Available features are:
 
 - **Real-time collaboration**: work with your team directly in the $DATA_MODE query editor with live presence and multiple
-   cursors.
+  cursors.
 - **[Schema browser][schema-browser]**: understand the structure of your $SERVICE_SHORT and see usage data on tables and columns.
 - **Autocomplete**: get suggestions as you type your queries.
 - **[Version history][version-history]**: access previous versions of a query from the built-in revision history, or connect to a git repo.
@@ -46,18 +53,9 @@ Available features are:
 - **Cross-platform support**: work from [$CONSOLE][portal-data-mode] or download the [desktop app][popsql-desktop] for macOS, Windows, and Linux.
 - **Easy connection**: connect to $CLOUD_LONG, $PG, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more][popsql-connections].
 
-To start using the $DATA_MODE, open $CONSOLE and click `Data view`. This includes the following tabs:
-
-- **Files**: list all files in your project.
-- **Schemas**: list all schemas per database in your $SERVICE_SHORT.
-- **dbt**: create dbt macros and models. See the [documentation][popsql-dbt] for more.
-- **[$SQL_ASSISTANT_SHORT][sql-assistant]**: write, fix, and organize SQL faster and more accurately using AI.
-
-### Connect to your $SERVICE_LONG in the $DATA_MODE
+To connect to a $SERVICE_SHORT in $DATA_MODE:
 
 <Procedure>
-
-To connect to a $SERVICE_SHORT:
 
 1. **Check your $SERVICE_SHORT is running correctly**
 
@@ -92,43 +90,11 @@ Now you have used the $DATA_MODE in $CONSOLE, see how to easily do the following
 - [Create a dashboard of multiple query results][create-dashboard]
 - [Create schedules for your queries][create-schedule]
 
-### $DATA_MODE_CAP FAQ
-
-#### What if my service is within a vpc?
-
-If your $SERVICE_LONG runs inside a $VPC, do one of the following to enable access for the $POPSQL desktop app:
-
-- Use $POPSQL's [bridge connector][bridge-connector].
-- Use an SSH tunnel: when you configure the connection in $POPSQL, under `Advanced Options` enable `Connect over SSH`.
-- Add $POPSQL's static IPs (`23.20.131.72, 54.211.234.135`) to your allowlist.
-
-#### What happens if another member of my $PROJECT_LONG uses the $DATA_MODE?
-
-The number of $DATA_MODE seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
-
-#### Will using the $DATA_MODE affect the performance of my $SERVICE_LONG?
-
-There are a few factors to consider:
-
-1. What instance size is your $SERVICE_SHORT?
-1. How many users are running queries?
-1. How computationally intensive are the queries?
-
-If you have a small number of users running performant SQL queries against a
-$SERVICE_SHORT with sufficient resources, then there should be no degradation to
-performance. However, if you have a large number of users running queries, or if
-the queries are computationally expensive, best practice is to create
-a [$READ_REPLICA][read-replica] and send analytical queries there.
-
-If you'd like to prevent write operations such as insert or update, instead
-of using the `tsdbadmin` user, create a read-only user for your $SERVICE_SHORT and
-use that in the $DATA_MODE.
-
 ### $SQL_ASSISTANT_SHORT
 
-$SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] is a chat-like interface that harnesses the power of AI to help you write, fix, and organize SQL faster and more accurately. Ask $SQL_ASSISTANT_SHORT to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, get answers to any questions you can think of.
+$SQL_ASSISTANT_SHORT in [$DATA_MODE][portal-data-mode] is a chat-like interface that harnesses the power of AI to help you write, fix, and organize SQL faster and more accurately. Ask $SQL_ASSISTANT_SHORT to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, get answers to any questions you can think of.
 
-<NotAvailableFreePlan />
+![$SQL_ASSISTANT](https://assets.timescale.com/docs/images/tiger-cloud-console/sql-assistant-in-action.png)
 
 <!--
 <div class="relative w-fit mx-auto">
@@ -138,7 +104,7 @@ $SQL_ASSISTANT_SHORT in [$CONSOLE][portal-data-mode] is a chat-like interface th
 </div>
 -->
 
-### Key capabilities
+#### Key capabilities
 
 $SQL_ASSISTANT_SHORT offers a range of features to improve your SQL workflow, including:
 
@@ -157,7 +123,7 @@ $SQL_ASSISTANT_SHORT offers a range of features to improve your SQL workflow, in
 
 - **Agent mode**: to get results with minimal involvement from you, $SQL_ASSISTANT_SHORT autopilots through complex tasks and troubleshoots its own problems. No need to go step by step, analyze errors, and try out solutions. Simply turn on the agent mode in the LLM picker and watch $SQL_ASSISTANT_SHORT do all the work for you. Recommended for use when your database connection is configured with read-only credentials.
 
-### Supported LLMs
+#### Supported LLMs
 
 $SQL_ASSISTANT_SHORT supports a large number of LLMs, including:
 
@@ -190,7 +156,7 @@ $SQL_ASSISTANT_SHORT supports a large number of LLMs, including:
 
 Choose the LLM based on the particular task at hand. For simpler tasks, try the smaller and faster models like Gemini Flash, Haiku, or o4-mini. For more complex tasks, try the larger reasoning models like Claude Sonnet, Gemini Pro, or o3. We provide a description of each model to help you decide.
 
-### Limitations to keep in mind
+#### Limitations to keep in mind
 
 For best results with $SQL_ASSISTANT_SHORT:
 
@@ -199,7 +165,7 @@ For best results with $SQL_ASSISTANT_SHORT:
 * **Business logic**: $SQL_ASSISTANT_SHORT does not inherently know specific business terms
   such as active user. Define these terms clearly to improve results.
 
-### Security, privacy, and data usage
+#### Security, privacy, and data usage
 
 Security and privacy is prioritized in $CONSOLE. In [$DATA_MODE][portal-data-mode], $PROJECT_SHORT members
 manage $SQL_ASSISTANT_SHORT settings under [`Preferences` > `SQL Assistant`][sql-editor-settings].
@@ -213,6 +179,39 @@ $SQL_ASSISTANT_SHORT settings are:
 * **Data protection**: your data remains private as $SQL_ASSISTANT_SHORT operates with strict security protocols. To provide AI support, $CONSOLE_LONG may share your currently open SQL document, some basic metadata about your database, and portions of your database schema. By default, $CONSOLE_LONG **does not include** any data from query results, but you can opt in to include this context to improve the results.
 * **Sample data**: to give the LLM more context so you have better SQL suggestions, enable sample data sharing in the $SQL_ASSISTANT_SHORT preferences.
 * **Telemetry**: to improve $SQL_ASSISTANT_SHORT, $COMPANY collects telemetry and usage data, including prompts, responses, and query metadata.
+
+### $DATA_MODE_CAP FAQ
+
+#### What if my service is within a vpc?
+
+If your $SERVICE_LONG runs inside a $VPC, do one of the following to enable access for the $POPSQL desktop app:
+
+- Use $POPSQL's [bridge connector][bridge-connector].
+- Use an SSH tunnel: when you configure the connection in $POPSQL, under `Advanced Options` enable `Connect over SSH`.
+- Add $POPSQL's static IPs (`23.20.131.72, 54.211.234.135`) to your allowlist.
+
+#### What happens if another member of my $PROJECT_LONG uses the $DATA_MODE?
+
+The number of $DATA_MODE seats you are allocated depends on your [$PRICING_PLAN][pricing-plan-features].
+
+#### Will using the $DATA_MODE affect the performance of my $SERVICE_LONG?
+
+There are a few factors to consider:
+
+1. What instance size is your $SERVICE_SHORT?
+1. How many users are running queries?
+1. How computationally intensive are the queries?
+
+If you have a small number of users running performant SQL queries against a
+$SERVICE_SHORT with sufficient resources, then there should be no degradation to
+performance. However, if you have a large number of users running queries, or if
+the queries are computationally expensive, best practice is to create
+a [$READ_REPLICA][read-replica] and send analytical queries there.
+
+If you'd like to prevent write operations such as insert or update, instead
+of using the `tsdbadmin` user, create a read-only user for your $SERVICE_SHORT and
+use that in the $DATA_MODE.
+
 
 ## $SQL_EDITOR
 
