@@ -35,7 +35,7 @@ To create a hypertable:
 
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [install-psql]: /integrations/:currentVersion:/psql/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-view
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

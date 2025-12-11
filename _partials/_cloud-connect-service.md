@@ -106,7 +106,7 @@ Quick recap. You:
 [account-portal]: https://console.cloud.timescale.com/dashboard/account
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [install-psql]: /integrations/:currentVersion:/psql/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-view
 [run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [install-psql]: /integrations/:currentVersion:/psql/
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

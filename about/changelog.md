@@ -433,7 +433,7 @@ Data mode's [SQL assistant](https://docs.timescale.com/getting-started/latest/ru
 
 ### VPC support for passwordless data mode connections
 
-We previously made it much easier to connect newly created services to Timescale’s [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#data-mode). We have now expanded this functionality to services using a VPC.
+We previously made it much easier to connect newly created services to Timescale's [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#data-view). We have now expanded this functionality to services using a VPC.
 
 ## 🕵🏻️ Enhanced service monitoring, TimescaleDB v2.20, and livesync for $PG
 <Label type="date">May 30, 2025</Label>
