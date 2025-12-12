@@ -9,43 +9,42 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
-## 🧭  New top navigation, Activity Log, and TimescaleDB v2.24
-<Label type="date">December 11, 2025</Label>
+## 🧭  Activity log and TimescaleDB v2.24
+<Label type="date">December 12, 2025</Label>
 
-### New Navigation
-Tiger Cloud has completely redesigned our main navigation to be top-oriented rather than a sidebar. The information architecture remains largely the same, but users now have much more visual space to manage their databases!
+### Activity log
+Tiger Cloud now offers an activity log accessible from your list of all services. The log serves as a record of actions that have happened to your services and Tiger Cloud account, such as service resizes and project invitations. The log includes the corresponding service (where applicable), the user who performed the action, and a description of the action itself. You can  suggest new actions to record on the `Activity` tab.
 
-### Activity Log
-Tiger Cloud now offers an Activity Log, accessible from your list of all services. The log serves as a record for actions that have happened to your database and Tiger Cloud account, such as service resizes and project invitations. The log includes the corresponding service (where applicable), the user who performed the action, and a description of the action itself. If you would like to suggest new actions to appear in this list, you may do so on the Activity Log page.
+![Activity log on Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/activity-log.png)
 
 ### TimescaleDB 2.24
-TimescaleDB 2.24 delivers more efficient recompression operations, expanded use of continuous aggregates, with better invalidation behavior and brings back support for bloom filters on ARM-based architectures. TimescaleDB 2.24 was released on December 3rd and is now available to all users on Tiger Cloud.
+TimescaleDB 2.24 was released on December 3rd and is now available to all users on Tiger Cloud. TimescaleDB 2.24 delivers more efficient recompression operations, expanded use of continuous aggregates, and better invalidation behavior. It also brings back support for bloom filters on ARM-based architectures. 
 
-#### Highlighted Features in TimescaleDB 2.24
+#### Highlighted features in TimescaleDB 2.24
 
-**In-Memory Recompression**
+**In-memory recompression**
 
-A new recompress := true option for convert_to_columnstore() performs batch compaction entirely in memory. This approach is 4–5× faster than the previous spill-to-disk method and reduces I/O for workloads with many small or uneven batches. This can be helpful if you are ingesting unordered data via direct compress and need to optimize your batches or when you add new sparse indexes and need to build them on existing chunks.
+A new `recompress := true` option for `convert_to_columnstore()` performs batch compaction entirely in memory. 
 
-**Example:**
-`CALL convert_to_columnstore('<chunk_name>', recompress := true);`
+For example: `CALL convert_to_columnstore('<chunk_name>', recompress := true);`
 
-**Bloom Filters on Tiger Cloud (ARM-Based Services)**
+This approach is 4–5 times faster than the previous spill-to-disk method, and reduces I/O for workloads with many small or uneven batches. This can be helpful if you are ingesting unordered data via direct compress and need to optimize your batches, or when you add new sparse indexes and need to build them on existing chunks.
 
-On Tiger Cloud (ARM-Based Services) Bloom filters return with corrected hashing support for ARM architecture. A misconfigured hashing library previously required disabling bloom indexes on ARM-based services. This release restores bloom filter functionality with a new index version.
+**Bloom filters on Tiger Cloud (ARM-based services)**
 
-For on-prem users, nothing changes if you're using an AMD64 architecture. Otherwise, please refer to this description. For Cloud customer recompression is only required for services that want to rebuild bloom filters on existing chunks. New chunks receive bloom indexes automatically.
+On Tiger Cloud (ARM-based services), bloom filters return with corrected hashing support for ARM architecture. A misconfigured hashing library previously required disabling bloom indexes on ARM-based services. This release restores bloom filter functionality with a new index version.
 
-#### Continous Aggregates
+For self-hosted TimescaleDB users, nothing changes if you're using an AMD64 architecture. Otherwise, please [see here](https://github.com/timescale/timescaledb/pull/8761#user-content-changelog). For Tiger Cloud customers, recompression is only required for services that want to rebuild bloom filters on existing chunks. New chunks receive bloom indexes automatically.
+
+**Continuous aggregate updates**
 
 - **Smarter invalidation range capping** prevents massive refresh windows when out-of-order or faulty timestamps span large gaps. Invalidation now stays bounded to chunk ranges, reducing unnecessary refresh work.
 
-- **Direct Compress invalidation support** enables continuous aggregates on hypertables that ingest directly into the columnstore. Min/max batch timestamps now generate invalidation entries without needing row-level WAL.
+- **Direct compress invalidation support** enables continuous aggregates on hypertables that ingest directly into the columnstore. Min/max batch timestamps now generate invalidation entries without needing row-level WAL.
 
-- **UUIDv7 support for CAggs** unlocks continuous aggregates on UUIDv7-partitioned tables through an extended time_bucket() that accepts UUIDv7 and outputs a timestamp.
-  For complete details, refer to the TimescaleDB 2.24 release notes.
+- **UUIDv7 support** unlocks continuous aggregates on UUIDv7-partitioned tables through an extended `time_bucket()` that accepts UUIDv7 and outputs a timestamp.
 
-
+For complete details, refer to the [TimescaleDB 2.24 release notes](https://github.com/timescale/timescaledb/releases/tag/2.24.0).
 
 ## New navigation in Console
 <Label type="date">December 5, 2025</Label>
