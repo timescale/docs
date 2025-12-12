@@ -18,9 +18,9 @@ instance on any local system, from source.
 
 This section shows you how to:
 
-* [Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgres) - set up
+* [Install and configure $TIMESCALE_DB on $PG][install-and-configure-timescaledb-on-postgres-link] - set up
   a self-hosted $PG instance to efficiently run TimescaleDB1.
-* [Add the $TIMESCALE_DB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
+* [Add the $TIMESCALE_DB extension to your database][add-the-timescaledb-extension-to-your-database-link] - enable TimescaleDB features and
   performance improvements on a database.
 
 < TestingEnv/>
@@ -79,3 +79,6 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 [cmake-download]: https://cmake.org/download/
 [compatibility-matrix]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#plan-your-upgrade-path
 [postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
+
+[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-source/#add-the-timescale-db-extension-to-your-database
+[install-and-configure-timescaledb-on-postgres-link]: /self-hosted/:currentVersion:/install/installation-source/#install-and-configure-timescale-db-on-pg

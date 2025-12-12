@@ -551,7 +551,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 <a id="tiger-service" href=""></a>
 
-**$SERVICE_LONG**: an instance of optimized [$PG][postgres-link] extended with database engine innovations such as [$TIMESCALE_DB][timescaledb-link], in a cloud infrastructure that delivers speed without sacrifice. You can create [free $SERVICE_SHORTs][free-tiger-service-link] and [standard $SERVICE_SHORTs][standard-tiger-service-link]. 
+**$SERVICE_LONG**: an optimized [$PG][postgres-link] instance extended with database engine innovations such as [$TIMESCALE_DB][timescaledb-link], in a cloud infrastructure that delivers speed without sacrifice. You can create [free $SERVICE_SHORTs][free-tiger-service-link] and [standard $SERVICE_SHORTs][standard-tiger-service-link]. 
 
 **Time series**: data points indexed and ordered by time, typically representing how values change over time.
 

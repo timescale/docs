@@ -10,12 +10,12 @@ tags: [JDB, ODBC, client driver, Kafka, csv]
 
 There are several different ways of ingesting your data into $MST_LONG. This section contains instructions to:
 
-*   Bulk upload [from a `.csv` file](#bulk-upload-from-csv-files)
+*   Bulk upload [from a `.csv` file][bulk-upload-from-csv-files-link]
 *   Insert data
-    [directly using a client driver](#insert-data-directly-using-a-client-driver),
+    [directly using a client driver][insert-data-directly-using-a-client-driver-link],
     such as JDBC, ODBC, or Node.js
 *   Insert data
-    [directly using a message queue](#insert-data-directly-using-a-message-queue),
+    [directly using a message queue][insert-data-directly-using-a-message-queue-link],
     such as Kafka
 
 Before you begin, make sure you have
@@ -86,7 +86,7 @@ import the data.
 
 <Highlight type="important">
 Before you begin, make sure you have
-[prepared your new database](#procedure-preparing-your-new-database).
+[prepared your new database][procedure-preparing-your-new-database-link].
 </Highlight>
 
 <Procedure>
@@ -159,3 +159,8 @@ See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 [postgres-odbc]: https://odbc.postgresql.org/
 [create-managed-service]: /mst/:currentVersion:/installation-mst/
 [mst-login]:https://portal.managed.timescale.com/login
+
+[bulk-upload-from-csv-files-link]: /mst/:currentVersion:/ingest-data/#bulk-upload-from-csv-files
+[insert-data-directly-using-a-client-driver-link]: /mst/:currentVersion:/ingest-data/#insert-data-directly-using-a-client-driver
+[insert-data-directly-using-a-message-queue-link]: /mst/:currentVersion:/ingest-data/#insert-data-directly-using-a-message-queue
+[procedure-preparing-your-new-database-link]: /mst/:currentVersion:/ingest-data/#preparing-your-new-database

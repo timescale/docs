@@ -24,9 +24,9 @@ time series and demanding workloads that ingest and query high volumes of data.
 
 This section shows you how to:
 
-* [Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgresql) - set up
+* [Install and configure $TIMESCALE_DB on $PG][install-and-configure-timescaledb-on-postgresql-link] - set up
   a self-hosted $PG instance to efficiently run TimescaleDB.
-* [Add the $TIMESCALE_DB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable $TIMESCALE_DB
+* [Add the $TIMESCALE_DB extension to your database][add-the-timescaledb-extension-to-your-database-link] - enable $TIMESCALE_DB
   features and performance improvements on a database. 
 
 
@@ -35,7 +35,7 @@ This section shows you how to:
 ## Install and configure $TIMESCALE_DB on $PG 
 
 This section shows you how to install the latest version of $PG and
-$TIMESCALE_DB on a [supported platform](#supported-platforms) using the packages supplied by $COMPANY. 
+$TIMESCALE_DB on a [supported platform][supported-platforms-link] using the packages supplied by $COMPANY. 
 
 <Highlight type="warning">
 
@@ -113,3 +113,7 @@ You can deploy $TIMESCALE_DB on the following systems:
 
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
 [supported-platforms-self-hosted]: /about/:currentVersion:/supported-platforms/#supported-systems
+
+[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-linux/#add-the-timescale-db-extension-to-your-database
+[install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-linux/#install-and-configure-timescale-db-on-pg
+[supported-platforms-link]: /self-hosted/:currentVersion:/install/installation-linux/#supported-platforms

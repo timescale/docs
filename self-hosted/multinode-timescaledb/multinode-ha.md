@@ -105,7 +105,7 @@ replication factor on an existing distributed hypertable. Note,
 however, that only new chunks are replicated according to the
 updated replication factor. Existing chunks need to be re-replicated
 by copying those chunks to new data nodes (see the [node
-failures section](#node-failures) below).
+failures section][node-failures-link] below).
 
 When native replication is enabled, the replication happens whenever
 you write data to the table. On every `INSERT` and `COPY` call, each
@@ -222,3 +222,5 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 [single-ha]: /self-hosted/:currentVersion:/replication-and-ha/
 [alter_data_node]: /api/:currentVersion:/distributed-hypertables/alter_data_node/
 [copy_chunk]:/api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
+
+[node-failures-link]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/#node-failures

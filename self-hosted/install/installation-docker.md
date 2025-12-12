@@ -17,7 +17,7 @@ time series and demanding workloads that ingest and query high volumes of data. 
 instance on any local system from a pre-built Docker container. 
 
 This section shows you how to 
-[Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgresql).
+[Install and configure $TIMESCALE_DB on $PG][install-and-configure-timescaledb-on-postgresql-link].
 
 < TestingEnv/>
 
@@ -32,7 +32,7 @@ To run, and connect to a $PG installation on Docker, you need to install:
 ## Install and configure $TIMESCALE_DB on $PG
 
 This section shows you how to install the latest version of $PG and
-$TIMESCALE_DB on a [supported platform](#supported-platforms) using containers supplied by $COMPANY.
+$TIMESCALE_DB using containers supplied by $COMPANY.
 
 <SelfHostedDocker />
 
@@ -44,5 +44,6 @@ And that is it! You have $TIMESCALE_DB running on a database on a self-hosted in
 <WhereTo />
 
 [docker-install]: https://docs.docker.com/get-started/get-docker/
-[install-psql]: https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/
+[install-psql]: /integrations/:currentVersion:/psql/
 
+[install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-docker/#install-and-configure-timescale-db-on-pg

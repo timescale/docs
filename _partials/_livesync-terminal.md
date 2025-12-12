@@ -152,7 +152,7 @@ specifies the tables to synchronize.
    ALTER PUBLICATION <publication_name> SET(publish_via_partition_root=true);
    ```
 
-   To convert partitioned table to hypertable, follow [Convert partitions and tables with time-series data into hypertables](#convert-partitions-and-tables-with-time-series-data-into-hypertables).
+   To convert partitioned table to hypertable, follow [Convert partitions and tables with time-series data into hypertables][convert-partitions-and-tables-with-time-series-data-into-hypertables-link].
 
 1. **Stop syncing a table in the `PUBLICATION`, use `DROP TABLE`**
 
@@ -342,3 +342,5 @@ EOF
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
 [install-psql]: /integrations/:currentVersion:/psql/
+
+[convert-partitions-and-tables-with-time-series-data-into-hypertables-link]: /migrate/:currentVersion:/livesync-for-postgresql/#convert-partitions-and-tables-with-time-series-data-into-hypertables

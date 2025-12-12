@@ -38,14 +38,14 @@ database at once. For more information, see the section on
 
 The procedure to migrate your database requires these steps:
 
-*   [Migrate schema pre-data](#migrate-schema-pre-data)
-*   [Restore hypertables in Timescale](#restore-hypertables-in-timescale)
-*   [Copy data from the source database](#copy-data-from-the-source-database)
-*   [Restore data into Timescale](#restore-data-into-timescale)
-*   [Migrate schema post-data](#migrate-schema-post-data)
-*   [Recreate continuous aggregates](#recreate-continuous-aggregates) (optional)
-*   [Recreate policies](#recreate-policies) (optional)
-*   [Update table statistics](#update-table-statistics)
+*   [Migrate schema pre-data][migrate-schema-pre-data-link]
+*   [Restore hypertables in Timescale][restore-hypertables-in-timescale-link]
+*   [Copy data from the source database][copy-data-from-the-source-database-link]
+*   [Restore data into Timescale][restore-data-into-timescale-link]
+*   [Migrate schema post-data][migrate-schema-post-data-link]
+*   [Recreate continuous aggregates][recreate-continuous-aggregates-link] (optional)
+*   [Recreate policies][recreate-policies-link] (optional)
+*   [Update table statistics][update-table-statistics-link]
 
 <Highlight type="warning">
 
@@ -216,3 +216,11 @@ the [compression section](https://www.tigerdata.com/docs/use-timescale/latest/co
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
 [migration]: /migrate/:currentVersion:/
+[migrate-schema-pre-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-pre-data
+[copy-data-from-the-source-database-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#copy-data-from-the-source-database
+[restore-data-into-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-data-into-timescale
+[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self-long-instance
+[migrate-schema-post-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-post-data
+[recreate-continuous-aggregates-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-continuous-aggregates
+[recreate-policies-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-policies
+[update-table-statistics-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#update-table-statistics

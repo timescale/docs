@@ -26,8 +26,8 @@ If necessary, a paragraph or two explaining more about how things work.
 
 This section shows you how to:
 
-* [Verb \<what the user will do>](#verb-what-the-user-will-do) 
-* [Verb \<what the user will do if the procedure is cut into logical sections>](#verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections) 
+* [Verb \<what the user will do>][verb-what-the-user-will-do-link] 
+* [Verb \<what the user will do if the procedure is cut into logical sections>][verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections-link] 
 
 ## Prerequisites
 
@@ -104,3 +104,6 @@ You have \<what the user will do in this section>.
 [secure-vpc-aws]: /use-timescale/:currentVersion:/vpc/
 [install-linux]: /self-hosted/:currentVersion:/install/installation-linux/
 [gdsg]: https://developers.google.com/style/highlights
+
+[verb-what-the-user-will-do-link]: /.github/:currentVersion:/styles/templates/procedure/#verb-what-the-user-will-do
+[verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections-link]: /.github/:currentVersion:/styles/templates/procedure/#verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections
