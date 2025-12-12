@@ -1,6 +1,6 @@
 ---
 title: Run your queries from Tiger Cloud Console
-excerpt: Choose the right tool to manage your data. Tiger Cloud offers the data view, the SQL editor, and the SQL Assistant to better address your needs
+excerpt: Choose the right tool to manage your data. Tiger Cloud on AWS and Tiger Cloud on Azure offer the data view, the SQL editor, and the SQL Assistant to better address your needs
 products: [cloud]
 content_group: Getting started
 ---

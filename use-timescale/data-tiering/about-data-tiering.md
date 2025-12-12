@@ -14,7 +14,7 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 # About storage tiers
 
-The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier. You use the high-performance tier for data that requires quick access, and the object tier for rarely used historical data. Tiering policies move older data asynchronously and periodically from high-performance to low-cost storage, sparing you the need to do it manually. Chunks from a single hypertable, including compressed chunks, can stretch across these two storage tiers. 
+The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier. You use the high-performance tier for data that requires quick access, and the object tier for rarely used historical data. Tiering policies move older data asynchronously and periodically from high-performance to low-cost storage, sparing you the need to do it manually. Chunks from a single $HYPERTABLE, including compressed chunks, can stretch across these two storage tiers. 
 
 ![$CLOUD_LONG tiered storage](https://assets.timescale.com/docs/images/timescale-tiered-storage-architecture.png)
 
@@ -33,7 +33,9 @@ $CLOUD_LONG high-performance storage comes in the following types:
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
-Once you [enable tiered storage][manage-tiering], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed hypertable may even take more space in S3 than it does in $CLOUD_LONG.
+Once you [enable tiered storage][manage-tiering], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed $HYPERTABLE may even take more space in S3 than it does in $CLOUD_LONG.
+
+<TieredStorageBilling />
 
 <NotSupportedAzure />
 
@@ -87,21 +89,19 @@ The object storage tier is more than an archiving solution. It is also:
 - **Scalable:** scale past the restrictions of even the enhanced high-performance storage tier.
 - **Online:** your data is always there and can be [queried when needed][querying-tiered-data].
 
-By default, tiered data is not included when you query from a $SERVICE_LONG. To access tiered data, you [enable tiered reads][querying-tiered-data] for a query, a session, or even for all sessions. After you enable tiered reads, when you run regular SQL queries, a behind-the-scenes process transparently pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.  You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses hypertables, they can be tiered to low-cost storage as well.
-
-<TieredStorageBilling />
+By default, tiered data is not included when you query from a $SERVICE_LONG. To access tiered data, you [enable tiered reads][querying-tiered-data] for a query, a session, or even for all sessions. After you enable tiered reads, when you run regular SQL queries, a behind-the-scenes process transparently pulls data from wherever it's located: the standard high-performance storage tier, the object storage tier, or both.  You can `JOIN` against tiered data, build views, and even define continuous aggregates on it. In fact, because the implementation of continuous aggregates also uses $HYPERTABLEs, they can be tiered to low-cost storage as well.
 
 The low-cost storage tier comes with the following limitations:
 
 - **Limited schema modifications**: some schema modifications are not allowed
-    on hypertables with tiered chunks.
+    on $HYPERTABLEs with tiered chunks.
 
-    _Allowed_ modifications include: renaming the hypertable, adding columns
-    with `NULL` defaults, adding indexes, changing or renaming the hypertable
+    _Allowed_ modifications include: renaming the $HYPERTABLE, adding columns
+    with `NULL` defaults, adding indexes, changing or renaming the $HYPERTABLE
     schema, and adding `CHECK` constraints. For `CHECK` constraints, only
     untiered data is verified.
     Columns can also be deleted, but you cannot subsequently add a new column
-    to a tiered hypertable with the same name as the now-deleted column.
+    to a tiered $HYPERTABLE with the same name as the now-deleted column.
 
     _Disallowed_ modifications include: adding a column with non-`NULL`
     defaults, renaming a column, changing the data type of a
@@ -121,16 +121,57 @@ The low-cost storage tier comes with the following limitations:
     execution time of queries in latency-sensitive environments, especially
     lighter queries.
 
-*   **Number of dimensions**: you cannot use tiered storage with hypertables
-    partitioned on more than one dimension. Make sure your hypertables are
+*   **Number of dimensions**: you cannot use tiered storage with $HYPERTABLEs
+    partitioned on more than one dimension. Make sure your $HYPERTABLEs are
     partitioned on time only, before you enable tiered storage.
 
+## The tiered storage workflow
+
+The typical workflow to use tiered storage in $CLOUD_LONG is:
+
+<Procedure>
+
+1. **[Enable tiered storage][manage-tiering]**
+
+   You enable tiered storage for each $SERVICE_SHORT individually.
+
+1. **[Tier your data][move-data]**
+
+   Choose how to move data to the low-cost tier:
+   - **Automated tiering**: create an interval-based policy using
+     `add_tiering_policy()` to automatically tier chunks older than a
+     specified age. By default, policies run hourly, and continuously manage
+     data placement.
+   - **Manual tiering**: identify specific chunks to tier by querying the
+     `timescaledb_information.chunks` view, then use the `tier_chunk()`
+     function to move individual chunks. The tiering process is asynchronous, 
+     chunks are scheduled for migration and handled by background services.
+
+1. **[Query your data][querying-tiered-data]**:
+    1. To access data stored in the object tier, set `timescaledb.enable_tiered_reads = true` for your session, query, or
+       all future sessions. 
+   
+       Without this setting, queries only access data in the high-performance tier. 
+    1. Run standard SQL queries against your $HYPERTABLEs. 
+   
+       The query planner automatically determines which chunks to access across both storage
+       tiers based on your query filters. Chunk pruning, row group pruning,
+       and column pruning optimize query performance.
+
+1. **[Monitor and manage][monitor-data]**:
+
+    Track tiered chunks using the `timescaledb_osm.chunks_queued_for_tiering`
+    view. Modify or remove tiering policies as needed using `alter_job` and
+    `remove_tiering_policy`.
+
+</Procedure> 
 
 [blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [parquet]: https://parquet.apache.org/
-[manage-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#enable-tiered-storage
+[manage-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
 [move-data]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
+[monitor-data]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#tier-chunks
 [hypercore]: /use-timescale/:currentVersion:/hypercore
 [aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
 [ebs-io2]: https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express
