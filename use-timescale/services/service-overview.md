@@ -23,7 +23,7 @@ The project view includes the following tabs:
 - `Settings`: create client credentials, add AI model API keys, and request a SOC 2 report. See [Create client credentials][find-connection-info].
 - `Users`: add and remove users in your $PROJECT_SHORT. See [Control user access to Tiger Cloud projects][members].
 - `Billing`: check usage, change $PRICING_PLANs, and manage payment methods. See [Pricing plans and account management][pricing].
-- `Data view`: write queries with autocomplete, save them in folders, share them, and create charts/dashboards with the added power of AI. See [Data view][run-queries-data-view].
+- `Data view`: write queries with autocomplete for any $SERVICE_SHORT, save them in folders, share them, and create charts/dashboards with the added power of AI. See [$DATA_MODE_CAP][run-queries-data-view].
 
 Click a $SERVICE_SHORT to manage and configure it. Each $SERVICE_SHORT hosts a single database managed for you by $CLOUD_LONG.
 If you need more than one database, [create a new $SERVICE_SHORT][create-service].
