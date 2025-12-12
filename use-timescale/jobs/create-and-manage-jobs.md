@@ -171,4 +171,3 @@ Alter an existing $JOB with [`alter_job`][api-alter_job]. You can change both th
 [api-timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/
 [postgres-createfunction]: https://www.postgresql.org/docs/current/xfunc.html
 [postgres-createprocedure]: https://www.postgresql.org/docs/current/xproc.html
-[plpgsql]: https://www.postgresql.org/docs/current/plpgsql-overview.html

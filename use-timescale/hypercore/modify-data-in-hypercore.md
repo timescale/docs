@@ -111,4 +111,3 @@ You can modify the schema of a table in the $COLUMNSTORE. To do this, you need t
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

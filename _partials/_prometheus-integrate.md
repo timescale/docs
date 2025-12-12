@@ -207,7 +207,6 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [postgresql-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/
 [open-console]: https://console.cloud.timescale.com/dashboard/services
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
 [prometheus-authentication]: https://prometheus.io/docs/guides/basic-auth/

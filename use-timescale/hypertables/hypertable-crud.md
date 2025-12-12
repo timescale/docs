@@ -137,7 +137,6 @@ All data $CHUNKs belonging to the $HYPERTABLE are deleted.
 [api-create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [api-create-hypertable-arguments]: /api/:currentVersion:/hypertable/create_hypertable/#arguments
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29

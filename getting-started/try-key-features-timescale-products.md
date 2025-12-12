@@ -400,14 +400,11 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [hierarchical-storage]: https://en.wikipedia.org/wiki/Hierarchical_storage_management
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
-[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [sign-up]: https://console.cloud.timescale.com/signup
 [job]: /api/:currentVersion:/actions/add_job/
 [alter-table-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

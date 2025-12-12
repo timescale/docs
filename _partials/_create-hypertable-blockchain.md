@@ -71,9 +71,6 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[indexing]: /use-timescale/:currentVersion:/schema-management/indexing/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

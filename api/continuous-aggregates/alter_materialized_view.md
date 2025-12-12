@@ -75,8 +75,6 @@ ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<argument> =  <value> [, .
 
 [create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
 [postgres-alterview]: https://www.postgresql.org/docs/current/sql-alterview.html
-[create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
-[postgres-alterview]: https://www.postgresql.org/docs/current/sql-alterview.html
 [create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
 [default_table_access_method]: https://www.postgresql.org/docs/17/runtime-config-client.html#GUC-DEFAULT-TABLE-ACCESS-METHOD
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/

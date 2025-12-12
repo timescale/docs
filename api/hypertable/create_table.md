@@ -202,7 +202,6 @@ $TIMESCALE_DB returns a simple message indicating success or failure.
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [columnstore-default-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter

@@ -76,4 +76,3 @@ directory can be adjusted via the `--config-dir` flag or the `TIGER_CONFIG_DIR` 
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
 [curl]: https://curl.se/
-[rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings

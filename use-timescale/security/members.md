@@ -216,5 +216,4 @@ The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [join-a-project]: /use-timescale/:currentVersion:/security/members/#join-a-project
 [change-project]: /use-timescale/:currentVersion:/security/members/#change-the-current-project
-[saml]: https://en.wikipedia.org/wiki/SAML_2.0
 [database-rbac]: /use-timescale/:currentVersion:/security/read-only-role/

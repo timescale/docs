@@ -26,6 +26,5 @@ or [tiered to object storage][data-tiering]. You can even create [continuous agg
 
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [real-time-aggregation]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/

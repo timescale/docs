@@ -172,7 +172,4 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

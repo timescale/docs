@@ -177,5 +177,4 @@ dimension information used by this function.
 [add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
 [by-range]: /api/:currentVersion:/hypertable/create_hypertable/#by_range
 [by-hash]: /api/:currentVersion:/hypertable/create_hypertable/#by_hash
-[by-hash]: /api/:currentVersion:/hypertable/create_hypertable/#by_hash
 
