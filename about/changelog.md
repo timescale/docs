@@ -34,7 +34,7 @@ This approach is 4–5 times faster than the previous spill-to-disk method, and 
 
 On ARM-based Tiger Cloud services, bloom filters return with corrected hashing support for the ARM architecture. A misconfigured hashing library previously required disabling bloom indexes on ARM-based services. This release restores bloom filter functionality with a new index version.
 
-For self-hosted TimescaleDB users, nothing changes if you're using an AMD64 architecture. Otherwise, please [see here](https://github.com/timescale/timescaledb/pull/8761#user-content-changelog). For Tiger Cloud customers, recompression is only required for services that want to rebuild bloom filters on existing chunks. New chunks receive bloom indexes automatically.
+For self-hosted TimescaleDB users, nothing changes if you're using an AMD64 architecture. Otherwise, please [see here](https://github.com/timescale/timescaledb/pull/8761#user-content-changelog). For Tiger Cloud customers, recompression is only required for services where you want to rebuild bloom filters on existing chunks. New chunks receive bloom indexes automatically.
 
 **Continuous aggregate updates**
 
