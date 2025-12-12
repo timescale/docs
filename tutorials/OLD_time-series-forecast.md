@@ -45,11 +45,11 @@ and machine learning tools.
 
 Prerequisites:
 
-*   [Installed TimescaleDB][install]
+*   [Installed TimescaleDB][install-timescale]
 *   Downloaded and loaded dataset from Hello $COMPANY Tutorial
 *   Installed and set up PostGIS in database
 *   [Installed R][install_r]
-*   [Installed Python][install_python]
+*   [Installed Python][install-python]
 
 First, let's create the schema and populate the tables. Download the file
 [`forecast.sql`][forecast-sql] and execute the following command:
@@ -654,7 +654,7 @@ SELECT * FROM rides_length
 WHERE three_hour >= '2016-01-22 00:00:00';
 ```
 
-Python has a [`psycopg2`][python-psycopg2] package that allows you to query the
+Python has a [`psycopg2`][psycopg2-docs] package that allows you to query the
 database in Python:
 
 ```python
@@ -768,17 +768,18 @@ to analyze and make predictions on time-series data in your TimescaleDB
 database.
 
 [NYCTLC]: http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
+
 [arima]: https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
 [forecast-sql]: http://assets.iobeam.com/sql/forecast.sql
 [gap_filling]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/#gap-filling
 [holt-winters]: https://otexts.org/fpp2/holt-winters.html
-[install]: /getting-started/latest/
-[install_python]: https://www.python.org/downloads/
+[install-timescale]: /getting-started/:currentVersion:/
+[install-python]: https://www.python.org/downloads/
 [install_r]: https://www.r-project.org/
 [madlib]: http://madlib.apache.org/
 [madlib_arima]: http://madlib.apache.org/docs/latest/group__grp__arima.html
 [madlib_install]: https://cwiki.apache.org/confluence/display/MADLIB/Installation+Guide
-[python-psycopg2]: https://pypi.org/project/psycopg2/
+[psycopg2-docs]: https://pypi.org/project/psycopg2/
 [python-statsmodels]: http://www.statsmodels.org/dev/tsa.html
 [r-forecast]: https://cran.r-project.org/web/packages/forecast/forecast.pdf
 [r-xts]: https://cran.r-project.org/web/packages/xts/xts.pdf

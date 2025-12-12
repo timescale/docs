@@ -50,14 +50,8 @@
    see [dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
 
 
-[pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
-[pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[migrate-from-timescaledb]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-timescaledb-using-pg_dumprestore
-[migrate-from-postgresql]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-postgresql-using-pg_dumprestore
+[Upgrade TimescaleDB]: https://www.tigerdata.com/docs/self-hosted/:currentVersion:/upgrades/
+
 [dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
 [restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency
 [long-running-pgdump]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks
-[Upgrade TimescaleDB]: https://www.tigerdata.com/docs/self-hosted/latest/upgrades/
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
-[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
-

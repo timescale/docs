@@ -35,7 +35,7 @@ compute the approximate sizes of hypertables to get faster results.
 </Highlight>
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 ## Samples
 
@@ -68,5 +68,4 @@ If executed on a relation that is not a hypertable, the function
 returns `NULL`.
 </Highlight>
 
-
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

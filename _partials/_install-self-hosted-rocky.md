@@ -47,5 +47,3 @@ $COMPANY supports Rocky Linux 8 and 9 on amd64 only.
 
 
 </Procedure>
-
-[config]: /self-hosted/:currentVersion:/configuration/

@@ -28,11 +28,11 @@ tutorial includes:
 *   How to build your React front-end to visualize the data
 
 The project uses React, connecting to a [Hasura][] GraphQL API to visualize
-[hypertable chunks][hypertables] of a [TimescaleDB][] instance.
+[hypertable chunks][hypertables-section] of a [TimescaleDB][] instance.
 
 The easiest way to get a TimescaleDB instance is to
-[try for free][timescale-signup] using our hosted service. You can also
-[download TimescaleDB for free][timescale-install] and run locally or in your
+[try for free][sign-up] using our hosted service. You can also
+[download TimescaleDB for free][install-timescale] and run locally or in your
 own cloud infrastructure.
 
 You can get the full code for this project from
@@ -409,16 +409,16 @@ This tutorial was originally created for HasuraCon 2021.
 
 We hope you find new ways to explore your data and make your decisions smarter
 and data-driven. If you get any interesting results or have any questions about
-this tutorial, drop us a line on our [community Slack channel][timescale-slack].
+this tutorial, drop us a line on our [community Slack channel][slack].
 
 [Hasura]: http://hasura.io/
 [TimescaleDB]: https://timescale.com/
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[compression]: /use-timescale/:currentVersion:/compression/
 [data retention]: /use-timescale/:currentVersion:/data-retention/
+
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [hasura-cloud]: https://cloud.hasura.io/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
-[timescale-install]: /getting-started/latest/
-[timescale-signup]: http://console.cloud.timescale.com/signup
-[timescale-slack]: https://slack.timescale.com
+[install-timescale]: /getting-started/:currentVersion:/
+[sign-up]: http://console.cloud.timescale.com/signup
+[slack]: https://slack.timescale.com

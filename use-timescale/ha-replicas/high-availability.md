@@ -41,7 +41,7 @@ primary data node. When your primary data node fails, $CLOUD_LONG automatically 
 an HA replica within 30 seconds. During failover, the read-only address is unavailable while $CLOUD_LONG automatically creates a new HA replica. The time to make this replica depends on several factors, including the size of your data.
 
 Operations such as upgrading your $SERVICE_SHORT to a new major or minor version may necessitate 
-a $SERVICE_SHORT restart. Restarts are run during the [maintenance window][upgrade]. To avoid any downtime, each data
+a $SERVICE_SHORT restart. Restarts are run during the [maintenance window][maintain-upgrade]. To avoid any downtime, each data
 node is updated in turn. That is, while the primary data node is updated, a replica is promoted to primary. 
 After the primary is updated and online, the same maintenance is performed on the HA replicas.
 
@@ -153,7 +153,6 @@ primary is not in a state to safely switch.
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com
-[upgrade]: /use-timescale/:currentVersion:/upgrades/
+[maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/#rapid-recovery

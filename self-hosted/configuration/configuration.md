@@ -345,8 +345,7 @@ Additional examples of passing in arguments at boot can be found in our
 [discussion about using WAL-E][wale] for incremental backup.
 
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
-[chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
-[docker]: /self-hosted/latest/install/installation-docker/
+[docker]: /self-hosted/:currentVersion:/install/installation-docker/
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
 [pgtune]: http://pgtune.leopard.in.ua/
 [synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT

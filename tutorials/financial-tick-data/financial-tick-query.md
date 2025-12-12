@@ -14,13 +14,13 @@ import GraphOhlcv from "versionContent/_partials/_graphing-ohlcv-data.mdx";
 
 Turning raw, real-time tick data into aggregated candlestick views is a common
 task for users who work with financial data. $TIMESCALE_DB includes
-[hyperfunctions][hyperfunctions]
+[hyperfunctions][api-hyperfunctions]
 that you can use to store and query your financial data more easily.
 Hyperfunctions are SQL functions within $TIMESCALE_DB that make it easier to
 manipulate and analyze time-series data in $PG with fewer lines of code.
 
 There are three hyperfunctions that are essential for calculating candlestick
-values: [`time_bucket()`][time-bucket], [`FIRST()`][first], and [`LAST()`][last].
+values: [`time_bucket()`][time_bucket], [`FIRST()`][first], and [`LAST()`][last].
 The `time_bucket()` hyperfunction helps you aggregate records into buckets of
 arbitrary time intervals based on the timestamp value. `FIRST()` and `LAST()`
 help you calculate the opening and closing prices. To calculate highest and
@@ -116,8 +116,6 @@ OHLCV values.
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
-[hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[intraday-tutorial]: /tutorials/:currentVersion:/
+[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
 [last]: /api/:currentVersion:/hyperfunctions/last/
-[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[lag]: https://www.pgtutorial.com/postgresql-window-functions/postgresql-lag/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

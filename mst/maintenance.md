@@ -77,5 +77,4 @@ failover is a very quick and safe operation and it takes less than a minute to
 get clients connected again. In most cases, there is five to ten second outage
 during this process.
 
-
 [mst-login]:https://portal.managed.timescale.com/login

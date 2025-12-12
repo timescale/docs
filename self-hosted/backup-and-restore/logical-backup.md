@@ -21,7 +21,7 @@ This page shows you how to:
 - [Back up and restore an entire database][backup-entire-database]
 - [Back up and restore individual hypertables][backup-individual-tables]
 
-You can also [upgrade between different versions of $TIMESCALE_DB][timescaledb-upgrade]. 
+You can also [upgrade between different versions of $TIMESCALE_DB][update-db]. 
 
 ## Prerequisites
 
@@ -173,11 +173,10 @@ and privilege grants. You restore the $PG instance using `psql`. For more inform
 
 
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
+
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
-[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
-[timescaledb-upgrade]: /self-hosted/:currentVersion:/upgrades/
+[update-db]: /self-hosted/:currentVersion:/upgrades/
 [troubleshooting]: /self-hosted/:currentVersion:/troubleshooting/
 [troubleshooting-version-mismatch]: /self-hosted/:currentVersion:/troubleshooting/#versions-are-mismatched-when-dumping-and-restoring-a-database
 [postgres-docs]: https://www.postgresql.org/docs/17/backup-dump.html#BACKUP-DUMP-ALL

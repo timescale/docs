@@ -32,10 +32,3 @@ To create a hypertable:
    ![Data mode create table](https://assets.timescale.com/docs/images/data-mode-create-table.png)
 
 </Procedure>
-
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-psql]: /integrations/:currentVersion:/psql/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
-[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

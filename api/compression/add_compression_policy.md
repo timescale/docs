@@ -14,7 +14,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # add_compression_policy() <Tag type="community" content="community" />
 
-<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/add_columnstore_policy/">add_columnstore_policy()</a>. 
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/:currentVersion:/hypercore/add_columnstore_policy/">add_columnstore_policy()</a>. 
 However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Allows you to set a policy by which the system compresses a chunk
@@ -23,7 +23,7 @@ automatically in the background after it reaches a given age.
 Compression policies can only be created on hypertables or continuous aggregates
 that already have compression enabled. To set `timescaledb.compress` and other
 configuration parameters for hypertables, use the
-[`ALTER TABLE`][compression_alter-table]
+[`ALTER TABLE`][alter-table-compression]
 command. To enable compression on continuous aggregates, use the
 [`ALTER MATERIALIZED VIEW`][compression_continuous-aggregate]
 command. To view the policies that you set or the policies that already exist,
@@ -93,8 +93,7 @@ on the type of the time column of the hypertable or continuous aggregate:
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
 
-[compression_alter-table]: /api/:currentVersion:/compression/alter_table_compression/
+[alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
-

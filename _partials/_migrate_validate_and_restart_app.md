@@ -11,12 +11,11 @@
 1. Enable any $CLOUD_LONG features you want to use.
 
    Migration from $PG moves the data only. Now manually enable $CLOUD_LONG features like
-   [hypertables][about-hypertables], [hypercore][data-compression] or [data retention][data-retention]
+   [hypertables][hypertables-section], [hypercore][hypercore] or [data retention][data-retention]
    while your database is offline.
 
 1. Reconfigure your app to use the target database, then restart it.
 
-
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[data-compression]: /use-timescale/:currentVersion:/hypercore/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/

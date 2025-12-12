@@ -7,7 +7,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 <PrereqCloud />
 
-- Install the [$PG client tools][install-psql] on your sync machine.
+- Install the [$PG client tools][psql] on your sync machine.
 
 - Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
 
@@ -74,7 +74,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to sync live data to. 
+   In [$CONSOLE][services-portal], select the $SERVICE_SHORT to sync live data to. 
 
 1. **Connect the source database and the target $SERVICE_SHORT**
 
@@ -121,7 +121,6 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 And that is it, you are using the $PG_CONNECTOR to synchronize all the data, or specific tables, from a $PG database 
 instance to your $SERVICE_LONG, in real time.
 
-[install-psql]: /integrations/:currentVersion:/psql/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[psql]: /integrations/:currentVersion:/psql/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [livesync-tune-source-db]: /migrate/:currentVersion:/livesync-for-postgresql/#tune-your-source-database
-

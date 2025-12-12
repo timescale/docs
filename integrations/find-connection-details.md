@@ -31,7 +31,7 @@ Retrieve the connection details for your $SERVICE_LONG:
 
 - **In $CONSOLE**:
 
-   Open the [`Services`][console-services] page and select your $SERVICE_SHORT. The connection details, except the password, are available in `Service info` > `Connection info` > `More details`. If necessary, click `Forgot your password?` to get a new one.
+   Open the [`Services`][services-portal] page and select your $SERVICE_SHORT. The connection details, except the password, are available in `Service info` > `Connection info` > `More details`. If necessary, click `Forgot your password?` to get a new one.
 
    ![$SERVICE_LONG connection details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-service-connection-details.png)
 
@@ -43,7 +43,7 @@ To retrieve the connection details for your $PROJECT_LONG and $SERVICE_LONG:
 
 1. **Retrieve your project ID**:
 
-   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Copy` next to the project ID.
+   In [$CONSOLE][services-portal], click your project name in the upper left corner, then click `Copy` next to the project ID.
    ![Retrive the project id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-project-id.png)
 
 1. **Retrieve your service ID**:
@@ -64,7 +64,7 @@ such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
 
 1. **Open the settings for your project**:
 
-   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Project settings`.
+   In [$CONSOLE][services-portal], click your project name in the upper left corner, then click `Project settings`.
 
 1. **Create client credentials**:
  
@@ -89,7 +89,7 @@ such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
 
 1. **Open the settings for your project**:
 
-   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Project settings`.
+   In [$CONSOLE][services-portal], click your project name in the upper left corner, then click `Project settings`.
 
 1. **Create client credentials**:
  
@@ -121,8 +121,6 @@ In the `Services` page of the $MST_CONSOLE_LONG, click the service you want to c
 
 </Tabs>
 
-[console-services]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [postgres-config]: https://www.postgresql.org/docs/current/runtime-config-file-locations.html
 [rest-api-reference]: /api/:currentVersion:/api-reference/
-[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
-[create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials

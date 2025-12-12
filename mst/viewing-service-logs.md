@@ -14,7 +14,7 @@ There are different built-in ways to inspect service logs at $MST_LONG:
 
 *   When you select a specific service, navigate to the `Logs` tab to see recent
     events. Logs can be browsed back in time.
-*   Download logs using the [command-line client][command-line-client] by
+*   Download logs using the [command-line client][aiven-github] by
     running:
 
     ```bash
@@ -29,4 +29,5 @@ days. Unless you are using logs integration to another service, older logs are
 not accessible.
 
 [REST API]: https://www.tigerdata.com/docs/latest/
-[command-line-client]: https://github.com/aiven/aiven-client
+
+[aiven-github]: https://github.com/aiven/aiven-client

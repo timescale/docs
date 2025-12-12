@@ -6,7 +6,7 @@ is ideal for applications requiring strong data consistency, complex relationshi
 Get ACID compliance, extensive SQL support, JSON handling, and extensibility through custom functions, data types, and
 extensions.
 
-Each $SERVICE_SHORT is associated with a project in $CLOUD_LONG. Each project can have multiple $SERVICE_SHORTs. Each user is a [member of one or more projects][rbac].
+Each $SERVICE_SHORT is associated with a project in $CLOUD_LONG. Each project can have multiple $SERVICE_SHORTs. Each user is a [member of one or more projects][projects].
 
 You create free and standard $SERVICE_SHORTs in $CONSOLE_LONG, depending on your [$PRICING_PLAN][pricing-plans]. A free $SERVICE_SHORT comes at zero cost and gives you limited resources to get to know $CLOUD_LONG. Once you are ready to try out more advanced features, you can switch to a paid plan and convert your free $SERVICE_SHORT to a standard one.
 
@@ -24,7 +24,7 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
       with the pgvector and pgvectorscale extensions.
     - _Hybrid applications_: get a full set of tools to develop applications that combine time-based data and AI.
 
-  All standard $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][live-migration],
+  All standard $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][migrate-live],
   [automatic backups and PITR][automatic-backups], [high availability][high-availability], [$READ_REPLICAs][readreplica], [data forking][operations-forking], [connection pooling][connection-pooling], [tiered storage][data-tiering],
   [usage-based storage][how-plans-work], secure in-$CONSOLE [SQL editing][in-console-editors], $SERVICE_SHORT [metrics][metrics]
   and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp;and much more. $CLOUD_LONG continuously monitors your $SERVICE_SHORTs and prevents common $PG out-of-memory crashes.
@@ -36,8 +36,7 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
   Free $SERVICE_SHORTs offer limited resources and a basic feature scope, perfect to get to know $CLOUD_LONG in a development environment. 
 
 [what-is-time-series]: https://www.timescale.com/blog/time-series-database-an-explainer#what-is-a-time-series-database
-[create-service]: /getting-started/:currentVersion:/services/
-[live-migration]: /migrate/:currentVersion:/live-migration/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
@@ -50,4 +49,4 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[rbac]: /use-timescale/:currentVersion:/security/members/
+[projects]: /use-timescale/:currentVersion:/security/members/

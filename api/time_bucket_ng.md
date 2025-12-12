@@ -181,8 +181,6 @@ This table shows which `time_bucket_ng()` functions can be used in a continuous 
 |Timezones support|✅|2.6.0 - 2.14.2|
 |Specify custom origin|✅|2.7.0 - 2.14.2|
 
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 
 
 ### Required arguments
@@ -211,3 +209,6 @@ can't be used with continuous aggregates. Best practice is to use
 
 The function returns the bucket's start time. The return value type is the
 same as `ts`.
+
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/

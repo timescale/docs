@@ -13,7 +13,7 @@ import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 
 # Control user access to $PROJECT_LONGs
 
-When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a $PROJECT_SHORT with built-in role-based access.
+When you sign up for a [30-day free trial][cloud-login], $CLOUD_LONG creates a $PROJECT_SHORT with built-in role-based access.
 
 This includes the following roles: 
 
@@ -208,12 +208,11 @@ The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 
 </Procedure>
 
-
 [cloud-login]: https://console.cloud.timescale.com/
 [saml]: /use-timescale/:currentVersion:/security/saml/
 [2fa]: /use-timescale/:currentVersion:/security/multi-factor-authentication/
-[sign-up]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.timescale.com/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [join-a-project]: /use-timescale/:currentVersion:/security/members/#join-a-project
-[change-project]: /use-timescale/:currentVersion:/security/members/#change-the-current-project
+[change-project]: /use-timescale/:currentVersion:/security/members/#change-your-current-project_short
 [database-rbac]: /use-timescale/:currentVersion:/security/read-only-role/

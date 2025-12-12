@@ -148,18 +148,6 @@ Incorrectly sorted data results in poor compression and query performance.
     - **Continuous aggregates**: not supported with direct compress
     - **Unique constraints**: tables with unique constraints cannot use direct compress
 
-
-
-
-[postgres-insert]: https://www.postgresql.org/docs/current/sql-insert.html
-[postgres-copy]: https://www.postgresql.org/docs/current/sql-copy.html
-[upsert]: /use-timescale/:currentVersion:/write-data/upsert/
 [gucs]: /api/:currentVersion:/configuration/gucs/
-[postgres-update]: https://www.postgresql.org/docs/current/sql-update.html
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[create_table_arguments]: /api/:currentVersion:/hypertable/create_table/#arguments
-[alter_job_samples]: /api/:currentVersion:/jobs-automation/alter_job/#samples
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [direct-compress]: /use-timescale/:currentVersion:/write-data/insert/#improve-performance-with-direct-compress

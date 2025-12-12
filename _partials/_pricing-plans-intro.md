@@ -26,5 +26,3 @@ It’s that simple! You don't pay for automated backups or networking costs, suc
 There are no per-query fees, nor additional costs to read or write data. It's all completely transparent, easily understood, and up to you.
 
 Using $SELF_LONG and our open-source products is still free.
-
-[aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing

@@ -55,7 +55,7 @@ CREATE TABLE crypto_ticks (
 );
 ```
 
-You also need to turn the time-series table into a [hypertable][hypertable]:
+You also need to turn the time-series table into a [hypertable][hypertables-section]:
 
 ```sql
 -- convert the regular 'crypto_ticks' table into a TimescaleDB hypertable with 7-day chunks
@@ -111,5 +111,5 @@ If you want to ingest real-time market data, instead of sample data, check out
 our complementing tutorial Ingest real-time financial websocket data to
 ingest data directly from the [Twelve Data][twelve-data] financial API.
 
-[hypertable]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [twelve-data]: https://twelvedata.com/

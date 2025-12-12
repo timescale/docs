@@ -95,7 +95,7 @@ Before you begin, make sure you have
 
 1.  Insert data into the new hypertable using the `timescaledb-parallel-copy`
     tool. You should already have the tool installed, but you can install it
-    manually from [our GitHub repository][github-parallel-copy] if you need to.
+    manually from [our GitHub repository][timescaledb-parallel-copy] if you need to.
     In this example, we are inserting the data using four workers:
 
     ```sql
@@ -128,7 +128,7 @@ directly into your new database.
 
 See the [$PG instructions][postgres-odbc] for using the ODBC driver.
 
-See the [Code Quick Starts][code-qs] for using various languages, including Python and node.js.
+See the [Code Quick Starts][connect-with-code] for using various languages, including Python and node.js.
 
 ## Insert data directly using a message queue
 
@@ -153,13 +153,12 @@ recommend that you use the connector with Kafka and Kafka Connect.
 
 See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 
-[code-qs]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [gh-kafkaconnector]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
-[github-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [postgres-odbc]: https://odbc.postgresql.org/
 [create-managed-service]: /mst/:currentVersion:/installation-mst/
 [mst-login]:https://portal.managed.timescale.com/login
-
 [bulk-upload-from-csv-files-link]: /mst/:currentVersion:/ingest-data/#bulk-upload-from-csv-files
 [insert-data-directly-using-a-client-driver-link]: /mst/:currentVersion:/ingest-data/#insert-data-directly-using-a-client-driver
 [insert-data-directly-using-a-message-queue-link]: /mst/:currentVersion:/ingest-data/#insert-data-directly-using-a-message-queue

@@ -394,10 +394,6 @@ curl 'https://hlsu4rwrkl.execute-api.us-east-1.amazonaws.com/test/ticker?symbol=
 If everything is working properly, you see the output of the Lambda function. In
 this example, it's the latest stock price of MSFT (Microsoft) in JSON format.
 
-[psycopg2]: https://www.psycopg.org/docs/
-[lambda-layers]: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html
-[lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2
-[custom-lambda-integration]: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html
 
 ## Create a Lambda function to insert data into the database
 
@@ -599,3 +595,8 @@ inserted into the database.
 |2021-11-12 21:00:00|AAPL|149.8|149.73|149.73|149.81|17291|
 |2021-11-12 21:00:00|MSFT|337.15|337.15|337.15|337.15|562|
 |2021-11-12 21:00:00|FB|341.35|341.35|341.3|341.3|556|
+
+[psycopg2]: https://www.psycopg.org/docs/
+[lambda-layers]: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html
+[lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2
+[custom-lambda-integration]: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html

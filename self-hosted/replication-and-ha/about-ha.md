@@ -23,7 +23,7 @@ For some systems, recovering from backup alone can be a suitable availability
 strategy.
 
 For more information about backups in $SELF_LONG, see the
-[backup and restore section][db-backup] in the $TIMESCALE_DB documentation.
+[backup and restore section][backup] in the $TIMESCALE_DB documentation.
 
 ## Storage redundancy
 
@@ -70,7 +70,7 @@ out-of-the-box support for automatic failover. Read more in the $PG
 [failover documentation][failover-docs]. [Patroni][patroni-github] offers a
 configurable high availability solution with automatic failover functionality.
 
-[db-backup]: /self-hosted/:currentVersion:/backup-and-restore/
+[backup]: /self-hosted/:currentVersion:/backup-and-restore/
 [failover-docs]: https://www.postgresql.org/docs/current/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
 [pgctl-docs]: https://www.postgresql.org/docs/current/app-pg-ctl.html

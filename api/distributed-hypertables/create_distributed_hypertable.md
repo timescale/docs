@@ -18,7 +18,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 
 Create a TimescaleDB hypertable distributed across a multinode environment.
 
-`create_distributed_hypertable()` replaces [`create_hypertable() (old interface)`][create-hypertable-old]. Distributed tables use the old API. The new generalized [`create_hypertable`][create-hypertable-new] API was introduced in TimescaleDB v2.13.
+`create_distributed_hypertable()` replaces [`create_hypertable() (old interface)`][create-hypertable-old]. Distributed tables use the old API. The new generalized [`create_hypertable`][create_hypertable] API was introduced in TimescaleDB v2.13.
 
 ## Required arguments
 
@@ -101,10 +101,7 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
   If a data node fails or is removed, no data is lost. Writes succeed on the other data nodes. However, the
   chunks on the lost data node are now under-replicated. When the failed data node becomes available, rebalance the chunks with a call to [copy_chunk][copy_chunk].
 
-
-[best-practices]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning
-
-[create-hypertable-new]: /api/:currentVersion:/hypertable/create_hypertable/
-
+[best-practices]: /use-timescale/:currentVersion:/hypertables/#time-partitioning
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old
 [copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental/

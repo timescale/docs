@@ -148,7 +148,7 @@ data.
     ALTER EXTENSION timescaledb_toolkit UPDATE;
     ```
 
-The [$TOOLKIT_LONG][toolkit] extension is packaged with $TIMESCALE_DB HA, it includes additional
+The [$TOOLKIT_LONG][install-toolkit] extension is packaged with $TIMESCALE_DB HA, it includes additional
 hyperfunctions to help you with queries and data analysis.
 
 <Highlight type="note">
@@ -233,6 +233,5 @@ If you have multiple databases, you need to update each database separately.
 
 </Tabs>
 
-
-[toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [relnotes]: https://github.com/timescale/timescaledb/releases

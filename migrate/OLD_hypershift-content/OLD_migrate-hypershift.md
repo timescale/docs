@@ -16,7 +16,7 @@ import HypershiftIntro from "versionContent/_partials/_hypershift-intro.mdx";
 
 Before you begin, make sure you have:
 
-*   Signed up for your [free $ACCOUNT_LONG][cloud-install].
+*   Signed up for your [free $ACCOUNT_LONG][install-timescale].
 *   Installed [Docker][docker-install].
 
 Before you begin the migration, it is recommended that you create an index on
@@ -120,5 +120,5 @@ configuration file, see the
 
 </Procedure>
 
-[cloud-install]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
 [docker-install]: https://docs.docker.com/get-docker/

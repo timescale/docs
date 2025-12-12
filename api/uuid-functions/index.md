@@ -98,4 +98,3 @@ You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and mor
 [uuid_timestamp]: /api/:currentVersion:/uuid-functions/uuid_timestamp/
 [uuid_timestamp_micros]: /api/:currentVersion:/uuid-functions/uuid_timestamp_micros/
 [uuid_version]: /api/:currentVersion:/uuid-functions/uuid_version/
-

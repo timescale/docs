@@ -15,15 +15,15 @@ connect to your $SERVICE_SHORT and interact with your data.
 
 In $CONSOLE you can use the following ways to run SQL queries against your $SERVICE_SHORT:
 
-- [$DATA_MODE_CAP][run-popsql]: a rich experience powered by $POPSQL. You can write queries with
+- [$DATA_MODE_CAP][popsql]: a rich experience powered by $POPSQL. You can write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 
 - [$SQL_ASSISTANT_SHORT in the $DATA_MODE][sql-assistant]: write, fix, and organize SQL faster and more accurately.
 
-- [$SQL_EDITOR in the $OPS_MODE][run-sqleditor]: a simple $SQL_EDITOR in the $OPS_MODE that lets you run ad-hoc ephemeral
+- [$SQL_EDITOR in the $OPS_MODE][sql-editor]: a simple $SQL_EDITOR in the $OPS_MODE that lets you run ad-hoc ephemeral
   queries. This is useful for quick one-off tasks like creating an index on a small table or inspecting `pg_stat_statements`.
 
-If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [psql][install-psql].
+If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [psql][psql].
 
 ## 	Data mode 
 
@@ -42,7 +42,7 @@ Available features are:
 - **Autocomplete**: get suggestions as you type your queries.
 - **[Version history][version-history]**: access previous versions of a query from the built-in revision history, or connect to a git repo.
 - **[Charts][charts]**: visualize data from inside the UI rather than switch to Sheets or Excel.
-- **[Schedules][schedules]**: automatically refresh queries and dashboards to create push alerts.
+- **[Schedules][create-schedule]**: automatically refresh queries and dashboards to create push alerts.
 - **[Query variables][query-variables]**: use Liquid to parameterize your queries or use `if` statements.
 - **Cross-platform support**: work from [$CONSOLE][portal-data-mode] or download the [desktop app][popsql-desktop] for macOS, Windows, and Linux.
 - **Easy connection**: connect to $CLOUD_LONG, $PG, Redshift, Snowflake, BigQuery, MySQL, SQL Server, [and more][popsql-connections].
@@ -72,7 +72,7 @@ To connect to a $SERVICE_SHORT:
    ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-console.png)
 
 Quick recap. You:
-- Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][portal-ops-mode]
+- Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][services-portal]
 - Manage your data in the [$DATA_MODE in $CONSOLE][portal-data-mode]
 - Store configuration and security information in your config file.
 
@@ -82,7 +82,7 @@ Now you have used the $DATA_MODE in $CONSOLE, see how to easily do the following
 
 - [Write a query][write-query]
 - [Share a query with your teammates][share-query]
-- [Create a chart from your data][create-chart]
+- [Create a chart from your data][charts]
 - [Create a dashboard of multiple query results][create-dashboard]
 - [Create schedules for your queries][create-schedule]
 
@@ -112,7 +112,7 @@ If you have a small number of users running performant SQL queries against a
 $SERVICE_SHORT with sufficient resources, then there should be no degradation to
 performance. However, if you have a large number of users running queries, or if
 the queries are computationally expensive, best practice is to create
-a [$READ_REPLICA][read-replica] and send analytical queries there.
+a [$READ_REPLICA][readreplica] and send analytical queries there.
 
 If you'd like to prevent write operations such as insert or update, instead
 of using the `tsdbadmin` user, create a read-only user for your $SERVICE_SHORT and
@@ -202,7 +202,7 @@ manage $SQL_ASSISTANT_SHORT settings under [`User name` > `Settings` > `SQL Assi
 
 $SQL_ASSISTANT_SHORT settings are:
 
-* **Opt-in features**: all AI features are off by default. Only [members][project-members] of your $PROJECT_LONG
+* **Opt-in features**: all AI features are off by default. Only [members][projects] of your $PROJECT_LONG
   can enable them.
 * **Data protection**: your data remains private as $SQL_ASSISTANT_SHORT operates with strict security protocols. To provide AI support, $CONSOLE_LONG may share your currently open SQL document, some basic metadata about your database, and portions of your database schema. By default, $CONSOLE_LONG **does not include** any data from query results, but you can opt in to include this context to improve the results.
 * **Sample data**: to give the LLM more context so you have better SQL suggestions, enable sample data sharing in the $SQL_ASSISTANT_SHORT preferences.
@@ -224,7 +224,7 @@ To use $SQL_EDITOR:
 
 1.  **Open $SQL_EDITOR from $CONSOLE**
 
-    In the [$OPS_MODE][portal-ops-mode] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
+    In the [$OPS_MODE][services-portal] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
 
     ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor-empty.png)
 
@@ -249,31 +249,28 @@ To use $SQL_EDITOR:
 
 [bridge-connector]: https://docs.popsql.com/docs/bridge-connector
 [charts]: https://docs.popsql.com/docs/creating-charts
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
-[console]: https://console.cloud.timescale.com
-[create-chart]: https://docs.popsql.com/docs/creating-charts
+[charts]: https://docs.popsql.com/docs/creating-charts
 [create-cloud-account]: /getting-started/:currentVersion:/services/#create-an-account
 [create-dashboard]: https://docs.popsql.com/docs/creating-dashboards
 [create-schedule]: https://docs.popsql.com/docs/scheduled-queries
-[install-psql]: /integrations/:currentVersion:/psql/
+[psql]: /integrations/:currentVersion:/psql/
 [integrations]: /integrations/:currentVersion:/
 [popsql-connections]: https://popsql.com/connections
 [popsql-desktop]: https://popsql.com/download
 [popsql-pricing]: https://popsql.com/pricing
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: https://www.timescale.com/pricing#features
-[project-members]: /use-timescale/:currentVersion:/security/members/
+[projects]: /use-timescale/:currentVersion:/security/members/
 [query-variables]: https://docs.popsql.com/docs/query-variables
-[read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
-[run-popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
-[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor
-[schedules]: https://docs.popsql.com/docs/scheduled-queries
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
+[sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor
+[create-schedule]: https://docs.popsql.com/docs/scheduled-queries
 [schema-browser]: https://docs.popsql.com/docs/schema
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [share-query]: https://docs.popsql.com/docs/sharing-a-link-to-your-query-and-results
 [sql-assistant]: /getting-started/:currentVersion:/run-queries-from-console/#sql-assistant
 [sql-editor-settings]: https://console.cloud.timescale.com/dashboard/settings?popsql=%2Fpreferences%2Fai
-[timescale-console]: https://console.cloud.timescale.com/
 [version-history]: https://docs.popsql.com/docs/version-history
-[write-query]: https://docs.popsql.com/docs/writing-a-query  
+[write-query]: https://docs.popsql.com/docs/writing-a-query

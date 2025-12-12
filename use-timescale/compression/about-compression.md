@@ -9,7 +9,7 @@ import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # About compression
 
-<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/latest/hypercore/">hypercore</a>. 
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/:currentVersion:/hypercore/">hypercore</a>. 
 However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 <CompressionIntro />
@@ -195,6 +195,5 @@ If your chunk does not contain enough data to create big enough batches, your co
 This needs to be taken into account when defining your compression settings.
 
 </Highlight> 
-
 
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

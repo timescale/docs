@@ -56,5 +56,4 @@ CALL attach_chunk('ht', '_timescaledb_internal._hyper_1_2_chunk', '{"device_id":
 This function returns void.
 
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [hypertable-detach-chunk]: /api/:currentVersion:/hypertable/detach_chunk/

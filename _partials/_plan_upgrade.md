@@ -7,5 +7,4 @@
     case of disaster.
 
 [relnotes]: https://github.com/timescale/timescaledb/releases
-[upgrade-pg]: /self-hosted/:currentVersion:/upgrade-pg/#upgrade-your-postgresql-instance
 [backup]: /self-hosted/:currentVersion:/backup-and-restore/

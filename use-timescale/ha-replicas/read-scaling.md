@@ -25,7 +25,7 @@ A $READ_REPLICA set in $CLOUD_LONG is a group of one or more $READ_REPLICA nodes
 
 You can create as many $READ_REPLICA sets as you need. For security and resource isolation, each $READ_REPLICA set has unique connection details.
 
-You use $READ_REPLICA sets for horizontal **read** scaling. To limit data loss for your $SERVICE_LONGs, use [$HA_REPLICAs][ha].
+You use $READ_REPLICA sets for horizontal **read** scaling. To limit data loss for your $SERVICE_LONGs, use [$HA_REPLICAs][high-availability].
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ To create a secure $READ_REPLICA set for your read-intensive apps:
 
 <Procedure>
 
-1. **In [$CONSOLE][timescale-console-services], select your target $SERVICE_SHORT**
+1. **In [$CONSOLE][services-portal], select your target $SERVICE_SHORT**
 
 1. **Click `Operations` > `Read scaling` > `Add a read replica set`**
 
@@ -76,7 +76,7 @@ You can edit an existing $READ_REPLICA set to better handle your reads. This inc
 
 To change the compute and storage configuration of your $READ_REPLICA set: 
 
-1. **In [$CONSOLE][timescale-console-services], expand and click the $READ_REPLICA set under your primary $SERVICE_SHORT**
+1. **In [$CONSOLE][services-portal], expand and click the $READ_REPLICA set under your primary $SERVICE_SHORT**
 
    ![Read replicas in $CONSOLE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/read-replica-sets-tiger-console.png)
 
@@ -96,7 +96,7 @@ is measured in bytes, against the current state of the primary instance. To chec
 
 <Procedure>
 
-1. **In [$CONSOLE][timescale-console-services], select your primary $SERVICE_SHORT**
+1. **In [$CONSOLE][services-portal], select your primary $SERVICE_SHORT**
    
 1. **Click `Operations` > `Read scaling`**
 
@@ -121,7 +121,7 @@ To delete a replica set:
 
 <Procedure>
 
-1. **In [$CONSOLE][timescale-console-services], select your primary $SERVICE_SHORT**
+1. **In [$CONSOLE][services-portal], select your primary $SERVICE_SHORT**
 
 1. **Click `Operations` > `Read scaling`**
 
@@ -131,8 +131,6 @@ To delete a replica set:
 
 </Procedure> 
 
-
-[cloud-login]: https://console.cloud.timescale.com
-[ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [read-only-role]: /use-timescale/:currentVersion:/security/read-only-role/#create-a-read-only-user
-[timescale-console-services]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

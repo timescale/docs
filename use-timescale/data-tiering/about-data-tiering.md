@@ -20,20 +20,20 @@ The tiered storage architecture in $CLOUD_LONG includes a high-performance stora
 
 ## High-performance storage 
 
-High-performance storage is where your data is stored by default, until you [enable tiered storage][manage-tiering] and [move older data to the low-cost tier][move-data]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] available in this tier is designed specifically for real-time analytics. It enables you to compress the data in the high-performance storage by up to 90%, while improving performance. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
+High-performance storage is where your data is stored by default, until you [enable tiered storage][low-cost-storage] and [move older data to the low-cost tier][creating-data-tiering-policy]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] available in this tier is designed specifically for real-time analytics. It enables you to compress the data in the high-performance storage by up to 90%, while improving performance. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
 
 $CLOUD_LONG high-performance storage comes in the following types: 
 
 - **Standard** (default): based on [AWS EBS gp3][aws-gp3] and designed for general workloads. Provides up to 16 TB of storage and 16,000 IOPS.
 - **Enhanced**: based on [EBS io2][ebs-io2] and designed for high-scale, high-throughput workloads. Provides up to 64 TB of storage and 32,000 IOPS.
 
-[See the differences][aws-storage-types] in the underlying AWS storage. You [enable enhanced storage][enable-enhanced] as needed in $CONSOLE. 
+[See the differences][aws-storage-types] in the underlying AWS storage. You [enable enhanced storage][high-performance-storage] as needed in $CONSOLE. 
 
 ## Low-cost storage
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
-Once you [enable tiered storage][manage-tiering], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed $HYPERTABLE may even take more space in S3 than it does in $CLOUD_LONG.
+Once you [enable tiered storage][low-cost-storage], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed $HYPERTABLE may even take more space in S3 than it does in $CLOUD_LONG.
 
 <TieredStorageBilling />
 
@@ -131,11 +131,11 @@ The typical workflow to use tiered storage in $CLOUD_LONG is:
 
 <Procedure>
 
-1. **[Enable tiered storage][manage-tiering]**
+1. **[Enable tiered storage][low-cost-storage]**
 
    You enable tiered storage for each $SERVICE_SHORT individually.
 
-1. **[Tier your data][move-data]**
+1. **[Tier your data][creating-data-tiering-policy]**
 
    Choose how to move data to the low-cost tier:
    - **Automated tiering**: create an interval-based policy using
@@ -166,14 +166,13 @@ The typical workflow to use tiered storage in $CLOUD_LONG is:
 
 </Procedure> 
 
-[blog-data-tiering]: https://www.timescale.com/blog/expanding-the-boundaries-of-postgresql-announcing-a-bottomless-consumption-based-object-storage-layer-built-on-amazon-s3/
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [parquet]: https://parquet.apache.org/
-[manage-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
-[move-data]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
+[low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
+[creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
 [monitor-data]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#tier-chunks
 [hypercore]: /use-timescale/:currentVersion:/hypercore
 [aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
 [ebs-io2]: https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express
-[enable-enhanced]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
+[high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
 [aws-storage-types]: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html#vol-type-ssd

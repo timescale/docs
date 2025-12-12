@@ -93,16 +93,3 @@ your data.
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed
 [grafana-cloud]: https://grafana.com/get/
 [use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
-[job]: /api/:currentVersion:/actions/add_job/
-[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
-[hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
-[alter_job]: /api/:currentVersion:/actions/alter_job/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
-[insert]: /use-timescale/:currentVersion:/write-data/insert/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/

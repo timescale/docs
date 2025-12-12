@@ -68,7 +68,7 @@ To create a $JOB, create a [function][postgres-createfunction] or [procedure][po
     (1 row)
     ```
 
-1. **Register your $JOB with [`add_job`][api-add_job]** 
+1. **Register your $JOB with [`add_job`][job]** 
 
     Pass the name of your $JOB, the schedule you want it to run on, and the content of your config. For the `config` value, if you don't need any special configuration parameters, set to `NULL`. For example, to run the `reindex_mytable` function every hour:
 
@@ -78,11 +78,11 @@ To create a $JOB, create a [function][postgres-createfunction] or [procedure][po
     
     The call returns a `job_id` and stores it along with `config` in the $TIMESCALE_DB catalog.
 
-    The $JOB runs on the schedule you set. You can also run it manually with [`run_job`][api-run_job] passing `job_id`. When the $JOB runs, `job_id` and `config` are passed as arguments.
+    The $JOB runs on the schedule you set. You can also run it manually with [`run_job`][run-job] passing `job_id`. When the $JOB runs, `job_id` and `config` are passed as arguments.
 
 1. **Validate the job**
 
-    List all currently registered $JOBs with [`timescaledb_information.jobs`][api-timescaledb_information-jobs]:
+    List all currently registered $JOBs with [`timescaledb_information.jobs`][informational-views]:
 
     ```sql
     SELECT * FROM timescaledb_information.jobs;
@@ -102,7 +102,7 @@ To create a $JOB, create a [function][postgres-createfunction] or [procedure][po
 
 ## Test and debug a $JOB
 
-To debug a $JOB, increase the log level and run the $JOB manually with [`run_job`][api-run_job] in the foreground. Because `run_job` is a stored procedure and not a function, run it with [`CALL`][postgres-call] instead of `SELECT`.
+To debug a $JOB, increase the log level and run the $JOB manually with [`run_job`][run-job] in the foreground. Because `run_job` is a stored procedure and not a function, run it with [`CALL`][postgres-call] instead of `SELECT`.
 
 <Procedure>
 
@@ -124,7 +124,7 @@ To debug a $JOB, increase the log level and run the $JOB manually with [`run_job
 
 ## Alter and delete a $JOB
 
-Alter an existing $JOB with [`alter_job`][api-alter_job]. You can change both the config and the schedule on which the $JOB runs.
+Alter an existing $JOB with [`alter_job`][alter_job]. You can change both the config and the schedule on which the $JOB runs.
 
 <Procedure>
 
@@ -152,7 +152,7 @@ Alter an existing $JOB with [`alter_job`][api-alter_job]. You can change both th
     SELECT alter_job(1000, scheduled => true);
     ```
    
-1. **Delete a $JOB with [`delete_job`][api-delete_job]** 
+1. **Delete a $JOB with [`delete_job`][delete_job]** 
 
     For example, to delete a $JOB with ID `1000`:
 
@@ -163,11 +163,10 @@ Alter an existing $JOB with [`alter_job`][api-alter_job]. You can change both th
 </Procedure>
 
 [postgres-call]: https://www.postgresql.org/docs/current/sql-call.html
-[api-alter_job]: /api/:currentVersion:/jobs-automation/alter_job
-[api-delete_job]: /api/:currentVersion:/jobs-automation/delete_job
-[plpgsql]: https://www.postgresql.org/docs/current/plpgsql-overview.html
-[api-add_job]: /api/:currentVersion:/jobs-automation/add_job
-[api-run_job]: /api/:currentVersion:/jobs-automation/run_job
-[api-timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job
+[delete_job]: /api/:currentVersion:/jobs-automation/delete_job
+[job]: /api/:currentVersion:/jobs-automation/add_job
+[run-job]: /api/:currentVersion:/jobs-automation/run_job
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
 [postgres-createfunction]: https://www.postgresql.org/docs/current/xfunc.html
 [postgres-createprocedure]: https://www.postgresql.org/docs/current/xproc.html

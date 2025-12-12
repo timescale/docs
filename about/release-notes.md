@@ -26,5 +26,4 @@ click `Watch`, select `Custom` and then check `Releases`.
 
 </Highlight>
 
-
 [changelog]: /about/:currentVersion:/changelog/

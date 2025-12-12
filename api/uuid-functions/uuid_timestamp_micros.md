@@ -12,7 +12,7 @@ products: [cloud, mst, self_hosted]
 
 # uuid_timestamp_micros() <Tag type="Community">Community</Tag>
 
-Extract a [Postgres timestamp with time zone][pg-timestamp-timezone] from a UUIDv7 object.
+Extract a [Postgres timestamp with time zone][postgres-date-time] from a UUIDv7 object.
 `uuid` contains a millisecond unix timestamp and an optional sub-millisecond fraction. 
 
 
@@ -41,6 +41,5 @@ uuid_timestamp_micros
 |-|------------------|-|----------|-------------------------------------------------|
 |`uuid`|UUID| - | ✔ | The UUID object to extract the timestamp from |
 
-
 [uuid_timestamp]: /api/:currentVersion:/uuid-functions/uuid_timestamp/
-[pg-timestamp-timezone]: https://www.postgresql.org/docs/current/datatype-datetime.html
+[postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html

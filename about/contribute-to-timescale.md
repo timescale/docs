@@ -38,4 +38,3 @@ See the [README][readme] and [contribution guide][contribution-guide] for detail
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/blob/main/CONTRIBUTING.md
 [toolkit]: https://github.com/timescale/timescaledb-toolkit
 [readme]: https://github.com/timescale/docs/blob/latest/README.md
-

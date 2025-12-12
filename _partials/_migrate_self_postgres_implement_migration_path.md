@@ -34,4 +34,4 @@ the following steps:
 
 </Procedure> 
 
-[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#upgrade-your-postgresql-instance
+[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#plan-your-upgrade-path

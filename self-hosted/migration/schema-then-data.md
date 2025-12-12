@@ -20,7 +20,7 @@ restart midway if one copy operation fails.
 
 For smaller databases, it may be more convenient to migrate your entire database
 at once. For more information, see the section on
-[choosing a migration method][migration].
+[choosing a migration method][migrate].
 
 </Highlight>
 
@@ -32,7 +32,7 @@ retain downsampled data in a continuous aggregate for a year, the continuous
 aggregate loses any data older than a month upon migration. If you must keep
 continuous aggregates calculated using deleted data, migrate your entire
 database at once. For more information, see the section on
-[choosing a migration method][migration].
+[choosing a migration method][migrate].
 
 </Highlight>
 
@@ -55,7 +55,7 @@ database during this time, though performance could be slower. To avoid this
 problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
 not be transferred to Timescale. To avoid this problem, see the section on
-[migrating an active database][migration].
+[migrating an active database][migrate].
 
 </Highlight>
 
@@ -68,11 +68,11 @@ Before you begin, check that you have:
 *   Installed a client for connecting to $PG. These instructions use
     [`psql`][psql], but any client works.
 *   Created a new empty database in a $SELF_LONG instance. For more information, see
-    the [Install $TIMESCALE_DB][install-selfhosted]. Provision
+    the [Install $TIMESCALE_DB][enable-timescaledb]. Provision
     your database with enough space for all your data.
 *   Checked that any other $PG extensions you use are compatible with
     $TIMESCALE_DB. For more information, see the [list of compatible
-    extensions][extensions]. Install your other $PG extensions.
+    extensions][all-available-extensions]. Install your other $PG extensions.
 *   Checked that you're running the same major version of $PG on both your
     $SELF_LONG instance and your source database. For information about upgrading
     $PG on your source database, see the [upgrade instructions for
@@ -195,7 +195,7 @@ database is now stored uncompressed in your `.csv` files. If you
 provisioned your $SELF_LONG storage for your compressed data, the
 uncompressed data may take too much storage. To avoid this problem, periodically
 recompress your data as you copy it in. For more information on compression, see
-the [compression section](https://www.tigerdata.com/docs/use-timescale/latest/compression/).
+the [compression section](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/compression/).
 
 </Highlight>
 
@@ -206,8 +206,8 @@ the [compression section](https://www.tigerdata.com/docs/use-timescale/latest/co
 <PostSchemaEtal />
 
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
-[extensions]: /use-timescale/:currentVersion:/extensions/
-[install-selfhosted]: /self-hosted/:currentVersion:/install/
+[all-available-extensions]: /use-timescale/:currentVersion:/extensions/
+[enable-timescaledb]: /self-hosted/:currentVersion:/install/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /integrations/:currentVersion:/psql/
@@ -215,11 +215,11 @@ the [compression section](https://www.tigerdata.com/docs/use-timescale/latest/co
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-[migration]: /migrate/:currentVersion:/
+[migrate]: /migrate/:currentVersion:/
 [migrate-schema-pre-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-pre-data
 [copy-data-from-the-source-database-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#copy-data-from-the-source-database
 [restore-data-into-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-data-into-timescale
-[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self-long-instance
+[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self_long-instance
 [migrate-schema-post-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-post-data
 [recreate-continuous-aggregates-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-continuous-aggregates
 [recreate-policies-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-policies

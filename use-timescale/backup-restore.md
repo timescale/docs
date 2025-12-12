@@ -29,7 +29,7 @@ This means that you always have a full backup available for the current and prev
 
 ![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
-On [$SCALE and $ENTERPRISE][pricing-and-account-management] $PRICING_PLANs, you can check the list of backups for the previous 14 days in $CONSOLE_LONG. To do so, select your $SERVICE_SHORT, then click `Operations` > `Backup and restore` > `Backup history`. 
+On [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs, you can check the list of backups for the previous 14 days in $CONSOLE_LONG. To do so, select your $SERVICE_SHORT, then click `Operations` > `Backup and restore` > `Backup history`. 
 
 In the event of a storage failure, a $SERVICE_SHORT automatically recovers from a backup
 to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, you can [create a point-in-time recovery fork][create-fork].
@@ -44,7 +44,7 @@ You enable cross-region backup when you create a $SERVICE_SHORT, or configure it
 
 <Procedure>
 
-1. In [$CONSOLE_SHORT][console], select your $SERVICE_SHORT and click `Operations` > `Backup & restore`. 
+1. In [$CONSOLE_SHORT][services-portal], select your $SERVICE_SHORT and click `Operations` > `Backup & restore`. 
 
 1. In `Cross-region backup`, select the region in the dropdown and click `Enable backup`. 
 
@@ -58,7 +58,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 <Procedure>
 
-1. In [$CONSOLE_SHORT][console], select your $SERVICE_SHORT and click `Operations` > `Backup & restore`.
+1. In [$CONSOLE_SHORT][services-portal], select your $SERVICE_SHORT and click `Operations` > `Backup & restore`.
 
 1. Click the trash icon next to the existing backup to disable it. 
 
@@ -80,7 +80,7 @@ You initiate a point-in-time recovery from a same-region or cross-region backup 
 
 <Procedure>
 
-1.  In [$CONSOLE][console], from the `Services` list, ensure the $SERVICE_SHORT
+1.  In [$CONSOLE][services-portal], from the `Services` list, ensure the $SERVICE_SHORT
     you want to recover has a status of `Running` or `Paused`.
 1.  Navigate to `Operations` > `Service management` and click `Create recovery fork`. 
 1.  Select the recovery point, ensuring the correct time zone (UTC offset).
@@ -134,7 +134,7 @@ This means that you always have a full backup available for the current and prev
 
 ![Backup in Tiger Cloud](https://assets.timescale.com/docs/images/database-backup-recovery.png)
 
-On [$SCALE and $PERFORMANCE][pricing-and-account-management] $PRICING_PLANs, you can check the list of backups for the previous 14 days in $CONSOLE_LONG. To do so, select your $SERVICE_SHORT, then click `Operations` > `Backup and restore` > `Backup history`.
+On [$SCALE and $PERFORMANCE][pricing-plans] $PRICING_PLANs, you can check the list of backups for the previous 14 days in $CONSOLE_LONG. To do so, select your $SERVICE_SHORT, then click `Operations` > `Backup and restore` > `Backup history`.
 
 In the event of a storage failure, a $SERVICE_SHORT automatically recovers from a backup
 to the point of failure. If the whole availability zone goes down, your $SERVICE_LONGs are recovered in a different zone. In the event of a user error, you can [create a point-in-time recovery fork][create-fork].
@@ -147,7 +147,7 @@ You initiate a point-in-time recovery in $CONSOLE_LONG:
 
 <Procedure>
 
-1.  In [$CONSOLE][console], from the `Services` list, ensure the $SERVICE_SHORT
+1.  In [$CONSOLE][services-portal], from the `Services` list, ensure the $SERVICE_SHORT
     you want to recover has a status of `Running` or `Paused`.
 1.  Navigate to `Operations` > `Backup & restore` and click `Create recovery fork`.
 1.  Select the recovery point, ensuring the correct time zone (UTC offset).
@@ -173,14 +173,8 @@ You initiate a point-in-time recovery in $CONSOLE_LONG:
 
 </Tabs>
 
-
-
-[console]: https://console.cloud.timescale.com/dashboard/services
-[ha-replicas]: /about/use-timescale/:currentVersion:/ha-replicas/
-[pricing-and-account-management]: /about/:currentVersion:/pricing-and-account-management/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [wal]: https://www.postgresql.org/docs/current/wal-intro.html
-[support]: https://www.timescale.com/contact/
-[pitr]: /use-timescale/:currentVersion:/backup-restore/point-in-time-recovery/
-[rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/#rapid-recovery
 [cross-region]: /use-timescale/:currentVersion:/backup-restore#enable-cross-region-backup
 [create-fork]: /use-timescale/:currentVersion:/backup-restore#create-a-point-in-time-recovery-fork

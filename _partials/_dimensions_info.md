@@ -2,7 +2,7 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
 
 ### Dimension info
 
-To create a `_timescaledb_internal.dimension_info` instance, you call [add_dimension][add_dimension] 
+To create a `_timescaledb_internal.dimension_info` instance, you call [add_dimension][add-dimension] 
 to an existing hypertable. 
 
 #### Samples
@@ -172,9 +172,4 @@ SELECT add_dimension('conditions', by_hash('location', 2));
 `by_range` and `by-hash` return an opaque `_timescaledb_internal.dimension_info` instance, holding the 
 dimension information used by this function. 
 
-
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
-[by-range]: /api/:currentVersion:/hypertable/create_hypertable/#by_range
-[by-hash]: /api/:currentVersion:/hypertable/create_hypertable/#by_hash
-
+[add-dimension]: /api/:currentVersion:/hypertable/add_dimension/

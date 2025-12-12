@@ -35,6 +35,5 @@ You manually drop chunks older than 24 hours. Only the oldest chunk is deleted.
 The middle chunk is retained, because it contains some data newer than 24 hours.
 No individual rows are deleted from that chunk.
 
-[manual-drop]: /use-timescale/:currentVersion:/data-retention/manually-drop-chunks/
 [retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
 [retention-with-caggs]: /use-timescale/:currentVersion:/data-retention/data-retention-with-continuous-aggregates/

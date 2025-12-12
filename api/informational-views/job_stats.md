@@ -15,7 +15,7 @@ products: [cloud, mst, self_hosted]
 Shows information and statistics about jobs run by the automation framework.
 This includes jobs set up for user defined actions and jobs run by policies
 created to manage data retention, continuous aggregates, columnstore, and
-other automation policies.  (See [policies][actions]).
+other automation policies.  (See [policies][jobs]).
 The statistics include information useful for administering jobs and determining
 whether they ought be rescheduled, such as: when and whether the background job
 used to implement the policy succeeded and when it is scheduled to run next.
@@ -80,4 +80,4 @@ total_failures         | 0
 |`total_failures` | BIGINT | The total number of times this job failed |
 <!-- vale Google.Acronyms = YES -->
 
-[actions]: /api/:currentVersion:/jobs-automation/
+[jobs]: /api/:currentVersion:/jobs-automation/

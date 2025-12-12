@@ -467,6 +467,5 @@ step is add additional user roles.
 
 [auth-password]: https://www.postgresql.org/docs/current/auth-password.html
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
-[md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
 [multi-node-setup]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html

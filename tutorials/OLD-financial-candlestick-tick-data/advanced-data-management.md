@@ -28,7 +28,7 @@ a high-level understanding of chunk time intervals in $TIMESCALE_DB
 hypertables and continuous aggregates. The chunk time interval you set
 for your tick data table directly affects how these automation policies
 work. For more information, see the
-[hypertables and chunks][chunks] section.
+[hypertables and chunks][hypertables-section] section.
 
 ## Hypertable chunk time intervals and automation policies
 
@@ -37,7 +37,7 @@ layer to interact with $PG tables. You just need to access one
 hypertable to access all of your time-series data.
 
 Under the hood, $TIMESCALE_DB creates chunks based on the timestamp column.
-Each chunk size is determined by the [`chunk_time_interval`][interval]
+Each chunk size is determined by the [`chunk_time_interval`][chunk_interval]
 parameter. You can provide this parameter when creating the hypertable, or you can change
 it afterwards. If you don't provide this optional parameter, the
 chunk time interval defaults to 7 days. This means that each of the
@@ -61,7 +61,7 @@ interval.
 
 $TIMESCALE_DB has a built-in way to automatically remove raw data after a
 specific time. You can set up this automation using a
-[data retention policy][retention]:
+[data retention policy][retention-policy]:
 
 ```sql
 SELECT add_retention_policy('crypto_ticks', INTERVAL '7 days');
@@ -84,7 +84,7 @@ set the chunk time interval to be two days only, you could create a retention
 policy with a 2-day interval that would drop a chunk every other day
 (assuming you're ingesting data in the meantime).
 
-For more information, see the [data retention][retention] section.
+For more information, see the [data retention][retention-policy] section.
 
 <Highlight type="important">
 Make sure none of the continuous aggregate policies intersect with a data
@@ -182,11 +182,11 @@ set a refresh policy first. The compression policy interval should
 be set so that actively refreshed time intervals are not compressed.
 </Highlight>
 
-[Read more about compressing continuous aggregates.][caggs-compress]
+[Read more about compressing continuous aggregates.][cagg-compression]
 
-[caggs-compress]: /use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates/
-[chunks]: /use-timescale/:currentVersion:/hypertables/
+[cagg-compression]: /use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [compression]: /use-timescale/:currentVersion:/compression/
-[interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
+[chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [release-blog]: https://www.timescale.com/blog/increase-your-storage-savings-with-timescaledb-2-6-introducing-compression-for-continuous-aggregates/
-[retention]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
+[retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/

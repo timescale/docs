@@ -47,7 +47,7 @@ see the [hypercore documentation][hypercore].
 
 
 For more information about hypertables, see the
-[hypertables section][hypertables].
+[hypertables section][hypertables-section].
 
 ## Continuous aggregates
 
@@ -62,4 +62,4 @@ For more information about continuous aggregates, see the
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

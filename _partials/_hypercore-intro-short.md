@@ -17,5 +17,4 @@ $HYPERCORE_CAP dynamically stores data in the most efficient format for its life
 Unlike traditional columnar databases, $HYPERCORE allows data to be inserted or modified at any stage, making it a 
 flexible solution for both high-ingest transactional workloads and real-time analytics—within a single database.
 
-
 [hypercore]: /use-timescale/:currentVersion:/hypercore/

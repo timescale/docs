@@ -20,7 +20,7 @@ long time. You can continue reading from your source database during this time,
 though performance could be slower. To avoid this problem, fork your database
 and migrate your data from the fork. If you write to tables in your source
 database during the migration, the new writes might not be transferred to
-Timescale. To avoid this problem, see [Live migration][live-migration].
+Timescale. To avoid this problem, see [Live migration][migrate-live].
 
 </Highlight>
 
@@ -33,11 +33,11 @@ Before you begin, check that you have:
 *   Installed a client for connecting to $PG. These instructions use
     [`psql`][psql], but any client works.
 *   Created a new empty database in your $SELF_LONG instance. For more information, see
-    [Install $TIMESCALE_DB][install-selfhosted-timescale]. Provision
+    [Install $TIMESCALE_DB][enable-timescaledb]. Provision
     your database with enough space for all your data.
 *   Checked that any other $PG extensions you use are compatible with
     Timescale. For more information, see the [list of compatible
-    extensions][extensions]. Install your other $PG extensions.
+    extensions][all-available-extensions]. Install your other $PG extensions.
 *   Checked that you're running the same major version of $PG on both
     your target and source databases. For information about upgrading
     $PG on your source database, see the
@@ -51,7 +51,7 @@ Before you begin, check that you have:
 To speed up migration, compress your data into the columnstore. You can compress any chunks where
 data is not currently inserted, updated, or deleted. When you finish the
 migration, you can decompress chunks back to the rowstore as needed for normal operation. For more
-information about the rowstore and columnstore compression, see [hypercore][compression].
+information about the rowstore and columnstore compression, see [hypercore][hypercore].
 
 </Highlight>
 
@@ -110,8 +110,8 @@ information about the rowstore and columnstore compression, see [hypercore][comp
 </Procedure>
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[extensions]: /use-timescale/:currentVersion:/extensions/
-[install-selfhosted-timescale]: /self-hosted/:currentVersion:/install/
+[all-available-extensions]: /use-timescale/:currentVersion:/extensions/
+[enable-timescaledb]: /self-hosted/:currentVersion:/install/
 [migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
@@ -120,5 +120,5 @@ information about the rowstore and columnstore compression, see [hypercore][comp
 [timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-[live-migration]: /migrate/:currentVersion:/live-migration/
-[compression]: /use-timescale/:currentVersion:/hypercore/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/

@@ -17,7 +17,7 @@ line tool that analyzes and adjusts your database settings.
 `timescaledb-tune` is packaged with binary releases of TimescaleDB. If you
 installed TimescaleDB from any binary release, including Docker, you already
 have access. For more install instructions, see the
-[GitHub repository][github-tstune].
+[GitHub repository][tstune].
 
 ## Tune your database with timescaledb-tune
 
@@ -46,4 +46,4 @@ For detailed instructions and other options, see the documentation in the
 [Github repository](https://github.com/timescale/timescaledb-tune).
 </Highlight>
 
-[github-tstune]: https://github.com/timescale/timescaledb-tune
+[tstune]: https://github.com/timescale/timescaledb-tune

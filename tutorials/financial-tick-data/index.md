@@ -50,14 +50,11 @@ This tutorial shows you how to ingest real-time time-series data into a $SERVICE
     the aggregated data, and visualize the data in Grafana.
 
 To create candlestick views, query the aggregated data, and visualize the data in Grafana, see the
-[ingest real-time websocket data section][advanced-websocket].
+[ingest real-time websocket data section][advanced-finance].
 
-
-[advanced-websocket]: /tutorials/:currentVersion:/financial-ingest-real-time/
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
+[advanced-finance]: /tutorials/:currentVersion:/financial-ingest-real-time/
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
-[financial-tick-compress]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-compress/
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading
 [messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone

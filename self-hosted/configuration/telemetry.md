@@ -219,7 +219,7 @@ If you turn off telemetry, the version checking feature is also turned off.
 
 1.  Open your $PG configuration file, and locate
     the `timescaledb.telemetry_level` parameter. See the
-    [$PG configuration file][postgres-config] instructions for locating
+    [$PG configuration file][postgresql-conf] instructions for locating
     and opening the file.
 1.  Change the parameter setting to `off`:
 
@@ -250,7 +250,7 @@ If you turn off telemetry, the version checking feature is also turned off.
 
 1.  Open your $PG configuration file, and locate the
     'timescaledb.telemetry_level' parameter. See the
-    [$PG configuration file][postgres-config]
+    [$PG configuration file][postgresql-conf]
     instructions for locating and opening the file.
 
 1.  Change the parameter setting to 'off':
@@ -276,4 +276,4 @@ If you turn off telemetry, the version checking feature is also turned off.
 </Procedure>
 
 [get_telemetry_report]: /api/:currentVersion:/administration/#get_telemetry_report
-[postgres-config]: /self-hosted/:currentVersion:/configuration/postgres-config
+[postgresql-conf]: /self-hosted/:currentVersion:/configuration/postgres-config

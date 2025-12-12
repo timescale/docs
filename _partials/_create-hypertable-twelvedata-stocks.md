@@ -56,5 +56,3 @@ there is one other table of data called `company`.
 
 You now have two tables in your $SERVICE_LONG. One hypertable
 named `stocks_real_time`, and one regular $PG table named `company`.
-
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

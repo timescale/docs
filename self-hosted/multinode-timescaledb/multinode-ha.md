@@ -17,7 +17,7 @@ by setting up one or more standbys for each node in the cluster, or by
 natively replicating data at the chunk level.
 
 Using standby nodes relies on streaming replication and you set it up
-in a similar way to [configuring single-node HA][single-ha], although the
+in a similar way to [configuring single-node HA][self-hosted-ha], although the
 configuration needs to be applied to each node independently.
 
 To replicate data at the chunk level, you can use the built-in
@@ -41,7 +41,7 @@ the data nodes.
 
 The rest of this section discusses native replication. To set up
 standbys for each node, follow the instructions for [single node
-HA][single-ha].
+HA][self-hosted-ha].
 
 ## Native replication
 
@@ -80,7 +80,7 @@ involved to implement high availability in case of node failures.
 
 The first step to enable native replication is to configure a standby
 for the access node. This process is identical to setting up a [single
-node standby][single-ha].
+node standby][self-hosted-ha].
 
 The next step is to enable native replication on a distributed
 hypertable. Native replication is governed by the
@@ -105,7 +105,7 @@ replication factor on an existing distributed hypertable. Note,
 however, that only new chunks are replicated according to the
 updated replication factor. Existing chunks need to be re-replicated
 by copying those chunks to new data nodes (see the [node
-failures section][node-failures-link] below).
+failures section][multi-node-ha] below).
 
 When native replication is enabled, the replication happens whenever
 you write data to the table. On every `INSERT` and `COPY` call, each
@@ -219,8 +219,7 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 </Highlight>
 
 [set_replication_factor]:  /api/:currentVersion:/distributed-hypertables/set_replication_factor
-[single-ha]: /self-hosted/:currentVersion:/replication-and-ha/
+[self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/
 [alter_data_node]: /api/:currentVersion:/distributed-hypertables/alter_data_node/
 [copy_chunk]:/api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
-
-[node-failures-link]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/#node-failures
+[multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/#node-failures

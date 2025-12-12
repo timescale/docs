@@ -14,7 +14,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # compress_chunk() <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/:currentVersion:/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
 However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 The `compress_chunk` function is used for synchronous compression (or recompression, if necessary) of 
@@ -31,7 +31,7 @@ allowing you to target a specific chunk that needs compressing.
 <Highlight type="tip">
 
 You can get a list of chunks belonging to a hypertable using the
-[`show_chunks` function](/api/latest/hypertable/show_chunks/).
+[`show_chunks` function](/api/:currentVersion:/hypertable/show_chunks/).
 
 </Highlight>
 
@@ -62,7 +62,6 @@ SELECT compress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 |Column|Type|Description|
 |---|---|---|
 | `compress_chunk` | REGCLASS | Name of the chunk that was compressed|
-
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [run-job]: /api/:currentVersion:/jobs-automation/run_job/

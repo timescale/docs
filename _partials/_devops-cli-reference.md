@@ -71,8 +71,4 @@ directory can be adjusted via the `--config-dir` flag or the `TIGER_CONFIG_DIR` 
     tiger auth login --public-key=<public_key> --secret-key=<secret-key> --project-id=<project_id>
     ```
 
-[rest-api-reference]: /api/:currentVersion:/api-reference/
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
-[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
-[create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
-[curl]: https://curl.se/

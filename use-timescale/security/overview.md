@@ -79,7 +79,7 @@ No customer access to the virtual machine level is provided.
 $COMPANY complies with the European Union's General Data Protection Regulation
 (GDPR), and all practices are covered by our
 [Privacy Policy][timescale-privacy-policy]
-and the [Terms of Service][tsc-tos]. All customer data is
+and the [Terms of Service][commercial-sla]. All customer data is
 processed in accordance with $COMPANY's GDPR-compliant
 [Data Processor Addendum][tsc-data-processor-addendum],
 which applies to all $COMPANY customers.
@@ -99,7 +99,7 @@ meet regulatory requirements while building compliant applications.
 $CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can securely manage customer data in alignment with industry standards for security, availability, processing integrity, confidentiality, and privacy. It helps businesses meet trust requirements while confidently building applications that handle sensitive information. The annual SOC 2 report is available to customers on the $SCALE or $ENTERPRISE $PRICING_PLANs. Open a [support ticket][open-support-ticket] to get access to it.
 
 [timescale-privacy-policy]: https://www.timescale.com/legal/privacy
-[tsc-tos]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
+[commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
 [tsc-data-processor-addendum]: https://www.timescale.com/legal/timescale-cloud-data-processing-addendum
 [aws-kms]: https://aws.amazon.com/kms/
 [ec2-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html

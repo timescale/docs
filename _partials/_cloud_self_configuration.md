@@ -15,7 +15,4 @@ the number of databases loaded with the $TIMESCALE_DB extension in a $PG instanc
 ### `timescaledb.disable_load (bool)`
 Disable the loading of the actual extension
 
-[enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
-[pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
-[migrate-entire]: /self-hosted/:currentVersion:/migration/entire-database/
 [gucs]: /api/:currentVersion:/configuration/gucs/

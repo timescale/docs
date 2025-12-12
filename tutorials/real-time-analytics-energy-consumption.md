@@ -125,22 +125,6 @@ You have integrated Grafana with a $SERVICE_LONG and made insights based on visu
 [grafana-docs]: https://grafana.com/docs/
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed
 [grafana-cloud]: https://grafana.com/get/
-[use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
-
 [test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
 [test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[compression]: /use-timescale/:currentVersion:/compression/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
-[job]: /api/:currentVersion:/actions/add_job/
-[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
-[hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
-[alter_job]: /api/:currentVersion:/actions/alter_job/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
-[insert]: /use-timescale/:currentVersion:/write-data/insert/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/

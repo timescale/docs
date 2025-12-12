@@ -22,7 +22,7 @@ Python module, which is one of many great visualization tools.
 
 ### Average yards run for a player over a game
 
-This query uses a percentile approximation [hyperfunction][api-hyperfunctions]
+This query uses a percentile approximation [hyperfunction][hyperfunctions-api-approx-percentile]
 to find the mean yards run per game by a single player.
 
 ```sql
@@ -233,4 +233,4 @@ aggregates. Consider joining in stadium data that we provided to see if teams
 tend to score or run less at Mile High Stadium. Does natural or artificial turf
 affect any teams consistently?
 
-[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
+[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/

@@ -67,5 +67,3 @@ SELECT timescaledb_experimental.remove_policies(
 ## Returns
 
 Returns true if successful.
-
-[delete_job]: /api/:currentVersion:/jobs-automation/delete_job/

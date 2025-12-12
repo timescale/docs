@@ -12,7 +12,7 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 # How tiered data works on replicas and forks
 
 There is one more thing that makes Tiered Storage even more amazing: when you keep data in the low-cost object storage tier,
-you pay for this data only once, regardless of whether you have a [high-availability replica][ha-replica]
+you pay for this data only once, regardless of whether you have a [high-availability replica][high-availability]
 or [read replicas][read-replica] running in your $SERVICE_SHORT. We call this the savings multiplication effect of Tiered Storage.
 
 The same applies to [forks][operations-forking], which you can use, for example, for running tests or creating dev environments.
@@ -72,7 +72,6 @@ In the case of such a restore, new references are added to the deleted tiered ch
 
 Once 14 days pass after soft deleting the data,that is the number of references to the tiered data drop to 0, we hard delete the tiered data.
 
-
-[ha-replica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/#read-replicas
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service

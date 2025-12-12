@@ -25,7 +25,7 @@ to another ("backfilling"). `timescaledb-backfill` efficiently copies
 hypertable and continuous aggregates chunks directly, without the need for
 intermediate storage, or converting chunks from the $COLUMNSTORE to the $ROWSTORE. It operates
 transactionally, ensuring data integrity throughout the migration process. It
-is designed to be used in the [dual-write and backfill][dual-write-backfill]
+is designed to be used in the [dual-write and backfill][dual-write-and-backfill]
 migration procedure.
 
 ## Limitations
@@ -329,4 +329,4 @@ group by
     2
 ```
 
-[dual-write-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/
+[dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/

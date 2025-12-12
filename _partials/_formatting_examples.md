@@ -264,12 +264,12 @@ Syntax:
 
     [Anchor][link-label]
     
-    [link-label]: absolute or relative URL
 
 For example:
 
 [A link to the data tiering section in docs][data-tiering]
 
+    [link-label]: absolute or relative URL
 [data-tiering]: ../use-timescale/data-tiering/enabling-data-tiering.md
 [disable-chunk-skipping]: ../api/hypertable/disable_chunk_skipping.md
 [decompress-chunks]: ../use-timescale/compression/decompress-chunks.md
@@ -283,5 +283,3 @@ For example:
 [time-weighted-average]: ../api/time-weighted-averages.md
 [remove-reorder-policy]: ../api/hypertable/remove_reorder_policy.md
 [reference-links]: https://www.markdownguide.org/basic-syntax/#reference-style-links
-
-

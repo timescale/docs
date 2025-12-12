@@ -14,7 +14,7 @@ products: [cloud, mst, self_hosted]
 <Highlight type="warning">
 
 This page describes the hypertable API supported prior to TimescaleDB v2.13. Best practice is to use the new 
-[`create_hypertable`][api-create-hypertable] interface.
+[`create_hypertable`][create_hypertable] interface.
 
 </Highlight>
 
@@ -30,7 +30,7 @@ After creation, all actions, such as `ALTER TABLE`, `SELECT`, etc., still work
 on the resulting hypertable.
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 ## Samples
 
@@ -95,7 +95,7 @@ SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_sta
 |Name|Type|Description|
 |-|-|-|
 |`partitioning_column`|REGCLASS|Name of an additional column to partition by. If provided, the `number_partitions` argument must also be provided.|
-|`number_partitions`|INTEGER|Number of [hash partitions][hash-partitions] to use for `partitioning_column`. Must be > 0.|
+|`number_partitions`|INTEGER|Number of [hash partitions][hypertables] to use for `partitioning_column`. Must be > 0.|
 |`chunk_time_interval`|INTERVAL|Event time that each chunk covers. Must be > 0. Default is 7 days.|
 |`create_default_indexes`|BOOLEAN|Whether to create default indexes on time/partitioning columns. Default is TRUE.|
 |`if_not_exists`|BOOLEAN|Whether to print warning if table already converted to hypertable or raise exception. Default is FALSE.|
@@ -188,8 +188,7 @@ not already specified on table creation, `create_hypertable` automatically adds
 this constraint on the table when it is executed.
 </Highlight>
 
-
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
-[hash-partitions]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
-[api-create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/

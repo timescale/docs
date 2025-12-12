@@ -13,7 +13,7 @@ instead.
 </Highlight>
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 ## Samples
 
@@ -62,5 +62,4 @@ SELECT hypertable_size('device_stats_15m');
 
 </Highlight>
 
-
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

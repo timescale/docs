@@ -95,18 +95,14 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 </Procedure>
 
 Quick recap. You:
-- Manage your $SERVICE_SHORTs in the [$OPS_MODE][portal-ops-mode] in $CONSOLE: add $READ_REPLICAs and enable 
+- Manage your $SERVICE_SHORTs in the [$OPS_MODE][services-portal] in $CONSOLE: add $READ_REPLICAs and enable 
   high availability, compress data into the $COLUMNSTORE, change parameters, and so on.
 - Analyze your data in the [$DATA_MODE][portal-data-mode] in $CONSOLE: write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
 
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
-[account-portal]: https://console.cloud.timescale.com/dashboard/account
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-psql]: /integrations/:currentVersion:/psql/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
-[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[psql]: /integrations/:currentVersion:/psql/
 [psql]: /integrations/:currentVersion:/psql/

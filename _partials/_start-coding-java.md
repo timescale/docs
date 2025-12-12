@@ -396,7 +396,7 @@ your Java application, and generate the scaffolding necessary to build a new
 application from an existing $TIMESCALE_DB instance, be sure to check out these
 advanced $TIMESCALE_DB tutorials:
 
-*   [Continuous Aggregates][continuous-aggregates]
+*   [Continuous Aggregates][caggs]
 *   [Migrate Your own Data][migrate]
 
 ## Complete code samples
@@ -605,11 +605,5 @@ public class Main {
 [pg-jdbc-driver-conn-docs]: https://jdbc.postgresql.org/documentation/datasource/
 [pg-jdbc-driver-dependency]: https://mvnrepository.com/artifact/org.postgresql/postgresql
 [pg-jdbc-driver]: https://jdbc.postgresql.org
-[connect]: #connect-java-to-timescaledb
-[create-table]: #create-a-relational-table
-[create-a-hypertable]: #create-a-hypertable
-[insert]: #insert-a-batch-of-rows-into-timescaledb
-[query]: #execute-queries-on-timescaledb
-[install]: /getting-started/latest/
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [migrate]: /migrate/:currentVersion:/

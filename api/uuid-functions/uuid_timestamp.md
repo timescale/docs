@@ -39,5 +39,4 @@ uuid_timestamp
 |-|------------------|-|----------|-------------------------------------------------|
 |`uuid`|UUID| - | ✔ | The UUID object to extract the timestamp from |
 
-
 [uuid_timestamp_micros]: /api/:currentVersion:/uuid-functions/uuid_timestamp_micros/

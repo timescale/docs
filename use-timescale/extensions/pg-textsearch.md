@@ -327,7 +327,6 @@ This preview release focuses on core BM25 functionality. It has the following li
 
 These limitations will be addressed in upcoming releases with disk-based segments and expanded query capabilities.
 
-
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services

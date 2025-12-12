@@ -95,7 +95,5 @@ and make more money.
 
 </Procedure>
 
-
-
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [postgis]: http://postgis.net/

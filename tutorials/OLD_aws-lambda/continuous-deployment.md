@@ -235,5 +235,4 @@ You can test if the hook works by pushing the changes to GitHub.
 
 You now have a continuous deployment pipeline set up between GitHub and AWS Lambda.
 
-[create-data-api]: /tutorials/:currentVersion:/aws-lambda/create-data-api/
 [github-secrets]: https://docs.github.com/en/actions/reference/encrypted-secrets

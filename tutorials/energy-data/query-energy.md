@@ -212,7 +212,7 @@ You may also want to check the energy consumption that occurs on a monthly basis
 
 </Procedure>
 
-[about-hyperfunctions]: https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/about-hyperfunctions/
+[about-hyperfunctions]: https://www.tigerdata.com/docs/use-timescale/:currentVersion:/hyperfunctions/about-hyperfunctions/
 [what-is-the-energy-consumption-by-the-hour-of-the-day-link]: /tutorials/:currentVersion:/energy-data/query-energy/#what-is-the-energy-consumption-by-the-hour-of-the-day
 [what-is-the-energy-consumption-by-the-day-of-the-week-link]: /tutorials/:currentVersion:/energy-data/query-energy/#what-is-the-energy-consumption-by-the-day-of-the-week
 [what-is-the-energy-consumption-on-a-monthly-basis-link]: /tutorials/:currentVersion:/energy-data/query-energy/#what-is-the-energy-consumption-on-a-monthly-basis

@@ -118,6 +118,4 @@ The `created_before`/`created_after` parameters cannot be used together with
 `older_than`/`newer_than`.
 </Highlight>
 
-
-
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks

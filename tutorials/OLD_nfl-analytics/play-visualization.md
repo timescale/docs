@@ -25,7 +25,6 @@ def generate_field():
     """Generates a realistic american football field with line numbers and hash marks.
 
     Returns:
-        [tuple]: (figure, axis)
     """
     rect = patches.Rectangle((0, 0), 120, 53.3, linewidth=2,
                              edgecolor='black', facecolor='green', zorder=0)
@@ -167,9 +166,9 @@ We hope that through this tutorial you have been able to see how data that does
 not appear to be time-series initially, is in fact time-series data after all.
 With $TIMESCALE_DB, analyzing time-series data can be easy (and fun!) when you use
 [hyperfunctions][api-hyperfunctions] and
-[continuous aggregates][api-caggs]. We encourage you to
+[continuous aggregates][create_materialized_view]. We encourage you to
 try these functions in your own database and try experimenting with different
 kinds of analysis.
 
 [api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[api-caggs]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/
+[create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/

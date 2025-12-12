@@ -93,7 +93,7 @@ EC2 Ubuntu instance in the same AWS region as your RDS/Aurora instance. You then
 To make this process as painless as possible, ensure that the intermediary machine has enough CPU and disk space to
 rapidly extract and store your data before uploading to $CLOUD_LONG.
 
-Migration from RDS/Aurora gives you the opportunity to create [hypertables][about-hypertables] before copying the data. Once the migration is complete, you can manually enable $CLOUD_LONG features like [data compression][data-compression] or [data retention][data-retention].
+Migration from RDS/Aurora gives you the opportunity to create [hypertables][hypertables-section] before copying the data. Once the migration is complete, you can manually enable $CLOUD_LONG features like [data compression][compression] or [data retention][data-retention].
 
 This section shows you how to move your data from an Amazon RDS/Aurora instance to a $SERVICE_LONG
 using live migration.
@@ -131,14 +131,10 @@ This section shows you how to work around frequently seen issues when using live
 
 <Troubleshooting />
 
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[data-compression]: /use-timescale/:currentVersion:/compression/
-[data-retention]: /use-timescale/:currentVersion:/data-retention/
-[from-postgres]: /migrate/:currentVersion:/live-migration/live-migration-from-postgres/
-[from-timescaledb]: /migrate/:currentVersion:/live-migration/live-migration-from-timescaledb/
-[pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
-[dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/
-[live-migration-playbook]: /migrate/:currentVersion:/playbooks/rds-timescale-live-migration/
 [FAQ]: /migrate/:currentVersion:/troubleshooting
-[pgcopydb]: https://github.com/dimitri/pgcopydb
+
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[compression]: /use-timescale/:currentVersion:/compression/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/
+[dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/
 [install-docker]: https://docs.docker.com/engine/install/

@@ -75,7 +75,7 @@ This section shows you how to move your data from self-hosted $PG to a $SERVICE_
 using `pg_dump` and `psql` from Terminal.
 
 Migration from $PG moves the data only. You must manually enable $CLOUD_LONG features like
-[hypertables][about-hypertables], [hypercore][data-compression] or [data retention][data-retention] after the migration is complete. You enable $CLOUD_LONG features while your database is offline.
+[hypertables][hypertables-section], [hypercore][hypercore] or [data retention][data-retention] after the migration is complete. You enable $CLOUD_LONG features while your database is offline.
 
 
 <MigrateFromPostgres />
@@ -93,7 +93,7 @@ To make this process as painless as possible, ensure that the intermediary machi
 rapidLy extract and store your data before uploading to $CLOUD_LONG.  
 
 Migration from RDS/Aurora $PG moves the data only. You must manually enable $CLOUD_LONG features like
-[hypertables][about-hypertables], [data compression][data-compression] or [data retention][data-retention] after the migration is complete. You enable $CLOUD_LONG
+[hypertables][hypertables-section], [data compression][hypercore] or [data retention][data-retention] after the migration is complete. You enable $CLOUD_LONG
 features while your database is offline.
 
 This section shows you how to move your data from a $PG database running in an Amazon RDS/Aurora $PG instance to a
@@ -124,17 +124,11 @@ And that is it, you have migrated your data from a $MST_LONG instance to a $SERV
 
 
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
+[Upgrade TimescaleDB]: https://www.tigerdata.com/docs/self-hosted/:currentVersion:/upgrades/
+[live migration]: /migrate/:currentVersion:/live-migration
+
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[migrate-from-timescaledb]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-timescaledb-using-pg_dumprestore
-[migrate-from-postgresql]: /migrate/:currentVersion:/pg-dump-and-restore/#migrate-from-postgresql-using-pg_dumprestore
-[dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
-[restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency 
-[long-running-pgdump]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks
-[Upgrade TimescaleDB]: https://www.tigerdata.com/docs/self-hosted/latest/upgrades/
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
-[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[data-compression]: /use-timescale/:currentVersion:/hypercore/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
-[live migration]: /migrate/:currentVersion:/live-migration

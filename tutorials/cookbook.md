@@ -23,8 +23,3 @@ common issues. Use these code examples as guidance to work with your own data.
 <Hypertables />
 
 <IOT />
-
-
-
-[create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
-[connect-to-service]: /getting-started/:currentVersion:/run-queries-from-console/

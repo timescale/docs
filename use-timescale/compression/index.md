@@ -8,7 +8,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Compression (Superseded by [Hypercore][hypercore])
 
-<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/latest/hypercore/">hypercore</a>. 
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/:currentVersion:/hypercore/">hypercore</a>. 
 However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Time-series data can be compressed to reduce the amount of storage required, and
@@ -17,6 +17,5 @@ $TIMESCALE_DB. When new data is added to your database, it is in the form of
 uncompressed rows. $TIMESCALE_DB uses a built-in job scheduler to convert this
 data to the form of compressed columns. This occurs across chunks of $TIMESCALE_DB
 hypertables.
-
 
 [hypercore]: /use-timescale/:currentVersion:/hypercore/

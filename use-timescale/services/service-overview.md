@@ -57,6 +57,4 @@ If you need more than one database, [create a new $SERVICE_SHORT][create-service
 </Tabs>
 
 [cloud-login]: https://console.cloud.timescale.com/
-[pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
-
+[create-service]: /getting-started/:currentVersion:/services/#create-a-service_long

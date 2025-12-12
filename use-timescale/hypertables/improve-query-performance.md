@@ -16,7 +16,7 @@ and only contains data from that range. When you run a query, $TIMESCALE_DB iden
 the query on it, instead of going through the entire table. This page shows you how to tune hypertables to increase 
 performance even more.
 
-* [Optimize hypertable chunk intervals][chunk-intervals]: choose the optimum chunk size for your data  
+* [Optimize hypertable chunk intervals][change-chunk-intervals]: choose the optimum chunk size for your data  
 * [Enable chunk skipping][chunk-skipping]: skip chunks on non-partitioning columns in hypertables when you query your data
 * [Analyze your hypertables][analyze-hypertables]: use $PG `ANALYZE` to create the best query plan
 
@@ -161,9 +161,8 @@ $PG planner to create the best query plan. For more information about the
 `ANALYZE` command, see the [$PG documentation][pg-analyze].
 
 [api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
-[best-practices]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#enable-chunk-skipping
-[chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
+[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [analyze-hypertables]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#analyze-your-hypertables
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html

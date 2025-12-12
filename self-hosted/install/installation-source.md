@@ -31,7 +31,7 @@ To install TimescaleDB from source, you need the following on your developer env
 
 * **$PG**: 
 
-   Install a [supported version of $PG][compatibility-matrix] using the [$PG installation instructions][postgres-download]. 
+   Install a [supported version of $PG][compatibility-matrix] using the [$PG installation instructions][install-postgresql]. 
 
     We recommend not using TimescaleDB with $PG 17.1, 16.5, 15.9, 14.14, 13.17, 12.21.  
     These minor versions [introduced a breaking binary interface change][postgres-breaking-change] that,
@@ -73,12 +73,9 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 <WhereTo />
 
-[install-psql]: /integrations/:currentVersion:/psql/
-[config]: /self-hosted/:currentVersion:/configuration/
-[postgres-download]: https://www.postgresql.org/download/
+[install-postgresql]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/
 [compatibility-matrix]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#plan-your-upgrade-path
 [postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
-
-[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-source/#add-the-timescale-db-extension-to-your-database
-[install-and-configure-timescaledb-on-postgres-link]: /self-hosted/:currentVersion:/install/installation-source/#install-and-configure-timescale-db-on-pg
+[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-source/#add-the-timescale_db-extension-to-your-database
+[install-and-configure-timescaledb-on-postgres-link]: /self-hosted/:currentVersion:/install/installation-source/#install-and-configure-timescale_db-on-pg

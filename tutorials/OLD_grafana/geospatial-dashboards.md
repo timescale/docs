@@ -116,4 +116,4 @@ for different timeframes.
 
 Complete your Grafana knowledge by following all the $TIMESCALE_DB + Grafana tutorials.
 
-[install-timescale]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/

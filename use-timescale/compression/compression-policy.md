@@ -9,7 +9,7 @@ import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # Compression policy
 
-<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/latest/hypercore/real-time-analytics-in-hypercore/">Optimize your data for real-time analytics</a>. 
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/">Optimize your data for real-time analytics</a>. 
 However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 You can enable compression on individual hypertables, by declaring which column
@@ -60,7 +60,7 @@ SELECT * FROM timescaledb_information.jobs
   WHERE proc_name='policy_compression';
 ```
 
-For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
+For more information, see the API reference for [`timescaledb_information.jobs`][informational-views].
 
 ## Pause compression policy
 
@@ -108,4 +108,4 @@ compression.
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
 [remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
-[timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/

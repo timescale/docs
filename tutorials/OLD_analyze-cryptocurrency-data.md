@@ -156,7 +156,7 @@ SELECT create_hypertable('crypto_prices', 'time');
 Note that there are three `create_hypertable` statements which are
 TimescaleDB-specific statements. A hypertable is an abstraction of a single
 continuous table across time intervals, so that you can query it using standard
-SQL. For more on hypertables, see the [$COMPANY docs][hypertable-docs] and this
+SQL. For more on hypertables, see the [$COMPANY docs][hypertables-section] and this
 [blog post][hypertable-blog].
 
 ## Create a dataset to analyze
@@ -654,5 +654,5 @@ GROUP BY
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
 [cryptocompare]: https://www.cryptocompare.com
 [hypertable-blog]: https://www.tigerdata.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables
-[install-timescale]: /getting-started/latest/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables
+[install-timescale]: /getting-started/:currentVersion:/

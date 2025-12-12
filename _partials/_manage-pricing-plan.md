@@ -22,4 +22,4 @@ alt="Adding a payment method in Timescale"/>
 
 [cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details
 [contact-company]: https://www.tigerdata.com/contact/
-[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

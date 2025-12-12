@@ -11,8 +11,5 @@ around 10 GB per day, use a 1-day interval.
 You set `chunk_interval` when you [create a $HYPERTABLE][hypertable-create-table], or by calling 
 [`set_chunk_time_interval`][chunk_interval] on an  existing hypertable.
 
-
-
-[best-practices]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning
 [chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

@@ -39,12 +39,12 @@ The following metrics are represented by graphs:
 - Storage I/O, in ops/sec
 - Storage bandwidth, in MiB/sec
 
-The [$FREE $PRICING_PLAN][pricing-plans] only includes storage metrics.
+The [$FREE $PRICING_PLAN][pricing-plan-features] only includes storage metrics.
 
 When you hit the limits:
 
 - **For CPU and memory**: provision more for your $SERVICE_SHORT in `Operations` > `Compute and storage`.
-- **For storage, I/O, and bandwidth**: these resources depend on your storage type and $IO_BOOST settings. The standard high-performance storage gives you 16TB of compressed data on a single server, regardless of the number of hypertables in your $SERVICE_SHORT. See [About storage tiers][about-storage] for how to change the available storage, I/O, and bandwidth.
+- **For storage, I/O, and bandwidth**: these resources depend on your storage type and $IO_BOOST settings. The standard high-performance storage gives you 16TB of compressed data on a single server, regardless of the number of hypertables in your $SERVICE_SHORT. See [About storage tiers][about-data-tiering] for how to change the available storage, I/O, and bandwidth.
 
 Hover over the graph to view metrics for a specific time point. Select an area in the graph to zoom into a specific period.
 
@@ -195,7 +195,7 @@ You can also get query-level statistics for your $SERVICE_SHORTs with the `pg_st
 
 <Highlight type="note">
 
-For more information about `pg_stat_statements`, see the [$PG documentation][pg-statement-docs].
+For more information about `pg_stat_statements`, see the [$PG documentation][pg-stat-statements].
 
 </Highlight>
 
@@ -203,7 +203,7 @@ Query the `pg_stat_statements` view as you would any $PG view.
 The full view includes superuser queries used by $CLOUD_LONG to manage your $SERVICE_SHORT in the background. To view only your
 queries, filter by the current user.
 
-[Connect][connect] to your $SERVICE_SHORT and run the following command: 
+[Connect][connect-to-your-service] to your $SERVICE_SHORT and run the following command: 
 
 ```sql
 SELECT * FROM pg_stat_statements WHERE pg_get_userbyid(userid) = current_user;
@@ -236,18 +236,16 @@ LIMIT 5;
 For more examples and detailed explanations, see the [blog post on identifying performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 
 [jobs]: /use-timescale/:currentVersion:/jobs/
-[pg-stat]: /use-timescale/:currentVersion:/metrics-logging/service-metrics/#query-level-statistics-with-pg_stat_statements
 [blog-pg_stat_statements]: <https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/>
-[psql]: /integrations/:currentVersion:/psql/
-[connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
-[pg-statement-docs]: https://www.postgresql.org/docs/current/pgstatstatements.html
-[about-storage]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
+[connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
+[pg-stat-statements]: https://www.postgresql.org/docs/current/pgstatstatements.html
+[about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
 [recommendations]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#recommendations
 [monitoring-jobs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#jobs
-[connections]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#connections 
+[connections]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#connections
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
 [logs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#logs
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [locked-memory]: https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html
 [memory-settings]: https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-MEMORY
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

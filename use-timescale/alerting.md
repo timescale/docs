@@ -56,9 +56,9 @@ See the [integration guides][integration-docs] for details.
 
 [Grafana-install]: https://grafana.com/get/
 [PostgreSQL datasource]: https://grafana.com/docs/grafana/latest/features/datasources/postgres/
-[datadog-install]: https://docs.datadoghq.com/integrations/postgres/
 [define alert rules]: https://grafana.com/docs/grafana/latest/alerting/rules/
+
+[datadog-install]: https://docs.datadoghq.com/integrations/postgres/
 [nagios-install]: https://www.nagios.com/solutions/postgresql-monitoring/
 [zabbix-install]: https://www.zabbix.com/documentation/current/en/manual/appendix/install/timescaledb
-[grafana-integration]: /integrations/:currentVersion:/grafana/
 [integration-docs]: /integrations/:currentVersion:/#observability-and-alerting

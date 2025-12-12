@@ -141,7 +141,6 @@ On an example setup, speedup performance observed was pretty significant,
 
 Try it yourself and see what you get!
 
-
 [segment-by-columns]: /use-timescale/:currentVersion:/compression/about-compression/#segment-by-columns
 [automatic-compression]: /tutorials/:currentVersion:/nyc-taxi-cab/compress-nyc/#add-a-compression-policy
 [compression-design]: /use-timescale/:currentVersion:/compression/compression-design/

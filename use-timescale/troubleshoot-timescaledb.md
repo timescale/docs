@@ -313,10 +313,11 @@ ON ddl_command_end WHEN TAG IN ('CREATE TABLE') EXECUTE FUNCTION ddl_end_trigger
 ```
 
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
+[using explain]: https://www.postgresql.org/docs/current/using-explain.html
+
 [github]: https://github.com/timescale/timescaledb/issues
 [slack]: https://slack.timescale.com/
 [track_io_timing]: https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
 [update-db]: /self-hosted/:currentVersion:/upgrades/
-[using explain]: https://www.postgresql.org/docs/current/using-explain.html
-[worker-config]: /self-hosted/latest/configuration/about-configuration/#workers
+[worker-config]: /self-hosted/:currentVersion:/configuration/about-configuration/#workers
 [log_min_messages]: https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES

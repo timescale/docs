@@ -110,10 +110,7 @@ You can deploy $TIMESCALE_DB on the following systems:
 
 <WhereTo />
 
-
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
-[supported-platforms-self-hosted]: /about/:currentVersion:/supported-platforms/#supported-systems
-
-[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-linux/#add-the-timescale-db-extension-to-your-database
-[install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-linux/#install-and-configure-timescale-db-on-pg
+[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-linux/#add-the-timescale_db-extension-to-your-database
+[install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-linux/#install-timescale_db-on-linux
 [supported-platforms-link]: /self-hosted/:currentVersion:/install/installation-linux/#supported-platforms

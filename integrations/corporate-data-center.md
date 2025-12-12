@@ -37,10 +37,6 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated your corporate data center with $CLOUD_LONG.
 
-
-
-
-
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
 [gtw-setup]: https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html
 [aws-onprem]: https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralize-network-connectivity-using-aws-transit-gateway.html

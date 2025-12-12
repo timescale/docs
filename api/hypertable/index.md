@@ -13,7 +13,7 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
 <HypertableOverview />
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 To create a [$HYPERTABLE][hypertables-section] for your time-series data, use [CREATE TABLE][hypertable-create-table].
 For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
@@ -41,9 +41,7 @@ CREATE TABLE conditions (
 
 </Highlight> 
 
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

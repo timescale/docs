@@ -166,7 +166,6 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
 
 </Procedure>
 
-
 [kubernetes-namespace]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
 [timescale-docker-image]: https://hub.docker.com/r/timescale/timescaledb
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

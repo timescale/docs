@@ -37,8 +37,6 @@ import EarlyAccess from "versionContent/_partials/_early_access_2_18_0.mdx";
    SELECT alter_job(JOB_ID, scheduled => true);
    ```
 
-[alter_job]: /api/:currentVersion:/actions/alter_job/
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
-[compression_alter-table]: /api/:currentVersion:/hypercore/alter_table/

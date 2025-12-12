@@ -126,5 +126,4 @@ tsdb=# \dx
 [aws-dashboard]: https://console.aws.amazon.com/ec2/
 [aws-instance-config]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html
 [aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
-[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
 [config]: /self-hosted/:currentVersion:/configuration/

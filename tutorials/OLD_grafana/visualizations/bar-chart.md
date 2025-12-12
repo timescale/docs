@@ -105,7 +105,7 @@ charts.
 ### Creating multiple bar charts in a single panel
 
 1.  Fetch all company symbols from the dataset in the
-    [Getting Started Tutorial][gsg-data] with this query:
+    [Getting Started Tutorial][install] with this query:
 
    ```sql
     SELECT
@@ -203,5 +203,4 @@ calculation on a single trading day instead.
 
 </Procedure>
 
-
-[gsg-data]: /getting-started/:currentVersion:/
+[install]: /getting-started/:currentVersion:/

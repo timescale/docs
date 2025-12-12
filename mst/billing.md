@@ -176,4 +176,3 @@ billing.
 [timescale-support]: https://www.timescale.com/contact/
 [mst-console]: https://portal.managed.timescale.com
 [invoice-api]: https://api.aiven.io/doc/#tag/BillingGroup
-

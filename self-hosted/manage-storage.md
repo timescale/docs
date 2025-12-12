@@ -20,8 +20,8 @@ read-and-write workload of more recent data.
 <Highlight type="note">
 
 Using tablespaces is one way to manage data storage costs with $TIMESCALE_DB. You
-can also use [compression](/use-timescale/latest/compression) and
-[data retention](/use-timescale/latest/data-retention) to reduce
+can also use [compression](/use-timescale/:currentVersion:/compression) and
+[data retention](/use-timescale/:currentVersion:/data-retention) to reduce
 your storage requirements.
 
 </Highlight>
@@ -38,7 +38,7 @@ you to move indexes belonging to those chunks to an appropriate tablespace.
 
 Additionally, `move_chunk` allows you reorder the chunk during the migration.
 This can be used to make your queries faster, and works in a similar way to the
-[`reorder_chunk` command][api-reorder-chunk].
+[`reorder_chunk` command][reorder_chunk].
 
 <Highlight type="note">
 
@@ -147,4 +147,4 @@ framework. For more information, see the [$JOBs section][jobs].
 
 [jobs]: /use-timescale/:currentVersion:/jobs/
 [api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk
-[api-reorder-chunk]: /api/:currentVersion:/hypertable/reorder_chunk
+[reorder_chunk]: /api/:currentVersion:/hypertable/reorder_chunk

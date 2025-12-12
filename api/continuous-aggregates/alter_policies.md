@@ -74,5 +74,6 @@ time bucket is based on integers.
 Returns true if successful.
 
 <!-- vale Vale.Terms = NO -->
-[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 <!-- vale Vale.Terms = YES -->
+
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/

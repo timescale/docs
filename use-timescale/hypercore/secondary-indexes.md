@@ -140,14 +140,5 @@ The number of rows that are compressed together in a single batch (like the ones
 If your $CHUNK does not contain enough data to create big enough batches, your compression ratio will be reduced.
 This needs to be taken into account when you define your $COLUMNSTORE settings.
 
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[blog-perf-tuning]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes
-[hash-overview]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes#:~:text=in%20ascending%20order.-,Hash%20indexes,-CREATE%20INDEX%20index_product_id
-[storage-toast]: https://www.postgresql.org/docs/current/storage-toast.html
-[postgres-index-types]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes
-[postgres-tam-methods]: https://www.postgresql.org/docs/current/tableam.html
-[convert-to-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
-[iops]: https://en.wikipedia.org/wiki/IOPS
-[segmenting-and-ordering]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#segmenting-and-ordering-data
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
-[create-index]: https://www.tigerdata.com/docs/api/latest/hypertable/create_index/
+[create-index]: https://www.tigerdata.com/docs/api/:currentVersion:/hypertable/create_index/

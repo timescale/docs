@@ -94,19 +94,16 @@ You can deploy $TIMESCALE_DB on the following systems:
 
 <WindowsSupport />
 
-For release information, see the [GitHub releases page][gh-releases] and the [release notes][release-notes].
+For release information, see the [GitHub releases page][relnotes] and the [release notes][relnotes].
 
 ## Where to next
 
 <WhereTo />
 
-[config]: /self-hosted/:currentVersion:/configuration/
-[gh-releases]: https://github.com/timescale/timescaledb/releases
+[relnotes]: https://github.com/timescale/timescaledb/releases
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
-[pg-download]: https://www.postgresql.org/download/windows/
-[release-notes]: https://github.com/timescale/timescaledb/releases
-[windows-releases]: #windows-releases
+[relnotes]: https://github.com/timescale/timescaledb/releases
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
-[install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-and-configure-timescaledb-on-postgresql
+[install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-timescale_db-on-windows
 [add-timescledb-extension]: /self-hosted/:currentVersion:/install/installation-windows/#add-the-timescaledb-extension-to-your-database
 [supported-platforms]: /self-hosted/:currentVersion:/install/installation-windows/#supported-platforms

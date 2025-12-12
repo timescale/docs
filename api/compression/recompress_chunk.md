@@ -14,7 +14,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # recompress_chunk() <Tag type="community" content="Community" />
 
-<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/:currentVersion:/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
 However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Recompresses a compressed chunk that had more data inserted after compression.
@@ -34,7 +34,7 @@ allowing you to target a specific chunk.
 <Highlight type="important">
 
 `recompress_chunk` is deprecated since $TIMESCALE_DB v2.14 and will be removed in the future. 
-The procedure is now a wrapper which calls [`compress_chunk`](/api/latest/compression/compress_chunk/) 
+The procedure is now a wrapper which calls [`compress_chunk`](/api/:currentVersion:/compression/compress_chunk/) 
 instead of it. 
 
 </Highlight>
@@ -46,7 +46,7 @@ the procedure with `CALL`. Don't use a `SELECT` statement.
 
 <Highlight type="note">
 `recompress_chunk` only works on chunks that have previously been compressed. To compress a
-chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
+chunk for the first time, use [`compress_chunk`](/api/:currentVersion:/compression/compress_chunk/).
 </Highlight>
 
 ## Samples

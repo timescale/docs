@@ -101,7 +101,7 @@ from a standard Rails app configured for $PG.
 Hypertables are $PG tables designed to simplify and accelerate data analysis. Anything 
 you can do with regular $PG tables, you can do with hypertables - but much faster and more conveniently.
 
-In this section, you use the helpers in the $TIMESCALE_DB gem to create and manage a [hypertable][about-hypertables].
+In this section, you use the helpers in the $TIMESCALE_DB gem to create and manage a [hypertable][hypertables-section].
 
 <Procedure>
 
@@ -411,20 +411,12 @@ Now that you have integrated the ruby gem into your app:
 * Check out the [official docs](https://timescale.github.io/timescaledb-ruby/).
 * Follow the [LTTB][LTTB], [Open AI long-term storage][open-ai-tutorial], and [candlesticks][candlesticks] tutorials.
 
-[connect]: #connect-to-timescaledb
-[create-a-hypertable]: #create-a-hypertable
-[insert]: #insert-data
-[query]: #execute-queries
-[create-aggregates]: #execute-queries
-[add-policies]: #manage-chunks-and-compression
-[manage-chunks]: #manage-chunks-and-compression
-[install]: /getting-started/latest/
-[psql-install]: /integrations/:currentVersion:/psql/
+[LTTB]: https://timescale.github.io/timescaledb-ruby/toolkit_lttb_tutorial/
+
 [rails-guide]: https://guides.rubyonrails.org/install_ruby_on_rails.html#installing-rails
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [rails-compostite-primary-keys]: https://guides.rubyonrails.org/active_record_composite_primary_keys.html
 [ruby-blog-post]: https://www.timescale.com/blog/building-a-better-ruby-orm-for-time-series-and-analytics
-[LTTB]: https://timescale.github.io/timescaledb-ruby/toolkit_lttb_tutorial/
 [open-ai-tutorial]: https://timescale.github.io/timescaledb-ruby/chat_gpt_tutorial/
 [candlesticks]: https://timescale.github.io/timescaledb-ruby/toolkit_candlestick/

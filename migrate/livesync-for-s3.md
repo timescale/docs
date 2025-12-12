@@ -25,10 +25,10 @@ You can use the $S3_CONNECTOR to synchronize your existing and new data. Here's 
     - For large backlogs, check every minute until caught up. 
 
 * Sync data from multiple file formats:
-    - CSV: check for compression in GZ and ZIP format, then process using [timescaledb-parallel-copy][parallel-copy].
-    - Parquet: convert to CSV, then process using [timescaledb-parallel-copy][parallel-copy].
+    - CSV: check for compression in GZ and ZIP format, then process using [timescaledb-parallel-copy][timescaledb-parallel-copy].
+    - Parquet: convert to CSV, then process using [timescaledb-parallel-copy][timescaledb-parallel-copy].
 
-* The $S3_CONNECTOR offers an option to enable a [$HYPERTABLE][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once the connector has started running.
+* The $S3_CONNECTOR offers an option to enable a [$HYPERTABLE][hypertables-section] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once the connector has started running.
 
 * The connector offers a default 1-minute polling interval. This means that $CLOUD_LONG checks the S3 source every minute for new data. You can customize this interval by setting up a cron expression.
 
@@ -37,7 +37,7 @@ The $S3_CONNECTOR continuously imports data from an Amazon S3 bucket into your d
 **Note**: the connector currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
 The $S3_CONNECTOR is **Generally Available** and production ready. If you have any questions or feedback, join us in
-the [$COMPANY community][livesync-tiger-community].
+the [$COMPANY community][join-livesync-on-slack].
 
 ## Prerequisites
 
@@ -53,10 +53,10 @@ the [$COMPANY community][livesync-tiger-community].
       - Configure the trust policy. Set the: 
       
         - `Principal`: `arn:aws:iam::142548018081:role/timescale-s3-connections`.
-        - `ExternalID`: set to the [$CLOUD_LONG project and $SERVICE_LONG ID][connection-project-service-id] of the 
+        - `ExternalID`: set to the [$CLOUD_LONG project and $SERVICE_LONG ID][get-project-id] of the 
            $SERVICE_SHORT you are syncing to in the format `<projectId>/<serviceId>`.
         
-           This is to avoid the [confused deputy problem][confused-deputy-problem].
+           This is to avoid the [confused deputy problem][deputy-problem].
       - Give the following access permissions:
 
         - `s3:GetObject`.
@@ -99,7 +99,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to sync live data to.
+   In [$CONSOLE][services-portal], select the $SERVICE_SHORT to sync live data to.
 
 1. **Connect the source S3 bucket to the target $SERVICE_SHORT**
 
@@ -127,7 +127,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    ![S3 connector table selection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-create-tables.png)
 
    $CONSOLE checks the file schema and, if possible, suggests the column to use as the time dimension in a 
-   [$HYPERTABLE][about-hypertables].
+   [$HYPERTABLE][hypertables-section].
    
    1. Choose `Create a new table for your data` or `Ingest data to an existing table`. 
    1. Choose the `Data type` for each column, then click `Continue`.
@@ -186,21 +186,18 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 And that is it, you are using the $S3_CONNECTOR to synchronize all the data, or specific files, from an S3 bucket to your 
 $SERVICE_LONG in real time.
 
-
-
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
-[parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
 [lex-order]:https://en.wikipedia.org/wiki/Lexicographic_order
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [cron-expression]: https://en.wikipedia.org/wiki/Cron#Cron_expression
-[confused-deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
-[connection-project-service-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
-[livesync-tiger-community]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
+[deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
+[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
+[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88

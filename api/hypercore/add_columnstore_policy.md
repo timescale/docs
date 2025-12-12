@@ -138,7 +138,7 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 | `hypertable`                  |REGCLASS| -                                                                                                                            | ✔        | Name of the hypertable or continuous aggregate to run this [job][job] on.                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `after`                       |INTERVAL or INTEGER| -                                                                                                                            | ✖        | Add chunks containing data older than `now - {after}::interval` to the $COLUMNSTORE. <br/> Use an object type that matchs the time column type in `hypertable`: <ul><li><b><code>TIMESTAMP</code>, <code>TIMESTAMPTZ</code>, or <code>DATE</code></b>: use an <code>INTERVAL</code> type.</li><li><b> Integer-based timestamps </b>: set an integer type using the [integer_now_func][set_integer_now_func].</li></ul> `after` is mutually exclusive with `created_before`. |
 | `created_before`              |INTERVAL| NULL                                                                                                                         | ✖        | Add chunks with a creation time of `now() - created_before` to the $COLUMNSTORE. <br/> `created_before` is <ul><li>Not supported for continuous aggregates.</li><li>Mutually exclusive with `after`.</li></ul>                                                                                                                                                                                                                                                             |
-| `schedule_interval`           |INTERVAL| 12 hours when [chunk_time_interval][chunk_time_interval] >= `1 day` for `hypertable`. Otherwise `chunk_time_interval` / `2`. | ✖        | Set the interval between the finish time of the last execution of this policy and the next start.                                                                                                                                                                                                                                                                                                                                                                          |
+| `schedule_interval`           |INTERVAL| 12 hours when [chunk_time_interval][chunk_interval] >= `1 day` for `hypertable`. Otherwise `chunk_time_interval` / `2`. | ✖        | Set the interval between the finish time of the last execution of this policy and the next start.                                                                                                                                                                                                                                                                                                                                                                          |
 | `initial_start`               |TIMESTAMPTZ| The interval from the finish time of the last execution to the [next_start][next-start].                                     | ✖        | Set the time this job is first run. This is also the time that `next_start` is calculated from. |
 | `next_start`                  |TIMESTAMPTZ| -|  ✖       | Set the start time of the next immediate execution. It does not change the computation of the next scheduled time after the next execution.  |
 | `timezone`                    |TEXT| UTC. However, daylight savings time(DST) changes may shift this alignment.                                                   | ✖        | Set to a valid time zone to mitigate DST shifting. If `initial_start` is set, subsequent executions of this policy are aligned on `initial_start`.                                                                                                                                                                                                                                                                                                                         |
@@ -147,21 +147,13 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
 
-
-[compression_alter-table]: /api/:currentVersion:/hypercore/alter_table/
 [compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
-[chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
+[chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [next-start]: /api/:currentVersion:/informational-views/jobs/#arguments
 [job]: /api/:currentVersion:/jobs-automation/add_job/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
-[create_table_arguments]: /api/:currentVersion:/hypertable/create_table/#arguments
-[alter_job_samples]: /api/:currentVersion:/jobs-automation/alter_job/#samples
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
 [tsdb-release-2-19-3]: https://github.com/timescale/timescaledb/releases/tag/2.19.3

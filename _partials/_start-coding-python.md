@@ -36,7 +36,7 @@ prevents common attacks such as SQL injection.
       *   database name
 
 1.  Compose your connection string variable as a
-    [libpq connection string][pg-libpq-string], using this format:
+    [libpq connection string][libpq-docs], using this format:
 
     ```python
     CONNECTION = "postgres://username:password@host:port/dbname"
@@ -154,7 +154,7 @@ and most other tasks are executed on the hypertable.
 2.  Formulate a `SELECT` statement that converts the `sensor_data` table to a
     hypertable. You must specify the table name to convert to a hypertable, and
     the name of the time column as the two arguments. For more information, see
-    the [`create_hypertable` docs][create-hypertable-docs]:
+    the [`create_hypertable` docs][create_hypertable]:
 
     ```python
     query_create_sensordata_hypertable = "SELECT create_hypertable('sensor_data', by_range('time'));"
@@ -408,10 +408,9 @@ executed safely against the database.
     
 </Procedure>
 
-[install]: /getting-started/latest/
-[create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
-[pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
+[libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
 [psycopg2-cursor]: https://www.psycopg.org/docs/connection.html?highlight=cursor#connection.cursor
@@ -419,8 +418,3 @@ executed safely against the database.
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
 [virtual-env]: https://docs.python.org/3/library/venv.html
-[connect]: #connect-to-timescaledb
-[create-table]: #create-a-relational-table
-[create-a-hypertable]: #create-a-hypertable
-[insert]: #insert-rows-of-data
-[query]: #execute-a-query

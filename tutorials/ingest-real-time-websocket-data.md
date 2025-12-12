@@ -431,11 +431,8 @@ You can visualize the OHLCV data that you created using the queries in Grafana.
 
 </Collapsible>
 
-[candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
-[get-started]: /getting-started/:currentVersion:/
-[install-ts]: /getting-started/latest/
 [psycopg2]: https://www.psycopg.org/docs/
 [twelve-data]: https://twelvedata.com
 [twelve-signup]: https://twelvedata.com/pricing
 [twelve-wrapper]: https://github.com/twelvedata/twelvedata-python
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
+[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account

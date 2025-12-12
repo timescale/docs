@@ -4,9 +4,9 @@ $CLOUD_LONG supercharges your real-time analytics by letting you run complex que
 
 Hypertables offer the following benefits:
 
-- **Efficient data management with [automated partitioning by time][chunk-size]**: $CLOUD_LONG splits your data into chunks that hold data from a specific time range. For example, one day or one week. You can configure this range to better suit your needs.
+- **Efficient data management with [automated partitioning by time][change-chunk-intervals]**: $CLOUD_LONG splits your data into chunks that hold data from a specific time range. For example, one day or one week. You can configure this range to better suit your needs.
 
-- **Better performance with [strategic indexing][hypertable-indexes]**: an index on time in the descending order is automatically created when you create a hypertable. More indexes are created on the chunk level, to optimize performance. You can create additional indexes, including unique indexes, on the columns you need. 
+- **Better performance with [strategic indexing][hypertables-and-unique-indexes]**: an index on time in the descending order is automatically created when you create a hypertable. More indexes are created on the chunk level, to optimize performance. You can create additional indexes, including unique indexes, on the columns you need. 
 
 - **Faster queries with [chunk skipping][chunk-skipping]**: $CLOUD_LONG skips the chunks that are irrelevant in the context of your query, dramatically reducing the time and resources needed to fetch results. Even more—you can enable chunk skipping on non-partitioning columns.
 
@@ -22,7 +22,5 @@ Inheritance is not supported for hypertables and may lead to unexpected behavior
 
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
-[chunk-size]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals/
-[hypertable-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
-
-
+[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
+[hypertables-and-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/

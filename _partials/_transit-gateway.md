@@ -1,4 +1,4 @@
-1. **Create a Peering $VPC in [$CONSOLE][console-login]**
+1. **Create a Peering $VPC in [$CONSOLE][cloud-login]**
 
    1. In `Security` > `VPC`, click `Create a VPC`:
 
@@ -8,7 +8,7 @@
 
        ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png)
 
-       Your $SERVICE_SHORT and Peering $VPC must be in the same AWS region. The number of Peering $VPCs you can create in your project depends on your [$PRICING_PLAN][pricing-plans]. If you need another Peering $VPC, either contact [support@tigerdata.com](mailto:support@tigerdata.com) or change your plan in [$CONSOLE][console-login].
+       Your $SERVICE_SHORT and Peering $VPC must be in the same AWS region. The number of Peering $VPCs you can create in your project depends on your [$PRICING_PLAN][pricing-plans]. If you need another Peering $VPC, either contact [support@tigerdata.com](mailto:support@tigerdata.com) or change your plan in [$CONSOLE][cloud-login].
 
    1.  Add a peering connection:
 
@@ -31,7 +31,7 @@
       - Your Transit Gateway route table to route traffic to the newly created Transit Gateway peering attachment for the Peering VPC CIDRs.
       - Security groups to allow outbound TCP 5432.
 
-1. **Attach a $CLOUD_LONG service to the Peering VPC In [$CONSOLE][console-services]**
+1. **Attach a $CLOUD_LONG service to the Peering VPC In [$CONSOLE][services-portal]**
 
    1. Select the $SERVICE_SHORT you want to connect to the Peering VPC.
    1. Click `Operations` > `Security` > `VPC`.
@@ -39,6 +39,6 @@
 
    You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
-[console-login]: https://console.cloud.timescale.com/
-[console-services]: https://console.cloud.timescale.com/dashboard/services
+[cloud-login]: https://console.cloud.timescale.com/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

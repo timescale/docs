@@ -77,7 +77,7 @@ automatically distributed. Regular tables and hypertables continue to work as
 usual, even when the underlying database is distributed. To enable multi-node
 capabilities, you need to explicitly create a distributed hypertable on the
 access node to make use of the data nodes. A distributed hypertable is similar
-to a regular [hypertable][hypertables], but with the difference that chunks are
+to a regular [hypertable][hypertables-section], but with the difference that chunks are
 distributed across data nodes instead of on local storage. By distributing the
 chunks, the processing power of the data nodes is combined to achieve higher
 ingest throughput and faster queries. However, the ability to achieve good
@@ -195,5 +195,5 @@ For more information about setting up multi-node, see the
 [multi-node section][multi-node]
 
 [2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/

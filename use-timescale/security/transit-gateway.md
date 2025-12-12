@@ -93,7 +93,6 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 You can now securely access your $SERVICE_SHORTs in $CLOUD_LONG.
 
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[azure-aws]: https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/ 
+[azure-aws]: https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/
 [gcp-aws]: https://cloud.google.com/network-connectivity/docs/vpn/how-to/connect-ha-vpn-aws-peer-gateway
 [aws-onprem]: https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralize-network-connectivity-using-aws-transit-gateway.html

@@ -16,18 +16,18 @@ TimescaleDB v2.23 was released on October 29th and is now available on Tiger Clo
 
 ### Highlighted features in TimescaleDB v2.23.0
 
-- Simplified hypertable creation: now even easier with less configuration and smarter defaults. [Create a hypertable](https://www.tigerdata.com/docs/api/latest/hypertable/create_table/#samples) in only one step with automatic selection of all parameters. This includes:
+- Simplified hypertable creation: now even easier with less configuration and smarter defaults. [Create a hypertable](https://www.tigerdata.com/docs/api/:currentVersion:/hypertable/create_table/#samples) in only one step with automatic selection of all parameters. This includes:
     - Automatic selection of the partitioning column: TimescaleDB automatically selects a partitioning column so you no longer need to specify which column to use during creation.
     - Automatic columnstore policy: TimescaleDB enables the columnstore by default and automatically creates a columnstore policy that runs after one chunk interval (defaults to 7 days).
 - UUIDv7 compression enabled by default: the UUIDv7 vectorized compression and query acceleration introduced in 2.22 are now enabled by default. You automatically benefit from ~30% storage savings and up to 2x faster query performance.
-- Direct-to-Columnstore (tech preview): this release adds `INSERT` support to Direct-to-Columnstore (Direct Compress), which previously supported only `COPY`. For more information, see our [documentation](https://www.tigerdata.com/docs/use-timescale/latest/write-data/insert/#direct-compress-on-insert) and [blog post](https://www.tigerdata.com/blog/introducing-direct-compress-up-to-40x-faster-leaner-data-ingestion-for-developers-tech-preview).
+- Direct-to-Columnstore (tech preview): this release adds `INSERT` support to Direct-to-Columnstore (Direct Compress), which previously supported only `COPY`. For more information, see our [documentation](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/write-data/insert/#direct-compress-on-insert) and [blog post](https://www.tigerdata.com/blog/introducing-direct-compress-up-to-40x-faster-leaner-data-ingestion-for-developers-tech-preview).
 - Relaxed locking for chunk merging: concurrency during chunk merges has been improved to eliminate potential deadlocks, enabling safer, faster background merges.
 - Unlogged hypertables: added the ability to set hypertables as `UNLOGGED`, improving insert and update performance for workloads where durability is not required. Ideal for large imports or transient datasets.
 - Continuous aggregates improvements: continuous aggregates no longer use triggers for invalidation tracking. The approach has been refactored resulting in 10–20% faster DML performance. [Set-returning functions](https://www.postgresql.org/docs/current/functions-srf.html) are now supported in continuous aggregate materialization queries ([community request #1717](https://github.com/timescale/timescaledb/issues/1717)).
 
 ### Deprecations
 
-- Postgres 15 deprecation: TimescaleDB will continue supporting Postgres 15 until June 2026, after which support will be removed. We recommend that you begin planning upgrades to Postgres 16 or higher to ensure continued access to performance improvements, security updates, and new TimescaleDB features. See [Supported platforms](https://www.tigerdata.com/docs/about/latest/supported-platforms/#postgres-timescaledb-support-matrix) for currently supported versions. 
+- Postgres 15 deprecation: TimescaleDB will continue supporting Postgres 15 until June 2026, after which support will be removed. We recommend that you begin planning upgrades to Postgres 16 or higher to ensure continued access to performance improvements, security updates, and new TimescaleDB features. See [Supported platforms](https://www.tigerdata.com/docs/about/:currentVersion:/supported-platforms/#postgres-timescaledb-support-matrix) for currently supported versions. 
 - WAL-based invalidation: introduced as a tech preview in 2.22, WAL-based invalidation will be sunset in the upcoming releases. The approach was not the right architecture to address customers hitting IOPS limits during continuous aggregate invalidation tracking. This release already removes the trigger, and we are adding more improvements in upcoming releases to address IOPS. The first step is to gate the feature behind a GUC, and remove it in an upcoming release.
 
 For a comprehensive list of changes, refer to the [TimescaleDB 2.23 release notes](https://github.com/timescale/timescaledb/blob/main/CHANGELOG.md#2230-2025-10-29).
@@ -89,11 +89,11 @@ We've added a [new pricing plan](https://www.tigerdata.com/blog/introducing-agen
 
 ### **>_** Tiger CLI 
 
-We have released a new [CLI](https://github.com/timescale/tiger-cli) that lets you control Tiger Cloud from the terminal.  Everything from signing up, to spinning up services, to executing SQL on running services is now possible outside of the Tiger Cloud Console. Check out [our docs](https://www.tigerdata.com/docs/getting-started/latest/get-started-devops-as-code/) for how to download and use this new tool.
+We have released a new [CLI](https://github.com/timescale/tiger-cli) that lets you control Tiger Cloud from the terminal.  Everything from signing up, to spinning up services, to executing SQL on running services is now possible outside of the Tiger Cloud Console. Check out [our docs](https://www.tigerdata.com/docs/getting-started/:currentVersion:/get-started-devops-as-code/) for how to download and use this new tool.
 
 ### 🎓 Tiger MCP for Postgres and TimescaleDB
 
-Our new [MCP server](https://www.tigerdata.com/docs/ai/latest/mcp-server/) enables AI agents to interact with the database and  understand how to use it well. We’ve taken our 10+ years of Postgres experience and distilled it into a set of built-in master prompts. This gives agents safe, structured access to the database through high-level tools for schema design, query tuning, migrations, and more.  You can install it locally with Tiger CLI.
+Our new [MCP server](https://www.tigerdata.com/docs/ai/:currentVersion:/mcp-server/) enables AI agents to interact with the database and  understand how to use it well. We’ve taken our 10+ years of Postgres experience and distilled it into a set of built-in master prompts. This gives agents safe, structured access to the database through high-level tools for schema design, query tuning, migrations, and more.  You can install it locally with Tiger CLI.
 
 ### 🌊 Fluid Storage 
 
@@ -101,7 +101,7 @@ We are previewing a new distributed storage layer on Tiger Cloud that allows ins
 
 ### 🔍 pg_textsearch extension preview
 
-This new extension enables BM25 on Postgres, which leads to significant improvements in text search over vanilla keyword search.  See [our docs](https://www.tigerdata.com/docs/use-timescale/latest/extensions/pg-textsearch/) for details.
+This new extension enables BM25 on Postgres, which leads to significant improvements in text search over vanilla keyword search.  See [our docs](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/extensions/pg-textsearch/) for details.
 
 ## TimescaleDB 2.22.1 – configurable indexing, enhanced partitioning, and faster queries
 <Label type="date">October 10, 2025</Label>
@@ -118,7 +118,7 @@ This new extension enables BM25 on Postgres, which leads to significant improvem
     
     * **UUIDv7 partitioning:** hypertables can now be partitioned on UUIDv7 columns, combining time-based chunking with globally unique IDs—ideal for large-scale event and log data.
 
-* **Multi-column SkipScan:** expands SkipScan to support multiple distinct keys, delivering millisecond-fast deduplication and `DISTINCT ON` queries across billions of rows. Learn more in our [blog post](https://www.tigerdata.com/blog/skipscan-in-timescaledb-why-distinct-was-slow-how-we-built-it-and-how-you-can-use-it) and [documentation](https://www.tigerdata.com/docs/use-timescale/latest/query-data/skipscan/).
+* **Multi-column SkipScan:** expands SkipScan to support multiple distinct keys, delivering millisecond-fast deduplication and `DISTINCT ON` queries across billions of rows. Learn more in our [blog post](https://www.tigerdata.com/blog/skipscan-in-timescaledb-why-distinct-was-slow-how-we-built-it-and-how-you-can-use-it) and [documentation](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/query-data/skipscan/).
 * **Compression improvements:** default `segmentby` and `orderby` settings are now applied at compression time for each chunk, automatically adapting to evolving data patterns for better performance. This was previously set at the hypertable level and fixed across all chunks.
 
 ### Deprecations
@@ -130,7 +130,7 @@ For a comprehensive list of changes, refer to the TimescaleDB [2.22](https://git
 ## Kafka Source Connector (beta)
 <Label type="date">September 19, 2025</Label>
 
-The new [Kafka Source Connector](https://www.tigerdata.com/docs/migrate/latest/livesync-for-kafka/) enables you to connect your existing Kafka clusters directly to Tiger Cloud and ingest data from Kafka topics into hypertables. Developers often build proxies or run JDBC Sink Connectors to bridge Kafka and Tiger Cloud, which is error-prone and time-consuming. With the Kafka Source Connector, you can seamlessly start ingesting your Kafka data natively without additional middleware.
+The new [Kafka Source Connector](https://www.tigerdata.com/docs/migrate/:currentVersion:/livesync-for-kafka/) enables you to connect your existing Kafka clusters directly to Tiger Cloud and ingest data from Kafka topics into hypertables. Developers often build proxies or run JDBC Sink Connectors to bridge Kafka and Tiger Cloud, which is error-prone and time-consuming. With the Kafka Source Connector, you can seamlessly start ingesting your Kafka data natively without additional middleware.
 
 - Supported formats: AVRO
 - Supported platforms: Confluent Cloud and Amazon Managed Streaming for Apache Kafka
@@ -144,7 +144,7 @@ The new [Kafka Source Connector](https://www.tigerdata.com/docs/migrate/latest/l
 
 ### 🛡️ Phased rollouts for TimescaleDB minor releases
 
-Starting with TimescaleDB 2.22.0, minor releases will now roll out in phases. Services tagged `#dev` will get upgraded first, followed by `#prod` after 21 days. This gives you time to validate upgrades in `#dev` before they reach `#prod` services. [Subscribe](https://status.timescale.com/?__hstc=231067136.cc62bfc44030d30e3b1c3d1bc78c9cab.1750169693582.1757669826871.1757685085606.116&__hssc=231067136.4.1757685085606&__hsfp=2801608430) to get an email notification before your `#prod` service is upgraded. See [Maintenance and upgrades](https://www.tigerdata.com/docs/use-timescale/latest/upgrades/) for details.
+Starting with TimescaleDB 2.22.0, minor releases will now roll out in phases. Services tagged `#dev` will get upgraded first, followed by `#prod` after 21 days. This gives you time to validate upgrades in `#dev` before they reach `#prod` services. [Subscribe](https://status.timescale.com/?__hstc=231067136.cc62bfc44030d30e3b1c3d1bc78c9cab.1750169693582.1757669826871.1757685085606.116&__hssc=231067136.4.1757685085606&__hsfp=2801608430) to get an email notification before your `#prod` service is upgraded. See [Maintenance and upgrades](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/upgrades/) for details.
 
 ### ⏰ pg_cron extension
 
@@ -206,7 +206,7 @@ A new data import component has been added to the overview dashboard, providing 
 
 ### Developer role (GA)
 
-The [Developer role in Tiger Cloud](https://www.tigerdata.com/docs/use-timescale/latest/security/members/) is now 
+The [Developer role in Tiger Cloud](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/security/members/) is now 
 generally available. It’s a project‑scoped permission set that lets technical users build and 
 operate services, create or modify resources, run queries, and use observability—without admin or billing access. 
 This enforces least‑privilege by default, reducing risk and audit noise, while keeping governance with Admins/Owners and 
@@ -228,7 +228,7 @@ partition key and transform the table to a hypertable.
 
 ### Cross-region backups
 
-You can now store backups in a different region than your service, which improves resilience and helps meet enterprise compliance requirements. Cross‑region backups are available on our Enterprise plan for free at launch; usage‑based billing may be introduced later. For full details, please [see the docs](https://www.tigerdata.com/docs/use-timescale/latest/backup-restore/#enable-cross-region-backup).
+You can now store backups in a different region than your service, which improves resilience and helps meet enterprise compliance requirements. Cross‑region backups are available on our Enterprise plan for free at launch; usage‑based billing may be introduced later. For full details, please [see the docs](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/backup-restore/#enable-cross-region-backup).
 
 ### Standard Postgres instructions for onboarding
 We have added basic instructions for INSERT, UPDATE, DELETE commands to the Tiger Cloud console.  It's now shown as an option in the Import Data page.
@@ -289,7 +289,7 @@ You can now view catalog objects in the Console Explorer. Check out the internal
 
 We have released a beta Iceberg destination connector that enables Scale and Enterprise users to integrate Tiger Cloud services with Amazon S3 tables. This enables you to connect Tiger Cloud to data lakes seamlessly. We are actively developing several improvements that will make the overall data lake integration process even smoother.
 
-To use this feature, select your service in Tiger Cloud Console, then navigate to `Connectors` and select the `Amazon S3 Tables` destination connector. Integrate the connector to your S3 table bucket by providing the ARN roles, then simply select the tables that you want to sync into S3 tables. See the [documentation](https://www.tigerdata.com/docs/use-timescale/latest/tigerlake/) for details. 
+To use this feature, select your service in Tiger Cloud Console, then navigate to `Connectors` and select the `Amazon S3 Tables` destination connector. Integrate the connector to your S3 table bucket by providing the ARN roles, then simply select the tables that you want to sync into S3 tables. See the [documentation](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/tigerlake/) for details. 
 
 ## 🔆Console just got better
 <Label type="date">July 11, 2025</Label>
@@ -394,7 +394,7 @@ For a comprehensive list of changes, refer to the [TimescaleDB 2.20.3 release no
 
 ### Horizontal read scaling with read replica sets
 
-[Read replica sets](https://docs.timescale.com/use-timescale/latest/ha-replicas/read-scaling/) are an improved version of read replicas. They let you scale reads horizontally by creating up to 10 replica nodes behind a single read endpoint. Just point your read queries to the endpoint and configure the number of replicas you need without changing your application logic. You can increase or decrease the number of replicas in the set dynamically, with no impact on the endpoint.
+[Read replica sets](https://docs.timescale.com/use-timescale/:currentVersion:/ha-replicas/read-scaling/) are an improved version of read replicas. They let you scale reads horizontally by creating up to 10 replica nodes behind a single read endpoint. Just point your read queries to the endpoint and configure the number of replicas you need without changing your application logic. You can increase or decrease the number of replicas in the set dynamically, with no impact on the endpoint.
 
 Read replica sets are used to:
 
@@ -424,7 +424,7 @@ As a result, working with large datasets is now faster and more intuitive. Wheth
 
 ### Latest anthropic models added to SQL assistant
 
-Data mode's [SQL assistant](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#sql-assistant) now supports Anthropic's latest models:
+Data mode's [SQL assistant](https://docs.timescale.com/getting-started/:currentVersion:/run-queries-from-console/#sql-assistant) now supports Anthropic's latest models:
 
 - Sonnet 4
 - Sonnet 4 (extended thinking)
@@ -433,7 +433,7 @@ Data mode's [SQL assistant](https://docs.timescale.com/getting-started/latest/ru
 
 ### VPC support for passwordless data mode connections
 
-We previously made it much easier to connect newly created services to Timescale’s [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#data-mode). We have now expanded this functionality to services using a VPC.
+We previously made it much easier to connect newly created services to Timescale’s [data mode](https://docs.timescale.com/getting-started/:currentVersion:/run-queries-from-console/#data-mode). We have now expanded this functionality to services using a VPC.
 
 ## 🕵🏻️ Enhanced service monitoring, TimescaleDB v2.20, and livesync for $PG
 <Label type="date">May 30, 2025</Label>
@@ -484,10 +484,10 @@ The timeline for the $PG 13 and 14 deprecation is as follows:
 
 - **Deprecation notice period begins**: starting in early June 2025, you will receive email communication.
 - **Customer self-service upgrade window**: June 2025 through September 14, 2025. We strongly encourage you to
-  [manually upgrade $PG](https://www.tigerdata.com/docs/use-timescale/latest/upgrades/#manually-upgrade-postgresql-for-a-service)
+  [manually upgrade $PG](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/upgrades/#manually-upgrade-postgresql-for-a-service)
   during this period.
 - **Automatic upgrade deadline**: your service will be
-  [automatically upgraded](https://docs.timescale.com/use-timescale/latest/upgrades/#automatic-postgresql-upgrades-for-a-service)
+  [automatically upgraded](https://docs.timescale.com/use-timescale/:currentVersion:/upgrades/#automatic-postgresql-upgrades-for-a-service)
   from September 15, 2025.
 
 ### Enhancements to livesync for $PG
@@ -515,7 +515,7 @@ With enhanced storage, Timescale Cloud now supports:
 - Up to 32,000 IOPS, enabling high-throughput ingest and low-latency queries
 
 Powered by AWS io2 volumes, enhanced storage gives your workloads the headroom they need—whether you're building financial data pipelines, developing IoT platforms, or processing billions of rows of telemetry. No more worrying about storage ceilings or IOPS bottlenecks.
-Enable enhanced storage in Timescale Console under `Operations` → `Compute & Storage`. Enhanced storage is currently available on the Enterprise pricing plan only. [Learn more here](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/).
+Enable enhanced storage in Timescale Console under `Operations` → `Compute & Storage`. Enhanced storage is currently available on the Enterprise pricing plan only. [Learn more here](https://docs.timescale.com/use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/).
 
 ![I/O boost in Timescale Cloud](https://assets.timescale.com/docs/images/io-boost-timescale-cloud.png)
 
@@ -532,7 +532,7 @@ With the Prometheus Exporter, you can:
 - Set alerts for high CPU load, low memory, or storage nearing capacity
 
 To get started, create a Prometheus Exporter in the Timescale Console, attach it to your service, and configure Prometheus to scrape from the exposed URL. Metrics are secured with basic auth.
-Available on Scale and Enterprise plans. [Learn more here](https://docs.timescale.com/use-timescale/latest/metrics-logging/metrics-to-prometheus/).
+Available on Scale and Enterprise plans. [Learn more here](https://docs.timescale.com/use-timescale/:currentVersion:/metrics-logging/metrics-to-prometheus/).
 
 ![Prometheus export user interface](https://assets.timescale.com/docs/images/timescale-create-prometheus-exporter.png)
 
@@ -561,7 +561,7 @@ You can now import a dataset directly from Hugging Face using Timescale Console.
 
 ### Livesync for S3 (beta)
 
-[Livesync for S3](https://docs.timescale.com/migrate/latest/livesync-for-s3/) is our second livesync offering in 
+[Livesync for S3](https://docs.timescale.com/migrate/:currentVersion:/livesync-for-s3/) is our second livesync offering in 
 Timescale Console, following livesync for $PG. This feature helps users sync data in their S3 buckets to a
 Timescale Cloud service, and simplifies data importing. Livesync handles both existing and new data in real time, 
 automatically syncing everything into a Timescale Cloud service. Users can integrate Timescale Cloud alongside S3, where 
@@ -576,7 +576,7 @@ an ingestion layer.
 
 ### UX improvements to livesync for $PG
 
-In [livesync for $PG](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/), getting started 
+In [livesync for $PG](https://docs.timescale.com/migrate/:currentVersion:/livesync-for-postgresql/), getting started 
 requires setting the `WAL_LEVEL` to `logical`, and granting specific permissions to start a publication 
 on the source database. To simplify this setup process, we have added a detailed two-step checklist with comprehensive 
 configuration instructions to Timescale Console.
@@ -585,7 +585,7 @@ configuration instructions to Timescale Console.
 
 ### Passwordless data mode connections
 
-We’ve made connecting to your Timescale Cloud services from [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#connect-to-your-timescale-cloud-service-in-the-data-mode) 
+We’ve made connecting to your Timescale Cloud services from [data mode](https://docs.timescale.com/getting-started/:currentVersion:/run-queries-from-console/#connect-to-your-timescale-cloud-service-in-the-data-mode) 
 in Timescale Console even easier! All new services created in Timescale Cloud are now automatically accessible from 
 data mode without requiring you to enter your service credentials. Just open data mode, select your service, and 
 start querying.
@@ -668,7 +668,7 @@ For more information, see the [pgvectorscale release notes][log-28032025-pgvecto
 Each job now has an individual page in Timescale Console, and displays additional details about job errors. You use 
 this information to debug failing jobs. 
 
-To see the job information page, in [Timescale Console][console], select the service to check, then click `Jobs` > job ID to investigate.
+To see the job information page, in [Timescale Console][services-portal], select the service to check, then click `Jobs` > job ID to investigate.
 
 - Successful jobs: 
 
@@ -681,7 +681,7 @@ To see the job information page, in [Timescale Console][console], select the ser
 ## 🤩 In-Console Livesync for $PG
 <Label type="date">March 21, 2025</Label>
 
-You can now set up an active data ingestion pipeline with livesync for $PG in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep livesync running for as long as you need, ensuring that your existing source $PG tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for $PG](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/). 
+You can now set up an active data ingestion pipeline with livesync for $PG in Timescale Console. This tool enables you to replicate your source database tables into Timescale's hypertables indefinitely. Yes, you heard that right—keep livesync running for as long as you need, ensuring that your existing source $PG tables stay in sync with Timescale Cloud. Read more about setting up and using [Livesync for $PG](https://docs.timescale.com/migrate/:currentVersion:/livesync-for-postgresql/). 
 
 ![Livesync in Timescale Console](https://assets.timescale.com/docs/images/timescale-cloud-livesync-tile.png)
 
@@ -798,7 +798,7 @@ This new release includes a number of bug fixes and small improvements including
   
 ###  AWS Transit Gateway support is now generally available!
 
-Timescale Cloud now fully supports [AWS Transit Gateway](https://docs.timescale.com/use-timescale/latest/security/transit-gateway/), making it even easier to securely connect your database to multiple VPCs across different environments—including AWS, on-prem, and other cloud providers.
+Timescale Cloud now fully supports [AWS Transit Gateway](https://docs.timescale.com/use-timescale/:currentVersion:/security/transit-gateway/), making it even easier to securely connect your database to multiple VPCs across different environments—including AWS, on-prem, and other cloud providers.
 
 With this update, you can establish a peering connection between your Timescale Cloud services and an AWS Transit Gateway in your AWS account. This keeps your Timescale Cloud services safely behind a VPC while allowing seamless access across complex network setups.
 
@@ -846,7 +846,7 @@ For enhanced network security, you can now also create IP allowlists in the Time
 
 This feature is available in:
 
-- [Timescale Console][console] data mode, for all pricing tiers
+- [Timescale Console][services-portal] data mode, for all pricing tiers
 - [PopSQL web][popsql-web]
 - [PopSQL desktop][popsql-desktop]
 
@@ -900,7 +900,7 @@ All feature requests are automatically published to the [Timescale Forum](https:
 ### $PG Livesync (Alpha release)
 We have built a new solution that helps you continuously replicate all or some of your $PG tables directly into Timescale Cloud.
 
-[Livesync](https://docs.timescale.com/migrate/latest/livesync-for-postgresql/) allows you to keep a current $PG instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
+[Livesync](https://docs.timescale.com/migrate/:currentVersion:/livesync-for-postgresql/) allows you to keep a current $PG instance such as RDS as your primary database, and easily offload your real-time analytical queries to Timescale Cloud to boost their performance. If you have any questions or feedback, talk to us in [#livesync in Timescale Community](https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88).
 
 This is just the beginning—you'll see more from livesync in 2025!
 
@@ -947,14 +947,14 @@ See all the jobs associated with your service through a new `Jobs` tab. You can 
 
 IP Allow Lists let you specify a list of IP addresses that have access to your Timescale Cloud services and block any others. IP Allow Lists are a
 lightweight but effective solution for customers concerned with security and compliance. They enable 
-you to prevent unauthorized connections without the need for a [Virtual Private Cloud (VPC)](https://docs.timescale.com/use-timescale/latest/security/vpc/). 
+you to prevent unauthorized connections without the need for a [Virtual Private Cloud (VPC)](https://docs.timescale.com/use-timescale/:currentVersion:/security/vpc/). 
 
 To get started, in [Timescale Console](https://console.cloud.timescale.com/), select a service, then click
 **Operations** > **Security** >  **IP Allow List**, then create an IP Allow List.
 
 ![IP Allow lists](https://assets.timescale.com/docs/images/IP-Allow-lists.png)
 
-For more information, [see our docs](https://docs.timescale.com/use-timescale/latest/security/ip-allow-list/). 
+For more information, [see our docs](https://docs.timescale.com/use-timescale/:currentVersion:/security/ip-allow-list/). 
 
 ## 🤩 SQL Assistant, TimescaleDB v2.17, HIPAA compliance, and better logging
 <Label type="date">November 14, 2024</Label>
@@ -979,13 +979,13 @@ SQL Assistant uses AI to help you write SQL faster and more accurately.
 
    ![AI generated query title](https://assets.timescale.com/docs/images/ai-generate-title.png)
 
-See our [blog post](https://www.tigerdata.com/blog/postgres-gui-sql-assistant/) or [docs](https://www.tigerdata.com/docs/getting-started/latest/run-queries-from-console/#sql-assistant) for full details!
+See our [blog post](https://www.tigerdata.com/blog/postgres-gui-sql-assistant/) or [docs](https://www.tigerdata.com/docs/getting-started/:currentVersion:/run-queries-from-console/#sql-assistant) for full details!
 
 ### 🏄 TimescaleDB v2.17 - performance improvements for analytical queries and continuous aggregate refreshes
 
 Starting this week, all new services created on Timescale Cloud use [TimescaleDB v2.17](https://github.com/timescale/timescaledb/releases/tag/2.17.0). Existing services are upgraded gradually during their maintenance windows.
 
-TimescaleDB v2.17 significantly improves the performance of [continuous aggregate refreshes](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/refresh-policies/), and contains performance improvements for [analytical queries and delete operations](https://docs.timescale.com/use-timescale/latest/compression/modify-compressed-data/) over compressed hypertables.
+TimescaleDB v2.17 significantly improves the performance of [continuous aggregate refreshes](https://docs.timescale.com/use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/), and contains performance improvements for [analytical queries and delete operations](https://docs.timescale.com/use-timescale/:currentVersion:/compression/modify-compressed-data/) over compressed hypertables.
 
 Best practice is to upgrade at the next available opportunity.
 
@@ -1013,7 +1013,7 @@ Highlighted features in TimescaleDB v2.17 are:
 
 ### HIPAA compliance
 
-Timescale Cloud's [Enterprise plan](https://docs.timescale.com/about/latest/pricing-and-account-management/#features-included-in-each-pricing-plan) is now HIPAA (Health Insurance Portability and Accountability Act) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they meet regulatory requirements while building compliant applications.
+Timescale Cloud's [Enterprise plan](https://docs.timescale.com/about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan) is now HIPAA (Health Insurance Portability and Accountability Act) compliant. This allows organizations to securely manage and analyze sensitive healthcare data, ensuring they meet regulatory requirements while building compliant applications.
 
 ### Expanded logging within Timescale Console
 
@@ -1045,10 +1045,10 @@ Navigate to the AI tab in your service overview and follow the instructions to a
 ![Vectorizer setup](https://s3.amazonaws.com/assets.timescale.com/docs/images/vectorizer-setup.png)
 
 ### $PG-to-$PG foreign data wrappers: 
-Fetch and query data from multiple $PG databases, including time-series data in hypertables, directly within Timescale Cloud using [foreign data wrappers (FDW)](https://docs.timescale.com/use-timescale/latest/schema-management/foreign-data-wrappers/). No more complicated ETL processes or external tools—just seamless integration right within your SQL editor. This feature is ideal for developers who manage multiple $PG and time-series instances and need quick, easy access to data across databases.
+Fetch and query data from multiple $PG databases, including time-series data in hypertables, directly within Timescale Cloud using [foreign data wrappers (FDW)](https://docs.timescale.com/use-timescale/:currentVersion:/schema-management/foreign-data-wrappers/). No more complicated ETL processes or external tools—just seamless integration right within your SQL editor. This feature is ideal for developers who manage multiple $PG and time-series instances and need quick, easy access to data across databases.
 
 ### Faster queries over tiered data 
-This release adds support for runtime chunk exclusion for queries that need to access [tiered storage](https://docs.timescale.com/use-timescale/latest/data-tiering/). Chunk exclusion now works with queries that use stable expressions in the `WHERE` clause. The most common form of this type of query is:
+This release adds support for runtime chunk exclusion for queries that need to access [tiered storage](https://docs.timescale.com/use-timescale/:currentVersion:/data-tiering/). Chunk exclusion now works with queries that use stable expressions in the `WHERE` clause. The most common form of this type of query is:
 
 ```
 SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
@@ -1056,7 +1056,7 @@ SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
 
 For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance/).
 
-If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#disable-tiering). 
+If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#disable-tiering). 
 
 ### Chunk interval recommendations
 Timescale Console now shows recommendations for services with too many small chunks in their hypertables. 
@@ -1081,7 +1081,7 @@ The newest version of Data Mode Notebooks is now waaaay faster.  Why? We've inco
 
 Last year, we began developing a solution for low-downtime migration from $PG and TimescaleDB. Since then, this solution has evolved significantly, featuring enhanced functionality, improved reliability, and performance optimizations. We're now proud to announce that **live migration is production-ready** with the release of version 1.0.
 
-Many of our customers have successfully migrated databases to Timescale using [live migration](https://docs.timescale.com/migrate/latest/live-migration/), with some databases as large as a few terabytes in size.
+Many of our customers have successfully migrated databases to Timescale using [live migration](https://docs.timescale.com/migrate/:currentVersion:/live-migration/), with some databases as large as a few terabytes in size.
 
 ### 🔁 Actions Tab
 
@@ -1156,7 +1156,7 @@ Previously, Timescale offered only a single synchronous replica for customers se
 
 ![High Availability](https://s3.amazonaws.com/assets.timescale.com/docs/images/high-availability.png)
 
-For more details on multiple HA replicas, see [Manage high availability](https://docs.timescale.com/use-timescale/latest/ha-replicas/high-availability/).
+For more details on multiple HA replicas, see [Manage high availability](https://docs.timescale.com/use-timescale/:currentVersion:/ha-replicas/high-availability/).
 
 ### Other improvements
 
@@ -1171,7 +1171,7 @@ For more details on multiple HA replicas, see [Manage high availability](https:/
 
 ### One-click SQL statement execution from Timescale Console
 
-Now you can simply click to run SQL statements in various places in the Console. This requires that the [SQL Editor][sql-editor] is enabled for the service.
+Now you can simply click to run SQL statements in various places in the Console. This requires that the [SQL Editor][run-sqleditor] is enabled for the service.
 
 * Enable Continuous Aggregates from the CAGGs wizard by clicking **Run** below the SQL statement.
 ![Enable Continuous Aggregates](https://s3.amazonaws.com/assets.timescale.com/docs/images/enable-continuous-aggregates.gif)
@@ -1363,7 +1363,7 @@ To support evolving customer needs, Timescale Cloud now offers three plans to pr
 - **Scale:** for developers handling critical and demanding apps.
 - **Enterprise:** for enterprises with mission-critical apps.
 
-Each plan continues to bill based on hourly usage, primarily for compute you run and storage you consume.  You can upgrade or downgrade between Performance and Scale plans via the Console UI at any time.  More information about the specifics and differences between these pricing plans can be found [here in the docs](https://docs.timescale.com/about/latest/pricing-and-account-management/).
+Each plan continues to bill based on hourly usage, primarily for compute you run and storage you consume.  You can upgrade or downgrade between Performance and Scale plans via the Console UI at any time.  More information about the specifics and differences between these pricing plans can be found [here in the docs](https://docs.timescale.com/about/:currentVersion:/pricing-and-account-management/).
 ![Pricing plans in the console](https://assets.timescale.com/docs/images/pricing-plans-in-console.png)
 
 ### Improvements to the Timescale Console
@@ -1408,7 +1408,7 @@ The following improvements have been made to the Timescale [live-migration docke
 - Improvements to pbcopydb increase performance and remove unhelpful warning messages.
 - The user notification log enables you to always select the most recent release for a migration run.
 
-For improved stability and new features, update to the latest [timescale/live-migration](https://hub.docker.com/r/timescale/live-migration/tags) docker image. To learn more, see the [live migration docs](https://docs.timescale.com/migrate/latest/live-migration/).
+For improved stability and new features, update to the latest [timescale/live-migration](https://hub.docker.com/r/timescale/live-migration/tags) docker image. To learn more, see the [live migration docs](https://docs.timescale.com/migrate/:currentVersion:/live-migration/).
 
 ## 🦙Ollama integration in pgai
 
@@ -1453,7 +1453,7 @@ To access the compression wizard, navigate to `Explorer`, and select the hyperta
 
 <Label type="date">June 11, 2024</Label>
 
-The [vectorscale extension][pgvectorscale] is now available on [Timescale Cloud][signup].
+The [vectorscale extension][pgvectorscale] is now available on [Timescale Cloud][timescale-signup].
 
 pgvectorscale complements pgvector, the open-source vector data extension for $PG, and introduces the
 following key innovations for pgvector data:
@@ -1473,7 +1473,7 @@ To learn more, see the [pgvectorscale documentation][pgvectorscale].
 
 <Label type="date">June 11, 2024</Label>
 
-The [pgai extension][pgai] is now available on [Timescale Cloud][signup].
+The [pgai extension][pgai] is now available on [Timescale Cloud][timescale-signup].
 
 pgai brings embedding and generation AI models closer to the database. With pgai, you can now do the following directly
 from within $PG in a SQL query:
@@ -1502,7 +1502,7 @@ To learn more, see the [TimescaleDB release notes](https://github.com/timescale/
 ## 🔍 Database Audit Logging with pgaudit
 <Label type="date">May 31, 2024</Label>
 
-The [$PG Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][signup].
+The [$PG Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][timescale-signup].
 pgaudit provides detailed database session and object audit logging in the Timescale
 Cloud logs.
 
@@ -1516,7 +1516,7 @@ To learn more, see the [pgaudit documentation](https://github.com/pgaudit/pgaudi
 <Label type="date">May 31, 2024</Label>
 
 The [SI Units for $PG extension(unit)](https://github.com/df7cb/postgresql-unit) provides support for the
-[ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in [Timescale Cloud][signup].
+[ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in [Timescale Cloud][timescale-signup].
 
 You can use Timescale Cloud to solve day-to-day questions. For example, to see what 50°C is in °F, run the following
 query in your Timescale Cloud service:
@@ -1531,17 +1531,15 @@ SELECT '50°C'::unit @ '°F' as temp;
 
 To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/postgresql-unit).
 
-[release-notes]: /about/:currentVersion:/release-notes/
-[timescaledb-releases]: https://github.com/timescale/timescaledb/releases/
 [pgai]: https://github.com/timescale/pgai
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/
-[signup]: https://console.cloud.timescale.com/signup
-[sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
+[timescale-signup]: https://console.cloud.timescale.com/signup
+[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
 [aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
 [ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
 [popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: https://popsql.com/download
-[console]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [integrations]: /integrations/:currentVersion:/
 [log-28032025-pgvectorscale-rn]: https://github.com/timescale/pgvectorscale/releases/tag/0.7.0
 [log-28032025-pgvectorscale-example]: https://github.com/timescale/pgvectorscale?tab=readme-ov-file#label-based-filtering-with-diskann

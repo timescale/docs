@@ -221,7 +221,7 @@ and most other tasks are executed on the hypertable.
 1.  Formulate the `SELECT` statement to convert the table into a hypertable. You
     must specify the table name to convert to a hypertable, and its time column
     name as the second argument. For more information, see the
-    [`create_hypertable` docs][create-hypertable-docs]:
+    [`create_hypertable` docs][create-a-hypertable]:
 
     ```go
     queryCreateHypertable := `SELECT create_hypertable('sensor_data', by_range('time'));`
@@ -867,23 +867,19 @@ Now that you're able to connect, read, and write to a $TIMESCALE_DB instance fro
 your Go application, be sure to check out these advanced $TIMESCALE_DB tutorials:
 
 *   Refer to the [pgx documentation][pgx-docs] for more information about pgx.
-*   Get up and running with $TIMESCALE_DB with the [Getting Started][getting-started]
+*   Get up and running with $TIMESCALE_DB with the [Getting Started][install]
     tutorial.
 *   Want fast inserts on CSV data? Check out
-    [$TIMESCALE_DB parallel copy][parallel-copy-tool], a tool for fast inserts,
+    [$TIMESCALE_DB parallel copy][timescaledb-parallel-copy], a tool for fast inserts,
     written in Go.
 
-[getting-started]: /getting-started/:currentVersion:/
+[install]: /getting-started/:currentVersion:/
 [golang-install]: https://golang.org/doc/install
 [libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
-[parallel-copy-tool]: https://github.com/timescale/timescaledb-parallel-copy
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
 [pgx-driver-github]: https://github.com/jackc/pgx
 [install]: /getting-started/:currentVersion:/
-[connect]: /getting-started/:currentVersion:/start-coding-with-timescale/#connect-to-timescaledb
-[create-table]: /getting-started/:currentVersion:/start-coding-with-timescale/#create-a-relational-table
 [create-a-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
-[insert]: /getting-started/:currentVersion:/start-coding-with-timescale/#insert-rows-of-data
-[query]: /getting-started/:currentVersion:/start-coding-with-timescale/#execute-a-query
-[create-hypertable-docs]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
-[create-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
+[create-a-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
+[create-a-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable

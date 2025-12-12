@@ -15,7 +15,7 @@ older than 30 days.
 
 Dropping chunks manually is a one-time operation. To automatically drop chunks
 as they age, set up a
-[data retention policy](/use-timescale/latest/data-retention/create-a-retention-policy/).
+[data retention policy](/use-timescale/:currentVersion:/data-retention/create-a-retention-policy/).
 
 </Highlight>
 

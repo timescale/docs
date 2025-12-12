@@ -39,7 +39,7 @@ peering connection to your Customer $VPC, you use AWS Security Groups to
 restrict the apps in your Customer $VPC that are visible to the Peering $VPC.
 The last step is to attach individual $SERVICE_SHORTs to the Peering $VPC in $CONSOLE. 
 
-* You create each Peering $VPC on a [$PROJECT_LONG level][project-members].
+* You create each Peering $VPC on a [$PROJECT_LONG level][projects].
 
 <VpcLimitations />
 
@@ -55,7 +55,7 @@ To set up $VPC peering, you need the following permissions in your AWS account:
 
 To connect to a $SERVICE_LONG using $VPC peering, your apps and infrastructure must be already
 running in an Amazon Web Services (AWS) $VPC. You can peer your $VPC from any AWS region.
-However, your Peering $VPC must be within one of the [Cloud-supported regions][tsc-regions].
+However, your Peering $VPC must be within one of the [Cloud-supported regions][regions].
 
 The stages to create a secured connection between $SERVICE_LONGs and your AWS infrastructure are:
 
@@ -180,7 +180,7 @@ AWS $VPC. It is no longer accessible using the public internet.
 
 <Procedure>
 
-1.  **In [$CONSOLE > Services][console-services] select the $SERVICE_SHORT you want to
+1.  **In [$CONSOLE > Services][services-portal] select the $SERVICE_SHORT you want to
     connect to the Peering $VPC**
 1. **Click `Operations` > `Security` > `VPC`**
 1. **Select the $VPC, then click `Attach VPC`**
@@ -207,7 +207,7 @@ to update your connection string.
 
 <Procedure>
 
-1. **In [$CONSOLE > Services][console-services] select the $SERVICE_SHORT to migrate**
+1. **In [$CONSOLE > Services][services-portal] select the $SERVICE_SHORT to migrate**
 
    If you don't have a $SERVICE_SHORT, [create a new one][create-service].
 1. **Click `Operations` > `Security` > `VPC`**
@@ -219,18 +219,14 @@ Migration takes a few minutes to complete and requires a change to DNS settings 
 $SERVICE_SHORT. The $SERVICE_SHORT is not accessible during this time. If you receive a DNS error, allow
 some time for DNS propagation.
 
-
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups:
-[console-login]: https://console.cloud.timescale.com/
 [console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
-[console-services]: https://console.cloud.timescale.com/dashboard/services
-[timescale-support]: https://www.timescale.com/contact/
-[tsc-regions]: /about/:currentVersion:/supported-platforms/#available-regions
-[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#create-a-peering-vpc-in-timescale-console
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[regions]: /about/:currentVersion:/supported-platforms/#available-regions
+[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#secure-your-cloud_long-services-with-vpc-peering-and-aws-privatelink
 [aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
 [aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws
-[aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/security/vpc/#attach-a-timescale-service-to-the-peering-vpc
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[project-members]: /use-timescale/:currentVersion:/security/members/
+[aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/security/vpc/#secure-your-cloud_long-services-with-vpc-peering-and-aws-privatelink
+[create-service]: /getting-started/:currentVersion:/services/#create-a-service_long
+[projects]: /use-timescale/:currentVersion:/security/members/

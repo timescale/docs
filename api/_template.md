@@ -50,5 +50,3 @@ For more information about `api_call`, see the [ docs][].
 ``` sql
 <FIXME>
 ```
-
-[link_ref]: timescaledb/:currentVersion:/how-to-guides/<FIXME>/

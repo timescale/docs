@@ -47,7 +47,7 @@ To stream data gathered in Decodable to a $SERVICE_LONG:
 
    1. Connect to your $SERVICE_LONG.
 
-      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For $SELF_LONG, use [`psql`][psql].
+      For $CLOUD_LONG, open an [SQL editor][in-console-editors] in [$CONSOLE][services-portal]. For $SELF_LONG, use [`psql`][psql].
 
    1. Check the data from Decodable is streaming into your $SERVICE_LONG.
 
@@ -63,13 +63,11 @@ To stream data gathered in Decodable to a $SERVICE_LONG:
 
 You have successfully integrated Decodable with $CLOUD_LONG. 
 
-
 [decodable]: https://www.decodable.co/
 [decodable-app]:https://app.decodable.co/-/accounts
 [sign-up-decodable]: https://auth.decodable.co/u/signup/
 [decodable-quickstart]: https://docs.decodable.co/get-started/quickstart.html
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/

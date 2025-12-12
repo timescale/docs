@@ -17,7 +17,7 @@ import Sunsetted2140 from "versionContent/_partials/_sunsetted_2_14_0.mdx";
 Get metadata information about hypertables.
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 ## Samples
 
@@ -58,6 +58,4 @@ primary_dimension_type  | timestamp with time zone
 |`primary_dimension`|TEXT| Name of the primary (time) dimension column                       |
 |`primary_dimension_type`|TEXT| Data type of the primary dimension column                         |
 
-
-
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

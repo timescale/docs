@@ -9,7 +9,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Compress continuous aggregates
 
-<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/latest/continuous-aggregates/compression-on-continuous-aggregates/">Convert continuous aggregates to the columnstore</a>. 
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates/">Convert continuous aggregates to the columnstore</a>. 
 However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Continuous aggregates are often used to downsample historical data. If the data is only used for analytical queries 
@@ -21,7 +21,7 @@ Before version
 refresh the compressed regions of a continuous aggregate. To avoid conflicts
 between compression and refresh, make sure you set `compress_after` to a larger
 interval than the `start_offset` of your [refresh
-policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
+policy](/api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy).
 </Highlight>
 
 Compression on continuous aggregates works similarly to [compression on

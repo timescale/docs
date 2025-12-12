@@ -177,7 +177,7 @@ data and analytics stored in $CLOUD_LONG.
        ```bash
        tiger-agent run --prompts prompts/  --env .env
        ```
-       If you open the explorer in [$CONSOLE][portal-ops-mode], you can see the tables used by your $AGENTS_SHORT.          
+       If you open the explorer in [$CONSOLE][services-portal], you can see the tables used by your $AGENTS_SHORT.          
 
     1. In Slack, open a public channel app and ask $AGENTS_SHORT a couple of questions. You see the response in your 
        public channel and log messages in the terminal.
@@ -280,15 +280,11 @@ tiger-agent run \
 
 Your $AGENTS_SHORTs are now configured with $COMPANY MCP server access and personalized prompts.
 
-
-
-
 [jinja-templates]: https://jinja.palletsprojects.com/en/stable/
 [logfire]: https://pydantic.dev/logfire
 [claude-api-key]: https://console.anthropic.com/settings/keys
-[create-a-service]: /getting-started/:currentVersion:/services
 [uv-install]: https://docs.astral.sh/uv/getting-started/installation/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [mcp-configuration-docs]: https://github.com/timescale/tiger-agents-for-work/blob/main/docs/mcp_config.md
 [prompt-templates]: https://github.com/timescale/tiger-agents-for-work/blob/main/docs/prompt_templates.md

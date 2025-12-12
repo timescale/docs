@@ -363,20 +363,13 @@ data lake:
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
 * A $HYPERTABLE with long running continuous aggregates refresh transactions, plus 30 minutes, can cause issues with holding the replication slot too long. Please consider batching in these cases.
 
-
 [cmc]: https://console.aws.amazon.com/cloudformation/
-[aws-athena]: https://aws.amazon.com/athena/
-[apache-spark]: https://spark.apache.org/
 [s3-tables]: https://aws.amazon.com/s3/features/tables/
-[aws-console]: https://console.aws.amazon.com/
 [s3-console]: https://console.aws.amazon.com/s3/
 [iam-dashboard]: https://console.aws.amazon.com/iamv2/home
 [iceberg-partition-spec]: https://iceberg.apache.org/spec/#partition-transforms
 [iceberg-truncate-options]: https://iceberg.apache.org/spec/#truncate-transform-details
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
-[setup-console]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-aws-management-console
-[setup-cli]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-the-aws-cloudformation-cli
-[setup-manual]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-manually
 [samples]: /use-timescale/:currentVersion:/tigerlake/#sample-code
 [partitioning]: /use-timescale/:currentVersion:/tigerlake/#partitioning-intervals
 [services-portal]: https://console.cloud.timescale.com/dashboard/services

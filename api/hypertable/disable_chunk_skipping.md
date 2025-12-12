@@ -60,10 +60,9 @@ not removed|
 
 <Highlight type="note">
 
-To `disable_chunk_skipping()`, you must have first called [enable_chunk_skipping][enable_chunk_skipping]
+To `disable_chunk_skipping()`, you must have first called [enable_chunk_skipping][api-reference]
 and enabled range tracking on a column in the hypertable.
 
 </Highlight>
 
-
-[enable_chunk_skipping]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
+[api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/

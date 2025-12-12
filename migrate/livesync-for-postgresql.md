@@ -45,8 +45,8 @@ You use the $PG_CONNECTOR for data synchronization, rather than migration. This 
     $PG exposes `COPY` progress under `pg_stat_progress_copy`.
   
 * Synchronize real-time changes from a $PG instance to a $SERVICE_LONG.
-* Add and remove tables on demand using the [$PG PUBLICATION interface][postgres-publication-interface].
-* Enable features such as [hypertables][about-hypertables], [columnstore][compression], and 
+* Add and remove tables on demand using the [$PG PUBLICATION interface][create-publication].
+* Enable features such as [hypertables][hypertables-section], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
 <EarlyAccessNoRelease />: this source Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the Tiger Community</a>. 
@@ -65,13 +65,8 @@ You use the $PG_CONNECTOR for data synchronization, rather than migration. This 
 </Tab>
 </Tabs>
 
-
 [create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
-[alter-publication]: https://www.postgresql.org/docs/current/sql-alterpublication.html
-[install-docker]: https://docs.docker.com/engine/install/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
-[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
-[postgres-publication-interface]: https://www.postgresql.org/docs/current/sql-createpublication.html
+[create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html

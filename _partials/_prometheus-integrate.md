@@ -37,7 +37,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
 1. **Create a Prometheus exporter**
 
-   1. In [$CONSOLE][open-console], click `Exporters` > `+ New exporter`.
+   1. In [$CONSOLE][services-portal], click `Exporters` > `+ New exporter`.
 
    1. Select `Metrics` for data type and `Prometheus` for provider.
 
@@ -202,11 +202,10 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the
 [grafana]: /integrations/:currentVersion:/grafana/
 [grafana-prometheus]: https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/
 [prometheus]: https://prometheus.io/docs/introduction/overview/
-[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /integrations/:currentVersion:/psql/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [postgresql-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
 [prometheus-authentication]: https://prometheus.io/docs/guides/basic-auth/

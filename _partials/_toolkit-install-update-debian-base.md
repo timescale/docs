@@ -23,7 +23,7 @@ These instructions use the `apt` package manager.
     sudo apt install timescaledb-toolkit-postgresql-17
     ```
 
-1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
+1.  [Connect to the database][connection-info] where you want to use $TOOLKIT_SHORT.
 1.  Create the $TOOLKIT_SHORT extension in the database:
 
     ```sql
@@ -50,7 +50,7 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
     apt install timescaledb-toolkit-postgresql-17
     ```
 
-1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
+1.  [Connect to the database][connection-info] where you want to use the new version of $TOOLKIT_SHORT.
 1.  Update the $TOOLKIT_SHORT extension in the database:
 
     ```sql
@@ -66,13 +66,6 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 
 </Procedure>
 
-[brew-install]: https://brew.sh
-[cloud]: /use-timescale/:currentVersion:/services/
 [debian-install]: /self-hosted/:currentVersion:/install/installation-linux/
-[docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
-[mst]: /mst/:currentVersion:/
-[red-hat-install]: /self-hosted/:currentVersion:/install/installation-linux/
-[toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
-[connect]: /integrations/:currentVersion:/find-connection-details/
-[update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
-[macos-install]: /self-hosted/:currentVersion:/install/installation-macos/
+[debian-install]: /self-hosted/:currentVersion:/install/installation-linux/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/

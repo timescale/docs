@@ -39,5 +39,4 @@ smaller use cases that do not warrant their own $SERVICE_SHORT.
 
 <ConfigCloudSelf />
 
-
 [schemas]: /use-timescale/:currentVersion:/schema-management/

@@ -51,4 +51,3 @@ You have successfully integrated Azure Data Studio with $CLOUD_LONG.
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [azure-data-studio]: https://azure.microsoft.com/en-us/products/data-studio
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
-

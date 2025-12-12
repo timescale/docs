@@ -37,11 +37,6 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated your AWS infrastructure with $CLOUD_LONG. 
 
-
-
-
-
-
 [aws]: https://aws.amazon.com/
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
 [gtw-setup]: https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html

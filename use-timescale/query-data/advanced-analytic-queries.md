@@ -25,7 +25,7 @@ SELECT percentile_cont(0.5)
 ```
 
 You can also use $TOOLKIT_LONG to find the
-[approximate percentile][toolkit-approx-percentile].
+[approximate percentile][hyperfunctions-api-approx-percentile].
 
 ## Calculate the cumulative sum
 
@@ -417,5 +417,5 @@ use its [SkipScan][skipscan] feature.
 [percentile_cont]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
-[toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
+[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
 [calculate-the-increase-in-a-value-link]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/#calculate-the-increase-in-a-value

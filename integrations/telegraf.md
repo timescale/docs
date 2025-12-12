@@ -15,7 +15,7 @@ Telegraf is a server-based agent that collects and sends metrics and events from
 systems, and IoT sensors. Telegraf is an open source, plugin-driven tool for the collection 
 and output of data. 
 
-To view metrics gathered by Telegraf and stored in a [hypertable][about-hypertables] in a
+To view metrics gathered by Telegraf and stored in a [hypertable][hypertables-section] in a
 $SERVICE_LONG.
 
 - [Link Telegraf to your $SERVICE_LONG][link-telegraf-to-your-service-link]: create a Telegraf configuration
@@ -100,7 +100,7 @@ To create a Telegraf configuration that exports data to a hypertable in your $SE
 ## View the metrics collected by Telegraf
 
 This section shows you how to generate system metrics using Telegraf, then connect to your 
-$SERVICE_SHORT and query the metrics [hypertable][about-hypertables].
+$SERVICE_SHORT and query the metrics [hypertable][hypertables-section].
 
 <Procedure>
 
@@ -149,13 +149,8 @@ $SERVICE_SHORT and query the metrics [hypertable][about-hypertables].
 For more information about the options that you can configure in Telegraf,
 see the [PostgreQL output plugin][output-plugin].
 
-
 [output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
 [install-telegraf]: https://docs.influxdata.com/telegraf/v1/introduction/installation/
-[create-service]: /getting-started/latest/
-[connect-timescaledb]: /integrations/:currentVersion:/find-connection-details/
-[grafana]: /integrations/:currentVersion:/grafana/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-
-[link-telegraf-to-your-service-link]: /integrations/:currentVersion:/telegraf/#link-telegraf-to-your-service-short
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[link-telegraf-to-your-service-link]: /integrations/:currentVersion:/telegraf/#link-telegraf-to-your-service_short
 [view-the-metrics-collected-by-telegraf-link]: /integrations/:currentVersion:/telegraf/#view-the-metrics-collected-by-telegraf

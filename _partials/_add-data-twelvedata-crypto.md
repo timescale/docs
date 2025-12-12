@@ -46,4 +46,4 @@ download the dataset, then upload the data to your $SERVICE_LONG.
 [twelve-data]: https://twelvedata.com/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
+[data-ingest]: /migrate/:currentVersion:/

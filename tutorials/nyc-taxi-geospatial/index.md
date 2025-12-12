@@ -30,7 +30,7 @@ Before you begin, make sure you have:
 
 *   Signed up for a [free $ACCOUNT_LONG][cloud-install].
 *   [](#)<Optional /> If you want to graph your queries, signed up for a
-    [Grafana account][grafana-setup].
+    [Grafana account][grafana].
 
 ## Steps in this tutorial
 
@@ -51,7 +51,7 @@ new roads and public services.
 It starts by teaching you how to set up and connect to a $SERVICE_LONG,
 create tables, and load data into the tables using `psql`. If you have already
 completed the [first NYC taxis tutorial][beginner-fleet], then you already
-have the dataset loaded, and you can skip [straight to the queries][plot-nyc].
+have the dataset loaded, and you can skip [straight to the queries][query-nyc].
 
 You then learn how to conduct analysis and monitoring on your dataset. It walks
 you through using $PG queries with the PostGIS extension to obtain
@@ -60,7 +60,7 @@ information, and plotting the results in Grafana.
 [dataset-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/dataset-nyc/
 [query-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
+[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
-[plot-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
-[grafana-setup]: /integrations/:currentVersion:/grafana/
+[query-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
+[grafana]: /integrations/:currentVersion:/grafana/

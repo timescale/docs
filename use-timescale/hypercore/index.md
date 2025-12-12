@@ -20,7 +20,6 @@ This section shows the following:
 * [Troubleshooting][troubleshooting]
 
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
-[modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [compression-methods]: /use-timescale/:currentVersion:/hypercore/compression-methods/
 [troubleshooting]: /use-timescale/:currentVersion:/hypercore/troubleshooting/

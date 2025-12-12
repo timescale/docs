@@ -352,9 +352,3 @@ Now, when you reload the page, you should see all of the rows currently in the
 [node-install]: https://nodejs.org
 [npm-install]: https://docs.npmjs.com/getting-started
 [sequelize-info]: https://sequelize.org
-[connect]: #connect-to-timescaledb
-[create-table]: #create-a-relational-table
-[create-a-hypertable]: #create-a-hypertable
-[insert]: #insert-rows-of-data
-[query]: #execute-a-query
-[install]: /getting-started/latest/

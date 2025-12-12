@@ -61,7 +61,7 @@ This tutorial covers:
 $TIMESCALE_DB is well suited to storing and analyzing financial candlestick data,
 and many $COMPANYcommunity members use it for exactly this purpose.
 
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
+[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [financial-ingest-dataset]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-dataset/
 [financial-ingest-query]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-query/
 [twelve-data]: https://twelvedata.com/

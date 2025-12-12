@@ -37,7 +37,7 @@ schema, [read the $COMPANY blog post][experimental-blog].
 
 This tag indicates that the function is included in the $TOOLKIT_LONG extension.
 Toolkit functions are available under $TDB_COMMUNITY.
-For installation instructions, [see the installation guide][toolkit-install].
+For installation instructions, [see the installation guide][install-toolkit].
 
 ## Experimental (TimescaleDB Toolkit) <Tag type="experimental-toolkit">Experimental</Tag>
 
@@ -54,5 +54,5 @@ automatically dropped when the Toolkit extension is updated. For more
 information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 
 [tsl-comparison]: /about/:currentVersion:/timescaledb-editions/
-[toolkit-install]: /self-hosted/:currentVersion:/tooling/install-toolkit/
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [toolkit-docs]: https://github.com/timescale/timescaledb-toolkit/tree/main/docs#a-note-on-tags-

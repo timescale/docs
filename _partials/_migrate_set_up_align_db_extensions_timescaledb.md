@@ -15,7 +15,7 @@
        psql $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version here>';"
        ```
 
-       For more information and guidance, see [Upgrade TimescaleDB](https://www.tigerdata.com/docs/self-hosted/latest/upgrades/).
+       For more information and guidance, see [Upgrade TimescaleDB](https://www.tigerdata.com/docs/self-hosted/:currentVersion:/upgrades/).
 
 1. Ensure that the $SERVICE_LONG is running the $PG extensions used in your source database.
 

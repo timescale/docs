@@ -15,7 +15,7 @@ instance. Multi-node can give you faster data ingest, and more responsive and
 efficient queries for many large workloads.
 
 This section shows you how to use multi-node on Timescale. You can also
-set up multi-node on [self-hosted TimescaleDB][multinode-timescaledb].
+set up multi-node on [self-hosted TimescaleDB][multi-node].
 
 <EarlyAccess />
 
@@ -62,4 +62,4 @@ alt="TimescaleDB running multi-node $SERVICE_SHORT"/>
 </Procedure>
 
 [cloud-login]: https://console.cloud.timescale.com/
-[multinode-timescaledb]: /self-hosted/:currentVersion:/multinode-timescaledb/
+[multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/

@@ -166,4 +166,4 @@ Pie charts are a great tool for comparing categorized data. They're especially g
 for visualizing percentages. But they don't work as well if you have too many categories
 with similar percentages or large amount of data.
 
-[gsg-data]: https://www.tigerdata.com/docs/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
+[gsg-data]: https://www.tigerdata.com/docs/getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables

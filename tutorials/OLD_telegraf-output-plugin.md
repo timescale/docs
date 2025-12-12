@@ -28,7 +28,7 @@ TimescaleDB output plugin for Telegraf.
 
 ## Installation
 
-Before you start, you need [TimescaleDB installed][getting-started] and a means to connect to it.
+Before you start, you need [TimescaleDB installed][install-timescale] and a means to connect to it.
 
 ### Setting up Telegraf
 
@@ -52,7 +52,7 @@ $COMPANY also provide you with builds for:
 *   Linux (i386, armhf, armel, arm64, static_amd64, s390x, mipsel)
 *   FreeBSD (amd64, i386)
 
-You can get in contact using the $COMPANY [community Slack][public-slack]
+You can get in contact using the $COMPANY [community Slack][slack]
 
 Once you download the binary and extract it to a suitable location (or install
 the packages) you can test out the build. You might need to make the file
@@ -380,12 +380,11 @@ Instead of having three text columns, now you have one JSONB column.
 
 ## Next steps
 
-When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with the [API reference][api].
+When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with the [API reference][use-the-api].
 
 Additionally, there are several other [tutorials][] available for you to explore
 as you become accustomed to working with TimescaleDB.
 
-[api]: /api/:currentVersion:/
-[getting-started]: /getting-started/latest/
-[public-slack]: https://slack.timescale.com/
-[tutorials]: /tutorials/:currentVersion:/
+[use-the-api]: /api/:currentVersion:/
+[install-timescale]: /getting-started/:currentVersion:/
+[slack]: https://slack.timescale.com/

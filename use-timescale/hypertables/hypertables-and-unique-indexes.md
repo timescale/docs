@@ -9,7 +9,7 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
 
 # Enforce constraints with unique indexes
 
-You use unique indexes on a $HYPERTABLE to enforce [constraints][constraints]. If you have a primary key, 
+You use unique indexes on a $HYPERTABLE to enforce [constraints][postgres-createconstraint]. If you have a primary key, 
 you have a unique index. In $PG, a primary key is a unique index with a `NOT NULL` constraint.
 
 You do not need to have a unique index on your $HYPERTABLEs. When you create a unique index,
@@ -132,11 +132,7 @@ in your unique index.
 
 </Procedure>
 
-
-
-
-[constraints]: https://www.postgresql.org/docs/current/ddl-constraints.html
+[postgres-createconstraint]: https://www.postgresql.org/docs/current/ddl-constraints.html
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

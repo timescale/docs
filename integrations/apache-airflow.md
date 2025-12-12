@@ -26,7 +26,7 @@ This page shows you how to use a Python connector in a DAG to integrate Apache A
 
    Ensure that your Airflow instance has network access to $CLOUD_LONG.
 
-This example DAG uses the `company` table you create in [Optimize time-series data in hypertables][create-a-table-in-timescale]
+This example DAG uses the `company` table you create in [Optimize time-series data in hypertables][ingest-data]
 
 ## Install python connectivity libraries
 
@@ -98,7 +98,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
              This could be any query. This example inserts data into the table
              you create in:
       
-             https://www.tigerdata.com/docs/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
+             https://www.tigerdata.com/docs/getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
             """            
            cursor.execute("INSERT INTO crypto_assets (symbol, name) VALUES (%s, %s)",
             ('NEW/Asset','New Asset Name'))
@@ -120,7 +120,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
            dag=dag,
        )
        ```
-      This DAG uses the `company` table created in [Create regular $PG tables for relational data][create-a-table-in-timescale].
+      This DAG uses the `company` table created in [Create regular $PG tables for relational data][ingest-data].
 
    1.  In your browser, refresh the Airflow UI.
    1.  In `Search DAGS`, type `timescale_dag` and press ENTER.  
@@ -128,7 +128,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
        ![daily eth volume of assets](https://assets.timescale.com/docs/images/integrations-apache-airflow.png)
 1. **Verify that the data appears in $CLOUD_LONG** 
 
-   1. In [$CONSOLE][console], navigate to your service and click `SQL editor`. 
+   1. In [$CONSOLE][cloud-login], navigate to your service and click `SQL editor`. 
    1. Run a query to view your data. For example: `SELECT symbol, name FROM company;`. 
    
       You see the new rows inserted in the table.
@@ -138,13 +138,12 @@ To exchange data between Airflow and your $SERVICE_LONG:
 You have successfully integrated Apache Airflow with $CLOUD_LONG and created a data pipeline.
 
 
-[create-a-table-in-timescale]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
-[install-apache-airflow]: https://airflow.apache.org/docs/apache-airflow/stable/start.html
-[install-python-pip]: https://docs.python.org/3/using/index.html
-[console]: https://console.cloud.timescale.com/
-[create-service]: /getting-started/:currentVersion:/services/
-[enable-timescaledb]: /self-hosted/:currentVersion:/install/
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [Airflow-DAG]: https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#dags
 [Airflow-Task]:https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html
 [Airflow_UI]: localhost:8080
+
+[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
+[install-apache-airflow]: https://airflow.apache.org/docs/apache-airflow/stable/start.html
+[install-python-pip]: https://docs.python.org/3/using/index.html
+[cloud-login]: https://console.cloud.timescale.com/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/

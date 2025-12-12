@@ -44,7 +44,7 @@ wmic
     
 </Terminal>
 
-If you already have the latest version of `psql` installed, proceed to the [Connect to your $SERVICE_SHORT][connect-database] section. 
+If you already have the latest version of `psql` installed, proceed to the [Connect to your $SERVICE_SHORT][connect-using-psql] section. 
 
 ## Install psql
 
@@ -262,6 +262,5 @@ edited query by pressing `↑`, and press `Enter` to run it.
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
 [windows-installer]: https://www.postgresql.org/download/windows/
-[connect-database]:/integrations/:currentVersion:/psql/#connect-to-your-service
+[connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-

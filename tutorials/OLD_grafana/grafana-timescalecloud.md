@@ -19,7 +19,7 @@ information about installing Grafana, see the
 Alternatively, to connect your Grafana service with your $SERVICE_SHORT, create a Grafana service on $MST_LONG.
 You can try it for free for 30 days.
 
-This section shows you how to connect $CLOUD_LONG as a data source in [Grafana][grafana-homepage].
+This section shows you how to connect $CLOUD_LONG as a data source in [Grafana][grafana].
 
 ## Configure $CLOUD_LONG as a data source
 
@@ -30,7 +30,7 @@ and then configure $CLOUD_LONGas the data source in Grafana.
 
 ### Create a $SERVICE_LONG
 
-1.  Sign in to the [$CONSOLE][tsc-portal].
+1.  Sign in to the [$CONSOLE][cloud-login].
 1.  Click `Create service`.
 1.  Click `Download the cheatsheet`. This `.sql` file contains the credentials
     that you require to configure $TIMESCALE_DB as a data source on Grafana.
@@ -69,6 +69,6 @@ To configure $SERVICE_LONG with your Grafana installation, log in to Grafana and
 When you have configured $TIMESCALE_DB as a data source in Grafana, you can create
 panels that are populated with data using SQL.
 
-[grafana-homepage]: https://grafana.com/
-[tsc-portal]: https://console.cloud.timescale.com/
+[grafana]: https://grafana.com/
+[cloud-login]: https://console.cloud.timescale.com/
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/

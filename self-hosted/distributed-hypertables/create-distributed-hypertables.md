@@ -19,7 +19,7 @@ then convert it into a distributed hypertable.
 <Highlight type="important">
 You need to set up your multi-node cluster before creating a distributed
 hypertable. To set up multi-node, see the
-[multi-node section](/self-hosted/latest/multinode-timescaledb/).
+[multi-node section](/self-hosted/:currentVersion:/multinode-timescaledb/).
 </Highlight>
 
 <Procedure>

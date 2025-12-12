@@ -83,7 +83,7 @@ To prepare your $SERVICE_LONG for Kafka integration:
 
 <Procedure>
 
-1. **[Connect][connect] to your $SERVICE_LONG**
+1. **[Connect][in-console-editors] to your $SERVICE_LONG**
 
 1. **Create a hypertable to ingest Kafka events**
 
@@ -186,9 +186,6 @@ You have successfully integrated Apache Kafka with $CLOUD_LONG.
 
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [apache-kafka]: https://kafka.apache.org/documentation/
-[install-kafka]: https://kafka.apache.org/quickstart
 [java-installers]: https://www.oracle.com/java/technologies/downloads/
 [kafka-connect]: https://docs.confluent.io/platform/current/connect/index.html
-[kraft]: https://developer.confluent.io/learn/kraft/
-[connect]: /getting-started/:currentVersion:/run-queries-from-console/
-[kcat]: https://github.com/edenhill/kcat
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/

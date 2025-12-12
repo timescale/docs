@@ -23,7 +23,7 @@ Before you begin, make sure you have:
 *   Set up Grafana.
 
 When your installation of $TIMESCALE_DB and Grafana are complete, ingest the data
-found in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
+found in the [NYC Taxi Cab][beginner-fleet] tutorial and configure Grafana to connect
 to that database.
 
 ## Build a new dashboard
@@ -71,7 +71,7 @@ If you are visualizing time series data in Grafana, make sure you select
 ### Visualize metrics stored in TimescaleDB
 
 Start by creating a visualization that answers the question "How many
-rides took place on each day?" from the [NYC Taxi Cab][nyc-taxi] tutorial.
+rides took place on each day?" from the [NYC Taxi Cab][beginner-fleet] tutorial.
 
 From the tutorial, you can see the standard SQL syntax for our query:
 
@@ -89,7 +89,7 @@ You need to alter this query to support Grafana's unique query syntax.
 
 First, modify the `date_trunc` function to use the TimescaleDB `time_bucket`
 function. You can consult the TimescaleDB
-[API Reference on time_bucket][time-bucket-reference]
+[API Reference on time_bucket][time_bucket]
 for more information on how to use it properly.
 
 Take a look at the `SELECT` portion of this query. First, bucket the results
@@ -183,6 +183,6 @@ When you visualize this query, it looks like this:
 
 Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-timescale]: /getting-started/latest/
-[nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
-[time-bucket-reference]: /api/:currentVersion:/hyperfunctions/time_bucket
+[install-timescale]: /getting-started/:currentVersion:/
+[beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket

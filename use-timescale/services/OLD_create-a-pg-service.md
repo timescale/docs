@@ -20,13 +20,13 @@ relational databases alongside your time-series databases.
 You can [try $CLOUD_LONG for free][sign-up], no credit card required.
 
 For installation instructions, and help getting your first service up and
-running, see the [Getting Started section][cloud-install].
+running, see the [Getting Started section][install-timescale].
 
 <Procedure>
 
 ## Creating a $PG service
 
-1.  Sign in to the [$CONSOLE][cloud-console].
+1.  Sign in to the [$CONSOLE][cloud-login].
 1.  Click `Create service`.
 1.  In the `Create a service` dialog, click `Advanced configuration`.
 1.  In the `Choose your service type` section, check `PostgreSQL`.
@@ -51,6 +51,6 @@ time-series services:
     alt="A running Postgres service with a running Tiger Cloud service in Tiger Cloud Console"
 />
 
-[cloud-install]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
 [sign-up]: http://console.cloud.timescale.com/signup
-[cloud-console]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.timescale.com/

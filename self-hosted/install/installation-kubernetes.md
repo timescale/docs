@@ -36,9 +36,7 @@ told us work well are:
 - [PGO][pgo]
 - [CloudNativePG][cnpg]
 
-
 [stackgres]: https://github.com/ongres/stackgres
 [patroni]: https://github.com/zalando/postgres-operator
 [pgo]: https://github.com/CrunchyData/postgres-operator
 [cnpg]: https://github.com/cloudnative-pg/cloudnative-pg
-

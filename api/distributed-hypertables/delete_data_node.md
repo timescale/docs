@@ -32,7 +32,7 @@ the data node.
 
 <Highlight type="note">
 It is not possible to use
-[`add_data_node`](/api/latest/distributed-hypertables/add_data_node) to add the
+[`add_data_node`](/api/:currentVersion:/distributed-hypertables/add_data_node) to add the
 same data node again without first deleting the database on the data
 node or using another database. This is to prevent adding a data node
 that was previously part of the same or another distributed database

@@ -44,7 +44,7 @@ In this section, you see:
 * [The tiered storage workflow][data-tiering-workflow]: the steps to enable, manage and query data in low-cost storage
 * [Manage storage and tiering][enabling-data-tiering]: configure high-performance storage, object storage, and data tiering 
 * [Query tiered data][querying-tiered-data]: query the data in the object storage
-* [Replicas and forks with tiered data][replicas-and-forks]: understand how tiered storage works with forks 
+* [Replicas and forks with tiered data][tiered-forks]: understand how tiered storage works with forks 
    and replicas of your $SERVICE_SHORT.
 
 </Tab>
@@ -59,11 +59,10 @@ Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sur
 
 </Tabs>
 
-
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
 [data-tiering-workflow]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/#the-tiered-storage-workflow
 [enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
-[replicas-and-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/
+[tiered-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/

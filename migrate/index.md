@@ -42,9 +42,9 @@ Depending on the amount of data you need to migrate, and the amount of downtime 
 
 | Migration strategy                         | Use when                                                                                                                    | Downtime requirements |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [Migrate with downtime][pg-dump-restore]   | Use `pg_dump` and `pg_restore` to migrate when you can afford downtime.                                                     | Some downtime         |
-| [Live migration][live-migration]           | Simplified end-to-end migration with almost zero downtime.                                                                  | Minimal downtime      |
-| [Dual-write and backfill][dual-write]      | Append-only data, heavy insert workload (~20,000 inserts per second) when modifying your ingestion pipeline is not an issue. | Minimal downtime      |
+| [Migrate with downtime][migrate-with-downtime]   | Use `pg_dump` and `pg_restore` to migrate when you can afford downtime.                                                     | Some downtime         |
+| [Live migration][migrate-live]           | Simplified end-to-end migration with almost zero downtime.                                                                  | Minimal downtime      |
+| [Dual-write and backfill][dual-write-and-backfill]      | Append-only data, heavy insert workload (~20,000 inserts per second) when modifying your ingestion pipeline is not an issue. | Minimal downtime      |
 
 All strategies work to migrate from $PG, $TIMESCALE_DB, AWS RDS, and $MST_LONG. Migration 
 assistance is included with $CLOUD_LONG support. If you encounter any difficulties while migrating your data,
@@ -56,12 +56,11 @@ in the [community slack](https://timescaledb.slack.com/signup#/domain-signup), t
 If you're migrating your data from another source database type, best practice is export the data from your source database as 
 a CSV file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][import-terminal].
 
-[dual-write]: /migrate/:currentVersion:/dual-write-and-backfill/
-[pg-dump-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
-[live-migration]: /migrate/:currentVersion:/live-migration/
+[dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
 [livesync-postgres]: /migrate/:currentVersion:/livesync-for-postgresql/
 [livesync-s3]: /migrate/:currentVersion:/livesync-for-s3/
 [livesync-kafka]: /migrate/:currentVersion:/livesync-for-kafka/
-[troubleshooting]: /migrate/:currentVersion:/troubleshooting/
 [import-console]: /migrate/:currentVersion:/upload-file-using-console/
 [import-terminal]: /migrate/:currentVersion:/upload-file-using-terminal/

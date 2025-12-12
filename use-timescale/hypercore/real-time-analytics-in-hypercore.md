@@ -62,20 +62,12 @@ For integers, timestamps, and other integer-like types, data is compressed using
 repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is used. For all other types,
 [dictionary compression][dictionary] is used.
 
-
-
-[create-hypertable]: /use-timescale/:currentVersion:/compression/
 [delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
 [delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
 [simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
 [run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
-[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-encoding
+[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-compression
 [dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression
-[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
-[run-job]: /api/:currentVersion:/jobs-automation/run_job/
-[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
-[insert]: /use-timescale/:currentVersion:/write-data/insert/
-[modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
+[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
 [cardinality-blog]: https://www.timescale.com/blog/what-is-high-cardinality
 [data-model]: /about/:currentVersion:/whitepaper/#data-model

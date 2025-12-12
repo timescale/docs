@@ -17,7 +17,7 @@ and analyze blockchain data.
 
 In some of the following queries you can find custom SQL functions that are
 not part of vanilla $PG. These queries are $TIMESCALE_DB
-[hyperfunctions][docs-hyperfunctions] and they are
+[hyperfunctions][hyperfunctions] and they are
 either part of the $TIMESCALE_DB extension or the Toolkit extension.
 Hyperfunctions is a series of SQL functions that make it easier to manipulate
 and analyze time-series data in $PG. You need to
@@ -34,7 +34,7 @@ Now set up a few continuous aggregates for faster and simplifed analysis.
 
 ## Continuous aggregates for blockchain analytics
 
-[Continuous aggregates][docs-cagg] are materialized views for time-series data.
+[Continuous aggregates][caggs] are materialized views for time-series data.
 They make
 queries faster by continuously materializing aggregated data. At the same
 time, they provide real-time results. That means they include the latest data
@@ -87,7 +87,7 @@ aggregate:
 *   `total_fee_sat`: Total fees paid in Sat
 *   `total_fee_usd`: Total fees paid in USD
 *   `stats_fee_sat`: Fee stats (in Sat)
-    This column uses a hyperfunction called [`stats_agg`][stats_agg].
+    This column uses a hyperfunction called [`stats_agg`][stats-aggs].
     The raw `stats_agg` value isn't easily interpretable.
     Later, you can use `stats_agg` to calculate other statistics, such as the average.
 *   `avg_tx_size`: Average transaction size in KB
@@ -582,7 +582,7 @@ time               |revenue in BTC    |revenue in USD    |
 
 ![Average miner revenue per block, plotted in BTC and USD, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png)
 
-[docs-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
-[docs-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
-[stats_agg]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
+[stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

@@ -36,7 +36,7 @@ compute the approximate sizes of hypertables to get faster results.
 </Highlight>
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 ## Samples
 
@@ -84,5 +84,4 @@ SELECT hypertable_approximate_size('device_stats_15m');
 
 </Highlight>
 
-
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

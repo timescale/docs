@@ -93,7 +93,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 <a id="compression" href=""></a>
 
-**Compression**: the process of reducing data size by encoding information using fewer bits, improving storage efficiency and query performance. See [compression][use-compression].
+**Compression**: the process of reducing data size by encoding information using fewer bits, improving storage efficiency and query performance. See [compression][compression].
 
 **Connection pooling**: a technique for managing multiple database connections efficiently, reducing overhead for high-concurrency environments.
 
@@ -105,7 +105,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Constraint**: a rule enforced by the database to maintain data integrity and consistency.
 
-**Continuous aggregate**: a materialized view that incrementally updates with new data, providing fast access to pre-computed aggregations. See [continuous aggregates][use-continuous-aggregates].
+**Continuous aggregate**: a materialized view that incrementally updates with new data, providing fast access to pre-computed aggregations. See [continuous aggregates][caggs].
 
 **Counter aggregation**: aggregating monotonic counter data, handling counter resets and extrapolation.
 
@@ -123,7 +123,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Data migration**: the process of moving data from one system, storage type, or format to another. See the [migration guides][migrate].
 
-**Data retention**: the practice of storing data for a specified period before deletion, often governed by compliance requirements or storage optimization. See [data retention][use-data-retention].
+**Data retention**: the practice of storing data for a specified period before deletion, often governed by compliance requirements or storage optimization. See [data retention][data-retention].
 
 **Data rollup**: the process of summarizing detailed historical data into higher-level aggregates, balancing storage needs with query efficiency.
 
@@ -231,9 +231,9 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Hot storage**: a tier of data storage for frequently accessed data that provides the fastest access times but at higher cost.
 
-**Hypercore**: [$TIMESCALE_DB][timescaledb-link]'s hybrid storage engine that seamlessly combines row and column storage for optimal performance. See [Hypercore][use-hypercore].
+**Hypercore**: [$TIMESCALE_DB][timescaledb-link]'s hybrid storage engine that seamlessly combines row and column storage for optimal performance. See [Hypercore][hypercore].
 
-**Hyperfunction**: an SQL function in [$TIMESCALE_DB][timescaledb-link] designed for time-series analysis, statistics, and specialized computations. See [Hyperfunctions][use-hyperfunctions].
+**Hyperfunction**: an SQL function in [$TIMESCALE_DB][timescaledb-link] designed for time-series analysis, statistics, and specialized computations. See [Hyperfunctions][hyperfunctions].
 
 **HyperLogLog**: a probabilistic data structure used for estimating the cardinality of large datasets with minimal memory usage.
 
@@ -241,7 +241,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 <a id="hypertable" href=""></a>
 
-**Hypertable**: [$TIMESCALE_DB][timescaledb-link]'s core abstraction that automatically partitions time-series data for scalability. See [Hypertables][use-hypertables].
+**Hypertable**: [$TIMESCALE_DB][timescaledb-link]'s core abstraction that automatically partitions time-series data for scalability. See [Hypertables][hypertables-section].
 
 ## I
 
@@ -383,9 +383,9 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **pgVector**: a [$PG][postgres-link] extension that adds vector similarity search capabilities for AI and machine learning applications. See [pgvector][ai-pgvector].
 
-**pgai on $CLOUD_LONG**: a cloud solution for building search, RAG, and AI agents with [$PG][postgres-link]. Enables calling AI embedding and generation models directly from the database using SQL. See [pgai][ai-pgai].
+**pgai on $CLOUD_LONG**: a cloud solution for building search, RAG, and AI agents with [$PG][postgres-link]. Enables calling AI embedding and generation models directly from the database using SQL. See [pgai][pgai].
 
-**pgvectorscale**: a performance enhancement for pgvector featuring StreamingDiskANN indexing, binary quantization compression, and label-based filtering. See [pgvectorscale][ai-pgvectorscale].
+**pgvectorscale**: a performance enhancement for pgvector featuring StreamingDiskANN indexing, binary quantization compression, and label-based filtering. See [pgvectorscale][pgvectorscale].
 
 **pgvectorizer**: a [$TIMESCALE_DB][timescaledb-link] tool for automatically vectorizing and indexing data for similarity search.
 
@@ -640,24 +640,18 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 **Zero-downtime migration**: migration strategies that maintain service availability throughout the transition process, often using techniques like dual-write and gradual cutover.
 
 <!-- Link references -->
-[use-hypertables]: /use-timescale/:currentVersion:/hypertables/
+
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [use-hypertables-chunks]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/
-[use-compression]: /use-timescale/:currentVersion:/compression/
-[use-hypercore]: /use-timescale/:currentVersion:/hypercore/
-[use-continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
-[use-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
-[use-data-retention]: /use-timescale/:currentVersion:/data-retention/
-[integrations-kafka]: /integrations/:currentVersion:/apache-kafka/
-[integrations-grafana]: /integrations/:currentVersion:/grafana/
-[integrations-prometheus]: /integrations/:currentVersion:/prometheus/
+[compression]: /use-timescale/:currentVersion:/compression/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/
 [migrate]: /migrate/:currentVersion:/
 [ai-pgvector]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/
-[ai-pgai]: https://github.com/timescale/pgai
-[ai-pgvectorscale]: https://github.com/timescale/pgvectorscale
-[hyperfunctions-approx-count-distinct]: /use-timescale/:currentVersion:/hyperfunctions/approx-count-distincts/
-[hyperfunctions-asap-smooth]: /use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation/
-[hyperfunctions-candlestick-agg]: /use-timescale/:currentVersion:/hyperfunctions/stats-aggs/
-[hyperfunctions-stats-agg]: /use-timescale/:currentVersion:/hyperfunctions/stats-aggs/
+[pgai]: https://github.com/timescale/pgai
+[pgvectorscale]: https://github.com/timescale/pgvectorscale
 [postgres-link]: /api/:currentVersion:/glossary/#postgresql
 [timescaledb-link]: /api/:currentVersion:/glossary/#timescaledb
 [chunk-link]: /api/:currentVersion:/glossary/#chunk

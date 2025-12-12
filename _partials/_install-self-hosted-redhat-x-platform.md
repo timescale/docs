@@ -61,5 +61,4 @@
 
     When you have set the password, type `\q` to exit psql.
 
-
 [config]: /self-hosted/:currentVersion:/configuration/

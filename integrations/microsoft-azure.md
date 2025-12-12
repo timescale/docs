@@ -40,11 +40,7 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated your Microsoft Azure infrastructure with $CLOUD_LONG.
 
-
-
-
-
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
 [gtw-setup]: https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html
 [azure]: https://azure.microsoft.com/en-gb/
-[azure-aws]: https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/ 
+[azure-aws]: https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/

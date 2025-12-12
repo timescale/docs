@@ -14,7 +14,7 @@ products: [cloud, mst, self_hosted]
 
 Override the [`now()`](https://www.postgresql.org/docs/16/functions-datetime.html) date/time function used to
 set the current time in the integer `time` column in a hypertable. Many policies only apply to 
-[chunks][chunks] of a certain age. `integer_now_func` determines the age of each chunk.
+[chunks][hypertables] of a certain age. `integer_now_func` determines the age of each chunk.
 
 The function you set as `integer_now_func` has no arguments. It must be either:
  
@@ -60,5 +60,4 @@ Set the integer `now` function for a hypertable with a time column in [unix time
 |-|-|-|
 |`replace_if_exists`|BOOLEAN| Set to `true` to override `integer_now_func` when you have previously set a custom function. Default is `false`. |
 
-
-[chunks]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

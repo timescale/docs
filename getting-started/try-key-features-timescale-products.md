@@ -89,7 +89,7 @@ relational and time-series data from external files.
        <Tab title="Tiger Cloud Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
-          1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.
+          1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.
           1. Click to browse, or drag and drop `<local folder>/tutorial_sample_tick.csv` to upload. 
           1. Leave the default settings for the delimiter, skipping the header, and creating a new table. 
           1. In `Table`, provide `crypto_ticks` as the new table name. 
@@ -168,7 +168,7 @@ relational and time-series data from external files.
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
     - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs. <NotAvailableFreePlan />
-    - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
+    - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][services-portal] for a $SERVICE_LONG.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted $TIMESCALE_DB deployment from Terminal.
 
     <TryItOutCodeBlock queryId="getting-started-crypto-srt-orderby" />
@@ -260,7 +260,7 @@ $CONSOLE. You can also do this using psql.
 
 <Procedure>
 
-1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to**
+1. **In [$CONSOLE][services-portal], select the $SERVICE_SHORT you uploaded data to**
 1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate` next to the `crypto_ticks` hypertable**
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**
    ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-console.png )
@@ -318,7 +318,7 @@ To set up data tiering:
 
 1. **Enable data tiering**
 
-   1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to modify.
+   1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to modify.
    
    1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
 
@@ -383,28 +383,17 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[create-a-service]: /getting-started/:currentVersion:/services/
-[deploy-self-hosted]: /self-hosted/:currentVersion:/install/
-[connect-to-your-service]: /getting-started/:currentVersion:/run-queries-from-console/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
+[data-ingest]: /migrate/:currentVersion:/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
 [test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[compression]: /use-timescale/:currentVersion:/compression/
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
-[hierarchical-storage]: https://en.wikipedia.org/wiki/Hierarchical_storage_management
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[sign-up]: https://console.cloud.timescale.com/signup
-[job]: /api/:currentVersion:/actions/add_job/
-[alter-table-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

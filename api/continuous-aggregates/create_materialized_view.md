@@ -15,7 +15,7 @@ import Since2220 from "versionContent/_partials/_since_2_22_0.mdx";
 # CREATE MATERIALIZED VIEW (continuous aggregate) <Tag type="community">Community</Tag>
 
 The `CREATE MATERIALIZED VIEW` statement is used to create $CAGGs. To learn more, see the
-[continuous aggregate how-to guides][cagg-how-tos].
+[continuous aggregate how-to guides][caggs].
 
 The syntax is:
 
@@ -48,7 +48,7 @@ you do not want the view to update when it is first created, use the
 
 $CAGG_CAPs have some limitations of what types of queries they can
 support. For more information, see the
-[continuous aggregates section][cagg-how-tos].
+[continuous aggregates section][caggs].
 
 In $TIMESCALE_DB v2.17.0 and greater (with $PG 15+), you can dramatically decrease the amount
 of data written on a $CAGG in the presence of a small number of changes,
@@ -73,7 +73,7 @@ ALTER DATABASE your_database SET timescaledb.enable_merge_on_cagg_refresh = ON;
 
 For more information about GUC parameters, see the [configuration documentation][gucs].
 
-For more settings for $CAGGs, see [timescaledb_information.continuous_aggregates][info-views].
+For more settings for $CAGGs, see [timescaledb_information.continuous_aggregates][api-continuous-aggregates-info].
 
 ## Samples
 
@@ -134,10 +134,8 @@ Optional `WITH` clause options:
 
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 
-
-
-[cagg-how-tos]: /use-timescale/:currentVersion:/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
 [refresh-cagg]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
-[info-views]: /api/:currentVersion:/informational-views/continuous_aggregates/
+[api-continuous-aggregates-info]: /api/:currentVersion:/informational-views/continuous_aggregates/
 [gucs]: /api/:currentVersion:/configuration/gucs/

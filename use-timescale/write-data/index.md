@@ -19,11 +19,11 @@ using `INSERT`, `UPDATE`, and `DELETE` statements.
 *   [Delete data][delete] from hypertables
 
 To find out how to add and sync data to your $SERVICE_SHORT from other sources, see 
-[Import and sync][ingest-data].
+[Import and sync][migrate].
 
 [about-writing-data]: /use-timescale/:currentVersion:/write-data/about-writing-data/
 [delete]: /use-timescale/:currentVersion:/write-data/delete/
-[ingest-data]: /migrate/:currentVersion:
+[migrate]: /migrate/:currentVersion:
 [insert]: /use-timescale/:currentVersion:/write-data/insert/
 [update]: /use-timescale/:currentVersion:/write-data/update/
 [upsert]: /use-timescale/:currentVersion:/write-data/upsert/

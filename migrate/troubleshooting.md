@@ -34,7 +34,7 @@ unexpected behavior. You can find these logs in the `<volume_mount>/logs` direct
 
 When you migrate a [self-hosted][self hosted] or [$MST_LONG ($MST_SHORT)][mst]
 database to $CLOUD_LONG, the source database and the destination
-[$SERVICE_LONG][timescale-service] must run the same version of $TIMESCALE_DB.
+[$SERVICE_LONG][services-portal] must run the same version of $TIMESCALE_DB.
 
 Before you start [live migration][live migration]:
 
@@ -76,8 +76,6 @@ Before you start [live migration][live migration]:
 [live migration]: /migrate/:currentVersion:/live-migration/
 [self hosted]: /self-hosted/:currentVersion:/
 [self hosted upgrade]: /self-hosted/:currentVersion:/upgrades/
-[mst]: /mst/:currentVersion:/
-[timescale-service]: https://console.cloud.timescale.com/dashboard/services
 
 
 ## Why does live migration log "no tuple identifier" warning?
@@ -347,7 +345,7 @@ To test your database for partial continuous aggregates, run the following query
 SELECT exists (SELECT 1 FROM timescaledb_information.continuous_aggregates WHERE NOT finalized);
 ```
 
-If you have partial continuous aggregates in your database, [migrate them][migrate] 
+If you have partial continuous aggregates in your database, [migrate them][migrate-live] 
 from partial to finalized before you migrate your database.
 
 If you accidentally migrate partial continuous aggregates across $PG
@@ -357,5 +355,6 @@ versions, you see the following error when you query any continuous aggregates:
 ERROR:  insufficient data left in message.
 ```
 
-[migrate]: /migrate/:currentVersion:/live-migration/
-
+[mst]: /mst/:currentVersion:/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[migrate-live]: /migrate/:currentVersion:/live-migration/

@@ -145,7 +145,6 @@ On an example setup, speedup performance observed was an order of magnitude,
 
 Try it yourself and see what you get!
 
-
 [segment-by-columns]: /use-timescale/:currentVersion:/compression/about-compression/#segment-by-columns
 [automatic-compression]: /tutorials/:currentVersion:/energy-data/compress-energy/#add-a-compression-policy
 [compression-design]: /use-timescale/:currentVersion:/compression/compression-design/

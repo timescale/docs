@@ -29,13 +29,11 @@ This tutorial covers:
 1.  [Query your data][blockchain-query]: obtain information, including finding the most recent transactions on the blockchain, and 
    gathering information about the transactions using aggregation functions.
 
-When you've completed this tutorial, you can use the same dataset to  [Analyze the Bitcoin data][analyze-blockchain], 
+When you've completed this tutorial, you can use the same dataset to  [Analyze the Bitcoin data][blockchain-analyze], 
 using $TIMESCALE_DB hyperfunctions.
 
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
 [blockchain-dataset]: /tutorials/:currentVersion:/blockchain-query/blockchain-dataset/
 [blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
-[blockchain-compress]: /tutorials/:currentVersion:/blockchain-query/blockchain-compress/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
-[analyze-blockchain]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/
+[blockchain-analyze]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/

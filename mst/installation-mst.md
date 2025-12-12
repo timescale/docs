@@ -54,7 +54,7 @@ cloud provider, which you can install your database on.
 When you have a $MST_SERVICE_SHORT up and running, you can connect to it from your local
 system using the `psql` command-line utility. This is the same tool you might
 have used to connect to $PG before, but if you haven't installed it yet,
-check out the [installing psql][install-psql] section.
+check out the [installing psql][psql] section.
 
 <Procedure>
 
@@ -125,18 +125,17 @@ ALTER EXTENSION timescaledb_toolkit UPDATE;
 ## Where to next
 
 Now that you have your first service up and running, you can check out the
-[$MST_LONG][mst-docs] section in the documentation, and
+[$MST_LONG][mst] section in the documentation, and
 find out what you can do with it.
 
 If you want to work through some tutorials to help you get up and running with
 $TIMESCALE_DB and time-series data, check out the [tutorials][tutorials] section.
 
-You can always [contact us][contact] if you need help working something out, or
+You can always [contact us][timescale-support] if you need help working something out, or
 if you want to have a chat.
 
-[contact]: https://www.timescale.com/contact
-[install-psql]: /integrations/:currentVersion:/psql/
-[mst-docs]: /mst/:currentVersion:/
+[timescale-support]: https://www.timescale.com/contact
+[psql]: /integrations/:currentVersion:/psql/
+[mst]: /mst/:currentVersion:/
 [tutorials]: /tutorials/:currentVersion:/
-[mst-signup]: https://www.timescale.com/mst-signup
 [mst-login]:https://portal.managed.timescale.com/login

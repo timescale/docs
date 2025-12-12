@@ -13,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # Multi-node configuration
 
 In addition to the
-[regular $TIMESCALE_DB configuration][timescaledb-configuration], it is recommended
+[regular $TIMESCALE_DB configuration][config], it is recommended
 that you also configure additional settings specific to multi-node operation.
 
 ## Update settings
@@ -72,4 +72,4 @@ operation occurs. If the isolation level is `SERIALIZABLE`, it is not changed.
 
 [copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
 [move_chunk]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental
-[timescaledb-configuration]: /self-hosted/:currentVersion:/configuration/
+[config]: /self-hosted/:currentVersion:/configuration/

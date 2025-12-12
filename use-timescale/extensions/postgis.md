@@ -107,7 +107,7 @@ particular location.
     (3 rows)
     ```
 
-1.  To fetch the latest logged cases of all states using the [$SKIPSCAN_LONG][skip-scan] feature, replace `<Interval_Time>` with the number of
+1.  To fetch the latest logged cases of all states using the [$SKIPSCAN_LONG][skipscan] feature, replace `<Interval_Time>` with the number of
     days between the day you are running the query and the day the last report
     was logged in the table, in this case 30, June, 2023:
 
@@ -154,5 +154,4 @@ particular location.
 
 </Procedure>
 
-[postgis-docs]: https://www.postgis.net
-[skip-scan]: /use-timescale/:currentVersion:/query-data/skipscan/
+[skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/

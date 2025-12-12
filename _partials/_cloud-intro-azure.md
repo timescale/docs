@@ -16,20 +16,18 @@ extensions. To the $PG you know and love, $CLOUD_LONG adds the following capabil
   the pgai extension.
 - **Hybrid applications**: get a full set of tools to develop applications that combine time-based data and AI.
 
-All $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][live-migration],
+All $SERVICE_LONGs include the tooling you expect for production and developer environments: [live migration][migrate-live],
 [automatic backups and PITR][automatic-backups], [high availability][high-availability], [$READ_REPLICAs][readreplica], [data forking][operations-forking], [connection pooling][connection-pooling], 
 [usage-based storage][how-plans-work], secure in-$CONSOLE [SQL editing][in-console-editors], $SERVICE_SHORT [metrics][metrics]
 and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp;and much more. $CLOUD_LONG continuously monitors your $SERVICE_SHORTs and prevents common $PG out-of-memory crashes.
 
 [what-is-time-series]: https://www.timescale.com/blog/time-series-database-an-explainer#what-is-a-time-series-database
-[create-service]: /getting-started/:currentVersion:/services/
-[live-migration]: /migrate/:currentVersion:/live-migration/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [connection-pooling]: /use-timescale/:currentVersion:/services/connection-pooling
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics

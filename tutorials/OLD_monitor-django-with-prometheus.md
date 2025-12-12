@@ -21,7 +21,7 @@ A machine with the following installed:
 
 *   Python
 *   [pip][get-pip]
-*   A locally running [Prometheus][get-prometheus] instance
+*   A locally running [Prometheus][install-prometheus] instance
 
 <Highlight type="tip">
 Since machines commonly have multiple versions of Python
@@ -248,7 +248,7 @@ Congratulations. you are now monitoring your Django application with Prometheus.
 [get-django-prometheus]: https://github.com/korfuri/django-prometheus
 [get-django]: https://docs.djangoproject.com/en/3.0/topics/install/
 [get-pip]: https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py
-[get-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
+[install-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
 [localhost-metrics]: http://localhost:8000/metrics
 [localhost-prom-browser]: http://localhost:9090/graph
 [localhost-prom-example]: http://localhost:9090/graph?g0.range_input=1h&g0.stacked=1&g0.expr=django_http_requests_total_by_method_total&g0.tab=0

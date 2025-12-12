@@ -26,6 +26,6 @@ see the [self-hosted data migration section][self-hosted-migration].
 If you want to migrate existing data into Managed Service for TimescaleDB, see
 the [Managed Service for TimescaleDB migration section][mst-migration].
 
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
+[data-ingest]: /migrate/:currentVersion:/
 [self-hosted-migration]: /self-hosted/:currentVersion:/migration/
 [mst-migration]: /mst/:currentVersion:/migrate-to-mst/
