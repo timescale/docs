@@ -45,7 +45,7 @@ token programmatically, see the
 <Procedure>
 
 1.  Log in to [$CONSOLE][cloud-login] and click `Settings`.
-1.  Click the ⋮ menu of the client credential,
+1.  Click the `⋮` menu of the client credential,
     and select `Delete`.
 1.  In the `Are you sure` dialog, type the name of the client credential, and
     click `Delete`.
