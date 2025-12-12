@@ -30,7 +30,7 @@ For example: `CALL convert_to_columnstore('<chunk_name>', recompress := true);`
 
 This approach is 4–5 times faster than the previous spill-to-disk method, and reduces I/O for workloads with many small or uneven batches. This can be helpful if you are ingesting unordered data via direct compress and need to optimize your batches, or when you add new sparse indexes and need to build them on existing chunks.
 
-**Bloom filters on Tiger Cloud (ARM-based services)**
+**Bloom filters on ARM-based Tiger Cloud services**
 
 On Tiger Cloud (ARM-based services), bloom filters return with corrected hashing support for ARM architecture. A misconfigured hashing library previously required disabling bloom indexes on ARM-based services. This release restores bloom filter functionality with a new index version.
 
