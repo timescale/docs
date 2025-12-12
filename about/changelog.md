@@ -13,7 +13,7 @@ All the latest features and updates to $CLOUD_LONG.
 <Label type="date">December 12, 2025</Label>
 
 ### Activity log
-Tiger Cloud Console now offers the Activity tab that displays the activity log for all your services. This serves as a record of actions that have happened to your services and Tiger Cloud account, such as service resizes and project invitations. The activity log includes the corresponding service (where applicable), the user who performed the action, and a description of the action itself. You can  suggest new actions to record on the `Activity` tab.
+Tiger Cloud Console now offers the `Activity` tab that displays the activity log for all your services. This serves as a record of actions that have happened to your services and Tiger Cloud account, such as service resizes and project invitations. The activity log includes the corresponding service (where applicable), the user who performed the action, and a description of the action itself. You can suggest new actions to record on the `Activity` tab.
 
 ![Activity log on Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/activity-log.png)
 
