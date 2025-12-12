@@ -10,20 +10,22 @@ api:
 products: [cloud, self_hosted, mst]
 ---
 
-import Experimental from "versionContent/_partials/_experimental.mdx";
-
 <!-- markdownlint-disable-next-line line-length -->
 # show_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
 Show all policies that are currently set on a continuous aggregate.
+
+<Highlight type="warning">
+
+This experimental function will be removed in future releases. Please query the [`timescaledb_information.jobs`][jobs-view] view.
+
+</Highlight>
 
 ```sql
 timescaledb_experimental.show_policies(
      relation REGCLASS
 ) RETURNS SETOF JSONB
 ```
-
-<Experimental />
 
 ## Samples
 
@@ -56,4 +58,4 @@ show_policies
 |-|-|-|
 |`show_policies`|`JSONB`|Details for each policy set on the continuous aggregate|
 
-
+[jobs-view]: /api/:currentVersion:/informational-views/jobs/

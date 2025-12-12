@@ -102,12 +102,24 @@ GROUP BY month_bucket
 ORDER BY month_bucket DESC LIMIT 10;
 ```
 
+To compute buckets on version 7 UUIDs that contain a timestamp
+in Unix time format, run the following:
+
+```sql
+ SELECT time_bucket('1 hour', '0194214e-cd00-7000-a9a7-63f1416dab45'::uuid);
+      time_bucket
+------------------------
+ 2025-01-01 11:00:00+01
+```
+
+When you bucket UUIDs, a regular TIMESTAMP WITH TIME ZONE value is returned.
+
 ## Required arguments for interval time inputs
 
 |Name|Type|Description|
 |-|-|-|
 |`bucket_width`|INTERVAL|A $PG time interval for how long each bucket is|
-|`ts`|DATE, TIMESTAMP, or TIMESTAMPTZ|The timestamp to bucket|
+|`ts`|DATE, TIMESTAMP, TIMESTAMPTZ, or UUID (v7)|The timestamp to bucket|
 
 If you use months as an interval for `bucket_width`, you cannot combine it with
 a non-month component. For example, `1 month` and `3 months` are both valid
@@ -117,7 +129,7 @@ bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
 
 |Name|Type| Description                                                                                                                                                                                                                                                                                    |
 |-|-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|`timezone`|TEXT| The time zone for calculating bucket start and end times. Can only be used with `TIMESTAMPTZ`. Defaults to UTC+0.                                                                                                                                                                              |
+|`timezone`|TEXT| The time zone for calculating bucket start and end times. Can only be used with `TIMESTAMPTZ` and `UUID` (version 7). Defaults to UTC+0.                                                                                                                                                                              |
 |`origin`|DATE, TIMESTAMP, or TIMESTAMPTZ| Buckets are aligned relative to this timestamp. Defaults to midnight on January 3, 2000, for buckets that don't include a month or year interval, and to midnight on January 1, 2000, for month, year, and century buckets.                                                                    |
 |`offset`|INTERVAL| The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG. |
 
@@ -133,5 +145,3 @@ bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
 |Name|Type|Description|
 |-|-|-|
 |`offset`|INTEGER|The amount to offset all buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in $PG.|
-
-

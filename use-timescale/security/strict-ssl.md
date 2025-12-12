@@ -3,18 +3,20 @@ title: Connect with a stricter SSL mode
 excerpt: While require is the default SSL mode used to connect to Tiger Cloud services, you can also configure the connection with a stricter mode, such as verify-ca or verify-full. Learn how to set it up
 products: [cloud]
 keywords: [security]
+price_plans: [scale, enterprise, performance]
 tags: [ssl]
 ---
 
 # Connect with a stricter SSL mode
 
 The default connection string for $CLOUD_LONG uses the Secure Sockets Layer (SSL) mode `require`.
-Users can choose not to use Transport Layer Security (TLS) while connecting to their databases, but connecting to production databases without encryption is strongly discouraged. To
+Users can choose not to use Transport Layer Security (TLS) while connecting to their databases, but connecting to 
+production databases without encryption is strongly discouraged. To
 achieve even stronger security, clients may select to verify the identity of the
 server. If you want your connection client to verify the server's identity, you
 can connect with an [SSL mode][ssl-modes] of `verify-ca` or `verify-full`. To
 do so, you need to store a copy of the certificate chain where your connection
-tool can find it.
+tool can find it.  
 
 This section provides instructions for setting up a stricter SSL connection.
 
@@ -30,7 +32,7 @@ lets you start up a $SERVICE_SHORT immediately. After your $SERVICE_SHORT is sta
 signed certificate is requested behind the scenes. The new certificate is
 usually received within 30 minutes. Your certificate is then replaced
 with almost no interruption. Connections are reset, and most clients reconnect
-automatically.
+automatically. Free services do not supply SSL certificates.
 
 With the signed certificate, you can switch your connections to a stricter SSL
 mode, such as `verify-ca` or `verify-full`.

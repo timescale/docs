@@ -135,7 +135,7 @@
 [console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
 [console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
-[reference]: #reference
+[reference]: /use-timescale/:currentVersion:/metrics-logging/aws-cloudwatch/#reference
 [list-iam-users]: https://console.aws.amazon.com/iam/home#/users
 [create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
 [create-an-iam-id-provider]: https://console.aws.amazon.com/iam/home#/identity_providers
