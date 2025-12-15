@@ -35,10 +35,10 @@ You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share y
 
 To start using the $DATA_MODE, open $CONSOLE and click `Data view`. This includes the following tabs:
 
-- **Files**: list all files in your project.
-- **Schemas**: list all schemas per database in your $SERVICE_SHORT.
-- **dbt**: create dbt macros and models. See the [documentation][popsql-dbt] for more.
-- **[$SQL_ASSISTANT_SHORT][sql-assistant]**: write, fix, and organize SQL faster and more accurately using AI.
+- **Files**: browse all your queries, dashboards, notebooks, and folders. 
+- **Schemas**: view the schemas in your $SERVICE_SHORT.
+- **dbt**: [create dbt macros and models][popsql-dbt].
+- **$SQL_ASSISTANT_SHORT**: [write, fix, and organize SQL][sql-assistant] faster and more accurately using AI.
 
 Available features are:
 

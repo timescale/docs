@@ -22,7 +22,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
    1. In $CONSOLE, click `Data view`. 
 
-   1. Select your $SERVICE_SHORT in the connection drop-down in the top right. 
+   1. In the connection drop-down in the top right, select your $SERVICE_SHORT.
 
       ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png)
 

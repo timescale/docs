@@ -210,7 +210,7 @@ $CONSOLE. You can also do this using psql.
 
 1.  **Connect to your $SERVICE_SHORT**
 
-    Select your $SERVICE_SHORT in the connection drop-down in the top right.
+    In the connection drop-down in the top right, select your $SERVICE_SHORT.
 
 1.  **Create a $CAGG**
 
