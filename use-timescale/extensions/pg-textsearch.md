@@ -7,7 +7,7 @@ products: [cloud, self_hosted]
 ---
 
 import EA1125 from "versionContent/_partials/_early_access_11_25.mdx";
-import SINCE0101 from "versionContent/_partials/_since_0_10_0.mdx";
+import SINCE010 from "versionContent/_partials/_since_0_1_0.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Optimize full text search with BM25 
@@ -283,7 +283,7 @@ Customize `pg_textsearch` behavior for your specific use case and data character
    -- Set default query limit when no LIMIT clause is present (default 1000)
    SET pg_textsearch.default_limit = 5000;
    ```
-   <SINCE0101 />
+   <SINCE010 />
 
 1. **Configure language-specific text processing**
 
