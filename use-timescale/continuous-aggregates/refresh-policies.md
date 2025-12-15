@@ -188,11 +188,11 @@ CALL refresh_continuous_aggregate('example', '2021-05-01', '2021-06-01');
 
 Follow the logic used by automated refresh policies and avoid refreshing time buckets that are likely to have a lot of writes. This means that you should generally not refresh the latest incomplete time bucket. To include the latest raw data in your queries, use [real-time aggregation][real-time-aggregates] instead.
 
-[cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
-[future-watermark]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
-[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
-[data-retention]: /use-timescale/:currentVersion:/data-retention
 [api-reference]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[data-retention]: /use-timescale/:currentVersion:/data-retention
+[future-watermark]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

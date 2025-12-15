@@ -151,8 +151,8 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 
 [brew-install]: https://brew.sh
 [cloud]: /use-timescale/:currentVersion:/services/
-[docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
-[toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
+[docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
 [macos-install]: /self-hosted/:currentVersion:/install/installation-macos/
+[toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
+[update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/

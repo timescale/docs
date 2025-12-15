@@ -265,8 +265,8 @@ you created. The Lambda function's name is listed under `Target(s)`:
 
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/targets.png" alt="Lamdba function target in AWS Console"/>
 
-[lambda-container-images]: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html
 [cron-examples]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions
+[lambda-container-images]: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html
+[lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2
 [pandas-docs]: https://pandas.pydata.org/
 [pgcopy]: https://github.com/G-Node/pgcopy
-[lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2

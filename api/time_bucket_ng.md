@@ -210,5 +210,5 @@ can't be used with continuous aggregates. Best practice is to use
 The function returns the bucket's start time. The return value type is the
 same as `ts`.
 
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

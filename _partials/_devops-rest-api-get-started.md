@@ -150,7 +150,7 @@ Follow these security guidelines when working with the $REST_LONG:
     - Implement proper backup and recovery procedures for created services
     - Follow data residency requirements for your region
 
-[rest-api-reference]: /api/:currentVersion:/api-reference/
-[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
 [curl]: https://curl.se/
+[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
+[rest-api-reference]: /api/:currentVersion:/api-reference/

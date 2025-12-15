@@ -44,9 +44,9 @@ To connect to $CLOUD_LONG:
 
 </Procedure>
 
-You have successfully integrated DBeaver with $CLOUD_LONG. 
+You have successfully integrated DBeaver with $CLOUD_LONG.
 
-[dbeaver]: https://dbeaver.io/
-[dbeaver-downloads]: https://dbeaver.io/download/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[dbeaver-downloads]: https://dbeaver.io/download/
+[dbeaver]: https://dbeaver.io/
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/

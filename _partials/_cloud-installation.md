@@ -51,8 +51,8 @@ To set up $CLOUD_LONG via AWS:
 
 </Tabs>
 
+[aws-annual-commit]: https://aws.amazon.com/marketplace/pp/prodview-ezxwlmjyr6x4u?applicationId=AWSMPContessa&ref_=beagle&sr=0-2
 [aws-marketplace]: https://aws.amazon.com/marketplace
 [aws-paygo]: https://aws.amazon.com/marketplace/pp/prodview-iestawpo5ihca?applicationId=AWSMPContessa&ref_=beagle&sr=0-1
-[aws-annual-commit]: https://aws.amazon.com/marketplace/pp/prodview-ezxwlmjyr6x4u?applicationId=AWSMPContessa&ref_=beagle&sr=0-2
 [console-billing]: https://console.cloud.timescale.com/dashboard/billing/plans
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

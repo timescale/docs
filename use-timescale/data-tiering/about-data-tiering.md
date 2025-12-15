@@ -164,15 +164,15 @@ The typical workflow to use tiered storage in $CLOUD_LONG is:
     view. Modify or remove tiering policies as needed using `alter_job` and
     `remove_tiering_policy`.
 
-</Procedure> 
+</Procedure>
 
-[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
-[parquet]: https://parquet.apache.org/
-[low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
-[creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
-[monitor-data]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#tier-chunks
-[hypercore]: /use-timescale/:currentVersion:/hypercore
 [aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
+[aws-storage-types]: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html#vol-type-ssd
+[creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
 [ebs-io2]: https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express
 [high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
-[aws-storage-types]: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html#vol-type-ssd
+[hypercore]: /use-timescale/:currentVersion:/hypercore
+[low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
+[monitor-data]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#tier-chunks
+[parquet]: https://parquet.apache.org/
+[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/

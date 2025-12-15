@@ -134,8 +134,8 @@ Optional `WITH` clause options:
 
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 
+[api-continuous-aggregates-info]: /api/:currentVersion:/informational-views/continuous_aggregates/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[gucs]: /api/:currentVersion:/configuration/gucs/
 [real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
 [refresh-cagg]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
-[api-continuous-aggregates-info]: /api/:currentVersion:/informational-views/continuous_aggregates/
-[gucs]: /api/:currentVersion:/configuration/gucs/

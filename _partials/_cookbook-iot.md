@@ -124,8 +124,8 @@ the previous example into a materialized query that refreshes infrequently, perh
 
 Shoutout to **Christopher Piggott** for this recipe.
 
-[blog-wide-vs-narrow]: https://www.timescale.com/learn/designing-your-database-schema-wide-vs-narrow-postgres-tables
-[setup-a-narrow-table-format]: /tutorials/:currentVersion:/cookbook/#narrow-table-format-example
-[select-distinct-on]: /tutorials/:currentVersion:/cookbook/#select-distinct-on
-[join-lateral]: /tutorials/:currentVersion:/cookbook/#join-lateral
+[blog-wide-vs-narrow]: https://www.tigerdata.com/learn/designing-your-database-schema-wide-vs-narrow-postgres-tables
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[join-lateral]: /tutorials/:currentVersion:/cookbook/#join-lateral
+[select-distinct-on]: /tutorials/:currentVersion:/cookbook/#select-distinct-on
+[setup-a-narrow-table-format]: /tutorials/:currentVersion:/cookbook/#narrow-table-format-example

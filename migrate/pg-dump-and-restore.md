@@ -124,11 +124,10 @@ And that is it, you have migrated your data from a $MST_LONG instance to a $SERV
 
 
 [list of compatible extensions]: /use-timescale/:currentVersion:/extensions/
-[Upgrade TimescaleDB]: https://www.tigerdata.com/docs/self-hosted/:currentVersion:/upgrades/
 [live migration]: /migrate/:currentVersion:/live-migration
 
+[data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/

@@ -19,7 +19,7 @@ $COLUMNSTORE with no other options, your data is [segmented by][alter_materializ
 in the $CAGG, and [ordered by][alter_materialized_view_arguments] the time column. [Real-time aggregation][real-time-aggregates]
 is disabled by default.
 
-<Since2200 /> For the old API, see <a href="https://www.tigerdata.com/docs/use-timescale/:currentVersion:/compression/compression-on-continuous-aggregates/">Compress continuous aggregates</a>.
+<Since2200 /> For the old API, see <a href="https://www.tigerdata.com/docs/use-timescale/latest/compression/compression-on-continuous-aggregates/">Compress continuous aggregates</a>.
 
 ## Configure $COLUMNSTORE on $CAGGs
 
@@ -62,10 +62,10 @@ For an [existing $CAGG][create-cagg]:
 
 </Procedure>
 
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
 [alter_materialized_view_arguments]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/#arguments
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
+[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies

@@ -73,5 +73,5 @@ In the case of such a restore, new references are added to the deleted tiered ch
 Once 14 days pass after soft deleting the data,that is the number of references to the tiered data drop to 0, we hard delete the tiered data.
 
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/#read-replicas
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
+[read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/#read-replicas

@@ -65,12 +65,12 @@ Follow this tutorial and see how to set up your $TIMESCALE_DB database to consum
 *   [Query candlestick views][query]
 *   [Advanced data management][manage]
 
+[bot]: https://www.tigerdata.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
-[trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
-[messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
-[bot]: https://www.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-[design]: /tutorials/:currentVersion:/financial-candlestick-tick-data/design-tick-schema
 [create]: /tutorials/:currentVersion:/financial-candlestick-tick-data/create-candlestick-aggregates
-[query]: /tutorials/:currentVersion:/financial-candlestick-tick-data/query-candlestick-views
+[design]: /tutorials/:currentVersion:/financial-candlestick-tick-data/design-tick-schema
 [manage]: /tutorials/:currentVersion:/financial-candlestick-tick-data/advanced-data-management
+[messari]: https://www.tigerdata.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
 [psql]: /integrations/:currentVersion:/psql/
+[query]: /tutorials/:currentVersion:/financial-candlestick-tick-data/query-candlestick-views
+[trading-strategy]: https://www.tigerdata.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/

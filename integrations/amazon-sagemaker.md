@@ -132,12 +132,12 @@ machine learning models. You can also untegrate visualization tools like [Grafan
 
 [Amazon Sagemaker]: https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html
 
-[aws-sign-up]: https://signin.aws.amazon.com/signup?request_type=register
-[grafana]: /integrations/:currentVersion:/grafana/
-[tableau]: /integrations/:currentVersion:/tableau/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[psql]: /integrations/:currentVersion:/psql/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [aws-notebooks-git-repos]:https://console.aws.amazon.com/sagemaker/home#/notebooks-and-git-repos
+[aws-sign-up]: https://signin.aws.amazon.com/signup?request_type=register
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[grafana]: /integrations/:currentVersion:/grafana/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[psql]: /integrations/:currentVersion:/psql/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[tableau]: /integrations/:currentVersion:/tableau/

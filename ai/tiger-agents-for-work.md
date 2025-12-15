@@ -14,7 +14,7 @@ $AGENTS_LONG is a Slack-native AI agent that you use to unify the knowledge in y
 history, docs, GitHub repositories, Salesforce and so on. You use your $AGENTS_SHORT to get instant answers for real 
 business, technical, and operations questions in your Slack channels. 
 
-![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-agent/query-in-slack.png)
+![Query Tiger Agent][query-tiger-agent]
 
 $AGENTS_LONG can handle concurrent conversations with enterprise-grade reliability. They have the following features:
 
@@ -77,7 +77,7 @@ provides the security tokens for Slack integration with your $AGENTS_SHORT:
 
 1. **Create the Slack app**
 
-    1. Go to [api.slack.com/apps](https://api.slack.com/apps).
+    1. Go to [api.slack.com/apps][apislackcomapps].
     1. Click `Create New App`.
     1. Select `From a manifest`.
     1. Choose your workspace, then click `Next`.
@@ -182,7 +182,7 @@ data and analytics stored in $CLOUD_LONG.
     1. In Slack, open a public channel app and ask $AGENTS_SHORT a couple of questions. You see the response in your 
        public channel and log messages in the terminal.
    
-      ![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-agent/query-in-terminal.png)
+      ![Query Tiger Agent][query-tiger-agent-1]
 
 </Procedure>   
 
@@ -280,11 +280,14 @@ tiger-agent run \
 
 Your $AGENTS_SHORTs are now configured with $COMPANY MCP server access and personalized prompts.
 
+[apislackcomapps]: https://api.slack.com/apps
+[claude-api-key]: https://console.anthropic.com/settings/keys
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [jinja-templates]: https://jinja.palletsprojects.com/en/stable/
 [logfire]: https://pydantic.dev/logfire
-[claude-api-key]: https://console.anthropic.com/settings/keys
-[uv-install]: https://docs.astral.sh/uv/getting-started/installation/
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [mcp-configuration-docs]: https://github.com/timescale/tiger-agents-for-work/blob/main/docs/mcp_config.md
 [prompt-templates]: https://github.com/timescale/tiger-agents-for-work/blob/main/docs/prompt_templates.md
+[query-tiger-agent-1]: https://assets.timescale.com/docs/images/tiger-agent/query-in-terminal.png
+[query-tiger-agent]: https://assets.timescale.com/docs/images/tiger-agent/query-in-slack.png
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[uv-install]: https://docs.astral.sh/uv/getting-started/installation/

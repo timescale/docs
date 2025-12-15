@@ -82,5 +82,5 @@ Returns show `NULL` if the data is currently uncompressed.
 
 </Highlight>
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [compression]: /use-timescale/:currentVersion:/compression/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

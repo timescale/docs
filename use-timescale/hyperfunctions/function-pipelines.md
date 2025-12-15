@@ -915,7 +915,7 @@ This table lists all function pipeline elements in alphabetical order:
 |`trunc`|Unary Mathematical|`timevector` pipeline|
 |`unnest`|Output|`TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)`|
 
-[plotly]: https://plotly.com/chart-studio-help/json-chart-schema/
 [lambda-elements-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#lambda-elements
-[to-text-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to-text
+[plotly]: https://plotly.com/chart-studio-help/json-chart-schema/
 [to-plotly-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to-plotly
+[to-text-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to-text

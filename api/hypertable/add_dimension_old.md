@@ -173,9 +173,9 @@ is the number of milliseconds since the UNIX epoch).
 
 </Highlight>
 
+[add-dimension]: /api/:currentVersion:/hypertable/add_dimension/
 [create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[add-dimension]: /api/:currentVersion:/hypertable/add_dimension/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [rn-2130]: https://github.com/timescale/timescaledb/releases/tag/2.13.0

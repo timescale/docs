@@ -73,11 +73,11 @@ import CreateHypertableProcedure from "versionContent/_partials/_hypercore_creat
 
 </Procedure>
 
-[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
 [alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

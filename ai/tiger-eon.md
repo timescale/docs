@@ -20,7 +20,7 @@ company data and give you the answers you need. For example:
 
 $EON_SHORT responds instantly, pulling from the tools you already use. No new UI, no new workflow, just answers in Slack.
 
-![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-eon-big-question.png)
+![Query Tiger Agent][query-tiger-agent]
 
 $EON_LONG:
 
@@ -170,7 +170,7 @@ data and analytics stored in $CLOUD_LONG.
 
    The setup sets up a new $SERVICE_LONG for you called `tiger-eon`, then starts $EON_SHORT in Docker.  
 
-   ![Eon running in Docker](https://assets.timescale.com/docs/images/tiger-eon-docker-services.png)
+   ![Eon running in Docker][eon-running-in-docker]
  
 </Procedure> 
 
@@ -184,15 +184,18 @@ You have created:
 To enable your AI Assistant to analyze your data for you when you ask a question, open a public channel,  
 invite `@eon` to join, then ask a question: 
 
-![Eon running in Docker](https://assets.timescale.com/docs/images/tiger-eon-slack-channel-add.png)
+![Eon running in Docker][eon-running-in-docker-1]
 
 [claude-api-key]: https://console.anthropic.com/settings/keys
-[github-token]: https://github.com/settings/tokens/new?description=Tiger%20Agent&scopes=repo,read:org
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-docker]: https://docs.docker.com/engine/install/
-[tiger-cli]: https://github.com/timescale/tiger-cli/
-[tiger-agents]: https://github.com/timescale/tiger-agents-for-work
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
-[logfire-token]: http://logfire.pydantic.dev/docs/how-to-guides/create-write-tokens/
+[eon-running-in-docker-1]: https://assets.timescale.com/docs/images/tiger-eon-slack-channel-add.png
+[eon-running-in-docker]: https://assets.timescale.com/docs/images/tiger-eon-docker-services.png
+[github-token]: https://github.com/settings/tokens/new?description=Tiger%20Agent&scopes=repo,read:org
+[install-docker]: https://docs.docker.com/engine/install/
 [linear-token]: https://linear.app/docs/api-and-webhooks#api-keys
+[logfire-token]: http://logfire.pydantic.dev/docs/how-to-guides/create-write-tokens/
+[query-tiger-agent]: https://assets.timescale.com/docs/images/tiger-eon-big-question.png
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[tiger-agents]: https://github.com/timescale/tiger-agents-for-work
+[tiger-cli]: https://github.com/timescale/tiger-cli/

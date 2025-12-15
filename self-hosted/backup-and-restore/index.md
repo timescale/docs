@@ -21,6 +21,6 @@ back up your $SELF_LONG database:
 
 <ConsiderCloud />
 
-[wale]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/
-[physical-backups]: /self-hosted/:currentVersion:/backup-and-restore/physical/
 [logical-backups]: /self-hosted/:currentVersion:/backup-and-restore/logical-backup/
+[physical-backups]: /self-hosted/:currentVersion:/backup-and-restore/physical/
+[wale]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/

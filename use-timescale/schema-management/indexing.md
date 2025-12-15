@@ -98,6 +98,6 @@ to perform indexing transactions on an individual chunk.
 </Highlight>
 
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
+[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
 [create-index]: https://www.tigerdata.com/docs/api/:currentVersion:/hypertable/create_index/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/

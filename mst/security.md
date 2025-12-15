@@ -164,5 +164,5 @@ you want more information about information security policies,
 -->
 
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
-[timescale-support]: https://www.timescale.com/contact/
 [mst-login]:https://portal.managed.timescale.com/login
+[timescale-support]: https://www.tigerdata.com/contact/

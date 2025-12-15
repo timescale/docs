@@ -256,6 +256,6 @@ cluster.
 [alter-database]: https://www.postgresql.org/docs/current/sql-alterdatabase.html
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
 [drop-owned]: https://www.postgresql.org/docs/current/sql-drop-owned.html
-[pg-grant]: https://www.postgresql.org/docs/current/sql-grant.html
 [password-config]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/
+[pg-grant]: https://www.postgresql.org/docs/current/sql-grant.html
 [revoke]: https://www.postgresql.org/docs/current/sql-revoke.html

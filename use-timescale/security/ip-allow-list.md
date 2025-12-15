@@ -73,7 +73,7 @@ You create an IP allow list in the data mode settings.
 You have successfully added an IP allow list for querying your $SERVICE_SHORT in the data mode.
 
 [console]: https://console.cloud.timescale.com/dashboard/
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
-[projects]: /use-timescale/:currentVersion:/security/members/
 [create-service]: /getting-started/:currentVersion:/services/
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[projects]: /use-timescale/:currentVersion:/security/members/
+[vpc-peering]: /use-timescale/:currentVersion:/security/vpc/

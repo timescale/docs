@@ -411,12 +411,11 @@ Now that you have integrated the ruby gem into your app:
 * Check out the [official docs](https://timescale.github.io/timescaledb-ruby/).
 * Follow the [LTTB][LTTB], [Open AI long-term storage][open-ai-tutorial], and [candlesticks][candlesticks] tutorials.
 
-[LTTB]: https://timescale.github.io/timescaledb-ruby/toolkit_lttb_tutorial/
-
-[rails-guide]: https://guides.rubyonrails.org/install_ruby_on_rails.html#installing-rails
+[candlesticks]: https://timescale.github.io/timescaledb-ruby/toolkit_candlestick/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[rails-compostite-primary-keys]: https://guides.rubyonrails.org/active_record_composite_primary_keys.html
-[ruby-blog-post]: https://www.timescale.com/blog/building-a-better-ruby-orm-for-time-series-and-analytics
+[LTTB]: https://timescale.github.io/timescaledb-ruby/toolkit_lttb_tutorial/
 [open-ai-tutorial]: https://timescale.github.io/timescaledb-ruby/chat_gpt_tutorial/
-[candlesticks]: https://timescale.github.io/timescaledb-ruby/toolkit_candlestick/
+[rails-compostite-primary-keys]: https://guides.rubyonrails.org/active_record_composite_primary_keys.html
+[rails-guide]: https://guides.rubyonrails.org/install_ruby_on_rails.html#installing-rails
+[ruby-blog-post]: https://www.tigerdata.com/blog/building-a-better-ruby-orm-for-time-series-and-analytics

@@ -127,5 +127,5 @@ SELECT * FROM devices WHERE store_id = M, device_id = M, time > 10
 This is an accurate query for this index. It narrows down the list to a very
 specific portion.
 
-[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
+[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29

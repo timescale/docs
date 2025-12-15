@@ -45,11 +45,13 @@ For more information about getting your first $MST_SERVICE_SHORT up and running,
 
 
 <Highlight type="important">
+
 When you have created, and named, a new Managed Service for TimescaleDB service,
 you cannot rename it. If you need to have your service running under a different
 name, you need to create a new service, and manually migrate the data. For more
 information about migrating data, see
-[migrating your data](https://www.tigerdata.com/docs/mst/:currentVersion:/migrate-to-mst/).
+[migrating your data][mst-migration].
+
 </Highlight>
 
 For information about billing on Managed Service for TimescaleDB, see the
@@ -282,10 +284,11 @@ of time, you can use this command:
 SET statement_timeout = <milliseconds>
 ```
 
-[create-managed-service]: /mst/:currentVersion:/installation-mst/
 [aiven-sla]: https://aiven.io/sla
-[pg-keepalive]: https://www.postgresql.org/docs/9.5/libpq-connect.html#LIBPQ-KEEPALIVES
 [connection-pooling]: /mst/:currentVersion:/connection-pools/
+[create-managed-service]: /mst/:currentVersion:/installation-mst/
 [mst-billing]: /mst/:currentVersion:/billing/
-[mst-signup]: https://www.timescale.com/mst-signup
 [mst-login]:https://portal.managed.timescale.com/login
+[mst-migration]: /mst/:currentVersion:/migrate-to-mst/
+[mst-signup]: https://www.tigerdata.com/mst-signup
+[pg-keepalive]: https://www.postgresql.org/docs/9.5/libpq-connect.html#LIBPQ-KEEPALIVES

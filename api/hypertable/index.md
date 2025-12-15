@@ -39,9 +39,9 @@ CREATE TABLE conditions (
 
 <OldCreateHypertable />
 
-</Highlight> 
+</Highlight>
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

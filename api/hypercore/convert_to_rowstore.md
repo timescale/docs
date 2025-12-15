@@ -40,5 +40,5 @@ To modify or add a lot of data to a chunk:
 |`chunk`| REGCLASS | -       | ✖        | Name of the chunk to be moved to the $ROWSTORE. |
 |`if_compressed`| BOOLEAN  | `true`  | ✔        | Set to `false` so this job fails with an error rather than an warning if `chunk` is not in the $COLUMNSTORE |
 
-[jobs]: /api/:currentVersion:/jobs-automation/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[jobs]: /api/:currentVersion:/jobs-automation/

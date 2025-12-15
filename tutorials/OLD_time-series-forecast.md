@@ -767,18 +767,17 @@ variety of statistical models and machine learning algorithms that you can use
 to analyze and make predictions on time-series data in your TimescaleDB
 database.
 
-[NYCTLC]: http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
-
 [arima]: https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
 [forecast-sql]: http://assets.iobeam.com/sql/forecast.sql
 [gap_filling]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/#gap-filling
 [holt-winters]: https://otexts.org/fpp2/holt-winters.html
-[install-timescale]: /getting-started/:currentVersion:/
 [install-python]: https://www.python.org/downloads/
+[install-timescale]: /getting-started/:currentVersion:/
 [install_r]: https://www.r-project.org/
 [madlib]: http://madlib.apache.org/
 [madlib_arima]: http://madlib.apache.org/docs/latest/group__grp__arima.html
 [madlib_install]: https://cwiki.apache.org/confluence/display/MADLIB/Installation+Guide
+[NYCTLC]: http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [python-statsmodels]: http://www.statsmodels.org/dev/tsa.html
 [r-forecast]: https://cran.r-project.org/web/packages/forecast/forecast.pdf

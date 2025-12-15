@@ -145,6 +145,6 @@ and move the data to `history` and the indexes to `history_indexes`.
 In $TIMESCALE_DB v2.0 and later, you can use `move_chunk` with the job scheduler
 framework. For more information, see the [$JOBs section][jobs].
 
-[jobs]: /use-timescale/:currentVersion:/jobs/
 [api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk
+[jobs]: /use-timescale/:currentVersion:/jobs/
 [reorder_chunk]: /api/:currentVersion:/hypertable/reorder_chunk

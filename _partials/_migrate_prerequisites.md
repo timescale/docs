@@ -17,7 +17,7 @@ Before you move your data:
 
 [has a single database]: /migrate/:currentVersion:/troubleshooting/#only-one-database-per-instance
 
-[create-service]: /getting-started/:currentVersion:/services/
+[adjust-maintenance-window]: /use-timescale/:currentVersion:/upgrades/#define-your-maintenance-window
 [all-available-extensions]: /use-timescale/:currentVersion:/extensions
 [create-ec2-instance]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
-[adjust-maintenance-window]: /use-timescale/:currentVersion:/upgrades/#define-your-maintenance-window
+[create-service]: /getting-started/:currentVersion:/services/

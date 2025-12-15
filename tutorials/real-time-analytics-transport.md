@@ -89,7 +89,7 @@ how to create a visualization that shows how you can maximize potential revenue.
 You have integrated Grafana with a $SERVICE_LONG and made insights based on visualization of
 your data.
 
+[grafana-cloud]: https://grafana.com/get/
 [grafana-docs]: https://grafana.com/docs/
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed
-[grafana-cloud]: https://grafana.com/get/
 [use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/

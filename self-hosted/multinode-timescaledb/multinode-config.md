@@ -70,6 +70,6 @@ For consistency, if the transaction isolation level is set to `READ COMMITTED`
 it is automatically upgraded to `REPEATABLE READ` whenever a distributed
 operation occurs. If the isolation level is `SERIALIZABLE`, it is not changed.
 
+[config]: /self-hosted/:currentVersion:/configuration/
 [copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
 [move_chunk]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental
-[config]: /self-hosted/:currentVersion:/configuration/

@@ -44,6 +44,6 @@ using [continuous aggregates][caggs], or
 [configuring data retention][data-retention] to reduce the amount of
 resources your database uses.
 
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates
 [data-retention]: /use-timescale/:currentVersion:/data-retention
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

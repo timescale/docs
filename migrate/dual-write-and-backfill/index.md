@@ -51,7 +51,7 @@ For more information, consult the step-by-step guide for your source database:
 
 <GettingHelp />
 
-[from-timescaledb]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-timescaledb/
-[from-postgres]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-postgres/
 [from-other]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-other/
+[from-postgres]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-postgres/
+[from-timescaledb]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-timescaledb/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/

@@ -103,5 +103,5 @@ END
 $BODY$;
 ```
 
-[postgres-createtrigger]: https://www.postgresql.org/docs/current/sql-createtrigger.html
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec/
+[postgres-createtrigger]: https://www.postgresql.org/docs/current/sql-createtrigger.html

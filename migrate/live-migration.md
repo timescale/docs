@@ -131,10 +131,9 @@ This section shows you how to work around frequently seen issues when using live
 
 <Troubleshooting />
 
-[FAQ]: /migrate/:currentVersion:/troubleshooting
-
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [compression]: /use-timescale/:currentVersion:/compression/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
 [dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/
+[FAQ]: /migrate/:currentVersion:/troubleshooting
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-docker]: https://docs.docker.com/engine/install/

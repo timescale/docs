@@ -15,7 +15,6 @@ These functions work on two-dimensional data. To work with one-dimensional data,
 for example to calculate the average and standard deviation of a single
 variable, see [the one-dimensional `stats_agg` functions][stats-aggs].
 
-    https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE
-
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[pg-stats-aggs]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE
 [stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

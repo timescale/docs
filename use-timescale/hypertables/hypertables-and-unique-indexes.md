@@ -132,7 +132,7 @@ in your unique index.
 
 </Procedure>
 
-[postgres-createconstraint]: https://www.postgresql.org/docs/current/ddl-constraints.html
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[postgres-createconstraint]: https://www.postgresql.org/docs/current/ddl-constraints.html
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

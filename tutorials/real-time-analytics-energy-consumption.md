@@ -122,9 +122,9 @@ To visually monitor the volume of energy consumption over time:
 
 You have integrated Grafana with a $SERVICE_LONG and made insights based on visualization of your data.
 
+[grafana-cloud]: https://grafana.com/get/
 [grafana-docs]: https://grafana.com/docs/
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed
-[grafana-cloud]: https://grafana.com/get/
+[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
 [test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
-[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/

@@ -163,13 +163,13 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 </Procedure>
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
-[migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /migrate/:currentVersion:/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

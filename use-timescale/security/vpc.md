@@ -221,12 +221,12 @@ some time for DNS propagation.
 
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups:
-[console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[regions]: /about/:currentVersion:/supported-platforms/#available-regions
-[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#secure-your-cloud_long-services-with-vpc-peering-and-aws-privatelink
 [aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
-[aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws
 [aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/security/vpc/#secure-your-cloud_long-services-with-vpc-peering-and-aws-privatelink
+[aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws
+[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#secure-your-cloud_long-services-with-vpc-peering-and-aws-privatelink
+[console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
 [create-service]: /getting-started/:currentVersion:/services/#create-a-service_long
 [projects]: /use-timescale/:currentVersion:/security/members/
+[regions]: /about/:currentVersion:/supported-platforms/#available-regions
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

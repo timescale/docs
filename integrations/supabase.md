@@ -259,11 +259,11 @@ To inject data into your $SERVICE_LONG from a Supabase database using a foreign 
 
 </Procedure>
 
-You have successfully integrated Supabase with your $SERVICE_LONG.  
+You have successfully integrated Supabase with your $SERVICE_LONG.
 
-[supabase]: https://supabase.com/
-[supabase-new-project]: https://supabase.com/dashboard/new
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
+[supabase-new-project]: https://supabase.com/dashboard/new
+[supabase]: https://supabase.com/

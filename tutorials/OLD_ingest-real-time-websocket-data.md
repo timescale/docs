@@ -354,8 +354,8 @@ efficiently store and analyze your data after ingestion:
 *   [Getting started with TimescaleDB][install]
 
 [candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
-[install]: /getting-started/:currentVersion:/
 [install-timescale]: /getting-started/:currentVersion:/
+[install]: /getting-started/:currentVersion:/
 [psycopg2]: https://www.psycopg.org/docs/
 [twelve-data]: https://twelvedata.com
 [twelve-signup]: https://twelvedata.com/pricing

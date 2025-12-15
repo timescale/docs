@@ -333,9 +333,9 @@ EOF
 
 </Procedure>
 
-[create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
 [alter-publication]: https://www.postgresql.org/docs/current/sql-alterpublication.html
-[install-docker]: https://docs.docker.com/engine/install/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[psql]: /integrations/:currentVersion:/psql/
 [convert-partitions-and-tables-with-time-series-data-into-hypertables-link]: /migrate/:currentVersion:/livesync-for-postgresql/#convert-partitions-and-tables-with-time-series-data-into-hypertables
+[create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[install-docker]: https://docs.docker.com/engine/install/
+[psql]: /integrations/:currentVersion:/psql/

@@ -61,13 +61,13 @@ To stream data gathered in Decodable to a $SERVICE_LONG:
 </Procedure> 
 
 
-You have successfully integrated Decodable with $CLOUD_LONG. 
+You have successfully integrated Decodable with $CLOUD_LONG.
 
-[decodable]: https://www.decodable.co/
-[decodable-app]:https://app.decodable.co/-/accounts
-[sign-up-decodable]: https://auth.decodable.co/u/signup/
-[decodable-quickstart]: https://docs.decodable.co/get-started/quickstart.html
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[decodable-app]:https://app.decodable.co/-/accounts
+[decodable-quickstart]: https://docs.decodable.co/get-started/quickstart.html
+[decodable]: https://www.decodable.co/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[sign-up-decodable]: https://auth.decodable.co/u/signup/

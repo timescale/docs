@@ -140,7 +140,7 @@ In the satellite example, the time of adding data to a database inevitably follo
 Sequential IDs and the creation timestamp for both entities also increase synchronously. This means those two 
 columns are correlated. 
 
-For a more in-depth look on chunk skipping, see [our blog post](https://www.timescale.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes).
+For a more in-depth look on chunk skipping, see [our blog post](https://www.tigerdata.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes).
 
 ### Enable chunk skipping
 
@@ -160,9 +160,9 @@ $HYPERTABLE. The statistics collected by the `ANALYZE` command are used by the
 $PG planner to create the best query plan. For more information about the
 `ANALYZE` command, see the [$PG documentation][pg-analyze].
 
-[api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
-[chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#enable-chunk-skipping
-[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [analyze-hypertables]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#analyze-your-hypertables
+[api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
+[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
+[chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#enable-chunk-skipping
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html

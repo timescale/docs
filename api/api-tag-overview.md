@@ -53,6 +53,7 @@ experimental toolkit functions on Timescale, this function is
 automatically dropped when the Toolkit extension is updated. For more
 information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 
-[tsl-comparison]: /about/:currentVersion:/timescaledb-editions/
+[experimental-blog]: https://www.tigerdata.com/blog/building-better-software-faster-with-an-experimental-schema-for-new-features
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [toolkit-docs]: https://github.com/timescale/timescaledb-toolkit/tree/main/docs#a-note-on-tags-
+[tsl-comparison]: /about/:currentVersion:/timescaledb-editions/

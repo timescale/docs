@@ -134,8 +134,8 @@ $TIMESCALE_DB and time-series data, check out the [tutorials][tutorials] section
 You can always [contact us][timescale-support] if you need help working something out, or
 if you want to have a chat.
 
-[timescale-support]: https://www.timescale.com/contact
-[psql]: /integrations/:currentVersion:/psql/
-[mst]: /mst/:currentVersion:/
-[tutorials]: /tutorials/:currentVersion:/
 [mst-login]:https://portal.managed.timescale.com/login
+[mst]: /mst/:currentVersion:/
+[psql]: /integrations/:currentVersion:/psql/
+[timescale-support]: https://www.tigerdata.com/contact
+[tutorials]: /tutorials/:currentVersion:/

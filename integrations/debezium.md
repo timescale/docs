@@ -71,10 +71,10 @@ We are working on enabling this feature as you read. As soon as it is live, thes
 
 </Tabs>
 
-And that is it,  you have configured Debezium to interact with $COMPANY products. 
+And that is it,  you have configured Debezium to interact with $COMPANY products.
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [debezium]: https://debezium.io/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-docker]: https://docs.docker.com/engine/install/

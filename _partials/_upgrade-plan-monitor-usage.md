@@ -18,6 +18,6 @@ month-end bill. Your previous invoices are also available as PDFs for download.
 
 <BillingForInactiveServices />
 
+[cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details
 [cloud-login]: https://console.cloud.timescale.com/
 [contact-company]: https://www.tigerdata.com/contact/
-[cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details

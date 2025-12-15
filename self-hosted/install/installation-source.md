@@ -73,9 +73,9 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 <WhereTo />
 
-[install-postgresql]: https://www.postgresql.org/download/
+[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-source/#add-the-timescale_db-extension-to-your-database
 [cmake-download]: https://cmake.org/download/
 [compatibility-matrix]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#plan-your-upgrade-path
-[postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
-[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-source/#add-the-timescale_db-extension-to-your-database
 [install-and-configure-timescaledb-on-postgres-link]: /self-hosted/:currentVersion:/install/installation-source/#install-and-configure-timescale_db-on-pg
+[install-postgresql]: https://www.postgresql.org/download/
+[postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/

@@ -33,8 +33,8 @@ See the [README][readme] and [contribution guide][contribution-guide] for detail
 
 [contribution-guide]: https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md
 [github-docs]: https://github.com/timescale/docs
-[timescaledb]: https://github.com/timescale/timescaledb/blob/main/CONTRIBUTING.md
 [pgai]: https://github.com/timescale/pgai/blob/main/CONTRIBUTING.md
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/blob/main/CONTRIBUTING.md
-[toolkit]: https://github.com/timescale/timescaledb-toolkit
 [readme]: https://github.com/timescale/docs/blob/latest/README.md
+[timescaledb]: https://github.com/timescale/timescaledb/blob/main/CONTRIBUTING.md
+[toolkit]: https://github.com/timescale/timescaledb-toolkit

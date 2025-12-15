@@ -63,7 +63,6 @@ For more information, see the
 
 <PolicyVisualizerDownsampling />
 
-    /use-timescale/:currentVersion:/data-retention/data-retention-with-continuous-aggregates
-
+[data-retention-with-continuous-aggregates]: /use-timescale/:currentVersion:/data-retention/data-retention-with-continuous-aggregates
 [refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [visualizer]: #set-up-downsampling-and-data-retention

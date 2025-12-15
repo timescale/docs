@@ -105,7 +105,7 @@ To retrieve statistics about chunks:
 |`node_name`|TEXT| **DEPRECATED**: nodes the chunk is located on, applicable only to distributed hypertables.                                                                                                                       |
 
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
-[job]: /api/:currentVersion:/jobs-automation/add_job/
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[job]: /api/:currentVersion:/jobs-automation/add_job/

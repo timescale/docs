@@ -127,13 +127,13 @@ DROP TABLE weather;
 
 All data $CHUNKs belonging to the $HYPERTABLE are deleted.
 
-[postgres-droptable]: https://www.postgresql.org/docs/current/sql-droptable.html
-[postgres-alter-table]: https://www.postgresql.org/docs/current/sql-altertable.html
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
-[api-create-hypertable-arguments]: /api/:currentVersion:/hypertable/create_hypertable/#arguments
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
-[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
-[uuidv7_functions]: /api/:currentVersion:/uuid-functions/
 [alter-schema]: /use-timescale/:currentVersion:/schema-management/alter/#altering-hypertables-with-columnstore-enabled
+[api-create-hypertable-arguments]: /api/:currentVersion:/hypertable/create_hypertable/#arguments
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[postgres-alter-table]: https://www.postgresql.org/docs/current/sql-altertable.html
+[postgres-droptable]: https://www.postgresql.org/docs/current/sql-droptable.html
+[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[uuidv7_functions]: /api/:currentVersion:/uuid-functions/

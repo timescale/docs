@@ -180,7 +180,7 @@ tutorial as a starting point.
 
 </Procedure>
 
+[grafana-cloud]: https://grafana.com/get/
+[grafana-self-managed]: https://grafana.com/get/?tab=self-managed
 [nyc-taxi]: /tutorials/:currentVersion:/real-time-analytics-transport/
 [time-buckets]: /use-timescale/:currentVersion:/time-buckets/
-[grafana-self-managed]: https://grafana.com/get/?tab=self-managed
-[grafana-cloud]: https://grafana.com/get/

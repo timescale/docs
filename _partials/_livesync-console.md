@@ -121,6 +121,6 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 And that is it, you are using the $PG_CONNECTOR to synchronize all the data, or specific tables, from a $PG database 
 instance to your $SERVICE_LONG, in real time.
 
+[livesync-tune-source-db]: /migrate/:currentVersion:/livesync-for-postgresql/#tune-your-source-database
 [psql]: /integrations/:currentVersion:/psql/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[livesync-tune-source-db]: /migrate/:currentVersion:/livesync-for-postgresql/#tune-your-source-database

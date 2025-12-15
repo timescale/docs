@@ -188,8 +188,8 @@ You create $PG FDWs with the `postgres_fdw` extension. See [documenation][pg-fdw
 
 </Tabs>
 
-[vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [pg-fdw]: https://www.postgresql.org/docs/current/postgres-fdw.html
 [psql]: /integrations/:currentVersion:/psql/
+[vpc-peering]: /use-timescale/:currentVersion:/security/vpc/

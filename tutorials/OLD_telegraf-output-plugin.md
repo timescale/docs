@@ -11,7 +11,7 @@ keywords: [metrics, monitor, Telegraf]
 This section describes a feature that is deprecated on TimescaleDB. We strongly
 recommend that you do not use this feature in a production environment. For some
 suggestions of workarounds, see this
-[$COMPANYForum post](https://www.timescale.com/forum/t/telegraf-plugin/118).
+[$COMPANYForum post](https://forum.tigerdata.com/forum/t/telegraf-plugin/118).
 </Highlight>
 
 Telegraf collects metrics from a wide array of inputs and writes them to a wide
@@ -385,6 +385,6 @@ When you have started inserting data in TimescaleDB, you can begin to familiariz
 Additionally, there are several other [tutorials][] available for you to explore
 as you become accustomed to working with TimescaleDB.
 
-[use-the-api]: /api/:currentVersion:/
 [install-timescale]: /getting-started/:currentVersion:/
 [slack]: https://slack.timescale.com/
+[use-the-api]: /api/:currentVersion:/

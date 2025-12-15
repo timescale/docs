@@ -299,9 +299,9 @@ To check your current TOAST compression setting:
 SHOW default_toast_compression;
 ```
 
-[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
 [delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
-[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
-[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
-[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-compression
+[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
 [dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression
+[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
+[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
+[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-compression

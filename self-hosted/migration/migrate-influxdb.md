@@ -154,12 +154,12 @@ migrate`][outflux-migrate]. Alternatively, see the command line help:
 outflux migrate --help
 ```
 
-[install]: /getting-started/:currentVersion:/
-[outflux-migrate]: https://github.com/timescale/outflux#migrate
-[outflux-releases]: https://github.com/timescale/outflux/releases
-[outflux]: https://github.com/timescale/outflux
-[install-outflux]: /self-hosted/:currentVersion:/migration/migrate-influxdb/#install-outflux
 [discover-validate-and-transfer-schema]: /self-hosted/:currentVersion:/migration/migrate-influxdb/#discover-validate-and-transfer-schema
+[install-outflux]: /self-hosted/:currentVersion:/migration/migrate-influxdb/#install-outflux
+[install]: /getting-started/:currentVersion:/
 [migrate-data-to-timescale]: /self-hosted/:currentVersion:/migration/migrate-influxdb/#migrate-data-to-timescale_db-from-influxdb
 [outflux-gitbuh]: https://github.com/timescale/outflux#connection
+[outflux-migrate]: https://github.com/timescale/outflux#migrate
 [outflux-readme]: https://github.com/timescale/outflux/blob/master/README.md
+[outflux-releases]: https://github.com/timescale/outflux/releases
+[outflux]: https://github.com/timescale/outflux

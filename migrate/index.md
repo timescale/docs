@@ -12,7 +12,7 @@ import OpenSupportRequest from "versionContent/_partials/_migrate_open_support_r
 
 In $CLOUD_LONG, you can easily add and sync data to your $SERVICE_SHORT from other sources. 
 
-![Import and sync](https://assets.timescale.com/docs/images/tiger-cloud-console/import-sync-options-in-tiger-cloud.svg)
+![Import and sync][import-and-sync]
 
 This includes:
 
@@ -49,18 +49,20 @@ Depending on the amount of data you need to migrate, and the amount of downtime 
 All strategies work to migrate from $PG, $TIMESCALE_DB, AWS RDS, and $MST_LONG. Migration 
 assistance is included with $CLOUD_LONG support. If you encounter any difficulties while migrating your data,
 consult the [troubleshooting] page, open a support request, or take your issue to the `#migration` channel
-in the [community slack](https://timescaledb.slack.com/signup#/domain-signup), the developers of this migration method are there to help.
+in the [community slack][community-slack], the developers of this migration method are there to help.
 
 <OpenSupportRequest />
 
 If you're migrating your data from another source database type, best practice is export the data from your source database as 
 a CSV file, then import to your $SERVICE_LONG using [timescaledb-parallel-copy][import-terminal].
 
+[community-slack]: https://timescaledb.slack.com/signup#/domain-signup
 [dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/
-[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
-[migrate-live]: /migrate/:currentVersion:/live-migration/
-[livesync-postgres]: /migrate/:currentVersion:/livesync-for-postgresql/
-[livesync-s3]: /migrate/:currentVersion:/livesync-for-s3/
-[livesync-kafka]: /migrate/:currentVersion:/livesync-for-kafka/
+[import-and-sync]: https://assets.timescale.com/docs/images/tiger-cloud-console/import-sync-options-in-tiger-cloud.svg
 [import-console]: /migrate/:currentVersion:/upload-file-using-console/
 [import-terminal]: /migrate/:currentVersion:/upload-file-using-terminal/
+[livesync-kafka]: /migrate/:currentVersion:/livesync-for-kafka/
+[livesync-postgres]: /migrate/:currentVersion:/livesync-for-postgresql/
+[livesync-s3]: /migrate/:currentVersion:/livesync-for-s3/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/

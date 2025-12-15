@@ -52,8 +52,8 @@ create tables, and load data into the tables using `psql`.
 You then learn how to conduct analysis and monitoring on your dataset. It also walks
 you through the steps to visualize the results in Grafana.
 
-[dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
-[query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/
-[compress-energy]: /tutorials/:currentVersion:/energy-data/compress-energy/
 [cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
+[compress-energy]: /tutorials/:currentVersion:/energy-data/compress-energy/
+[dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
 [grafana]: /integrations/:currentVersion:/grafana/
+[query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/

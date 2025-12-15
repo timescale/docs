@@ -92,8 +92,8 @@ you associated the $SERVICE_SHORT with.
 
 Congratulations, you have successfully set up a Prometheus endpoint on your $MST!
 
+[about-mst]: /mst/:currentVersion:/about-mst
 [get-prometheus]: https://prometheus.io
 [node-exporter-metrics]: https://github.com/prometheus/node_exporter
 [pg-stats-metrics]: https://www.postgresql.org/docs/current/monitoring-stats.html
-[timescale-mst]: https://www.timescale.com/products
-[about-mst]: /mst/:currentVersion:/about-mst
+[timescale-mst]: https://www.tigerdata.com/products

@@ -53,5 +53,5 @@ SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', '_timescaledb_in
 
 This function returns void.
 
-[reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
+[reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/

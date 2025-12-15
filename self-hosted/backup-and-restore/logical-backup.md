@@ -174,12 +174,12 @@ and privilege grants. You restore the $PG instance using `psql`. For more inform
 
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 
-[pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
-[pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
-[update-db]: /self-hosted/:currentVersion:/upgrades/
-[troubleshooting]: /self-hosted/:currentVersion:/troubleshooting/
-[troubleshooting-version-mismatch]: /self-hosted/:currentVersion:/troubleshooting/#versions-are-mismatched-when-dumping-and-restoring-a-database
-[postgres-docs]: https://www.postgresql.org/docs/17/backup-dump.html#BACKUP-DUMP-ALL
 [backup-entire-database]: /self-hosted/:currentVersion:/backup-and-restore/logical-backup/#back-up-and-restore-an-entire-database
 [backup-individual-tables]: /self-hosted/:currentVersion:/backup-and-restore/logical-backup/#back-up-and-restore-individual-hypertables
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
+[pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
+[postgres-docs]: https://www.postgresql.org/docs/17/backup-dump.html#BACKUP-DUMP-ALL
+[troubleshooting-version-mismatch]: /self-hosted/:currentVersion:/troubleshooting/#versions-are-mismatched-when-dumping-and-restoring-a-database
+[troubleshooting]: /self-hosted/:currentVersion:/troubleshooting/
+[update-db]: /self-hosted/:currentVersion:/upgrades/

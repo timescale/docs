@@ -101,8 +101,8 @@ Quick recap. You:
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
 
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[psql]: /integrations/:currentVersion:/psql/
+[psql]: /integrations/:currentVersion:/psql/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[psql]: /integrations/:currentVersion:/psql/
-[psql]: /integrations/:currentVersion:/psql/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

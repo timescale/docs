@@ -131,13 +131,13 @@
 
 </Procedure>
 
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
-[console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
-[console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
-[cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
-[reference]: /use-timescale/:currentVersion:/metrics-logging/aws-cloudwatch/#reference
-[list-iam-users]: https://console.aws.amazon.com/iam/home#/users
-[create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
-[create-an-iam-id-provider]: https://console.aws.amazon.com/iam/home#/identity_providers
 [add-id-provider-as-wi-role]: https://console.aws.amazon.com/iam/home#/roles
 [aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
+[cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
+[console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
+[console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
+[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[create-an-iam-id-provider]: https://console.aws.amazon.com/iam/home#/identity_providers
+[create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
+[list-iam-users]: https://console.aws.amazon.com/iam/home#/users
+[reference]: /use-timescale/:currentVersion:/metrics-logging/aws-cloudwatch/#reference

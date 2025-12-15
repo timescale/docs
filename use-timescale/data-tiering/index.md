@@ -60,13 +60,13 @@ Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sur
 </Tabs>
 
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
+[add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/
+[aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
+[create-service]: /getting-started/:currentVersion:/services/
+[creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
 [data-tiering-workflow]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/#the-tiered-storage-workflow
 [enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
-[tiered-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/
-[creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
-[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
-[add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/
-[create-service]: /getting-started/:currentVersion:/services/
 [hierarchical-storage]: https://en.wikipedia.org/wiki/Hierarchical_storage_management
 [hypercore]: /use-timescale/:currentVersion:/hypercore
-[aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
+[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
+[tiered-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/

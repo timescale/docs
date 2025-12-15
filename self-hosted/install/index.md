@@ -20,7 +20,7 @@ You can install $SELF_LONG from [source][install-from-source], with a [pre-built
 
 For more details about the latest release, see the [release notes][relnotes] section.
 
-[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
 [docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
-[relnotes]: https://github.com/timescale/timescaledb/releases
+[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
 [platform-support]: /about/:currentVersion:/supported-platforms/
+[relnotes]: https://github.com/timescale/timescaledb/releases

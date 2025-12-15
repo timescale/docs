@@ -873,13 +873,13 @@ your Go application, be sure to check out these advanced $TIMESCALE_DB tutorials
     [$TIMESCALE_DB parallel copy][timescaledb-parallel-copy], a tool for fast inserts,
     written in Go.
 
-[install]: /getting-started/:currentVersion:/
-[golang-install]: https://golang.org/doc/install
-[libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
-[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
-[pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
-[pgx-driver-github]: https://github.com/jackc/pgx
-[install]: /getting-started/:currentVersion:/
+[create-a-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
 [create-a-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
 [create-a-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
-[create-a-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
+[golang-install]: https://golang.org/doc/install
+[install]: /getting-started/:currentVersion:/
+[install]: /getting-started/:currentVersion:/
+[libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
+[pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
+[pgx-driver-github]: https://github.com/jackc/pgx
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

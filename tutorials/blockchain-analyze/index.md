@@ -53,10 +53,10 @@ hyperfunctions. It walks you through creating a series of continuous aggregates,
 and querying the aggregates to analyze the data. You can also use those queries
 to graph the output in Grafana.
 
-[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
-[blockchain-dataset]: /tutorials/:currentVersion:/blockchain-analyze/blockchain-dataset/
 [blockchain-analyze]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/
-[blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
+[blockchain-dataset]: /tutorials/:currentVersion:/blockchain-analyze/blockchain-dataset/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
-[transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
+[blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
+[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [grafana]: /integrations/:currentVersion:/grafana/
+[transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction

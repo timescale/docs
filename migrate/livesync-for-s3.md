@@ -186,18 +186,18 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 And that is it, you are using the $S3_CONNECTOR to synchronize all the data, or specific files, from an S3 bucket to your 
 $SERVICE_LONG in real time.
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[compression]: /use-timescale/:currentVersion:/compression/about-compression
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
-[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
-[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
-[deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
-[lex-order]:https://en.wikipedia.org/wiki/Lexicographic_order
+[compression]: /use-timescale/:currentVersion:/compression/about-compression
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [cron-expression]: https://en.wikipedia.org/wiki/Cron#Cron_expression
 [deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
+[deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
+[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
+[lex-order]:https://en.wikipedia.org/wiki/Lexicographic_order
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

@@ -183,6 +183,6 @@ When you visualize this query, it looks like this:
 
 Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-timescale]: /getting-started/:currentVersion:/
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab
+[install-timescale]: /getting-started/:currentVersion:/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket

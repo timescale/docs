@@ -121,6 +121,6 @@ In the `Services` page of the $MST_CONSOLE_LONG, click the service you want to c
 
 </Tabs>
 
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [postgres-config]: https://www.postgresql.org/docs/current/runtime-config-file-locations.html
 [rest-api-reference]: /api/:currentVersion:/api-reference/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

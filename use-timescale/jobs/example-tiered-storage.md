@@ -14,7 +14,7 @@ moves automatically, you can write a custom $JOB.
 
 <Highlight type="note">
 
-On $CLOUD_LONG, use [tiered storage](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/data-tiering/) which handles this by providing a [tiering policy API](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#add-a-tiering-policy) to move data to low-cost object storage backed by Amazon S3.
+On $CLOUD_LONG, use [tiered storage](https://www.tigerdata.com/docs/use-timescale/latest/data-tiering/) which handles this by providing a [tiering policy API](https://www.tigerdata.com/docs/use-timescale/latest/data-tiering/enabling-data-tiering/#add-a-tiering-policy) to move data to low-cost object storage backed by Amazon S3.
 
 </Highlight>
 

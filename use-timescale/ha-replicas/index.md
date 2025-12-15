@@ -51,8 +51,8 @@ If CPU usage for a $SERVICE_SHORT runs high for long periods of time, issues suc
 behind other processes can occur. This can cause a failure and could result in a larger data loss. 
 To avoid data loss, $SERVICE_SHORTs are monitored for this kind of scenario.
 
-[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
-[mst-failover]: /mst/:currentVersion:/failover/
-[self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[mst-failover]: /mst/:currentVersion:/failover/
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/

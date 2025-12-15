@@ -59,8 +59,8 @@ the supported $SERVICE_SHORT configurations and operations, see the
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [configuration]: /use-timescale/:currentVersion:/configuration/
-[timescale-support]: https://www.timescale.com/contact
 [gap-filling-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#gap-filling
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables
 [slack-info]: https://slack-login.timescale.com
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
+[timescale-support]: https://www.tigerdata.com/contact

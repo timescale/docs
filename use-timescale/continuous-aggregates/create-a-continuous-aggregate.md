@@ -161,9 +161,11 @@ GROUP BY name, bucket;
 ```
 
 <Highlight type="note">
+
 For more information about creating a continuous aggregate with a `JOIN`,
 including some additional restrictions, see the
-[about continuous aggregates section](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause).
+[about continuous aggregates section][about-caggs-join-clause].
+
 </Highlight>
 
 ## Query continuous aggregates
@@ -309,9 +311,11 @@ For $TIMESCALE_DB v2.19.3 and below, $CAGGs do not support window functions. To 
 [hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [cagg-function-support]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#function-support
+[about-caggs-join-clause]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause
 [postgres-immutable]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
 [postgres-rls]: <https://www.postgresql.org/docs/current/ddl-rowsecurity.html>
 [postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>
-[with-no-data]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option
+
 [create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
+[with-no-data]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option
 [with-no-data]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option

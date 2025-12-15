@@ -153,13 +153,13 @@ recommend that you use the connector with Kafka and Kafka Connect.
 
 See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 
-[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[gh-kafkaconnector]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
-[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
-[postgres-odbc]: https://odbc.postgresql.org/
-[create-managed-service]: /mst/:currentVersion:/installation-mst/
-[mst-login]:https://portal.managed.timescale.com/login
 [bulk-upload-from-csv-files-link]: /mst/:currentVersion:/ingest-data/#bulk-upload-from-csv-files
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[create-managed-service]: /mst/:currentVersion:/installation-mst/
+[gh-kafkaconnector]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
 [insert-data-directly-using-a-client-driver-link]: /mst/:currentVersion:/ingest-data/#insert-data-directly-using-a-client-driver
 [insert-data-directly-using-a-message-queue-link]: /mst/:currentVersion:/ingest-data/#insert-data-directly-using-a-message-queue
+[mst-login]:https://portal.managed.timescale.com/login
+[postgres-odbc]: https://odbc.postgresql.org/
 [procedure-preparing-your-new-database-link]: /mst/:currentVersion:/ingest-data/#preparing-your-new-database
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

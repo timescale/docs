@@ -600,10 +600,10 @@ public class Main {
 }
 ```
 
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [jdk]: https://openjdk.java.net
+[migrate]: /migrate/:currentVersion:/
 [pg-jdbc-driver-artifact]: https://jdbc.postgresql.org/download/
 [pg-jdbc-driver-conn-docs]: https://jdbc.postgresql.org/documentation/datasource/
 [pg-jdbc-driver-dependency]: https://mvnrepository.com/artifact/org.postgresql/postgresql
 [pg-jdbc-driver]: https://jdbc.postgresql.org
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[migrate]: /migrate/:currentVersion:/

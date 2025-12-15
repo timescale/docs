@@ -109,16 +109,16 @@ information about the rowstore and columnstore compression, see [hypercore][hype
 
 </Procedure>
 
-[analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [all-available-extensions]: /use-timescale/:currentVersion:/extensions/
+[analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
 [migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /integrations/:currentVersion:/psql/
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
 [timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
+[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-[migrate-live]: /migrate/:currentVersion:/live-migration/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/

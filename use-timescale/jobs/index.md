@@ -30,6 +30,6 @@ In this section, you see how to:
 [generic-retention]: /use-timescale/:currentVersion:/jobs/example-generic-retention
 [manage-storage]: /use-timescale/:currentVersion:/jobs/example-tiered-storage/
 [refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

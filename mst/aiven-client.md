@@ -456,9 +456,9 @@ avn service list
 [Configure Grafana authentication plugins]: /mst/:currentVersion:/aiven-client/#configure-grafana-authentication-plugins
 [Send Grafana emails]: /mst/:currentVersion:/aiven-client/#send-grafana-emails
 
+[about-mst]: /mst/:currentVersion:/about-mst/
 [aiven-github]: https://github.com/aiven/aiven-client
-[google-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/google/
 [github-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/github/
 [gitlab-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/gitlab/
-[about-mst]: /mst/:currentVersion:/about-mst/
+[google-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/google/
 [mst-login]:https://portal.managed.timescale.com/login

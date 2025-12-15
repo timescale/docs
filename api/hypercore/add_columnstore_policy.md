@@ -147,13 +147,13 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
 
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
-[set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
-[chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
-[next-start]: /api/:currentVersion:/informational-views/jobs/#arguments
-[job]: /api/:currentVersion:/jobs-automation/add_job/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
+[chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[job]: /api/:currentVersion:/jobs-automation/add_job/
+[next-start]: /api/:currentVersion:/informational-views/jobs/#arguments
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [tsdb-release-2-19-3]: https://github.com/timescale/timescaledb/releases/tag/2.19.3

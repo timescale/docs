@@ -75,6 +75,6 @@ databases. This ensures that the newest data is written to both databases. Then
 backfill your data with one of the two migration methods.
 
 [migrate-entire]: /self-hosted/:currentVersion:/migration/entire-database/
-[migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [migrate-same-db]: /self-hosted/:currentVersion:/migration/same-db/
+[migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [outflux]: /self-hosted/:currentVersion:/migration/migrate-influxdb/

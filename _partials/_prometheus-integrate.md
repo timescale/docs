@@ -196,18 +196,18 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
 You can further [visualize your data][grafana-prometheus] with Grafana. Use the 
 [Grafana Postgres dashboard][postgresql-exporter-dashboard] or [create a custom dashboard][grafana] that suits your needs.
 
-[install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
-[postgresql-exporter-dashboard]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=dashboards
-[install-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
-[grafana]: /integrations/:currentVersion:/grafana/
-[grafana-prometheus]: https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/
-[prometheus]: https://prometheus.io/docs/introduction/overview/
-[psql]: /integrations/:currentVersion:/psql/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[postgresql-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
-[prometheus-authentication]: https://prometheus.io/docs/guides/basic-auth/
-[scrape-targets]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config
+[grafana-prometheus]: https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/
+[grafana]: /integrations/:currentVersion:/grafana/
+[install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
+[install-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
+[postgresql-exporter-dashboard]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=dashboards
+[postgresql-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[prometheus-authentication]: https://prometheus.io/docs/guides/basic-auth/
+[prometheus]: https://prometheus.io/docs/introduction/overview/
+[psql]: /integrations/:currentVersion:/psql/
+[scrape-targets]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

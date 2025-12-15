@@ -73,6 +73,6 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 
 </Procedure>
 
-[debian-install]: /self-hosted/:currentVersion:/install/installation-linux/
-[debian-install]: /self-hosted/:currentVersion:/install/installation-linux/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[debian-install]: /self-hosted/:currentVersion:/install/installation-linux/
+[debian-install]: /self-hosted/:currentVersion:/install/installation-linux/

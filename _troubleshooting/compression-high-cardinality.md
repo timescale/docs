@@ -22,4 +22,4 @@ tags: [hypertables, compression, hypercore]
 
 Low compression rates are often caused by [high cardinality][cardinality-blog] of the segment key. This means that the column you selected for grouping the rows during compression has too many unique values. This makes it impossible to group a lot of rows in a batch. To achieve better compression results, choose a segment key with lower cardinality. 
 
-[cardinality-blog]: https://www.timescale.com/blog/what-is-high-cardinality
+[cardinality-blog]: https://www.tigerdata.com/blog/what-is-high-cardinality

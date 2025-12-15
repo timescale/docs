@@ -120,5 +120,5 @@ configuration file, see the
 
 </Procedure>
 
-[install-timescale]: /getting-started/:currentVersion:/
 [docker-install]: https://docs.docker.com/get-docker/
+[install-timescale]: /getting-started/:currentVersion:/

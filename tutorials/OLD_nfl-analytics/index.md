@@ -56,6 +56,6 @@ This tutorial has a few sections to help you on your journey:
 
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
 [install-timescale]: /getting-started/:currentVersion:/
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [psql]: /integrations/:currentVersion:/psql/
-[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

@@ -109,6 +109,6 @@ stored in TimescaleDB. This tutorial only scratched the surface of the kinds of
 data you can visualize using Tableau.
 
 [crypto-tutorial]: /tutorials/:currentVersion:/blockchain-analyze/
-[tableau-cloud]: https://www.tableau.com/products/trial
 [install-timescale]: /getting-started/:currentVersion:/
-[timescale-mst]: https://www.timescale.com/products/
+[tableau-cloud]: https://www.tableau.com/products/trial
+[timescale-mst]: https://www.tigerdata.com/products/

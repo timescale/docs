@@ -33,20 +33,20 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 
   _$PG with $TIMESCALE_DB and vector extensions_
 
-  Free $SERVICE_SHORTs offer limited resources and a basic feature scope, perfect to get to know $CLOUD_LONG in a development environment. 
+  Free $SERVICE_SHORTs offer limited resources and a basic feature scope, perfect to get to know $CLOUD_LONG in a development environment.
 
-[what-is-time-series]: https://www.timescale.com/blog/time-series-database-an-explainer#what-is-a-time-series-database
-[migrate-live]: /migrate/:currentVersion:/live-migration/
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
-[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
-[operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [connection-pooling]: /use-timescale/:currentVersion:/services/connection-pooling
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
+[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [projects]: /use-timescale/:currentVersion:/security/members/
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[what-is-time-series]: https://www.tigerdata.com/blog/time-series-database-an-explainer#what-is-a-time-series-database

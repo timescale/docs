@@ -11,9 +11,9 @@ If you are self-hosting $TIMESCALE_DB [v2.19.3][tsdb-release-2-19-3] and below, 
 then convert it using [create_hypertable][create_hypertable]. You then enable $HYPERCORE with a call 
 to [ALTER TABLE][alter_table_hypercore].
 
-[postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[tsdb-release-2-23-0]: https://github.com/timescale/timescaledb/releases/tag/2.23.0
+[postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
 [tsdb-release-2-19-3]: https://github.com/timescale/timescaledb/releases/tag/2.19.3
+[tsdb-release-2-23-0]: https://github.com/timescale/timescaledb/releases/tag/2.23.0

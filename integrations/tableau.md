@@ -45,8 +45,8 @@ To connect the data in your $SERVICE_LONG to Tableau:
 
 You have successfully integrated Tableau with $CLOUD_LONG.
 
-[tableau-cloud]: https://www.tableau.com/products/trial
-[tableau-server]: https://www.tableau.com/support/releases/server/2024.2.6#esdalt
-[tableau-login]: http://online.tableau.com/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[tableau-cloud]: https://www.tableau.com/products/trial
+[tableau-login]: http://online.tableau.com/
+[tableau-server]: https://www.tableau.com/support/releases/server/2024.2.6#esdalt
 [tableau]: https://www.tableau.com/

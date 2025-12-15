@@ -179,10 +179,9 @@ how to use TimescaleDB, check out our other [tutorials][tutorials]
 (which range from beginner to advanced).
 
 [docs-LOCF]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill#locf
-
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [grafana]: https://grafana.com/
+[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-timescale]: /getting-started/:currentVersion:/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [tutorials]: /tutorials/:currentVersion:/

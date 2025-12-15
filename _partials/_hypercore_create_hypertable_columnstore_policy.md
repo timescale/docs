@@ -43,7 +43,7 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
    $TIMESCALE_DB is optimized for fast updates on compressed data in the $COLUMNSTORE. To modify data in the
    $COLUMNSTORE, use standard SQL.
 
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

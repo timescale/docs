@@ -14,5 +14,5 @@ common tasks.
 *   Install [$TOOLKIT_LONG][install-toolkit] to access more hyperfunctions and
     function pipelines
 
-[tstune]: /self-hosted/:currentVersion:/tooling/about-timescaledb-tune/
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
+[tstune]: /self-hosted/:currentVersion:/tooling/about-timescaledb-tune/

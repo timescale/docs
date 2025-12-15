@@ -62,12 +62,12 @@ For integers, timestamps, and other integer-like types, data is compressed using
 repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is used. For all other types,
 [dictionary compression][dictionary] is used.
 
-[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
+[cardinality-blog]: https://www.tigerdata.com/blog/what-is-high-cardinality
+[data-model]: /about/:currentVersion:/whitepaper/#data-model
 [delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
-[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
-[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
-[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-compression
+[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
 [dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression
 [ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
-[cardinality-blog]: https://www.timescale.com/blog/what-is-high-cardinality
-[data-model]: /about/:currentVersion:/whitepaper/#data-model
+[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
+[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
+[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-compression

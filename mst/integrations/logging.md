@@ -85,6 +85,6 @@ This section covers how to create a service integration to Loggly with $MST_LONG
 
 </Procedure>
 
-[loggly-site]: https://www.loggly.com/
 [aiven-client-install]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client
+[loggly-site]: https://www.loggly.com/
 [mst-login]:https://portal.managed.timescale.com/login

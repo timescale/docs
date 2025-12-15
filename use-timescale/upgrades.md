@@ -220,21 +220,21 @@ To change your maintenance window:
 
 </Procedure>
 
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
-[postgres-relnotes]: https://www.postgresql.org/docs/release/
-[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[status-page]: https://status.timescale.com/
+[automatic-upgrade]: /use-timescale/:currentVersion:/upgrades/#automatic-postgres-upgrades-for-a-service
 [changelog]: /about/:currentVersion:/changelog/
-[supported-systems]: /about/:currentVersion:/supported-platforms/#supported-systems
-[relnotes]: https://github.com/timescale/timescaledb/releases
+[define-maintenance-window]: /use-timescale/:currentVersion:/upgrades/#define-your-maintenance-window
 [deprecation-window]: /use-timescale/:currentVersion:/upgrades/#deprecations
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-postgres-for-a-service
 [minimize-downtime]: /use-timescale/:currentVersion:/upgrades/#minimize-downtime-with-replicas
 [minor-manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-timescaledb-for-non-critical-upgrades
-[manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-postgres-for-a-service
-[automatic-upgrade]: /use-timescale/:currentVersion:/upgrades/#automatic-postgres-upgrades-for-a-service
-[define-maintenance-window]: /use-timescale/:currentVersion:/upgrades/#define-your-maintenance-window
-[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
+[postgres-relnotes]: https://www.postgresql.org/docs/release/
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
-[status-page]: https://status.timescale.com/
+[relnotes]: https://github.com/timescale/timescaledb/releases
 [service-management]: /use-timescale/:currentVersion:/services/service-management/#change-the-service-environment
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[status-page]: https://status.timescale.com/
+[status-page]: https://status.timescale.com/
+[supported-systems]: /about/:currentVersion:/supported-platforms/#supported-systems

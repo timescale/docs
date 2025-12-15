@@ -92,8 +92,8 @@
    see [dumping with concurrency][dumping-with-concurrency] and [restoring with concurrency][restoring-with-concurrency].
 
 
-[Upgrade TimescaleDB]: https://www.tigerdata.com/docs/self-hosted/:currentVersion:/upgrades/
+[Upgrade TimescaleDB]: /self-hosted/:currentVersion:/upgrades/
 
 [dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
-[restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency
 [long-running-pgdump]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks
+[restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency

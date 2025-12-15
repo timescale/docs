@@ -40,5 +40,5 @@
    You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
 [cloud-login]: https://console.cloud.timescale.com/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

@@ -180,6 +180,6 @@ Grafana can plot the data properly.
 
 </Procedure>
 
-[postgis]: http://postgis.net/
 [how-many-rides-on-new-years-day-2016-originated-from-times-square-link]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/#how-many-rides-on-new-years-day-2016-originated-from-times-square
+[postgis]: http://postgis.net/
 [which-rides-traveled-more-than-5-miles-in-manhattan-link]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/#which-rides-traveled-more-than-5-miles-in-manhattan

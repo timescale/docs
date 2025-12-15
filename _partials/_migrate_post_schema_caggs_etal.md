@@ -158,6 +158,6 @@ accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
-[retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
 [reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
+[retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

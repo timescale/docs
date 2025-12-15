@@ -24,7 +24,7 @@ you learn about $TIMESCALE_DB features, and to inspire your own
 data analysis and conclusions. To read about the
 conclusions we made from
 analyzing 5 years' worth of Bitcoin transactions,
-[see our blog post](https://www.timescale.com/blog/analyzing-the-bitcoin-blockchain-looking-behind-the-hype-with-postgresql/).
+[see our blog post](https://www.tigerdata.com/blog/building-blockchain-apps-on-postgres).
 </Highlight>
 
 ## What you'll learn

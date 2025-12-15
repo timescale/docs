@@ -22,8 +22,12 @@
      ```sql
      CREATE TABLE sensor_data (
      id SERIAL PRIMARY KEY,
-     device_id TEXT NOT NULL, 
+     device_id TEXT NOT NULL,
      temperature FLOAT NOT NULL,
      recorded_at TIMESTAMPTZ DEFAULT now()
      );
      ```
+
+[open-console]: https://console.cloud.timescale.com/dashboard/services
+[psql]: /getting-started/:currentVersion:/run-queries-from-console/#connect-to-your-service-using-psql
+[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/

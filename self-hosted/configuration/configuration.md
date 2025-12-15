@@ -349,6 +349,7 @@ Additional examples of passing in arguments at boot can be found in our
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
 [pgtune]: http://pgtune.leopard.in.ua/
 [synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
+[timescaledb_information-hypertables]: /api/:currentVersion:/informational-views/hypertables/
 [ts-settings]: /self-hosted/:currentVersion:/configuration/timescaledb-config/
 [tstune]: https://github.com/timescale/timescaledb-tune
 [wale]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/

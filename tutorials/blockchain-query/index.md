@@ -32,8 +32,8 @@ This tutorial covers:
 When you've completed this tutorial, you can use the same dataset to  [Analyze the Bitcoin data][blockchain-analyze], 
 using $TIMESCALE_DB hyperfunctions.
 
-[blockchain-dataset]: /tutorials/:currentVersion:/blockchain-query/blockchain-dataset/
-[blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
-[blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
-[transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
 [blockchain-analyze]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/
+[blockchain-dataset]: /tutorials/:currentVersion:/blockchain-query/blockchain-dataset/
+[blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
+[blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
+[transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction

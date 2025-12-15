@@ -195,7 +195,7 @@ database is now stored uncompressed in your `.csv` files. If you
 provisioned your $SELF_LONG storage for your compressed data, the
 uncompressed data may take too much storage. To avoid this problem, periodically
 recompress your data as you copy it in. For more information on compression, see
-the [compression section](https://www.tigerdata.com/docs/use-timescale/:currentVersion:/compression/).
+the [compression section][compression].
 
 </Highlight>
 
@@ -205,22 +205,23 @@ the [compression section](https://www.tigerdata.com/docs/use-timescale/:currentV
 
 <PostSchemaEtal />
 
-[copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [all-available-extensions]: /use-timescale/:currentVersion:/extensions/
+[compression]: /use-timescale/:currentVersion:/compression/
+[copy-data-from-the-source-database-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#copy-data-from-the-source-database
+[copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
+[migrate-schema-post-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-post-data
+[migrate-schema-pre-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-pre-data
+[migrate]: /migrate/:currentVersion:/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /integrations/:currentVersion:/psql/
-[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
-[upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
-[upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
-[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-[migrate]: /migrate/:currentVersion:/
-[migrate-schema-pre-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-pre-data
-[copy-data-from-the-source-database-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#copy-data-from-the-source-database
-[restore-data-into-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-data-into-timescale
-[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self_long-instance
-[migrate-schema-post-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-post-data
 [recreate-continuous-aggregates-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-continuous-aggregates
 [recreate-policies-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-policies
+[restore-data-into-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-data-into-timescale
+[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self_long-instance
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [update-table-statistics-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#update-table-statistics
+[upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
+[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

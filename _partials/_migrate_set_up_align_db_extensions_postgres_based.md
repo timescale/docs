@@ -9,4 +9,4 @@
        psql $TARGET  -c "CREATE EXTENSION IF NOT EXISTS <extension name> CASCADE;"
        ```
        
-[Upgrade TimescaleDB]: https://www.tigerdata.com/docs/self-hosted/:currentVersion:/upgrades/
+[Upgrade TimescaleDB]: /self-hosted/:currentVersion:/upgrades/

@@ -41,5 +41,5 @@ uuid_timestamp_micros
 |-|------------------|-|----------|-------------------------------------------------|
 |`uuid`|UUID| - | ✔ | The UUID object to extract the timestamp from |
 
-[uuid_timestamp]: /api/:currentVersion:/uuid-functions/uuid_timestamp/
 [postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html
+[uuid_timestamp]: /api/:currentVersion:/uuid-functions/uuid_timestamp/

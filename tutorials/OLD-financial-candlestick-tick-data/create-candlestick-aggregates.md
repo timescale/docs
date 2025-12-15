@@ -270,9 +270,9 @@ creating multiple continuous aggregates for the same hypertable. Due
 to the efficient materialization mechanism of continuous aggregates, both
 refresh and query performance should work well.
 
+[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
-[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[tutorials]: /tutorials/:currentVersion:/
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[tutorials]: /tutorials/:currentVersion:/

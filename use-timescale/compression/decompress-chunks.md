@@ -71,6 +71,6 @@ SELECT tableoid::regclass FROM metrics
  _timescaledb_internal._hyper_72_37_chunk
 ```
 
-[api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
 [alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
+[api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
 [troubleshooting-oom-chunks]: /use-timescale/:currentVersion:/hypercore/troubleshooting/#out-of-memory-errors-after-enabling-the-columnstore

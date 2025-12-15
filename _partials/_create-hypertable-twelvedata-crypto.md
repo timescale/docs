@@ -54,9 +54,9 @@ standard $PG relational tables.
 You now have two tables within your $SERVICE_LONG. A hypertable named `crypto_ticks`, and a normal
 $PG table named `crypto_assets`.
 
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[psql]: /integrations/:currentVersion:/psql
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[psql]: /integrations/:currentVersion:/psql
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

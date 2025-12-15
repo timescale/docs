@@ -314,5 +314,5 @@ Then check that you use a proper API key received from Twelve Data.
 
 <GrafanaConnect />
 
-[twelve-wrapper]: https://github.com/twelvedata/twelvedata-python
 [psycopg2]: https://www.psycopg.org/docs/
+[twelve-wrapper]: https://github.com/twelvedata/twelvedata-python

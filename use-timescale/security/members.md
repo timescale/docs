@@ -208,11 +208,11 @@ The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com/
-[saml]: /use-timescale/:currentVersion:/security/saml/
 [2fa]: /use-timescale/:currentVersion:/security/multi-factor-authentication/
-[cloud-login]: https://console.cloud.timescale.com/
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[join-a-project]: /use-timescale/:currentVersion:/security/members/#join-a-project
 [change-project]: /use-timescale/:currentVersion:/security/members/#change-your-current-project_short
+[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.timescale.com/
 [database-rbac]: /use-timescale/:currentVersion:/security/read-only-role/
+[join-a-project]: /use-timescale/:currentVersion:/security/members/#join-a-project
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[saml]: /use-timescale/:currentVersion:/security/saml/

@@ -25,6 +25,6 @@ This section shows you how to:
 
 [downgrade]: /self-hosted/:currentVersion:/upgrades/downgrade/
 [update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
-[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
 [upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

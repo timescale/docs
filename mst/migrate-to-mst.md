@@ -146,9 +146,9 @@ successfully.
  ```
 
 [install-mst]: /mst/:currentVersion:/installation-mst/#create-your-first-service
+[migrate-live]: /migrate/:currentVersion:/live-migration/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /integrations/:currentVersion:/psql/
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-[migrate-live]: /migrate/:currentVersion:/live-migration/

@@ -85,6 +85,6 @@ When you have your Datadog integration set up successfully, you can use the
 Datadog dashboard editor to configure your visualizations. For more information,
 see the [Datadog Dashboard documentation][datadog-dashboard-docs].
 
-[datadog-login]: https://app.datadoghq.com/
 [datadog-dashboard-docs]: https://docs.datadoghq.com/dashboards/
+[datadog-login]: https://app.datadoghq.com/
 [mst-login]:https://portal.managed.timescale.com/login

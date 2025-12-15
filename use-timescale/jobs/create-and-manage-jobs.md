@@ -162,11 +162,11 @@ Alter an existing $JOB with [`alter_job`][alter_job]. You can change both the co
 
 </Procedure>
 
-[postgres-call]: https://www.postgresql.org/docs/current/sql-call.html
 [alter_job]: /api/:currentVersion:/jobs-automation/alter_job
 [delete_job]: /api/:currentVersion:/jobs-automation/delete_job
-[job]: /api/:currentVersion:/jobs-automation/add_job
-[run-job]: /api/:currentVersion:/jobs-automation/run_job
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
+[job]: /api/:currentVersion:/jobs-automation/add_job
+[postgres-call]: https://www.postgresql.org/docs/current/sql-call.html
 [postgres-createfunction]: https://www.postgresql.org/docs/current/xfunc.html
 [postgres-createprocedure]: https://www.postgresql.org/docs/current/xproc.html
+[run-job]: /api/:currentVersion:/jobs-automation/run_job

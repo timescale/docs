@@ -641,22 +641,22 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 <!-- Link references -->
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[use-hypertables-chunks]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/
-[compression]: /use-timescale/:currentVersion:/compression/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
-[data-retention]: /use-timescale/:currentVersion:/data-retention/
-[migrate]: /migrate/:currentVersion:/
 [ai-pgvector]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[chunk-link]: /api/:currentVersion:/glossary/#chunk
+[compression-link]: /api/:currentVersion:/glossary/#compression
+[compression]: /use-timescale/:currentVersion:/compression/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/
+[free-tiger-service-link]: /api/:currentVersion:/glossary/#free-tiger-service
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[hypertable-link]: /api/:currentVersion:/glossary/#hypertable
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[migrate]: /migrate/:currentVersion:/
 [pgai]: https://github.com/timescale/pgai
 [pgvectorscale]: https://github.com/timescale/pgvectorscale
 [postgres-link]: /api/:currentVersion:/glossary/#postgresql
-[timescaledb-link]: /api/:currentVersion:/glossary/#timescaledb
-[chunk-link]: /api/:currentVersion:/glossary/#chunk
-[hypertable-link]: /api/:currentVersion:/glossary/#hypertable
-[compression-link]: /api/:currentVersion:/glossary/#compression
-[tiger-service-link]: /api/:currentVersion:/glossary/#tiger-service
-[free-tiger-service-link]: /api/:currentVersion:/glossary/#free-tiger-service
 [standard-tiger-service-link]: /api/:currentVersion:/glossary/#standard-tiger-service
+[tiger-service-link]: /api/:currentVersion:/glossary/#tiger-service
+[timescaledb-link]: /api/:currentVersion:/glossary/#timescaledb
+[use-hypertables-chunks]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/

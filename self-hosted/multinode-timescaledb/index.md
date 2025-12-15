@@ -27,10 +27,10 @@ giving you faster data ingest, and more responsive and efficient queries.
 *   [Maintain][multi-node-maintenance] your multi-node environment
 
 [about-multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/about-multinode/
-[multi-node-administration]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-administration/
-[password-config]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/
 [configuration]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-config/
+[multi-node-administration]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-administration/
 [multi-node-grow-shrink]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-grow-shrink/
 [multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
 [multi-node-maintenance]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-maintenance/
 [multi-node-setup]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
+[password-config]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/

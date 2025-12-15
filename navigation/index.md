@@ -8,7 +8,7 @@ it:
 1.  Or try the [full search][search], which also returns results from the
     $COMPANY blog and forum.
 
-[cloud-login]: https://console.cloud.timescale.com/
 [cloud-console-index]: /console/
+[cloud-login]: https://console.cloud.timescale.com/
 [keywords]: /keywords/
 [search]: /search/?query=Tiger

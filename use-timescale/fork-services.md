@@ -47,7 +47,7 @@ $CLOUD_LONG offers the following fork strategies:
   - You want the fastest possible fork creation
   - Slightly behind current data is acceptable
 
-- `timestamp`: fork from a specific point in time within your [retention period][pricing].
+- `timestamp`: fork from a specific point in time within your [retention period][pricing-plan-features].
   Use when:
   - Disaster recovery from a known-good state
   - Investigating issues that occurred at a specific time
@@ -164,10 +164,10 @@ To fork your $SERVICE_LONG using GitHub actions:
 
 </Procedure>
 
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[tiered-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/
 [github-action]: https://github.com/marketplace/actions/tiger-data-fork-service
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[tiered-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/

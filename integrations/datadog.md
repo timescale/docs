@@ -135,18 +135,18 @@ metrics about your $SERVICE_LONGs.
 Metrics for your $SERVICE_LONG are now visible in Datadog. Check the Datadog $PG integration documentation for a
 comprehensive list of [metrics][datadog-postgres-metrics] collected.
 
-[datadog]: https://www.datadoghq.com/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [datadog-agent-install]: https://docs.datadoghq.com/getting_started/agent/#installation
+[datadog-agent-restart]: https://docs.datadoghq.com/agent/configuration/agent-commands/#start-stop-and-restart-the-agent
+[datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
+[datadog-config]: https://docs.datadoghq.com/database_monitoring/setup_postgres/selfhosted?tab=postgres15
 [datadog-install]: https://docs.datadoghq.com/integrations/postgres/
+[datadog-monitor-cloud]: /integrations/:currentVersion:/datadog/#integrate-datadog-with-cloud_long
 [datadog-postgres-metrics]:https://docs.datadoghq.com/integrations/postgres/?tab=host#metrics
 [datadog]: https://www.datadoghq.com/
-[datadog-monitor-cloud]: /integrations/:currentVersion:/datadog/#integrate-datadog-with-cloud_long
-[datadog-agent-restart]: https://docs.datadoghq.com/agent/configuration/agent-commands/#start-stop-and-restart-the-agent
-[projects]: /use-timescale/:currentVersion:/security/members/
-[datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[datadog]: https://www.datadoghq.com/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[projects]: /use-timescale/:currentVersion:/security/members/
 [psql]: /integrations/:currentVersion:/psql/
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
-[datadog-config]: https://docs.datadoghq.com/database_monitoring/setup_postgres/selfhosted?tab=postgres15
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

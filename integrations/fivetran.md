@@ -86,8 +86,8 @@ To see data injected by Fivetran into your $SERVICE_LONG:
 You have successfully integrated Fivetran with $CLOUD_LONG.
 
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[fivetran]: https://fivetran.com/docs/getting-started
-[sign-up-fivetran]: https://www.fivetran.com/
-[fivetran-dashboard-destinations]: https://fivetran.com/dashboard/destinations
 [fivetran-dashboard-connectors]: https://fivetran.com/dashboard/connections
+[fivetran-dashboard-destinations]: https://fivetran.com/dashboard/destinations
+[fivetran]: https://fivetran.com/docs/getting-started
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[sign-up-fivetran]: https://www.fivetran.com/

@@ -18,5 +18,5 @@ check out the friendly [$COMPANY community][community].
 
 If you'd prefer to pay for support then check out our [self-managed support][support].
 
-[community]: https://www.timescale.com/community
-[support]: https://www.timescale.com/self-managed-support
+[community]: https://www.tigerdata.com/community
+[support]: https://www.tigerdata.com/support#contact-us

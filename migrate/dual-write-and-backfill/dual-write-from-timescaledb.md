@@ -248,5 +248,5 @@ table.
 
 <SwitchProductionWorkload />
 
-[timescaledb-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/timescaledb-backfill/
 [dual-write-and-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/
+[timescaledb-backfill]: /migrate/:currentVersion:/dual-write-and-backfill/timescaledb-backfill/

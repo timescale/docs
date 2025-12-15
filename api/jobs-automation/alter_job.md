@@ -130,5 +130,5 @@ automatically return to the schedule.
 |`check_config`                  |TEXT              | The function used to validate updated $JOB configurations                                                      |
 
 [add-policy]: /api/:currentVersion:/compression/add_compression_policy/#required-arguments
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/

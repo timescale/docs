@@ -36,10 +36,12 @@ For more information about installing the AWS CLI, see
 [the AWS installation instructions][install-aws-cli].
 
 <Highlight type="cloud" header="VPC on Timescale" button="Try for free">
+
 If you are completing this tutorial in Timescale, make sure you have
 created a VPC on both AWS, and on your database in Timescale. For more
 information about setting up a VPC, see the
-[VPC section](/use-timescale/:currentVersion:/vpc/).
+[VPC section][vpc-peering].
+
 </Highlight>
 
 ## Programming language
@@ -59,3 +61,4 @@ For more information about the topics in this tutorial, check out these resource
 
 [install-aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
 [lambda-supported-langs]: https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
+[vpc-peering]: /mst/:currentVersion:/vpc-peering/vpc-peering

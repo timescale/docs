@@ -23,7 +23,7 @@ The function you set as `integer_now_func` has no arguments. It must be either:
   plan, especially if you have a lot of chunks. 
 
 - `STABLE`: `integer_now_func` is evaluated just before query execution starts. 
-  [chunk pruning](https://www.timescale.com/blog/optimizing-queries-timescaledb-hypertables-with-partitions-postgresql-6366873a995d) is executed at runtime. This generates a correct result, but may increase 
+  [chunk pruning](https://www.tigerdata.com/blog/optimizing-queries-timescaledb-hypertables-with-partitions-postgresql-6366873a995d) is executed at runtime. This generates a correct result, but may increase 
   planning time.
 
 `set_integer_now_func` does not work on tables where the `time` column type is `TIMESTAMP`, `TIMESTAMPTZ`, or 

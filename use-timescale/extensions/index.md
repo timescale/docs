@@ -153,5 +153,6 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [built-ins]: #postgresql-built-in-extensions
 [timescale-extensions]: #timescale-extensions
 [third-party]: #third-party-extensions
-[install]: /getting-started/:currentVersion:/
+
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
+[install]: /getting-started/:currentVersion:/

@@ -16,5 +16,5 @@ provisioning your $SERVICE_SHORTs or later, as your needs grow.
   For easy upgrades, each $SERVICE_SHORT stores the $TIMESCALE_DB binaries. This contributes up to 900 MB to overall storage, which amounts to less than $.80/month in additional storage costs.
 
 [change-compute]: /use-timescale/:currentVersion:/services/change-resources/
-[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/

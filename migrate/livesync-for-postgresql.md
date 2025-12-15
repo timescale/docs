@@ -65,8 +65,8 @@ You use the $PG_CONNECTOR for data synchronization, rather than migration. This 
 </Tab>
 </Tabs>
 
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
+[compression]: /use-timescale/:currentVersion:/compression/about-compression
+[create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
 [create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[compression]: /use-timescale/:currentVersion:/compression/about-compression
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
-[create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html

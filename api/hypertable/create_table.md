@@ -176,15 +176,15 @@ WITH (
 
 ## Returns
 
-$TIMESCALE_DB returns a simple message indicating success or failure. 
+$TIMESCALE_DB returns a simple message indicating success or failure.
 
-[postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[postgres-select]: https://www.postgresql.org/docs/current/sql-select.html
 [add-dimension]: /api/:currentVersion:/hypertable/add_dimension/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
+[postgres-select]: https://www.postgresql.org/docs/current/sql-select.html
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
 [uuidv7_functions]: /api/:currentVersion:/uuid-functions/

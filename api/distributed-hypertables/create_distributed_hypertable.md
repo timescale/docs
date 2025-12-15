@@ -102,6 +102,6 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
   chunks on the lost data node are now under-replicated. When the failed data node becomes available, rebalance the chunks with a call to [copy_chunk][copy_chunk].
 
 [best-practices]: /use-timescale/:currentVersion:/hypertables/#time-partitioning
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old
 [copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental/
+[create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/

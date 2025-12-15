@@ -377,23 +377,23 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of
 [third-party tools][integrations], plain old [Use $COMPANY products][use-timescale], or dive into [the API][use-the-api].
 
-[tutorials]: /tutorials/:currentVersion:/
-[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[integrations]: /integrations/:currentVersion:/
-[use-the-api]: /api/:currentVersion:/
-[use-timescale]: /use-timescale/:currentVersion:/
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
-[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
-[migrate-live]: /migrate/:currentVersion:/live-migration/
-[data-ingest]: /migrate/:currentVersion:/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
-[test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
-[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
-[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
+[data-ingest]: /migrate/:currentVersion:/
+[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[integrations]: /integrations/:currentVersion:/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
+[test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
+[tutorials]: /tutorials/:currentVersion:/
+[use-the-api]: /api/:currentVersion:/
+[use-timescale]: /use-timescale/:currentVersion:/

@@ -355,6 +355,6 @@ versions, you see the following error when you query any continuous aggregates:
 ERROR:  insufficient data left in message.
 ```
 
+[migrate-live]: /migrate/:currentVersion:/live-migration/
 [mst]: /mst/:currentVersion:/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[migrate-live]: /migrate/:currentVersion:/live-migration/

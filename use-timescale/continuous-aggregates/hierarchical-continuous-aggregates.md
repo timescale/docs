@@ -180,9 +180,9 @@ ensure valid time-bucketing:
     a daily continuous aggregate works, and is the one of the main use cases for
     this feature.
 
+[cagg-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
 [create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
-[cagg-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
+[percentile_agg_api]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#aggregate-and-roll-up-percentile-data-to-calculate-daily-percentiles-using-percentile_agg
 [postgresql-views]: https://www.postgresql.org/docs/current/rules-views.html
 [stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
-[percentile_agg_api]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#aggregate-and-roll-up-percentile-data-to-calculate-daily-percentiles-using-percentile_agg

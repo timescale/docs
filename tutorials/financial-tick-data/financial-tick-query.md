@@ -114,8 +114,8 @@ OHLCV values.
 
 <GraphOhlcv />
 
+[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
-[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

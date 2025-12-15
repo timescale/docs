@@ -193,14 +193,13 @@ To create an AWS Lambda function that injects data into your $SERVICE_LONG:
 
 You can now seamlessly ingest time-series data from AWS Lambda into $CLOUD_LONG.
 
+[aws-iam-role]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access-keys-admin-managed.html#admin-list-access-key
 [AWS-Lambda]: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
-
 [aws-sign-up]: https://signin.aws.amazon.com/signup?request_type=register
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [install-aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 [install-nodejs]: https://nodejs.org/en/download
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /integrations/:currentVersion:/psql/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[aws-iam-role]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access-keys-admin-managed.html#admin-list-access-key
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[connection-info]: /integrations/:currentVersion:/find-connection-details/

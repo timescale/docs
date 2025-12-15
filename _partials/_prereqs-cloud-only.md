@@ -4,5 +4,5 @@ To follow the steps on this page:
 
   You need your [connection details][connection-info].
 
-[create-service]: /getting-started/:currentVersion:/services/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[create-service]: /getting-started/:currentVersion:/services/

@@ -85,8 +85,8 @@ For the latest functionality, install MacOS 14 Sonoma.
 
  <WhereTo />
 
-[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
-[install-postgresql]: https://www.postgresql.org/download/macosx/
 [add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-macos/#add-the-timescale_db-extension-to-your-database
 [install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-macos/#install-self-hosted-timescale_db-on-macos
+[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
+[install-postgresql]: https://www.postgresql.org/download/macosx/
 [supported-platforms-link]: /self-hosted/:currentVersion:/install/installation-macos/#supported-platforms

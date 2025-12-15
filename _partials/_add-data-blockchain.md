@@ -39,6 +39,6 @@ dataset and copy the data to your database.
 
 </Procedure>
 
-[satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi
 [coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction
 [connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
+[satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi

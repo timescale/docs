@@ -173,6 +173,6 @@ your authentication token. This is especially important for automation tools
 that automatically sign in.
 </Highlight>
 
-[pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
 [install-google-authenticator]: https://support.google.com/accounts/answer/1066447
 [mst-login]:https://portal.managed.timescale.com/login
+[pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html

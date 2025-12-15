@@ -20,10 +20,9 @@ In this section:
 *   [Manually drop chunks][manually-drop] of data
 *   [Troubleshoot] data retention
 
-[Troubleshoot]: /use-timescale/:currentVersion:/data-retention/troubleshooting/
-
-[data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
 [manually-drop]: /use-timescale/:currentVersion:/data-retention/manually-drop-chunks
 [retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy
 [retention-with-caggs]: /use-timescale/:currentVersion:/data-retention/data-retention-with-continuous-aggregates
+[Troubleshoot]: /use-timescale/:currentVersion:/data-retention/troubleshooting/

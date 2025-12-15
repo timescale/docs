@@ -820,11 +820,10 @@ how they make time-series analysis possible in fewer lines of code, as well
 as how TimescaleDB is compatible with other extensions like *PostGIS*, for fast
 querying by time and location.
 
-[NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-
-[timescale-signup]: https://console.cloud.timescale.com/signup
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables
 [install-timescale]: /getting-started/:currentVersion:/
-[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [postgis]: http://postgis.net/documentation
 [psql]: /integrations/:currentVersion:/psql/
+[timescale-signup]: https://console.cloud.timescale.com/signup
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

@@ -363,16 +363,16 @@ data lake:
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
 * A $HYPERTABLE with long running continuous aggregates refresh transactions, plus 30 minutes, can cause issues with holding the replication slot too long. Please consider batching in these cases.
 
+[aws-s3-tables]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html
 [cmc]: https://console.aws.amazon.com/cloudformation/
-[s3-tables]: https://aws.amazon.com/s3/features/tables/
-[s3-console]: https://console.aws.amazon.com/s3/
+[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[direct-compress]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#speed-up-data-ingestion
+[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [iam-dashboard]: https://console.aws.amazon.com/iamv2/home
 [iceberg-partition-spec]: https://iceberg.apache.org/spec/#partition-transforms
 [iceberg-truncate-options]: https://iceberg.apache.org/spec/#truncate-transform-details
-[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
-[samples]: /use-timescale/:currentVersion:/tigerlake/#sample-code
 [partitioning]: /use-timescale/:currentVersion:/tigerlake/#partitioning-intervals
+[s3-console]: https://console.aws.amazon.com/s3/
+[s3-tables]: https://aws.amazon.com/s3/features/tables/
+[samples]: /use-timescale/:currentVersion:/tigerlake/#sample-code
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[aws-s3-tables]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[direct-compress]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#speed-up-data-ingestion

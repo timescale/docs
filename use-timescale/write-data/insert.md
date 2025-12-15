@@ -148,6 +148,6 @@ Incorrectly sorted data results in poor compression and query performance.
     - **Continuous aggregates**: not supported with direct compress
     - **Unique constraints**: tables with unique constraints cannot use direct compress
 
-[gucs]: /api/:currentVersion:/configuration/gucs/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [direct-compress]: /use-timescale/:currentVersion:/write-data/insert/#improve-performance-with-direct-compress
+[gucs]: /api/:currentVersion:/configuration/gucs/

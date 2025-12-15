@@ -141,4 +141,4 @@ If your $CHUNK does not contain enough data to create big enough batches, your c
 This needs to be taken into account when you define your $COLUMNSTORE settings.
 
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
-[create-index]: https://www.tigerdata.com/docs/api/:currentVersion:/hypertable/create_index/
+[create-index]: /api/:currentVersion:/hypertable/create_index/

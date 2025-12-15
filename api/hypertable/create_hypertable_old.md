@@ -189,6 +189,6 @@ this constraint on the table when it is executed.
 </Highlight>
 
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
-[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

@@ -40,7 +40,7 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated pgAdmin with $CLOUD_LONG.
 
-[pgadmin]: https://www.pgadmin.org/
-[download-pgadmin]: https://www.pgadmin.org/download/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[download-pgadmin]: https://www.pgadmin.org/download/
+[pgadmin]: https://www.pgadmin.org/
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/

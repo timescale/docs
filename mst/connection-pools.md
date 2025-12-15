@@ -120,5 +120,5 @@ to use both pooled and un-pooled connections at the same time.
 
 </Highlight>
 
-[mst-login]:https://portal.managed.timescale.com/login
 [connection-pooling-modes-link]: /mst/:currentVersion:/connection-pools/#connection-pooling-modes
+[mst-login]:https://portal.managed.timescale.com/login

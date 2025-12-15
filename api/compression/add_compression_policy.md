@@ -95,5 +95,5 @@ on the type of the time column of the hypertable or continuous aggregate:
 
 [alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
-[set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
+[set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func

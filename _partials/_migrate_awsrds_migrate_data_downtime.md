@@ -128,8 +128,8 @@ Roles manage database access permissions. To migrate your role-based security hi
 </Procedure>
 
 
-[Upgrade TimescaleDB]: https://www.tigerdata.com/docs/self-hosted/:currentVersion:/upgrades/
+[Upgrade TimescaleDB]: /self-hosted/:currentVersion:/upgrades/
 
 [dumping-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#dumping-with-concurrency
-[restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency
 [long-running-pgdump]: /migrate/:currentVersion:/troubleshooting/#dumping-and-locks
+[restoring-with-concurrency]: /migrate/:currentVersion:/troubleshooting/#restoring-with-concurrency

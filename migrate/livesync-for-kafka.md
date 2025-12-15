@@ -236,9 +236,9 @@ Unsupported examples:
 }
 ```
 
+[confluence-signup]: https://www.confluent.io/get-started/
 [confluent-cloud]: https://confluent.cloud/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[confluence-signup]: https://www.confluent.io/get-started/
 [create-kafka-cluster]: https://docs.confluent.io/cloud/current/clusters/create-cluster.html
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [limitations]: /migrate/:currentVersion:/livesync-for-kafka/#known-limitations-and-unsupported-types
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

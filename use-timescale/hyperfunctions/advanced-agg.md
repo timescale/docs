@@ -78,6 +78,6 @@ For some more technical details and usage examples of the different algorithms,
 see the developer documentation for [uddsketch][gh-uddsketch] and
 [tdigest][gh-tdigest].
 
-[percentile_cont]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/tdigest.md
 [gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/uddsketch.md
+[percentile_cont]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE

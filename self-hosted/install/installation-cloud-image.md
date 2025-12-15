@@ -122,8 +122,8 @@ tsdb=# \dx
 
 <WhereTo />
 
-[aws-signup]: https://portal.aws.amazon.com/billing/signup
+[aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
 [aws-dashboard]: https://console.aws.amazon.com/ec2/
 [aws-instance-config]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html
-[aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
+[aws-signup]: https://portal.aws.amazon.com/billing/signup
 [config]: /self-hosted/:currentVersion:/configuration/

@@ -52,8 +52,8 @@ JOINs to combine your time-series data with relational or business data.
 
 <PreloadedData />
 
-[dataset-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/dataset-nyc/
-[query-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/
-[compress-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/compress-nyc/
-[nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
+[compress-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/compress-nyc/
+[dataset-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/dataset-nyc/
+[nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+[query-nyc]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/

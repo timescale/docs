@@ -53,9 +53,9 @@ To create candlestick views, query the aggregated data, and visualize the data i
 [ingest real-time websocket data section][advanced-finance].
 
 [advanced-finance]: /tutorials/:currentVersion:/financial-ingest-real-time/
+[bot]: https://www.tigerdata.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
+[messari]: https://www.tigerdata.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone
+[trading-strategy]: https://www.tigerdata.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading
 [twelve-data]: https://twelvedata.com/
-[trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading
-[messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone
-[bot]: https://www.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb

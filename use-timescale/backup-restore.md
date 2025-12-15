@@ -173,8 +173,8 @@ You initiate a point-in-time recovery in $CONSOLE_LONG:
 
 </Tabs>
 
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[wal]: https://www.postgresql.org/docs/current/wal-intro.html
-[cross-region]: /use-timescale/:currentVersion:/backup-restore#enable-cross-region-backup
 [create-fork]: /use-timescale/:currentVersion:/backup-restore#create-a-point-in-time-recovery-fork
+[cross-region]: /use-timescale/:currentVersion:/backup-restore#enable-cross-region-backup
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[wal]: https://www.postgresql.org/docs/current/wal-intro.html

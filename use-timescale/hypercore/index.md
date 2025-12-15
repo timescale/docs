@@ -19,7 +19,7 @@ This section shows the following:
 * [Compression methods in hypercore][compression-methods]
 * [Troubleshooting][troubleshooting]
 
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
-[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [compression-methods]: /use-timescale/:currentVersion:/hypercore/compression-methods/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [troubleshooting]: /use-timescale/:currentVersion:/hypercore/troubleshooting/

@@ -82,12 +82,12 @@ SELECT add_dimension('conditions', by_hash('device_id', 2), if_not_exists => tru
 |`dimension_id`|INTEGER| ID of the dimension in the TimescaleDB internal catalog                                                     |
 |`created`|BOOLEAN| `true` if the dimension was added, `false` when you set `if_not_exists` to `true` and no dimension was added. |
 
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [add-dimension-old]: /api/:currentVersion:/hypertable/add_dimension_old/
-[rn-2130]: https://github.com/timescale/timescaledb/releases/tag/2.13.0
-[hash-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_hash
-[range-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_range
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [dimension-info]: /api/:currentVersion:/hypertable/add_dimension/#dimension-info
-[range-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_range
 [hash-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_hash
+[hash-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_hash
+[range-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_range
+[range-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_range
+[rn-2130]: https://github.com/timescale/timescaledb/releases/tag/2.13.0

@@ -134,9 +134,9 @@ file.
 </Highlight>
 
 [async-commit]: https://www.postgresql.org/docs/current/wal-async-commit.html
-[timescaledb_information-hypertables]: /api/:currentVersion:/informational-views/hypertables
 [docker-conf]: /self-hosted/:currentVersion:/configuration/docker-config
 [lock-management]: https://www.postgresql.org/docs/current/runtime-config-locks.html
 [pgtune]: https://pgtune.leopard.in.ua/
 [postgresql-conf]: /self-hosted/:currentVersion:/configuration/postgres-config
+[timescaledb_information-hypertables]: /api/:currentVersion:/informational-views/hypertables
 [tstune-conf]: /self-hosted/:currentVersion:/configuration/timescaledb-tune

@@ -21,15 +21,15 @@ All $SERVICE_LONGs include the tooling you expect for production and developer e
 [usage-based storage][how-plans-work], secure in-$CONSOLE [SQL editing][in-console-editors], $SERVICE_SHORT [metrics][metrics]
 and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp;and much more. $CLOUD_LONG continuously monitors your $SERVICE_SHORTs and prevents common $PG out-of-memory crashes.
 
-[what-is-time-series]: https://www.timescale.com/blog/time-series-database-an-explainer#what-is-a-time-series-database
-[migrate-live]: /migrate/:currentVersion:/live-migration/
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
-[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
-[operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [connection-pooling]: /use-timescale/:currentVersion:/services/connection-pooling
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
+[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[what-is-time-series]: https://www.tigerdata.com/blog/time-series-database-an-explainer#what-is-a-time-series-database

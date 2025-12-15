@@ -22,7 +22,7 @@ The CSV file format is widely used for data migration. This page shows you how t
 
 <ImportPrerequisites />
 
-- Install [Go](https://go.dev/doc/install) v1.13 or later
+- Install [Go][go-install] v1.13 or later
 
 - Install [timescaledb-parallel-copy][install-parallel-copy]
 
@@ -282,8 +282,9 @@ And that is it, you have imported your data from a Parquet file to your $SERVICE
 
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 
-[parquet]: https://parquet.apache.org/
+[go-install]: https://go.dev/doc/install
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-docker]: https://docs.docker.com/engine/install/
 [install-duckdb]: https://duckdb.org/docs/installation/
 [install-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy?tab=readme-ov-file#go
+[parquet]: https://parquet.apache.org/

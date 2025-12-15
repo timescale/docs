@@ -418,7 +418,7 @@ this tutorial, drop us a line on our [community Slack channel][slack].
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [hasura-cloud]: https://cloud.hasura.io/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
 [install-timescale]: /getting-started/:currentVersion:/
+[repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
 [sign-up]: http://console.cloud.timescale.com/signup
 [slack]: https://slack.timescale.com

@@ -100,10 +100,10 @@ For release information, see the [GitHub releases page][relnotes] and the [relea
 
 <WhereTo />
 
-[relnotes]: https://github.com/timescale/timescaledb/releases
-[ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
-[relnotes]: https://github.com/timescale/timescaledb/releases
+[add-timescledb-extension]: /self-hosted/:currentVersion:/install/installation-windows/#add-the-timescaledb-extension-to-your-database
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
 [install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-timescale_db-on-windows
-[add-timescledb-extension]: /self-hosted/:currentVersion:/install/installation-windows/#add-the-timescaledb-extension-to-your-database
+[ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
+[relnotes]: https://github.com/timescale/timescaledb/releases
+[relnotes]: https://github.com/timescale/timescaledb/releases
 [supported-platforms]: /self-hosted/:currentVersion:/install/installation-windows/#supported-platforms

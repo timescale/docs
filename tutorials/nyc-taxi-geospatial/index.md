@@ -57,10 +57,10 @@ You then learn how to conduct analysis and monitoring on your dataset. It walks
 you through using $PG queries with the PostGIS extension to obtain
 information, and plotting the results in Grafana.
 
-[dataset-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/dataset-nyc/
-[query-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
-[nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab/
-[query-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
+[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
+[dataset-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/dataset-nyc/
 [grafana]: /integrations/:currentVersion:/grafana/
+[nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+[query-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
+[query-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/

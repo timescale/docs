@@ -287,13 +287,13 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 
 </Procedure>
 
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies
+[low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
 [manual-tier]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#manually-tier-and-untier-chunks
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
-[high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
-[low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies

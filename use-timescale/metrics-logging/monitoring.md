@@ -235,17 +235,17 @@ LIMIT 5;
 
 For more examples and detailed explanations, see the [blog post on identifying performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 
-[jobs]: /use-timescale/:currentVersion:/jobs/
-[blog-pg_stat_statements]: <https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/>
-[connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
-[pg-stat-statements]: https://www.postgresql.org/docs/current/pgstatstatements.html
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
-[recommendations]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#recommendations
-[monitoring-jobs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#jobs
+[blog-pg_stat_statements]: https://www.tigerdata.com/blog/using-pg-stat-statements-to-optimize-queries
+[connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [connections]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#connections
-[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
-[logs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#logs
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
+[jobs]: /use-timescale/:currentVersion:/jobs/
 [locked-memory]: https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html
+[logs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#logs
 [memory-settings]: https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-MEMORY
+[metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
+[monitoring-jobs]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#jobs
+[pg-stat-statements]: https://www.postgresql.org/docs/current/pgstatstatements.html
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[recommendations]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#recommendations

@@ -18,5 +18,5 @@ v1.6.0 before you upgrade $TIMESCALE_DB extension.
 
 <SupportMatrix />
 
-[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#plan-your-upgrade-path
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
+[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#plan-your-upgrade-path

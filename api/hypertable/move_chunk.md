@@ -58,5 +58,5 @@ SELECT move_chunk(
 |`verbose`|BOOLEAN|Setting to true displays messages about the progress of the move_chunk command. Defaults to false.|
 
 [about-tablespaces]: /use-timescale/:currentVersion:/schema-management/about-tablespaces/
-[postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
 [postgres-altertable]: https://www.postgresql.org/docs/13/sql-altertable.html
+[postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html

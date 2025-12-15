@@ -51,6 +51,6 @@ time-series services:
     alt="A running Postgres service with a running Tiger Cloud service in Tiger Cloud Console"
 />
 
+[cloud-login]: https://console.cloud.timescale.com/
 [install-timescale]: /getting-started/:currentVersion:/
 [sign-up]: http://console.cloud.timescale.com/signup
-[cloud-login]: https://console.cloud.timescale.com/

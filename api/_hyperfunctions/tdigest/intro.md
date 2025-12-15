@@ -26,5 +26,5 @@ For more information about percentile approximation algorithms, see the
 [algorithms overview][advanced-agg].
 
 [advanced-agg]: /use-timescale/:currentVersion:/hyperfunctions/percentile-approx/advanced-agg/
-[percentile_agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#percentile_agg
 [hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
+[percentile_agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#percentile_agg

@@ -25,11 +25,11 @@ graphing your results.
 - **Cookbooks**
   - [$PRODUCT_PREFIX community cookbook][cookbooks]: get suggestions from the $PRODUCT_PREFIX community about how to resolve common issues.
 
-[rta-energy]: /tutorials/:currentVersion:/real-time-analytics-energy-consumption
-[nyc-taxi]: /tutorials/:currentVersion:/real-time-analytics-transport
-[candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
-[beginner-crypto]: /tutorials/:currentVersion:/blockchain-query/
-[crypto-tutorial]: /tutorials/:currentVersion:/blockchain-analyze/
 [advanced-finance]: /tutorials/:currentVersion:/financial-ingest-real-time/
-[iot]: /tutorials/:currentVersion:/simulate-iot-sensor-data/
+[beginner-crypto]: /tutorials/:currentVersion:/blockchain-query/
+[candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
 [cookbooks]: /tutorials/:currentVersion:/cookbook/
+[crypto-tutorial]: /tutorials/:currentVersion:/blockchain-analyze/
+[iot]: /tutorials/:currentVersion:/simulate-iot-sensor-data/
+[nyc-taxi]: /tutorials/:currentVersion:/real-time-analytics-transport
+[rta-energy]: /tutorials/:currentVersion:/real-time-analytics-energy-consumption

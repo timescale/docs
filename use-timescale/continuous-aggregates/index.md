@@ -26,15 +26,15 @@ In this section you:
     format, unless explicitly created in the old format.
 *   [Troubleshoot][cagg-tshoot] continuous aggregates.
 
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates
-[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
 [cagg-compression]: /use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates
-[create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate
-[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
 [cagg-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate
-[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
 [cagg-time]: /use-timescale/:currentVersion:/continuous-aggregates/time
 [cagg-tshoot]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates
+[create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate
+[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
+[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
+[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies

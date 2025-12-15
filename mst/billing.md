@@ -173,6 +173,6 @@ and email address is correct in your project's billing settings, and send a mess
 to the [$COMPANY support team][timescale-support] asking to be changed to corporate
 billing.
 
-[timescale-support]: https://www.timescale.com/contact/
-[mst-console]: https://portal.managed.timescale.com
 [invoice-api]: https://api.aiven.io/doc/#tag/BillingGroup
+[mst-console]: https://portal.managed.timescale.com
+[timescale-support]: https://www.tigerdata.com/contact/

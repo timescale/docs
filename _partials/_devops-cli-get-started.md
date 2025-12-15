@@ -99,5 +99,5 @@ And that is it, you are ready to use $CLI_LONG to manage your $SERVICE_SHORTs in
 
 <CLIREF />
 
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [cli-create-custom-service]: /getting-started/:currentVersion:/get-started-devops-as-code/#commands
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
