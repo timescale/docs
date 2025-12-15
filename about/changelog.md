@@ -9,6 +9,84 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## 🧭  Activity log and TimescaleDB v2.24
+<Label type="date">December 12, 2025</Label>
+
+### Activity log
+Tiger Cloud Console now offers the `Activity` tab that displays the activity log for all your services. This serves as a record of actions that have happened to your services and Tiger Cloud account, such as service resizes and project invitations. The activity log includes the corresponding service (where applicable), the user who performed the action, and a description of the action itself. You can suggest new actions to record on the `Activity` tab.
+
+![Activity log on Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/activity-log.png)
+
+### TimescaleDB 2.24
+TimescaleDB 2.24 was released on December 3rd and is now available to all users on Tiger Cloud. TimescaleDB 2.24 delivers more efficient recompression operations, expanded use of continuous aggregates, and better invalidation behavior. It also brings back support for bloom filters on ARM-based architectures. 
+
+#### Highlighted features in TimescaleDB 2.24
+
+**In-memory recompression**
+
+A new `recompress := true` option for `convert_to_columnstore()` performs batch compaction entirely in memory. 
+
+For example: `CALL convert_to_columnstore('<chunk_name>', recompress := true);`
+
+This approach is 4–5 times faster than the previous spill-to-disk method, and reduces I/O for workloads with many small or uneven batches. This can be helpful if you are ingesting unordered data via direct compress and need to optimize your batches, or when you add new sparse indexes and need to build them on existing chunks.
+
+**Bloom filters on ARM-based Tiger Cloud services**
+
+On ARM-based Tiger Cloud services, bloom filters return with corrected hashing support for the ARM architecture. A misconfigured hashing library previously required disabling bloom indexes on ARM-based services. This release restores bloom filter functionality with a new index version.
+
+For self-hosted TimescaleDB users, nothing changes if you're using an AMD64 architecture. Otherwise, please [see here](https://github.com/timescale/timescaledb/pull/8761#user-content-changelog). For Tiger Cloud customers, recompression is only required for services where you want to rebuild bloom filters on existing chunks. New chunks receive bloom indexes automatically.
+
+**Continuous aggregate updates**
+
+- **Smarter invalidation range capping** prevents massive refresh windows when out-of-order or faulty timestamps span large gaps. Invalidation now stays bounded to chunk ranges, reducing unnecessary refresh work.
+
+- **Direct compress invalidation support** enables continuous aggregates on hypertables that ingest directly into the columnstore. Min/max batch timestamps now generate invalidation entries without needing row-level WAL.
+
+- **UUIDv7 support** unlocks continuous aggregates on UUIDv7-partitioned tables through an extended `time_bucket()` that accepts UUIDv7 and outputs a timestamp.
+
+For complete details, refer to the [TimescaleDB 2.24 release notes](https://github.com/timescale/timescaledb/releases/tag/2.24.0).
+
+## New navigation in Console
+<Label type="date">December 5, 2025</Label>
+
+We have updated the design of the navigation in Console to improve consistency, reduce distractions, and make it easier and faster to navigate through the different menus.
+
+![New console navigation](https://assets.timescale.com/docs/images/console-new-navigation.png)
+
+## S3 connector GA and Tiger Lake public beta
+<Label type="date">November 28, 2025</Label>
+
+### S3 source connector general availability
+
+The S3 source connector is now production-ready, delivering major improvements in reliability, performance, and correctness across the entire ingestion pipeline. We resolved extensive issues related to file state transitions, workflow ordering, live sync consistency, and error handling, while adding support for retries, skipping files, better conflict handling, and more stable pause/resume behavior. Import operations are now more resilient, deterministic, and traceable, with clearer progress reporting and more accurate file and worker state visibility.
+
+Performance and scalability have been significantly enhanced through better autoscaling, improved worker resource allocation, faster preview and import operations, optimized scheduling, reduced memory usage, and higher throughput for small and large files.
+
+The user experience has been upgraded across the UI with improved file filtering, pagination, column mapping, input validation, clearer states and sizes, and more robust multi-step flows. Numerous bugs affecting import previews, table selection, schema handling, hypertable creation, and navigation were fixed. Combined, these changes make the S3 source connector significantly more stable, predictable, and user-friendly—ready for GA adoption.
+
+### Tiger Lake public beta
+
+Tiger Lake is now available in public beta and ready for broader use. The public beta includes:
+
+**Full DML support**
+* Replication of INSERT, UPDATE, and DELETE operations on hypertables and regular Postgres tables to Iceberg.
+
+**High-performance ingestion**
+* Decoupled CDC and full table import pipelines.
+* CDC ingest throughput: ~30,000 records/second.
+* Initial full table import throughput: ~300,000 records/second.
+
+**Enhanced resilience and self-healing**
+* Automatic recovery when a replication slot disappears—all data is correctly replayed, keeping Iceberg tables eventually consistent.
+* Seamless recovery in case of hardware failure without restarting ingestion from scratch.
+
+**Improved deployment experience**
+* Validation of ARNs before service deployment to prevent misconfiguration.
+* Compatibility against hypertables with data in rowstore and columnstore.
+
+Read the [documentation](https://www.tigerdata.com/docs/use-timescale/latest/tigerlake) to get started.
+
+
 ## TimescaleDB v2.23 – improved getting started, automatic columnstore, and faster continuous aggregate invalidation tracking
 <Label type="date">November 14, 2025</Label>
 
