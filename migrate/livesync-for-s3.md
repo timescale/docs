@@ -28,7 +28,7 @@ You can use the $S3_CONNECTOR to synchronize your existing and new data. Here's 
     - CSV: check for compression in GZ and ZIP format, then process using [timescaledb-parallel-copy][parallel-copy].
     - Parquet: convert to CSV, then process using [timescaledb-parallel-copy][parallel-copy].
 
-* The $S3_CONNECTOR offers an option to enable a [$HYPERTABLE][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through the SQL editor once the connector has started running.
+* The $S3_CONNECTOR offers an option to enable a [$HYPERTABLE][about-hypertables] during the file-to-table schema mapping setup. You can enable [columnstore][compression] and [continuous aggregates][caggs] through $SQL_EDITOR once the connector has started running.
 
 * The connector offers a default 1-minute polling interval. This means that $CLOUD_LONG checks the S3 source every minute for new data. You can customize this interval by setting up a cron expression.
 
