@@ -25,8 +25,7 @@ The project view includes the following tabs:
 - `Billing`: check usage, change $PRICING_PLANs, and manage payment methods. See [Pricing plans and account management][pricing].
 - `Data view`: write queries with autocomplete for any $SERVICE_SHORT, save them in folders, share them, and create charts/dashboards with the added power of AI. See [$DATA_MODE_CAP][run-queries-data-view].
 
-Click a $SERVICE_SHORT to manage and configure it. Each $SERVICE_SHORT hosts a single database managed for you by $CLOUD_LONG.
-If you need more than one database, [create a new $SERVICE_SHORT][create-service].
+To manage and configure a $SERVICE_LONG, click it. Each $SERVICE_SHORT is an optimized [$PG][postgres-link] instance extended with database engine innovations such as [$TIMESCALE_DB][timescaledb-link], managed for you by $CLOUD_LONG. If you need more than one database, [create a new $SERVICE_SHORT][create-service].
 
 ![Select a query to edit](https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png)
 
@@ -39,6 +38,7 @@ The individual $SERVICE_SHORT view includes the following tabs:
 - `Connectors`: sync or stream directly, so data from another source is continuously updated in your $SERVICE_SHORT. See [Import and sync][import-sync].
 - `SQL editor`: query your $SERVICE_SHORTs. See [$SQL_EDITOR][run-queries-sql-editor].
 - `Operations`: fully manage your $SERVICE_SHORT: [configure compute and storage][change-resources], [set up replicas][replication], [back up][backup], [upgrade][upgrade], and more. 
+- `AI`: create vector embeddings and manage AI extensions for your $SERVICE_SHORT. 
 
 
 [cloud-login]: https://console.cloud.timescale.com/
@@ -60,4 +60,4 @@ The individual $SERVICE_SHORT view includes the following tabs:
 [replication]: /use-timescale/:currentVersion:/ha-replicas/
 [backup]: /use-timescale/:currentVersion:/backup-restore/
 [upgrade]: /use-timescale/:currentVersion:/upgrades/
-
+[postgres-link]: /api/:currentVersion:/glossary/#postgresql
