@@ -193,7 +193,7 @@ instance to a $SERVICE_LONG:
 
    `--table-sync-workers`: (Optional) The number of parallel workers to use for initial table sync. Default is 4.
 
-   `--copy-data`: (Optional) If specified, the initial table data is copied from source to target before starting logical replication. If not specified, only changes after the replication slot creation are replicated. Default is true.
+   `--copy-data`: (Optional) By default, the initial table data is copied from source to target before starting logical replication. Set to `false` so only changes made after replication slot creation are replicated.
    Useful to dry-run the tool without copying data by setting it to false.
 
    ```
