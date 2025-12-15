@@ -7,12 +7,13 @@ products: [cloud, self_hosted]
 ---
 
 import EA1125 from "versionContent/_partials/_early_access_11_25.mdx";
+import SINCE0101 from "versionContent/_partials/_since_0_10_0.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Optimize full text search with BM25 
 
 $PG full-text search at scale consistently hits a wall where performance degrades catastrophically. 
-$COMPANY's pg_textsearch brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
+$COMPANY's [pg_textsearch][pg_textsearch-github-repo] brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
 with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and 
 provides better search quality and performance than the $PG built-in full-text search.
 
@@ -33,7 +34,7 @@ the following best practice:
 * **Query optimization**: use score thresholds to filter low-relevance results
 * **Index monitoring**: regularly check index usage and memory consumption
 
-<EA1125 /> this preview release is designed for development and staging environments. It is not recommended for use with hypertables.
+<EA1125 /> this preview release is designed for development and staging environments. 
 
 ## Prerequisites
 
@@ -267,26 +268,34 @@ Customize `pg_textsearch` behavior for your specific use case and data character
 
 <Procedure>
 
-1. **Configure the memory limit**
+1. **Configure memory and performance settings**
 
-   The size of the memtable depends primarily on the number of distinct terms in your corpus. A corpus with longer
-   documents or more varied vocabulary requires more memory per document.
+   To manage memory usage, you control when the in-memory index spills to disk segments. When the memtable reaches the
+   threshold, it automatically flushes to a segment at transaction commit.
+
    ```sql
-   -- Set memory limit per index (default 64MB)
-   SET pg_textsearch.index_memory_limit = '128MB';
+   -- Set memtable spill threshold (default 800000 posting entries, ~8MB segments)
+   SET pg_textsearch.memtable_spill_threshold = 1000000;
+
+   -- Set bulk load spill threshold (default 100000 terms per transaction)
+   SET pg_textsearch.bulk_load_threshold = 150000;
+
+   -- Set default query limit when no LIMIT clause is present (default 1000)
+   SET pg_textsearch.default_limit = 5000;
    ```
+   <SINCE0101 />
 
 1. **Configure language-specific text processing**
 
    ```sql
    -- French language configuration
    CREATE INDEX products_fr_idx ON products_fr
-   USING pg_textsearch(description)
+   USING bm25(description)
    WITH (text_config='french');
 
    -- Simple tokenization without stemming
    CREATE INDEX products_simple_idx ON products
-   USING pg_textsearch(description)
+   USING bm25(description)
    WITH (text_config='simple');
    ```
 
@@ -310,7 +319,7 @@ Customize `pg_textsearch` behavior for your specific use case and data character
 
       - View detailed index information
           ```sql
-          SELECT bm25_debug_dump_index('products_search_idx');
+          SELECT bm25_dump_index('products_search_idx');
           ```
 
 </Procedure>
@@ -334,3 +343,4 @@ These limitations will be addressed in upcoming releases with disk-based segment
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [recip-rank-fusion]: https://en.wikipedia.org/wiki/Mean_reciprocal_rank
 [pg-vectorscale]: /ai/:currentVersion:/sql-interface-for-pgvector-and-timescale-vector/#installing-the-pgvector-and-pgvectorscale-extensions
+[pg_textsearch-github-repo]: https://github.com/timescale/pg_textsearch
