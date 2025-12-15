@@ -194,7 +194,7 @@ instance to a $SERVICE_LONG:
    `--table-sync-workers`: (Optional) The number of parallel workers to use for initial table sync. Default is 4.
 
    `--copy-data`: (Optional) By default, the initial table data is copied from source to target before starting logical replication. Set to `false` so only changes made after replication slot creation are replicated.
-   Useful to dry-run the tool without copying data by setting it to false.
+   Best practice is to set to `false` during dry-run livesync so you do not copy table data.
 
    ```
    --table-map '{"source": {"schema": "public", "table": "metrics"}, "target": {"schema": "public", "table": "metrics_data"}}'
