@@ -28,7 +28,6 @@ matches. `pg_textsearch` implements the following:
 This page shows you how to install `pg_textsearch`, configure BM25 indexes, and optimize your search capabilities using
 the following best practice: 
 
-* **Memory planning**: size your `index_memory_limit` based on corpus vocabulary and document count
 * **Language configuration**: choose appropriate text search configurations for your data language
 * **Hybrid search**: combine with pgvector or pgvectorscale for applications requiring both semantic and keyword search
 * **Query optimization**: use score thresholds to filter low-relevance results
@@ -125,31 +124,28 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
 1. **Perform ranked searches using the distance operator**
 
    ```sql
-   SELECT name, description,
-          description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
+   SELECT name, description, description <@> 'ergonomic work' as score
    FROM products
-   ORDER BY description <@> to_bm25query('ergonomic work', 'products_search_idx')
-   LIMIT 3;
+   ORDER BY score
+   LIMIT 3
    ```
 
 1. **Filter results by score threshold**
 
    ```sql
-   SELECT name,
-          description <@> to_bm25query('wireless', 'products_search_idx') as score
+   SELECT name, description <@> 'wireless' as score
    FROM products
-   WHERE description <@> to_bm25query('wireless', 'products_search_idx') < -2.0;
+   WHERE description <@> 'wireless' < -2.0;
    ```
 
 1. **Combine with standard SQL operations**
 
    ```sql
-   SELECT category, name,
-          description <@> to_bm25query('ergonomic', 'products_search_idx') as score
+   SELECT category, name, description <@> 'ergonomic' as score
    FROM products
    WHERE price < 500
-     AND description <@> to_bm25query('ergonomic', 'products_search_idx') < -1.0
-   ORDER BY description <@> to_bm25query('ergonomic', 'products_search_idx')
+     AND description <@> 'ergonomic' < -1.0
+   ORDER BY description <@> 'ergonomic'
    LIMIT 5;
    ```
 
@@ -157,7 +153,7 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
 
    ```sql
    EXPLAIN SELECT * FROM products
-   ORDER BY description <@> to_bm25query('wireless keyboard', 'products_search_idx')
+   ORDER BY description <@> 'ergonomic'
    LIMIT 5;
    ```
 
@@ -329,12 +325,7 @@ caching and pagination to improve user experience with large result sets.
 
 ## Current limitations
 
-This preview release focuses on core BM25 functionality. It has the following limitations:
-
-* **Memory-only storage**: indexes are limited by `pg_textsearch.index_memory_limit` (default 64MB)
-* **No phrase queries**: cannot search for exact multi-word phrases yet
-
-These limitations will be addressed in upcoming releases with disk-based segments and expanded query capabilities.
+This preview release focuses on core BM25 functionality. In this release, you cannot search for exact multi-word phrases.
 
 
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
