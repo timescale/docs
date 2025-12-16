@@ -40,7 +40,7 @@ Best practice for $TOOLKIT_SHORT installation is to use the
 To get $TOOLKIT_SHORT, use the high availability image, `timescaledb-ha`:
 
 ```bash
-docker pull timescale/timescaledb-ha:pg17
+docker pull timescale/timescaledb-ha:pg18
 ```
 
 The $TOOLKIT_SHORT extension is pre-installed and pre-enabled in the `timescaledb-ha` image. Once you start the container, the extension is already active in your database and ready to use. No additional installation steps are required.

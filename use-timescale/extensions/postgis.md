@@ -47,8 +47,8 @@ particular location.
      pgcrypto            | 1.3     | public     | cryptographic functions
      plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
      postgis             | 3.3.3   | public     | PostGIS geometry and geography spatial types and functions
-     timescaledb         | 2.11.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
-     timescaledb_toolkit | 1.16.0  | public     | Library of analytical hyperfunctions,     time-series pipelining, and other SQL utilities
+     timescaledb         | 2.24.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+     timescaledb_toolkit | 1.22.0  | public     | Library of analytical hyperfunctions,     time-series pipelining, and other SQL utilities
     (6 rows)
     ```
 

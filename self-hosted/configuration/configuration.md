@@ -338,7 +338,7 @@ Alternatively, one or more parameters can be passed in to the `docker run`
 command via a `-c` option, as in the following.
 
 ```bash
-docker run -i -t timescale/timescaledb:latest-pg10 postgres -cmax_wal_size=2GB
+docker run -i -t timescale/timescaledb:latest-pg18 postgres -cmax_wal_size=2GB
 ```
 
 Additional examples of passing in arguments at boot can be found in our

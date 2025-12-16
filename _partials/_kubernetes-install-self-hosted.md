@@ -63,7 +63,7 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
         spec:
           containers:
             - name: timescaledb
-              image: 'timescale/timescaledb:latest-pg17'
+              image: 'timescale/timescaledb:latest-pg18'
               env:
                 - name: POSTGRES_USER
                   value: postgres
@@ -143,9 +143,9 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
       ```
 
 1. **Test the database connection**
-
+    
     1. Create and run a pod to verify database connectivity using your [connection details][connection-info] saved in `timescale-secret`:
-
+            
          ```shell
          kubectl run test-pod --image=postgres --restart=Never \
          --env="PGHOST=$(kubectl get secret timescale-secret -o=jsonpath='{.data.PGHOST}' | base64 --decode)" \
