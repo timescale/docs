@@ -224,7 +224,7 @@ timevector('2021-01-01 UTC', 10) -> add(5) -> mul(2) -> add(1)
 Both of these examples produce `('2020-01-01 00:00:00+00', 31.0)`.
 
 If multiple arithmetic operations are needed and precedence is important,
-consider using a [Lambda](#lambda-elements) instead.
+consider using a [Lambda][lambda-elements-link] instead.
 
 ### Unary mathematical functions
 
@@ -786,8 +786,8 @@ SELECT hyperloglog(device_id) -> distinct_count() FROM measurements;
 You can turn a timevector into a formatted text representation. There are two
 functions for turning a timevector to text:
 
-*   [`to_text`](#to-text), which allows you to specify the template
-*   [`to_plotly`](#to-plotly), which outputs a format suitable for use with the
+*   [`to_text`][to-text-link], which allows you to specify the template
+*   [`to_plotly`][to-plotly-link], which outputs a format suitable for use with the
     [Plotly JSON chart schema][plotly]
 
 ### `to_text`
@@ -916,3 +916,6 @@ This table lists all function pipeline elements in alphabetical order:
 |`unnest`|Output|`TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)`|
 
 [plotly]: https://plotly.com/chart-studio-help/json-chart-schema/
+[lambda-elements-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#lambda-elements
+[to-text-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to_text
+[to-plotly-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to_plotly

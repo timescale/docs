@@ -18,7 +18,7 @@ Continuous aggregates require a `time_bucket` on the time partitioning column of
 the hypertable.
 
 By default, views are automatically refreshed. You can adjust this by setting
-the [WITH NO DATA](#using-the-with-no-data-option) option. Additionally, the
+the [WITH NO DATA][using-the-with-no-data-option-link] option. Additionally, the
 view can not be a [security barrier view][postgres-security-barrier].
 
 Continuous aggregates use hypertables in the background, which means that they
@@ -314,3 +314,4 @@ For $TIMESCALE_DB v2.19.3 and below, $CAGGs do not support window functions. To 
 [postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>
 [with-no-data]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option
 [create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
+[using-the-with-no-data-option-link]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option

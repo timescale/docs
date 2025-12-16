@@ -152,7 +152,7 @@ specifies the tables to synchronize.
    ALTER PUBLICATION <publication_name> SET(publish_via_partition_root=true);
    ```
 
-   To convert partitioned table to hypertable, follow [Convert partitions and tables with time-series data into hypertables](#convert-partitions-and-tables-with-time-series-data-into-hypertables).
+   To convert a partitioned table to a hypertable, follow [Convert partitions and tables with time-series data into hypertables][convert-partitions-and-tables-with-time-series-data-into-hypertables-link].
 
 1. **Stop syncing a table in the `PUBLICATION`, use `DROP TABLE`**
 
@@ -175,7 +175,7 @@ instance to a $SERVICE_LONG:
    As you run the $PG_CONNECTOR continuously, best practice is to run it as a Docker daemon.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.3.3 run \
+   docker run -d --rm --name livesync timescale/live-sync:v0.4.0 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET --table-map <table_map_as_json>
    ```
@@ -190,6 +190,11 @@ instance to a $SERVICE_LONG:
 
    `--table-map`: (Optional) A JSON string that maps source tables to target tables. If not provided, the source and target table names are assumed to be the same.
    For example, to map the source table `metrics` to the target table `metrics_data`:
+
+   `--table-sync-workers`: (Optional) The number of parallel workers to use for initial table sync. Default is 4.
+
+   `--copy-data`: (Optional) By default, the initial table data is copied from source to target before starting logical replication. Set to `false` so only changes made after replication slot creation are replicated.
+   Best practice is to set to `false` during dry-run livesync so you do not copy table data.
 
    ```
    --table-map '{"source": {"schema": "public", "table": "metrics"}, "target": {"schema": "public", "table": "metrics_data"}}'
@@ -325,7 +330,7 @@ EOF
    Use the `--drop` flag to remove the replication slots created by the $PG_CONNECTOR on the source database.
 
    ```shell
-   docker run -it --rm --name livesync timescale/live-sync:v0.3.3 run \
+   docker run -it --rm --name livesync timescale/live-sync:v0.4.0 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET \
       --drop
@@ -342,3 +347,5 @@ EOF
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
 [install-psql]: /integrations/:currentVersion:/psql/
+
+[convert-partitions-and-tables-with-time-series-data-into-hypertables-link]: /migrate/:currentVersion:/livesync-for-postgresql/#convert-partitions-and-tables-with-time-series-data-into-hypertables

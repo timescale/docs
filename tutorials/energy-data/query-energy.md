@@ -17,9 +17,9 @@ queries that are not possible in standard $PG.
 
 In this section, you learn how to construct queries, to answer these questions:
 
-*   [Energy consumption by hour of day](#what-is-the-energy-consumption-by-the-hour-of-the-day)
-*   [Energy consumption by weekday](#what-is-the-energy-consumption-by-the-day-of-the-week).
-*   [Energy consumption by month](#what-is-the-energy-consumption-on-a-monthly-basis).
+*   [Energy consumption by hour of day][what-is-the-energy-consumption-by-the-hour-of-the-day-link]
+*   [Energy consumption by weekday][what-is-the-energy-consumption-by-the-day-of-the-week-link].
+*   [Energy consumption by month][what-is-the-energy-consumption-on-a-monthly-basis-link].
 
 ## What is the energy consumption by the hour of the day?
 
@@ -213,3 +213,6 @@ You may also want to check the energy consumption that occurs on a monthly basis
 </Procedure>
 
 [about-hyperfunctions]: https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/about-hyperfunctions/
+[what-is-the-energy-consumption-by-the-hour-of-the-day-link]: /tutorials/:currentVersion:/energy-data/query-energy/#what-is-the-energy-consumption-by-the-hour-of-the-day
+[what-is-the-energy-consumption-by-the-day-of-the-week-link]: /tutorials/:currentVersion:/energy-data/query-energy/#what-is-the-energy-consumption-by-the-day-of-the-week
+[what-is-the-energy-consumption-on-a-monthly-basis-link]: /tutorials/:currentVersion:/energy-data/query-energy/#what-is-the-energy-consumption-on-a-monthly-basis

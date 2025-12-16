@@ -18,8 +18,8 @@ and output of data.
 To view metrics gathered by Telegraf and stored in a [hypertable][about-hypertables] in a
 $SERVICE_LONG.
 
-- [Link Telegraf to your $SERVICE_LONG](#link-telegraf-to-your-service): create a Telegraf configuration
-- [View the metrics collected by Telegraf](#view-the-metrics-collected-by-telegraf): connect to your $SERVICE_SHORT and
+- [Link Telegraf to your $SERVICE_LONG][link-telegraf-to-your-service-link]: create a Telegraf configuration
+- [View the metrics collected by Telegraf][view-the-metrics-collected-by-telegraf-link]: connect to your $SERVICE_SHORT and
   query the metrics table
 
 ## Prerequisites
@@ -156,3 +156,6 @@ see the [PostgreQL output plugin][output-plugin].
 [connect-timescaledb]: /integrations/:currentVersion:/find-connection-details/
 [grafana]: /integrations/:currentVersion:/grafana/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/
+
+[link-telegraf-to-your-service-link]: /integrations/:currentVersion:/telegraf/#link-telegraf-to-your-service
+[view-the-metrics-collected-by-telegraf-link]: /integrations/:currentVersion:/telegraf/#view-the-metrics-collected-by-telegraf

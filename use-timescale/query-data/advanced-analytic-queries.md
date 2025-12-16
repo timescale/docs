@@ -78,7 +78,7 @@ SELECT
 
 ## Calculate the rate of change
 
-Like [increase](#calculate-the-increase-in-a-value), rate applies to a situation
+Like [increase][calculate-the-increase-in-a-value-link], rate applies to a situation
 with monotonically increasing counters. If your sample interval is variable or
 you use different sampling intervals between different series, it is helpful to
 normalize the values to a common time interval to make the calculated values
@@ -418,3 +418,4 @@ use its [SkipScan][skipscan] feature.
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
+[calculate-the-increase-in-a-value-link]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/#calculate-the-increase-in-a-value

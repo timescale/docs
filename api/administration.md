@@ -54,12 +54,14 @@ SELECT timescaledb_post_restore();
 
 Perform the required operations so that you can restore the database using `pg_restore`. Specifically, this sets the `timescaledb.restoring` GUC to `on` and stops any background workers which could have been performing tasks. 
 
-The background workers are stopped until the [timescaledb_post_restore()](#timescaledb_post_restore) function is run, after the restore operation is complete.
+The background workers are stopped until the [timescaledb_post_restore()][timescaledb_post_restore-link] function is run, after the restore operation is complete.
 
 For more information, see [Migrate using pg_dump and pg_restore].
 
 <Highlight type="important">
-After using `timescaledb_pre_restore()`, you need to run [`timescaledb_post_restore()`](#timescaledb_post_restore) before you can use the database normally.
+
+After using `timescaledb_pre_restore()`, you need to run [`timescaledb_post_restore()`][timescaledb_post_restore-link] before you can use the database normally.
+
 </Highlight>
 
 ### Sample usage
@@ -72,3 +74,5 @@ SELECT timescaledb_pre_restore();
 
 [Migrate using pg_dump and pg_restore]: /migrate/:currentVersion:/pg-dump-and-restore/
 [telemetry]: /self-hosted/:currentVersion:/configuration/telemetry
+
+[timescaledb_post_restore-link]: /api/:currentVersion:/administration/#timescaledb_post_restore
