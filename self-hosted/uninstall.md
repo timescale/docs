@@ -252,9 +252,15 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     sudo apt update
     ```
 
-1.  **(Optional) Remove dependencies**
+1.  **Remove dependencies**
 
-    To also remove unused dependencies:
+    Remove unused dependencies installed with TimescaleDB:
+
+    <Highlight type="warning">
+
+    This step may also remove PostgreSQL as a dependency.
+
+    </Highlight>
 
     ```bash
     sudo apt autoremove
@@ -334,9 +340,15 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     sudo apt update
     ```
 
-1.  **(Optional) Remove dependencies**
+1.  **Remove dependencies**
 
-    To also remove unused dependencies:
+    Remove unused dependencies installed with TimescaleDB:
+
+    <Highlight type="warning">
+
+    This step may also remove PostgreSQL as a dependency.
+
+    </Highlight>
 
     ```bash
     sudo apt autoremove
@@ -377,10 +389,10 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     Edit the Postgres configuration file:
 
     ```bash
-    sudo nano /var/lib/pgsql/17/data/postgresql.conf
+    sudo vi /var/lib/pgsql/17/data/postgresql.conf
     ```
 
-    Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
+    Press `/` to search, type `shared_preload_libraries`, and press Enter. Press `i` to edit. Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
 
     ```
     shared_preload_libraries = 'timescaledb'
@@ -392,7 +404,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     shared_preload_libraries = ''
     ```
 
-    If there are other extensions in the list, keep them and only remove `timescaledb`.
+    If there are other extensions in the list, keep them and only remove `timescaledb`. Press `Esc`, then type `:wq` and press Enter to save.
 
 1.  **Restart Postgres**
 
@@ -405,7 +417,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Uninstall the TimescaleDB package**
 
     ```bash
-    sudo dnf remove timescaledb_17
+    sudo dnf remove timescaledb-2-postgresql-17
     ```
 
     Replace `17` with your Postgres version if different.
@@ -413,12 +425,18 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Remove the TimescaleDB repository configuration**
 
     ```bash
-    sudo rm /etc/yum.repos.d/timescaledb.repo
+    sudo rm /etc/yum.repos.d/timescale_timescaledb.repo
     ```
 
-1.  **(Optional) Remove dependencies**
+1.  **Remove dependencies**
 
-    To also remove unused dependencies:
+    Remove unused dependencies installed with TimescaleDB:
+
+    <Highlight type="warning">
+
+    This step may also remove PostgreSQL as a dependency.
+
+    </Highlight>
 
     ```bash
     sudo dnf autoremove
@@ -459,10 +477,10 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     Edit the Postgres configuration file:
 
     ```bash
-    sudo nano /var/lib/pgsql/17/data/postgresql.conf
+    sudo vi /var/lib/pgsql/17/data/postgresql.conf
     ```
 
-    Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
+    Press `/` to search, type `shared_preload_libraries`, and press Enter. Press `i` to edit. Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
 
     ```
     shared_preload_libraries = 'timescaledb'
@@ -487,7 +505,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Uninstall the TimescaleDB package**
 
     ```bash
-    sudo dnf remove timescaledb_17
+    sudo dnf remove timescaledb-2-postgresql-17
     ```
 
     Replace `17` with your Postgres version if different.
@@ -495,12 +513,18 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Remove the TimescaleDB repository configuration**
 
     ```bash
-    sudo rm /etc/yum.repos.d/timescaledb.repo
+    sudo rm /etc/yum.repos.d/timescale_timescaledb.repo
     ```
 
-1.  **(Optional) Remove dependencies**
+1.  **Remove dependencies**
 
-    To also remove unused dependencies:
+    Remove unused dependencies installed with TimescaleDB:
+
+    <Highlight type="warning">
+
+    This step may also remove PostgreSQL as a dependency.
+
+    </Highlight>
 
     ```bash
     sudo dnf autoremove
@@ -541,10 +565,10 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     Edit the Postgres configuration file:
 
     ```bash
-    sudo nano /var/lib/pgsql/17/data/postgresql.conf
+    sudo vi /var/lib/pgsql/17/data/postgresql.conf
     ```
 
-    Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
+    Press `/` to search, type `shared_preload_libraries`, and press Enter. Press `i` to edit. Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
 
     ```
     shared_preload_libraries = 'timescaledb'
@@ -556,7 +580,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     shared_preload_libraries = ''
     ```
 
-    If there are other extensions in the list, keep them and only remove `timescaledb`.
+    If there are other extensions in the list, keep them and only remove `timescaledb`. Press `Esc`, then type `:wq` and press Enter to save.
 
 1.  **Restart Postgres**
 
@@ -569,7 +593,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Uninstall the TimescaleDB package**
 
     ```bash
-    sudo dnf remove timescaledb_17
+    sudo dnf remove timescaledb-2-postgresql-17
     ```
 
     Replace `17` with your Postgres version if different.
@@ -577,12 +601,18 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Remove the TimescaleDB repository configuration**
 
     ```bash
-    sudo rm /etc/yum.repos.d/timescaledb.repo
+    sudo rm /etc/yum.repos.d/timescale_timescaledb.repo
     ```
 
-1.  **(Optional) Remove dependencies**
+1.  **Remove dependencies**
 
-    To also remove unused dependencies:
+    Remove unused dependencies installed with TimescaleDB:
+
+    <Highlight type="warning">
+
+    This step may also remove PostgreSQL as a dependency.
+
+    </Highlight>
 
     ```bash
     sudo dnf autoremove
