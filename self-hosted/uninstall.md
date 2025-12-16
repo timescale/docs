@@ -37,13 +37,13 @@ If you installed $TIMESCALE_DB using Docker, you can completely remove the $TIME
 
     1. See which $TIMESCALE_DB images you have installed:
 
-      ```bash
-      docker images | grep timescale
-      ```
-      You see something like:
-      ```bash
-      timescale/timescaledb-ha               pg18      1ec79f20f47d   9 hours ago    6.2GB
-      ```
+       ```bash
+       docker images | grep timescale
+       ```
+       You see something like:
+       ```bash
+       timescale/timescaledb-ha               pg18      1ec79f20f47d   9 hours ago    6.2GB
+       ```
 
     1. Remove the $TIMESCALE_DB image:
 
