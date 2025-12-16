@@ -157,5 +157,5 @@ see the [PostgreQL output plugin][output-plugin].
 [grafana]: /integrations/:currentVersion:/grafana/
 [about-hypertables]: /use-timescale/:currentVersion:/hypertables/
 
-[link-telegraf-to-your-service-link]: /integrations/:currentVersion:/telegraf/#link-telegraf-to-your-service-short
+[link-telegraf-to-your-service-link]: /integrations/:currentVersion:/telegraf/#link-telegraf-to-your-service
 [view-the-metrics-collected-by-telegraf-link]: /integrations/:currentVersion:/telegraf/#view-the-metrics-collected-by-telegraf

@@ -39,9 +39,9 @@ database at once. For more information, see the section on
 The procedure to migrate your database requires these steps:
 
 *   [Migrate schema pre-data][migrate-schema-pre-data-link]
-*   [Restore hypertables in Timescale][restore-hypertables-in-timescale-link]
+*   [Restore hypertables in $TIMESCALE_DB][restore-hypertables-in-timescale-link]
 *   [Copy data from the source database][copy-data-from-the-source-database-link]
-*   [Restore data into Timescale][restore-data-into-timescale-link]
+*   [Restore data into $TIMESCALE_DB][restore-data-into-timescale-link]
 *   [Migrate schema post-data][migrate-schema-post-data-link]
 *   [Recreate continuous aggregates][recreate-continuous-aggregates-link] (optional)
 *   [Recreate policies][recreate-policies-link] (optional)
@@ -54,7 +54,7 @@ data can take a very long time. You can continue reading from your source
 database during this time, though performance could be slower. To avoid this
 problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
-not be transferred to Timescale. To avoid this problem, see the section on
+not be transferred to TimescaleDB. To avoid this problem, see the section on
 [migrating an active database][migration].
 
 </Highlight>
@@ -86,14 +86,14 @@ Before you begin, check that you have:
 
 Migrate your pre-data from your source database to $SELF_LONG. This
 includes table and schema definitions, as well as information on sequences,
-owners, and settings. This doesn't include Timescale-specific schemas.
+owners, and settings. This doesn't include $TIMESCALE_DB-specific schemas.
 
 <Procedure>
 
 ### Migrating schema pre-data
 
 1.  Dump the schema pre-data from your source database into a `dump_pre_data.bak` file, using
-    your source database connection details. Exclude Timescale-specific schemas.
+    your source database connection details. Exclude $TIMESCALE_DB-specific schemas.
     If you are prompted for a password, use your source database credentials:
 
     ```bash
@@ -116,7 +116,7 @@ owners, and settings. This doesn't include Timescale-specific schemas.
 ## Restore hypertables in your $SELF_LONG instance
 
 After pre-data migration, your hypertables from your source database become
-regular $PG tables in Timescale. Recreate your hypertables in your $SELF_LONG instance to
+regular $PG tables in $TIMESCALE_DB. Recreate your hypertables in your $SELF_LONG instance to
 restore them.
 
 <Procedure>
@@ -179,11 +179,11 @@ Split each table by time range, and copy each range individually. For example:
 
 </Highlight>
 
-## Restore data into Timescale
+## Restore data into $TIMESCALE_DB
 
 When you have copied your data into `.csv` files, you can restore it to
 $SELF_LONG by copying from the `.csv` files. There are two methods: using
-regular $PG [`COPY`][copy], or using the TimescaleDB
+regular $PG [`COPY`][copy], or using the $TIMESCALE_DB
 [`timescaledb-parallel-copy`][timescaledb-parallel-copy] function. In tests,
 `timescaledb-parallel-copy` is 16% faster. The `timescaledb-parallel-copy` tool
 is not included by default. You must install the function.
@@ -218,8 +218,8 @@ the [compression section](https://www.tigerdata.com/docs/use-timescale/latest/co
 [migration]: /migrate/:currentVersion:/
 [migrate-schema-pre-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-pre-data
 [copy-data-from-the-source-database-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#copy-data-from-the-source-database
-[restore-data-into-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-data-into-timescale
-[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self-long-instance
+[restore-data-into-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-data-into-timescaledb
+[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self-hosted-timescaledb-instance
 [migrate-schema-post-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-post-data
 [recreate-continuous-aggregates-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-continuous-aggregates
 [recreate-policies-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-policies

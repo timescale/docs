@@ -46,4 +46,4 @@ And that is it! You have $TIMESCALE_DB running on a database on a self-hosted in
 [docker-install]: https://docs.docker.com/get-started/get-docker/
 [install-psql]: /integrations/:currentVersion:/psql/
 
-[install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-docker/#install-and-configure-timescale-db-on-pg
+[install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-docker/#install-and-configure-timescaledb-on-postgres
