@@ -54,7 +54,7 @@ api_details:
         `running` state.
 
         If you prefer to see the result in seconds,
-        [`EXTRACT`](https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT)
+        [`EXTRACT`][extract]
         the epoch from the returned result.
       command:
         code: |
@@ -79,3 +79,5 @@ api_details:
           3 days 22:00:00
 ---
 
+
+[extract]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT

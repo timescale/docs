@@ -13,7 +13,9 @@ dataset and copy the data to your database.
     file that contains Bitcoin transactions for the past five days. Download:
 
     <Tag type="download">
-      [bitcoin_sample.zip](https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip)
+    
+      [bitcoin_sample.zip][bitcoin_samplezip]
+
     </Tag>
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
@@ -39,6 +41,7 @@ dataset and copy the data to your database.
 
 </Procedure>
 
+[bitcoin_samplezip]: https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip
 [coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction
 [connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
 [satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi

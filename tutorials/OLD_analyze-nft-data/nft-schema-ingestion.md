@@ -235,7 +235,7 @@ API `/events` endpoint, and fetches data from the specified time period.
 
 <Highlight type="note">
 You need an OpenSEA API key to fetch data from the OpenSea API. To request your
-key, see the [OpenSea API documentation](https://docs.opensea.io/reference/request-an-api-key).
+key, see the [OpenSea API documentation][opensea-api-documentation].
 </Highlight>
 
 <Highlight type="warning">
@@ -343,4 +343,5 @@ SELECT count(*), MIN(time) AS min_date, MAX(time) AS max_date FROM nft_sales
 ```
 
 [nft-schema]: https://github.com/timescale/nft-starter-kit/blob/master/schema.sql
+[opensea-api-documentation]: https://docs.opensea.io/reference/request-an-api-key
 [sample-data]: https://assets.timescale.com/docs/downloads/nft_sample.zip

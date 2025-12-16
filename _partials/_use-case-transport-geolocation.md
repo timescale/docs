@@ -61,7 +61,7 @@ and make more money.
  
    1. In the `Queries` section, select `Code`, then select the Time series `Format`.
 
-      ![Real-time analytics geolocation](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png)
+      ![Real-time analytics geolocation][real-time-analytics-geolocation]
 
    1. To find rides longer than 5 miles in Manhattan, paste the following query:
 
@@ -91,9 +91,11 @@ and make more money.
      You now see the areas where a taxi driver is most likely to pick up a passenger who wants a
      longer ride, and make more money.
 
-      ![Real-time analytics geolocation](https://assets.timescale.com/docs/images/use-case-rta-grafana-heatmap.png)
+      ![Real-time analytics geolocation][real-time-analytics-geolocation-1]
 
 </Procedure>
 
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [postgis]: http://postgis.net/
+[real-time-analytics-geolocation-1]: https://assets.timescale.com/docs/images/use-case-rta-grafana-heatmap.png
+[real-time-analytics-geolocation]: https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png

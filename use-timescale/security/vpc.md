@@ -24,7 +24,7 @@ attack vector surface and improves security.
 The data isolation architecture that ensures a highly secure connection between your apps and 
 $CLOUD_LONG is:
 
-![$CLOUD_LONG isolation architecture](https://assets.timescale.com/docs/images/tsc-vpc-architecture.png)
+![$CLOUD_LONG isolation architecture][cloud_long-isolation-architecture]
 
 Your customer apps run inside your AWS Customer $VPC, your $SERVICE_LONGs always run 
 inside the secure $CLOUD_LONG $VPC. You control secure communication between apps in
@@ -73,11 +73,11 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
 
 1.  **In [$CONSOLE > Security > VPC][console-vpc], click `Create a VPC`**
 
-    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-console.png)
+    ![$CLOUD_LONG new $VPC][cloud_long-new-vpc]
 
 1.  **Choose your region and IP range, name your $VPC, then click `Create VPC`**
 
-    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png)
+    ![Create a new VPC in $CLOUD_LONG][create-a-new-vpc-in-cloud_long]
 
     The IP ranges of the Peering $VPC and Customer VPC should not overlap. 
 
@@ -86,7 +86,7 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
     1. In the `VPC Peering` column, click `Add`.
     2. Enter information about your existing Customer VPC, then click `Add Connection`.
 
-       ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-console.png)
+       ![Add peering][add-peering]
 
     <VpcLimitations />
 
@@ -121,7 +121,7 @@ peering request from an unknown account.
 
     You see the list of existing destinations.
 
-    ![Create a new VPC route](https://assets.timescale.com/docs/images/tsc-vpc-add-route.png).
+    ![Create a new VPC route][create-a-new-vpc-route].
 
     If you do not already have a destination that corresponds to the `IP range / CIDR block` of 
     your Peering $VPC: 
@@ -219,13 +219,18 @@ Migration takes a few minutes to complete and requires a change to DNS settings 
 $SERVICE_SHORT. The $SERVICE_SHORT is not accessible during this time. If you receive a DNS error, allow
 some time for DNS propagation.
 
+[add-peering]: https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-console.png
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups:
 [aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
 [aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/security/vpc/#secure-your-cloud_long-services-with-vpc-peering-and-aws-privatelink
 [aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws
 [aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#secure-your-cloud_long-services-with-vpc-peering-and-aws-privatelink
+[cloud_long-isolation-architecture]: https://assets.timescale.com/docs/images/tsc-vpc-architecture.png
+[cloud_long-new-vpc]: https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-console.png
 [console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
+[create-a-new-vpc-in-cloud_long]: https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png
+[create-a-new-vpc-route]: https://assets.timescale.com/docs/images/tsc-vpc-add-route.png
 [create-service]: /getting-started/:currentVersion:/services/#create-a-service_long
 [projects]: /use-timescale/:currentVersion:/security/members/
 [regions]: /about/:currentVersion:/supported-platforms/#available-regions

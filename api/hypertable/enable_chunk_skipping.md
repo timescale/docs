@@ -40,7 +40,7 @@ not participate in partitioning of the data. These ranges are
 used for chunk skipping when the `WHERE` clause of an SQL query specifies
 ranges on the column.
 
-A [DROP COLUMN](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-DESC-DROP-COLUMN)
+A [DROP COLUMN][drop-column]
 on a column with statistics tracking enabled on it ends up removing all relevant entries
 from the catalog table.
 
@@ -91,3 +91,4 @@ SELECT enable_chunk_skipping('conditions', 'device_id');
 
 [api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
+[drop-column]: https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-DESC-DROP-COLUMN

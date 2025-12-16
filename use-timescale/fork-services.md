@@ -102,7 +102,7 @@ To manage development forks:
     A fork of the $SERVICE_SHORT is created. The forked $SERVICE_SHORT shows in `Services` with a label 
     specifying which $SERVICE_SHORT it has been forked from.
 
-    ![See the forked service](https://assets.timescale.com/docs/images/tsc-forked-service.webp)
+    ![See the forked service][see-the-forked-service]
 
 1.  Update the connection strings in your app to use the fork.
 
@@ -169,5 +169,6 @@ To fork your $SERVICE_LONG using GitHub actions:
 [github-action]: https://github.com/marketplace/actions/tiger-data-fork-service
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
+[see-the-forked-service]: https://assets.timescale.com/docs/images/tsc-forked-service.webp
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [tiered-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/

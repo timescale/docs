@@ -99,7 +99,7 @@ data.
     docker pull timescale/timescaledb-ha:pg17
     ```
 
-    If you're using another version of $PG, look for the relevant tag in the [$TIMESCALE_DB HA](https://hub.docker.com/r/timescale/timescaledb-ha/tags) repository on Docker Hub.
+    If you're using another version of $PG, look for the relevant tag in the [$TIMESCALE_DB HA][timescale_db-ha] repository on Docker Hub.
 
 1.  **Stop the old container, and remove it**
 
@@ -174,7 +174,7 @@ If you have multiple databases, update each database separately.
     docker pull timescale/timescaledb:latest-pg17
     ```
 
-    If you're using another version of $PG, look for the relevant tag in the [TimescaleDB light](https://hub.docker.com/r/timescale/timescaledb) repository on Docker Hub.
+    If you're using another version of $PG, look for the relevant tag in the [TimescaleDB light][timescaledb-light] repository on Docker Hub.
 
 1.  **Stop the old container, and remove it**
 
@@ -235,3 +235,5 @@ If you have multiple databases, you need to update each database separately.
 
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [relnotes]: https://github.com/timescale/timescaledb/releases
+[timescale_db-ha]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
+[timescaledb-light]: https://hub.docker.com/r/timescale/timescaledb

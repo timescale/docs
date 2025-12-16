@@ -125,7 +125,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
    1.  In your browser, refresh the Airflow UI.
    1.  In `Search DAGS`, type `timescale_dag` and press ENTER.  
    1.  Press the play icon and trigger the DAG:
-       ![daily eth volume of assets](https://assets.timescale.com/docs/images/integrations-apache-airflow.png)
+       ![daily eth volume of assets][daily-eth-volume-of-assets]
 1. **Verify that the data appears in $CLOUD_LONG** 
 
    1. In [$CONSOLE][cloud-login], navigate to your service and click `SQL editor`. 
@@ -144,6 +144,7 @@ You have successfully integrated Apache Airflow with $CLOUD_LONG and created a d
 
 [cloud-login]: https://console.cloud.timescale.com/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[daily-eth-volume-of-assets]: https://assets.timescale.com/docs/images/integrations-apache-airflow.png
 [ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
 [install-apache-airflow]: https://airflow.apache.org/docs/apache-airflow/stable/start.html
 [install-python-pip]: https://docs.python.org/3/using/index.html

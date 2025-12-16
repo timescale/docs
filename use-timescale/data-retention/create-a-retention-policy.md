@@ -35,7 +35,7 @@ Add a data retention policy by using the
 <Highlight type="note">
 A data retention policy only allows you to drop chunks based on how far they are
 in the past. To drop chunks based on how far they are in the future,
-[manually drop chunks](/use-timescale/:currentVersion:/data-retention/manually-drop-chunks).
+[manually drop chunks][manually-drop-chunks].
 </Highlight>
 
 ## Remove a data retention policy
@@ -94,4 +94,5 @@ total_failures      | 0
 [timescaledb_information.jobs]: /api/:currentVersion:/informational-views/jobs/
 
 [add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
+[manually-drop-chunks]: /use-timescale/:currentVersion:/data-retention/manually-drop-chunks
 [remove_retention_policy]: /api/:currentVersion:/data-retention/remove_retention_policy

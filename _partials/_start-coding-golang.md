@@ -874,10 +874,7 @@ your Go application, be sure to check out these advanced $TIMESCALE_DB tutorials
     written in Go.
 
 [create-a-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
-[create-a-hypertable]: /getting-started/:currentVersion:/start-coding-with-timescale/#generate-a-hypertable
-[create-a-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
 [golang-install]: https://golang.org/doc/install
-[install]: /getting-started/:currentVersion:/
 [install]: /getting-started/:currentVersion:/
 [libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx

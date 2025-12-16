@@ -16,7 +16,7 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 The tiered storage architecture in $CLOUD_LONG includes a high-performance storage tier and a low-cost object storage tier. You use the high-performance tier for data that requires quick access, and the object tier for rarely used historical data. Tiering policies move older data asynchronously and periodically from high-performance to low-cost storage, sparing you the need to do it manually. Chunks from a single $HYPERTABLE, including compressed chunks, can stretch across these two storage tiers. 
 
-![$CLOUD_LONG tiered storage](https://assets.timescale.com/docs/images/timescale-tiered-storage-architecture.png)
+![$CLOUD_LONG tiered storage][cloud_long-tiered-storage]
 
 ## High-performance storage 
 
@@ -168,6 +168,7 @@ The typical workflow to use tiered storage in $CLOUD_LONG is:
 
 [aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
 [aws-storage-types]: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html#vol-type-ssd
+[cloud_long-tiered-storage]: https://assets.timescale.com/docs/images/timescale-tiered-storage-architecture.png
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
 [ebs-io2]: https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html#io2-block-express
 [high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier

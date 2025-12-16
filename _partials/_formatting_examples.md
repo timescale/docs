@@ -6,7 +6,7 @@ This page illustrates and provides examples of the formatting available for $COM
 
 Use for a logical sequence of steps to achieve a goal. For example, create a hypertable.
 
-![Procedure example](https://assets.timescale.com/docs/images/procedure-syntax.png)
+![Procedure example][procedure-example]
 
 Syntax:
 
@@ -44,7 +44,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
 - Note
     
-    ![Note highlight](https://assets.timescale.com/docs/images/highlight-note.png)
+    ![Note highlight][note-highlight]
 
     Syntax:
 
@@ -58,7 +58,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
 - Important
     
-    ![Important highlight](https://assets.timescale.com/docs/images/highlight-important.png)
+    ![Important highlight][important-highlight]
 
     Syntax: 
 
@@ -72,7 +72,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
 - Warning
     
-    ![Caution highlight](https://assets.timescale.com/docs/images/highlight-warning.png)
+    ![Caution highlight][caution-highlight]
 
     Syntax:
 
@@ -86,7 +86,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
 - Deprecation
     
-    ![Deprecated highlight](https://assets.timescale.com/docs/images/highlight-deprecation.png)
+    ![Deprecated highlight][deprecated-highlight]
 
     Syntax:
 
@@ -100,7 +100,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
 - Cloud
     
-    ![Cloud highlight](https://assets.timescale.com/docs/images/highlight-cloud.png)
+    ![Cloud highlight][cloud-highlight]
 
     Syntax:
 
@@ -112,7 +112,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
 ## Tabs
 
-![Tabs](https://assets.timescale.com/docs/images/tabs-example.png)
+![Tabs][tabs]
 
 Syntax:
 
@@ -138,11 +138,11 @@ See a [use example][live-migration] in the docs.
 
 As a default, use [fenced Markdown code blocks][fenced-code-blocks]:
 
-![Regular code block](https://assets.timescale.com/docs/images/markdown-code-block.png)
+![Regular code block][regular-code-block]
 
 To remove line numbers and the copy button, use the `CodeBlock` component with `canCopy` and `showLineNumbers` set to `false`:
 
-![Custom code block](https://assets.timescale.com/docs/images/custom-code-block.png)
+![Custom code block][custom-code-block]
 
 Syntax: 
 
@@ -160,7 +160,7 @@ See a [use example][connection-pooling] in the docs.
 
 ## Multi-tab code blocks
 
-![Multi-tab code block](https://assets.timescale.com/docs/images/multi-tab-code.png)
+![Multi-tab code block][multi-tab-code-block]
 
 Syntax: 
 
@@ -196,7 +196,7 @@ Syntax:
 
 - Download
 
-  ![Download tag](https://assets.timescale.com/docs/images/tag-download.png)
+  ![Download tag][download-tag]
 
    Syntax:
 
@@ -206,7 +206,7 @@ Syntax:
 
 - Experimental
   
-  ![Experimental tag](https://assets.timescale.com/docs/images/tag-experimental.png)
+  ![Experimental tag][experimental-tag]
 
    Syntax:
 
@@ -216,7 +216,7 @@ Syntax:
 
 - $TOOLKIT_LONG
  
-  ![Tooklit tag](https://assets.timescale.com/docs/images/tag-toolkit.png)
+  ![Tooklit tag][tooklit-tag]
 
    Syntax:
 
@@ -226,7 +226,7 @@ Syntax:
 
 - Community
   
-  ![Community tag](https://assets.timescale.com/docs/images/tag-community.png)
+  ![Community tag][community-tag]
 
    Syntax:
 
@@ -236,7 +236,7 @@ Syntax:
 
 - Hollow
 
-  ![Hollow tag](https://assets.timescale.com/docs/images/hollow-tag.png)
+  ![Hollow tag][hollow-tag]
 
    Syntax:
 
@@ -269,17 +269,28 @@ For example:
 
 [A link to the data tiering section in docs][data-tiering]
 
-    [link-label]: absolute or relative URL
+[link-label]: absolute or relative URL
 [data-tiering]: ../use-timescale/data-tiering/enabling-data-tiering.md
 [disable-chunk-skipping]: ../api/hypertable/disable_chunk_skipping.md
 [decompress-chunks]: ../use-timescale/compression/decompress-chunks.md
 [alerting]: ../use-timescale/alerting.md
 [deprecation]: ../_partials/_deprecated.md
 [live-migration]: ../migrate/live-migration.md
+
+[caution-highlight]: https://assets.timescale.com/docs/images/highlight-warning.png
+[cloud-highlight]: https://assets.timescale.com/docs/images/highlight-cloud.png
+[community-tag]: https://assets.timescale.com/docs/images/tag-community.png
+[custom-code-block]: https://assets.timescale.com/docs/images/custom-code-block.png
+[deprecated-highlight]: https://assets.timescale.com/docs/images/highlight-deprecation.png
+[download-tag]: https://assets.timescale.com/docs/images/tag-download.png
+[experimental-tag]: https://assets.timescale.com/docs/images/tag-experimental.png
 [fenced-code-blocks]: https://www.markdownguide.org/extended-syntax/#fenced-code-blocks
-[connection-pooling]: ../use-timescale/services/connection-pooling.md
-[installation-windows]: ../self-hosted/install/installation-windows.md
-[time-bucket]: ../api/time_bucket_ng.md
-[time-weighted-average]: ../api/time-weighted-averages.md
-[remove-reorder-policy]: ../api/hypertable/remove_reorder_policy.md
+[hollow-tag]: https://assets.timescale.com/docs/images/hollow-tag.png
+[important-highlight]: https://assets.timescale.com/docs/images/highlight-important.png
+[multi-tab-code-block]: https://assets.timescale.com/docs/images/multi-tab-code.png
+[note-highlight]: https://assets.timescale.com/docs/images/highlight-note.png
+[procedure-example]: https://assets.timescale.com/docs/images/procedure-syntax.png
 [reference-links]: https://www.markdownguide.org/basic-syntax/#reference-style-links
+[regular-code-block]: https://assets.timescale.com/docs/images/markdown-code-block.png
+[tabs]: https://assets.timescale.com/docs/images/tabs-example.png
+[tooklit-tag]: https://assets.timescale.com/docs/images/tag-toolkit.png

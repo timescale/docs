@@ -130,7 +130,7 @@ notice is shown.
 <Highlight type="note">
 
 To upgrade TimescaleDB in a Docker container, see the 
-[Docker container upgrades](/self-hosted/:currentVersion:/upgrades/upgrade-docker) 
+[Docker container upgrades][docker-container-upgrades] 
 section.
 
 </Highlight>
@@ -197,5 +197,6 @@ section.
 
 You are running a shiny new version of TimescaleDB.
 
+[docker-container-upgrades]: /self-hosted/:currentVersion:/upgrades/upgrade-docker
 [upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/
 [upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#upgrade-postgresql

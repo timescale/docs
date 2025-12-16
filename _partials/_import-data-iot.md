@@ -7,7 +7,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 1.  **Import time-series data into a $HYPERTABLE**
 
-    1. Unzip <Tag type="download">[metrics.csv.gz](https://assets.timescale.com/docs/downloads/metrics.csv.gz)</Tag> to a `<local folder>`.
+    1. Unzip <Tag type="download">[metrics.csv.gz][metricscsvgz]</Tag> to a `<local folder>`.
        
        This test dataset contains energy consumption data.
 
@@ -81,6 +81,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[metricscsvgz]: https://assets.timescale.com/docs/downloads/metrics.csv.gz
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql

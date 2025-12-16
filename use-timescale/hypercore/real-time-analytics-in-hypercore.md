@@ -26,7 +26,7 @@ from the $ROWSTORE to the $COLUMNSTORE.
 
 <PrereqCloud />
 
-The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [this key features tutorial][ingest-data].   
+The code samples in this page use the <Tag type="download">[crypto_sample.zip][crypto_samplezip]</Tag> data from [this key features tutorial][ingest-data].   
 
 ## Optimize your data with $COLUMNSTORE policies 
 
@@ -63,6 +63,7 @@ repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is us
 [dictionary compression][dictionary] is used.
 
 [cardinality-blog]: https://www.tigerdata.com/blog/what-is-high-cardinality
+[crypto_samplezip]: https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip
 [data-model]: /about/:currentVersion:/whitepaper/#data-model
 [delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
 [delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding

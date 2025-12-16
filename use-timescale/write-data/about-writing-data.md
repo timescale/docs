@@ -16,8 +16,10 @@ $TIMESCALE_DB supports writing data in the same way as $PG, using `INSERT`,
 $TIMESCALE_DB is optimized for running real-time analytics workloads on time-series data. For this reason, hypertables are optimized for
 inserts to the most recent time intervals. Inserting data with recent time
 values gives
-[excellent performance](https://www.tigerdata.com/blog/postgresql-timescaledb-1000x-faster-queries-90-data-compression-and-much-more).
+[excellent performance][excellent-performance].
 However, if you need to make frequent updates to older time intervals, you
 might see lower write throughput.
 
 </Highlight>
+
+[excellent-performance]: https://www.tigerdata.com/blog/postgresql-timescaledb-1000x-faster-queries-90-data-compression-and-much-more

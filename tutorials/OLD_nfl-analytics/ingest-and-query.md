@@ -223,7 +223,7 @@ multiple times per second during each play)
 
 <Highlight type="important">
 
-These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [$TOOLKIT_LONG](https://www.tigerdata.com/docs/use-timescale/latest/install-timescaledb-toolkit/) before you begin.
+These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [$TOOLKIT_LONG][toolkit_long] before you begin.
 
 </Highlight>
 
@@ -297,3 +297,4 @@ as you try to answer even more questions with $TIMESCALE_DB.
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
+[toolkit_long]: https://www.tigerdata.com/docs/use-timescale/latest/install-timescaledb-toolkit/

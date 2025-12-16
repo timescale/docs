@@ -20,7 +20,7 @@ scalability while preserving $PG’s reliability and transactional guarantees.
 Want to read this whitepaper from the comfort of your own computer?
 
 <center>
-   <Tag type="download">[Tiger Data architecture for real-time analytics (PDF)](https://assets.timescale.com/docs/downloads/tigerdata-whitepaper.pdf)</Tag>
+   <Tag type="download">[Tiger Data architecture for real-time analytics (PDF)][tiger-data-architecture-for-real-time-analytics-pdf]</Tag>
 </center>
 
 
@@ -472,3 +472,5 @@ For developers, this means building high-performance, real-time analytics applic
 
 $CLOUD_LONG delivers the best of $PG, optimized for real-time analytics.
 
+
+[tiger-data-architecture-for-real-time-analytics-pdf]: https://assets.timescale.com/docs/downloads/tigerdata-whitepaper.pdf

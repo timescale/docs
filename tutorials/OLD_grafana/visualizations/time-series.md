@@ -157,7 +157,7 @@ To solve this problem, you can pre-aggregate your data using $TIMESCALE_DB's
 1.  To circumvent this issue, you can use Grafana's `Connect null values`
     settings. But first, you need rows containing null values wherever you have
     no data. By default, `time_bucket` doesn't return a row if there is no data.
-    In your query, replace `time_bucket` with [`time_bucket_gapfill`](/api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/).
+    In your query, replace `time_bucket` with [`time_bucket_gapfill`][time_bucket_gapfill].
     If you don't specify a gapfilling function, `time_bucket_gapfill` returns a
     row with a null value wherever there is no data.
 
@@ -240,3 +240,4 @@ change to your query.
 </Procedure>
 
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[time_bucket_gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/

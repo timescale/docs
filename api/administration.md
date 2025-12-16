@@ -73,6 +73,6 @@ SELECT timescaledb_pre_restore();
 ```
 
 [Migrate using pg_dump and pg_restore]: /migrate/:currentVersion:/pg-dump-and-restore/
-
 [telemetry]: /self-hosted/:currentVersion:/configuration/telemetry
 [timescaledb_post_restore-link]: /api/:currentVersion:/administration/#timescaledb-post-restore
+

@@ -92,7 +92,7 @@ than having to wait until index creation is complete.
 <Highlight type="note">
 
 You can also use the
-[$PG `WITH` clause](https://www.postgresql.org/docs/current/queries-with.html)
+[$PG `WITH` clause][pg-with-clause]
 to perform indexing transactions on an individual chunk.
 
 </Highlight>
@@ -101,3 +101,4 @@ to perform indexing transactions on an individual chunk.
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
 [create-index]: https://www.tigerdata.com/docs/api/:currentVersion:/hypertable/create_index/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[pg-with-clause]: https://www.postgresql.org/docs/current/queries-with.html

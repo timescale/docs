@@ -152,7 +152,7 @@ specifies the tables to synchronize.
    ALTER PUBLICATION <publication_name> SET(publish_via_partition_root=true);
    ```
 
-   To convert partitioned table to hypertable, follow [Convert partitions and tables with time-series data into hypertables][convert-partitions-and-tables-with-time-series-data-into-hypertables-link].
+   To convert a partitioned table to a hypertable, follow [Convert partitions and tables with time-series data into hypertables][convert-partitions-and-tables-with-time-series-data-into-hypertables-link].
 
 1. **Stop syncing a table in the `PUBLICATION`, use `DROP TABLE`**
 
@@ -344,3 +344,4 @@ EOF
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-docker]: https://docs.docker.com/engine/install/
 [psql]: /integrations/:currentVersion:/psql/
+

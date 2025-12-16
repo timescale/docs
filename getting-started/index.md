@@ -25,7 +25,6 @@ This section shows you how to:
 <WhereNext />
 
 [connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-create]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/

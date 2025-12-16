@@ -134,6 +134,5 @@ All data $CHUNKs belonging to the $HYPERTABLE are deleted.
 [postgres-alter-table]: https://www.postgresql.org/docs/current/sql-altertable.html
 [postgres-droptable]: https://www.postgresql.org/docs/current/sql-droptable.html
 [postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
-[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [uuidv7_functions]: /api/:currentVersion:/uuid-functions/

@@ -29,7 +29,7 @@ If you prefer the command line to the $OPS_MODE $SQL_EDITOR in $CONSOLE, use [ps
 
 You use the $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
-![$CONSOLE $DATA_MODE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode.png)
+![$CONSOLE $DATA_MODE][console-data_mode]
 
 <NotAvailableFreePlan />
 
@@ -57,19 +57,19 @@ To connect to a $SERVICE_SHORT:
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`:
 
-   ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png)
+   ![Check $SERVICE_LONG is running][check-service_long-is-running]
 
 1. **Connect to your $SERVICE_SHORT**
 
    In the [$DATA_MODE][portal-data-mode] in $CONSOLE, select a $SERVICE_SHORT in the connection drop-down:
 
-   ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png)
+   ![Select a connection][select-a-connection]
 
 1. **Run a test query**
 
    Type `SELECT CURRENT_DATE;` in `Scratchpad` and click `Run`:
 
-   ![Run a simple query](https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-console.png)
+   ![Run a simple query][run-a-simple-query]
 
 Quick recap. You:
 - Manage your $SERVICE_SHORTs in the [$OPS_MODE in $CONSOLE][services-portal]
@@ -198,7 +198,7 @@ For best results with $SQL_ASSISTANT_SHORT:
 Security and privacy is prioritized in $CONSOLE. In [$DATA_MODE][portal-data-mode], $PROJECT_SHORT members
 manage $SQL_ASSISTANT_SHORT settings under [`User name` > `Settings` > `SQL Assistant`][sql-editor-settings].
 
-![SQL assistant settings](https://assets.timescale.com/docs/images/tiger-console-sql-editor-preferences.png)
+![SQL assistant settings][sql-assistant-settings]
 
 $SQL_ASSISTANT_SHORT settings are:
 
@@ -213,7 +213,7 @@ $SQL_ASSISTANT_SHORT settings are:
 $SQL_EDITOR is an integrated secure UI that you use to run queries and see the results
 for a $SERVICE_LONG.
 
-![$CONSOLE $SQL_EDITOR](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor.png)
+![$CONSOLE $SQL_EDITOR][console-sql_editor]
 
 To enable or disable $SQL_EDITOR in your $SERVICE_SHORT, click `Operations` > `Service management`, then
 update the setting for $SQL_EDITOR.
@@ -226,13 +226,13 @@ To use $SQL_EDITOR:
 
     In the [$OPS_MODE][services-portal] in $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
 
-    ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor-empty.png)
+    ![Check $SERVICE_SHORT is running][check-service_short-is-running]
 
 1. **Run a test query**
 
     Type `SELECT CURRENT_DATE;` in the UI and click `Run`. The results appear in the lower window:
 
-    ![Run a simple query](https://assets.timescale.com/docs/images/tiger-on-azure/run-a-query-in-tiger-ops-mode-sql-editor.png)
+    ![Run a simple query][run-a-simple-query-1]
 
 </Procedure>
 
@@ -249,10 +249,12 @@ To use $SQL_EDITOR:
 
 [bridge-connector]: https://docs.popsql.com/docs/bridge-connector
 [charts]: https://docs.popsql.com/docs/creating-charts
-[charts]: https://docs.popsql.com/docs/creating-charts
+[check-service_long-is-running]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png
+[check-service_short-is-running]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor-empty.png
+[console-data_mode]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode.png
+[console-sql_editor]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor.png
 [create-cloud-account]: /getting-started/:currentVersion:/services/#create-an-account
 [create-dashboard]: https://docs.popsql.com/docs/creating-dashboards
-[create-schedule]: https://docs.popsql.com/docs/scheduled-queries
 [create-schedule]: https://docs.popsql.com/docs/scheduled-queries
 [integrations]: /integrations/:currentVersion:/
 [popsql-connections]: https://popsql.com/connections
@@ -265,10 +267,13 @@ To use $SQL_EDITOR:
 [psql]: /integrations/:currentVersion:/psql/
 [query-variables]: https://docs.popsql.com/docs/query-variables
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[run-a-simple-query-1]: https://assets.timescale.com/docs/images/tiger-on-azure/run-a-query-in-tiger-ops-mode-sql-editor.png
+[run-a-simple-query]: https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-console.png
 [schema-browser]: https://docs.popsql.com/docs/schema
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[select-a-connection]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [share-query]: https://docs.popsql.com/docs/sharing-a-link-to-your-query-and-results
+[sql-assistant-settings]: https://assets.timescale.com/docs/images/tiger-console-sql-editor-preferences.png
 [sql-assistant]: /getting-started/:currentVersion:/run-queries-from-console/#sql-assistant
 [sql-editor-settings]: https://console.cloud.timescale.com/dashboard/settings?popsql=%2Fpreferences%2Fai
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor

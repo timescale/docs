@@ -213,7 +213,7 @@ To change your maintenance window:
    In [$CONSOLE][services-portal], select the $SERVICE_SHORT you want to manage.
 1. **Set your maintenance window**
    1. Click `Operations` > `Environment`, then click  `Change maintenance window`.
-       ![Maintenance and upgrades](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-maintenance-upgrades.png)
+       ![Maintenance and upgrades][maintenance-and-upgrades]
    1. Select the maintence window start time, then click `Apply`.
 
    Maintenance windows can run for up to four hours.
@@ -225,7 +225,7 @@ To change your maintenance window:
 [define-maintenance-window]: /use-timescale/:currentVersion:/upgrades/#define-your-maintenance-window
 [deprecation-window]: /use-timescale/:currentVersion:/upgrades/#deprecations
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[maintenance-and-upgrades]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-maintenance-upgrades.png
 [manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-postgres-for-a-service
 [minimize-downtime]: /use-timescale/:currentVersion:/upgrades/#minimize-downtime-with-replicas
 [minor-manual-upgrade]: /use-timescale/:currentVersion:/upgrades/#manually-upgrade-timescaledb-for-non-critical-upgrades
@@ -235,6 +235,5 @@ To change your maintenance window:
 [relnotes]: https://github.com/timescale/timescaledb/releases
 [service-management]: /use-timescale/:currentVersion:/services/service-management/#change-the-service-environment
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[status-page]: https://status.timescale.com/
 [status-page]: https://status.timescale.com/
 [supported-systems]: /about/:currentVersion:/supported-platforms/#supported-systems

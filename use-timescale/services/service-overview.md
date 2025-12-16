@@ -24,7 +24,7 @@ When you log into [$CONSOLE][cloud-login], you see the
 $PROJECT_SHORT overview. Click a $SERVICE_SHORT to view run-time data and connection information. 
 Click `Operations` to configure your $SERVICE_SHORT. 
 
-![Select a query to edit](https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png)
+![Select a query to edit][select-a-query-to-edit]
 
 Each $SERVICE_SHORT hosts a single database managed for you by $CLOUD_LONG. 
 If you need more than one database, [create a new $SERVICE_SHORT][create-service].
@@ -43,7 +43,7 @@ When you log into [$CONSOLE][cloud-login], you see the
 $PROJECT_SHORT overview. Click a $SERVICE_SHORT to view run-time data and connection information.
 Click `Operations` to configure your $SERVICE_SHORT.
 
-![Select a query to edit](https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png)
+![Select a query to edit][select-a-query-to-edit]
 
 Each $SERVICE_SHORT hosts a single database managed for you by $CLOUD_LONG.
 If you need more than one database, [create a new $SERVICE_SHORT][create-service].
@@ -58,3 +58,4 @@ If you need more than one database, [create a new $SERVICE_SHORT][create-service
 
 [cloud-login]: https://console.cloud.timescale.com/
 [create-service]: /getting-started/:currentVersion:/services/#create-a-service_long
+[select-a-query-to-edit]: https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png

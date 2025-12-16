@@ -63,4 +63,3 @@ information, and plotting the results in Grafana.
 [grafana]: /integrations/:currentVersion:/grafana/
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [query-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/
-[query-nyc]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/

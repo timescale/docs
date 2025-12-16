@@ -190,10 +190,6 @@ Some of the most in-demand integrations are listed below.
 [confluent-source]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-source.html
 [confluent]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-sink.html
 [connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [cube-js]: https://cube.dev/integrations/Timescale-API
 [dash0]: https://www.dash0.com/hub/integrations/int_tiger_service/overview
 [data-center]: /integrations/:currentVersion:/corporate-data-center

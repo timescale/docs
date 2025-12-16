@@ -1,6 +1,6 @@
 $CLOUD_LONG supercharges your real-time analytics by letting you run complex queries continuously, with near-zero latency. Under the hood, this is achieved by using hypertables—$PG tables that automatically partition your time-series data by time and optionally by other dimensions. When you run a query, $CLOUD_LONG identifies the correct partition, called chunk, and runs the query on it, instead of going through the entire table. 
 
-![Hypertable structure](https://assets.timescale.com/docs/images/hypertable.png)
+![Hypertable structure][hypertable-structure]
 
 Hypertables offer the following benefits:
 
@@ -23,4 +23,5 @@ Inheritance is not supported for hypertables and may lead to unexpected behavior
 [change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[hypertable-structure]: https://assets.timescale.com/docs/images/hypertable.png
 [hypertables-and-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/

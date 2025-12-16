@@ -14,7 +14,7 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 You use the $S3_CONNECTOR in $CLOUD_LONG to synchronize CSV and Parquet files from an S3 bucket to your $SERVICE_LONG in real time. The connector runs continuously, enabling you to leverage $CLOUD_LONG as your analytics database with data constantly synced from S3. This lets you take full advantage of $CLOUD_LONG's real-time analytics capabilities without having to develop or manage custom ETL solutions between S3 and $CLOUD_LONG.
 
-![$CLOUD_LONG overview](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png)
+![$CLOUD_LONG overview][cloud_long-overview]
 
 You can use the $S3_CONNECTOR to synchronize your existing and new data. Here's what the connector can do:
 
@@ -103,7 +103,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect the source S3 bucket to the target $SERVICE_SHORT**
 
-   ![Connect $CLOUD_LONG to S3 bucket](https://assets.timescale.com/docs/images/tiger-on-azure/s3-connector-tiger-console.png)
+   ![Connect $CLOUD_LONG to S3 bucket][connect-cloud_long-to-s3-bucket]
 
    1. Click `Connectors` > `Amazon S3`.
    1. Click the pencil icon, then set the name for the new connector.
@@ -124,7 +124,7 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
 1. **Optimize the data to synchronize in $HYPERTABLEs**
 
-   ![S3 connector table selection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-create-tables.png)
+   ![S3 connector table selection][s3-connector-table-selection]
 
    $CONSOLE checks the file schema and, if possible, suggests the column to use as the time dimension in a 
    [$HYPERTABLE][hypertables-section].
@@ -147,11 +147,11 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
    
       The diagram in `CONNECTOR DATA FLOW` shows the connectors you have created, their status, and how much data has been replicated.
 
-       ![$CLOUD_LONG connectors overview](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png)
+       ![$CLOUD_LONG connectors overview][cloud_long-overview]
 
     1. To view file import statistics and logs, click `Connectors` > `Source connectors`, then select the name of your connector in the table.
 
-       ![S3 connector stats](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-details.png)
+       ![S3 connector stats][s3-connector-stats]
     
        The connector dashboard displays all imports at a glance. Use this page to:
        - **Search by file name**: find specific files from the list of imports
@@ -172,11 +172,11 @@ To sync data from your S3 bucket to your $SERVICE_LONG using $CONSOLE:
 
     1. To pause the connector, click `Connectors` > `Source connectors`. Open the three-dot menu next to your connector in the table, then click `Pause`.
 
-       ![Edit S3 connector](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-pause.png)
+       ![Edit S3 connector][edit-s3-connector]
 
     1. To edit the connector, click `Connectors` > `Source connectors`. Open the three-dot menu next to your connector in the table, then click `Edit`. Select `Connector settings`. You must pause the connector before editing it. 
 
-       ![S3 connector change config](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-edit.png)
+       ![S3 connector change config][s3-connector-change-config]
 
     1. To pause or delete the connector, click `Connectors` > `Source connectors`, then open the three-dot menu on the right and select an option. You must pause the connector before deleting it. 
 
@@ -187,17 +187,21 @@ And that is it, you are using the $S3_CONNECTOR to synchronize all the data, or 
 $SERVICE_LONG in real time.
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
+[cloud_long-connectors-overview]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png
+[cloud_long-overview]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png
 [compression]: /use-timescale/:currentVersion:/compression/about-compression
+[connect-cloud_long-to-s3-bucket]: https://assets.timescale.com/docs/images/tiger-on-azure/s3-connector-tiger-console.png
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
 [cron-expression]: https://en.wikipedia.org/wiki/Cron#Cron_expression
 [deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
-[deputy-problem]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
+[edit-s3-connector]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-pause.png
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
-[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
-[lex-order]:https://en.wikipedia.org/wiki/Lexicographic_order
+[lex-order]: https://en.wikipedia.org/wiki/Lexicographic_order
+[s3-connector-change-config]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-edit.png
+[s3-connector-stats]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-details.png
+[s3-connector-table-selection]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-create-tables.png
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

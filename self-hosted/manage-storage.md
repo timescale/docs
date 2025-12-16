@@ -20,8 +20,8 @@ read-and-write workload of more recent data.
 <Highlight type="note">
 
 Using tablespaces is one way to manage data storage costs with $TIMESCALE_DB. You
-can also use [compression](/use-timescale/:currentVersion:/compression) and
-[data retention](/use-timescale/:currentVersion:/data-retention) to reduce
+can also use [compression][compression] and
+[data retention][data-retention] to reduce
 your storage requirements.
 
 </Highlight>
@@ -146,5 +146,7 @@ In $TIMESCALE_DB v2.0 and later, you can use `move_chunk` with the job scheduler
 framework. For more information, see the [$JOBs section][jobs].
 
 [api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk
+[compression]: /use-timescale/:currentVersion:/compression
+[data-retention]: /use-timescale/:currentVersion:/data-retention
 [jobs]: /use-timescale/:currentVersion:/jobs/
 [reorder_chunk]: /api/:currentVersion:/hypertable/reorder_chunk

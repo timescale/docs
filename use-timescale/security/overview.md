@@ -10,10 +10,10 @@ tags: [encryption, VPC, privacy]
 
 Protecting data starts with secure software engineering. At $COMPANY, we embed security into every stage of 
 development, from static code analysis and automated dependency scanning to rigorous code security reviews. 
-To go even further, we developed [pgspot](https://github.com/timescale/pgspot), an open-source extension to identify security 
+To go even further, we developed [pgspot][pgspot], an open-source extension to identify security 
 issues with $PG extensions, which strengthens the broader ecosystem as well as our own platform. $COMPANY products do not have any identified weaknesses.
 
-![Image alt](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-platform-security-overview.svg)
+![Image alt][image-alt]
 
 This page lists the additional things we do to ensure operational security and to lock down $SERVICE_LONGs. 
 To see our security features at a glance, see [$COMPANY Security][security-at-timescale].
@@ -102,8 +102,10 @@ $CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can secur
 [commercial-sla]: https://www.tigerdata.com/legal/terms-of-service
 [ebs-security]: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html
 [ec2-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html
+[image-alt]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-platform-security-overview.svg
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
 [open-support-ticket]: https://console.cloud.timescale.com/dashboard/support
+[pgspot]: https://github.com/timescale/pgspot
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [security-at-timescale]: https://www.tigerdata.com/security
 [timescale-privacy-policy]: https://www.tigerdata.com/legal/privacy

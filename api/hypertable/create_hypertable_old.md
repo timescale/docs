@@ -137,7 +137,7 @@ to insert data into tables that are referenced in the foreign key constraints
 and into the converting table itself. The deadlock can be prevented by manually
 obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling
 `create_hypertable` in the same transaction, see
-[$PG documentation](https://www.postgresql.org/docs/current/sql-lock.html)
+[$PG documentation][pg-documentation]
 for the syntax.
 
 ## Units
@@ -192,3 +192,4 @@ this constraint on the table when it is executed.
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
+[pg-documentation]: https://www.postgresql.org/docs/current/sql-lock.html

@@ -9,9 +9,9 @@ import EnableReplication from "versionContent/_partials/_migrate_live_setup_enab
    ALTER SYSTEM SET wal_sender_timeout=0;
    EOF
    ```
-   * [GUC “wal_level” as “logical”](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-WAL-LEVEL)
-   * [GUC “max_wal_senders” as 10](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS)
-   * [GUC “wal_sender_timeout” as 0](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-SENDER-TIMEOUT)
+   * [GUC “wal_level” as “logical”][guc-wal_level-as-logical]
+   * [GUC “max_wal_senders” as 10][guc-max_wal_senders-as-10]
+   * [GUC “wal_sender_timeout” as 0][guc-wal_sender_timeout-as-0]
 
    This will require a restart of the $PG source database.
 
@@ -67,3 +67,7 @@ import EnableReplication from "versionContent/_partials/_migrate_live_setup_enab
 1. **Enable replication `DELETE` and`UPDATE` operations**
 
    <EnableReplication />
+
+[guc-max_wal_senders-as-10]: https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS
+[guc-wal_level-as-logical]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-WAL-LEVEL
+[guc-wal_sender_timeout-as-0]: https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-SENDER-TIMEOUT

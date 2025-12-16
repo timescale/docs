@@ -10,7 +10,7 @@ Each $SERVICE_SHORT is associated with a project in $CLOUD_LONG. Each project ca
 
 You create free and standard $SERVICE_SHORTs in $CONSOLE_LONG, depending on your [$PRICING_PLAN][pricing-plans]. A free $SERVICE_SHORT comes at zero cost and gives you limited resources to get to know $CLOUD_LONG. Once you are ready to try out more advanced features, you can switch to a paid plan and convert your free $SERVICE_SHORT to a standard one.
 
-![$CLOUD_LONG pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
+![$CLOUD_LONG pricing plans][cloud_long-pricing-plans]
 
 <FreeBeta />
 
@@ -36,6 +36,7 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
   Free $SERVICE_SHORTs offer limited resources and a basic feature scope, perfect to get to know $CLOUD_LONG in a development environment.
 
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
+[cloud_long-pricing-plans]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg
 [connection-pooling]: /use-timescale/:currentVersion:/services/connection-pooling
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/

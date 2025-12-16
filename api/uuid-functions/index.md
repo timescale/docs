@@ -11,7 +11,7 @@ products: [cloud, mst, self_hosted]
 UUIDv7 is a time-ordered UUID that includes a Unix timestamp with millisecond precision in its first 48 bits. Like 
 other UUIDs it uses 6 bits for version and variant info. The remaining 74 bits are random.
 
-![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
+![UUIDv7 microseconds][uuidv7-microseconds]
 
 UUIDv7 is ideal anywhere you create lots of records over time. Advantages are:
 
@@ -98,3 +98,4 @@ You use UUIDvs for events, orders, messages, uploads, runs, jobs, spans, and mor
 [uuid_timestamp]: /api/:currentVersion:/uuid-functions/uuid_timestamp/
 [uuid_timestamp_micros]: /api/:currentVersion:/uuid-functions/uuid_timestamp_micros/
 [uuid_version]: /api/:currentVersion:/uuid-functions/uuid_version/
+[uuidv7-microseconds]: https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg

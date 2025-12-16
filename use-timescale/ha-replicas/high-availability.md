@@ -20,7 +20,7 @@ These replicas safeguard your data and keep your $SERVICE_SHORT running smoothly
 By minimizing downtime and protecting against data loss, HA replicas ensure business continuity and give you the confidence 
 to operate without interruption, including during routine maintenance.
 
-![HA replicas in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ha-architecture-diagram.svg)
+![HA replicas in Tiger Cloud][ha-replicas-in-tiger-cloud]
 
 This page shows you how to choose the best high availability option for your $SERVICE_SHORT.
 
@@ -34,7 +34,7 @@ HA replicas can be synchronous and asynchronous.
   
 - Asynchronous: the primary commits its next write without the confirmation of the previous write completion. The asynchronous HA replicas often have a lag, in both time and data, compared to the primary. This is preferable if you need the shortest primary ingest time.
 
-![Sync and async replication](https://assets.timescale.com/docs/images/sync_async_replication_draft.png)
+![Sync and async replication][sync-and-async-replication]
 
 HA replicas have separate unique addresses that you can use to serve read-only requests in parallel to your 
 primary data node. When your primary data node fails, $CLOUD_LONG automatically fails over to 
@@ -153,6 +153,8 @@ primary is not in a state to safely switch.
 
 </Procedure>
 
+[ha-replicas-in-tiger-cloud]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ha-architecture-diagram.svg
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/#rapid-recovery
+[sync-and-async-replication]: https://assets.timescale.com/docs/images/sync_async_replication_draft.png

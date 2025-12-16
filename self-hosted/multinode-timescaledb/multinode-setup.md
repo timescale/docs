@@ -44,7 +44,7 @@ you require, you can set up multi-node and create a distributed hypertable.
 Before you begin, make sure you have considered what partitioning method you
 want to use for your multi-node cluster. For more information about multi-node
 and architecture, see the
-[About multi-node section](/self-hosted/:currentVersion:/multinode-timescaledb/about-multinode/).
+[About multi-node section][about-multi-node-section].
 </Highlight>
 
 <Procedure>
@@ -84,6 +84,7 @@ and architecture, see the
 When you have set up your multi-node installation, you can configure your
 cluster. For more information, see the [configuration section][configuration].
 
+[about-multi-node-section]: /self-hosted/:currentVersion:/multinode-timescaledb/about-multinode/
 [about-multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/about-multinode/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#about-continuous-aggregates
 [configuration]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-config/

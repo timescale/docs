@@ -19,7 +19,7 @@ import LinuxSupport from "versionContent/_partials/_timescaledb_supported_linux.
 
 # Install $TIMESCALE_DB on Linux
 
-TimescaleDB is a [$PG extension](https://www.postgresql.org/docs/current/external-extensions.html) for 
+TimescaleDB is a [$PG extension][pg-extension] for 
 time series and demanding workloads that ingest and query high volumes of data.
 
 This section shows you how to:
@@ -113,4 +113,5 @@ You can deploy $TIMESCALE_DB on the following systems:
 [add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-linux/#add-the-timescale_db-extension-to-your-database
 [install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-linux/#install-timescale_db-on-linux
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
+[pg-extension]: https://www.postgresql.org/docs/current/external-extensions.html
 [supported-platforms-link]: /self-hosted/:currentVersion:/install/installation-linux/#supported-platforms

@@ -14,7 +14,7 @@ products: [cloud, mst, self_hosted]
 
 Extract a Postgres timestamp with time zone from a UUIDv7 object. 
 
-![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
+![UUIDv7 microseconds][uuidv7-microseconds]
 
 `uuid` contains a millisecond unix timestamp and an optional sub-millisecond fraction.
 This fraction is used to construct the Postgres timestamp.
@@ -40,3 +40,4 @@ uuid_timestamp
 |`uuid`|UUID| - | ✔ | The UUID object to extract the timestamp from |
 
 [uuid_timestamp_micros]: /api/:currentVersion:/uuid-functions/uuid_timestamp_micros/
+[uuidv7-microseconds]: https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg

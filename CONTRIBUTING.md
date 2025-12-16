@@ -153,11 +153,14 @@ To make a documentation page more visible and clear for Google:
 
 The previous documentation source is in the deprecated repository called [docs.timescale.com-content][legacy-source].
 
-[legacy-source]: https://github.com/timescale/docs.timescale.com-content
-[google-style]: https://developers.google.com/style
-[markdown-syntax]: https://www.markdownguide.org/extended-syntax/
-[use-navigation]: use-timescale/page-index/page-index.js
+
 [formatting]: _partials/_formatting_examples.md
-[variables]: https://www.tigerdata.com/docs/variables-for-contributors/
-[readme]: README.md
+[google-style]: https://developers.google.com/style
+[legacy-source]: https://github.com/timescale/docs.timescale.com-content
+[markdown-syntax]: https://www.markdownguide.org/extended-syntax/
 [navigation-tree-link]: /CONTRIBUTING/:currentVersion:/#navigation-tree
+[readme]: README.md
+[use-navigation]: use-timescale/page-index/page-index.js
+[variables]: https://www.tigerdata.com/docs/variables-for-contributors/
+
+

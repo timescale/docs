@@ -320,7 +320,7 @@ created earlier as a GraphQL resource, so it can be consumed as a query or
 subscription. You can then map the changes, or mutations, as you compress and
 decompress a chunk. This image describes a SQL view is tracked on Hasura:
 
-![Tracking a SQL view on Hasura cloud](https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-track-view.png)
+![Tracking a SQL view on Hasura cloud][tracking-a-sql-view-on-hasura-cloud]
 
 ### Mutations
 
@@ -354,7 +354,7 @@ $$ LANGUAGE SQL VOLATILE;
 Note that the function adds an extra `where` clause so that it does not compress
 a chunk that is already compressed.
 
-![Tracking compress chunk mutation on Hasura cloud](https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-compress-chunk-mutation.png)
+![Tracking compress chunk mutation on Hasura cloud][tracking-compress-chunk-mutation-on-hasura-cloud]
 
 #### Decompress chunk mutation
 
@@ -405,20 +405,21 @@ You can get the full code for this project from
 
 This tutorial was originally created for HasuraCon 2021.
 
-[![Click here to watch the video](https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasuracon-talk-thumbnail.png)](https://hasura.io/events/hasura-con-2021/talks/visualizing-timescale-db-%20compression-status-in-real-time-with-hasura/ "Watch compression status in real time with Hasura")
+[![Click here to watch the video][click-here-to-watch-the-video]](https://hasura.io/events/hasura-con-2021/talks/visualizing-timescale-db-%20compression-status-in-real-time-with-hasura/ "Watch compression status in real time with Hasura")
 
 We hope you find new ways to explore your data and make your decisions smarter
 and data-driven. If you get any interesting results or have any questions about
 this tutorial, drop us a line on our [community Slack channel][slack].
 
-[Hasura]: http://hasura.io/
-[TimescaleDB]: https://timescale.com/
-[data retention]: /use-timescale/:currentVersion:/data-retention/
-
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[click-here-to-watch-the-video]: https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasuracon-talk-thumbnail.png
 [hasura-cloud]: https://cloud.hasura.io/
+[Hasura]: http://hasura.io/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-timescale]: /getting-started/:currentVersion:/
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
 [sign-up]: http://console.cloud.timescale.com/signup
 [slack]: https://slack.timescale.com
+[TimescaleDB]: https://timescale.com/
+[tracking-a-sql-view-on-hasura-cloud]: https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-track-view.png
+[tracking-compress-chunk-mutation-on-hasura-cloud]: https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-compress-chunk-mutation.png

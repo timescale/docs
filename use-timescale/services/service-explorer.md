@@ -30,7 +30,7 @@ summary of your $SERVICE_SHORT, including all your hypertables and
 relational tables. It summarizes your overall compression ratios, and other
 policy and continuous aggregate data. And, if you aren't already using key features like continuous aggregates, columnstore compression, or other automation policies and actions, it provides pointers to tutorials and documentation to help you get started.
 
-![Service explorer](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-explorer.png)
+![Service explorer][service-explorer]
 
 ## Tables
 
@@ -43,7 +43,7 @@ ranges, and columnstore compression status.
 From this section, you can also set an automated policy to compress chunks into the columnstore. For more information,
 see the [hypercore documentation][hypercore].
 
-![Service explorer tables](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-columstore-data-savings.png)
+![Service explorer tables][service-explorer-tables]
 
 
 For more information about hypertables, see the
@@ -55,7 +55,7 @@ In the `Continuous aggregate` section, you can see all your continuous
 aggregates, including top-level information such as their size, whether they are
 configured for real-time aggregation, and their refresh periods.
 
-![Service explorer caggs](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-explorer-caggs.png)
+![Service explorer caggs][service-explorer-caggs]
 
 For more information about continuous aggregates, see the
 [continuous aggregates section][caggs].
@@ -63,3 +63,6 @@ For more information about continuous aggregates, see the
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[service-explorer-caggs]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-explorer-caggs.png
+[service-explorer-tables]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-columstore-data-savings.png
+[service-explorer]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-explorer.png

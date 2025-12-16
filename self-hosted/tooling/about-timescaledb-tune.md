@@ -43,7 +43,8 @@ write-ahead log, and other settings. These changes are written to your
 
 <Highlight type="note">
 For detailed instructions and other options, see the documentation in the
-[Github repository](https://github.com/timescale/timescaledb-tune).
+[Github repository][github-repository].
 </Highlight>
 
+[github-repository]: https://github.com/timescale/timescaledb-tune
 [tstune]: https://github.com/timescale/timescaledb-tune

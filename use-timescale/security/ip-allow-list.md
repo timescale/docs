@@ -24,13 +24,13 @@ You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot
 
 1. **In [$CONSOLE][console], select `Security` > `IP Allow List`, then click `Create IP Allow List`** 
 
-   ![Create IP allow list](https://assets.timescale.com/docs/images/tiger-cloud-console/create-ip-allow-list-tiger-console.png)
+   ![Create IP allow list][create-ip-allow-list]
 
 1. **Enter your trusted IP addresses**
 
    The number of IP addresses that you can include in one list depends on your [$PRICING_PLAN][pricing-plans]. 
 
-   ![Add IP addresses to allow list](https://assets.timescale.com/docs/images/tiger-cloud-console/add-ip-addresses-to-allow-list-tiger-console.png)
+   ![Add IP addresses to allow list][add-ip-addresses-to-allow-list]
 
 1. **Name your allow list and click `Create IP Allow List`**
 
@@ -38,7 +38,7 @@ You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot
 
 1. **Select a $SERVICE_LONG, then click `Operations` > `Security` > `IP Allow List`**
 
-   ![Attach IP allow list](https://assets.timescale.com/docs/images/tiger-on-azure/attach-ip-allow-list-tiger-console.png)
+   ![Attach IP allow list][attach-ip-allow-list]
 
 1. **Select the list in the drop-down and click `Apply`** 
 
@@ -72,7 +72,10 @@ You create an IP allow list in the data mode settings.
 
 You have successfully added an IP allow list for querying your $SERVICE_SHORT in the data mode.
 
+[add-ip-addresses-to-allow-list]: https://assets.timescale.com/docs/images/tiger-cloud-console/add-ip-addresses-to-allow-list-tiger-console.png
+[attach-ip-allow-list]: https://assets.timescale.com/docs/images/tiger-on-azure/attach-ip-allow-list-tiger-console.png
 [console]: https://console.cloud.timescale.com/dashboard/
+[create-ip-allow-list]: https://assets.timescale.com/docs/images/tiger-cloud-console/create-ip-allow-list-tiger-console.png
 [create-service]: /getting-started/:currentVersion:/services/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [projects]: /use-timescale/:currentVersion:/security/members/

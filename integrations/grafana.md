@@ -9,7 +9,7 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
 # Integrate Grafana and $CLOUD_LONG
 
-[Grafana](https://grafana.com/docs/) enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
+[Grafana][grafana] enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored.
 
 This page shows you how to integrate Grafana with a $SERVICE_LONG, create a dashboard and panel, then visualize geospatial data.
 
@@ -94,7 +94,7 @@ Grafana time-series panels include a time filter:
 
     When you visualize this query in Grafana, you see this:
 
-    ![$SERVICE_LONG and Grafana query results](https://assets.timescale.com/docs/images/grafana_query_results.png)
+    ![$SERVICE_LONG and Grafana query results][service_long-and-grafana-query-results]
 
     You can adjust the `time_bucket` function and compare the graphs:
     
@@ -112,7 +112,7 @@ Grafana time-series panels include a time filter:
     
     When you visualize this query, it looks like this:
 
-   ![$SERVICE_LONG and Grafana query results in time buckets](https://assets.timescale.com/docs/images/grafana_query_results_5m.png)
+   ![$SERVICE_LONG and Grafana query results in time buckets][service_long-and-grafana-query-results-in-time-buckets]
 
 </Procedure>
 
@@ -175,12 +175,16 @@ tutorial as a starting point.
     
     You now have a visualization that looks like this: 
 
-    ![$SERVICE_LONG and Grafana integration](https://assets.timescale.com/docs/images/timescale-grafana-integration.png)
+    ![$SERVICE_LONG and Grafana integration][service_long-and-grafana-integration]
        
 
 </Procedure>
 
 [grafana-cloud]: https://grafana.com/get/
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed
+[grafana]: https://grafana.com/docs/
 [nyc-taxi]: /tutorials/:currentVersion:/real-time-analytics-transport/
+[service_long-and-grafana-integration]: https://assets.timescale.com/docs/images/timescale-grafana-integration.png
+[service_long-and-grafana-query-results-in-time-buckets]: https://assets.timescale.com/docs/images/grafana_query_results_5m.png
+[service_long-and-grafana-query-results]: https://assets.timescale.com/docs/images/grafana_query_results.png
 [time-buckets]: /use-timescale/:currentVersion:/time-buckets/

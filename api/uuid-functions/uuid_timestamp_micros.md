@@ -16,7 +16,7 @@ Extract a [Postgres timestamp with time zone][postgres-date-time] from a UUIDv7 
 `uuid` contains a millisecond unix timestamp and an optional sub-millisecond fraction. 
 
 
-![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
+![UUIDv7 microseconds][uuidv7-microseconds]
 
 Unlike [`uuid_timestamp`][uuid_timestamp], the microsecond part of `uuid` is used to construct a 
 Postgres timestamp with microsecond precision.
@@ -43,3 +43,4 @@ uuid_timestamp_micros
 
 [postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html
 [uuid_timestamp]: /api/:currentVersion:/uuid-functions/uuid_timestamp/
+[uuidv7-microseconds]: https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg

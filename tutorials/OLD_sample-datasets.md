@@ -82,7 +82,7 @@ The data is now ready for use.
 
 The standard `COPY` command in $PG is single threaded. To speed up
 importing the larger sample datasets, you can use the
-[parallel importer](https://github.com/timescale/timescaledb-parallel-copy)
+[parallel importer][parallel-importer]
 instead.
 
 </Highlight>
@@ -341,3 +341,4 @@ hour                   | avg_temp | min_temp | max_temp
 ```
 
 [install-timescale]: /getting-started/:currentVersion:/
+[parallel-importer]: https://github.com/timescale/timescaledb-parallel-copy

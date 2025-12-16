@@ -52,7 +52,7 @@ If you're using [$CLOUD_LONG][cloud], the $TOOLKIT_LONG is already installed. If
 ## Install $TOOLKIT_LONG
 
 Best practice for $TOOLKIT_SHORT installation is to use the
-[TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
+[TimescaleDB Docker image][timescaledb-docker-image].
 To get $TOOLKIT_SHORT, use the high availability image, `timescaledb-ha`:
 
 ```bash
@@ -154,5 +154,6 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
 [macos-install]: /self-hosted/:currentVersion:/install/installation-macos/
+[timescaledb-docker-image]: https://github.com/timescale/timescaledb-docker-ha
 [toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
 [update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/

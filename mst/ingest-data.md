@@ -85,8 +85,10 @@ hypertable. You need to begin by creating the new table, before you
 import the data.
 
 <Highlight type="important">
+
 Before you begin, make sure you have
 [prepared your new database][procedure-preparing-your-new-database-link].
+
 </Highlight>
 
 <Procedure>

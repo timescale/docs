@@ -34,7 +34,7 @@ costs down. For example:
 
 The following figure shows how $TIMESCALE_DB optimizes your data for superfast real-time analytics:
 
-![Main features and tiered data](https://assets.timescale.com/docs/images/mutation.png )
+![Main features and tiered data][main-features-and-tiered-data]
 
 This page shows you how to rapidly implement the features in $CLOUD_LONG that enable you to 
 ingest and query data faster while keeping the costs low. 
@@ -51,7 +51,7 @@ is made up of child tables called $CHUNKs. Each $CHUNK is assigned a range of ti
 contains data from that range. When you run a query, $TIMESCALE_DB identifies the correct $CHUNK and runs the query on 
 it, instead of going through the entire table. You can also tune $HYPERTABLEs to increase performance even more. 
 
-![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
+![Hypertable structure][hypertable-structure]
 
 <HypercoreIntroShort />
 
@@ -66,7 +66,7 @@ relational and time-series data from external files.
 
 1.  **Import some time-series data into $HYPERTABLEs**
 
-    1. Unzip <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> to a `<local folder>`.
+    1. Unzip <Tag type="download">[crypto_sample.zip][crypto_samplezip]</Tag> to a `<local folder>`.
 
        This test dataset contains: 
          - Second-by-second data for the most-traded crypto-assets. This time-series data is best suited for
@@ -183,7 +183,7 @@ $CAGG_CAPs are a kind of $HYPERTABLE that is refreshed automatically in
 the background as new data is added, or old data is modified. Changes to your dataset are tracked, 
 and the $HYPERTABLE behind the $CAGG is automatically updated in the background.
 
-![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png)
+![Reduced data calls with $CAGGs][reduced-data-calls-with-caggs]
 
 You create $CAGGs on uncompressed data in high-performance storage. They continue to work 
 on [data in the $COLUMNSTORE][test-drive-enable-compression]
@@ -263,7 +263,7 @@ $CONSOLE. You can also do this using psql.
 1. **In [$CONSOLE][services-portal], select the $SERVICE_SHORT you uploaded data to**
 1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate` next to the `crypto_ticks` hypertable**
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**
-   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-console.png )
+   ![$CAGG wizard][cagg-wizard]
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql
    CREATE MATERIALIZED VIEW assets_candlestick_daily
@@ -310,7 +310,7 @@ low-cost bottomless data storage built on Amazon S3. However, no matter the tier
 [query your data when you need][querying-tiered-data]. $CLOUD_LONG seamlessly accesses the correct storage 
 tier and generates the response.
 
-![Tiered storage](https://assets.timescale.com/docs/images/tiered-storage.png )
+![Tiered storage][tiered-storage]
 
 To set up data tiering: 
 
@@ -322,7 +322,7 @@ To set up data tiering:
    
    1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
 
-      ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png)
+      ![Enable tiered storage][enable-tiered-storage]
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
@@ -377,23 +377,30 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of
 [third-party tools][integrations], plain old [Use $COMPANY products][use-timescale], or dive into [the API][use-the-api].
 
+[cagg-wizard]: https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-console.png 
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[crypto_samplezip]: https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip
 [data-ingest]: /migrate/:currentVersion:/
+[enable-tiered-storage]: https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertable-structure]: https://assets.timescale.com/docs/images/hypertable-structure.png
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [integrations]: /integrations/:currentVersion:/
+[main-features-and-tiered-data]: https://assets.timescale.com/docs/images/mutation.png 
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
+[reduced-data-calls-with-caggs]: https://assets.timescale.com/docs/images/continuous-aggregate.png
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
 [test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
+[tiered-storage]: https://assets.timescale.com/docs/images/tiered-storage.png 
 [tutorials]: /tutorials/:currentVersion:/
 [use-the-api]: /api/:currentVersion:/
 [use-timescale]: /use-timescale/:currentVersion:/

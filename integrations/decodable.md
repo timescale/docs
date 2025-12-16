@@ -11,7 +11,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 [Decodable][decodable] is a real-time data platform that allows you to build, run, and manage data pipelines effortlessly. 
 
-![Decodable workflow](https://assets.timescale.com/docs/images/integrations-decodable-configuration.png)
+![Decodable workflow][decodable-workflow]
 
 This page explains how to integrate Decodable with your $SERVICE_LONG to enable efficient real-time streaming and analytics.
 
@@ -56,7 +56,7 @@ To stream data gathered in Decodable to a $SERVICE_LONG:
       ```
       You see something like: 
 
-      ![Decodable workflow](https://assets.timescale.com/docs/images/integrations-decodable-data-in-service.png)
+      ![Decodable workflow][decodable-workflow-1]
 
 </Procedure> 
 
@@ -66,6 +66,8 @@ You have successfully integrated Decodable with $CLOUD_LONG.
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [decodable-app]:https://app.decodable.co/-/accounts
 [decodable-quickstart]: https://docs.decodable.co/get-started/quickstart.html
+[decodable-workflow-1]: https://assets.timescale.com/docs/images/integrations-decodable-data-in-service.png
+[decodable-workflow]: https://assets.timescale.com/docs/images/integrations-decodable-configuration.png
 [decodable]: https://www.decodable.co/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /integrations/:currentVersion:/psql/

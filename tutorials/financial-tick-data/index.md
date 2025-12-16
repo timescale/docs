@@ -30,7 +30,7 @@ aggregated data, and visualize the data in Grafana.
 
 <CandlestickIntro />
 
-![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/timescale_cloud_candlestick.png)
+![candlestick][candlestick]
 
 $TIMESCALE_DB is well suited to storing and analyzing financial candlestick data,
 and many $COMPANY community members use it for exactly this purpose. Check out
@@ -54,6 +54,7 @@ To create candlestick views, query the aggregated data, and visualize the data i
 
 [advanced-finance]: /tutorials/:currentVersion:/financial-ingest-real-time/
 [bot]: https://www.tigerdata.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb
+[candlestick]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/timescale_cloud_candlestick.png
 [financial-tick-dataset]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-dataset/
 [financial-tick-query]: /tutorials/:currentVersion:/financial-tick-data/financial-tick-query/
 [messari]: https://www.tigerdata.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone

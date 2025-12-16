@@ -69,4 +69,3 @@ again.
 </Procedure>
 
 [deb-install]: /self-hosted/:currentVersion:/install/installation-linux/
-[deb-install]: /self-hosted/:currentVersion:/install/installation-linux/

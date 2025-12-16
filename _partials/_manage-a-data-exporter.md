@@ -94,4 +94,3 @@ It must be one of the following:
 
 [console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[services-portal]: https://console.cloud.timescale.com/dashboard/services

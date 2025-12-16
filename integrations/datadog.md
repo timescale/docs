@@ -142,8 +142,7 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [datadog-config]: https://docs.datadoghq.com/database_monitoring/setup_postgres/selfhosted?tab=postgres15
 [datadog-install]: https://docs.datadoghq.com/integrations/postgres/
 [datadog-monitor-cloud]: /integrations/:currentVersion:/datadog/#integrate-datadog-with-cloud_long
-[datadog-postgres-metrics]:https://docs.datadoghq.com/integrations/postgres/?tab=host#metrics
-[datadog]: https://www.datadoghq.com/
+[datadog-postgres-metrics]: https://docs.datadoghq.com/integrations/postgres/?tab=host#metrics
 [datadog]: https://www.datadoghq.com/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

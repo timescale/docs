@@ -33,7 +33,7 @@ Retrieve the connection details for your $SERVICE_LONG:
 
    Open the [`Services`][services-portal] page and select your $SERVICE_SHORT. The connection details, except the password, are available in `Service info` > `Connection info` > `More details`. If necessary, click `Forgot your password?` to get a new one.
 
-   ![$SERVICE_LONG connection details](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-service-connection-details.png)
+   ![$SERVICE_LONG connection details][service_long-connection-details]
 
 ## Find your project and service ID
 
@@ -44,12 +44,12 @@ To retrieve the connection details for your $PROJECT_LONG and $SERVICE_LONG:
 1. **Retrieve your project ID**:
 
    In [$CONSOLE][services-portal], click your project name in the upper left corner, then click `Copy` next to the project ID.
-   ![Retrive the project id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-project-id.png)
+   ![Retrive the project id in $CONSOLE][retrive-the-project-id-in-console]
 
 1. **Retrieve your service ID**:
 
    Click the dots next to the service, then click `Copy` next to the service ID.
-   ![Retrive the service id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-id.png)
+   ![Retrive the service id in $CONSOLE][retrive-the-service-id-in-console]
 
 </Procedure>
 
@@ -70,7 +70,7 @@ such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
  
    1. Click `Create credentials`, then copy `Public key` and `Secret key` locally.
 
-      ![Retrive the service id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png)
+      ![Retrive the service id in $CONSOLE][retrive-the-service-id-in-console-1]
 
        This is the only time you see the `Secret key`. After this, only the `Public key` is visible in this page. 
 
@@ -95,7 +95,7 @@ such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
  
    1. Click `Create credentials`, then copy `Public key` and `Secret key` locally.
 
-      ![Create client credentials in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png)
+      ![Create client credentials in $CONSOLE][retrive-the-service-id-in-console-1]
 
        This is the only time you see the `Secret key`. After this, only the `Public key` is visible in this page. 
 
@@ -115,12 +115,18 @@ Find the connection details in the [$PG configuration file][postgres-config] or 
 
 In the `Services` page of the $MST_CONSOLE_LONG, click the service you want to connect to. You see the connection details:
 
-![MST connection details](https://assets.timescale.com/docs/images/mst-connection-info.png)
+![MST connection details][mst-connection-details]
 
 </Tab>
 
 </Tabs>
 
+[create-client-credentials-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png
+[mst-connection-details]: https://assets.timescale.com/docs/images/mst-connection-info.png
 [postgres-config]: https://www.postgresql.org/docs/current/runtime-config-file-locations.html
 [rest-api-reference]: /api/:currentVersion:/api-reference/
+[retrive-the-project-id-in-console]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-project-id.png
+[retrive-the-service-id-in-console-1]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png
+[retrive-the-service-id-in-console]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-id.png
+[service_long-connection-details]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-service-connection-details.png
 [services-portal]: https://console.cloud.timescale.com/dashboard/services

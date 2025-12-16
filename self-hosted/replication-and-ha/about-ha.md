@@ -56,10 +56,10 @@ replicating partition root tables, which are
 
 $PG achieves streaming replication by having replicas continuously stream
 the WAL from the primary database. See the official
-[replication documentation](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION)
+[replication documentation][replication-documentation]
 for details. For more information about how $PG implements Write-Ahead
 Logging, see their
-[WAL Documentation](https://www.postgresql.org/docs/current/wal-intro.html).
+[WAL Documentation][wal-documentation].
 
 ## Failover
 
@@ -77,3 +77,5 @@ configurable high availability solution with automatic failover functionality.
 [postgres-logrep-docs]: https://www.postgresql.org/docs/current/logical-replication.html
 [postgres-partition-limitations]: https://www.postgresql.org/docs/current/logical-replication-restrictions.html
 [postgres-streaming-replication-docs]: https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION
+[replication-documentation]: https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION
+[wal-documentation]: https://www.postgresql.org/docs/current/wal-intro.html

@@ -123,7 +123,7 @@ column in each chunk. These ranges are stored in the start (inclusive) and end (
 catalog table. TimescaleDB uses these ranges for dynamic chunk exclusion when the `WHERE` clause of an SQL query 
 specifies ranges on the column. 
 
-![Chunk skipping](https://assets.timescale.com/docs/images/hypertable-with-chunk-skipping.png)
+![Chunk skipping][chunk-skipping]
 
 You can enable chunk skipping on hypertables compressed into the columnstore for `smallint`, `int`, `bigint`, `serial`, 
 `bigserial`, `date`, `timestamp`, or `timestamptz` type columns. 
@@ -140,7 +140,7 @@ In the satellite example, the time of adding data to a database inevitably follo
 Sequential IDs and the creation timestamp for both entities also increase synchronously. This means those two 
 columns are correlated. 
 
-For a more in-depth look on chunk skipping, see [our blog post](https://www.tigerdata.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes).
+For a more in-depth look on chunk skipping, see [our blog post][our-blog-post].
 
 ### Enable chunk skipping
 
@@ -165,4 +165,5 @@ $PG planner to create the best query plan. For more information about the
 [change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#enable-chunk-skipping
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
+[our-blog-post]: https://www.tigerdata.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html

@@ -24,7 +24,7 @@ you learn about $TIMESCALE_DB features, and to inspire your own
 data analysis and conclusions. To read about the
 conclusions we made from
 analyzing 5 years' worth of Bitcoin transactions,
-[see our blog post](https://www.tigerdata.com/blog/building-blockchain-apps-on-postgres).
+[see our blog post][see-our-blog-post].
 </Highlight>
 
 ## What you'll learn
@@ -42,9 +42,11 @@ Before you begin, make sure you have:
 <Highlight type="note">
 The easiest way to get a new $TIMESCALE_DB instance up and running and complete
 this tutorial is to
-[sign up for a free $ACCOUNT_LONG](http://console.cloud.timescale.com/signup)
+[sign up for a free $ACCOUNT_LONG][sign-up-for-a-free-account_long]
 (no credit card required).
 </Highlight>
 
 [install-timescale]: /getting-started/:currentVersion:/
 [psql]: /integrations/:currentVersion:/psql/
+[see-our-blog-post]: https://www.tigerdata.com/blog/building-blockchain-apps-on-postgres
+[sign-up-for-a-free-account_long]: http://console.cloud.timescale.com/signup

@@ -104,7 +104,7 @@ Here's an example API endpoint:
 https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY_EXTENDED&symbol=IBM&interval=1min&slice=year1month1&apikey=your_apikey
 ```
 
-Check out the [Alpha Vantage API](https://www.alphavantage.co/documentation/) docs for more information.
+Check out the [Alpha Vantage API][alpha-vantage-api] docs for more information.
 
 ### Create the function
 
@@ -388,6 +388,7 @@ for symbol in symbols:
 
 ```
 
+[alpha-vantage-api]: https://www.alphavantage.co/documentation/
 [pgcopy-docs]: https://pgcopy.readthedocs.io/en/latest/
 [scraping-example]: https://github.com/timescale/examples/blob/master/
 [symbols-csv]: https://assets.timescale.com/docs/downloads/symbols.csv

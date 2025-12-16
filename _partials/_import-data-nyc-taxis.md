@@ -7,7 +7,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 1.  **Import time-series data into a $HYPERTABLE**
 
-    1. Unzip <Tag type="download">[nyc_data.tar.gz](https://assets.timescale.com/docs/downloads/nyc_data.tar.gz)</Tag> to a `<local folder>`.
+    1. Unzip <Tag type="download">[nyc_data.tar.gz][nyc_datatargz]</Tag> to a `<local folder>`.
        
        This test dataset contains historical data from New York's yellow taxi network.
 
@@ -170,6 +170,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[nyc_datatargz]: https://assets.timescale.com/docs/downloads/nyc_data.tar.gz
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services

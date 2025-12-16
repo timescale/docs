@@ -25,7 +25,7 @@ a $SERVICE_LONG and keep those lights on.
 [Grafana][grafana-docs] is a popular data visualization tool that enables you to create customizable dashboards 
 and effectively monitor your systems and applications.
 
-![Grafana real-time analytics](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-energy-cagg.png)
+![Grafana real-time analytics][grafana-real-time-analytics]
 
 This page shows you how to integrate Grafana with a $SERVICE_LONG and make insights based on visualization of
 data optimized for size and speed in the columnstore.
@@ -80,7 +80,7 @@ To visually monitor the volume of energy consumption over time:
    1. Click `Add visualization`, then select the data source that connects to your $SERVICE_LONG and the `Bar chart` 
       visualization.
    
-      ![Grafana create dashboard](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png)
+      ![Grafana create dashboard][grafana-create-dashboard]
    1. In the `Queries` section, select `Code`, then run the following query based on your continuous aggregate:
       
        ```sql
@@ -109,7 +109,7 @@ To visually monitor the volume of energy consumption over time:
       This query averages the results for households in a specific time zone by hour and orders them by time.
       Because you use a continuous aggregate, this data is always correct in real time.
    
-      ![Grafana real-time analytics](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-energy-cagg.png)
+      ![Grafana real-time analytics][grafana-real-time-analytics]
 
       You see that energy consumption is highest in the evening and at breakfast time. You also know that the wind
       drops off in the evening. This data proves that you need to supply a supplementary power source for peak times, 
@@ -123,7 +123,9 @@ To visually monitor the volume of energy consumption over time:
 You have integrated Grafana with a $SERVICE_LONG and made insights based on visualization of your data.
 
 [grafana-cloud]: https://grafana.com/get/
+[grafana-create-dashboard]: https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png
 [grafana-docs]: https://grafana.com/docs/
+[grafana-real-time-analytics]: https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-energy-cagg.png
 [grafana-self-managed]: https://grafana.com/get/?tab=self-managed
 [hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics

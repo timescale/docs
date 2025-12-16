@@ -18,7 +18,7 @@ The UUID contains a a UNIX timestamp split into millisecond and sub-millisecond 
 random bits.
 
 
-![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
+![UUIDv7 microseconds][uuidv7-microseconds]
 
 You can use this function to generate a time-ordered series of UUIDs
 suitable for use in a time-partitioned column in TimescaleDB.
@@ -40,3 +40,5 @@ suitable for use in a time-partitioned column in TimescaleDB.
     ```sql
     INSERT INTO alerts VALUES (generate_uuidv7(), 'high CPU');
     ```
+
+[uuidv7-microseconds]: https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg

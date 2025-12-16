@@ -56,7 +56,7 @@ uses to stream from the primary database.
 
 <Highlight type="important">
 
-The [scram-sha-256](https://www.postgresql.org/docs/current/sasl-authentication.html#SASL-SCRAM-SHA-256) encryption level is the most secure
+The [scram-sha-256][scram-sha-256] encryption level is the most secure
 password-based authentication available in $PG. It is only available in $PG 10 and later.
 
 </Highlight>
@@ -438,5 +438,6 @@ check out [Patroni][patroni-github].
 [postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
 [postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
 [replication-modes]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#replication-modes
+[scram-sha-256]: https://www.postgresql.org/docs/current/sasl-authentication.html#SASL-SCRAM-SHA-256
 [timescale-streamrep-helm]: https://github.com/timescale/helm-charts/tree/main/charts/timescaledb-single
 [verify-replica]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#verify-that-the-replica-is-working

@@ -14,7 +14,7 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 $LAKE_LONG enables you to build real-time applications alongside efficient data pipeline management within a single 
 system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. 
 
-![Tiger Lake architecture](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-lake-integration-tiger.svg)
+![Tiger Lake architecture][tiger-lake-architecture]
 
 $LAKE_LONG is a native integration enabling synchronization between $HYPERTABLEs and relational tables
 running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
@@ -376,3 +376,4 @@ data lake:
 [s3-tables]: https://aws.amazon.com/s3/features/tables/
 [samples]: /use-timescale/:currentVersion:/tigerlake/#sample-code
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
+[tiger-lake-architecture]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-lake-integration-tiger.svg

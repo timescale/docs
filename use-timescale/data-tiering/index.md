@@ -13,7 +13,7 @@ tags: [storage, data management]
 <Tab title="Tiger on AWS" label="aws-cloud">
 
 Tiered storage is a [hierarchical storage management architecture][hierarchical-storage] for 
-[real-time analytics][create-service] $SERVICE_SHORTs you create in [$CLOUD_LONG](https://console.cloud.timescale.com/).
+[real-time analytics][create-service] $SERVICE_SHORTs you create in [$CLOUD_LONG][cloud_long].
 
 Engineered for infinite low-cost scalability, tiered storage consists of the following:
 
@@ -62,6 +62,7 @@ Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sur
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
 [add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/
 [aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
+[cloud_long]: https://console.cloud.timescale.com/
 [create-service]: /getting-started/:currentVersion:/services/
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
 [data-tiering-workflow]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/#the-tiered-storage-workflow

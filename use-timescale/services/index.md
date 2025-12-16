@@ -49,11 +49,11 @@ For more information about customizing your database configuration, see the
 
 <Highlight type="note">
 
-The [$TIMESCALE_DB Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest/)
+The [$TIMESCALE_DB Terraform provider][timescale_db-terraform-provider]
 provides configuration management resources for $CLOUD_LONG. You can use it to
 create, rename, resize, delete, and import $SERVICE_SHORTs. For more information about
 the supported $SERVICE_SHORT configurations and operations, see the
-[Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
+[Terraform provider documentation][terraform-provider-documentation].
 
 </Highlight>
 
@@ -62,5 +62,7 @@ the supported $SERVICE_SHORT configurations and operations, see the
 [gap-filling-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#gap-filling
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables
 [slack-info]: https://slack-login.timescale.com
+[terraform-provider-documentation]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
 [timescale-support]: https://www.tigerdata.com/contact
+[timescale_db-terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/

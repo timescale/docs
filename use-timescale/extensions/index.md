@@ -80,7 +80,7 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 | [h3][h3]                                         | H3 bindings for $PG                                                     | -                                                    |
 | [pgaudit][pgaudit]                               | Detailed session and/or object audit logging                            | -                                                    |
 | [pgpcre][pgpcre]                                 | Perl-compatible RegEx                                                   | -                                                    |
-| [pg_cron][pgcron]                                | SQL commands that you can schedule and run directly inside the database | [Contact us](mailto:support@tigerdata.com) to enable |
+| [pg_cron][pgcron]                                | SQL commands that you can schedule and run directly inside the database | [Contact us][contact-us] to enable |
 | [pg_repack][pgrepack]                            | Table reorganization in $PG with minimal locks                          | -                                                    | 
 | [pgrouting][pgrouting]                           | Geospatial routing functionality                                        | -                                                    |
 | [postgis][postgis]                               | PostGIS geometry and geography spatial types and functions              | -                                                    |
@@ -93,18 +93,22 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [amcheck]: https://www.postgresql.org/docs/current/amcheck.html
 [autoinc]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-AUTOINC
 [bloom]: https://www.postgresql.org/docs/current/bloom.html
+[bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
 [bool-plper]: https://www.postgresql.org/docs/current/plperl-funcs.html
 [btree-gin]: https://www.postgresql.org/docs/current/btree-gin.html
 [btree-gist]: https://www.postgresql.org/docs/current/btree-gist.html
 [citext]: https://www.postgresql.org/docs/current/citext.html
+[contact-us]: mailto:support@tigerdata.com
 [cube]: https://www.postgresql.org/docs/current/cube.html
 [dict-int]: https://www.postgresql.org/docs/current/dict-int.html
 [dict-xsyn]: https://www.postgresql.org/docs/current/dict-xsyn.html
 [earthdistance]: https://www.postgresql.org/docs/current/earthdistance.html
+[foreign-data-wrappers]: /use-timescale/:currentVersion:/schema-management/foreign-data-wrappers/
 [fuzzystrmatch]: https://www.postgresql.org/docs/current/fuzzystrmatch.html
-[hstore]: https://www.postgresql.org/docs/current/hstore.html
 [h3]: https://pgxn.org/dist/h3/
+[hstore]: https://www.postgresql.org/docs/current/hstore.html
 [insert-username]: https://www.postgresql.org/docs/current/contrib-spi.html#CONTRIB-SPI-INSERT-USERNAME
+[install]: /getting-started/:currentVersion:/
 [intagg]: https://www.postgresql.org/docs/current/intagg.html
 [intarray]: https://www.postgresql.org/docs/current/intarray.html
 [isn]: https://www.postgresql.org/docs/current/isn.html
@@ -118,9 +122,11 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [pg-stat-statements]: https://www.postgresql.org/docs/current/pgstatstatements.html
 [pg-trgm]: https://www.postgresql.org/docs/current/pgtrgm.html
 [pg-visibility]: https://www.postgresql.org/docs/current/pgvisibility.html
+[pg_textsearch]: /use-timescale/:currentVersion:/extensions/pg-textsearch/
 [pgai]: /ai/:currentVersion:/
 [pgaudit]: https://www.pgaudit.org/
 [pgcron]: https://github.com/citusdata/pg_cron
+[pgcrypto]: /use-timescale/:currentVersion:/extensions/pgcrypto/
 [pgpcre]: https://github.com/petere/pgpcre
 [pgrepack]: https://github.com/reorg/pg_repack
 [pgrouting]: https://pgrouting.org/
@@ -130,16 +136,13 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [pgvectorscale]: https://github.com/timescale/pgvectorscale
 [plperl]: https://www.postgresql.org/docs/current/plperl.html
 [plpgsql]: https://www.postgresql.org/docs/current/plpgsql.html
-[postgis]: /use-timescale/:currentVersion:/extensions/postgis/
 [postgis-raster]: https://postgis.net/docs/RT_reference.html
 [postgis-sfcgal]: https://postgis.net/docs/reference_sfcgal.html
 [postgis-tiger-geocoder]: https://postgis.net/docs/Extras.html#Tiger_Geocoder
 [postgis-topology]: https://postgis.net/workshops/postgis-intro/topology.html
-[foreign-data-wrappers]: /use-timescale/:currentVersion:/schema-management/foreign-data-wrappers/
+[postgis]: /use-timescale/:currentVersion:/extensions/postgis/
 [refint]: https://www.postgresql.org/docs/current/contrib-spi.html
 [seg]: https://www.postgresql.org/docs/current/seg.html
-[pgcrypto]: /use-timescale/:currentVersion:/extensions/pgcrypto/
-[pg_textsearch]: /use-timescale/:currentVersion:/extensions/pg-textsearch/
 [sslinfo]: https://www.postgresql.org/docs/current/sslinfo.html
 [tablefunc]: https://www.postgresql.org/docs/current/tablefunc.html
 [tcn]: https://www.postgresql.org/docs/current/tcn.html
@@ -150,9 +153,3 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [unaccent]: https://www.postgresql.org/docs/current/unaccent.html
 [unit]: https://github.com/df7cb/postgresql-unit
 [uuid-ossp]: https://www.postgresql.org/docs/current/uuid-ossp.html
-[built-ins]: #postgresql-built-in-extensions
-[timescale-extensions]: #timescale-extensions
-[third-party]: #third-party-extensions
-
-[bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
-[install]: /getting-started/:currentVersion:/

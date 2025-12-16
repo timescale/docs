@@ -16,7 +16,7 @@ season.
 
 <Highlight type="tip">
 Some of this analysis includes visualizations to help you see the potential uses
-of this data. These are created using the [Matplotlib](https://matplotlib.org/)
+of this data. These are created using the [Matplotlib][matplotlib]
 Python module, which is one of many great visualization tools.
 </Highlight>
 
@@ -234,3 +234,4 @@ tend to score or run less at Mile High Stadium. Does natural or artificial turf
 affect any teams consistently?
 
 [hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
+[matplotlib]: https://matplotlib.org/
