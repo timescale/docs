@@ -15,8 +15,8 @@ discover what your data tells you. In this section, you learn how to combine the
 data in the NYC taxi dataset with geospatial data from [PostGIS][postgis], to
 answer these questions:
 
-*   [How many rides on New Year's Day 2016 originated from Times Square?](#how-many-rides-on-new-years-day-2016-originated-from-times-square)
-*   [Which rides traveled more than 5 miles in Manhattan?](#which-rides-traveled-more-than-5-miles-in-manhattan).
+*   [How many rides on New Year's Day 2016 originated from Times Square?][how-many-rides-on-new-years-day-2016-originated-from-times-square-link]
+*   [Which rides traveled more than 5 miles in Manhattan?][which-rides-traveled-more-than-5-miles-in-manhattan-link].
 
 ## Set up your dataset for PostGIS
 
@@ -181,3 +181,5 @@ Grafana can plot the data properly.
 </Procedure>
 
 [postgis]: http://postgis.net/
+[how-many-rides-on-new-years-day-2016-originated-from-times-square-link]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/#how-many-rides-on-new-years-day-2016-originated-from-times-square
+[which-rides-traveled-more-than-5-miles-in-manhattan-link]: /tutorials/:currentVersion:/nyc-taxi-geospatial/plot-nyc/#which-rides-traveled-more-than-5-miles-in-manhattan

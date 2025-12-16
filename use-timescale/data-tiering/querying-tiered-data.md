@@ -24,7 +24,7 @@ With tiered reads enabled, you can query your data normally even when it's distr
 Your hypertable is spread across the tiers, so queries and `JOIN`s work and fetch the same data as usual.
 
 By default, tiered data is not accessed by queries. Querying tiered data may slow down query performance 
-as the data is not stored locally on the high-performance storage tier. See [Performance considerations](#performance-considerations).
+as the data is not stored locally on the high-performance storage tier. See [Performance considerations][performance-considerations-link].
 
 <NotSupportedAzure />
 
@@ -189,6 +189,8 @@ Queries over tiered data are expected to be slower than over local data. However
   At the moment, queries against tiered data work best when the query optimizer can apply planning time optimizations.
 
 * Text and non-native types (JSON, JSONB, GIS) filtering is slower when querying tiered data.
+
+[performance-considerations-link]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/#performance-considerations
 
 
 

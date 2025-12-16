@@ -20,9 +20,9 @@ macOS device.
 
 This section shows you how to:
 
-* [Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgresql) - set up
+* [Install and configure $TIMESCALE_DB on $PG][install-and-configure-timescaledb-on-postgresql-link] - set up
   a self-hosted $PG instance to efficiently run TimescaleDB.
-* [Add the $TIMESCALE_DB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable $TIMESCALE_DB
+* [Add the $TIMESCALE_DB extension to your database][add-the-timescaledb-extension-to-your-database-link] - enable $TIMESCALE_DB
   features and performance improvements on a database.
 
 < TestingEnv />
@@ -46,7 +46,7 @@ To keep your current $PG installation, [Install from source][install-from-source
 ## Install and configure $TIMESCALE_DB on $PG
 
 This section shows you how to install the latest version of $PG and
-$TIMESCALE_DB on a [supported platform](#supported-platforms) using the packages supplied by $COMPANY.
+$TIMESCALE_DB on a [supported platform][supported-platforms-link] using the packages supplied by $COMPANY.
 
 <Tabs label="Install TimescaleDB">
 
@@ -90,3 +90,7 @@ For the latest functionality, install MacOS 14 Sonoma.
 [macports]: https://guide.macports.org/#installing.macports
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
 [install-postgresql]: https://www.postgresql.org/download/macosx/
+
+[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-macos/#add-the-timescaledb-extension-to-your-database
+[install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-macos/#install-and-configure-timescaledb-on-postgres
+[supported-platforms-link]: /self-hosted/:currentVersion:/install/installation-macos/#supported-platforms
