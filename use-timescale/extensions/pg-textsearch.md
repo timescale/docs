@@ -335,3 +335,4 @@ This preview release focuses on core BM25 functionality. In this release, you ca
 [recip-rank-fusion]: https://en.wikipedia.org/wiki/Mean_reciprocal_rank
 [pg-vectorscale]: /ai/:currentVersion:/sql-interface-for-pgvector-and-timescale-vector/#installing-the-pgvector-and-pgvectorscale-extensions
 [pg_textsearch-github-repo]: https://github.com/timescale/pg_textsearch
+
