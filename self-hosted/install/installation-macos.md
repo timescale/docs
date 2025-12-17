@@ -27,11 +27,11 @@ This section shows you how to:
 
 < TestingEnv />
 
-### Prerequisites
 
-To install TimescaleDB on your MacOS device, you need:
+## Install and configure $TIMESCALE_DB on $PG
 
-* [$PG][install-postgresql]: for the latest functionality, install $PG v16
+This section shows you how to install the latest version of $PG and
+$TIMESCALE_DB on a [supported platform][supported-platforms-link] using the packages supplied by $COMPANY.
 
 <Highlight type="warning">
 
@@ -43,10 +43,6 @@ To keep your current $PG installation, [Install from source][install-from-source
 
 </Highlight>
 
-## Install and configure $TIMESCALE_DB on $PG
-
-This section shows you how to install the latest version of $PG and
-$TIMESCALE_DB on a [supported platform][supported-platforms-link] using the packages supplied by $COMPANY.
 
 <Tabs label="Install TimescaleDB">
 

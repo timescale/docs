@@ -641,34 +641,47 @@ Uninstall $SELF_LONG with Homebrew or MacPorts.
     ```sql
     DROP EXTENSION timescaledb CASCADE;
     ```
-
+    Repeat this for all databases with $TIMESCALE_DB enabled. To exit psql, type `\q`.
+2. 
 1.  **Remove $TIMESCALE_DB from `shared_preload_libraries`**
 
-    At the command prompt, remove `timescaledb` from `shared_preload_libraries` in the `postgresql.conf` configuration file:
+    Edit the $PG configuration file:
 
     ```bash
-    nano /opt/homebrew/var/postgresql@14/postgresql.conf
+    sudo vi /opt/homebrew/var/postgresql@17/postgresql.conf
+    ```
+
+    Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
+
+    ```
+    shared_preload_libraries = 'timescaledb'
+    ```
+
+    to:
+
+    ```
     shared_preload_libraries = ''
     ```
 
-1.  **Save the changes to the `postgresql.conf` file**
+    If there are other extensions in the list, keep them and only remove `timescaledb`.
+
 
 1.  **Restart $PG**
 
     ```bash
-    brew services restart postgresql
+    brew services restart postgresql@17
     ```
 
 1.  **Uninstall $TIMESCALE_DB**
 
     ```bash
-    brew uninstall timescaledb
+    brew uninstall timescaledb-tools timescaledb
     ```
 
 1.  **Remove all the dependencies and related files**
 
     ```bash
-    brew remove timescaledb
+    brew untap timescale/tap
     ```
 
 </Procedure>
@@ -1095,34 +1108,34 @@ If you installed $TIMESCALE_DB on Windows using a package manager, you can unins
 
 1.  **Remove $TIMESCALE_DB from `shared_preload_libraries`**
 
-    Locate your $PG configuration file. The default location is:
+    1. Open your $PG configuration file. The default location is:
 
-    ```
-    C:\Program Files\PostgreSQL\<version>\data\postgresql.conf
-    ```
+       ```
+       C:\Program Files\PostgreSQL\<version>\data\postgresql.conf
+       ```
 
-    Open the file in a text editor. You may need to run the editor as Administrator.
+       You may need to run the editor as Administrator.
 
-    Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
+    1. Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
 
-    ```
-    shared_preload_libraries = 'timescaledb'
-    ```
+       ```
+       shared_preload_libraries = 'timescaledb'
+       ```
 
-    to:
+       to:
 
-    ```
-    shared_preload_libraries = ''
-    ```
+       ```
+       shared_preload_libraries = ''
+       ```
 
-    If there are other extensions in the list, keep them and only remove `timescaledb`.
+       If there are other extensions in the list, keep them and only remove `timescaledb`.
 
-    Save the file.
+    1. Save the file.
 
 1.  **Restart $PG**
 
     ```powershell
-    Restart-Service postgresql-x64-17
+    Restart-Service postgresql-x64-18
     ```
 
     Replace `18` with your $PG version if different.
@@ -1131,30 +1144,18 @@ If you installed $TIMESCALE_DB on Windows using a package manager, you can unins
 
     Manually remove the $TIMESCALE_DB files from your $PG installation directory.
 
-    1. Find your $PG library directory:
-
-       ```powershell
-       pg_config --pkglibdir
-       ```
-
     1. Remove $TIMESCALE_DB library files. You may need to run PowerShell as Administrator:
 
        ```powershell
-       Remove-Item "C:\Program Files\PostgreSQL\17\lib\timescaledb*.dll"
+       Remove-Item "C:\Program Files\PostgreSQL\18\lib\timescaledb*.dll"
        ```
 
        Replace `18` with your $PG version if different.
 
-    1. Find your $PG extension directory:
-
-       ```powershell
-       pg_config --sharedir
-       ```
-
     1. Remove $TIMESCALE_DB extension files:
 
        ```powershell
-       Remove-Item -Recurse "C:\Program Files\PostgreSQL\17\share\extension\timescaledb*"
+       Remove-Item -Recurse "C:\Program Files\PostgreSQL\18\share\extension\timescaledb*"
        ```
 
        Replace `18` with your $PG version if different.

@@ -1,6 +1,5 @@
 <Procedure>
 
-
 1. **Install the latest version of $PG and psql**
 
     1. Download [$PG][pg-download], then run the installer.
@@ -32,18 +31,11 @@
 
 1.  **Restart the $PG service**
 
-    After installation, restart $PG for the changes to take effect.
-
-    Open Services (press `Win + R`, type `services.msc`, and press Enter). Find the PostgreSQL service (usually named `postgresql-x64-<version>`), right-click it, and select `Restart`.
-
-    Alternatively, from an Administrator Command Prompt or PowerShell:
-
     ```powershell
-    net stop postgresql-x64-<version>
-    net start postgresql-x64-<version>
+    Restart-Service postgresql-x64-18
     ```
 
-    Replace `<version>` with your PostgreSQL version number (for example, `17`).
+    Replace `18` with your $PG version if different.
 
 </Procedure>
 
