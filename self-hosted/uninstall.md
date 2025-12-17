@@ -195,7 +195,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     1. At the `psql` prompt:
 
        ```sql
-       DROP EXTENSION IF NOT EXISTS timescaledb CASCADE;
+       DROP EXTENSION timescaledb CASCADE;
        ```
 
     Repeat this for all databases with $TIMESCALE_DB enabled. To exit psql, type `\q`.
@@ -211,7 +211,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     Edit the $PG configuration file:
 
     ```bash
-    sudo nano /etc/postgresql/17/main/postgresql.conf
+    sudo vi /etc/postgresql/18/main/postgresql.conf
     ```
 
     Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
@@ -237,10 +237,10 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Uninstall the $TIMESCALE_DB package**
 
     ```bash
-    sudo apt remove timescaledb-2-postgresql-17
+    sudo apt remove timescaledb-2-postgresql-18
     ```
 
-    Replace `17` with your $PG version if different.
+    Replace `18` with your $PG version if different.
 
 1.  **Remove the $TIMESCALE_DB repository configuration**
 
@@ -283,7 +283,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     1. At the `psql` prompt:
 
        ```sql
-       DROP EXTENSION IF NOT EXISTS timescaledb CASCADE;
+       DROP EXTENSION timescaledb CASCADE;
        ```
 
     Repeat this for all databases with $TIMESCALE_DB enabled. To exit psql, type `\q`.
@@ -299,7 +299,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     Edit the $PG configuration file:
 
     ```bash
-    sudo nano /etc/postgresql/17/main/postgresql.conf
+    sudo vi /etc/postgresql/18/main/postgresql.conf
     ```
 
     Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
@@ -325,10 +325,10 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Uninstall the $TIMESCALE_DB package**
 
     ```bash
-    sudo apt remove timescaledb-2-postgresql-17
+    sudo apt remove timescaledb-2-postgresql-18
     ```
 
-    Replace `17` with your $PG version if different.
+    Replace `18` with your $PG version if different.
 
 1.  **Remove the $TIMESCALE_DB repository configuration**
 
@@ -371,7 +371,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     1. At the `psql` prompt:
 
        ```sql
-       DROP EXTENSION IF NOT EXISTS timescaledb CASCADE;
+       DROP EXTENSION timescaledb CASCADE;
        ```
 
     Repeat this for all databases with $TIMESCALE_DB enabled. To exit psql, type `\q`.
@@ -387,7 +387,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     Edit the $PG configuration file:
 
     ```bash
-    sudo vi /var/lib/pgsql/17/data/postgresql.conf
+    sudo vi /var/lib/pgsql/18/data/postgresql.conf
     ```
 
     Press `/` to search, type `shared_preload_libraries`, and press Enter. Press `i` to edit. Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
@@ -407,18 +407,18 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Restart $PG**
 
     ```bash
-    sudo systemctl restart postgresql-17
+    sudo systemctl restart postgresql-18
     ```
 
-    Replace `17` with your $PG version if different.
+    Replace `18` with your $PG version if different.
 
 1.  **Uninstall the $TIMESCALE_DB package**
 
     ```bash
-    sudo dnf remove timescaledb-2-postgresql-17
+    sudo dnf remove timescaledb-2-postgresql-18
     ```
 
-    Replace `17` with your $PG version if different.
+    Replace `18` with your $PG version if different.
 
 1.  **Remove the $TIMESCALE_DB repository configuration**
 
@@ -459,7 +459,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     1. At the `psql` prompt:
 
        ```sql
-       DROP EXTENSION IF NOT EXISTS timescaledb CASCADE;
+       DROP EXTENSION timescaledb CASCADE;
        ```
 
     Repeat this for all databases with $TIMESCALE_DB enabled. To exit psql, type `\q`.
@@ -475,7 +475,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     Edit the $PG configuration file:
 
     ```bash
-    sudo vi /var/lib/pgsql/17/data/postgresql.conf
+    sudo vi /var/lib/pgsql/18/data/postgresql.conf
     ```
 
     Press `/` to search, type `shared_preload_libraries`, and press Enter. Press `i` to edit. Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
@@ -495,18 +495,18 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Restart $PG**
 
     ```bash
-    sudo systemctl restart postgresql-17
+    sudo systemctl restart postgresql-18
     ```
 
-    Replace `17` with your $PG version if different.
+    Replace `18` with your $PG version if different.
 
 1.  **Uninstall the $TIMESCALE_DB package**
 
     ```bash
-    sudo dnf remove timescaledb-2-postgresql-17
+    sudo dnf remove timescaledb-2-postgresql-18
     ```
 
-    Replace `17` with your $PG version if different.
+    Replace `18` with your $PG version if different.
 
 1.  **Remove the $TIMESCALE_DB repository configuration**
 
@@ -547,7 +547,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     1. At the `psql` prompt:
 
        ```sql
-       DROP EXTENSION IF NOT EXISTS timescaledb CASCADE;
+       DROP EXTENSION timescaledb CASCADE;
        ```
 
     Repeat this for all databases with $TIMESCALE_DB enabled. To exit psql, type `\q`.
@@ -563,7 +563,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
     Edit the $PG configuration file:
 
     ```bash
-    sudo vi /var/lib/pgsql/17/data/postgresql.conf
+    sudo vi /var/lib/pgsql/18/data/postgresql.conf
     ```
 
     Press `/` to search, type `shared_preload_libraries`, and press Enter. Press `i` to edit. Find the line with `shared_preload_libraries` and remove `timescaledb` from the list. For example, change:
@@ -583,18 +583,18 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 1.  **Restart $PG**
 
     ```bash
-    sudo systemctl restart postgresql-17
+    sudo systemctl restart postgresql-18
     ```
 
-    Replace `17` with your $PG version if different.
+    Replace `18` with your $PG version if different.
 
 1.  **Uninstall the $TIMESCALE_DB package**
 
     ```bash
-    sudo dnf remove timescaledb-2-postgresql-17
+    sudo dnf remove timescaledb-2-postgresql-18
     ```
 
-    Replace `17` with your $PG version if different.
+    Replace `18` with your $PG version if different.
 
 1.  **Remove the $TIMESCALE_DB repository configuration**
 
@@ -639,7 +639,7 @@ Uninstall $SELF_LONG with Homebrew or MacPorts.
     At the `psql` prompt, remove the $TIMESCALE_DB extension:
 
     ```sql
-    DROP EXTENSION timescaledb;
+    DROP EXTENSION timescaledb CASCADE;
     ```
 
 1.  **Remove $TIMESCALE_DB from `shared_preload_libraries`**
@@ -684,7 +684,7 @@ Uninstall $SELF_LONG with Homebrew or MacPorts.
     At the `psql` prompt, remove the $TIMESCALE_DB extension:
 
     ```sql
-    DROP EXTENSION timescaledb;
+    DROP EXTENSION timescaledb CASCADE;
     ```
 
 1.  **Remove $TIMESCALE_DB from `shared_preload_libraries`**
@@ -758,7 +758,7 @@ If you installed $TIMESCALE_DB by building from source, you can uninstall it wit
     At the `psql` prompt:
 
     ```sql
-    DROP EXTENSION IF EXISTS timescaledb CASCADE;
+    DROP EXTENSION timescaledb CASCADE;
     ```
 
     Repeat this for all databases with $TIMESCALE_DB enabled. To exit psql, type `\q`.
@@ -808,7 +808,7 @@ If you installed $TIMESCALE_DB by building from source, you can uninstall it wit
     <Tab title="Linux" label="linux">
 
     ```bash
-    sudo nano /path/to/postgresql.conf
+    sudo vi /path/to/postgresql.conf
     ```
 
     </Tab>
@@ -816,7 +816,7 @@ If you installed $TIMESCALE_DB by building from source, you can uninstall it wit
     <Tab title="macOS" label="macos">
 
     ```bash
-    sudo nano /path/to/postgresql.conf
+    sudo vi /path/to/postgresql.conf
     ```
 
     </Tab>
@@ -1082,7 +1082,7 @@ If you installed $TIMESCALE_DB on Windows using a package manager, you can unins
     1. At the `psql` prompt, remove the extension:
 
        ```sql
-       DROP EXTENSION IF EXISTS timescaledb CASCADE;
+       DROP EXTENSION timescaledb CASCADE;
        ```
 
     Repeat this for all databases with $TIMESCALE_DB enabled. To exit psql, type `\q`.
@@ -1125,7 +1125,7 @@ If you installed $TIMESCALE_DB on Windows using a package manager, you can unins
     Restart-Service postgresql-x64-17
     ```
 
-    Replace `17` with your $PG version if different.
+    Replace `18` with your $PG version if different.
 
 1.  **Remove $TIMESCALE_DB binaries**
 
@@ -1143,7 +1143,7 @@ If you installed $TIMESCALE_DB on Windows using a package manager, you can unins
        Remove-Item "C:\Program Files\PostgreSQL\17\lib\timescaledb*.dll"
        ```
 
-       Replace `17` with your $PG version if different.
+       Replace `18` with your $PG version if different.
 
     1. Find your $PG extension directory:
 
@@ -1157,7 +1157,7 @@ If you installed $TIMESCALE_DB on Windows using a package manager, you can unins
        Remove-Item -Recurse "C:\Program Files\PostgreSQL\17\share\extension\timescaledb*"
        ```
 
-       Replace `17` with your $PG version if different.
+       Replace `18` with your $PG version if different.
 
     <Highlight type="note">
 

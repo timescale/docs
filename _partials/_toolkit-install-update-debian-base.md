@@ -20,7 +20,7 @@ These instructions use the `apt` package manager.
 1.  Install TimescaleDB Toolkit:
 
     ```bash
-    sudo apt install timescaledb-toolkit-postgresql-17
+    sudo apt install timescaledb-toolkit-postgresql-18
     ```
 
 1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
@@ -47,7 +47,7 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 1. Install the latest version of $TOOLKIT_LONG:
 
     ```bash
-    apt install timescaledb-toolkit-postgresql-17
+    apt install timescaledb-toolkit-postgresql-18
     ```
 
 1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.

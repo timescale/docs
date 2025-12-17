@@ -24,12 +24,13 @@
     You see the list of installed extensions:
 
     ```sql
-    List of installed extensions
-    Name     | Version |   Schema   |                                      Description                                      
-    -------------+---------+------------+---------------------------------------------------------------------------------------
-    plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
-    timescaledb | 2.24.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+                                                             List of installed extensions
+    Name     | Version | Default version |   Schema   |                                      Description                                      
+    -------------+---------+-----------------+------------+---------------------------------------------------------------------------------------
+    plpgsql     | 1.0     | 1.0             | pg_catalog | PL/pgSQL procedural language
+    timescaledb | 2.24.0  | 2.24.0          | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+    (2 rows)
     ```
-    Press q to exit the list of extensions.
+    Press `\q` to exit the list of extensions.
 
 </Procedure>

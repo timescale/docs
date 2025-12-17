@@ -26,7 +26,7 @@ These instructions use the `yum` package manager.
 1.  Install $TOOLKIT_LONG:
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-17
+    yum install timescaledb-toolkit-postgresql-18
     ```
 
 1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
@@ -53,7 +53,7 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 1.  Install the latest version of $TOOLKIT_LONG:
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-17
+    yum install timescaledb-toolkit-postgresql-18
     ```
 
 1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
