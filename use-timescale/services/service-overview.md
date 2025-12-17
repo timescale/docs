@@ -11,26 +11,22 @@ cloud_ui:
 
 # $CONSOLE_LONG overview
 
-When you log into [$CONSOLE][cloud-login], you see the $PROJECT_SHORT overview. 
+You use $CONSOLE_LONG to manage your $SERVICE_SHORTs and data in a convenient, centralized manner. When you [log into $CONSOLE][cloud-login], you see `Services` and other $PROJECT_SHORT management tabs: 
 
 ![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png)
 
-You see the following tabs:
-
-- `Services`: [see all $SERVICE_SHORTs][create-service] created in your $PROJECT_SHORT and their statuses. Each $SERVICE_SHORT is an optimized [$PG][postgres-link] instance extended with database engine innovations such as [$TIMESCALE_DB][timescaledb-link], managed for you by $CLOUD_LONG. If you need more than one database, [create a new $SERVICE_SHORT][create-service].
+- `Services`: create a new [$SERVICE_SHORT][create-service] in your $PROJECT_SHORT, and view the existing $SERVICE_SHORTs and their statuses. Each $SERVICE_SHORT is an optimized [$PG][postgres-link] instance extended with database engine innovations such as [$TIMESCALE_DB][timescaledb-link], managed for you by $CLOUD_LONG.
 - `Security`:  create [$VPCs][vpc] and [IP allowlists][ip-allowlist]. 
 - `Exporters`: [export metrics and logs][metrics-logging] from your $SERVICE_SHORTs. 
 - `Activity`: [check your $SERVICE_SHORTs][activity-log] and $PROJECT_SHORT activity. 
 - `Settings`: [create client credentials][find-connection-info], add AI model API keys, and request a SOC 2 report. 
 - `Users`: [add and remove users][members] in your $PROJECT_SHORT. 
 - `Billing`: [check usage][check-usage], [change $PRICING_PLANs][pricing], and manage payment methods. 
-- `Data view`: write [queries with autocomplete][run-queries-data-view] for any $SERVICE_SHORT, save them in folders, share them, and create charts/dashboards with the added power of AI. 
+- `Data view`: [write queries with autocomplete][run-queries-data-view] for any $SERVICE_SHORT, save them in folders, share them, and create charts/dashboards with the added power of AI. 
 
-To manage and configure a $SERVICE_LONG, click it. 
+When you select a $SERVICE_LONG in the `Services` tab, you see `Overview` and other $SERVICE_SHORT management tabs:
 
 ![Select a query to edit](https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png)
-
-You see the following tabs:
 
 - `Overview`: get an overview of your $SERVICE_SHORT details, infrastructure, [connection info][connect-service], and [performance optimization tips][recommendations].
 - `Actions`: [connect and import data][import-sync] into your $SERVICE_SHORT.
@@ -43,7 +39,7 @@ You see the following tabs:
 
 [cloud-login]: https://console.cloud.timescale.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
-[create-service]: /getting-started/:currentVersion:/services/#create-a-service
+[create-service]: /getting-started/:currentVersion:/services
 [metrics-logging]: /use-timescale/:currentVersion:/metrics-logging/
 [members]: /use-timescale/:currentVersion:/security/members/
 [run-queries-data-view]: /getting-started/:currentVersion:/run-queries-from-console/#data-view
