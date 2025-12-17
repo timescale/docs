@@ -107,6 +107,6 @@ For release information, see the [GitHub releases page][gh-releases] and the [re
 [release-notes]: https://github.com/timescale/timescaledb/releases
 [windows-releases]: #windows-releases
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
-[install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-and-configure-timescaledb-on-postgresql
-[add-timescledb-extension]: /self-hosted/:currentVersion:/install/installation-windows/#add-the-timescaledb-extension-to-your-database
+[install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-and-configure-timescaledb-on-postgres
+[add-timescledb-extension]: /self-hosted/:currentVersion:/install/installation-windows/#add-the-timescale-db-extension-to-your-database
 [supported-platforms]: /self-hosted/:currentVersion:/install/installation-windows/#supported-platforms

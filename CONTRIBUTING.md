@@ -46,7 +46,7 @@ Each major doc section has a dedicated directory with `.md` files inside, repres
     Beneath the front matter, describe the error and its solution in regular Markdown. You can also use any other components allowed within the docs site.
     
     The entry shows up on the troubleshooting pages for its associated products and topics. If the page doesn't already exist, add an entry for it in the page
-    index, setting `type` to `placeholder`. See [Navigation tree](#navigation-tree).
+    index, setting `type` to `placeholder`. See [Navigation tree][navigation-tree-link].
 
 ## Edit the navigation hierarchy
 
@@ -162,3 +162,5 @@ The previous documentation source is in the deprecated repository called [docs.t
 [formatting]: _partials/_formatting_examples.md
 [variables]: https://www.tigerdata.com/docs/variables-for-contributors/
 [readme]: README.md
+
+[navigation-tree-link]: /CONTRIBUTING/:currentVersion:/#navigation-tree

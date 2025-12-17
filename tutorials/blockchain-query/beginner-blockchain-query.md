@@ -13,9 +13,9 @@ When you have your dataset loaded, you can start constructing some queries to
 discover what your data tells you. In this section, you learn how to write
 queries that answer these questions:
 
-*   [What are the five most recent coinbase transactions?](#what-are-the-five-most-recent-coinbase-transactions)
-*   [What are the five most recent transactions?](#what-are-the-five-most-recent-transactions)
-*   [What are the five most recent blocks?](#what-are-the-five-most-recent-blocks?)
+*   [What are the five most recent coinbase transactions?][what-are-the-five-most-recent-coinbase-transactions-link]
+*   [What are the five most recent transactions?][what-are-the-five-most-recent-transactions-link]
+*   [What are the five most recent blocks?][what-are-the-five-most-recent-blocks-link]
 
 ## What are the five most recent coinbase transactions?
 
@@ -144,3 +144,6 @@ US Dollars.
 </Procedure>
 
 [coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction
+[what-are-the-five-most-recent-coinbase-transactions-link]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/#what-are-the-five-most-recent-coinbase-transactions
+[what-are-the-five-most-recent-transactions-link]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/#what-are-the-five-most-recent-transactions
+[what-are-the-five-most-recent-blocks-link]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/#what-are-the-five-most-recent-blocks

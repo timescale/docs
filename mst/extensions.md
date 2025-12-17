@@ -8,7 +8,7 @@ tags: [extensions]
 # Supported $PG extensions
 
 $MST_LONG supports many $PG extensions. See
-[available extensions](#available-extensions) for a full list.
+[available extensions][available-extensions-link] for a full list.
 
 ## Add an extension
 
@@ -134,3 +134,5 @@ language extension is `plpythonu`.
 You can contact Support directly from $MST_LONG. Click the
 life-preserver icon in the upper-right corner of your dashboard.
 </Highlight>
+
+[available-extensions-link]: /mst/:currentVersion:/extensions/#available-extensions
