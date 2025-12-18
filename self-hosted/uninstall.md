@@ -119,7 +119,7 @@ If you deployed $TIMESCALE_DB on Kubernetes, you can completely remove all assoc
 1.  **Remove any application deployments that connect to $TIMESCALE_DB**
 
     ```shell
-    kubectl delete deployment timescale-app
+    kubectl delete deployment tigerdata-app
     ```
 
 1.  **Remove the service that exposes $TIMESCALE_DB within the cluster**
@@ -146,27 +146,27 @@ If you deployed $TIMESCALE_DB on Kubernetes, you can completely remove all assoc
     </Highlight>
 
     ```shell
-    kubectl delete pvc timescale-pvc
+    kubectl delete pvc tigerdata-pvc
     ```
 
 1.  **Remove the Kubernetes secret containing database credentials**
 
     ```shell
-    kubectl delete secret timescale-secret
+    kubectl delete secret tigerdata-secret
     ```
 
 1.  **(Optional) Delete the namespace**
 
     If you created a dedicated namespace for $TIMESCALE_DB, you can remove it as well.
 
-     <Highlight type="warning">
+    <Highlight type="warning">
 
     Only delete the namespace if you're certain no other resources are using it. This will delete all resources in the namespace.
 
     </Highlight>
 
     ```shell
-    kubectl delete namespace timescale
+    kubectl delete namespace tigerdata
     ```
 
 
@@ -356,7 +356,7 @@ Take the following steps to uninstall $TIMESCALE_DB based on your distribution:
 
 </Tab>
 
-<Tab title="RHEL" label="rhel">
+<Tab title="Red Hat" label="rhel">
 
 <Procedure>
 

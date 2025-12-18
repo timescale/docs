@@ -1,37 +1,28 @@
-
-## Prerequisites
-
-To follow this procedure:
-
-- [Install $TIMESCALE_DB][rocky-install].
-- Create a $TIMESCALE_DB repository in your `dnf` `repo.d` directory.
-
 ## Install $TOOLKIT_LONG
 
 These instructions use the `dnf` package manager.
 
 <Procedure>
 
-1.  Set up the repository:
+1.  **Update your local repository list**
 
     ```bash
-    curl -s https://packagecloud.io/install/repositories/timescale/timescaledb/script.rpm.sh | sudo bash
+    sudo dnf update
     ```
 
-1.  Update your local repository list:
+1.  **Install $TOOLKIT_LONG**
 
     ```bash
-    dnf update
+    sudo dnf install timescaledb-toolkit-postgresql-18
     ```
 
-1.  Install $TOOLKIT_LONG:
+1.  **Connect to the database where you want to use $TOOLKIT_SHORT**
 
     ```bash
-    dnf install timescaledb-toolkit-postgresql-17
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
     ```
 
-1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
-1.  Create the $TOOLKIT_SHORT extension in the database:
+1.  **Create the $TOOLKIT_SHORT extension in the database**
 
     ```sql
     CREATE EXTENSION timescaledb_toolkit;
@@ -45,20 +36,25 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 
 <Procedure>
 
-1.  Update your local repository list:
+1.  **Update your local repository list**
 
     ```bash
-    dnf update
+    sudo dnf update
     ```
 
-1.  Install the latest version of $TOOLKIT_LONG:
+1.  **Install the latest version of $TOOLKIT_LONG**
 
     ```bash
-    dnf install timescaledb-toolkit-postgresql-17
+    sudo dnf install timescaledb-toolkit-postgresql-18
     ```
 
-1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
-1.  Update the $TOOLKIT_SHORT extension in the database:
+1.  **Connect to the database where you want to use $TOOLKIT_SHORT**
+
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+1.  **Update the $TOOLKIT_SHORT extension in the database**
 
     ```sql
     ALTER EXTENSION timescaledb_toolkit UPDATE;

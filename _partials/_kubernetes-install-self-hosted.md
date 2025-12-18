@@ -9,13 +9,13 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
     1. Create the $COMPANY namespace:
 
        ```shell
-       kubectl create namespace timescale
+       kubectl create namespace tigerdata
        ```
 
     1. Set this namespace as the default for your session:
 
        ```shell
-       kubectl config set-context --current --namespace=timescale
+       kubectl config set-context --current --namespace=tigerdata
        ```
 
    For more information, see [Kubernetes Namespaces][kubernetes-namespace].
@@ -29,7 +29,7 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
-     name: timescale-pvc
+     name: tigerdata-pvc
    spec:
      accessModes:
        - ReadWriteOnce
@@ -41,8 +41,9 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
 
 1. **Deploy $TIMESCALE_DB as a StatefulSet**
 
-   By default, the [$TIMESCALE_DB Docker image][timescale-docker-image] you are installing on Kubernetes uses the
-   default $PG database, user and password. To deploy $TIMESCALE_DB on Kubernetes, run the following command:
+   By default, the [$TIMESCALE_DB HA][timescale-ha-docker-image] you are installing on Kubernetes uses the
+   default $PG database, user and password. This image includes $TIMESCALE_DB and $TOOLKIT_LONG.
+   To deploy $TIMESCALE_DB on Kubernetes, run the following command:
 
     ```yaml
     kubectl apply -f - <<EOF
@@ -63,7 +64,7 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
         spec:
           containers:
             - name: timescaledb
-              image: 'timescale/timescaledb:latest-pg18'
+              image: 'timescale/timescaledb-ha:pg18'
               env:
                 - name: POSTGRES_USER
                   value: postgres
@@ -77,11 +78,11 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
                 - containerPort: 5432
               volumeMounts:
                 - mountPath: /var/lib/postgresql/data
-                  name: timescale-storage
+                  name: tigerdata-storage
           volumes:
-            - name: timescale-storage
+            - name: tigerdata-storage
               persistentVolumeClaim:
-                claimName: timescale-pvc
+                claimName: tigerdata-pvc
     EOF
     ```
 
@@ -107,7 +108,7 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
 1. **Create a Kubernetes secret to store the database credentials**
 
    ```shell
-   kubectl create secret generic timescale-secret \
+   kubectl create secret generic tigerdata-secret \
    --from-literal=PGHOST=timescaledb \
    --from-literal=PGPORT=5432 \
    --from-literal=PGDATABASE=postgres \
@@ -122,37 +123,37 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
       apiVersion: apps/v1
       kind: Deployment
       metadata:
-        name: timescale-app
+        name: tigerdata-app
       spec:
         replicas: 1
         selector:
           matchLabels:
-            app: timescale-app
+            app: tigerdata-app
         template:
           metadata:
             labels:
-              app: timescale-app
+              app: tigerdata-app
           spec:
             containers:
-            - name: timescale-container
+            - name: tigerdata-container
               image: postgres:latest
               envFrom:
                 - secretRef:
-                    name: timescale-secret
+                    name: tigerdata-secret
       EOF
       ```
 
 1. **Test the database connection**
     
-    1. Create and run a pod to verify database connectivity using your [connection details][connection-info] saved in `timescale-secret`:
+    1. Create and run a pod to verify database connectivity using your [connection details][connection-info] saved in `tigerdata-secret`:
             
          ```shell
          kubectl run test-pod --image=postgres --restart=Never \
-         --env="PGHOST=$(kubectl get secret timescale-secret -o=jsonpath='{.data.PGHOST}' | base64 --decode)" \
-         --env="PGPORT=$(kubectl get secret timescale-secret -o=jsonpath='{.data.PGPORT}' | base64 --decode)" \
-         --env="PGDATABASE=$(kubectl get secret timescale-secret -o=jsonpath='{.data.PGDATABASE}' | base64 --decode)" \
-         --env="PGUSER=$(kubectl get secret timescale-secret -o=jsonpath='{.data.PGUSER}' | base64 --decode)" \
-         --env="PGPASSWORD=$(kubectl get secret timescale-secret -o=jsonpath='{.data.PGPASSWORD}' | base64 --decode)" \
+         --env="PGHOST=$(kubectl get secret tigerdata-secret -o=jsonpath='{.data.PGHOST}' | base64 --decode)" \
+         --env="PGPORT=$(kubectl get secret tigerdata-secret -o=jsonpath='{.data.PGPORT}' | base64 --decode)" \
+         --env="PGDATABASE=$(kubectl get secret tigerdata-secret -o=jsonpath='{.data.PGDATABASE}' | base64 --decode)" \
+         --env="PGUSER=$(kubectl get secret tigerdata-secret -o=jsonpath='{.data.PGUSER}' | base64 --decode)" \
+         --env="PGPASSWORD=$(kubectl get secret tigerdata-secret -o=jsonpath='{.data.PGPASSWORD}' | base64 --decode)" \
          -- sleep infinity
          ```
 
@@ -168,5 +169,5 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
 
 
 [kubernetes-namespace]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
-[timescale-docker-image]: https://hub.docker.com/r/timescale/timescaledb
+[timescale-ha-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags 
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

@@ -93,7 +93,7 @@ data.
 
 1.  **Pull the latest $TIMESCALE_DB image**
 
-    This command pulls the latest version of $TIMESCALE_DB running on $PG 17:
+    This command pulls the latest version of $TIMESCALE_DB running on $PG 18:
 
     ```
     docker pull timescale/timescaledb-ha:pg18
@@ -168,7 +168,7 @@ If you have multiple databases, update each database separately.
 
 1.  **Pull the latest $TIMESCALE_DB image**
 
-    This command pulls the latest version of $TIMESCALE_DB running on $PG 17.
+    This command pulls the latest version of $TIMESCALE_DB running on $PG 18.
 
     ```
     docker pull timescale/timescaledb:latest-pg18

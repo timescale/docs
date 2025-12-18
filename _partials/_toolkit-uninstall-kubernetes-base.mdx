@@ -9,22 +9,21 @@ If you only want to remove the extension from a specific database without removi
 1.  **Connect to your TimescaleDB pod**
 
     ```shell
-    kubectl exec -it <pod-name> -- psql -U postgres -d <database_name>
+    kubectl exec -it test-pod -- bash -c "psql -h \$PGHOST -U \$PGUSER -d \$PGDATABASE"
     ```
-
-    Replace `<pod-name>` with your TimescaleDB pod name (for example, `timescaledb-0`).
 
 1.  **Drop the $TOOLKIT_SHORT extension**
 
     At the `psql` prompt:
 
     ```sql
-    DROP EXTENSION IF EXISTS timescaledb_toolkit CASCADE;
+    DROP EXTENSION timescaledb_toolkit;
     ```
 
     <Highlight type="warning">
 
-    Using `CASCADE` will drop all objects that depend on the $TOOLKIT_SHORT extension. Ensure you have backed up any data you want to keep.
+    Using `CASCADE` drops all objects that depend on the $TOOLKIT_SHORT extension. Ensure you have backed up any data
+    you want to keep.
 
     </Highlight>
 
