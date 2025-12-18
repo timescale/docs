@@ -93,6 +93,7 @@ or `maven`.
     For more information about creating connection strings, see the [JDBC documentation][pg-jdbc-driver-conn-docs].
 
     <Highlight type="warning">
+
     
     This method of composing a connection string is for test or development
     purposes only. For production, use environment variables for sensitive
@@ -215,6 +216,7 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
+
     
 	The `by_range` and `by_hash` dimension builder is an addition to $TIMESCALE_DB 2.13.
  

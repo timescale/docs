@@ -6,8 +6,10 @@ into the `metrics` hypertable.
 <Procedure>
 
 <Highlight type="important">
+
 This is a large dataset, so it might take a long time, depending on your network
 connection.
+
 </Highlight>
 
 1.  Download the dataset:

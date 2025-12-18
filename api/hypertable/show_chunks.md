@@ -114,8 +114,10 @@ Similarly, specifying `created_after`=> '2017-01-01'` and `created_before`
 overlapping intersection between two ranges results in an error.
 
 <Highlight type="note">
+
 The `created_before`/`created_after` parameters cannot be used together with
 `older_than`/`newer_than`.
+
 </Highlight>
 
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks

@@ -49,7 +49,7 @@ api_details:
         type: TIMESTAMPTZ
         description: >
           The start of the interval which the time-weighted average should cover
-          (if there is a preceeding point).
+          (if there is a preceding point).
       - name: interval
         type: INTERVAL
         description: >
@@ -62,7 +62,7 @@ api_details:
           The `TimeWeightSummary` from the prior interval, used to interpolate
           the value at `start`. If NULL, the first timestamp in `tws` is used for
           the starting value. The prior interval can be determined from the
-          Postgres [`lag()`][lag]
+          Postgres [`lag()`](https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW-TABLE)
           function.
       - name: next
         type: TimeWeightSummary
@@ -71,7 +71,7 @@ api_details:
           the value at `start` + `interval`. If NULL, the last timestamp in
           `tws` is used for the starting value. The next interval can be
           determined from the Postgres
-          [`lead()`][lag]
+          [`lead()`](https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW-TABLE)
           function.
     returns:
       - column: average
@@ -107,5 +107,3 @@ api_details:
 ---
 
 
-[lag]: https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW-TABLE
-[lead]: https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW-TABLE

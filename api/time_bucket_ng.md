@@ -26,6 +26,7 @@ regular `time_bucket()` function.
 <DeprecationNotice />
 
 <Highlight type="warning">
+
 The `time_bucket()` and `time_bucket_ng()` functions are similar, but not
 completely compatible. There are two main differences.
 
@@ -35,6 +36,7 @@ while `time_bucket()` does.
 Secondly, the default `origin` values differ. `time_bucket()` uses an origin
 date of January 3, 2000, for buckets shorter than a month. `time_bucket_ng()`
 uses an origin date of January 1, 2000, for all bucket sizes.
+
 </Highlight>
 
 ### Samples
@@ -155,6 +157,7 @@ ORDER BY bucket;
 ```
 
 <Highlight type="note">
+
 The `by_range` dimension builder is an addition to TimescaleDB
 2.13. For simpler cases, like this one, you can also create the
 hypertable using the old syntax:
@@ -162,14 +165,17 @@ hypertable using the old syntax:
 ```sql
 SELECT create_hypertable('<table name>', '<time column name>');
 ```
+
 </Highlight>
 
 For more information, see the [continuous aggregates documentation][caggs].
 
 <Highlight type="important">
+
 While `time_bucket_ng()` supports months and timezones,
 continuous aggregates cannot always be used with monthly
 buckets or buckets with timezones.
+
 </Highlight>
 
 This table shows which `time_bucket_ng()` functions can be used in a continuous aggregate:

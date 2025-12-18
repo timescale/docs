@@ -18,12 +18,14 @@ manage a cluster of databases, which can give you faster data ingest,
 and more responsive and efficient queries for large workloads.
 
 <Highlight type="important">
+
 In some cases, your queries could be slower in a multi-node cluster due to the
 extra network communication between the various nodes. Queries perform the best
 when the query processing is distributed among the nodes and the result set is
 small relative to the queried dataset. It is important that you understand
 multi-node architecture before you begin, and plan your database according to
 your specific requirements.
+
 </Highlight>
 
 ## Multi-node architecture

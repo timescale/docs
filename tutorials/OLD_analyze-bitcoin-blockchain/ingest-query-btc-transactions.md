@@ -162,7 +162,9 @@ time               |hash                                                        
 <!-- vale Google.Units = YES -->
 
 <Highlight type="note">
+
 A coinbase transaction is the first transaction in each block. This transaction contains the miner's reward.
+
 </Highlight>
 
 Here's another example query that returns the five most recent blocks, with

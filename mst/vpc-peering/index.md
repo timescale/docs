@@ -29,6 +29,11 @@ peered network or on the public internet for every $MST_SERVICE_SHORT.
 
 You can set up VPC peering on:
 
-*   [Amazon Web Services (AWS)] [vpc-aws]
-*   [Google Cloud Platform (GCP)] [vpc-gcp]
-*   [Microsoft Azure] [vpc-azure]
+*   [Amazon Web Services (AWS)][vpc-aws]
+*   [Google Cloud Platform (GCP)][vpc-gcp]
+*   [Microsoft Azure][vpc-azure]
+
+
+[vpc-aws]: /mst/:currentVersion:/vpc-peering/vpc-peering-aws
+[vpc-gcp]: /mst/:currentVersion:/vpc-peering/vpc-peering-gcp
+[vpc-azure]: /mst/:currentVersion:/vpc-peering/vpc-peering-azure

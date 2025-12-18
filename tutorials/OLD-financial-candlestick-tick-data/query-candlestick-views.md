@@ -12,12 +12,14 @@ and set up multiple candlestick views. In this section, use some
 example candlestick queries and see how they can be represented in data visualizations.
 
 <Highlight type="note">
+
 The queries in this section are example queries. The [sample data][sample-data]
 provided with this tutorial is updated on a regular basis to have near-time
 data, typically no more than a few days old. Our sample queries reflect time
 filters that might be longer than you would normally use, so feel free to
 modify the time filter in the `WHERE` clause as the data ages, or as you begin
 to insert updated tick readings.
+
 </Highlight>
 
 ## 1-min BTC/USD candlestick chart

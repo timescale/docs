@@ -53,8 +53,10 @@ Let's start off analyzing trading volumes, then have a look at weekly price poin
 price changes. The results of the queries shown are visualized using Plotly.
 
 <Highlight type="tip">
+
 Let these queries serve as inspiration to you, and feel free to change things up, like the analyzed `bucket`,
 the `symbol` or other parts of the query. Have fun!
+
 </Highlight>
 
 1.  Which symbols have the highest transaction volumes?
@@ -170,7 +172,9 @@ print(df)
 `bucket` shows (the first day of) the week.
 
 <Highlight type="tip">
+
 Change `orderby` to "ASC" to query the biggest losses.
+
 </Highlight>
 
 ### 5. Weekly FAANG prices over time?
@@ -288,7 +292,9 @@ figure.show()
 ```
 
 <Highlight type="tip">
+
 Change `date` to see the candlesticks for another day.
+
 </Highlight>
 
 ![candlestick chart apple][candlestick-chart-apple]

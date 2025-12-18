@@ -171,8 +171,10 @@ exclude_tables:
 ```
 
 <Highlight type="important">
+
 Hypershift does not currently support pattern matching on schema or table names
 in either inclusion or exclusion rules.
+
 </Highlight>
 
 ## Hypertable configuration

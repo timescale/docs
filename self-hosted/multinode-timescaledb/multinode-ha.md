@@ -165,8 +165,10 @@ chunks or the distributed hypertable has more chunk replicas than the
 configured replication factor.
 
 <Highlight type="important">
+
 You cannot force the deletion of a data node if it would mean that a multi-node
 cluster permanently loses data.
+
 </Highlight>
 
 When you have successfully removed a failed data node, or marked a

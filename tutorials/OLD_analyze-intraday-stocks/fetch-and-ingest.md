@@ -291,8 +291,10 @@ time               |symbol|price_open|price_close|price_low|price_high|trading_v
 ```
 
 <Highlight type="tip">
+
 Fetching and ingesting intraday data can take a while, so if you want to see results quickly,
 reduce the number of months, or limit the number of symbols.
+
 </Highlight>
 
 This is what the final version of `ingest_stock_data.py` looks like:

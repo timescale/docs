@@ -51,6 +51,7 @@
    ```
 
    <Highlight type="important">
+
    
    If the source $PG version is 17 or later, you need to pass additional
    flag `-e PGVERSION=17` to the `migrate` command.

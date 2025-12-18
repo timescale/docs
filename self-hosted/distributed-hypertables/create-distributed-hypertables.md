@@ -17,9 +17,11 @@ hypertable across your data nodes. First create a standard $PG table, and
 then convert it into a distributed hypertable.
 
 <Highlight type="important">
+
 You need to set up your multi-node cluster before creating a distributed
 hypertable. To set up multi-node, see the
 [multi-node section][multi-node-section].
+
 </Highlight>
 
 <Procedure>

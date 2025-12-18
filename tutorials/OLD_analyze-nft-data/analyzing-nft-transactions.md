@@ -29,8 +29,10 @@ first we create something to speed up our queries: $TIMESCALE_DB continuous
 aggregates.
 
 <Highlight type="note">
+
 All queries in this section only include data that's accessible from the
 OpenSea API.
+
 </Highlight>
 
 ## Speeding up queries with continuous aggregates
@@ -349,7 +351,9 @@ bucket             |slug         |volume_eth         |
 ![daily eth volume of assets][daily-eth-volume-of-assets]
 
 <Highlight type="note">
+
 This graph uses a logarithmic scale, which you can configure in the graph's settings in Superset.
+
 </Highlight>
 
 ### Comparison of daily ETH volume of multiple collections
@@ -382,8 +386,10 @@ bucket             |slug         |volume_eth        |
 ![comparison-daily-eth-volume-collections][comparison-daily-eth-volume-collections]
 
 <Highlight type="note">
+
 The graph above uses a logarithmic scale, which we configured in the graph's
 settings in Superset.
+
 </Highlight>
 
 ### Daily mean and median sale price of assets in a collection

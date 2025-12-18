@@ -16,12 +16,14 @@ Continuous aggregates are often used to downsample historical data. If the data 
 and never modified, you can compress the aggregate to save on storage.
 
 <Highlight type="warning">
+
 Before version
 [2.18.1][2181], you can't
 refresh the compressed regions of a continuous aggregate. To avoid conflicts
 between compression and refresh, make sure you set `compress_after` to a larger
 interval than the `start_offset` of your [refresh
 policy][refresh-policy].
+
 </Highlight>
 
 Compression on continuous aggregates works similarly to [compression on

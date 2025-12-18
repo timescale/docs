@@ -25,8 +25,10 @@ ALTER EXTENSION timescaledb UPDATE;
 ```
 
 <Highlight type="important">
+
 After a maintenance update, the DNS name remains the same, but the IP address
 it points to changes.
+
 </Highlight>
 
 ## Non-critical maintenance updates

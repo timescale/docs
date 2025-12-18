@@ -196,9 +196,11 @@ traded volume. This helps to calculate the volume of data for each bucket.
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/stackedbarcharts.png" alt="Screenshot of Grafana dashboard, showing a stacked bar chart."/>
 
 <Highlight type="note">
+
 If you go beyond a single trading day, you might get results that don't look
 very good, or you might get no data returned. To fix this, focus your
 calculation on a single trading day instead.
+
 </Highlight>
 
 </Procedure>

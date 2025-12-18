@@ -116,6 +116,7 @@ hypertable using the old syntax:
 ```sql
 SELECT create_hypertable('<table name>', '<time column name>');
 ```
+
 </Highlight>
 
 For more information about the options which you can pass to

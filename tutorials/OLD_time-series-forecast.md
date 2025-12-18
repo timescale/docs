@@ -385,8 +385,10 @@ Set up MADlib in the `nyc_data` database:
 ```
 
 <Highlight type="warning">
+
 This command might differ depending on the directory in which you installed
 MADlib and the names of your $PG user, host and database.
+
 </Highlight>
 
 Now you can make use of MADlib's library to analyze the taxicab dataset. Here,

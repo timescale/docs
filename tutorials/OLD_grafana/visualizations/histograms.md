@@ -45,9 +45,11 @@ formats. Each comes with its own benefits and challenges:
   which is about 10% of your data's total range.
 
 <Highlight type="note">
+
 Histograms are great for analyzing the spread or distribution of data, but they
 don't show the change of data over time. If you need to see the distribution of
 your data over time, try a heatmap instead.
+
 </Highlight>
 
 ## What you'll learn

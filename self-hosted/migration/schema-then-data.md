@@ -39,9 +39,9 @@ database at once. For more information, see the section on
 The procedure to migrate your database requires these steps:
 
 *   [Migrate schema pre-data][migrate-schema-pre-data-link]
-*   [Restore hypertables in Timescale][restore-hypertables-in-timescale-link]
+*   [Restore hypertables in $TIMESCALE_DB][restore-hypertables-in-timescale-link]
 *   [Copy data from the source database][copy-data-from-the-source-database-link]
-*   [Restore data into Timescale][restore-data-into-timescale-link]
+*   [Restore data into $TIMESCALE_DB][restore-data-into-timescale-link]
 *   [Migrate schema post-data][migrate-schema-post-data-link]
 *   [Recreate continuous aggregates][recreate-continuous-aggregates-link] (optional)
 *   [Recreate policies][recreate-policies-link] (optional)
@@ -141,7 +141,9 @@ restore them.
 </Procedure>
 
 <Highlight type="note">
+
 The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+
 </Highlight>
 
 ## Copy data from the source database
@@ -170,6 +172,7 @@ data, table by table.
 </Procedure>
 
 <Highlight type="note">
+
 If your tables are very large, you can migrate each table in multiple pieces.
 Split each table by time range, and copy each range individually. For example:
 

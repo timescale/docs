@@ -297,4 +297,4 @@ as you try to answer even more questions with $TIMESCALE_DB.
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
-[toolkit_long]: https://www.tigerdata.com/docs/use-timescale/latest/install-timescaledb-toolkit/
+[toolkit_long]: https://www.tigerdata.com/docs/use-timescale/:currentVersion:/install-timescaledb-toolkit/

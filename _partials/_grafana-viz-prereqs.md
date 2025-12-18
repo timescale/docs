@@ -4,7 +4,7 @@ Before you begin, make sure you have:
 *   Installed a self-managed Grafana account, or signed up for
     [Grafana Cloud][grafana-cloud].
 *   Ingested some data to your database. You can use the stock trade data from
-    the [Getting Started Guide][install].
+    the [Try the key features in $COMPANY products][try-timescale-features].
 
 The examples in this section use these variables and Grafana functions:
 
@@ -17,4 +17,4 @@ The examples in this section use these variables and Grafana functions:
 
 [cloud-login]: https://console.cloud.timescale.com/
 [grafana-cloud]: https://grafana.com/get/
-[install]: /getting-started/:currentVersion:/
+[try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/

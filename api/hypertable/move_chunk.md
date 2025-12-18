@@ -26,8 +26,10 @@ operation. For a more detailed discussion of this capability, see the
 documentation on [managing storage with tablespaces][about-tablespaces].
 
 <Highlight type="note">
+
 You must be logged in as a super user, such as the `postgres` user,
 to use the `move_chunk()` call.
+
 </Highlight>
 
 ## Samples

@@ -17,6 +17,7 @@ apply the same principles and $TIMESCALE_DB features on
 any blockchain data. This includes Etheruem, Solana, and others.
 
 <Highlight type="note">
+
 This tutorial shows you one approach to Doing Your Own Research in
 the blockchain space. Any
 conclusions made from the data are illustrative examples only. They're meant to help
@@ -25,6 +26,7 @@ data analysis and conclusions. To read about the
 conclusions we made from
 analyzing 5 years' worth of Bitcoin transactions,
 [see our blog post][see-our-blog-post].
+
 </Highlight>
 
 ## What you'll learn
@@ -40,10 +42,12 @@ Before you begin, make sure you have:
 *   [`psql`][psql], DBeaver, or any other $PG client
 
 <Highlight type="note">
+
 The easiest way to get a new $TIMESCALE_DB instance up and running and complete
 this tutorial is to
 [sign up for a free $ACCOUNT_LONG][sign-up-for-a-free-account_long]
 (no credit card required).
+
 </Highlight>
 
 [install-timescale]: /getting-started/:currentVersion:/

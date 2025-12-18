@@ -463,8 +463,10 @@ of these commands in turn:
 ```
 
 <Highlight type="important">
+
 Data ingestion could take a while, depending on the speed of your Internet
 connection.
+
 </Highlight>
 
 You can verify that the ingestion worked by running a simple SQL command, such

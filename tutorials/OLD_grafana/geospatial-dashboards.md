@@ -26,6 +26,7 @@ to that database. Be sure to follow the full tutorial if you're interested in ba
 on how to use $TIMESCALE_DB.
 
 <Highlight type="tip">
+
  Be sure to pay close attention to the geospatial query portion
  of the tutorial and complete those steps.
 
@@ -79,6 +80,7 @@ Finally, in the `GROUP BY` clause, we supply the `trip_distance` and location va
 so that Grafana can plot data properly.
 
 <Highlight type="warning">
+
  This query may take a while, depending on the speed of your Internet connection. This
  is why we're using the `LIMIT` statement for demonstration purposes.
 

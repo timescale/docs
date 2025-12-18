@@ -32,10 +32,12 @@ CREATE INDEX ON "<TABLE_NAME>" USING btree (time);
 ```
 
 <Highlight type="important">
+
 Hypershift is not able to efficiently copy and compress data when the only
 index is a composite index where `time` is not the first indexed column. If you
 already have such a composite index, ensure that your source database has a
 plain index before you run the Hypershift migration.
+
 </Highlight>
 
 ## Download the Hypershift container

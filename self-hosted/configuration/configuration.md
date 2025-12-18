@@ -89,7 +89,9 @@ suggestions that `timescaledb-tune` makes, then check these. However,
 ### Memory settings
 
 <Highlight type="tip">
+
 All of these settings are handled by `timescaledb-tune`.
+
 </Highlight>
 The settings `shared_buffers`, `effective_cache_size`, `work_mem`, and
 `maintenance_work_mem` need to be adjusted to match the machine's available
@@ -102,7 +104,9 @@ PgTune may also be helpful.
 ### Worker settings
 
 <Highlight type="tip">
+
 All of these settings are handled by `timescaledb-tune`.
+
 </Highlight>
 $PG utilizes worker pools to provide the required workers needed to
 support both live queries and background jobs. If you do not configure these

@@ -142,10 +142,12 @@ websocket object and establish connection.
 </Procedure>
 
 <Highlight type="note">
+
 To keep the websocket connection alive indefinitely, use the `keep_alive()`
 function of the wrapper library. It makes sure the connection will
 stay active until it gets terminated. If you don't add this line the
 connection might break instantly.
+
 </Highlight>
 
 When you have established a connection to the websocket server,

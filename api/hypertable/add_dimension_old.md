@@ -17,6 +17,7 @@ products: [cloud, mst, self_hosted]
 This interface is deprecated since [TimescaleDB v2.13.0][rn-2130].
 
 For information about the supported hypertable interface, see [add_dimension()][add-dimension].
+
 </Highlight>
 
 
@@ -25,9 +26,11 @@ The column selected as the dimension can either use interval
 partitioning (for example, for a second time partition) or hash partitioning.
 
 <Highlight type="warning">
+
 The `add_dimension` command can only be executed after a table has been
 converted to a hypertable (via `create_hypertable`), but must similarly
 be run only on an empty hypertable.
+
 </Highlight>
 
 **Space partitions**: Using space partitions is highly recommended
@@ -167,6 +170,7 @@ the column's underlying semantics (for example, the
 is the number of milliseconds since the UNIX epoch).
 
 <Highlight type="warning">
+
  Supporting more than **one** additional dimension is currently
  experimental. For any production environments, users are recommended
  to use at most one "space" dimension.

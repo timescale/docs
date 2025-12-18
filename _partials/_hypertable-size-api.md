@@ -7,9 +7,11 @@ in bytes. This is equivalent to computing the sum of `total_bytes`
 column from the output of `hypertable_detailed_size` function.
 
 <Highlight type="note">
+
 When a continuous aggregate name is provided, the function
 transparently looks up the backing hypertable and returns its statistics
 instead.
+
 </Highlight>
 
 For more information about using hypertables, including chunk size partitioning,

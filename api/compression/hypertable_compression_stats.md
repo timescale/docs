@@ -14,7 +14,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # hypertable_compression_stats() <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/:currentVersion:/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
 However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Get statistics related to hypertable compression. All sizes are in bytes.

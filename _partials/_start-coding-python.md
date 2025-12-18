@@ -56,6 +56,7 @@ prevents common attacks such as SQL injection.
     ```
 
     <Highlight type="warning">
+
     
     This method of composing a connection string is for test or development
     purposes only. For production, use environment variables for sensitive
@@ -161,6 +162,7 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
+
     
 	The `by_range` dimension builder is an addition to $TIMESCALE_DB 2.13.
 

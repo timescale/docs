@@ -24,10 +24,12 @@ A machine with the following installed:
 *   A locally running [Prometheus][install-prometheus] instance
 
 <Highlight type="tip">
+
 Since machines commonly have multiple versions of Python
 installed, in this tutorial we call `pip` using the `python -m pip [foo]`
 syntax instead of the `pip [foo]` syntax. This is to ensure that pip installs
 new components for the version of Python that we are using.
+
 </Highlight>
 
 ## Step 1 - Set up a basic Django application (optional)
@@ -196,8 +198,10 @@ Under `scrape_configs:`, add:
 ```
 
 <Highlight type="note">
+
 Replace the `job_name`, `django`, with your preferred prefix for Django
 application metrics in Prometheus. For example, you can use `webapp`.
+
 </Highlight>
 
 ### Restart Prometheus

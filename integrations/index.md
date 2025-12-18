@@ -200,7 +200,7 @@ Some of the most in-demand integrations are listed below.
 [debezium]: /integrations/:currentVersion:/debezium/
 [decodable]: /integrations/:currentVersion:/decodable
 [deepnote]: https://deepnote.com/docs/postgresql
-[deltalake]: https://github.com/delta-io/delta/blob/master/connectors/sql-delta-import/readme.md
+[deltalake]: https://github.com/delta-io/delta/blob/master/connectors/README.md
 [deno-deploy]: https://docs.deno.com/deploy/manual/postgres/
 [django]: https://docs.djangoproject.com/en/5.1/ref/databases/#postgresql-notes
 [electricsql]: https://electric-sql.com/docs/intro

@@ -14,7 +14,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # ALTER TABLE (Compression) <Tag type="community" content="community" />
 
-<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/:currentVersion:/hypercore/alter_table/">ALTER TABLE (Hypercore)</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a>.
 However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 'ALTER TABLE' statement is used to turn on compression and set compression

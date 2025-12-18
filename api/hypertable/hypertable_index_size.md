@@ -63,7 +63,9 @@ SELECT pg_size_pretty(hypertable_index_size('second_index'));
 |hypertable_index_size|BIGINT|Returns the disk space used by the index|
 
 <Highlight type="note">
+
 NULL is returned if the function is executed on a non-hypertable relation.
+
 </Highlight>
 
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/

@@ -155,9 +155,11 @@ in the `stocks_real_time` hypertable.
 
 
 <Highlight type="note">
+
 If you go beyond a single trading day, you might get results that don't look
 very good, or you might get no data returned. To fix this, focus your
 calculation on a single trading day instead.
+
 </Highlight>
 
 </Procedure>

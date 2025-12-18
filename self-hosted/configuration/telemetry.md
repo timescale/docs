@@ -182,9 +182,11 @@ If you want to see the exact JSON data file that is sent, use the
 [`get_telemetry_report`][get_telemetry_report] API call.
 
 <Highlight type="note">
+
 Telemetry reports are different if you are using an open source or community
 version of TimescaleDB. For these versions, the report includes an `edition`
 field, with a value of either `apache_only` or `community`.
+
 </Highlight>
 
 ## Change what is included the telemetry report
@@ -210,7 +212,9 @@ features for you, and helps to keep improving Timescale. However, you can turn
 off telemetry if you need to for a specific database, or for an entire instance.
 
 <Highlight type="important">
+
 If you turn off telemetry, the version checking feature is also turned off.
+
 </Highlight>
 
 <Procedure>

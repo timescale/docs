@@ -70,6 +70,7 @@ and can connect to it using `psql`.
     ```
 
 	<Highlight type="note">
+
 	The `by_range` dimension builder is an addition to $TIMESCALE_DB 2.13.
 	</Highlight>
 

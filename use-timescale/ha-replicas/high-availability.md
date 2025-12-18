@@ -95,6 +95,7 @@ primary is not in a state to safely switch.
     the `tsdbowner` group.
 
     <Highlight type="note">
+
     You can also connect to the HA replica and check its node using this procedure.
     </Highlight>
 

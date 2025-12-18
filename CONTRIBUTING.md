@@ -46,7 +46,7 @@ Each major doc section has a dedicated directory with `.md` files inside, repres
     Beneath the front matter, describe the error and its solution in regular Markdown. You can also use any other components allowed within the docs site.
     
     The entry shows up on the troubleshooting pages for its associated products and topics. If the page doesn't already exist, add an entry for it in the page
-    index, setting `type` to `placeholder`. See [Navigation tree][navigation-tree-link].
+    index, setting `type` to `placeholder`. See [Edit the navigation hierarchy][navigation-tree-link].
 
 ## Edit the navigation hierarchy
 
@@ -77,7 +77,7 @@ The navigation hierarchy of a doc section is governed by `page-index/page-index.
       },
 ```
 
-See [Use $CLOUD_LONG section navigation][use-navigation] for reference.
+See [Use Tiger Data products navigation][use-navigation] for reference.
 
 To change the structure, add or delete pages in a section, modify the corresponding `page-index.js`. An entry in a `page-index.js` includes the following fields: 
 
@@ -158,7 +158,7 @@ The previous documentation source is in the deprecated repository called [docs.t
 [google-style]: https://developers.google.com/style
 [legacy-source]: https://github.com/timescale/docs.timescale.com-content
 [markdown-syntax]: https://www.markdownguide.org/extended-syntax/
-[navigation-tree-link]: /CONTRIBUTING/:currentVersion:/#navigation-tree
+[navigation-tree-link]: /CONTRIBUTING/:currentVersion:/#edit-the-navigation-hierarchy
 [readme]: README.md
 [use-navigation]: use-timescale/page-index/page-index.js
 [variables]: https://www.tigerdata.com/docs/variables-for-contributors/

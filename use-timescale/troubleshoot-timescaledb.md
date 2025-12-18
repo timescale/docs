@@ -139,9 +139,11 @@ tsdb=> CALL _timescaledb_functions.repair_relation_acls();
 ```
 
 <Highlight type="warning">
+
 This requires superuser privileges (since you're modifying the
 `pg_class` table) and that it removes any user not present in
 `pg_authid` from *all* tables, so use with caution.
+
 </Highlight>
 
 The permissions are usually corrupted for the hypertable as well, but
@@ -227,6 +229,7 @@ changed in the configuration file, it is used for
 `timescaledb.bgw_log_level` when starting the workers.
 
 <Highlight type="note">
+
 Both `ALTER SYSTEM` and `pg_reload_conf()` require superuser
 privileges by default. Grant `EXECUTE` permissions
 to `pg_reload_conf()` and `ALTER SYSTEM` privileges to
@@ -235,6 +238,7 @@ non-superuser.
 
 Since `ALTER SYSTEM` privileges only exist on $PG 15 and later,
 the necessary grants for executing these statements only exist on $CLOUD_LONG for $PG 15 or later.
+
 </Highlight>
 
 ### Debug level 1

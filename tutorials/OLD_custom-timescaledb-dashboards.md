@@ -232,8 +232,10 @@ FROM (
 ```
 
 <Highlight type="warning">
+
 The view is dependent on TimescaleDB internals. You might need to drop the view
 to upgrade the TimescaleDB extension, and recreate it after the upgrade.
+
 </Highlight>
 
 To test, use the name of a random chunk from the hypertable to query this view

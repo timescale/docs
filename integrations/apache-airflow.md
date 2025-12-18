@@ -98,7 +98,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
              This could be any query. This example inserts data into the table
              you create in:
       
-             https://www.tigerdata.com/docs/getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
+             https://www.tigerdata.com/docs/getting-started/latest/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
             """            
            cursor.execute("INSERT INTO crypto_assets (symbol, name) VALUES (%s, %s)",
             ('NEW/Asset','New Asset Name'))

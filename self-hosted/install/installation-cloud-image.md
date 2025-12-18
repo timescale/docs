@@ -29,10 +29,12 @@ right EBS optimized EC2 instance type, see the AWS
 [instance configuration documentation][aws-instance-config].
 
 <Highlight type="note">
+
 This section shows how to use the AMI from within the AWS EC2 dashboard.
 However, you can also use the AMI to build an instance using tools like
 Cloudformation, Terraform, the AWS CLI, or any other AWS deployment tool that
 supports public AMIs.
+
 </Highlight>
 
 <Procedure>

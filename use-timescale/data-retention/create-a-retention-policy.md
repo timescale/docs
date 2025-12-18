@@ -33,9 +33,11 @@ Add a data retention policy by using the
 </Procedure>
 
 <Highlight type="note">
+
 A data retention policy only allows you to drop chunks based on how far they are
 in the past. To drop chunks based on how far they are in the future,
 [manually drop chunks][manually-drop-chunks].
+
 </Highlight>
 
 ## Remove a data retention policy

@@ -64,8 +64,10 @@ to the New York City taxi cab dataset you connected to earlier:
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/set_data_source.png" alt="Switching data sources in Grafana"/>
 
 <Highlight type="note">
+
 If you are visualizing time series data in Grafana, make sure you select
 `Time series` from the `Format As` drop down in the query builder.
+
 </Highlight>
 
 ### Visualize metrics stored in TimescaleDB
@@ -155,9 +157,11 @@ When you visualize this query in Grafana, you see this:
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results.png" alt="Visualizing time-series data in Grafana"/>
 
 <Highlight type="note">
+
 Remember to set the time filter in the upper right corner of your Grafana
 dashboard. If you're using the pre-built sample dataset for this example, you
 can set your time filter around January 1, 2016.
+
 </Highlight>
 
 Currently, the data is bucketed into 1 day groupings. Adjust the `time_bucket`

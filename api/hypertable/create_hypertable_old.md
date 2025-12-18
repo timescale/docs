@@ -118,8 +118,10 @@ SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_sta
 |`created`|BOOLEAN|TRUE if the hypertable was created, FALSE when `if_not_exists` is true and no hypertable was created.|
 
 <Highlight type="note">
+
 If you use `SELECT * FROM create_hypertable(...)` you get the return value
 formatted as a table with column headings.
+
 </Highlight>
 
 The use of the `migrate_data` argument to convert a non-empty table can
@@ -151,9 +153,11 @@ The `time` column supports the following data types:
 |Integer|SMALLINT, INT, BIGINT|
 
 <Highlight type="note">
+
 The type flexibility of the 'time' column allows the use of non-time-based
 values as the primary chunk partitioning column, as long as those values can
 increment.
+
 </Highlight>
 
 For incompatible data types (for example, `jsonb`) you can specify a function to
@@ -183,9 +187,11 @@ is *not* a partition ID, but rather the inserted value's position in the
 dimension's key space, which is then divided across the partitions.
 
 <Highlight type="note">
+
 The time column in `create_hypertable` must be defined as `NOT NULL`. If this is
 not already specified on table creation, `create_hypertable` automatically adds
 this constraint on the table when it is executed.
+
 </Highlight>
 
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable

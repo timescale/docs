@@ -49,6 +49,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
     Syntax:
 
       <Highlight type="note">
+
     
       Additional relevant information worth highlighting. 
     
@@ -63,6 +64,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
     Syntax: 
 
       <Highlight type="important">
+
     
       Important things to keep in mind. 
     
@@ -77,6 +79,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
     Syntax:
 
       <Highlight type="warning">
+
     
       Caution!
     
@@ -91,6 +94,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
     Syntax:
 
       <Highlight type="deprecation">
+
     
       A deprecation notice.
     
@@ -105,6 +109,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
     Syntax:
 
       <Highlight type="cloud">
+
     
       A note dealing specifically with Tiger.
     

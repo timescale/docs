@@ -87,11 +87,13 @@ policy with a 2-day interval that would drop a chunk every other day
 For more information, see the [data retention][retention-policy] section.
 
 <Highlight type="important">
+
 Make sure none of the continuous aggregate policies intersect with a data
 retention policy. It's possible to keep the candlestick data in the continuous
 aggregate and drop tick data from the underlying hypertable, but only if you
 materialize data in the continuous aggregate first, before the data is dropped
 from the underlying hypertable.
+
 </Highlight>
 
 ## Automatically delete older candlestick data
@@ -104,12 +106,14 @@ $TIMESCALE_DB allows you to create data retention policies on continuous
 aggregates as well.
 
 <Highlight type="note">
+
 Continuous aggregates also have chunk time intervals because they use
 hypertables in the background. By default, the continuous aggregate's chunk
 time interval is 10 times what the original hypertable's chunk time interval is.
 For example, if the original hypertable's chunk time interval is 7 days, the
 continuous aggregates that are on top of it will have a 70 day chunk time
 interval.
+
 </Highlight>
 
 You can set up a data retention policy to remove old data from
@@ -177,9 +181,11 @@ SELECT add_compression_policy('one_min_candle', compress_after=> INTERVAL '70 da
 ```
 
 <Highlight type="important">
+
 Before setting a compression policy on any of the candlestick views,
 set a refresh policy first. The compression policy interval should
 be set so that actively refreshed time intervals are not compressed.
+
 </Highlight>
 
 [Read more about compressing continuous aggregates.][cagg-compression]

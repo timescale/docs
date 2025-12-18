@@ -304,9 +304,11 @@ In the `postgresql.conf` file, set the `synchronous_commit` parameter to:
     replication lag is nearly non-existent.
 
 <Highlight type="important">
+
 If `synchronous_standby_names` is empty, the settings `on`, `remote_apply`,
 `remote_write` and `local` all provide the same synchronization level, and
 transaction commits wait for the local flush to disk.
+
 </Highlight>
 
 This matrix shows the level of consistency provided by each mode:

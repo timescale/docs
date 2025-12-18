@@ -17,10 +17,12 @@ Pandas, and PromQL.
 <Experimental />
 
 <Highlight type="important">
+
 The `timevector()` function materializes all its data points in
 memory. This means that if you use it on a very large dataset,
 it runs out of memory. Do not use the `timevector` function
 on a large dataset, or in production.
+
 </Highlight>
 
 SQL is the best language for data analysis, but it is not perfect, and at times
@@ -365,8 +367,10 @@ The output for this example:
 ```
 
 <Highlight type="note">
+
 The first row of the output is missing, as there is no way to compute a delta
 without a previous value.
+
 </Highlight>
 
 #### Fill method transform

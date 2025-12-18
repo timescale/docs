@@ -74,7 +74,9 @@ in 30-minute buckets.
 ### Finding how many rides on New Year's Day 2016 originated from Times Square
 
 <Highlight type="note">
+
 Times Square is located at (40.7589,-73.9851).
+
 </Highlight>
 
 1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.

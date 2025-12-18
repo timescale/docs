@@ -17,7 +17,9 @@ For a more fine-grained control, you create separate IP allow lists for [the ops
 You create an IP allow list at the [$PROJECT_SHORT level][projects], then attach your $SERVICE_SHORT to it. 
 
 <Highlight type="important">
+
 You attach a $SERVICE_SHORT to either one $VPC, or one IP allow list. You cannot attach a $SERVICE_SHORT to a $VPC and an IP allow list at the same time.
+
 </Highlight>
 
 <Procedure>

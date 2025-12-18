@@ -15,9 +15,11 @@ $TIMESCALE_DB, to help you understand more about player activity during the NFL
 season.
 
 <Highlight type="tip">
+
 Some of this analysis includes visualizations to help you see the potential uses
 of this data. These are created using the [Matplotlib][matplotlib]
 Python module, which is one of many great visualization tools.
+
 </Highlight>
 
 ### Average yards run for a player over a game
@@ -182,9 +184,11 @@ average yard values per position type. The data is ordered by the average yards
 run across all players for each position. This becomes important later on.
 
 <Highlight type="note">
+
 This query excludes some position types from the list due to such low average
 yard values, the excluded positions are Kicker, Punter, Nose Tackle, Long Snapper,
 and Defensive Tackle
+
 </Highlight>
 
 ```sql

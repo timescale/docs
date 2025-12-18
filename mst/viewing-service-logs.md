@@ -21,13 +21,12 @@ There are different built-in ways to inspect service logs at $MST_LONG:
     avn service logs -S desc -f --project <PROJECT_NAME> <SERVICE_NAME>
     ```
 
-*   [REST API][] endpoint is available for fetching the same information two
+*   [REST API][rest-api] endpoint is available for fetching the same information two
     above methods output, in case programmatic access is needed.
 
 Service logs included on the normal service price are stored only for a few
 days. Unless you are using logs integration to another service, older logs are
 not accessible.
 
-[REST API]: https://www.tigerdata.com/docs/latest/
-
+[rest-api]: /mst/:currentVersion:/restapi
 [aiven-github]: https://github.com/aiven/aiven-client

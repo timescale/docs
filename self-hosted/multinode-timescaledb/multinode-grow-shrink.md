@@ -67,11 +67,13 @@ distributed hypertable so that your database can use them.
     ```
 
 <Highlight type="important">
+
 When you attach a new data node, the partitioning configuration of the
 distributed hypertable is updated to account for the additional data node, and
 the number of hash partitions are automatically increased to match. You can
 prevent this happening by setting the function parameter `repartition` to
 `FALSE`.
+
 </Highlight>
 
 </Procedure>
@@ -83,9 +85,11 @@ existing data in your hypertable to the new node to free up storage on the
 existing nodes and make better use of the added capacity.
 
 <Highlight type="warning">
+
 The ability to move chunks between data nodes is an experimental feature that is
 under active development. We recommend that you do not use this feature in a
 production environment.
+
 </Highlight>
 
 Move data using this query:
@@ -111,10 +115,12 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 You can also remove data nodes from an existing distributed hypertable.
 
 <Highlight type="warning">
+
 You cannot remove a data node that still contains data for the distributed
 hypertable. Before you remove the data node, check that is has had all of its
 data deleted or moved, or that you have replicated the data on to other data
 nodes.
+
 </Highlight>
 
 Remove a data node using this query. In this example, our distributed hypertable

@@ -118,10 +118,12 @@ EOF
 ```
 
 <Highlight type="note">
+
 Background jobs are turned off to prevent continuous aggregate refresh jobs
 from updating the continuous aggregate with incomplete/missing data.
 The continuous aggregates must be manually updated in the required range once
 the migration is complete.
+
 </Highlight>
 
 <StepFour />
@@ -214,10 +216,12 @@ EOF
 ```
 
 <Highlight type="note">
+
 If the backfill process took long enough for there to be significant
 retention/compression work to be done, it may be preferable to run the jobs
 manually to have control over the pacing of the work until it is caught up
 before re-enabling.
+
 </Highlight>
 
 ## 8. Validate that all data is present in target database

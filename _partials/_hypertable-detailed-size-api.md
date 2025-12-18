@@ -55,8 +55,10 @@ information that occupies a small amount of disk space.
 |node_name|TEXT|For distributed hypertables, this is the user-given name of the node for which the size is reported. `NULL` is returned for the access node and non-distributed hypertables.|
 
 <Highlight type="note">
+
 If executed on a relation that is not a hypertable, the function
 returns `NULL`.
+
 </Highlight>
 
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/

@@ -61,6 +61,7 @@ like `MIN` and `MAX`, which calculate the lowest and highest prices in the
 candlestick.
 
 <Highlight type="note">
+
 This tutorial uses the `LAST()` hyperfunction to calculate the volume within a bucket, because
 the sample tick data already provides an incremental `day_volume` field which
 contains the total volume for the given day with each trade. Depending on the
@@ -68,6 +69,7 @@ raw data you receive and whether you want to calculate volume in terms of
 trade count or the total value of the trades, you might need to use
 `COUNT(*)`, `SUM(price)`, or subtraction between the last and first values
 in the bucket to get the correct result.
+
 </Highlight>
 
 ## Create continuous aggregates for candlestick data

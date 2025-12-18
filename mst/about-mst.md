@@ -141,8 +141,10 @@ problems or the node stops communicating entirely. The monitoring infrastructure
 automatically schedules a new replacement node to be created when this happens.
 
 <Highlight type="note">
+
 In case of database failover, the service URL of your service remains the same.
 Only the IP address changes to point at the new master node.
+
 </Highlight>
 
 Managed Service for TimescaleDB availability features differ based on the service
@@ -209,9 +211,11 @@ about connection pooling, see the
 [connection pooling section][connection-pooling].
 
 <Highlight type="note">
+
 If you have a high number of connections to your database, your service might
 run more slowly, and could run out of memory. Remain aware of how many open
 connections your have to your database at any given time.
+
 </Highlight>
 
 ## Service termination protection
@@ -228,9 +232,11 @@ tab. Locate the `Termination protection` section, and toggle to enable
 protection.
 
 <Highlight type="important">
+
 If you run out of free sign-up credit, and have not entered a valid credit card
 for payment, your service is powered down, even if you have enabled termination
 protection.
+
 </Highlight>
 
 ## Idle connections

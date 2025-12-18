@@ -8,10 +8,12 @@ keywords: [metrics, monitor, Telegraf]
 # Collecting metrics with the $PS and $TIMESCALE_DB output plugin for Telegraf
 
 <Highlight type="deprecation">
+
 This section describes a feature that is deprecated on TimescaleDB. We strongly
 recommend that you do not use this feature in a production environment. For some
 suggestions of workarounds, see this
 [$COMPANYForum post][companyforum-post].
+
 </Highlight>
 
 Telegraf collects metrics from a wide array of inputs and writes them to a wide
