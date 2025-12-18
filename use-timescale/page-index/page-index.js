@@ -137,9 +137,9 @@ module.exports = [
         excerpt: "About Tiger Cloud services",
         children: [
           {
-            title: "Services overview",
+            title: "Tiger Console overview",
             href: "service-overview",
-            excerpt: "Tiger Cloud services overview",
+            excerpt: "Tiger Console overview",
           },
           {
             title: "Service explorer",

@@ -167,8 +167,8 @@ relational and time-series data from external files.
 
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
-    - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs. <NotAvailableFreePlan />
-    - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
+    - **$DATA_MODE**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs. <NotAvailableFreePlan />
+    - **$SQL_EDITOR**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted $TIMESCALE_DB deployment from Terminal.
 
     <TryItOutCodeBlock queryId="getting-started-crypto-srt-orderby" />
@@ -200,22 +200,24 @@ $CONSOLE. You can also do this using psql.
 
 <Tabs label="Upload data to " persistKey="sql-editor">
 
-<Tab title="Data mode" label="data-mode">
+<Tab title="Data view" label="data-mode">
 
 <NotAvailableFreePlan />
 
 <Procedure>
 
+1. **In $CONSOLE, click `Data view`** 
+
 1.  **Connect to your $SERVICE_SHORT**
 
-    In [$CONSOLE][portal-data-mode], select your $SERVICE_SHORT in the connection drop-down in the top right.
+    In the connection drop-down in the top right, select your $SERVICE_SHORT.
 
 1.  **Create a $CAGG**
 
     For a $CAGG, data grouped using a $TIME_BUCKET is stored in a
     $PG `MATERIALIZED VIEW` in a $HYPERTABLE. `timescaledb.continuous` ensures that this data
     is always up to date.
-    In data mode, use the following code to create a $CAGG on the real-time data in
+    In $DATA_MODE, use the following code to create a $CAGG on the real-time data in
     the `crypto_ticks` table:
 
     ```sql
@@ -328,7 +330,7 @@ To set up data tiering:
 
 1. **Set the time interval when data is tiered**
 
-    In $CONSOLE, click `Data` to switch to the data mode, then enable data tiering on a $HYPERTABLE with the following query:
+    In $CONSOLE, click `Data view`, then enable data tiering on a $HYPERTABLE with the following query:
      ```sql
      SELECT add_tiering_policy('assets_candlestick_daily', INTERVAL '3 weeks');   
      ```
@@ -387,7 +389,7 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [deploy-self-hosted]: /self-hosted/:currentVersion:/install/
 [connect-to-your-service]: /getting-started/:currentVersion:/run-queries-from-console/
 [portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [data-ingest]: /use-timescale/:currentVersion:/ingest-data/

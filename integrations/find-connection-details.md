@@ -43,7 +43,8 @@ To retrieve the connection details for your $PROJECT_LONG and $SERVICE_LONG:
 
 1. **Retrieve your project ID**:
 
-   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Copy` next to the project ID.
+   In [$CONSOLE][console-services], click the arrows next to the project name in the top left. The project ID is under the project name.
+
    ![Retrive the project id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-project-id.png)
 
 1. **Retrieve your service ID**:
@@ -64,32 +65,7 @@ such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
 
 1. **Open the settings for your project**:
 
-   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Project settings`.
-
-1. **Create client credentials**:
- 
-   1. Click `Create credentials`, then copy `Public key` and `Secret key` locally.
-
-      ![Retrive the service id in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png)
-
-       This is the only time you see the `Secret key`. After this, only the `Public key` is visible in this page. 
-
-   1. Click `Done`.
-
-</Procedure>
-
-## Create client credentials 
-
-You use client credentials to obtain access tokens outside of the user context.
-
-To retrieve the connection details for your $CLOUD_LONG project for programmatic usage 
-such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
-
-<Procedure>
-
-1. **Open the settings for your project**:
-
-   In [$CONSOLE][console-services], click your project name in the upper left corner, then click `Project settings`.
+   In [$CONSOLE][console-services], click `Settings`.
 
 1. **Create client credentials**:
  

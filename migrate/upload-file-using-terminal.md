@@ -282,7 +282,7 @@ And that is it, you have imported your data from a Parquet file to your $SERVICE
 
 [apache-parquet]: https://parquet.apache.org/
 [apache-parquet-file-format]: https://parquet.apache.org/docs/file-format/
-[data-mode]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
+[data-mode]: /getting-started/:currentVersion:/run-queries-from-console/#data-view
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [install-docker]: https://docs.docker.com/engine/install/
 [install-duckdb]: https://duckdb.org/docs/installation/

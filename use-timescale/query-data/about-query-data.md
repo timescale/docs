@@ -23,5 +23,5 @@ $TIMESCALE_DB also provides some additional features to help with data analysis:
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
 [pipelines]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
+[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-view
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
