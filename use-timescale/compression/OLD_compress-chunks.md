@@ -49,6 +49,7 @@ You can set a compression policy on a hypertable directly from the Tiger Cloud C
 
     Compression begins immediately if you already have data older than the
     selected interval. The order of compression is from oldest to newest chunks.
+
     </Highlight>
 
 </Procedure>

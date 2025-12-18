@@ -129,6 +129,7 @@ To manage projects in billing groups, take the following steps.
 
   Assigning a project that is already assigned to another billing group 
   will unassign it from that billing group.
+
   </Highlight>
 
 - Move a project to another billing group

@@ -231,7 +231,7 @@ and most other tasks are executed on the hypertable.
 
     
 	The `by_range` dimension builder is an addition to $TIMESCALE_DB 2.13.
-	
+
     </Highlight>
 
 1.  Execute the `CREATE TABLE` statement and `SELECT` statement which converts

@@ -86,6 +86,7 @@
     On Red Hat Enterprise Linux 8 and later, disable the built-in $PG module:
     
     `sudo dnf -qy module disable postgresql`
+
     </Highlight>
 
     <!-- markdownlint-enable TS007 -->

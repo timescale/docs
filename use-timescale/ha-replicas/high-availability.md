@@ -97,6 +97,7 @@ primary is not in a state to safely switch.
     <Highlight type="note">
 
     You can also connect to the HA replica and check its node using this procedure.
+
     </Highlight>
 
 1.  At the `psql` prompt, connect to the `postgres` database:

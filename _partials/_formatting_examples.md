@@ -50,9 +50,8 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
       <Highlight type="note">
 
-    
       Additional relevant information worth highlighting. 
-    
+
       </Highlight>
 
     See a [use example][disable-chunk-skipping] in the docs.
@@ -65,9 +64,8 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
       <Highlight type="important">
 
-    
       Important things to keep in mind. 
-    
+
       </Highlight>
 
     See a [use example][decompress-chunks] in the docs.
@@ -80,9 +78,8 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
       <Highlight type="warning">
 
-    
       Caution!
-    
+
       </Highlight>
 
     See a [use example][alerting] in the docs.
@@ -95,9 +92,8 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
       <Highlight type="deprecation">
 
-    
       A deprecation notice.
-    
+
       </Highlight>
 
     See a [use example][deprecation] in the docs.
@@ -110,9 +106,8 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
       <Highlight type="cloud">
 
-    
       A note dealing specifically with Tiger.
-    
+
       </Highlight>
 
 ## Tabs

@@ -98,7 +98,7 @@ or `maven`.
     This method of composing a connection string is for test or development
     purposes only. For production, use environment variables for sensitive
     details like your password, hostname, and port number.
-    
+
     </Highlight>
 
     ```java
@@ -219,7 +219,7 @@ and most other tasks are executed on the hypertable.
 
     
 	The `by_range` and `by_hash` dimension builder is an addition to $TIMESCALE_DB 2.13.
- 
+
 	</Highlight>
 
 1.  Execute the two statements you created, and commit your changes to the
