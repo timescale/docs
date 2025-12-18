@@ -165,7 +165,12 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
     brew install timescaledb-toolkit
     ```
 
-1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
+1.  **Connect to $PG**
+
+    ```bash
+    psql postgres
+    ```
+    
 1.  Create the $TOOLKIT_SHORT extension in the database:
 
     ```sql

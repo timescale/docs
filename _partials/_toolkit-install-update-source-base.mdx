@@ -1,50 +1,13 @@
 ## Install $TOOLKIT_LONG
 
-To install $TOOLKIT_SHORT from source, follow the build and installation instructions in the [TimescaleDB Toolkit GitHub repository][toolkit-gh-install].
-
-After building and installing from source:
+To install $TOOLKIT_SHORT from source:
 
 <Procedure>
 
-1.  **Restart $PG**
+1.  **Build the extension from the latest source code**
 
-    <Tabs label="Restart PostgreSQL" persistKey="source-os">
-
-    <Tab title="Linux" label="linux">
-
-    ```bash
-    sudo systemctl restart postgresql
-    ```
-
-    </Tab>
-
-    <Tab title="macOS" label="macos">
-
-    ```bash
-    brew services restart postgresql@<version>
-    ```
-
-    <Highlight type="note">
-
-    On macOS, if the extension fails to load after building from source, you may need to create symlinks for library compatibility. The build process creates `.dylib` files, but the extension may expect `.so` files:
-
-    ```bash
-    ln -sf $(pg_config --pkglibdir)/timescaledb_toolkit.dylib \
-           $(pg_config --pkglibdir)/timescaledb_toolkit.so
-    ```
-
-    </Highlight>
-
-    </Tab>
-
-    <Tab title="Windows" label="windows">
-
-    Open Services (press `Win + R`, type `services.msc`, and press Enter).
-    Find the PostgreSQL service, right-click it, and select `Restart`.
-
-    </Tab>
-
-    </Tabs>
+    Follow the build instructions in the [TimescaleDB Toolkit GitHub repository][toolkit-gh-install] to download and
+    build the latest version.
 
 1.  **Connect to your database**
 
@@ -52,54 +15,25 @@ After building and installing from source:
     psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
     ```
 
-1.  **Create the $TOOLKIT_SHORT extension**
+1.  **Update the Toolkit extension in the database**
 
-    At the `psql` prompt:
-
-    ```sql
+    ```bash
     CREATE EXTENSION timescaledb_toolkit;
     ```
+
 
 </Procedure>
 
 ## Update $TOOLKIT_LONG
 
-To update $TOOLKIT_SHORT installed from source, rebuild and reinstall the latest version.
+To update $TOOLKIT_SHORT installed from source:
 
 <Procedure>
 
-1.  **Download the latest source code**
+1.  **Build the extension from the latest source code**
 
-    Follow the build instructions in the [TimescaleDB Toolkit GitHub repository][toolkit-gh-install] to download and build the latest version.
-
-1.  **Restart $PG**
-
-    <Tabs label="Restart PostgreSQL" persistKey="source-os">
-
-    <Tab title="Linux" label="linux">
-
-    ```bash
-    sudo systemctl restart postgresql
-    ```
-
-    </Tab>
-
-    <Tab title="macOS" label="macos">
-
-    ```bash
-    brew services restart postgresql@<version>
-    ```
-
-    </Tab>
-
-    <Tab title="Windows" label="windows">
-
-    Open Services (press `Win + R`, type `services.msc`, and press Enter).
-    Find the PostgreSQL service, right-click it, and select `Restart`.
-
-    </Tab>
-
-    </Tabs>
+    Follow the build instructions in the [TimescaleDB Toolkit GitHub repository][toolkit-gh-install] to download and
+    build the latest version.
 
 1.  **Connect to your database**
 
@@ -107,20 +41,11 @@ To update $TOOLKIT_SHORT installed from source, rebuild and reinstall the latest
     psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
     ```
 
-1.  **Update the $TOOLKIT_SHORT extension**
+1.  **Update the Toolkit extension in the database**
 
-    At the `psql` prompt:
-
-    ```sql
+    ```bash
     ALTER EXTENSION timescaledb_toolkit UPDATE;
     ```
-
-    <Highlight type="note">
-
-    For some $TOOLKIT_SHORT versions, you might need to disconnect and reconnect active
-    sessions.
-
-    </Highlight>
 
 </Procedure>
 
