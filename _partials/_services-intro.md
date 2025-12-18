@@ -35,6 +35,8 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 
   Free $SERVICE_SHORTs offer limited resources and a basic feature scope, perfect to get to know $CLOUD_LONG in a development environment.
 
+You can [manage, pause, or delete][service-management] your $SERVICE_SHORT at any time from $CONSOLE.
+
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
 [cloud_long-pricing-plans]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg
 [connection-pooling]: /use-timescale/:currentVersion:/services/connection-pooling
@@ -50,4 +52,5 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [projects]: /use-timescale/:currentVersion:/security/members/
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[service-management]: /use-timescale/:currentVersion:/services/
 [what-is-time-series]: https://www.tigerdata.com/blog/time-series-database-an-explainer#what-is-a-time-series-database

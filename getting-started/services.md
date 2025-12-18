@@ -7,16 +7,13 @@ content_group: Getting started
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
-import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import StartUsingCloud from "versionContent/_partials/_start-using-cloud.mdx";
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import CreateService from "versionContent/_partials/_create-service.mdx";
 import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
-
 import InstallAzure from "versionContent/_partials/_cloud-installation-azure.mdx";
 import ServiceIntroAzure from "versionContent/_partials/_services-intro-azure.mdx";
-import ServiceOverviewAzure from "versionContent/_partials/_service-overview-azure.mdx";
 import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-azure.mdx";
 
 # Create a $SERVICE_LONG
@@ -30,8 +27,6 @@ import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-az
 ## What is a $SERVICE_LONG?
 
 <ServiceIntro />
-
-<ServiceOverview />
 
 <StartUsingCloud />
 
@@ -62,8 +57,6 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 ## What is a $SERVICE_LONG?
 
 <ServiceIntroAzure />
-
-<ServiceOverviewAzure />
 
 <StartUsingCloudAzure />
 

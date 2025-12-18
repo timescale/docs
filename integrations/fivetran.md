@@ -51,15 +51,15 @@ $SERVICE_LONG. This section shows you how to inject the logs for your Fivetran c
 
 <Procedure>
 
-1. In [Fivetran Dashboard > Connections][fivetran-dashboard-connectors], click `Add connector`.
-1. Search for the `Fivetran Platform` connector, then click `Setup`.
+1. In [Fivetran Dashboard > Connections][fivetran-dashboard-connectors], click `Add connection`.
+1. Search for the `Fivetran Platform` connector, then click `Set up`.
 1. Leave the default schema name, then click `Save & Test`.
 
    You see `All connection tests passed!`
-1. Click `Continue`, enable `Add Quickstart Data Model` and click `Continue`.
+1. Click `Continue`, select `Yes, build data models for me`, and click `Continue`.
 
    Your Fivetran connection is connected to your $SERVICE_LONG destination. 
-1. Click `Start Initial Sync`.
+1. Select `Start syncing all my data now` and click `Start initial sync`.
 
    Fivetran creates the log schema in your $SERVICE_SHORT and syncs the data to your $SERVICE_SHORT.
 
@@ -71,7 +71,7 @@ To see data injected by Fivetran into your $SERVICE_LONG:
 
 <Procedure>
 
-1. In [data mode][portal-data-mode] in $CONSOLE, select your $SERVICE_SHORT, then run the following query:
+1. In $CONSOLE, click `Data view`, select your $SERVICE_SHORT, then run the following query:
    ```sql
    SELECT *
    FROM fivetran_log.account

@@ -280,7 +280,6 @@ And that is it, you have imported your data from a Parquet file to your $SERVICE
 </Tabs>
 
 
-[parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 
 [go-install]: https://go.dev/doc/install
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
@@ -288,3 +287,4 @@ And that is it, you have imported your data from a Parquet file to your $SERVICE
 [install-duckdb]: https://duckdb.org/docs/installation/
 [install-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy?tab=readme-ov-file#go
 [parquet]: https://parquet.apache.org/
+[parallel importer]: https://github.com/timescale/timescaledb-parallel-copy

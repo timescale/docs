@@ -35,7 +35,9 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 
   Free $SERVICE_SHORTs offer limited resources and a basic feature scope, perfect to get to know $CLOUD_LONG in a development environment.
 
-[what-is-time-series]: https://www.tigerdata.com/blog/time-series-database-an-explainer#what-is-a-time-series-database
+You can [manage, pause, or delete][service-management] your $SERVICE_SHORT at any time from $CONSOLE.
+
+[what-is-time-series]: https://www.timescale.com/blog/time-series-database-an-explainer#what-is-a-time-series-database
 [create-service]: /getting-started/:currentVersion:/services/
 [live-migration]: /migrate/:currentVersion:/live-migration/
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
@@ -51,3 +53,4 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [rbac]: /use-timescale/:currentVersion:/security/members/
+[service-management]: /use-timescale/:currentVersion:/services/service-management/

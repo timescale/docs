@@ -44,7 +44,7 @@ outside of that field saves the value to be applied.
 
 <img class="main-content__illustration"
 width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-settings-change.webp"
+src="https://assets.timescale.com/docs/images/tsc-settings-change.png"
 alt="Change Tiger Cloud configuration parameters"/>
 
 ### Apply configuration changes
@@ -56,10 +56,5 @@ case, the button reads `Apply changes and restart`.
 
 A confirmation dialog is displayed which indicates whether a restart is
 required. Click `Confirm` to apply the changes, and restart if necessary.
-
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-settings-confirm.webp"
-alt="Confirm Tiger Cloud configuration changes"/>
 
 [database-configuration-parameters]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-configuration-parameters.png

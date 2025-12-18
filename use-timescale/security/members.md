@@ -20,7 +20,7 @@ This includes the following roles:
 - **Owner**: $CLOUD_LONG assigns this role to you when your $PROJECT_SHORT is created. As the Owner, you can add and delete other users, transfer project ownership, administer $SERVICE_SHORTs, and edit $PROJECT_SHORT settings. 
 - **Admin**: the Owner assigns this role to other users in the $PROJECT_SHORT. A user with the Admin role has the same scope of rights as the Owner but cannot transfer project ownership. 
 - **Developer**: the Owner and Admins assign this role to other users in the $PROJECT_SHORT. A Developer can build, deploy, and operate $SERVICE_SHORTs across projects, but does not have administrative privileges over users, roles, or billing. A Developer can invite other users to the $PROJECT_SHORT, but only with the Viewer role. 
-- **Viewer**: the Owner and Admins assign this role to other users in the $PROJECT_SHORT. A Viewer has limited, read-only access to $CONSOLE_LONG. This means that a Viewer cannot modify $SERVICE_SHORTs and their configurations in any way. A Viewer has no access to the $DATA_MODE and has read-queries-only access to $SQL_EDITOR.
+- **Viewer**: the Owner and Admins assign this role to other users in the $PROJECT_SHORT. A Viewer has limited, read-only access to $CONSOLE_LONG. This means that a Viewer cannot modify $SERVICE_SHORTs and their configurations in any way. A Viewer has no access to $DATA_MODE and has read-queries-only access to $SQL_EDITOR.
 
 ![Project users in $CONSOLE][project-users-in-console]
 
@@ -43,7 +43,7 @@ To add a user to a $PROJECT_SHORT:
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`, then click `Add new user`.
+1.  In [$CONSOLE][cloud-login], click `Users`, then click `Add new user`.
 
 1.  Type the email address of the person that you want to add, select their role, and click `Invite
     user`.
@@ -112,7 +112,7 @@ $PROJECT_SHORT_CAP invitations are valid for 7 days. To resend a $PROJECT_SHORT 
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`.
+1.  In [$CONSOLE][cloud-login], click `Users`.
 
 1.  Next to the person you want to invite to your $PROJECT_SHORT, click `Resend invitation`.
 
@@ -126,7 +126,7 @@ To change the $PROJECT_SHORT you are currently working in:
 
 <Procedure>
 
-1. In [$CONSOLE][cloud-login], click the $PROJECT_SHORT name > `Current project` in the top left.
+1. In [$CONSOLE][cloud-login], click the arrows next to the $PROJECT_SHORT name in the top left.
 
    ![Change project in $CONSOLE][change-project-in-console]
 
@@ -144,11 +144,9 @@ To transfer $PROJECT_SHORT ownership:
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`.
+1.  In [$CONSOLE][cloud-login], click `Users`.
 
 1.  Next to the person you want to transfer project ownership to, click `⋮` > `Transfer project ownership`.
-
-    ![Transfer project ownership in $CONSOLE][transfer-project-ownership-in-console]
 
     If you are unable to transfer ownership, hover over the greyed out button to see the details.
 
@@ -167,7 +165,7 @@ To stop working in a $PROJECT_SHORT:
 
 <Procedure>
 
-1. In [$CONSOLE][cloud-login], click `Invite users`.
+1. In [$CONSOLE][cloud-login], click `Users`.
 
 1. Click `⋮` > `Leave project`, then click `Leave`.
 
@@ -183,7 +181,7 @@ To change the role for another user:
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`.
+1.  In [$CONSOLE][cloud-login], click `Users`.
 
 1.  Next to the corresponding user, select another role in the dropdown. 
 
@@ -199,7 +197,7 @@ To remove a user's access to a $PROJECT_SHORT:
 
 <Procedure>
 
-1.  In [$CONSOLE][cloud-login], click `Invite users`.
+1.  In [$CONSOLE][cloud-login], click `Users`.
 1.  Next to the person you want to remove, click `⋮` > `Remove`.
     ![Remove user in $CONSOLE][transfer-project-ownership-in-console]
 1.  In `Remove user`, click `Remove`.

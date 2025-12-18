@@ -43,7 +43,7 @@ To retrieve the connection details for your $PROJECT_LONG and $SERVICE_LONG:
 
 1. **Retrieve your project ID**:
 
-   In [$CONSOLE][services-portal], click your project name in the upper left corner, then click `Copy` next to the project ID.
+   In [$CONSOLE][services-portal], click the arrows next to the project name in the top left. The project ID is under the project name.
    ![Retrive the project id in $CONSOLE][retrive-the-project-id-in-console]
 
 1. **Retrieve your service ID**:
@@ -64,32 +64,7 @@ such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
 
 1. **Open the settings for your project**:
 
-   In [$CONSOLE][services-portal], click your project name in the upper left corner, then click `Project settings`.
-
-1. **Create client credentials**:
- 
-   1. Click `Create credentials`, then copy `Public key` and `Secret key` locally.
-
-      ![Retrive the service id in $CONSOLE][retrive-the-service-id-in-console-1]
-
-       This is the only time you see the `Secret key`. After this, only the `Public key` is visible in this page. 
-
-   1. Click `Done`.
-
-</Procedure>
-
-## Create client credentials 
-
-You use client credentials to obtain access tokens outside of the user context.
-
-To retrieve the connection details for your $CLOUD_LONG project for programmatic usage 
-such as Terraform or the [$CLOUD_LONG REST API][rest-api-reference]:
-
-<Procedure>
-
-1. **Open the settings for your project**:
-
-   In [$CONSOLE][services-portal], click your project name in the upper left corner, then click `Project settings`.
+   In [$CONSOLE][services-portal], click `Settings`.
 
 1. **Create client credentials**:
  
