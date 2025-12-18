@@ -774,5 +774,5 @@ this time.
 [langchain]: https://python.langchain.com/docs/integrations/vectorstores/timescalevector
 [llamaindex]: https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html
 [psycopg2-build-prerequisites]: https://www.psycopg.org/docs/install.html#build-prerequisites
-[sign-up-for-pgai-on-cloud_long]: https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct
+[sign-up-for-pgai-on-cloud_long]: https://console.cloud.timescale.com/signup
 [uuidtimerange]: https://timescale.github.io/python-vector/vector.html#uuidtimerange

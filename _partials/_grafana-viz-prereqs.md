@@ -1,6 +1,6 @@
 Before you begin, make sure you have:
 
-*   Created a [Timescale][cloud-login] service.
+*   Created a [$SERVICE_LONG][cloud-login].
 *   Installed a self-managed Grafana account, or signed up for
     [Grafana Cloud][grafana-cloud].
 *   Ingested some data to your database. You can use the stock trade data from
