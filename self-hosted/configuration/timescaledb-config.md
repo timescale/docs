@@ -72,5 +72,3 @@ connecting to data nodes using certificate authentication. Defaults to
 
 Specifies the name of the file where passwords are stored and when
 connecting to data nodes using password authentication.
-
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/

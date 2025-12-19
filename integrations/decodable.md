@@ -11,7 +11,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 [Decodable][decodable] is a real-time data platform that allows you to build, run, and manage data pipelines effortlessly. 
 
-![Decodable workflow](https://assets.timescale.com/docs/images/integrations-decodable-configuration.png)
+![Decodable workflow][decodable-workflow]
 
 This page explains how to integrate Decodable with your $SERVICE_LONG to enable efficient real-time streaming and analytics.
 
@@ -47,7 +47,7 @@ To stream data gathered in Decodable to a $SERVICE_LONG:
 
    1. Connect to your $SERVICE_LONG.
 
-      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For $SELF_LONG, use [`psql`][psql].
+      For $CLOUD_LONG, open an [SQL editor][in-console-editors] in [$CONSOLE][services-portal]. For $SELF_LONG, use [`psql`][psql].
 
    1. Check the data from Decodable is streaming into your $SERVICE_LONG.
 
@@ -56,20 +56,20 @@ To stream data gathered in Decodable to a $SERVICE_LONG:
       ```
       You see something like: 
 
-      ![Decodable workflow](https://assets.timescale.com/docs/images/integrations-decodable-data-in-service.png)
+      ![Decodable workflow][decodable-workflow-1]
 
 </Procedure> 
 
 
-You have successfully integrated Decodable with $CLOUD_LONG. 
+You have successfully integrated Decodable with $CLOUD_LONG.
 
-
-[decodable]: https://www.decodable.co/
-[decodable-app]:https://app.decodable.co/-/accounts
-[sign-up-decodable]: https://auth.decodable.co/u/signup/
-[decodable-quickstart]: https://docs.decodable.co/get-started/quickstart.html
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
+[decodable-app]:https://app.decodable.co/-/accounts
+[decodable-quickstart]: https://docs.decodable.co/get-started/quickstart.html
+[decodable-workflow-1]: https://assets.timescale.com/docs/images/integrations-decodable-data-in-service.png
+[decodable-workflow]: https://assets.timescale.com/docs/images/integrations-decodable-configuration.png
+[decodable]: https://www.decodable.co/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /integrations/:currentVersion:/psql/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[sign-up-decodable]: https://auth.decodable.co/u/signup/

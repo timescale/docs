@@ -63,7 +63,7 @@ api_details:
         for interpolation.
 
         If you prefer to see the result in seconds,
-        [`EXTRACT`](https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT)
+        [`EXTRACT`][extract]
         the epoch from the returned result.
       command:
         code: |
@@ -93,3 +93,5 @@ api_details:
           2020-01-04 00:00:00+00  | 12:00:00
 ---
 
+
+[extract]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT

@@ -14,7 +14,7 @@ import MacosSupport from "versionContent/_partials/_timescaledb_supported_macos.
 
 # Install self-hosted $TIMESCALE_DB on macOS
 
-TimescaleDB is a [$PG extension](https://www.postgresql.org/docs/current/external-extensions.html) for
+TimescaleDB is a [$PG extension][pg-extension] for
 time series and demanding workloads that ingest and query high volumes of data. You can host TimescaleDB on 
 macOS device.
 
@@ -81,12 +81,9 @@ For the latest functionality, install MacOS 14 Sonoma.
 
  <WhereTo />
 
-[homebrew]: https://docs.brew.sh/Installation
-[install-psql]: /integrations/:currentVersion:/psql/
-[macports]: https://guide.macports.org/#installing.macports
+[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-macos/#add-the-timescale_db-extension-to-your-database
+[install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-macos/#install-self-hosted-timescale_db-on-macos
 [install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
 [install-postgresql]: https://www.postgresql.org/download/macosx/
-
-[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-macos/#add-the-timescaledb-extension-to-your-database
-[install-and-configure-timescaledb-on-postgresql-link]: /self-hosted/:currentVersion:/install/installation-macos/#install-and-configure-timescaledb-on-postgres
+[pg-extension]: https://www.postgresql.org/docs/current/external-extensions.html
 [supported-platforms-link]: /self-hosted/:currentVersion:/install/installation-macos/#supported-platforms

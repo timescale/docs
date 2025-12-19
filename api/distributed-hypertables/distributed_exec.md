@@ -32,9 +32,11 @@ Note that the command is _not_ executed on the access node itself and
 it is not possible to chain multiple commands together in one call.
 
 <Highlight type="important">
+
 You cannot run `distributed_exec` with some SQL commands. For example, `ALTER
 EXTENSION` doesn't work because it can't be called after the TimescaleDB
 extension is already loaded.
+
 </Highlight>
 
 ## Required arguments

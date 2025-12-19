@@ -139,9 +139,11 @@ tsdb=> CALL _timescaledb_functions.repair_relation_acls();
 ```
 
 <Highlight type="warning">
+
 This requires superuser privileges (since you're modifying the
 `pg_class` table) and that it removes any user not present in
 `pg_authid` from *all* tables, so use with caution.
+
 </Highlight>
 
 The permissions are usually corrupted for the hypertable as well, but
@@ -227,6 +229,7 @@ changed in the configuration file, it is used for
 `timescaledb.bgw_log_level` when starting the workers.
 
 <Highlight type="note">
+
 Both `ALTER SYSTEM` and `pg_reload_conf()` require superuser
 privileges by default. Grant `EXECUTE` permissions
 to `pg_reload_conf()` and `ALTER SYSTEM` privileges to
@@ -235,6 +238,7 @@ non-superuser.
 
 Since `ALTER SYSTEM` privileges only exist on $PG 15 and later,
 the necessary grants for executing these statements only exist on $CLOUD_LONG for $PG 15 or later.
+
 </Highlight>
 
 ### Debug level 1
@@ -313,10 +317,11 @@ ON ddl_command_end WHEN TAG IN ('CREATE TABLE') EXECUTE FUNCTION ddl_end_trigger
 ```
 
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
+[using explain]: https://www.postgresql.org/docs/current/using-explain.html
+
 [github]: https://github.com/timescale/timescaledb/issues
+[log_min_messages]: https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES
 [slack]: https://slack.timescale.com/
 [track_io_timing]: https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
 [update-db]: /self-hosted/:currentVersion:/upgrades/
-[using explain]: https://www.postgresql.org/docs/current/using-explain.html
-[worker-config]: /self-hosted/latest/configuration/about-configuration/#workers
-[log_min_messages]: https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES
+[worker-config]: /self-hosted/:currentVersion:/configuration/about-configuration/#workers

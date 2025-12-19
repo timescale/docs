@@ -53,8 +53,10 @@ Let's start off analyzing trading volumes, then have a look at weekly price poin
 price changes. The results of the queries shown are visualized using Plotly.
 
 <Highlight type="tip">
+
 Let these queries serve as inspiration to you, and feel free to change things up, like the analyzed `bucket`,
 the `symbol` or other parts of the query. Have fun!
+
 </Highlight>
 
 1.  Which symbols have the highest transaction volumes?
@@ -86,7 +88,7 @@ fig = px.bar(df, x='symbol', y='volume', title="Most traded symbols in the last 
 fig.show()
 ```
 
-![most traded symbols](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/most_traded_symbols.png)
+![most traded symbols][most-traded-symbols]
 
 ### 2. How did Apple's trading volume change over time?
 
@@ -107,7 +109,7 @@ fig = px.line(df, x='bucket', y='volume', title="Apple's daily trading volume ov
 fig.show()
 ```
 
-![apple trading volume over time](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/apple_trading_volume.png)
+![apple trading volume over time][apple-trading-volume-over-time]
 
 ### 3. How did Apple's stock price change over time?
 
@@ -129,7 +131,7 @@ fig = px.line(df, x='bucket', y='last_closing_price')
 fig.show()
 ```
 
-![apple price over time](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/apple_price.png)
+![apple price over time][apple-price-over-time]
 
 ### 4. Which symbols had the highest weekly gains?
 
@@ -170,7 +172,9 @@ print(df)
 `bucket` shows (the first day of) the week.
 
 <Highlight type="tip">
+
 Change `orderby` to "ASC" to query the biggest losses.
+
 </Highlight>
 
 ### 5. Weekly FAANG prices over time?
@@ -193,7 +197,7 @@ fig = px.line(df, x='bucket', y='last_closing_price', color='symbol', title="FAA
 fig.show()
 ```
 
-![faang prices](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/faang_prices.png)
+![faang prices][faang-prices]
 
 ### 6. Weekly price changes of Apple, Facebook, Google?
 
@@ -225,7 +229,7 @@ figure = figure.update_layout(yaxis={'tickformat': '.2%'})
 figure.show()
 ```
 
-![weekly price changes](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/weekly_price_changes.png)
+![weekly price changes][weekly-price-changes]
 
 ### 7. Distribution of daily price changes of Amazon and Zoom
 
@@ -256,7 +260,7 @@ figure = figure.update_layout(xaxis={'tickformat': '.2%'})
 figure.show()
 ```
 
-![distribution of price changes](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/distribution_price_changes.png)
+![distribution of price changes][distribution-of-price-changes]
 
 ### 8. Apple 15-min candlestick chart
 
@@ -288,10 +292,19 @@ figure.show()
 ```
 
 <Highlight type="tip">
+
 Change `date` to see the candlesticks for another day.
+
 </Highlight>
 
-![candlestick chart apple](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick.png)
+![candlestick chart apple][candlestick-chart-apple]
 
+[apple-price-over-time]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/apple_price.png
+[apple-trading-volume-over-time]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/apple_trading_volume.png
+[candlestick-chart-apple]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick.png
+[distribution-of-price-changes]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/distribution_price_changes.png
+[faang-prices]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/faang_prices.png
+[most-traded-symbols]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/most_traded_symbols.png
 [pandas-docs]: https://pandas.pydata.org
 [plotly-docs]: https://plotly.com/python/
+[weekly-price-changes]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/weekly_price_changes.png

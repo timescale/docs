@@ -34,7 +34,7 @@ To connect to $CLOUD_LONG:
     *   For `Host`, `Port`, `Database`, `Username`, and `Password`, use
         your [connection details][connection-info].
 
-  ![qStudio integration](https://assets.timescale.com/docs/images/integrations-qstudio.png)
+  ![qStudio integration][qstudio-integration]
 
 1.  **Click `Test`**
 
@@ -48,6 +48,7 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated qStudio with $CLOUD_LONG.
 
-[qstudio]: https://www.timestored.com/qstudio/
-[qstudio-downloads]: https://www.timestored.com/qstudio/download
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[qstudio-downloads]: https://www.timestored.com/qstudio/download
+[qstudio-integration]: https://assets.timescale.com/docs/images/integrations-qstudio.png
+[qstudio]: https://www.timestored.com/qstudio/

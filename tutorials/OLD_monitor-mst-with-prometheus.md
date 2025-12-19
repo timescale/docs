@@ -20,7 +20,7 @@ as [pg_stats][pg-stats-metrics] metrics.
 
 In order to proceed with this tutorial, you need a managed service for TimescaleDB database.
 To create one, see these instructions for how to
-[get started with $MST_LONG][timescale-mst-get-started]
+[get started with $MST_LONG][about-mst]
 
 ### Step 1: Enable Prometheus service integration
 
@@ -92,8 +92,8 @@ you associated the $SERVICE_SHORT with.
 
 Congratulations, you have successfully set up a Prometheus endpoint on your $MST!
 
+[about-mst]: /mst/:currentVersion:/about-mst
 [get-prometheus]: https://prometheus.io
 [node-exporter-metrics]: https://github.com/prometheus/node_exporter
 [pg-stats-metrics]: https://www.postgresql.org/docs/current/monitoring-stats.html
-[timescale-mst]: https://www.timescale.com/products
-[timescale-mst-get-started]: /mst/:currentVersion:/about-mst
+[timescale-mst]: https://www.tigerdata.com/products

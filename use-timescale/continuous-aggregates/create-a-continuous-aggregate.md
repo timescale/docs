@@ -18,7 +18,7 @@ Continuous aggregates require a `time_bucket` on the time partitioning column of
 the hypertable.
 
 By default, views are automatically refreshed. You can adjust this by setting
-the [WITH NO DATA][using-the-with-no-data-option-link] option. Additionally, the
+the [WITH NO DATA][with-no-data] option. Additionally, the
 view can not be a [security barrier view][postgres-security-barrier].
 
 Continuous aggregates use hypertables in the background, which means that they
@@ -81,11 +81,11 @@ the hypertable. The time bucket allows you to define a time interval, instead of
 having to use specific timestamps. For example, you can define a time bucket as
 five minutes, or one day.
 
-You can't use [time_bucket_gapfill][api-time-bucket-gapfill] directly in a
+You can't use [time_bucket_gapfill][hyperfunctions-api-gapfilling] directly in a
 continuous aggregate. This is because you need access to previous data to
 determine the gapfill content, which isn't yet available when you create the
 continuous aggregate. You can work around this by creating the continuous
-aggregate using [`time_bucket`][api-time-bucket], then querying the continuous
+aggregate using [`time_bucket`][time_bucket], then querying the continuous
 aggregate using `time_bucket_gapfill`.
 
 ## Using the WITH NO DATA option
@@ -161,9 +161,11 @@ GROUP BY name, bucket;
 ```
 
 <Highlight type="note">
+
 For more information about creating a continuous aggregate with a `JOIN`,
 including some additional restrictions, see the
-[about continuous aggregates section](https://www.tigerdata.com/docs/use-timescale/latest/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause).
+[about continuous aggregates section][about-caggs-join-clause].
+
 </Highlight>
 
 ## Query continuous aggregates
@@ -305,13 +307,16 @@ For $TIMESCALE_DB v2.19.3 and below, $CAGGs do not support window functions. To 
         value - lag(value, 1) OVER (ORDER BY bucket) AS delta
       FROM example_aggregate;
       ```
-    
-[api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
-[api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+
+
+
+[about-caggs-join-clause]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause
 [cagg-function-support]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#function-support
-[postgres-immutable]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
-[postgres-rls]: <https://www.postgresql.org/docs/current/ddl-rowsecurity.html>
-[postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>
-[with-no-data]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option
 [create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
-[using-the-with-no-data-option-link]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option
+[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
+[postgres-immutable]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
+[postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
+[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[with-no-data]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option
+

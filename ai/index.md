@@ -22,7 +22,7 @@ integrations. Your AI Assistants can:
 
 ## $EON_LONG for complete organizational AI
 
-[$EON_LONG](/ai/:currentVersion:/tiger-eon/) automatically integrates $AGENTS_LONG with your organizational 
+[$EON_LONG][eon_long] automatically integrates $AGENTS_LONG with your organizational 
 data. You can:
 
 - Get instant access to company knowledge from Slack, GitHub, and Linear
@@ -34,7 +34,7 @@ Use $EON_SHORT when you want to unlock knowledge from your communication and dev
 
 ## $AGENTS_LONG for enterprise Slack AI
 
-[$AGENTS_LONG](/ai/:currentVersion:/tiger-agents-for-work/) provides enterprise-grade Slack-native AI agents. 
+[$AGENTS_LONG][agents_long] provides enterprise-grade Slack-native AI agents. 
 You get:
 
 - Durable event handling with $PG-backed processing
@@ -47,7 +47,7 @@ Use $AGENTS_LONG when you need reliable, customizable AI agents for high-volume 
 
 ## $MCP_SHORT for direct AI Assistant integration
 
-[$MCP_LONG](/ai/:currentVersion:/mcp-server/) integrates directly with popular AI Assistants. You can:
+[$MCP_LONG][mcp_long] integrates directly with popular AI Assistants. You can:
 
 - Work with Claude Code, Cursor, VS Code, and other editors
 - Manage $SERVICE_SHORTs and optimize queries through natural language
@@ -61,7 +61,7 @@ Use $MCP_SHORT when you want to manage $COMPANY resources from your AI Assistant
 ## pgvectorscale and️ pgvector
 <!-- vale Google.Headings = Yes -->
 
-[Pgvector](https://github.com/pgvector/pgvector) is a popular open source extension for vector storage and similarity search in $PG and [pgvectorscale](https://github.com/timescale/pgvectorscale) adds advanced indexing capabilities to pgvector. pgai on $CLOUD_LONG offers both extensions so you can use all the capabilities already available in pgvector (like HNSW and ivfflat indexes) and also make use of the StreamingDiskANN index in pgvectorscale to speed up vector search.
+[Pgvector][pgvector] is a popular open source extension for vector storage and similarity search in $PG and [pgvectorscale][pgvectorscale] adds advanced indexing capabilities to pgvector. pgai on $CLOUD_LONG offers both extensions so you can use all the capabilities already available in pgvector (like HNSW and ivfflat indexes) and also make use of the StreamingDiskANN index in pgvectorscale to speed up vector search.
 
 This makes it easy to migrate your existing pgvector deployment and take advantage of the additional performance features in pgvectorscale. You also have the flexibility to create different index types suited to your needs. See the [vector search indexing][vector-search-indexing] section for more information.
 
@@ -92,14 +92,24 @@ Under the hood, embeddings are represented as a vector (a list of numbers) that 
 
 pgai on $CLOUD_LONG works with the most popular embedding models that have output vectors of 2,000 dimensions or less.:
 
-- [OpenAI embedding models](https://platform.openai.com/docs/guides/embeddings/): text-embedding-ada-002 is OpenAI's recommended embedding generation model.
-- [Cohere representation models](https://docs.cohere.com/docs/models#representation): Cohere offers many models that can be used to generate embeddings from text in English or multiple languages.
+- [OpenAI embedding models][openai-embedding-models]: text-embedding-ada-002 is OpenAI's recommended embedding generation model.
+- [Cohere representation models][cohere-representation-models]: Cohere offers many models that can be used to generate embeddings from text in English or multiple languages.
 
 
 And here are some popular choices for image embeddings:
 
-- [OpenAI CLIP](https://github.com/openai/CLIP): Useful for applications involving text and images.
-- [VGG](https://docs.pytorch.org/vision/stable/models/vgg.html)
-- [Vision Transformer (ViT)](https://github.com/lukemelas/PyTorch-Pretrained-ViT)
+- [OpenAI CLIP][openai-clip]: Useful for applications involving text and images.
+- [VGG][vgg]
+- [Vision Transformer (ViT)][vision-transformer-vit]
 
+[agents_long]: /ai/:currentVersion:/tiger-agents-for-work/
+[cohere-representation-models]: https://docs.cohere.com/docs/models#representation
+[eon_long]: /ai/:currentVersion:/tiger-eon/
+[mcp_long]: /ai/:currentVersion:/mcp-server/
+[openai-clip]: https://github.com/openai/CLIP
+[openai-embedding-models]: https://platform.openai.com/docs/guides/embeddings/
+[pgvector]: https://github.com/pgvector/pgvector
+[pgvectorscale]: https://github.com/timescale/pgvectorscale
 [vector-search-indexing]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/#vector-search-indexing-approximate-nearest-neighbor-search
+[vgg]: https://docs.pytorch.org/vision/stable/models/vgg.html
+[vision-transformer-vit]: https://github.com/lukemelas/PyTorch-Pretrained-ViT

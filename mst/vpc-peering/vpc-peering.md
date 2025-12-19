@@ -41,5 +41,4 @@ The state of the VPC is listed in the table.
 
 </Procedure>
 
-
 [mst-login]:https://portal.managed.timescale.com/login

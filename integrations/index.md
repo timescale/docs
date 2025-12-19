@@ -95,11 +95,11 @@ Some of the most in-demand integrations are listed below.
 
 |        Name        | Description                                       |
 |:------------------:|---------------------------------------------------|
-|  <img isIcon src='https://assets.timescale.com/docs/icons/golang-logo.png' alt='golang-logo' />[Golang][golang]  | Integrate $CLOUD_LONG with a Golang application.  |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/java-logo.png' alt='java-logo' />[Java][java]    | Integrate $CLOUD_LONG with a Java application.    |
-| <img isIcon src='https://assets.timescale.com/docs/icons/node-logo.png' alt='node-logo' />[Node.js][node-js] | Integrate $CLOUD_LONG with a Node.js application. |
-|  <img isIcon src='https://assets.timescale.com/docs/icons/python-logo.png' alt='python-logo' />[Python][python]  | Integrate $CLOUD_LONG with a Python application.  |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/ruby-logo.png' alt='ruby-logo' />[Ruby][ruby]    | Integrate $CLOUD_LONG with a Ruby application.    |
+|  <img isIcon src='https://assets.timescale.com/docs/icons/golang-logo.png' alt='golang-logo' />[Golang][connect-with-code]  | Integrate $CLOUD_LONG with a Golang application.  |
+|    <img isIcon src='https://assets.timescale.com/docs/icons/java-logo.png' alt='java-logo' />[Java][connect-with-code]    | Integrate $CLOUD_LONG with a Java application.    |
+| <img isIcon src='https://assets.timescale.com/docs/icons/node-logo.png' alt='node-logo' />[Node.js][connect-with-code] | Integrate $CLOUD_LONG with a Node.js application. |
+|  <img isIcon src='https://assets.timescale.com/docs/icons/python-logo.png' alt='python-logo' />[Python][connect-with-code]  | Integrate $CLOUD_LONG with a Python application.  |
+|    <img isIcon src='https://assets.timescale.com/docs/icons/ruby-logo.png' alt='ruby-logo' />[Ruby][connect-with-code]    | Integrate $CLOUD_LONG with a Ruby application.    |
 
 ## Logging and system administration
 
@@ -175,31 +175,32 @@ Some of the most in-demand integrations are listed below.
 [amazon-sagemaker]: /integrations/:currentVersion:/amazon-sagemaker
 [apache-airflow]: /integrations/:currentVersion:/apache-airflow
 [apache-beam]: https://beam.apache.org/releases/javadoc/current/org/apache/beam/sdk/io/jdbc/JdbcIO.html
-[apache-skywalking]: https://skywalking.apache.org/docs/main/next/en/setup/backend/backend-postgresql-monitoring/
 [apache-skywalking-storage]: https://skywalking.apache.org/docs/main/next/en/setup/backend/storages/postgresql/
+[apache-skywalking]: https://skywalking.apache.org/docs/main/next/en/setup/backend/backend-postgresql-monitoring/
 [apache-spark]: https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html
 [appsmith]: https://docs.appsmith.com/connect-data/reference/querying-postgres
 [auth-js]: https://authjs.dev/getting-started/adapters/pg?framework=next-js
 [auth0]: https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
-[aws]: /integrations/:currentVersion:/aws
 [aws-lambda]: /integrations/:currentVersion:/aws-lambda
-[azure]: /integrations/:currentVersion:/microsoft-azure
+[aws]: /integrations/:currentVersion:/aws
 [azure-functions]: https://github.com/Azure/azure-functions-postgresql-extension
 [azure-monitor]: https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-monitoring
+[azure]: /integrations/:currentVersion:/microsoft-azure
 [cloudwatch]: /integrations/:currentVersion:/cloudwatch/
-[confluent]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-sink.html
 [confluent-source]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-source.html
+[confluent]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-sink.html
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [cube-js]: https://cube.dev/integrations/Timescale-API
-[data-center]: /integrations/:currentVersion:/corporate-data-center
 [dash0]: https://www.dash0.com/hub/integrations/int_tiger_service/overview
+[data-center]: /integrations/:currentVersion:/corporate-data-center
 [datadog]: /integrations/:currentVersion:/datadog/
+[dbeaver]: /integrations/:currentVersion:/dbeaver/
 [dbos]: https://docs.dbos.dev/integrations/tigerdata
 [dbt]: https://dbt-timescaledb.debruyn.dev/
-[dbeaver]: /integrations/:currentVersion:/dbeaver/
 [debezium]: /integrations/:currentVersion:/debezium/
 [decodable]: /integrations/:currentVersion:/decodable
 [deepnote]: https://deepnote.com/docs/postgresql
-[deltalake]: https://github.com/delta-io/delta/blob/master/connectors/sql-delta-import/readme.md
+[deltalake]: https://github.com/delta-io/delta/blob/master/connectors/README.md
 [deno-deploy]: https://docs.deno.com/deploy/manual/postgres/
 [django]: https://docs.djangoproject.com/en/5.1/ref/databases/#postgresql-notes
 [electricsql]: https://electric-sql.com/docs/intro
@@ -210,15 +211,14 @@ Some of the most in-demand integrations are listed below.
 [flink]: https://nightlies.apache.org/flink/flink-cdc-docs-release-3.1/docs/connectors/flink-sources/postgres-cdc/
 [flyway]: https://documentation.red-gate.com/flyway/reference/database-driver-reference/timescaledb
 [forest-admin]: https://www.forestadmin.com/integrations/postgresql
-[golang]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [google-cloud]: /integrations/:currentVersion:/google-cloud
 [grafana]: /integrations/:currentVersion:/grafana/
 [hasura]: https://hasura.io/docs/2.0/databases/postgres/timescale-cloud/
 [highbyte]: https://guide.highbyte.com/configuration/connect/connections/historians/timescaledb/
 [ibm-instana]: https://www.ibm.com/docs/en/instana-observability/current?topic=technologies-monitoring-postgresql
 [jaeger]: https://www.jaegertracing.io/docs/2.0/storage/
-[java]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [kafka]: /integrations/:currentVersion:/apache-kafka
+[kubernetes]: /integrations/:currentVersion:/kubernetes
 [langchain]: https://api.python.langchain.com/en/latest/postgres/index.html#
 [liquibase]: https://docs.liquibase.com/start/tutorials/postgresql/postgresql.html
 [looker]: https://cloud.google.com/looker/docs/db-config-postgresql
@@ -227,19 +227,16 @@ Some of the most in-demand integrations are listed below.
 [n8n]: https://n8n.io/integrations/redis/and/timescaledb/
 [neon]: https://neon.com/docs/extensions/timescaledb
 [new-relic]: https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/postgresql/postgresql-integration/
-[node-js]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [okta]: https://help.okta.com/oag/en-us/content/topics/access-gateway/integrate-app-datastores.htm
 [opentelemetry]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/postgresqlreceiver
 [pgadmin]: /integrations/:currentVersion:/pgadmin/
-[postgresql]: /integrations/:currentVersion:/postgresql
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[postgresql]: /integrations/:currentVersion:/postgresql
 [power-bi]: /integrations/:currentVersion:/power-bi
 [prisma]: https://www.prisma.io/docs/orm/overview/databases/postgresql
 [prometheus]: /integrations/:currentVersion:/prometheus
-[kubernetes]: /integrations/:currentVersion:/kubernetes
 [psql]: /integrations/:currentVersion:/psql/
 [pulumi]: https://www.pulumi.com/registry/packages/timescale/
-[python]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [qlik-replicate]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql.htm#ar_postgresds_802412600_1325150
 [qlik-source]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql_source.htm
 [qstudio]: /integrations/:currentVersion:/qstudio/
@@ -248,12 +245,11 @@ Some of the most in-demand integrations are listed below.
 [render]: https://render.com/docs/postgresql
 [retool]: https://retool.com/integrations/postgresql
 [rsyslog]: https://www.rsyslog.com/doc/configuration/modules/ompgsql.html
-[ruby]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [rust]: https://github.com/sfackler/rust-postgres
 [schemaspy]: https://wiki.postgresql.org/wiki/SchemaSpy
+[sequelize]: https://sequelize.org/docs/v7/databases/postgres/
 [signoz]: https://signoz.io/docs/integrations/postgresql/
 [sqlalchemy]: https://docs.sqlalchemy.org/en/20/dialects/postgresql.html
-[sequelize]: https://sequelize.org/docs/v7/databases/postgres/
 [stepzen]: https://www.ibm.com/docs/en/api-connect-graphql/saas?topic=apis-tutorial-create-graphql-api-postgresql-database
 [stitch]: https://stitch-docs.netlify.app/docs/integrations/databases/postgresql
 [streamlit]: https://docs.streamlit.io/develop/tutorials/databases/postgresql
@@ -265,4 +261,3 @@ Some of the most in-demand integrations are listed below.
 [tooljet]: https://docs.tooljet.ai/docs/data-sources/postgresql/
 [typeorm]: https://typeorm.biunav.com/en/connection-options.html#postgres-cockroachdb-connection-options
 [zapier]: https://zapier.com/apps/postgresql/integrations
-

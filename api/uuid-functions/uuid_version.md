@@ -14,7 +14,7 @@ products: [cloud, mst, self_hosted]
 
 Extract the version number from a UUID object: 
 
-![UUIDv7](https://assets.timescale.com/docs/images/uuidv7-structure.svg)
+![UUIDv7][uuidv7]
 
 ## Samples
 
@@ -33,3 +33,5 @@ Returns something like:
 | Name | Type             | Default | Required | Description                                        |
 |-|------------------|-|----------|----------------------------------------------------|
 |`uuid`|UUID| - | ✔ | The UUID object to extract the version number from |
+
+[uuidv7]: https://assets.timescale.com/docs/images/uuidv7-structure.svg

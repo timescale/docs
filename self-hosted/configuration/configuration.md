@@ -89,7 +89,9 @@ suggestions that `timescaledb-tune` makes, then check these. However,
 ### Memory settings
 
 <Highlight type="tip">
+
 All of these settings are handled by `timescaledb-tune`.
+
 </Highlight>
 The settings `shared_buffers`, `effective_cache_size`, `work_mem`, and
 `maintenance_work_mem` need to be adjusted to match the machine's available
@@ -102,7 +104,9 @@ PgTune may also be helpful.
 ### Worker settings
 
 <Highlight type="tip">
+
 All of these settings are handled by `timescaledb-tune`.
+
 </Highlight>
 $PG utilizes worker pools to provide the required workers needed to
 support both live queries and background jobs. If you do not configure these
@@ -345,11 +349,11 @@ Additional examples of passing in arguments at boot can be found in our
 [discussion about using WAL-E][wale] for incremental backup.
 
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
-[chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
-[docker]: /self-hosted/latest/install/installation-docker/
+[docker]: /self-hosted/:currentVersion:/install/installation-docker/
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
 [pgtune]: http://pgtune.leopard.in.ua/
 [synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
+[timescaledb_information-hypertables]: /api/:currentVersion:/informational-views/hypertables/
 [ts-settings]: /self-hosted/:currentVersion:/configuration/timescaledb-config/
 [tstune]: https://github.com/timescale/timescaledb-tune
 [wale]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/

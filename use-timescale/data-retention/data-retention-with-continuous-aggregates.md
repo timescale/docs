@@ -8,7 +8,7 @@ keywords: [continuous aggregates, data retention]
 # About data retention with continuous aggregates
 
 You can downsample your data by combining a data retention policy with
-[continuous aggregates][continuous_aggregates]. If you set your refresh policies
+[continuous aggregates][caggs]. If you set your refresh policies
 correctly, you can delete old data from a hypertable without deleting it from
 any continuous aggregates. This lets you save on raw data storage while keeping
 summarized data for historical analysis.
@@ -67,4 +67,4 @@ You can also apply data retention on a continuous aggregate itself. For example,
 you can keep raw data for 30 days, as mentioned earlier. Meanwhile, you can keep
 daily data for 600 days, and no data beyond that.
 
-[continuous_aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates

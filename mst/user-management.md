@@ -129,11 +129,13 @@ For more information, and installation instructions, see
 </Procedure>
 
 <Highlight type="warning">
+
 If you lose access to the mobile device you use for multi-factor
 authentication, you cannot sign in to your $MST_LONG
 account. To regain access to your account, on the login screen, click
 `Forgot password?` and follow the step to reset your password. When you have
 regained access to your account, reconfigure multi-factor authentication.
+
 </Highlight>
 
 ## User authentication tokens
@@ -161,6 +163,7 @@ an extension policy. Generating authentication tokens in this way allows you to
 use them with monitoring applications that make automatic API calls to $MST_LONG.
 
 <Highlight type="important">
+
 There is a limit to how many valid authentication tokens are allowed per user.
 This limit is different for tokens that are created as a result of a sign in
 operation, and for tokens created explicitly. For automatically created tokens,
@@ -171,8 +174,9 @@ working, even though they haven't expired or been revoked. To avoid this, make
 sure you sign out at the end of every user session, instead of just discarding
 your authentication token. This is especially important for automation tools
 that automatically sign in.
+
 </Highlight>
 
-[pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
 [install-google-authenticator]: https://support.google.com/accounts/answer/1066447
 [mst-login]:https://portal.managed.timescale.com/login
+[pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html

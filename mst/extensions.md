@@ -15,13 +15,17 @@ $MST_LONG supports many $PG extensions. See
 You can add a supported extension to your database from the command line.
 
 <Highlight type="important">
+
 Some extensions have dependencies. When adding these, make sure to create them
 in the proper order.
+
 </Highlight>
 
 <Highlight type="important">
+
 Some extensions require disconnecting and reconnecting the client connection
 before they are fully available.
+
 </Highlight>
 
 <Procedure>
@@ -116,8 +120,10 @@ These extensions are available on $MST_LONG:
 <!-- vale Vale.Spelling = YES -->
 
 <Highlight type="note">
+
 The `postgis_legacy` extension is not packaged or supported as an extension by
 the PostGIS project. $COMPANY provides the extension package for $MST_LONG.
+
 </Highlight>
 
 ## Request an extension
@@ -131,8 +137,10 @@ ability to offer the highest possible service level. An example of an untrusted
 language extension is `plpythonu`.
 
 <Highlight type="note">
+
 You can contact Support directly from $MST_LONG. Click the
 life-preserver icon in the upper-right corner of your dashboard.
+
 </Highlight>
 
 [available-extensions-link]: /mst/:currentVersion:/extensions/#available-extensions

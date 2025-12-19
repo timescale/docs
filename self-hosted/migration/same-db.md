@@ -16,7 +16,7 @@ instance as your existing table.
 
 ## Prerequisites
 
-Before beginning, make sure you have [installed and set up][install] $TIMESCALE_DB.
+Before beginning, make sure you have [installed and set up][enable-timescaledb] $TIMESCALE_DB.
 
 You also need a table with existing data. In this example, the source table is
 named `old_table`. Replace the table name with your actual table name. The
@@ -78,8 +78,5 @@ Migrate your data into $TIMESCALE_DB from within the same database.
 
 </Procedure>
 
-
-
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[install]: /self-hosted/:currentVersion:/install/
+[enable-timescaledb]: /self-hosted/:currentVersion:/install/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

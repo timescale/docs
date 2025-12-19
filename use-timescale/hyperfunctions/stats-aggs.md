@@ -78,8 +78,8 @@ FROM measurements_multival;
 ```
 
 For more information about statistical aggregation API calls, see the
-[hyperfunction API documentation][hyperfunctions-api-stats-agg].
+[hyperfunction API documentation][stats-aggs].
 
 [blog-aggregates]: https://www.tigerdata.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design
 [gh-two-step-agg]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/two-step_aggregation.md
-[hyperfunctions-api-stats-agg]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
+[stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

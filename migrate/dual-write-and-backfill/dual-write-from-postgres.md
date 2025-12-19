@@ -116,6 +116,7 @@ hypertable using the old syntax:
 ```sql
 SELECT create_hypertable('<table name>', '<time column name>');
 ```
+
 </Highlight>
 
 For more information about the options which you can pass to
@@ -130,12 +131,11 @@ features, such as:
 - [hypercore] to reduce the size of your hypertables by compressing data in the columnstore
 - [continuous aggregates] to write blisteringly fast aggregate queries on your data
 
-[time-series data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
+[time-series data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
 [create_table API reference]: /api/:currentVersion:/hypertable/create_hypertable/
 [hypertable documentation]: /use-timescale/:currentVersion:/hypertables/
 [retention policies]: /use-timescale/:currentVersion:/data-retention/
 [tiered storage]: /use-timescale/:currentVersion:/data-tiering/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [continuous aggregates]: /use-timescale/:currentVersion:/continuous-aggregates
 
 <StepFour />

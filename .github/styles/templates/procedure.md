@@ -99,11 +99,11 @@ of the same thing:
 You have \<what the user will do in this section>.
 
 <!-- Add links here as variables -->
-[workflow-diagram]: https://plantuml.com/activity-diagram-beta
-[create-a-service]: /getting-started/:currentVersion:/services
-[secure-vpc-aws]: /use-timescale/:currentVersion:/vpc/
-[install-linux]: /self-hosted/:currentVersion:/install/installation-linux/
-[gdsg]: https://developers.google.com/style/highlights
 
-[verb-what-the-user-will-do-link]: /.github/:currentVersion:/styles/templates/procedure/#verb-what-the-user-will-do
+[create-a-service]: /getting-started/:currentVersion:/services
+[gdsg]: https://developers.google.com/style/highlights
+[install-linux]: /self-hosted/:currentVersion:/install/installation-linux/
+[secure-vpc-aws]: /use-timescale/:currentVersion:/vpc/
 [verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections-link]: /.github/:currentVersion:/styles/templates/procedure/#verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections
+[verb-what-the-user-will-do-link]: /.github/:currentVersion:/styles/templates/procedure/#verb-what-the-user-will-do
+[workflow-diagram]: https://plantuml.com/activity-diagram-beta

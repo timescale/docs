@@ -17,9 +17,11 @@
 
     <!-- markdownlint-disable TS007 -->
     <Highlight type="note">
+
     On Red Hat Enterprise Linux 8 and later, disable the built-in $PG module:
     
     `sudo dnf -qy module disable postgresql`
+
     </Highlight>
 
     <!-- markdownlint-enable TS007 -->
@@ -60,6 +62,5 @@
     ```
 
     When you have set the password, type `\q` to exit psql.
-
 
 [config]: /self-hosted/:currentVersion:/configuration/

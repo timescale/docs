@@ -26,7 +26,7 @@ Configure Terraform based on your deployment type:
 
 <Tabs label="Configure Terraform for your service" persistKey="source-database">
 
-<Tab title="Tiger Cloud" label="tiger-cloud">
+<Tab title="Tiger" label="tiger-cloud">
 
 You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE_LONGs:
 
@@ -139,12 +139,12 @@ You can now manage your database with Terraform.
 
 </Tabs>
 
-[terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
-[terraform]: https://developer.hashicorp.com/terraform
-[console]: https://console.cloud.timescale.com/dashboard/services
-[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[terraform-resources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/resources/peering_connection
-[terraform-data-sources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/data-sources/products
 [pg-provider]: https://registry.terraform.io/providers/cyrilgdn/postgresql/latest
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[terraform-data-sources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/data-sources/products
+[terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
+[terraform-resources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/resources/peering_connection
+[terraform]: https://developer.hashicorp.com/terraform
 [generate-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials

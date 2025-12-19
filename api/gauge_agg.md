@@ -46,9 +46,11 @@ data stored as other numeric types, cast it to `DOUBLE PRECISION` when using the
 function.
 
 <Highlight type="note">
+
 If there are `NULL` values in your data, the aggregate ignores them and
 aggregates only non-`NULL` values. If you only have `NULL` values, the aggregate
 returns `NULL`.
+
 </Highlight>
 
 ## Optional arguments
@@ -58,7 +60,9 @@ returns `NULL`.
 |`bounds`|`TSTZRANGE`|The largest and smallest possible times that can be input to the aggregate. Calling with `NULL`, or leaving out the argument, results in an unbounded `GaugeSummary`|
 
 <Highlight type="important">
+
 Bounds are required for extrapolation, but not for other accessor functions.
+
 </Highlight>
 
 ## Returns
@@ -68,10 +72,12 @@ Bounds are required for extrapolation, but not for other accessor functions.
 |`gauge_agg`|`GaugeSummary`|A `GaugeSummary` object that can be passed to accessor functions or other objects in the gauge aggregate API|
 
 <Highlight type="important">
+
 The returned `GaugeSummary` can be used as an input the accessor functions
 `delta`, `idelta_left`, and `idelta_right`. When this feature is mature, it will support
 all the same accessor functions as `CounterSummary`, with the exception of
 `num_resets`.
+
 </Highlight>
 
 ## Sample usage

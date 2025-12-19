@@ -32,7 +32,7 @@ Before you downgrade:
 *   Read [the release notes][relnotes] for the TimescaleDB version you are
   downgrading to.
 *   Check which $PG version you are currently running. You might need to
-  [upgrade to the latest $PG version][upgrade-pg]
+  [upgrade to the latest $PG version][upgrading-postgresql-self-hosted]
   before you begin your TimescaleDB downgrade.
 *   [Perform a backup][backup] of your database. While TimescaleDB
   downgrades are performed in-place, downgrading is an intrusive operation.
@@ -104,4 +104,4 @@ upgrading and downgrading.
 
 [backup]: /self-hosted/:currentVersion:/backup-and-restore/
 [relnotes]: https://github.com/timescale/timescaledb/releases
-[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/

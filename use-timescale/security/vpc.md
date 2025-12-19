@@ -24,7 +24,7 @@ attack vector surface and improves security.
 The data isolation architecture that ensures a highly secure connection between your apps and 
 $CLOUD_LONG is:
 
-![$CLOUD_LONG isolation architecture](https://assets.timescale.com/docs/images/tsc-vpc-architecture.png)
+![$CLOUD_LONG isolation architecture][cloud_long-isolation-architecture]
 
 Your customer apps run inside your AWS Customer $VPC, your $SERVICE_LONGs always run 
 inside the secure $CLOUD_LONG $VPC. You control secure communication between apps in
@@ -39,7 +39,7 @@ peering connection to your Customer $VPC, you use AWS Security Groups to
 restrict the apps in your Customer $VPC that are visible to the Peering $VPC.
 The last step is to attach individual $SERVICE_SHORTs to the Peering $VPC in $CONSOLE. 
 
-* You create each Peering $VPC on a [$PROJECT_LONG level][project-members].
+* You create each Peering $VPC on a [$PROJECT_LONG level][projects].
 
 <VpcLimitations />
 
@@ -55,7 +55,7 @@ To set up $VPC peering, you need the following permissions in your AWS account:
 
 To connect to a $SERVICE_LONG using $VPC peering, your apps and infrastructure must be already
 running in an Amazon Web Services (AWS) $VPC. You can peer your $VPC from any AWS region.
-However, your Peering $VPC must be within one of the [Cloud-supported regions][tsc-regions].
+However, your Peering $VPC must be within one of the [Cloud-supported regions][regions].
 
 The stages to create a secured connection between $SERVICE_LONGs and your AWS infrastructure are:
 
@@ -73,11 +73,11 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
 
 1.  **In [$CONSOLE > Security > VPC][console-vpc], click `Create a VPC`**
 
-    ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-console.png)
+    ![$CLOUD_LONG new $VPC][cloud_long-new-vpc]
 
 1.  **Choose your region and IP range, name your $VPC, then click `Create VPC`**
 
-    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png)
+    ![Create a new VPC in $CLOUD_LONG][create-a-new-vpc-in-cloud_long]
 
     The IP ranges of the Peering $VPC and Customer VPC should not overlap. 
 
@@ -86,7 +86,7 @@ between $CLOUD_LONG and your Customer $VPC in a logically isolated virtual netwo
     1. In the `VPC Peering` column, click `Add`.
     2. Enter information about your existing Customer VPC, then click `Add Connection`.
 
-       ![Add peering](https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-console.png)
+       ![Add peering][add-peering]
 
     <VpcLimitations />
 
@@ -121,7 +121,7 @@ peering request from an unknown account.
 
     You see the list of existing destinations.
 
-    ![Create a new VPC route](https://assets.timescale.com/docs/images/tsc-vpc-add-route.png).
+    ![Create a new VPC route][create-a-new-vpc-route].
 
     If you do not already have a destination that corresponds to the `IP range / CIDR block` of 
     your Peering $VPC: 
@@ -180,7 +180,7 @@ AWS $VPC. It is no longer accessible using the public internet.
 
 <Procedure>
 
-1.  **In [$CONSOLE > Services][console-services] select the $SERVICE_SHORT you want to
+1.  **In [$CONSOLE > Services][services-portal] select the $SERVICE_SHORT you want to
     connect to the Peering $VPC**
 1. **Click `Operations` > `Security` > `VPC`**
 1. **Select the $VPC, then click `Attach VPC`**
@@ -207,7 +207,7 @@ to update your connection string.
 
 <Procedure>
 
-1. **In [$CONSOLE > Services][console-services] select the $SERVICE_SHORT to migrate**
+1. **In [$CONSOLE > Services][services-portal] select the $SERVICE_SHORT to migrate**
 
    If you don't have a $SERVICE_SHORT, [create a new one][create-service].
 1. **Click `Operations` > `Security` > `VPC`**
@@ -219,18 +219,19 @@ Migration takes a few minutes to complete and requires a change to DNS settings 
 $SERVICE_SHORT. The $SERVICE_SHORT is not accessible during this time. If you receive a DNS error, allow
 some time for DNS propagation.
 
-
+[add-peering]: https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-console.png
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [aws-security-groups]: https://console.aws.amazon.com/vpcconsole/home#securityGroups:
-[console-login]: https://console.cloud.timescale.com/
-[console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
-[console-services]: https://console.cloud.timescale.com/dashboard/services
-[timescale-support]: https://www.timescale.com/contact/
-[tsc-regions]: /about/:currentVersion:/supported-platforms/#available-regions
-[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#create-a-peering-vpc-in-timescale-console
 [aws-vpc-complete]: /use-timescale/:currentVersion:/security/vpc/#complete-the-vpc-connection-in-aws
+[aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/security/vpc/#secure-your-tiger-cloud-services-with-vpc-peering-and-aws-privatelink
 [aws-vpc-security-groups]: /use-timescale/:currentVersion:/security/vpc/#set-up-security-groups-in-aws
-[aws-vpc-connect-vpcs]: /use-timescale/:currentVersion:/security/vpc/#attach-a-timescale-service-to-the-peering-vpc
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[project-members]: /use-timescale/:currentVersion:/security/members/
+[aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#secure-your-tiger-cloud-services-with-vpc-peering-and-aws-privatelink
+[cloud_long-isolation-architecture]: https://assets.timescale.com/docs/images/tsc-vpc-architecture.png
+[cloud_long-new-vpc]: https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-console.png
+[console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
+[create-a-new-vpc-in-cloud_long]: https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png
+[create-a-new-vpc-route]: https://assets.timescale.com/docs/images/tsc-vpc-add-route.png
+[create-service]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-service
+[projects]: /use-timescale/:currentVersion:/security/members/
+[regions]: /about/:currentVersion:/supported-platforms/#available-regions
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

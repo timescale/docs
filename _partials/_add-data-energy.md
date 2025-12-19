@@ -6,14 +6,18 @@ into the `metrics` hypertable.
 <Procedure>
 
 <Highlight type="important">
+
 This is a large dataset, so it might take a long time, depending on your network
 connection.
+
 </Highlight>
 
 1.  Download the dataset:
 
    <Tag type="download">
-   [metrics.csv.gz](https://assets.timescale.com/docs/downloads/metrics.csv.gz)
+
+   [metrics.csv.gz][metricscsvgz]
+
    </Tag>
 
 1.  Use your file manager to decompress the downloaded dataset, and take a note
@@ -46,3 +50,5 @@ connection.
    ```
 
 </Procedure>
+
+[metricscsvgz]: https://assets.timescale.com/docs/downloads/metrics.csv.gz

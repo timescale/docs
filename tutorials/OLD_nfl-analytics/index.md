@@ -42,8 +42,8 @@ This tutorial has a few sections to help you on your journey:
 
 *   Python 3
 *   $TIMESCALE_DB (see [installation options][install-timescale])
-*   [Psql][psql-install] or any other $PG client (for example, DBeaver)
-*   The [$TOOLKIT_LONG][toolkit]
+*   [Psql][psql] or any other $PG client (for example, DBeaver)
+*   The [$TOOLKIT_LONG][install-toolkit]
 
 ## Download the dataset
 
@@ -52,14 +52,11 @@ This tutorial has a few sections to help you on your journey:
 
 ## Resources
 
-*   [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
+*   [NFL Big Data Bowl 2021 on Kaggle][nfl-big-data-bowl-2021-on-kaggle]
 
-[analyze-data]: /tutorials/:currentVersion:/nfl-analytics/advanced-analysis/
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
-[ingest-query]: /tutorials/:currentVersion:/nfl-analytics/ingest-and-query
-[install-timescale]: /getting-started/latest/
-[join-data]: /tutorials/:currentVersion:/nfl-analytics/join-with-relational
+[install-timescale]: /getting-started/:currentVersion:/
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
-[psql-install]: /integrations/:currentVersion:/psql/
-[toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
-[visualize-plays]: /tutorials/:currentVersion:/nfl-analytics/play-visualization/
+[nfl-big-data-bowl-2021-on-kaggle]: https://www.kaggle.com/c/nfl-big-data-bowl-2021
+[psql]: /integrations/:currentVersion:/psql/

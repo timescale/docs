@@ -144,6 +144,6 @@ US Dollars.
 </Procedure>
 
 [coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction
+[what-are-the-five-most-recent-blocks-link]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/#what-are-the-five-most-recent-blocks
 [what-are-the-five-most-recent-coinbase-transactions-link]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/#what-are-the-five-most-recent-coinbase-transactions
 [what-are-the-five-most-recent-transactions-link]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/#what-are-the-five-most-recent-transactions
-[what-are-the-five-most-recent-blocks-link]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/#what-are-the-five-most-recent-blocks

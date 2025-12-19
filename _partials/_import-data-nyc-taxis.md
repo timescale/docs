@@ -7,7 +7,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 1.  **Import time-series data into a $HYPERTABLE**
 
-    1. Unzip <Tag type="download">[nyc_data.tar.gz](https://assets.timescale.com/docs/downloads/nyc_data.tar.gz)</Tag> to a `<local folder>`.
+    1. Unzip <Tag type="download">[nyc_data.tar.gz][nyc_datatargz]</Tag> to a `<local folder>`.
        
        This test dataset contains historical data from New York's yellow taxi network.
 
@@ -163,16 +163,15 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 </Procedure>
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
-[migrate-live]: /migrate/:currentVersion:/live-migration/
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[data-ingest]: /migrate/:currentVersion:/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[nyc_datatargz]: https://assets.timescale.com/docs/downloads/nyc_data.tar.gz
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

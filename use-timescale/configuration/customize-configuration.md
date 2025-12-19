@@ -32,7 +32,7 @@ To modify configuration parameters, first select the $SERVICE_SHORT that you wan
 modify. This displays the $SERVICE_SHORT details, with these tabs across the top:
 `Overview`, `Actions`, `Explorer`, `Monitoring`, `Connections`, `SQL Editor`, `Operations`, and `AI`. Select `Operations`, then `Database parameters`.
 
-![Database configuration parameters](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-configuration-parameters.png)
+![Database configuration parameters][database-configuration-parameters]
 
 ### Modify basic parameters
 
@@ -42,10 +42,7 @@ To modify a configured value, hover over the value and click the revealed pencil
 icon. This reveals an editable field to apply your change. Clicking anywhere
 outside of that field saves the value to be applied.
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-settings-change.png"
-alt="Change Tiger Cloud configuration parameters"/>
+![Change Tiger Cloud configuration parameters][change-config]
 
 ### Apply configuration changes
 
@@ -57,4 +54,5 @@ case, the button reads `Apply changes and restart`.
 A confirmation dialog is displayed which indicates whether a restart is
 required. Click `Confirm` to apply the changes, and restart if necessary.
 
-[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[database-configuration-parameters]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-configuration-parameters.png
+[change-config]: https://assets.timescale.com/docs/images/tsc-settings-change.png

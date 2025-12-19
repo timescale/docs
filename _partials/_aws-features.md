@@ -61,7 +61,7 @@ The features included in each [$PRICING_PLAN][pricing-plans] are:
 
 For a personalized quote, [get in touch with $COMPANY][contact-company].
 
-[pricing-plans]: https://www.timescale.com/pricing
+[commercial-sla]: https://www.tigerdata.com/legal/terms-of-service
 [contact-company]: https://www.tigerdata.com/contact/
 [hipaa-compliance]: https://www.hhs.gov/hipaa/for-professionals/index.html
-[commercial-sla]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
+[pricing-plans]: https://www.tigerdata.com/pricing

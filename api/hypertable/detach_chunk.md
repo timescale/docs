@@ -15,7 +15,7 @@ import Since2210 from "versionContent/_partials/_since_2_21_0.mdx";
 
 Separate a chunk from a [hypertable][hypertables-section]. 
 
-![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
+![Hypertable structure][hypertable-structure]
 
 `chunk` becomes a standalone hypertable with the same name and schema. All existing constraints and 
 indexes on `chunk` are preserved after detaching. Foreign keys are dropped.
@@ -44,5 +44,6 @@ CALL detach_chunk('_timescaledb_internal._hyper_1_2_chunk');
 
 This function returns void.
 
+[hypertable-structure]: https://assets.timescale.com/docs/images/hypertable-structure.png
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

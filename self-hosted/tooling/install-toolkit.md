@@ -210,7 +210,12 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
     brew upgrade timescaledb-toolkit
     ```
 
-1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
+1.  **Connect to $PG**
+
+    ```bash
+    psql postgres
+    ```
+    
 1.  Update the $TOOLKIT_SHORT extension in the database:
 
     ```sql

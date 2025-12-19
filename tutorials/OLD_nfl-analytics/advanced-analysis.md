@@ -15,14 +15,16 @@ $TIMESCALE_DB, to help you understand more about player activity during the NFL
 season.
 
 <Highlight type="tip">
+
 Some of this analysis includes visualizations to help you see the potential uses
-of this data. These are created using the [Matplotlib](https://matplotlib.org/)
+of this data. These are created using the [Matplotlib][matplotlib]
 Python module, which is one of many great visualization tools.
+
 </Highlight>
 
 ### Average yards run for a player over a game
 
-This query uses a percentile approximation [hyperfunction][api-hyperfunctions]
+This query uses a percentile approximation [hyperfunction][hyperfunctions-api-approx-percentile]
 to find the mean yards run per game by a single player.
 
 ```sql
@@ -182,9 +184,11 @@ average yard values per position type. The data is ordered by the average yards
 run across all players for each position. This becomes important later on.
 
 <Highlight type="note">
+
 This query excludes some position types from the list due to such low average
 yard values, the excluded positions are Kicker, Punter, Nose Tackle, Long Snapper,
 and Defensive Tackle
+
 </Highlight>
 
 ```sql
@@ -233,4 +237,5 @@ aggregates. Consider joining in stadium data that we provided to see if teams
 tend to score or run less at Mile High Stadium. Does natural or artificial turf
 affect any teams consistently?
 
-[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
+[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
+[matplotlib]: https://matplotlib.org/

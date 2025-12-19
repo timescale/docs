@@ -57,6 +57,6 @@ In $TIMESCALE_DB v2.2.0 and earlier, you cannot insert data into compressed chun
 
 </Tabs>
 
-[tsdb-release-2-21-0]: https://github.com/timescale/timescaledb/releases/2.21.0
-[tsdb-release-2-17-0]: https://github.com/timescale/timescaledb/releases/2.17.0
 [tsdb-release-2-11-0]: https://github.com/timescale/timescaledb/releases/2.11.0
+[tsdb-release-2-17-0]: https://github.com/timescale/timescaledb/releases/2.17.0
+[tsdb-release-2-21-0]: https://github.com/timescale/timescaledb/releases/2.21.0

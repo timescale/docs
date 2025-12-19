@@ -19,4 +19,3 @@ with standard SQL commands.
 [advanced-analytics]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/
 [selecting-data]: /use-timescale/:currentVersion:/query-data/select/
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/

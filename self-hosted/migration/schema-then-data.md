@@ -20,7 +20,7 @@ restart midway if one copy operation fails.
 
 For smaller databases, it may be more convenient to migrate your entire database
 at once. For more information, see the section on
-[choosing a migration method][migration].
+[choosing a migration method][migrate].
 
 </Highlight>
 
@@ -32,7 +32,7 @@ retain downsampled data in a continuous aggregate for a year, the continuous
 aggregate loses any data older than a month upon migration. If you must keep
 continuous aggregates calculated using deleted data, migrate your entire
 database at once. For more information, see the section on
-[choosing a migration method][migration].
+[choosing a migration method][migrate].
 
 </Highlight>
 
@@ -55,7 +55,7 @@ database during this time, though performance could be slower. To avoid this
 problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
 not be transferred to TimescaleDB. To avoid this problem, see the section on
-[migrating an active database][migration].
+[migrating an active database][migrate].
 
 </Highlight>
 
@@ -68,11 +68,11 @@ Before you begin, check that you have:
 *   Installed a client for connecting to $PG. These instructions use
     [`psql`][psql], but any client works.
 *   Created a new empty database in a $SELF_LONG instance. For more information, see
-    the [Install $TIMESCALE_DB][install-selfhosted]. Provision
+    the [Install $TIMESCALE_DB][enable-timescaledb]. Provision
     your database with enough space for all your data.
 *   Checked that any other $PG extensions you use are compatible with
     $TIMESCALE_DB. For more information, see the [list of compatible
-    extensions][extensions]. Install your other $PG extensions.
+    extensions][all-available-extensions]. Install your other $PG extensions.
 *   Checked that you're running the same major version of $PG on both your
     $SELF_LONG instance and your source database. For information about upgrading
     $PG on your source database, see the [upgrade instructions for
@@ -141,7 +141,9 @@ restore them.
 </Procedure>
 
 <Highlight type="note">
+
 The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+
 </Highlight>
 
 ## Copy data from the source database
@@ -170,6 +172,7 @@ data, table by table.
 </Procedure>
 
 <Highlight type="note">
+
 If your tables are very large, you can migrate each table in multiple pieces.
 Split each table by time range, and copy each range individually. For example:
 
@@ -195,7 +198,7 @@ database is now stored uncompressed in your `.csv` files. If you
 provisioned your $SELF_LONG storage for your compressed data, the
 uncompressed data may take too much storage. To avoid this problem, periodically
 recompress your data as you copy it in. For more information on compression, see
-the [compression section](https://www.tigerdata.com/docs/use-timescale/latest/compression/).
+the [compression section][compression].
 
 </Highlight>
 
@@ -205,22 +208,23 @@ the [compression section](https://www.tigerdata.com/docs/use-timescale/latest/co
 
 <PostSchemaEtal />
 
+[all-available-extensions]: /use-timescale/:currentVersion:/extensions/
+[compression]: /use-timescale/:currentVersion:/compression/
+[copy-data-from-the-source-database-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#copy-data-from-the-source-database
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
-[extensions]: /use-timescale/:currentVersion:/extensions/
-[install-selfhosted]: /self-hosted/:currentVersion:/install/
+[enable-timescaledb]: /self-hosted/:currentVersion:/install/
+[migrate-schema-post-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-post-data
+[migrate-schema-pre-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-pre-data
+[migrate]: /migrate/:currentVersion:/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /integrations/:currentVersion:/psql/
-[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
-[upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
-[upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
-[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-[migration]: /migrate/:currentVersion:/
-[migrate-schema-pre-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-pre-data
-[copy-data-from-the-source-database-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#copy-data-from-the-source-database
-[restore-data-into-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-data-into-timescaledb
-[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self-hosted-timescaledb-instance
-[migrate-schema-post-data-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#migrate-schema-post-data
 [recreate-continuous-aggregates-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-continuous-aggregates
 [recreate-policies-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-policies
+[restore-data-into-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-data-into-timescale
+[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self-hosted-timescaledb-instance
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [update-table-statistics-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#update-table-statistics
+[upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
+[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

@@ -31,6 +31,4 @@ tables of payment types and rates, in a regular $PG table named
 
 <GrafanaConnect />
 
-
-
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page

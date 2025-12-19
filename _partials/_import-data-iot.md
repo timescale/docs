@@ -7,7 +7,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 1.  **Import time-series data into a $HYPERTABLE**
 
-    1. Unzip <Tag type="download">[metrics.csv.gz](https://assets.timescale.com/docs/downloads/metrics.csv.gz)</Tag> to a `<local folder>`.
+    1. Unzip <Tag type="download">[metrics.csv.gz][metricscsvgz]</Tag> to a `<local folder>`.
        
        This test dataset contains energy consumption data.
 
@@ -76,16 +76,15 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        
 </Procedure>
 
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[data-ingest]: /migrate/:currentVersion:/
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[metricscsvgz]: https://assets.timescale.com/docs/downloads/metrics.csv.gz
 [migrate-live]: /migrate/:currentVersion:/live-migration/
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

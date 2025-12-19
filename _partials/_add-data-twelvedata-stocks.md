@@ -12,9 +12,7 @@ dataset and copy the data to your database.
     files; one with company information, and one with real-time stock trades for
     the past month. Download:
 
-    <Tag type="download">
-      [real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)
-    </Tag>
+    <Tag type="download">[real_time_stock_data.zip][real_time_stock_datazip]</Tag>
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
 
@@ -40,4 +38,5 @@ dataset and copy the data to your database.
 
 </Procedure>
 
+[real_time_stock_datazip]: https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip
 [twelve-data]: https://twelvedata.com/

@@ -103,11 +103,13 @@ window.
     ```
 
 <Highlight type="warning">
+
 If you choose to delete your old continuous aggregate after creating a new one,
 beware of historical data loss. If your old continuous aggregate contained data
 that you dropped from your original hypertable, for example through a data
 retention policy, the dropped data is not included in your new continuous
 aggregate.
+
 </Highlight>
 
 </Procedure>

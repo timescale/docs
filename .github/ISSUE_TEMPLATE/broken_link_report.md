@@ -6,4 +6,6 @@ labels: bug, automated issue, link check
 assignees: atovpeko
 ---
 
-The broken link check failed. Check [the workflow logs](https://github.com/timescale/docs/actions/workflows/daily-link-checker.yml) to identify the failing links.
+The broken link check failed. Check [the workflow logs][the-workflow-logs] to identify the failing links.
+
+[the-workflow-logs]: https://github.com/timescale/docs/actions/workflows/daily-link-checker.yml

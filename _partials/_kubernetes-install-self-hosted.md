@@ -41,7 +41,7 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
 
 1. **Deploy $TIMESCALE_DB as a StatefulSet**
 
-   By default, the [$TIMESCALE_DB HA][timescale-ha-docker-image] you are installing on Kubernetes uses the
+   By default, the [$TIMESCALE_DB HA Docker image][timescale-ha-docker-image] you are installing on Kubernetes uses the
    default $PG database, user and password. This image includes $TIMESCALE_DB and $TOOLKIT_LONG.
    To deploy $TIMESCALE_DB on Kubernetes, run the following command:
 
@@ -167,7 +167,6 @@ To connect your Kubernetes cluster to $SELF_LONG running in the cluster:
 
 </Procedure>
 
-
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [kubernetes-namespace]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
 [timescale-ha-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags 
-[connection-info]: /integrations/:currentVersion:/find-connection-details/

@@ -31,7 +31,7 @@ SQL command, but it is helpful if you've seen SQL before.
 
 There are multiple options for using $CLOUD_LONG to follow along with this tutorial. **All connection information
 and database naming** throughout this tutorial assumes you are connected to **Timescale**, our hosted,
-fully managed database-as-a-service. [Sign up for a free, 30-day demo account][cloud-signup], no credit-card
+fully managed database-as-a-service. [Sign up for a free, 30-day demo account][timescale-signup], no credit-card
 required. Once you confirm the account and get logged in, proceed to the **Background** section below.
 
 If you would like to follow along with a local or on-prem install, you can follow the [install TimescaleDB][install-timescale]
@@ -103,7 +103,7 @@ You can download the files from the below link:
 To connect to the database, you'll need to make sure the `psql`
 utility is installed on your command line. Follow the instructions for
 your platform in order to
-[setup the psql command-line utility][setup-psql].
+[setup the psql command-line utility][psql].
 
 Next, locate your `host`, `port`, and `password`.
 
@@ -158,7 +158,7 @@ They collect the following data about each ride:
 
 To efficiently store that data, we're going to need three tables:
 
-1.  A [hypertable][hypertables] called `rides`, which stores all of the above data for each ride taken.
+1.  A [hypertable][hypertables-section] called `rides`, which stores all of the above data for each ride taken.
 2.  A regular $PG table called `payment_types`, which maps the payment types to their English description.
 3.  A regular $PG table called `rates`, which maps the numeric rate codes to their English description.
 
@@ -268,7 +268,7 @@ inserts into multiple transactions. With nearly 11 million rows of data this imp
 \COPY rides FROM nyc_data_rides.csv CSV;
 ```
 
-A faster alternative is the [Parallel COPY command][parallel-copy], written in GoLang, that $COMPANY makes
+A faster alternative is the [Parallel COPY command][timescaledb-parallel-copy], written in GoLang, that $COMPANY makes
 available to the community. Once installed, issuing the following command imports the CSV file
 in multiple threads, 5,000 rows at a time, significantly improving import speed. Set `--workers` <= CPUs (or CPUs x 2)
 if they support Hyperthreading. **Be sure to replace your connection string, database name, and file location appropriately.**
@@ -820,13 +820,10 @@ how they make time-series analysis possible in fewer lines of code, as well
 as how TimescaleDB is compatible with other extensions like *PostGIS*, for fast
 querying by time and location.
 
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables
+[install-timescale]: /getting-started/:currentVersion:/
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-[cloud-signup]: https://console.cloud.timescale.com/signup
-[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
-[hypertables]: /use-timescale/:currentVersion:/hypertables
-[install-timescale]: /getting-started/latest/
-[migrate]: /use-timescale/:currentVersion:/migration/
-[parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [postgis]: http://postgis.net/documentation
-[setup-psql]: /integrations/:currentVersion:/psql/
-[time-series-forecasting]: /tutorials/:currentVersion:/time-series-forecast/
+[psql]: /integrations/:currentVersion:/psql/
+[timescale-signup]: https://console.cloud.timescale.com/signup
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

@@ -90,6 +90,5 @@
 
 </Procedure>
 
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [databases]: https://console.aws.amazon.com/rds/home#databases:
+[hypercore]: /use-timescale/:currentVersion:/hypercore/

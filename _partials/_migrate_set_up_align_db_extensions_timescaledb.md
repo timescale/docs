@@ -15,7 +15,7 @@
        psql $SOURCE -c "ALTER EXTENSION timescaledb UPDATE TO '<version here>';"
        ```
 
-       For more information and guidance, see [Upgrade TimescaleDB](https://www.tigerdata.com/docs/self-hosted/latest/upgrades/).
+       For more information and guidance, see [Upgrade TimescaleDB][self-host-upgrades].
 
 1. Ensure that the $SERVICE_LONG is running the $PG extensions used in your source database.
 
@@ -27,4 +27,5 @@
        ```bash
        psql $TARGET  -c "CREATE EXTENSION IF NOT EXISTS <extension name> CASCADE;"
        ```
-       
+
+[self-host-upgrades]: /self-hosted/:currentVersion:/upgrades/

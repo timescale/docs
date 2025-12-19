@@ -327,12 +327,10 @@ This preview release focuses on core BM25 functionality. It has the following li
 
 These limitations will be addressed in upcoming releases with disk-based segments and expanded query capabilities.
 
-
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
-[recip-rank-fusion]: https://en.wikipedia.org/wiki/Mean_reciprocal_rank
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [pg-vectorscale]: /ai/:currentVersion:/sql-interface-for-pgvector-and-timescale-vector/#installing-the-pgvector-and-pgvectorscale-extensions
 [pg_textsearch-github-repo]: https://github.com/timescale/pg_textsearch
-
+[recip-rank-fusion]: https://en.wikipedia.org/wiki/Mean_reciprocal_rank
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

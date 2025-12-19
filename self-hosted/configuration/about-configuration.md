@@ -35,7 +35,9 @@ enter your machine details, and select the `data warehouse` DB type to see the
 suggested parameters.
 
 <Highlight type="tip">
+
 You can adjust these settings with `timescaledb-tune`.
+
 </Highlight>
 
 ## Workers
@@ -74,7 +76,9 @@ $PG workers. It should be at least the sum of
 `timescaledb.max_background_workers` and `max_parallel_workers`.
 
 <Highlight type="tip">
+
 You can adjust these settings with `timescaledb-tune`.
+
 </Highlight>
 
 ## Disk writes
@@ -92,8 +96,10 @@ not also change `fsync` setting. For more information about asynchronous commits
 and disk write speed, see the [$PG documentation][async-commit].
 
 <Highlight type="tip">
+
 You can adjust these settings in the `postgresql.conf` configuration
 file.
+
 </Highlight>
 
 ## Transaction locks
@@ -129,14 +135,16 @@ number to allow for some growth.  For more information about lock management,
 see the [$PG documentation][lock-management].
 
 <Highlight type="tip">
+
 You can adjust these settings in the `postgresql.conf` configuration
 file.
+
 </Highlight>
 
 [async-commit]: https://www.postgresql.org/docs/current/wal-async-commit.html
-[timescaledb_information-hypertables]: /api/:currentVersion:/informational-views/hypertables
 [docker-conf]: /self-hosted/:currentVersion:/configuration/docker-config
 [lock-management]: https://www.postgresql.org/docs/current/runtime-config-locks.html
 [pgtune]: https://pgtune.leopard.in.ua/
 [postgresql-conf]: /self-hosted/:currentVersion:/configuration/postgres-config
+[timescaledb_information-hypertables]: /api/:currentVersion:/informational-views/hypertables
 [tstune-conf]: /self-hosted/:currentVersion:/configuration/timescaledb-tune

@@ -17,7 +17,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
   For a better experience, use a 4 CPU/16GB EC2 instance or greater to run the $PG_CONNECTOR.
 
-- Install the [$PG client tools][install-psql] on your sync machine.
+- Install the [$PG client tools][psql] on your sync machine.
 
   This includes `psql`, `pg_dump`, `pg_dumpall`, and `vacuumdb` commands.
 
@@ -88,7 +88,7 @@ Use `pg_dump` to:
 
 For efficient querying and analysis, you can convert tables which contain time-series or
 events data, and tables that are already partitioned using $PG declarative partition into
-[hypertables][about-hypertables].
+[hypertables][hypertables-section].
 
 <Procedure>
 
@@ -338,14 +338,10 @@ EOF
 
 </Procedure>
 
-[create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
 [alter-publication]: https://www.postgresql.org/docs/current/sql-alterpublication.html
-[install-docker]: https://docs.docker.com/engine/install/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
-[compression]: /use-timescale/:currentVersion:/compression/about-compression
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
-[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
-[install-psql]: /integrations/:currentVersion:/psql/
-
 [convert-partitions-and-tables-with-time-series-data-into-hypertables-link]: /migrate/:currentVersion:/livesync-for-postgresql/#convert-partitions-and-tables-with-time-series-data-into-hypertables
+[create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[install-docker]: https://docs.docker.com/engine/install/
+[psql]: /integrations/:currentVersion:/psql/
+

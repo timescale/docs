@@ -23,6 +23,4 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 </Procedure>
 
-
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[indexing]: /use-timescale/:currentVersion:/schema-management/indexing/

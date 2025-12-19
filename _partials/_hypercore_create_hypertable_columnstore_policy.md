@@ -43,22 +43,7 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
    $TIMESCALE_DB is optimized for fast updates on compressed data in the $COLUMNSTORE. To modify data in the
    $COLUMNSTORE, use standard SQL.
 
-
-[job]: /api/:currentVersion:/actions/add_job/
-[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
-[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
-[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
-[alter_job]: /api/:currentVersion:/actions/alter_job/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
-[insert]: /use-timescale/:currentVersion:/write-data/insert/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

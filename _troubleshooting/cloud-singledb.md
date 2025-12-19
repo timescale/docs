@@ -30,4 +30,4 @@ Each $SERVICE_LONG hosts a single $PG instance called `tsdb`. You see this error
 to create an additional database in a service. If you need another database, 
 [create a new service][create-service].
 
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
+[create-service]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-service

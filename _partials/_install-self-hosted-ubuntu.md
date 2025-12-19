@@ -26,7 +26,3 @@ import SelfHostedDebianEnd from "versionContent/_partials/_install-self-hosted-d
 
 
 </Procedure>
-
-
-[config]: /self-hosted/:currentVersion:/configuration/
-[releases-page]: https://packagecloud.io/timescale/timescaledb
