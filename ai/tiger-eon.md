@@ -20,7 +20,7 @@ company data and give you the answers you need. For example:
 
 $EON_SHORT responds instantly, pulling from the tools you already use. No new UI, no new workflow, just answers in Slack.
 
-![Query Tiger Agent](https://assets.timescale.com/docs/images/tiger-eon-big-question.png)
+![Query Tiger Agent][query-tiger-agent]
 
 $EON_LONG:
 
@@ -28,7 +28,7 @@ $EON_LONG:
 - **Enables faster decisions**: no need to search or ask around, you get answers in seconds.
 - **Is easy to use**: $EON_SHORT runs a $AGENTS_SHORT and MCP servers statelessly in lightweight Docker containers.
 - **Integrates seamlessly with $CLOUD_LONG**: $EON_SHORT uses a $SERVICE_LONG so you securely and reliably store 
-    your company data. Prefer to self-host? Use a [$PG instance with $TIMESCALE_DB][install-self-hosted].
+    your company data. Prefer to self-host? Use a [$PG instance with $TIMESCALE_DB][enable-timescaledb].
 
 $EON_LONG's real-time ingestion system connects to Slack and captures everything: every message, reaction, edit, and 
 channel update. It can also process historical Slack exports. $EON_SHORT had instant access to years 
@@ -170,7 +170,7 @@ data and analytics stored in $CLOUD_LONG.
 
    The setup sets up a new $SERVICE_LONG for you called `tiger-eon`, then starts $EON_SHORT in Docker.  
 
-   ![Eon running in Docker](https://assets.timescale.com/docs/images/tiger-eon-docker-services.png)
+   ![Eon running in Docker][eon-running-in-docker]
  
 </Procedure> 
 
@@ -184,23 +184,17 @@ You have created:
 To enable your AI Assistant to analyze your data for you when you ask a question, open a public channel,  
 invite `@eon` to join, then ask a question: 
 
-![Eon running in Docker](https://assets.timescale.com/docs/images/tiger-eon-slack-channel-add.png)
+![Eon running in Docker][eon-running-in-docker-1]
 
-
-[jinja-templates]: https://jinja.palletsprojects.com/en/stable/
-[logfire]: https://pydantic.dev/logfire
 [claude-api-key]: https://console.anthropic.com/settings/keys
+[enable-timescaledb]: /self-hosted/:currentVersion:/install/
+[eon-running-in-docker-1]: https://assets.timescale.com/docs/images/tiger-eon-slack-channel-add.png
+[eon-running-in-docker]: https://assets.timescale.com/docs/images/tiger-eon-docker-services.png
 [github-token]: https://github.com/settings/tokens/new?description=Tiger%20Agent&scopes=repo,read:org
-[create-a-service]: /getting-started/:currentVersion:/services
-[uv-install]: https://docs.astral.sh/uv/getting-started/installation/
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[mcp-configuration-docs]: https://github.com/timescale/tiger-agents-for-work/blob/main/docs/mcp_config.md
-[prompt-templates]: https://github.com/timescale/tiger-agents-for-work/blob/main/docs/prompt_templates.md
 [install-docker]: https://docs.docker.com/engine/install/
-[tiger-cli]: https://github.com/timescale/tiger-cli/
-[tiger-agents]: https://github.com/timescale/tiger-agents-for-work
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-self-hosted]: /self-hosted/:currentVersion:/install/
-[logfire-token]: http://logfire.pydantic.dev/docs/how-to-guides/create-write-tokens/
 [linear-token]: https://linear.app/docs/api-and-webhooks#api-keys
+[logfire-token]: http://logfire.pydantic.dev/docs/how-to-guides/create-write-tokens/
+[query-tiger-agent]: https://assets.timescale.com/docs/images/tiger-eon-big-question.png
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[tiger-agents]: https://github.com/timescale/tiger-agents-for-work
+[tiger-cli]: https://github.com/timescale/tiger-cli/

@@ -13,11 +13,10 @@ For example, to upgrade from $TIMESCALE_DB 2.13 on $PG 13 to $TIMESCALE_DB 2.18.
 1. Upgrade $TIMESCALE_DB to 2.18.2.
 
 You may need to [upgrade to the latest $PG version][upgrade-pg] before you upgrade TimescaleDB. Also,
-if you use [$TOOLKIT_LONG][toolkit-install], ensure the `timescaledb_toolkit` extension is >=  
+if you use [$TOOLKIT_LONG][install-toolkit], ensure the `timescaledb_toolkit` extension is >=  
 v1.6.0 before you upgrade $TIMESCALE_DB extension.
 
 <SupportMatrix />
 
-[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#upgrade-your-postgresql-instance
-[timescale-toolkit]:https://github.com/timescale/timescaledb-toolkit
-[toolkit-install]: /self-hosted/:currentVersion:/tooling/install-toolkit/
+[install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
+[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#plan-your-upgrade-path

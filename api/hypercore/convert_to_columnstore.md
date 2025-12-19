@@ -48,7 +48,6 @@ Calls to `convert_to_columnstore` return:
 |-------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | `chunk name` or `table` | REGCLASS or String | The name of the chunk added to the $COLUMNSTORE, or a table-like result set with zero or more rows. |
 
-
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[run-job]: /api/:currentVersion:/jobs-automation/run_job/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+[run-job]: /api/:currentVersion:/jobs-automation/run_job/

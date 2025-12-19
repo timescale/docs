@@ -16,7 +16,7 @@ import HypershiftIntro from "versionContent/_partials/_hypershift-intro.mdx";
 
 Before you begin, make sure you have:
 
-*   Signed up for your [free $ACCOUNT_LONG][cloud-install].
+*   Signed up for your [free $ACCOUNT_LONG][install-timescale].
 *   Installed [Docker][docker-install].
 
 Before you begin the migration, it is recommended that you create an index on
@@ -32,10 +32,12 @@ CREATE INDEX ON "<TABLE_NAME>" USING btree (time);
 ```
 
 <Highlight type="important">
+
 Hypershift is not able to efficiently copy and compress data when the only
 index is a composite index where `time` is not the first indexed column. If you
 already have such a composite index, ensure that your source database has a
 plain index before you run the Hypershift migration.
+
 </Highlight>
 
 ## Download the Hypershift container
@@ -120,5 +122,5 @@ configuration file, see the
 
 </Procedure>
 
-[cloud-install]: /getting-started/latest/
 [docker-install]: https://docs.docker.com/get-docker/
+[install-timescale]: /getting-started/:currentVersion:/

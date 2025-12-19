@@ -71,15 +71,17 @@ is not the case for your application, you should reconsider using the
 dual-write and backfill method.
 
 <Highlight type="note">
+
 If you're planning on experimenting with continuous aggregates, we recommend
 that you first complete the dual-write and backfill migration, and only then
 create continuous aggregates on the data. If you create continuous aggregates
 on a hypertable before backfilling data into it, you must refresh the
 continuous aggregate over the whole time range to ensure that there are no
 holes in the aggregated data.
+
 </Highlight>
 
-[tables and hypertables]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
+[tables and hypertables]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
 
 <StepFour />
 

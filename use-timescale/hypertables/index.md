@@ -21,7 +21,7 @@ a range of time, and only contains data from that range.
 ### Time partitioning
 
 Typically, you partition $HYPERTABLEs on columns that hold time values.
-[Best practice is to use `timestamptz`][timestamps-best-practice] column type. However, you can also partition on
+[Best practice is to use `timestamptz`][postgresql-timestamp] column type. However, you can also partition on
 `date`, `integer`, `timestamp` and [UUIDv7][uuidv7_functions] types.
 
 By default, each $HYPERTABLE chunk holds data for 7 days. You can change this to better suit your
@@ -119,16 +119,8 @@ For example:
 
 </Procedure>
 
-
-[about-distributed-hypertables]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
-[best-practices-space]: #best-practices-for-space-partitioning
-[blog-chunk-time]: https://www.timescale.com/blog/timescale-cloud-tips-testing-your-chunk-size
-[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals/
-[create-hypertables]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
-[hypertable-concepts]: /use-timescale/:currentVersion:/hypertables/
+[blog-chunk-time]: https://www.tigerdata.com/blog/timescale-cloud-tips-testing-your-chunk-size
+[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [hypertables-and-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
-[pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html
-[chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
-[troubleshooting]: /use-timescale/:currentVersion:/hypertables/troubleshooting/
-[timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
 [uuidv7_functions]: /api/:currentVersion:/uuid-functions/

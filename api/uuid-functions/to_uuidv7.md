@@ -16,7 +16,7 @@ Create a UUIDv7 object from a Postgres timestamp and random bits.
 
 `ts` is converted to a UNIX timestamp split into millisecond and sub-millisecond parts.
 
-![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
+![UUIDv7 microseconds][uuidv7-microseconds]
 
 ## Samples
 
@@ -30,3 +30,5 @@ FROM generate_series('2025-01-01:00:00:00'::timestamptz, '2025-01-01:00:00:03'::
 | Name | Type             | Default | Required | Description                                      |
 |-|------------------|-|----------|--------------------------------------------------|
 |`ts`|TIMESTAMPTZ| - | ✔ | The timestamp used to return a UUIDv7 object |
+
+[uuidv7-microseconds]: https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg

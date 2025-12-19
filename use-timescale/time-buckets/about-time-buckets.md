@@ -95,8 +95,8 @@ If you use `TIMESTAMPTZ`, by default, bucket start times are aligned with
 parameter.
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[create-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
 [date_bin]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-BIN
 [origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
-[create-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable

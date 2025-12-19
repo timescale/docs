@@ -16,15 +16,17 @@ However, compression APIs are still supported, you do not need to migrate to the
 Compression functionality is included in Hypercore. 
 
 Before you set up compression, you need to
-[configure the hypertable for compression][configure-compression] and then
+[configure the hypertable for compression][alter-table-compression] and then
 [set up a compression policy][add_compression_policy].
 
 <Highlight type="note">
+
 Before you set up compression for the first time, read
 the compression
-[blog post](https://www.tigerdata.com/blog/building-columnar-compression-in-a-row-oriented-database)
+[blog post][blog-post]
 and
-[documentation](https://www.tigerdata.com/docs/use-timescale/latest/compression/).
+[documentation][compression].
+
 </Highlight>
 
 You can also [compress chunks manually][compress_chunk], instead of using an
@@ -63,7 +65,7 @@ In $TIMESCALE_DB v2.11 and later, you can update and delete compressed data.
 You can also use advanced insert statements like `ON CONFLICT` and `RETURNING`.
 
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
+[alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
+[blog-post]: https://www.tigerdata.com/blog/building-columnar-compression-in-a-row-oriented-database
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
-[configure-compression]: /api/:currentVersion:/compression/alter_table_compression/
-[skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
-[hypercore]: /api/:currentVersion:/hypercore/
+[compression]: /use-timescale/:currentVersion:/compression/

@@ -98,6 +98,5 @@
 
 </Procedure>
 
-
 [config]: /self-hosted/:currentVersion:/configuration/
 [releases-page]: https://packagecloud.io/timescale/timescaledb

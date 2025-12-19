@@ -196,5 +196,4 @@ This needs to be taken into account when defining your compression settings.
 
 </Highlight> 
 
-
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

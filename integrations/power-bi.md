@@ -66,8 +66,7 @@ Establish a connection and import data from your $SERVICE_LONG into Power BI:
 
 You have successfully integrated Power BI with $CLOUD_LONG.
 
-[timescale-on-windows]: https://www.tigerdata.com/docs/self-hosted/latest/install/installation-windows/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[power-bi]: https://www.microsoft.com/en-us/power-platform/products/power-bi/
-[power-bi-install]: https://www.microsoft.com/en-us/power-platform/products/power-bi/downloads
 [postgresql-odbc-driver]: https://www.postgresql.org/ftp/odbc/releases/
+[power-bi-install]: https://www.microsoft.com/en-us/power-platform/products/power-bi/downloads
+[power-bi]: https://www.microsoft.com/en-us/power-platform/products/power-bi/

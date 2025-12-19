@@ -89,7 +89,7 @@ provide the chunk time interval. In this case, each chunk is 10 minutes.
 To define a continuous aggregate on a hypertable that uses integer-based time,
 you need to have a function to get the current time in the correct format, and
 set it for the hypertable. You can do this with the
-[`set_integer_now_func`][api-set-integer-now-func]
+[`set_integer_now_func`][set_integer_now_func]
 function. It can be defined as a regular $PG function, but needs to be
 [`STABLE`][pg-func-stable],
 take no arguments, and return an integer value of the same type as the time
@@ -156,6 +156,6 @@ continuous aggregate.
 
 </Procedure>
 
-[api-set-integer-now-func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [pg-func-stable]: https://www.postgresql.org/docs/current/sql-createfunction.html
 [postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html
+[set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func

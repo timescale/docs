@@ -19,7 +19,7 @@ You can integrate $MST_LONG with:
 *   External Elasticsearch
 *   External OpenSearch
 
+[Datadog]: /mst/:currentVersion:/integrations/metrics-datadog/
 [Grafana]: /mst/:currentVersion:/integrations/grafana-mst/
 [Loggly]: /mst/:currentVersion:/integrations/logging/
-[Datadog]: /mst/:currentVersion:/integrations/metrics-datadog/
 [Prometheus]: /mst/:currentVersion:/integrations/prometheus-mst/

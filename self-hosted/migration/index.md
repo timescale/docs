@@ -41,9 +41,11 @@ download speeds, existing continuous aggregates, and tolerance for failure
 recovery.
 
 <Highlight type="note">
+
 If you are migrating from an Amazon RDS service, Amazon charges for the amount
 of data transferred out of the service. You could be charged by Amazon for all
 data egressed, even if the migration fails.
+
 </Highlight>
 
 If your database is smaller than 100&nbsp;GB, choose to migrate your entire
@@ -54,12 +56,14 @@ interruption in the copy is possible, choose to migrate your schema and data
 separately instead.
 
 <Highlight type="warning">
+
 Migrating your schema and data separately does not retain continuous aggregates
 calculated using already-deleted data. For example, if you delete raw data after
 a month but retain downsampled data in a continuous aggregate for a year, the
 continuous aggregate loses any data older than a month upon migration. If you
 must keep continuous aggregates calculated using deleted data, migrate your
 entire database at once regardless of database size.
+
 </Highlight>
 
 If you aren't sure which method to use, try copying the entire database at once
@@ -75,6 +79,6 @@ databases. This ensures that the newest data is written to both databases. Then
 backfill your data with one of the two migration methods.
 
 [migrate-entire]: /self-hosted/:currentVersion:/migration/entire-database/
-[migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [migrate-same-db]: /self-hosted/:currentVersion:/migration/same-db/
+[migrate-separately]: /self-hosted/:currentVersion:/migration/schema-then-data/
 [outflux]: /self-hosted/:currentVersion:/migration/migrate-influxdb/

@@ -57,5 +57,5 @@ See the available [service capabilities][service-types] and [regions][regions].
 
 <Platforms />
 
-[service-types]: /about/:currentVersion:/supported-platforms/#available-service-capabilities
 [regions]: /about/:currentVersion:/supported-platforms/#available-regions
+[service-types]: /about/:currentVersion:/supported-platforms/#available-service-capabilities

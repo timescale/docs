@@ -97,5 +97,4 @@ data_nodes             |
 | `data_nodes` | ARRAY | Nodes on which the chunk is replicated. This is applicable only to chunks for distributed hypertables |
 | `chunk_creation_time` | TIMESTAMP WITH TIME ZONE | The time when this chunk was created for data addition |
 
-
 [dimensions]: /api/:currentVersion:/informational-views/dimensions/

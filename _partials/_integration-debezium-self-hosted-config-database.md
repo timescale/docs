@@ -35,7 +35,7 @@
 
 1. **Connect to your $SELF_LONG instance**
 
-   Use [`psql`][psql-connect]. 
+   Use [`psql`][connect-using-psql]. 
 
 1. **Create a Debezium user in $PG**
 
@@ -64,9 +64,7 @@
       ```sql
       CREATE PUBLICATION dbz_publication FOR ALL TABLES WITH (publish = 'insert, update');
       ```
-      
+
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
-[psql-connect]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [debezium-replication-permissions]: https://debezium.io/documentation/reference/3.2/connectors/postgresql.html#postgresql-host-replication-permissions

@@ -47,7 +47,7 @@ $CLOUD_LONG offers the following fork strategies:
   - You want the fastest possible fork creation
   - Slightly behind current data is acceptable
 
-- `timestamp`: fork from a specific point in time within your [retention period][pricing].
+- `timestamp`: fork from a specific point in time within your [retention period][pricing-plan-features].
   Use when:
   - Disaster recovery from a known-good state
   - Investigating issues that occurred at a specific time
@@ -94,7 +94,7 @@ To manage development forks:
 
 <Procedure>
 
-1.  In [$CONSOLE][console], from the `Services` list, ensure the $SERVICE_SHORT
+1.  In [$CONSOLE][services-portal], from the `Services` list, ensure the $SERVICE_SHORT
     you want to recover has a status of `Running` or `Paused`.
 1.  Navigate to `Operations` > `Service Management` and click `Fork service`.
 1.  Configure the fork, then click `Fork service`.
@@ -102,7 +102,7 @@ To manage development forks:
     A fork of the $SERVICE_SHORT is created. The forked $SERVICE_SHORT shows in `Services` with a label 
     specifying which $SERVICE_SHORT it has been forked from.
 
-    ![See the forked service](https://assets.timescale.com/docs/images/tsc-forked-service.webp)
+    ![See the forked service][see-the-forked-service]
 
 1.  Update the connection strings in your app to use the fork.
 
@@ -164,21 +164,11 @@ To fork your $SERVICE_LONG using GitHub actions:
 
 </Procedure>
 
-[console]: https://console.cloud.timescale.com/dashboard/services
-[ha-replicas]: /about/use-timescale/:currentVersion:/ha-replicas/
-[pricing-and-account-management]: /about/:currentVersion:/pricing-and-account-management/
-[wal]: https://www.postgresql.org/docs/current/wal-intro.html
-[support]: https://www.timescale.com/contact/
-[pitr]: /use-timescale/:currentVersion:/backup-restore/point-in-time-recovery/
-[rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/#rapid-recovery
-[cross-region]: /use-timescale/:currentVersion:/backup-restore#enable-cross-region-backup
-[create-fork]: /use-timescale/:currentVersion:/backup-restore#recover-your-data-in-a-point-in-time-fork
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[tiered-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/
 [github-action]: https://github.com/marketplace/actions/tiger-data-fork-service
-[delete-action]: https://github.com/marketplace/actions/tiger-data-delete-service
-[connection-details]: /integrations/:currentVersion:/find-connection-details/
-[upgrades]: /use-timescale/:currentVersion:/upgrades/
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
+[see-the-forked-service]: https://assets.timescale.com/docs/images/tsc-forked-service.webp
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[tiered-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/

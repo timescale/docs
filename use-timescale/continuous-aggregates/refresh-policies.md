@@ -78,7 +78,7 @@ To changing a refresh policy to use a `NULL` `start_offset`:
 
 If you want to keep data in the continuous aggregate even if it is removed from
 the underlying hypertable, you can set the `start_offset` to match the
-[data retention policy][sec-data-retention] on the source hypertable. For example,
+[data retention policy][data-retention] on the source hypertable. For example,
 if you have a retention policy that removes data older than one month, set
 `start_offset` to one month or less. This sets your policy so that it does not
 refresh the dropped data.
@@ -188,11 +188,11 @@ CALL refresh_continuous_aggregate('example', '2021-05-01', '2021-06-01');
 
 Follow the logic used by automated refresh policies and avoid refreshing time buckets that are likely to have a lot of writes. This means that you should generally not refresh the latest incomplete time bucket. To include the latest raw data in your queries, use [real-time aggregation][real-time-aggregates] instead.
 
-[cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
-[future-watermark]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
-[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
-[sec-data-retention]: /use-timescale/:currentVersion:/data-retention
 [api-reference]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[data-retention]: /use-timescale/:currentVersion:/data-retention
+[future-watermark]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

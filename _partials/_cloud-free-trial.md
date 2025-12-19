@@ -11,4 +11,4 @@ After you have completed your 30-day trial period, choose the
 
 If you want to try out features in a higher $PRICING_PLAN before upgrading, contact us.
 
-[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
+[plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

@@ -24,8 +24,10 @@ additional hyperfunctions, you need to install the
 />
 
 <Highlight type="important">
+
 All accessors can be used with `CounterSummary`, and all but `num_resets`
 with `GaugeSummary`.
+
 </Highlight>
 
 [hyperfunctions-counter-agg]: /use-timescale/:currentVersion:/hyperfunctions/counter-aggregation/

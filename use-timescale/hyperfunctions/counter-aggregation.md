@@ -193,13 +193,4 @@ For more information about parallelism and ordering, see our
 [developer documentation][gh-parallelism-ordering]
 
 [gh-parallelism-ordering]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/counter_agg.md#counter-agg-ordering
-
-
-
-
-
-
-
-
-
 [hyperfunctions-api-counter-agg]: /api/:currentVersion:/hyperfunctions/counters-and-gauges/counter_agg/

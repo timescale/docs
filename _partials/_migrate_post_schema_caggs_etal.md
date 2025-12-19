@@ -129,8 +129,8 @@ separately. Recreate them on your $SERVICE_LONG.
     ```
 
 1.  Recreate each policy. For more information about recreating policies, see
-    the sections on [continuous-aggregate refresh policies][cagg-policy],
-    [retention policies][retention-policy], [Hypercore policies][setup-hypercore], and [reorder policies][reorder-policy].
+    the sections on [continuous-aggregate refresh policies][refresh-policy],
+    [retention policies][retention-policy], [Hypercore policies][setup-hypercore], and [reorder policies][reordering].
 
 </Procedure>
 
@@ -157,8 +157,7 @@ The skipped tables and indexes correspond to system catalogs that can't be
 accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[cagg-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
+[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
+[reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
-[reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
-[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

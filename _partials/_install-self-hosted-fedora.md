@@ -28,5 +28,3 @@ import SelfHostedRedhatXPlatform from "versionContent/_partials/_install-self-ho
 <SelfHostedRedhatXPlatform />
 
 </Procedure>
-
-[config]: /self-hosted/:currentVersion:/configuration/

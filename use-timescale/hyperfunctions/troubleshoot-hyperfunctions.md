@@ -44,7 +44,7 @@ again.
     contains $TOOLKIT_SHORT. For instructions on adding the $TIMESCALE_DB repository, see
     the installation guides:
     *   [Debian/Ubuntu installation guide][deb-install]
-    *   [RHEL/CentOS installation guide][rhel-install]
+    *   [RHEL/CentOS installation guide][deb-install]
 1.  Update your local repository list with `apt update` or `yum update`.
 1.  Restart your $PG service.
 1.  Check that the right version of $TOOLKIT_SHORT is among your available extensions:
@@ -68,5 +68,4 @@ again.
 
 </Procedure>
 
-[deb-install]: /self-hosted/latest/install/installation-linux/
-[rhel-install]: /self-hosted/latest/install/installation-linux/
+[deb-install]: /self-hosted/:currentVersion:/install/installation-linux/

@@ -25,7 +25,7 @@ You can change the CPU and memory allocation for your $SERVICE_SHORT at any time
 minimal downtime, usually less than a minute. The new resources become available as soon as 
 the $SERVICE_SHORT restarts. You can change the CPU and memory allocation up or down, as frequently as required. 
 
-![Change resources](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-update-cpu-manually.png)
+![Change resources][change-resources]
 
 Note that:
 
@@ -98,6 +98,7 @@ operate normally.
    2022-02-03 17:12:04 UTC [2253150]:TimescaleDB: tsdbadmin@tsdb,app=psql [53200] ERROR: out of memory
    ```
 
+[change-resources]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-update-cpu-manually.png
 [cloud-login]: https://console.cloud.timescale.com/
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services

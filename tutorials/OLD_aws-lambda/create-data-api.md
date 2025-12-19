@@ -61,7 +61,7 @@ workaround to this issue is to download the
 
 1.  At the AWS Lambda console, check to see if your `psycopg2` has been uploaded
     as a Lambda layer:
-    ![aws layers](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/layers.png)
+    ![aws layers][aws-layers]
 
 </Procedure>
 
@@ -151,7 +151,7 @@ Lambda using the `create-function` AWS command.
 
 1.  You can check that the function has been uploaded correctly by using this
     command in the AWS console:
-    ![aws lambda uploaded](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/lambda_function.png)
+    ![aws lambda uploaded][aws-lambda-uploaded]
 1.  If you make changes to your function code, you need to zip the file again
     and use the `update-function-code` command to upload the changes:
 
@@ -394,10 +394,6 @@ curl 'https://hlsu4rwrkl.execute-api.us-east-1.amazonaws.com/test/ticker?symbol=
 If everything is working properly, you see the output of the Lambda function. In
 this example, it's the latest stock price of MSFT (Microsoft) in JSON format.
 
-[psycopg2]: https://www.psycopg.org/docs/
-[lambda-layers]: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html
-[lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2
-[custom-lambda-integration]: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html
 
 ## Create a Lambda function to insert data into the database
 
@@ -600,7 +596,9 @@ inserted into the database.
 |2021-11-12 21:00:00|MSFT|337.15|337.15|337.15|337.15|562|
 |2021-11-12 21:00:00|FB|341.35|341.35|341.3|341.3|556|
 
+[aws-lambda-uploaded]: https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/lambda_function.png
+[aws-layers]: https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/layers.png
 [custom-lambda-integration]: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html
-[lambda-layers]: https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-concepts.html#gettingstarted-concepts-layer
-[lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2/
-[psycopg2]: https://pypi.org/project/psycopg2/
+[lambda-layers]: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html
+[lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2
+[psycopg2]: https://www.psycopg.org/docs/

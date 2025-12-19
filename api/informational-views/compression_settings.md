@@ -75,7 +75,9 @@ orderby_nullsfirst     | f
 ```
 
 <Highlight type="note">
+
 The `by_range` dimension builder is an addition to TimescaleDB 2.13.
+
 </Highlight>
 
 ## Available columns
@@ -90,7 +92,5 @@ The `by_range` dimension builder is an addition to TimescaleDB 2.13.
 | `orderby_asc` | BOOLEAN | True if this is used for order by ASC, False for order by DESC |
 | `orderby_nullsfirst` | BOOLEAN | True if nulls are ordered first for this column, False if nulls are ordered last|
 
-
 [chunk_compression_settings]: /api/:currentVersion:/informational-views/chunk_compression_settings/
 [hypertable_compression_settings]: /api/:currentVersion:/informational-views/hypertable_compression_settings/
-

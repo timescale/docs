@@ -223,7 +223,7 @@ multiple times per second during each play)
 
 <Highlight type="important">
 
-These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [$TOOLKIT_LONG](https://www.tigerdata.com/docs/use-timescale/latest/install-timescaledb-toolkit/) before you begin.
+These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [$TOOLKIT_LONG][toolkit_long] before you begin.
 
 </Highlight>
 
@@ -262,7 +262,7 @@ often takes 25-30 seconds to run.
 Most of the data we were interested in are based on this aggregation of the
 `tracking` data. We wanted to know how far a player traveled on each play
 or throughout each game. Rather than asking $TIMESCALE_DB to query and aggregate
-that raw data every time, we created a [continuous aggregate][cagg] out of this base query
+that raw data every time, we created a [continuous aggregate][caggs] out of this base query
 to significantly improve the speed of queries and analysis.
 
 ### Create continuous aggregate of player yards per game
@@ -294,6 +294,7 @@ We'll use this continuous aggregate in most of the queries in the
 next section. Feel free to play with other variations of this materialized data
 as you try to answer even more questions with $TIMESCALE_DB.
 
-[cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
+[toolkit_long]: https://www.tigerdata.com/docs/use-timescale/:currentVersion:/install-timescaledb-toolkit/

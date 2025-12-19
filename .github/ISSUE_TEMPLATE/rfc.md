@@ -25,4 +25,6 @@ assignees: ''
 
 ## Contributing to documentation
 
-We welcome documentation contributions! For guidelines, see the [contributing guide](https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md).
+We welcome documentation contributions! For guidelines, see the [contributing guide][contributing-guide].
+
+[contributing-guide]: https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md

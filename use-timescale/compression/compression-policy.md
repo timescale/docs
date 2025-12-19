@@ -60,7 +60,7 @@ SELECT * FROM timescaledb_information.jobs
   WHERE proc_name='policy_compression';
 ```
 
-For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
+For more information, see the API reference for [`timescaledb_information.jobs`][informational-views].
 
 ## Pause compression policy
 
@@ -104,8 +104,8 @@ If your hypertable contains compressed chunks, you need to
 [decompress each chunk][decompress-chunks] individually before you can turn off
 compression.
 
-[alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
+[alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
 [remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
-[timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/

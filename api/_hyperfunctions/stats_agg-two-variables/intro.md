@@ -13,9 +13,8 @@ are based on the standard least-squares fitting method.
 
 These functions work on two-dimensional data. To work with one-dimensional data,
 for example to calculate the average and standard deviation of a single
-variable, see [the one-dimensional `stats_agg` functions][stats_agg-1d].
+variable, see [the one-dimensional `stats_agg` functions][stats-aggs].
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[pg-stats-aggs]:
-    https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE
-[stats_agg-1d]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
+[pg-stats-aggs]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE
+[stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

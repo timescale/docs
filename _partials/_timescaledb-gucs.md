@@ -89,4 +89,6 @@
 | `skip_scan_run_cost_multiplier` | `REAL` | `1.0` | Default is 1.0 i.e. regularly estimated SkipScan run cost, 0.0 will make SkipScan to have run cost = 0<br />min: `0.0`, max: `1.0` |
 | `telemetry_level` | `ENUM` | `TELEMETRY_DEFAULT` | Level used to determine which telemetry to send |
 
-Version: [2.24.0](https://github.com/timescale/timescaledb/releases/tag/2.24.0)
+Version: [2.24.0][2240]
+
+[2240]: https://github.com/timescale/timescaledb/releases/tag/2.24.0

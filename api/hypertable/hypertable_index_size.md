@@ -17,7 +17,7 @@ disk space needed to provide the index on all chunks. The size is
 reported in bytes.
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 ## Samples
 
@@ -63,9 +63,9 @@ SELECT pg_size_pretty(hypertable_index_size('second_index'));
 |hypertable_index_size|BIGINT|Returns the disk space used by the index|
 
 <Highlight type="note">
+
 NULL is returned if the function is executed on a non-hypertable relation.
+
 </Highlight>
 
-
-
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

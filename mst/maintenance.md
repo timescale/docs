@@ -25,8 +25,10 @@ ALTER EXTENSION timescaledb UPDATE;
 ```
 
 <Highlight type="important">
+
 After a maintenance update, the DNS name remains the same, but the IP address
 it points to changes.
+
 </Highlight>
 
 ## Non-critical maintenance updates
@@ -76,6 +78,5 @@ retired automatically after the new servers have taken over. The controlled
 failover is a very quick and safe operation and it takes less than a minute to
 get clients connected again. In most cases, there is five to ten second outage
 during this process.
-
 
 [mst-login]:https://portal.managed.timescale.com/login

@@ -13,5 +13,5 @@ using the following $TIMESCALE_DB and Grand Unified Configuration (GUC) paramete
 * [$TIMESCALE_DB configuration and tuning][tigerpostgres-config]
 * [Grand Unified Configuration (GUC) parameters][gucs]
 
-[tigerpostgres-config]: /api/:currentVersion:/configuration/tiger-postgres/
 [gucs]: /api/:currentVersion:/configuration/gucs/
+[tigerpostgres-config]: /api/:currentVersion:/configuration/tiger-postgres/

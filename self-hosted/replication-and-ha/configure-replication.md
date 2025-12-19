@@ -56,7 +56,7 @@ uses to stream from the primary database.
 
 <Highlight type="important">
 
-The [scram-sha-256](https://www.postgresql.org/docs/current/sasl-authentication.html#SASL-SCRAM-SHA-256) encryption level is the most secure
+The [scram-sha-256][scram-sha-256] encryption level is the most secure
 password-based authentication available in $PG. It is only available in $PG 10 and later.
 
 </Highlight>
@@ -304,9 +304,11 @@ In the `postgresql.conf` file, set the `synchronous_commit` parameter to:
     replication lag is nearly non-existent.
 
 <Highlight type="important">
+
 If `synchronous_standby_names` is empty, the settings `on`, `remote_apply`,
 `remote_write` and `local` all provide the same synchronization level, and
 transaction commits wait for the local flush to disk.
+
 </Highlight>
 
 This matrix shows the level of consistency provided by each mode:
@@ -438,5 +440,6 @@ check out [Patroni][patroni-github].
 [postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
 [postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
 [replication-modes]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#replication-modes
+[scram-sha-256]: https://www.postgresql.org/docs/current/sasl-authentication.html#SASL-SCRAM-SHA-256
 [timescale-streamrep-helm]: https://github.com/timescale/helm-charts/tree/main/charts/timescaledb-single
 [verify-replica]: /self-hosted/:currentVersion:/replication-and-ha/configure-replication#verify-that-the-replica-is-working

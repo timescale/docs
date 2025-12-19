@@ -13,8 +13,3 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 <IngestData />
 
 <GrafanaConnect />
-
-
-
-[satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi
-[coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction

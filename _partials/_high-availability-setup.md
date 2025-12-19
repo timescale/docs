@@ -4,10 +4,11 @@
 1.  Click `Operations`, then select `High availability`.
 1.  Choose your replication strategy, then click `Change configuration`.
 
-    ![$SERVICE_LONG replicas](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ha-replicas.png)
+    ![$SERVICE_LONG replicas][service_long-replicas]
 
 1. In `Change high availability configuration`, click `Change config`.
 
 </Procedure>
 
 [cloud-login]: https://console.cloud.timescale.com
+[service_long-replicas]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ha-replicas.png

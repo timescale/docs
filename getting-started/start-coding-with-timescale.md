@@ -52,5 +52,4 @@ $SERVICE_LONG, create and manage hypertables, then ingest and query data.
 You are not limited to these languages. $CLOUD_LONG is based on $PG, you can interface
 with $TIMESCALE_DB and $CLOUD_LONG using any [$PG client driver][postgres-drivers].
 
-
 [postgres-drivers]: https://wiki.postgresql.org/wiki/List_of_drivers
