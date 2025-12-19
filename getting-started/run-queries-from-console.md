@@ -94,7 +94,7 @@ Now you have used $DATA_MODE in $CONSOLE, see how to easily do the following:
 
 $SQL_ASSISTANT_SHORT in [$DATA_MODE][portal-data-mode] is a chat-like interface that harnesses the power of AI to help you write, fix, and organize SQL faster and more accurately. Ask $SQL_ASSISTANT_SHORT to change existing queries, write new ones from scratch, debug error messages, optimize for query performance, add comments, improve readability—and really, get answers to any questions you can think of.
 
-![$SQL_ASSISTANT](https://assets.timescale.com/docs/images/tiger-cloud-console/sql-assistant-in-action.png)
+![$SQL_ASSISTANT][sql-assistant]
 
 <!--
 <div class="relative w-fit mx-auto">
@@ -278,6 +278,7 @@ To use $SQL_EDITOR:
 [select-a-connection]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
 [share-query]: https://docs.popsql.com/docs/sharing-a-link-to-your-query-and-results
+[sql-assistant]: https://assets.timescale.com/docs/images/tiger-cloud-console/sql-assistant-in-action.png
 [sql-assistant-settings]: https://assets.timescale.com/docs/images/tiger-console-sql-editor-preferences.png
 [popsql-dbt]: https://popsql.com/dbt
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/

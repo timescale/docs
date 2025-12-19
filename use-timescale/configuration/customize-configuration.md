@@ -42,10 +42,7 @@ To modify a configured value, hover over the value and click the revealed pencil
 icon. This reveals an editable field to apply your change. Clicking anywhere
 outside of that field saves the value to be applied.
 
-<img class="main-content__illustration"
-width={1375} height={944}
-src="https://assets.timescale.com/docs/images/tsc-settings-change.png"
-alt="Change Tiger Cloud configuration parameters"/>
+![Change Tiger Cloud configuration parameters][change-config]
 
 ### Apply configuration changes
 
@@ -58,3 +55,4 @@ A confirmation dialog is displayed which indicates whether a restart is
 required. Click `Confirm` to apply the changes, and restart if necessary.
 
 [database-configuration-parameters]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-configuration-parameters.png
+[change-config]: https://assets.timescale.com/docs/images/tsc-settings-change.png

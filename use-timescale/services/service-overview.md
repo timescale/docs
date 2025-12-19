@@ -13,7 +13,7 @@ cloud_ui:
 
 You use $CONSOLE_LONG to manage your $SERVICE_SHORTs and data in a convenient, centralized manner. When you [log into $CONSOLE][cloud-login], you see `Services` and other $PROJECT_SHORT management tabs: 
 
-![Check $SERVICE_LONG is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png)
+![Check $SERVICE_LONG is running][check-service-is-running]
 
 - `Services`: create a new [$SERVICE_SHORT][create-service] in your $PROJECT_SHORT, and view the existing $SERVICE_SHORTs and their statuses. Each $SERVICE_SHORT is an optimized [$PG][postgres-link] instance extended with database engine innovations such as [$TIMESCALE_DB][timescaledb-link], managed for you by $CLOUD_LONG.
 - `Security`:  create [$VPCs][vpc] and [IP allowlists][ip-allowlist]. 
@@ -26,7 +26,7 @@ You use $CONSOLE_LONG to manage your $SERVICE_SHORTs and data in a convenient, c
 
 When you select a $SERVICE_LONG in the `Services` tab, you see `Overview` and other $SERVICE_SHORT management tabs:
 
-![Select a query to edit](https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png)
+![Select a service to edit][select-service-to-edit]
 
 - `Overview`: get an overview of your $SERVICE_SHORT details, infrastructure, [connection info][connect-service], and [performance optimization tips][recommendations].
 - `Actions`: [connect and import data][import-sync] into your $SERVICE_SHORT.
@@ -49,6 +49,7 @@ When you select a $SERVICE_LONG in the `Services` tab, you see `Overview` and ot
 [monitoring]: /use-timescale/:currentVersion:/metrics-logging/monitoring/
 [find-connection-info]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
 [pricing]: /about/:currentVersion:/pricing-and-account-management/#upgrade-or-downgrade-your-pricing-plans-at-any-time
+[check-service-is-running]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png
 [check-usage]: /about/:currentVersion:/pricing-and-account-management/#monitor-usage-and-costs
 [connect-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [recommendations]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#recommendations
@@ -57,6 +58,7 @@ When you select a $SERVICE_LONG in the `Services` tab, you see `Overview` and ot
 [backup]: /use-timescale/:currentVersion:/backup-restore/
 [upgrade]: /use-timescale/:currentVersion:/upgrades/
 [postgres-link]: /api/:currentVersion:/glossary/#postgresql
+[select-service-to-edit]: https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png
 [timescaledb-link]: /api/:currentVersion:/glossary/#timescaledb
 [vpc]: /use-timescale/:currentVersion:/security/vpc/
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
