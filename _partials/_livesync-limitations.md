@@ -39,4 +39,4 @@
   target database, manually refresh the continuous aggregate using the `force`
   option of [refresh_continuous_aggregate][refresh-caggs].
 
-[refresh-caggs]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/#sample-usage
+[refresh-caggs]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/#samples

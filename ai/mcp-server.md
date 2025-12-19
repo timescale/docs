@@ -221,4 +221,4 @@ You can use the following $CLI_LONG global flags when you run $MCP_SHORT:
 
 <GLOBALFLAGS />
 
-[manual-config]: /ai/:currentVersion:/mcp-server/#manually-configure-mcp_short
+[manual-config]: /ai/:currentVersion:/mcp-server/#manually-configure-tiger-mcp

@@ -208,7 +208,7 @@ The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 
 [2fa]: /use-timescale/:currentVersion:/security/multi-factor-authentication/
 [change-project-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-project.png
-[change-project]: /use-timescale/:currentVersion:/security/members/#change-your-current-project_short
+[change-project]: /use-timescale/:currentVersion:/security/members/#change-your-current-project
 [change-user-role-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-user-role.png
 [cloud-login]: https://console.cloud.timescale.com/
 [contact-support]: https://www.tigerdata.com/contact

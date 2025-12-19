@@ -270,12 +270,17 @@ For example:
 [A link to the data tiering section in docs][data-tiering]
 
 [link-label]: absolute or relative URL
-[data-tiering]: ../use-timescale/data-tiering/enabling-data-tiering.md
-[disable-chunk-skipping]: ../api/hypertable/disable_chunk_skipping.md
-[decompress-chunks]: ../use-timescale/compression/decompress-chunks.md
 [alerting]: ../use-timescale/alerting.md
+[connection-pooling]: ../use-timescale/services/connection-pooling.md
+[data-tiering]: ../use-timescale/data-tiering/enabling-data-tiering.md
+[decompress-chunks]: ../use-timescale/compression/decompress-chunks.md
 [deprecation]: ../_partials/_deprecated.md
+[disable-chunk-skipping]: ../api/hypertable/disable_chunk_skipping.md
+[installation-windows]: ../self-hosted/install/installation-windows.md
 [live-migration]: ../migrate/live-migration.md
+[remove-reorder-policy]: ../api/continuous-aggregates/remove_continuous_aggregate_policy.md
+[time-bucket]: ../api/hyperfunctions/time_bucket.md
+[time-weighted-average]: ../api/hyperfunctions/time_weight/time_weighted_average.md
 
 [caution-highlight]: https://assets.timescale.com/docs/images/highlight-warning.png
 [cloud-highlight]: https://assets.timescale.com/docs/images/highlight-cloud.png

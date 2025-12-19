@@ -29,5 +29,5 @@
      ```
 
 [open-console]: https://console.cloud.timescale.com/dashboard/services
-[psql]: /getting-started/:currentVersion:/run-queries-from-console/#connect-to-your-service-using-psql
+[psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/

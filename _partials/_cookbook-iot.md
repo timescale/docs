@@ -53,10 +53,7 @@ To remove all-null entries, use an optional constraint such as:
 #### Get the last value of every sensor
 
 There are several ways to get the latest value of every sensor. The following examples use the
-structure defined in [Narrow table format example][setup-a-narrow-table-format] as a reference:
-
-- [SELECT DISTINCT ON][select-distinct-on]
-- [JOIN LATERAL][join-lateral]
+structure defined in [Narrow table format example][setup-a-narrow-table-format] as a reference
 
 ##### SELECT DISTINCT ON
 

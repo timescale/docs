@@ -222,7 +222,7 @@ the [compression section][compression].
 [recreate-continuous-aggregates-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-continuous-aggregates
 [recreate-policies-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#recreate-policies
 [restore-data-into-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-data-into-timescale
-[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self_long-instance
+[restore-hypertables-in-timescale-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#restore-hypertables-in-your-self-hosted-timescaledb-instance
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [update-table-statistics-link]: /self-hosted/:currentVersion:/migration/schema-then-data/#update-table-statistics
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/

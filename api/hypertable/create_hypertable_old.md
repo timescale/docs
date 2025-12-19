@@ -197,5 +197,5 @@ this constraint on the table when it is executed.
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#partition-by-time
 [pg-documentation]: https://www.postgresql.org/docs/current/sql-lock.html

@@ -57,6 +57,6 @@ there is one other table of data called `company`.
 You now have two tables in your $SERVICE_LONG. One hypertable
 named `stocks_real_time`, and one regular $PG table named `company`.
 
-[connect-using-psql]: /getting-started/:currentVersion:/run-queries-from-console/#connect-to-your-service-using-psql
+[connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services

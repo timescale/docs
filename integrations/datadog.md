@@ -141,7 +141,7 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
 [datadog-config]: https://docs.datadoghq.com/database_monitoring/setup_postgres/selfhosted?tab=postgres15
 [datadog-install]: https://docs.datadoghq.com/integrations/postgres/
-[datadog-monitor-cloud]: /integrations/:currentVersion:/datadog/#integrate-datadog-with-cloud_long
+[datadog-monitor-cloud]: /integrations/:currentVersion:/datadog/#integrate-datadog-with-tiger-cloud
 [datadog-postgres-metrics]: https://docs.datadoghq.com/integrations/postgres/?tab=host#metrics
 [datadog]: https://www.datadoghq.com/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/

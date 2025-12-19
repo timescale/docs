@@ -24,7 +24,7 @@ and [insights][insights],&nbsp;[streamlined maintenance][maintain-upgrade],&nbsp
 [automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
 [connection-pooling]: /use-timescale/:currentVersion:/services/connection-pooling
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
+[how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-your-bill-is-calculated
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/

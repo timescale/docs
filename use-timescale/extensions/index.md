@@ -97,6 +97,7 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [bool-plper]: https://www.postgresql.org/docs/current/plperl-funcs.html
 [btree-gin]: https://www.postgresql.org/docs/current/btree-gin.html
 [btree-gist]: https://www.postgresql.org/docs/current/btree-gist.html
+[built-ins]: /use-timescale/:currentVersion:/extensions/#postgres-built-in-extensions
 [citext]: https://www.postgresql.org/docs/current/citext.html
 [contact-us]: mailto:support@tigerdata.com
 [cube]: https://www.postgresql.org/docs/current/cube.html
@@ -146,6 +147,8 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 [sslinfo]: https://www.postgresql.org/docs/current/sslinfo.html
 [tablefunc]: https://www.postgresql.org/docs/current/tablefunc.html
 [tcn]: https://www.postgresql.org/docs/current/tcn.html
+[third-party]: /use-timescale/:currentVersion:/extensions/#third-party-extensions
+[timescale-extensions]: /use-timescale/:currentVersion:/extensions/#tiger-data-extensions
 [timescaledb]: https://github.com/timescale/timescaledb
 [toolkit]: https://github.com/timescale/timescaledb-toolkit
 [tsm-system-rows]: https://www.postgresql.org/docs/current/tsm-system-rows.html

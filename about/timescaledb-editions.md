@@ -161,7 +161,7 @@ You can access a hosted version of $TDB_COMMUNITY through
 <!-- vale Google.Units = NO -->
 
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/#sample-usage
+[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/#samples
 [add_continuous_aggregate_policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
 [add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
 [add_job]: /api/:currentVersion:/jobs-automation/add_job/
