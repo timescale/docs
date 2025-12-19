@@ -1,3 +1,2 @@
-<Tag variant="hollow">Old API since [TimescaleDB v2.20.0][timescaledb-v2200]</Tag> 
+<Tag variant="hollow">Old API since [TimescaleDB v2.20.0](https://github.com/timescale/timescaledb/releases/tag/2.20.0)</Tag> 
 
-[timescaledb-v2200]: https://github.com/timescale/timescaledb/releases/tag/2.20.0
