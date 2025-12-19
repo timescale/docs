@@ -15,7 +15,7 @@ geographic data. It helps in spatial data analysis, the study of patterns,
 anomalies, and theories within spatial or geographical data.
 
 For more information about these functions and the options available, see the
-[PostGIS documentation] [postgis-docs].
+[PostGIS documentation][postgis-docs].
 
 ## Use the `postgis` extension to analyze geospatial data
 
