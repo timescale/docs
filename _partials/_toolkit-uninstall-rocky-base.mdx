@@ -1,0 +1,48 @@
+## Uninstall $TOOLKIT_LONG
+
+If you no longer need $TOOLKIT_SHORT, you can remove it without uninstalling $TIMESCALE_DB or $PG.
+
+<Procedure>
+
+1.  **Drop the $TOOLKIT_SHORT extension from your databases**
+
+    Connect to each database where $TOOLKIT_SHORT is enabled and remove the extension:
+
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+    At the `psql` prompt:
+
+    ```sql
+    DROP EXTENSION IF EXISTS timescaledb_toolkit CASCADE;
+    ```
+
+    Repeat this for all databases with $TOOLKIT_SHORT enabled. To exit psql, type `\q`.
+
+    <Highlight type="warning">
+
+    Using `CASCADE` will drop all objects that depend on the $TOOLKIT_SHORT extension. Ensure you have backed up any data you want to keep.
+
+    </Highlight>
+
+1.  **Uninstall the $TOOLKIT_SHORT package**
+
+    ```bash
+    sudo dnf remove timescaledb-toolkit-postgresql-18
+    ```
+
+    Replace `18` with your $PG version if different.
+
+1.  **(Optional) Remove dependencies**
+
+    To also remove unused dependencies:
+
+    ```bash
+    sudo dnf autoremove
+    ```
+
+</Procedure>
+
+[rocky-install]: /self-hosted/:currentVersion:/install/installation-linux/
+[connect]: /integrations/:currentVersion:/find-connection-details/

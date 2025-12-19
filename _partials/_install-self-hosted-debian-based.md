@@ -58,7 +58,7 @@
 1.  **Install TimescaleDB**
 
     ```bash
-    sudo apt install timescaledb-2-postgresql-17 postgresql-client-17
+    sudo apt install timescaledb-2-postgresql-18 postgresql-client-18
     ```
     
     To install a specific $TIMESCALE_DB [release][releases-page], set the version. For example:
