@@ -39,9 +39,8 @@ $TIMESCALE_DB on a [supported platform][supported-platforms-link] using the pack
 
 <Highlight type="warning">
 
-If you have previously installed $PG without a package manager, you may encounter errors
-following these install instructions. Best practice is to fully remove any existing $PG
-installations before you begin.
+If you have previously installed $PG, you may encounter errors following these install instructions. Best 
+practice is to fully remove any existing $PG installations before you begin.
 
 To keep your current $PG installation, [Install from source][install-from-source].
 

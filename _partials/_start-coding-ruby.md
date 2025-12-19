@@ -86,13 +86,13 @@ from a standard Rails app configured for $PG.
        The result shows the list of extensions in your $SERVICE_LONG
 
       |  Name  | Version | Schema | Description  |                                       
-      | --  | -- | -- | -- |
+      | --  |---------| -- | -- |
       | pg_buffercache      | 1.5     | public     | examine the shared buffer cache| 
       | pg_stat_statements  | 1.11    | public     | track planning and execution statistics of all SQL statements executed| 
       | plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language| 
       | postgres_fdw        | 1.1     | public     | foreign-data wrapper for remote $PG servers| 
-      | timescaledb         | 2.18.1  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)| 
-      | timescaledb_toolkit | 1.19.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities| 
+      | timescaledb         | 2.24.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)| 
+      | timescaledb_toolkit | 1.22.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities| 
 
 </Procedure>
 

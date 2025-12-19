@@ -93,10 +93,10 @@ data.
 
 1.  **Pull the latest $TIMESCALE_DB image**
 
-    This command pulls the latest version of $TIMESCALE_DB running on $PG 17:
+    This command pulls the latest version of $TIMESCALE_DB running on $PG 18:
 
     ```
-    docker pull timescale/timescaledb-ha:pg17
+    docker pull timescale/timescaledb-ha:pg18
     ```
 
     If you're using another version of $PG, look for the relevant tag in the [$TIMESCALE_DB HA][timescale_db-ha] repository on Docker Hub.
@@ -118,7 +118,7 @@ data.
 
     ```bash
     docker run -v <volume ID>:/pgdata -e PGDATA=/pgdata
-      -d --name timescaledb -p 5432:5432 timescale/timescaledb-ha:pg17
+      -d --name timescaledb -p 5432:5432 timescale/timescaledb-ha:pg18
     ```
 
     </tab>
@@ -127,7 +127,7 @@ data.
 
     ```bash
     docker run -v <bind path>:/pgdata -e PGDATA=/pgdata -d --name timescaledb \
-      -p 5432:5432 timescale/timescaledb-ha:pg17
+      -p 5432:5432 timescale/timescaledb-ha:pg18
     ```
 
     </tab>
@@ -168,10 +168,10 @@ If you have multiple databases, update each database separately.
 
 1.  **Pull the latest $TIMESCALE_DB image**
 
-    This command pulls the latest version of $TIMESCALE_DB running on $PG 17.
+    This command pulls the latest version of $TIMESCALE_DB running on $PG 18.
 
     ```
-    docker pull timescale/timescaledb:latest-pg17
+    docker pull timescale/timescaledb:latest-pg18
     ```
 
     If you're using another version of $PG, look for the relevant tag in the [TimescaleDB light][timescaledb-light] repository on Docker Hub.
@@ -193,7 +193,7 @@ If you have multiple databases, update each database separately.
 
     ```bash
     docker run -v  <volume ID>:/pgdata -e PGDATA=/pgdata \
-      -d --name timescaledb -p 5432:5432 timescale/timescaledb:latest-pg17
+      -d --name timescaledb -p 5432:5432 timescale/timescaledb:latest-pg18
     ```
 
     </tab>
@@ -202,7 +202,7 @@ If you have multiple databases, update each database separately.
 
     ```bash
     docker run -v <bind path>:/pgdata -e PGDATA=/pgdata -d --name timescaledb \
-      -p 5432:5432 timescale/timescaledb:latest-pg17
+      -p 5432:5432 timescale/timescaledb:latest-pg18
     ```
 
     </tab>

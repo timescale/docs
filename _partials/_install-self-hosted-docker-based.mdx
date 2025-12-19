@@ -10,10 +10,10 @@
     $TIMESCALE_DB experience. It uses [Ubuntu][ubuntu], includes
     [$TOOLKIT_LONG](https://github.com/timescale/timescaledb-toolkit), and support for PostGIS and Patroni.
 
-    To install the latest release based on $PG 17:
+    To install the latest release based on $PG 18:
 
     ```
-    docker pull timescale/timescaledb-ha:pg17
+    docker pull timescale/timescaledb-ha:pg18
     ```
 
     $TIMESCALE_DB is pre-created in the default $PG database and is added by default to any new database you create in this image.
@@ -22,10 +22,14 @@
 
     Replace `</a/local/data/folder>` with the path to the folder you want to keep your data in the following command.
     ```
-    docker run -d --name timescaledb -p 5432:5432  -v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
+    docker run -d --name timescaledb -p 5432:5432  -v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg18
     ```
-        
+
     If you are running multiple container instances, change the port each Docker instance runs on.
+
+    <Highlight type="note">
+    If you have a local $PG instance already running on port 5432, change the Docker port mapping to avoid conflicts. For example, use `-p 5433:5432` and adjust the connection string accordingly.
+    </Highlight>
 
     On UNIX-based systems, Docker modifies Linux IP tables to bind the container. If your system uses Linux Uncomplicated Firewall (UFW), Docker may
     [override your UFW port binding settings][override-binding]. To prevent this, add `DOCKER_OPTS="--iptables=false"` to `/etc/default/docker`.
@@ -35,8 +39,10 @@
     The default user and database are both `postgres`. You set the password in `POSTGRES_PASSWORD` in the previous step. The default command to connect to $PG is:
 
     ```bash
-    psql -d "postgres://postgres:password@localhost/postgres"
+    psql -d "postgres://postgres:password@127.0.0.1:5432/postgres"
     ```
+
+    If you changed the port mapping in step 2 (e.g., to 5433), update the port in the connection string accordingly.
 
 1.  **Check that $TIMESCALE_DB is installed**
 
@@ -47,11 +53,11 @@
     You see the list of installed extensions:
 
      ```sql
-     Name         | Version |   Schema   |                                      Description
-     ---------------------+---------+------------+---------------------------------------------------------------------------------------
-     plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
-     timescaledb         | 2.20.3  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
-     timescaledb_toolkit | 1.21.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
+             Name         | Version | Default version |   Schema   |                                      Description
+     ---------------------+---------+-----------------+------------+---------------------------------------------------------------------------------------
+      plpgsql             | 1.0     | 1.0             | pg_catalog | PL/pgSQL procedural language
+      timescaledb         | 2.24.0  | 2.24.0          | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+      timescaledb_toolkit | 1.22.0  | 1.22.0          | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
      (3 rows)
      ```
 
@@ -66,7 +72,7 @@ outside world, you can bind to `127.0.0.1` instead of the public interface, usin
 
 ```bash
 docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
--v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
+-v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg18
 ```
 
 If you don't want to install `psql` and other $PG client tools locally,
@@ -105,7 +111,7 @@ information, see the [Docker documentation on logs][docker-logs].
     To install the latest release based on $PG 17:
 
     ```
-    docker pull timescale/timescaledb:latest-pg17
+    docker pull timescale/timescaledb:latest-pg18
     ```
 
     $TIMESCALE_DB is pre-created in the default $PG database and added by default to any new database you create in this image.
@@ -115,10 +121,14 @@ information, see the [Docker documentation on logs][docker-logs].
 
     ```
     docker run -v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata \
-        -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
+        -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg18
     ```
 
     If you are running multiple container instances, change the port each Docker instance runs on.
+
+    <Highlight type="note">
+    If you have a local $PG instance already running on port 5432, change the Docker port mapping to avoid conflicts. For example, use `-p 5433:5432` and adjust the connection string accordingly.
+    </Highlight>
 
     On UNIX-based systems, Docker modifies Linux IP tables to bind the container. If your system uses Linux Uncomplicated Firewall (UFW), Docker may [override your UFW port binding settings][override-binding]. To prevent this, add `DOCKER_OPTS="--iptables=false"` to `/etc/default/docker`.
 
@@ -127,8 +137,10 @@ information, see the [Docker documentation on logs][docker-logs].
     The default user and database are both `postgres`. You set the password in `POSTGRES_PASSWORD` in the previous step. The default command to connect to $PG in this image is:
 
     ```bash
-    psql -d "postgres://postgres:password@localhost/postgres"
+    psql -d "postgres://postgres:password@127.0.0.1:5432/postgres"
     ```
+
+    If you changed the port mapping in step 2 (e.g., to 5433), update the port in the connection string accordingly.
 
 1.  **Check that $TIMESCALE_DB is installed**
 
@@ -139,10 +151,11 @@ information, see the [Docker documentation on logs][docker-logs].
    You see the list of installed extensions:
 
     ```sql
-    Name         | Version |   Schema   |                                      Description
-    ---------------------+---------+------------+---------------------------------------------------------------------------------------
-    plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
-    timescaledb         | 2.20.3  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+                                                             List of installed extensionsh
+        Name     | Version | Default version |   Schema   |                                      Description
+    -------------+---------+-----------------+------------+---------------------------------------------------------------------------------------
+     plpgsql     | 1.0     | 1.0             | pg_catalog | PL/pgSQL procedural language
+     timescaledb | 2.24.0  | 2.24.0          | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
     ```
 
     Press `q` to exit the list of extensions.
@@ -155,7 +168,7 @@ outside world, you can bind to `127.0.0.1` instead of the public interface, usin
 ```bash
 docker run -v </a/local/data/folder>:/pgdata -e PGDATA=/pgdata \
   -d --name timescaledb -p 127.0.0.1:5432:5432 \
-  -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
+  -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg18
 ```
 
 If you don't want to install `psql` and other $PG client tools locally,
@@ -179,7 +192,7 @@ data volume using the `-v` flag:
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
 -v </your/data/dir>:/pgdata -e PGDATA=/pgdata \
--e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg17
+-e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg18
 ```
 
 When you install $TIMESCALE_DB using a Docker container, the $PG settings

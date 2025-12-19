@@ -56,7 +56,7 @@ set parameters directly from the command prompt inside your Docker container,
 using the `-c` option. For example:
 
 ```bash
-docker run -i -t timescale/timescaledb:latest-pg10 postgres -c max_wal_size=2GB
+docker run -i -t timescale/timescaledb:latest-pg18 postgres -c max_wal_size=2GB
 ```
 
 [docker-install]: /self-hosted/:currentVersion:/install/installation-docker/

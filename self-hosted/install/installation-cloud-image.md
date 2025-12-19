@@ -39,8 +39,6 @@ supports public AMIs.
 
 <Procedure>
 
-## Installing $TIMESCALE_DB from a pre-build cloud image
-
 1.  Make sure you have an [Amazon Web Services account][aws-signup], and are
     signed in to [your EC2 dashboard][aws-dashboard].
 1.  Navigate to `Images → AMIs`.
