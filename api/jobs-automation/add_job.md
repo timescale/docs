@@ -12,7 +12,7 @@ products: [cloud, mst, self_hosted]
 
 # add_job() <Tag type="community">Community</Tag>
 
-Register a $JOB for scheduling by the automation framework. For more information about scheduling, including example $JOBs, see the [jobs documentation section][using-jobs].
+Register a $JOB for scheduling by the automation framework. For more information about scheduling, including example $JOBs, see the [jobs documentation section][jobs].
 
 ## Samples
 
@@ -64,4 +64,4 @@ SELECT add_job('user_defined_action','1 week', initial_start => '2022-12-04 00:0
 |-|-|-|
 |`job_id`|INTEGER|TimescaleDB background job ID|
 
-[using-jobs]: /use-timescale/:currentVersion:/jobs
+[jobs]: /use-timescale/:currentVersion:/jobs

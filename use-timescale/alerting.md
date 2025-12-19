@@ -54,11 +54,10 @@ Some popular alerting tools that work with $CLOUD_LONG include:
 
 See the [integration guides][integration-docs] for details.
 
-[Grafana-install]: https://grafana.com/get/
-[PostgreSQL datasource]: https://grafana.com/docs/grafana/latest/features/datasources/postgres/
 [datadog-install]: https://docs.datadoghq.com/integrations/postgres/
-[define alert rules]: https://grafana.com/docs/grafana/latest/alerting/rules/
-[nagios-install]: https://www.nagios.com/solutions/postgresql-monitoring/
-[zabbix-install]: https://www.zabbix.com/documentation/current/en/manual/appendix/install/timescaledb
-[grafana-integration]: /integrations/:currentVersion:/grafana/
+[define alert rules]: https://grafana.com/docs/alerting/rules/
+[Grafana-install]: https://grafana.com/get/
 [integration-docs]: /integrations/:currentVersion:/#observability-and-alerting
+[nagios-install]: https://www.nagios.com/solutions/postgresql-monitoring/
+[PostgreSQL datasource]: https://grafana.com/docs/features/datasources/postgres/
+[zabbix-install]: https://www.zabbix.com/documentation/current/en/manual/appendix/install/timescaledb

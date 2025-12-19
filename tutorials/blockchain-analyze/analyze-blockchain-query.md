@@ -25,7 +25,7 @@ In this section, you learn how to write queries that answer these questions:
 
 ## Create continuous aggregates
 
-You can use [continuous aggregates][docs-cagg] to simplify and speed up your
+You can use [continuous aggregates][caggs] to simplify and speed up your
 queries. For this tutorial, you need three continuous aggregates, focusing on
 three aspects of the dataset: Bitcoin transactions, blocks, and coinbase
 transactions. In each continuous aggregate definition, the `time_bucket()`
@@ -545,11 +545,11 @@ increase the time range.
 
 </Procedure>
 
-[docs-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
-[about-hyperfunctions]: https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/about-hyperfunctions/
-[is-there-any-connection-between-the-number-of-transactions-and-the-transaction-fees-link]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/#is-there-any-connection-between-the-number-of-transactions-and-the-transaction-fees
-[does-the-transaction-volume-affect-the-btc-usd-rate-link]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/#does-the-transaction-volume-affect-the-btc-usd-rate
+[about-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/about-hyperfunctions/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [do-more-transactions-in-a-block-mean-the-block-is-more-expensive-to-mine-link]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/#do-more-transactions-in-a-block-mean-the-block-is-more-expensive-to-mine
-[what-percentage-of-the-average-miners-revenue-comes-from-fees-compared-to-block-rewards-link]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/#what-percentage-of-the-average-miners-revenue-comes-from-fees-compared-to-block-rewards
+[does-the-transaction-volume-affect-the-btc-usd-rate-link]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/#does-the-transaction-volume-affect-the-btc-usd-rate
 [how-does-block-weight-affect-miner-fees-link]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/#how-does-block-weight-affect-miner-fees
+[is-there-any-connection-between-the-number-of-transactions-and-the-transaction-fees-link]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/#is-there-any-connection-between-the-number-of-transactions-and-the-transaction-fees
+[what-percentage-of-the-average-miners-revenue-comes-from-fees-compared-to-block-rewards-link]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/#what-percentage-of-the-average-miners-revenue-comes-from-fees-compared-to-block-rewards
 [whats-the-average-miner-revenue-per-block-link]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/#whats-the-average-miner-revenue-per-block

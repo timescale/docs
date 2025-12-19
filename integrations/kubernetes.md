@@ -140,4 +140,5 @@ To connect your Kubernetes cluster to your $SERVICE_LONG:
 You have successfully integrated Kubernetes with $CLOUD_LONG.
 
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[kubernetes-namespace]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
 [kubernetes]: https://kubernetes.io/

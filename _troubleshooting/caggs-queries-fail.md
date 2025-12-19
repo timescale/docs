@@ -20,6 +20,3 @@ continuous aggregates. If you use an unsupported function, you see the following
 ```
 
 <CaggsFunctionSupport />
-
-
-[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION

@@ -34,19 +34,23 @@ allowing you to target a specific chunk.
 <Highlight type="important">
 
 `recompress_chunk` is deprecated since $TIMESCALE_DB v2.14 and will be removed in the future. 
-The procedure is now a wrapper which calls [`compress_chunk`](/api/latest/compression/compress_chunk/) 
+The procedure is now a wrapper which calls [`compress_chunk`][compress_chunk] 
 instead of it. 
 
 </Highlight>
 
 <Highlight type="important">
+
 `recompress_chunk` is implemented as an SQL procedure and not a function. Call
 the procedure with `CALL`. Don't use a `SELECT` statement.
+
 </Highlight>
 
 <Highlight type="note">
+
 `recompress_chunk` only works on chunks that have previously been compressed. To compress a
-chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
+chunk for the first time, use [`compress_chunk`][compress_chunk].
+
 </Highlight>
 
 ## Samples
@@ -100,4 +104,5 @@ END
 $$;
 ```
 
+[compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
 [run-job]: /api/:currentVersion:/jobs-automation/run_job/

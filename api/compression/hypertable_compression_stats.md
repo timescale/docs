@@ -20,10 +20,10 @@ However, compression APIs are still supported, you do not need to migrate to the
 Get statistics related to hypertable compression. All sizes are in bytes.
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 For more information about compression, see the
-[compression section][compression-docs].
+[compression section][compression].
 
 ## Samples
 
@@ -82,7 +82,5 @@ Returns show `NULL` if the data is currently uncompressed.
 
 </Highlight>
 
-
-
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
-[compression-docs]: /use-timescale/:currentVersion:/compression/
+[compression]: /use-timescale/:currentVersion:/compression/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

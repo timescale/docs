@@ -46,7 +46,7 @@ You can [manage, pause, or delete][service-management] your $SERVICE_SHORT at an
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [connection-pooling]: /use-timescale/:currentVersion:/services/connection-pooling
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
+[how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-your-bill-is-calculated
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights

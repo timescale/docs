@@ -10,10 +10,10 @@ tags: [encryption, VPC, privacy]
 
 Protecting data starts with secure software engineering. At $COMPANY, we embed security into every stage of 
 development, from static code analysis and automated dependency scanning to rigorous code security reviews. 
-To go even further, we developed [pgspot](https://github.com/timescale/pgspot), an open-source extension to identify security 
+To go even further, we developed [pgspot][pgspot], an open-source extension to identify security 
 issues with $PG extensions, which strengthens the broader ecosystem as well as our own platform. $COMPANY products do not have any identified weaknesses.
 
-![Image alt](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-platform-security-overview.svg)
+![Security in Tiger Cloud][security-overview]
 
 This page lists the additional things we do to ensure operational security and to lock down $SERVICE_LONGs. 
 To see our security features at a glance, see [$COMPANY Security][security-at-timescale].
@@ -79,7 +79,7 @@ No customer access to the virtual machine level is provided.
 $COMPANY complies with the European Union's General Data Protection Regulation
 (GDPR), and all practices are covered by our
 [Privacy Policy][timescale-privacy-policy]
-and the [Terms of Service][tsc-tos]. All customer data is
+and the [Terms of Service][commercial-sla]. All customer data is
 processed in accordance with $COMPANY's GDPR-compliant
 [Data Processor Addendum][tsc-data-processor-addendum],
 which applies to all $COMPANY customers.
@@ -98,14 +98,16 @@ meet regulatory requirements while building compliant applications.
 
 $CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can securely manage customer data in alignment with industry standards for security, availability, processing integrity, confidentiality, and privacy. It helps businesses meet trust requirements while confidently building applications that handle sensitive information. The annual SOC 2 report is available to customers on the $SCALE or $ENTERPRISE $PRICING_PLANs. Open a [support ticket][open-support-ticket] to get access to it.
 
-[timescale-privacy-policy]: https://www.timescale.com/legal/privacy
-[tsc-tos]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
-[tsc-data-processor-addendum]: https://www.timescale.com/legal/timescale-cloud-data-processing-addendum
 [aws-kms]: https://aws.amazon.com/kms/
-[ec2-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html
+[commercial-sla]: https://www.tigerdata.com/legal/terms-of-service
 [ebs-security]: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html
-[vpc-peering]: /use-timescale/:currentVersion:/security/vpc
-[security-at-timescale]: https://www.timescale.com/security
+[ec2-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html
+[security-overview]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-platform-security-overview.svg
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [open-support-ticket]: https://console.cloud.timescale.com/dashboard/support
+[pgspot]: https://github.com/timescale/pgspot
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[security-at-timescale]: https://www.tigerdata.com/security
+[timescale-privacy-policy]: https://www.tigerdata.com/legal/privacy
+[tsc-data-processor-addendum]: https://www.tigerdata.com/legal/timescale-cloud-data-processing-addendum
+[vpc-peering]: /use-timescale/:currentVersion:/security/vpc

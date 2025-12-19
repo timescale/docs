@@ -17,5 +17,4 @@ see [$HYPERCORE][hypercore].
 A beneficial side effect of compressing data is that certain queries are significantly faster, since
 less data has to be read into memory.
 
-
 [hypercore]: /use-timescale/:currentVersion:/hypercore/

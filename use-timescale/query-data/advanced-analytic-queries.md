@@ -25,7 +25,7 @@ SELECT percentile_cont(0.5)
 ```
 
 You can also use $TOOLKIT_LONG to find the
-[approximate percentile][toolkit-approx-percentile].
+[approximate percentile][hyperfunctions-api-approx-percentile].
 
 ## Calculate the cumulative sum
 
@@ -409,13 +409,13 @@ hypertable, although this requires more compute resources. Alternatively, you
 speed up your `SELECT DISTINCT` queries by structuring them so that $TIMESCALE_DB can
 use its [SkipScan][skipscan] feature.
 
+[calculate-the-increase-in-a-value-link]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/#calculate-the-increase-in-a-value
 [date_bin]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-BIN
 [first]: /api/:currentVersion:/hyperfunctions/first
 [histogram]: /api/:currentVersion:/hyperfunctions/histogram
+[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
 [last]: /api/:currentVersion:/hyperfunctions/last
 [loose-index-scan]: https://wiki.postgresql.org/wiki/Loose_indexscan
 [percentile_cont]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
-[toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
-[calculate-the-increase-in-a-value-link]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries/#calculate-the-increase-in-a-value

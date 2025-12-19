@@ -37,14 +37,6 @@ This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 <ManageDataExporter />
 
-
-
 [datadog]: https://www.datadoghq.com
-[datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
-[datadog-docs]: https://docs.datadoghq.com/
-[datadog-metrics-explorer]: https://app.datadoghq.com/metric/explorer
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
-[console-services]: https://console.cloud.timescale.com/dashboard/services
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [projects]: /use-timescale/:currentVersion:/security/members/

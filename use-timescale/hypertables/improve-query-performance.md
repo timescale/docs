@@ -16,7 +16,7 @@ and only contains data from that range. When you run a query, $TIMESCALE_DB iden
 the query on it, instead of going through the entire table. This page shows you how to tune hypertables to increase 
 performance even more.
 
-* [Optimize hypertable chunk intervals][chunk-intervals]: choose the optimum chunk size for your data  
+* [Optimize hypertable chunk intervals][change-chunk-intervals]: choose the optimum chunk size for your data  
 * [Enable chunk skipping][chunk-skipping]: skip chunks on non-partitioning columns in hypertables when you query your data
 * [Analyze your hypertables][analyze-hypertables]: use $PG `ANALYZE` to create the best query plan
 
@@ -123,7 +123,7 @@ column in each chunk. These ranges are stored in the start (inclusive) and end (
 catalog table. TimescaleDB uses these ranges for dynamic chunk exclusion when the `WHERE` clause of an SQL query 
 specifies ranges on the column. 
 
-![Chunk skipping](https://assets.timescale.com/docs/images/hypertable-with-chunk-skipping.png)
+![Chunk skipping][chunk-skipping]
 
 You can enable chunk skipping on hypertables compressed into the columnstore for `smallint`, `int`, `bigint`, `serial`, 
 `bigserial`, `date`, `timestamp`, or `timestamptz` type columns. 
@@ -140,7 +140,7 @@ In the satellite example, the time of adding data to a database inevitably follo
 Sequential IDs and the creation timestamp for both entities also increase synchronously. This means those two 
 columns are correlated. 
 
-For a more in-depth look on chunk skipping, see [our blog post](https://www.timescale.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes).
+For a more in-depth look on chunk skipping, see [our blog post][our-blog-post].
 
 ### Enable chunk skipping
 
@@ -160,10 +160,10 @@ $HYPERTABLE. The statistics collected by the `ANALYZE` command are used by the
 $PG planner to create the best query plan. For more information about the
 `ANALYZE` command, see the [$PG documentation][pg-analyze].
 
-[api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
-[best-practices]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning
-[chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#enable-chunk-skipping
-[chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [analyze-hypertables]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#analyze-your-hypertables
+[api-reference]: /api/:currentVersion:/hypertable/enable_chunk_skipping/
+[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
+[chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#enable-chunk-skipping
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
+[our-blog-post]: https://www.tigerdata.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html

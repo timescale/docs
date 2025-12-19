@@ -191,6 +191,3 @@ Queries over tiered data are expected to be slower than over local data. However
 * Text and non-native types (JSON, JSONB, GIS) filtering is slower when querying tiered data.
 
 [performance-considerations-link]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/#performance-considerations
-
-
-

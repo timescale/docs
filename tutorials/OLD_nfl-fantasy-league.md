@@ -24,7 +24,7 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 
 *   Python 3
 *   TimescaleDB (see [installation options][install-timescale])
-*   [Psql][psql-install] or any other $PG client (for example, DBeaver)
+*   [Psql][psql] or any other $PG client (for example, DBeaver)
 
 ## Download the dataset
 
@@ -447,7 +447,6 @@ def generate_field():
     """Generates a realistic american football field with line numbers and hash marks.
 
     Returns:
-        [tuple]: (figure, axis)
     """
     rect = patches.Rectangle((0, 0), 120, 53.3, linewidth=2,
                              edgecolor='black', facecolor='green', zorder=0)
@@ -567,7 +566,7 @@ draw_play(game_id=2018112900,
           movements=False)
 ```
 
-![pre snap players figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement_pre_snap.png)
+![pre snap players figure][pre-snap-players-figure]
 
 You can also visualize player movement during the play if you set `movements` to `True`:
 
@@ -579,13 +578,16 @@ draw_play(game_id=2018112900,
           movements=True)
 ```
 
-![player movement figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement.png)
+![player movement figure][player-movement-figure]
 
 ## Resources
 
-*   [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
+*   [NFL Big Data Bowl 2021 on Kaggle][nfl-big-data-bowl-2021-on-kaggle]
 
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
-[install-timescale]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
-[psql-install]: /integrations/:currentVersion:/psql/
+[nfl-big-data-bowl-2021-on-kaggle]: https://www.kaggle.com/c/nfl-big-data-bowl-2021
+[player-movement-figure]: https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement.png
+[pre-snap-players-figure]: https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement_pre_snap.png
+[psql]: /integrations/:currentVersion:/psql/

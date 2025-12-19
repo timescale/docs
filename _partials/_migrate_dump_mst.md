@@ -59,6 +59,3 @@ correct state.
 <MigrationValidateRestartApp />
 
 </Procedure>
-
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
-[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore       

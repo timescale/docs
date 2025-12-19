@@ -446,18 +446,15 @@ You can switch to `project-fork` and view the newly created `replica-fork` using
 avn service list
 ```
 
-[aiven-github]: https://github.com/aiven/aiven-client
-[google-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/google/
-[github-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/github/
-[gitlab-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/gitlab/
-[about-mst]: /mst/:currentVersion:/about-mst/
 [Install and configure the Aiven client]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client
 [Fork services with Aiven client]: /mst/:currentVersion:/aiven-client/#fork-services-with-aiven-client
 [Configure Grafana authentication plugins]: /mst/:currentVersion:/aiven-client/#configure-grafana-authentication-plugins
 [Send Grafana emails]: /mst/:currentVersion:/aiven-client/#send-grafana-emails
 [Create a read-only replica with the Aiven client]: /mst/:currentVersion:/aiven-client/#create-a-read-only-replica-with-aiven-client
 
-[Fork services with Aiven client]: /mst/:currentVersion:/aiven-client/#fork-services-with-aiven-client
-[Configure Grafana authentication plugins]: /mst/:currentVersion:/aiven-client/#configure-grafana-authentication-plugins
-[Send Grafana emails]: /mst/:currentVersion:/aiven-client/#send-grafana-emails
+[about-mst]: /mst/:currentVersion:/about-mst/
+[aiven-github]: https://github.com/aiven/aiven-client
+[github-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/github/
+[gitlab-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/gitlab/
+[google-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/google/
 [mst-login]:https://portal.managed.timescale.com/login

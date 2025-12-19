@@ -59,3 +59,5 @@ To move your data from a self-hosted database to a $SERVICE_LONG:
 
 </Tab>
 </Tabs>
+
+[pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/

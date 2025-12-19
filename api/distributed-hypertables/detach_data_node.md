@@ -56,7 +56,9 @@ containing chunks that are not replicated on other data nodes
 (without the `force` argument)
 
 <Highlight type="tip">
+
 Replication is currently experimental, and not a supported feature
+
 </Highlight>
 
 Detaching a data node is under no circumstances possible if that would

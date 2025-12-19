@@ -13,7 +13,7 @@ import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 
 # Control user access to $PROJECT_LONGs
 
-When you sign up for a [30-day free trial][sign-up], $CLOUD_LONG creates a $PROJECT_SHORT with built-in role-based access.
+When you sign up for a [30-day free trial][cloud-login], $CLOUD_LONG creates a $PROJECT_SHORT with built-in role-based access.
 
 This includes the following roles: 
 
@@ -22,7 +22,7 @@ This includes the following roles:
 - **Developer**: the Owner and Admins assign this role to other users in the $PROJECT_SHORT. A Developer can build, deploy, and operate $SERVICE_SHORTs across projects, but does not have administrative privileges over users, roles, or billing. A Developer can invite other users to the $PROJECT_SHORT, but only with the Viewer role. 
 - **Viewer**: the Owner and Admins assign this role to other users in the $PROJECT_SHORT. A Viewer has limited, read-only access to $CONSOLE_LONG. This means that a Viewer cannot modify $SERVICE_SHORTs and their configurations in any way. A Viewer has no access to $DATA_MODE and has read-queries-only access to $SQL_EDITOR.
 
-![Project users in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-project-roles-overview.png)
+![Project users in $CONSOLE][project-users-in-console]
 
 If you have the [$ENTERPRISE $PRICING_PLAN][pricing-plans], you can use your company [SAML][saml]
 identity provider to log in to $CONSOLE_SHORT.
@@ -48,7 +48,7 @@ To add a user to a $PROJECT_SHORT:
 1.  Type the email address of the person that you want to add, select their role, and click `Invite
     user`.
 
-    ![Send a user invitation in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-add-a-new-user.png)
+    ![Send a user invitation in $CONSOLE][send-a-user-invitation-in-console]
 
     [$ENTERPRISE $PRICING_PLAN][pricing-plans] and SAML users receive a notification in $CONSOLE_SHORT. Users in the
     other $PRICING_PLANs receive a confirmation email. The new user then [joins the $PROJECT_SHORT][join-a-project].
@@ -116,7 +116,7 @@ $PROJECT_SHORT_CAP invitations are valid for 7 days. To resend a $PROJECT_SHORT 
 
 1.  Next to the person you want to invite to your $PROJECT_SHORT, click `Resend invitation`.
 
-    ![Resend a user invitation in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-project-roles-overview.png)
+    ![Resend a user invitation in $CONSOLE][project-users-in-console]
 
 </Procedure>
 
@@ -128,7 +128,7 @@ To change the $PROJECT_SHORT you are currently working in:
 
 1. In [$CONSOLE][cloud-login], click the arrows next to the $PROJECT_SHORT name in the top left.
 
-   ![Change project in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-project.png)
+   ![Change project in $CONSOLE][change-project-in-console]
 
 1. Select the $PROJECT_SHORT you want to use.
 
@@ -156,7 +156,7 @@ To transfer $PROJECT_SHORT ownership:
 </Procedure>
 
 If you have the [$ENTERPRISE $PRICING_PLAN][pricing-plans], and log in to $CLOUD_LONG using [SAML authentication][saml]
-or have not enabled [two-factor authentication][2fa], [contact support](https://www.tigerdata.com/contact) to transfer
+or have not enabled [two-factor authentication][2fa], [contact support][contact-support] to transfer
 $PROJECT_SHORT ownership.
 
 ## Leave a $PROJECT_SHORT
@@ -185,7 +185,7 @@ To change the role for another user:
 
 1.  Next to the corresponding user, select another role in the dropdown. 
 
-    ![Change user role in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-user-role.png)
+    ![Change user role in $CONSOLE][change-user-role-in-console]
 
     The user role is changed immediately. 
 
@@ -199,20 +199,25 @@ To remove a user's access to a $PROJECT_SHORT:
 
 1.  In [$CONSOLE][cloud-login], click `Users`.
 1.  Next to the person you want to remove, click `⋮` > `Remove`.
-    ![Remove user in $CONSOLE](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-transfer-project-ownership.png)
+    ![Remove user in $CONSOLE][transfer-project-ownership-in-console]
 1.  In `Remove user`, click `Remove`.
 
 The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 
 </Procedure>
 
-
-[cloud-login]: https://console.cloud.timescale.com/
-[saml]: /use-timescale/:currentVersion:/security/saml/
 [2fa]: /use-timescale/:currentVersion:/security/multi-factor-authentication/
-[sign-up]: https://console.cloud.timescale.com/
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[join-a-project]: /use-timescale/:currentVersion:/security/members/#join-a-project
-[change-project]: /use-timescale/:currentVersion:/security/members/#change-the-current-project
-[saml]: https://en.wikipedia.org/wiki/SAML_2.0
+[change-project-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-project.png
+[change-project]: /use-timescale/:currentVersion:/security/members/#change-your-current-project
+[change-user-role-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-user-role.png
+[cloud-login]: https://console.cloud.timescale.com/
+[contact-support]: https://www.tigerdata.com/contact
 [database-rbac]: /use-timescale/:currentVersion:/security/read-only-role/
+[join-a-project]: /use-timescale/:currentVersion:/security/members/#join-a-project
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[project-users-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-project-roles-overview.png
+[remove-user-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-transfer-project-ownership.png
+[resend-a-user-invitation-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-project-roles-overview.png
+[saml]: /use-timescale/:currentVersion:/security/saml/
+[send-a-user-invitation-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-add-a-new-user.png
+[transfer-project-ownership-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-transfer-project-ownership.png

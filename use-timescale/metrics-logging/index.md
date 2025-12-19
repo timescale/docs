@@ -19,8 +19,7 @@ Find metrics and logs for your $SERVICE_SHORTs in $CONSOLE, or integrate with th
 *   Export metrics to [Amazon Cloudwatch][cloudwatch].
 *   Export metrics to [Prometheus][prometheus].
 
-
-[prometheus]: /use-timescale/:currentVersion:/metrics-logging/metrics-to-prometheus/
-[datadog]: /use-timescale/:currentVersion:/metrics-logging/datadog/
 [cloudwatch]: /use-timescale/:currentVersion:/metrics-logging/aws-cloudwatch/
+[datadog]: /use-timescale/:currentVersion:/metrics-logging/datadog/
 [monitor]: /use-timescale/:currentVersion:/metrics-logging/monitoring/
+[prometheus]: /use-timescale/:currentVersion:/metrics-logging/metrics-to-prometheus/

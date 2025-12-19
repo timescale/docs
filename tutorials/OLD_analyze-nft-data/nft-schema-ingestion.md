@@ -234,17 +234,21 @@ in the starter kit repository on GitHub. The script connects to the OpenSea
 API `/events` endpoint, and fetches data from the specified time period.
 
 <Highlight type="note">
+
 You need an OpenSEA API key to fetch data from the OpenSea API. To request your
-key, see the [OpenSea API documentation](https://docs.opensea.io/reference/request-an-api-key).
+key, see the [OpenSea API documentation][opensea-api-documentation].
+
 </Highlight>
 
 <Highlight type="warning">
+
 This procedure relies on the OpenSea API. The OpenSea API is provided and
 maintained by OpenSea. Recently, the API has stopped functioning for extended
 periods of time. If the API has changed or is not accessible when you attempt
 to run the `opensea_ingest.py` script, try following the procedure to download
 a historical data file and import it. You can use this data file to complete the
 tutorial.
+
 </Highlight>
 
 <Procedure>
@@ -343,4 +347,5 @@ SELECT count(*), MIN(time) AS min_date, MAX(time) AS max_date FROM nft_sales
 ```
 
 [nft-schema]: https://github.com/timescale/nft-starter-kit/blob/master/schema.sql
+[opensea-api-documentation]: https://docs.opensea.io/reference/request-an-api-key
 [sample-data]: https://assets.timescale.com/docs/downloads/nft_sample.zip

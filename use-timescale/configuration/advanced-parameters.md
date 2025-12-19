@@ -17,7 +17,7 @@ It is possible to configure a wide variety of $SERVICE_LONG database parameters 
 navigating to the `Advanced parameters` tab under the `Database
 configuration` heading. The advanced parameters are displayed in a scrollable and searchable list.
 
-![Database configuration advanced parameters](https://assets.timescale.com/docs/images/database-configuration-advanced-parameters.png)
+![Database configuration advanced parameters][database-configuration-advanced-parameters]
 
 As with the basic database configuration parameters, any changes are highlighted
 and the `Apply changes`, or `Apply changes and restart`, button is available,
@@ -39,5 +39,5 @@ smaller use cases that do not warrant their own $SERVICE_SHORT.
 
 <ConfigCloudSelf />
 
-
+[database-configuration-advanced-parameters]: https://assets.timescale.com/docs/images/database-configuration-advanced-parameters.png
 [schemas]: /use-timescale/:currentVersion:/schema-management/

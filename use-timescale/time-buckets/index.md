@@ -14,5 +14,5 @@ group data into 5-minute, 1-hour, and 3-day buckets to calculate summary values.
 *   [Use time buckets][use-time-buckets] to aggregate data
 
 [about-time-buckets]: /use-timescale/:currentVersion:/time-buckets/about-time-buckets/
-[use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
 [create-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
+[use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/

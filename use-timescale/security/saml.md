@@ -31,4 +31,4 @@ $CLOUD_LONG supports most SAML providers that can handle IDP-initiated login
 
 </Procedure>
 
-[enterprise-tier]:https://www.timescale.com/enterprise
+[enterprise-tier]:https://www.tigerdata.com/enterprise

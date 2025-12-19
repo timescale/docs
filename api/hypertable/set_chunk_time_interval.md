@@ -64,7 +64,6 @@ hypertable `time` column:
 |INT|INT|The same time unit as the `time` column|
 |BIGINT|BIGINT|The same time unit as the `time` column|
 
-For more information, see [hypertable partitioning][hypertable-partitioning].
+For more information, see [hypertable partitioning][hypertables].
 
-
-[hypertable-partitioning]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning

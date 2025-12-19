@@ -21,7 +21,6 @@ page, and include reference-style links. For example:
 *   [Fiddle with a widget][widget-fiddle] to make it do stuff.
 *   [Troubleshoot][widget-tshoot] widgets.
 
-
 [about-widgets]: /how-to-guides/:currentVersion:/_template/about-widgets/
 [widget-create]: /how-to-guides/:currentVersion:/_template/create-widgets/
 [widget-fiddle]: /how-to-guides/:currentVersion:/_template/fiddle-widgets/

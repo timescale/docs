@@ -13,7 +13,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 [Fivetran][fivetran] is a fully managed data pipeline platform that simplifies ETL (Extract, Transform, Load) processes 
 by automatically syncing data from multiple sources to your data warehouse.
 
-![Fivetran data in a service](https://assets.timescale.com/docs/images/integrations-fivetran-sync-data.png)
+![Fivetran data in a service][fivetran-data-in-a-service]
 
 This page shows you how to inject data from data sources managed by Fivetran into a $SERVICE_LONG.
 
@@ -27,7 +27,7 @@ This page shows you how to inject data from data sources managed by Fivetran int
 
 To be able to inject data into your $SERVICE_LONG, set it as a destination in Fivetran:
 
-![Fivetran data destination](https://assets.timescale.com/docs/images/integrations-fivetran-destination-timescal-cloud.png)
+![Fivetran data destination][fivetran-data-destination]
 
 <Procedure>
 
@@ -47,7 +47,7 @@ To be able to inject data into your $SERVICE_LONG, set it as a destination in Fi
 In a real world scenario, you can select any of the over 600 connectors available in Fivetran to sync data with your 
 $SERVICE_LONG. This section shows you how to inject the logs for your Fivetran connections into your $SERVICE_LONG.
 
-![Fivetran data source](https://assets.timescale.com/docs/images/integrations-fivetran-data-source.png)
+![Fivetran data source][fivetran-data-source]
 
 <Procedure>
 
@@ -79,15 +79,19 @@ To see data injected by Fivetran into your $SERVICE_LONG:
    ```
    You see something like the following:
 
-   ![Fivetran data in a service](https://assets.timescale.com/docs/images/integrations-fivetran-view-data-in-service.png)
+   ![Fivetran data in a service][fivetran-data-in-a-service-1]
 
 </Procedure>
 
 You have successfully integrated Fivetran with $CLOUD_LONG.
 
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[fivetran]: https://fivetran.com/docs/getting-started
-[sign-up-fivetran]: https://www.fivetran.com/
-[fivetran-dashboard-destinations]: https://fivetran.com/dashboard/destinations
 [fivetran-dashboard-connectors]: https://fivetran.com/dashboard/connections
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql
+[fivetran-dashboard-destinations]: https://fivetran.com/dashboard/destinations
+[fivetran-data-destination]: https://assets.timescale.com/docs/images/integrations-fivetran-destination-timescal-cloud.png
+[fivetran-data-in-a-service-1]: https://assets.timescale.com/docs/images/integrations-fivetran-view-data-in-service.png
+[fivetran-data-in-a-service]: https://assets.timescale.com/docs/images/integrations-fivetran-sync-data.png
+[fivetran-data-source]: https://assets.timescale.com/docs/images/integrations-fivetran-data-source.png
+[fivetran]: https://fivetran.com/docs/getting-started
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[sign-up-fivetran]: https://www.fivetran.com/

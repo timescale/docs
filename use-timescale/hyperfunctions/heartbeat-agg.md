@@ -128,5 +128,5 @@ daylight savings time changes.
 For more information about heartbeat aggregation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-heartbeat-agg].
 
-[sustdata]: https://osf.io/2ac8q/
 [hyperfunctions-api-heartbeat-agg]: /api/:currentVersion:/hyperfunctions/state-tracking/heartbeat_agg/
+[sustdata]: https://osf.io/2ac8q/

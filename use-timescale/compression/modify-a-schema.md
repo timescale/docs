@@ -19,7 +19,7 @@ $TIMESCALE_DB.
 |Change the data type of a column|❌|❌|❌|
 
 To perform operations that aren't supported on compressed hypertables, first
-[decompress][decompression] the table.
+[decompress][decompress-chunks] the table.
 
 ## Add a nullable column
 
@@ -83,4 +83,4 @@ For example:
 ALTER TABLE conditions DROP COLUMN temperature;
 ```
 
-[decompression]: /use-timescale/:currentVersion:/compression/decompress-chunks
+[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks

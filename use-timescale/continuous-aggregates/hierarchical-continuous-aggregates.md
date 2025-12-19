@@ -151,7 +151,7 @@ ensure valid time-bucketing:
     aggregate. This new finalized format is the default for all continuous
     aggregates created since $TIMESCALE_DB 2.7. If you need to create a continuous
     aggregate on top of a continuous aggregate in the old format, you need to
-    [migrate your continuous aggregate][migrate-cagg] to the new format first.
+    [migrate your continuous aggregate][cagg-migrate] to the new format first.
 
 *   The time bucket of a continuous aggregate should be greater than or equal to
     the time bucket of the underlying continuous aggregate. It also needs to be
@@ -180,9 +180,9 @@ ensure valid time-bucketing:
     a daily continuous aggregate works, and is the one of the main use cases for
     this feature.
 
+[cagg-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
 [create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
-[migrate-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
+[percentile_agg_api]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#aggregate-and-roll-up-percentile-data-to-calculate-daily-percentiles-using-percentile_agg
 [postgresql-views]: https://www.postgresql.org/docs/current/rules-views.html
 [stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
-[percentile_agg_api]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#aggregate-and-roll-up-percentile-data-to-calculate-daily-percentiles-using-percentile_agg

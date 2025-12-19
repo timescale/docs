@@ -32,11 +32,13 @@ use `tdigest`. For more information about these algorithms, see the
 [advanced aggregation methods][advanced-agg] documentation.
 
 <Highlight type="note">
+
 Technically, a percentile divides a group into 100 equally sized pieces, while a
 quantile divides a group into an arbitrary number of pieces. Because we don't
 always use exactly 100 buckets, "quantile" is the more technically correct term
 in this case. However, we use the word "percentile" because it's a more common
 word for this type of function.
+
 </Highlight>
 
 *   For more information about how percentile approximation works, read our

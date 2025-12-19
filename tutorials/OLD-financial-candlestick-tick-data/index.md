@@ -26,7 +26,7 @@ BTC, ETH, and other popular assets.
 Before you begin, make sure you have:
 
 *   A $TIMESCALE_DB instance running locally or on the cloud. For more
-    information, see [the Getting Started guide](/getting-started/latest/)
+    information, see [the Getting Started guide][the-getting-started-guide]
 *   [`psql`][psql], DBeaver, or any other $PG client
 
 ## What's candlestick data and OHLCV?
@@ -36,7 +36,7 @@ change of an asset. Each candlestick represents a time
 frame (for example, 1 minute, 5 minutes, 1 hour, or similar) and shows how the asset's
 price changed during that time.
 
-![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
+![candlestick][candlestick]
 
 Candlestick charts are generated from candlestick data, which is the collection of data points
 used in the chart. This is often abbreviated
@@ -65,12 +65,14 @@ Follow this tutorial and see how to set up your $TIMESCALE_DB database to consum
 *   [Query candlestick views][query]
 *   [Advanced data management][manage]
 
+[bot]: https://www.tigerdata.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
+[candlestick]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
-[trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
-[messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
-[bot]: https://www.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-[design]: /tutorials/:currentVersion:/financial-candlestick-tick-data/design-tick-schema
 [create]: /tutorials/:currentVersion:/financial-candlestick-tick-data/create-candlestick-aggregates
-[query]: /tutorials/:currentVersion:/financial-candlestick-tick-data/query-candlestick-views
+[design]: /tutorials/:currentVersion:/financial-candlestick-tick-data/design-tick-schema
 [manage]: /tutorials/:currentVersion:/financial-candlestick-tick-data/advanced-data-management
+[messari]: https://www.tigerdata.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
 [psql]: /integrations/:currentVersion:/psql/
+[query]: /tutorials/:currentVersion:/financial-candlestick-tick-data/query-candlestick-views
+[the-getting-started-guide]: /getting-started/:currentVersion:/
+[trading-strategy]: https://www.tigerdata.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/

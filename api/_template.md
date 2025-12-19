@@ -9,7 +9,9 @@ FIXME: Syntax example
 <!---
 <Highlight type="note"
 Use a highlight for any important information. Choose `note`, `important`, or `warning`.
+
 </Highlight>
+
 -->
 
 For more information about `api_call`, see the [ docs][].
@@ -50,5 +52,3 @@ For more information about `api_call`, see the [ docs][].
 ``` sql
 <FIXME>
 ```
-
-[link_ref]: timescaledb/:currentVersion:/how-to-guides/<FIXME>/

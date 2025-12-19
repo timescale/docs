@@ -6,7 +6,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
    In [$CONSOLE][services-portal], check that your $SERVICE_SHORT is marked as `Running`.
 
-   ![Check $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png)
+   ![Check $SERVICE_SHORT is running][check-service_short-is-running]
 
 1. **Connect to your $SERVICE_SHORT**
 
@@ -24,7 +24,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
    1. In the connection drop-down in the top right, select your $SERVICE_SHORT.
 
-      ![Select a connection](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png)
+      ![Select a connection][select-a-connection]
 
    1. Run a test query:
 
@@ -48,7 +48,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
    
    1. Click `SQL editor`. 
 
-      ![Check a $SERVICE_SHORT is running](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor-empty.png)
+      ![Check a $SERVICE_SHORT is running][check-a-service_short-is-running]
 
    1. Run a test query:
 
@@ -101,13 +101,9 @@ Quick recap. You:
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.
 - Store configuration and security information in your config file.
 
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[check-a-service_short-is-running]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor-empty.png
+[check-service_short-is-running]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png
 [portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql
-[account-portal]: https://console.cloud.timescale.com/dashboard/account
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-psql]: /integrations/:currentVersion:/psql/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-view
-[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[install-psql]: /integrations/:currentVersion:/psql/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
 [psql]: /integrations/:currentVersion:/psql/
+[select-a-connection]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

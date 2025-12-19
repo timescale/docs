@@ -7,7 +7,7 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_livesync-configu
 
 <PrereqCloud />
 
-- Install the [$PG client tools][install-psql] on your sync machine.
+- Install the [$PG client tools][psql] on your sync machine.
 
 - Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
 
@@ -74,11 +74,11 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to sync live data to. 
+   In [$CONSOLE][services-portal], select the $SERVICE_SHORT to sync live data to. 
 
 1. **Connect the source database and the target $SERVICE_SHORT**
 
-   ![Postgres connector wizard](https://assets.timescale.com/docs/images/tiger-on-azure/pg-connector-wizard-tiger-console.png)
+   ![Postgres connector wizard][postgres-connector-wizard]
 
    1. Click `Connectors` > `PostgreSQL`.
    1. Set the name for the new connector by clicking the pencil icon.
@@ -88,7 +88,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Optimize the data to synchronize in $HYPERTABLEs**
 
-   ![Postgres connector start](https://assets.timescale.com/docs/images/tiger-on-azure/pg-connector-start-tiger-console.png)
+   ![Postgres connector start][postgres-connector-start]
 
    1. In the `Select table` dropdown, select the tables to sync.
    1. Click `Select tables +` .    
@@ -100,7 +100,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Monitor synchronization**
 
-   ![Tiger connectors overview](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png)
+   ![Tiger connectors overview][tiger-connectors-overview]
 
     1. To view the amount of data replicated, click `Connectors`. The diagram in `Connector data flow` gives you an overview of the connectors you have created, their status, and how much data has been replicated.  
 
@@ -108,7 +108,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Manage the connector**
 
-   ![Edit a Postgres connector](https://assets.timescale.com/docs/images/tiger-on-azure/edit-pg-connector-tiger-console.png)
+   ![Edit a Postgres connector][edit-a-postgres-connector]
 
    1. To edit the connector, click `Connectors` > `Source connectors`, then select the name of your connector in the table. You can rename the connector, delete or add new tables for syncing.
    
@@ -121,7 +121,10 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 And that is it, you are using the $PG_CONNECTOR to synchronize all the data, or specific tables, from a $PG database 
 instance to your $SERVICE_LONG, in real time.
 
-[install-psql]: /integrations/:currentVersion:/psql/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[edit-a-postgres-connector]: https://assets.timescale.com/docs/images/tiger-on-azure/edit-pg-connector-tiger-console.png
 [livesync-tune-source-db]: /migrate/:currentVersion:/livesync-for-postgresql/#tune-your-source-database
-
+[postgres-connector-start]: https://assets.timescale.com/docs/images/tiger-on-azure/pg-connector-start-tiger-console.png
+[postgres-connector-wizard]: https://assets.timescale.com/docs/images/tiger-on-azure/pg-connector-wizard-tiger-console.png
+[psql]: /integrations/:currentVersion:/psql/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[tiger-connectors-overview]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png

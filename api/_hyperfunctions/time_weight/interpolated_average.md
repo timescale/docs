@@ -49,7 +49,7 @@ api_details:
         type: TIMESTAMPTZ
         description: >
           The start of the interval which the time-weighted average should cover
-          (if there is a preceeding point).
+          (if there is a preceding point).
       - name: interval
         type: INTERVAL
         description: >
@@ -105,4 +105,5 @@ api_details:
               GROUP BY id, time
           ) t
 ---
+
 

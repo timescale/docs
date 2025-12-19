@@ -273,8 +273,8 @@ the data into time intervals instead.
 
 </Procedure>
 
-[how-many-rides-take-place-every-day-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-take-place-every-day
-[what-is-the-average-fare-amount-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#what-is-the-average-fare-amount
 [how-many-rides-of-each-rate-type-were-taken-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-of-each-rate-type-were-taken
-[what-kind-of-trips-are-going-to-and-from-airports-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#what-kind-of-trips-are-going-to-and-from-airports
+[how-many-rides-take-place-every-day-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-take-place-every-day
 [how-many-rides-took-place-on-new-years-day-2016-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-took-place-on-new-years-day-2016
+[what-is-the-average-fare-amount-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#what-is-the-average-fare-amount
+[what-kind-of-trips-are-going-to-and-from-airports-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#what-kind-of-trips-are-going-to-and-from-airports

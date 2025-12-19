@@ -29,13 +29,8 @@ To create a hypertable:
 
    You see the result immediately:
 
-   ![Data view create table](https://assets.timescale.com/docs/images/data-mode-create-table.png)
+   ![Data view create table][data-mode-create-table]
 
 </Procedure>
 
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-psql]: /integrations/:currentVersion:/psql/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-view
-[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[data-mode-create-table]: https://assets.timescale.com/docs/images/data-mode-create-table.png

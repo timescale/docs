@@ -16,12 +16,14 @@ Continuous aggregates are often used to downsample historical data. If the data 
 and never modified, you can compress the aggregate to save on storage.
 
 <Highlight type="warning">
+
 Before version
-[2.18.1](https://github.com/timescale/timescaledb/releases/tag/2.18.1), you can't
+[2.18.1][2181], you can't
 refresh the compressed regions of a continuous aggregate. To avoid conflicts
 between compression and refresh, make sure you set `compress_after` to a larger
 interval than the `start_offset` of your [refresh
-policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
+policy][refresh-policy].
+
 </Highlight>
 
 Compression on continuous aggregates works similarly to [compression on
@@ -86,6 +88,7 @@ continuous aggregate policy:
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 ```
 
+[2181]: https://github.com/timescale/timescaledb/releases/tag/2.18.1
 [compression]: /use-timescale/:currentVersion:/compression/
-[decompress-chunks]:  /use-timescale/:currentVersion:/compression/decompress-chunks
-[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
+[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
+[refresh-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy

@@ -18,7 +18,7 @@ machines and benefit from parallelized processing for some queries.
 
 Many features of distributed hypertables work the same way as standard
 hypertables. To learn how hypertables work in general, see the
-[hypertables][hypertables] section.
+[hypertables][hypertables-section] section.
 
 In this section:
 
@@ -35,7 +35,7 @@ In this section:
 [alter-drop]: /self-hosted/:currentVersion:/distributed-hypertables/alter-drop-distributed-hypertables
 [create]: /self-hosted/:currentVersion:/distributed-hypertables/create-distributed-hypertables/
 [foreign-keys]: /self-hosted/:currentVersion:/distributed-hypertables/foreign-keys/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [insert]: /self-hosted/:currentVersion:/distributed-hypertables/insert/
 [query]: /self-hosted/:currentVersion:/distributed-hypertables/query/
 [triggers]: /self-hosted/:currentVersion:/distributed-hypertables/triggers/

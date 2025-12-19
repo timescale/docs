@@ -11,8 +11,8 @@ You can customize this policy later using [alter_job][alter_job_samples]. Howeve
 You can also manually [convert chunks][convert_to_columnstore] in a $HYPERTABLE to the $COLUMNSTORE.
 
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[create_table_arguments]: /api/:currentVersion:/hypertable/create_table/#arguments
 [alter_job_samples]: /api/:currentVersion:/jobs-automation/alter_job/#samples
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[create_table_arguments]: /api/:currentVersion:/hypertable/create_table/#arguments
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/

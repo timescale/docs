@@ -17,10 +17,12 @@ Pandas, and PromQL.
 <Experimental />
 
 <Highlight type="important">
+
 The `timevector()` function materializes all its data points in
 memory. This means that if you use it on a very large dataset,
 it runs out of memory. Do not use the `timevector` function
 on a large dataset, or in production.
+
 </Highlight>
 
 SQL is the best language for data analysis, but it is not perfect, and at times
@@ -365,8 +367,10 @@ The output for this example:
 ```
 
 <Highlight type="note">
+
 The first row of the output is missing, as there is no way to compute a delta
 without a previous value.
+
 </Highlight>
 
 #### Fill method transform
@@ -915,7 +919,7 @@ This table lists all function pipeline elements in alphabetical order:
 |`trunc`|Unary Mathematical|`timevector` pipeline|
 |`unnest`|Output|`TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)`|
 
-[plotly]: https://plotly.com/chart-studio-help/json-chart-schema/
 [lambda-elements-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#lambda-elements
-[to-text-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to_text
-[to-plotly-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to_plotly
+[plotly]: https://plotly.com/chart-studio-help/json-chart-schema/
+[to-plotly-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to-plotly
+[to-text-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to-text

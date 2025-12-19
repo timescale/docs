@@ -8,7 +8,7 @@ keywords: [jobs, data retention]
 # Use a job to create a generic retention policy
 
 $TIMESCALE_DB natively supports adding a
-[data retention policy][data-retention-policy] to a $HYPERTABLE. If you want to
+[data retention policy][retention-policy] to a $HYPERTABLE. If you want to
 add a generic data retention policy to all $HYPERTABLEs, you can create a custom
 $JOB.
 
@@ -57,4 +57,4 @@ particular $HYPERTABLEs.
 
 </Procedure>
 
-[data-retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
+[retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/

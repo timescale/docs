@@ -18,5 +18,4 @@ uncompressed rows. $TIMESCALE_DB uses a built-in job scheduler to convert this
 data to the form of compressed columns. This occurs across chunks of $TIMESCALE_DB
 hypertables.
 
-
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
