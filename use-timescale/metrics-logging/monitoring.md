@@ -103,7 +103,7 @@ Insights help you get a comprehensive understanding of how your queries perform 
 
 To view insights, select your $SERVICE_SHORT, then click `Monitoring` > `Insights`. Search or filter queries by type, maximum execution time, and time frame.
 
-![Insights][insights]
+![Insights][insights-image]
 
 Insights include `Metrics`, `Current lock contention`, and `Queries`. 
 
@@ -157,7 +157,7 @@ $CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along wi
 
 1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
 
-   ![Jobs][jobs]
+   ![Jobs][jobs-image]
 
 1. Click a $JOB ID in the list to view its config and run history:
 
@@ -175,7 +175,7 @@ $CLOUD_LONG lists current and past connections to your $SERVICE_SHORT. This incl
 
 To view connections, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Connections`. Expand the query underneath each connection to see the full SQL.
 
-![Connections][connections]
+![Connections][connections-image]
 
 Click the trash icon next to a connection in the list to terminate it. A lock icon means that a connection cannot be terminated; hover over the icon to see the reason.
 
@@ -185,7 +185,7 @@ $CLOUD_LONG offers specific tips on configuring your $SERVICE_SHORT. This includ
 
 To view recommendations, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Recommendations`:
 
-![Recommendations][recommendations]
+![Recommendations][recommendations-image]
 
 ## Query-level statistics with `pg_stat_statements`
 
@@ -255,5 +255,9 @@ For more examples and detailed explanations, see the [blog post on identifying p
 [queries-drill-down-view]: https://assets.timescale.com/docs/images/tiger-on-azure/query-drill-down-view-tiger-console.png
 [queries]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-query-insights.png
 [recommendations]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#recommendations
+[recommendations-image]: https://assets.timescale.com/docs/images/tiger-cloud-console/recommendations-tiger-cloud.png
 [service-metrics]: https://assets.timescale.com/docs/images/tiger-on-azure/service-metrics-tiger-console.png
 [update-job-config]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-edit-job.png
+[insights-image]: https://assets.timescale.com/docs/images/tiger-on-azure/insights-overview-tiger-console.png
+[jobs-image]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-jobs.png
+[connections-image]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-connections.png

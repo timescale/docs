@@ -347,5 +347,5 @@ SELECT count(*), MIN(time) AS min_date, MAX(time) AS max_date FROM nft_sales
 ```
 
 [nft-schema]: https://github.com/timescale/nft-starter-kit/blob/master/schema.sql
-[opensea-api-documentation]: https://docs.opensea.io/reference/request-an-api-key
+[opensea-api-documentation]: https://docs.opensea.io/reference/api-keys
 [sample-data]: https://assets.timescale.com/docs/downloads/nft_sample.zip

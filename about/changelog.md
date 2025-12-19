@@ -626,7 +626,7 @@ pgai vectorizer now supports automatic document vectorization. This makes it dra
 
 Instead of juggling multiple systems and syncing metadata, vectorizer handles the entire process: downloading documents from S3, parsing them, chunking text, and generating vector embeddings stored right in $PG using pgvector. As documents change, embeddings stay up-to-date automatically—keeping your $PG database the single source of truth for both structured and semantic data.
 
-![create a vectorizer](https://assets.timescale.com/docs/images/console-create-a-vectorizer.png )
+![create a vectorizer](https://assets.timescale.com/docs/images/console-create-a-vectorizer.png)
 
 ### Sample dataset for AI testing
 
