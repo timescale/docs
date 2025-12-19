@@ -1118,5 +1118,9 @@ module.exports = [
   {
     from: "/use-timescale/latest/ingest-data/",
     to: "https://www.tigerdata.com/docs/integrations/latest/#data-ingestion-and-streaming"
+  },
+  {
+    from: "/getting-started/latest/run-queries-from-console/#data-mode",
+    to: "https://www.tigerdata.com/docs/getting-started/latest/run-queries-from-console/#data-view"
   }
 ];

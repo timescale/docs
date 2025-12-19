@@ -118,7 +118,7 @@ older than the `move_after` threshold to the object storage tier. This works sim
 
 A tiering policy schedules a job that runs periodically to asynchronously migrate eligible chunks to object storage. Chunks are considered tiered once they appear in the `timescaledb_osm.tiered_chunks` view. 
 
-You can add tiering policies to [hypertables][hypertable], including [continuous aggregates][caggs]. To manage tiering policies, [connect to your service][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
+You can add tiering policies to [hypertables][hypertable], including [continuous aggregates][caggs]. To manage tiering policies, [connect to your service][connect-to-service] and run the queries below in $DATA_MODE, $SQL_EDITOR, or using `psql`.
 
 #### Add a tiering policy
 
@@ -154,7 +154,7 @@ If you remove a tiering policy, the remaining scheduled chunks are not tiered. H
 
 ### Manually tier and untier chunks
 
-If tiering policies do not meet your current needs, you can tier and untier chunks manually. To do so, [connect to your $SERVICE_SHORT][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
+If tiering policies do not meet your current needs, you can tier and untier chunks manually. To do so, [connect to your $SERVICE_SHORT][connect-to-service] and run the queries below in $DATA_MODE, $SQL_EDITOR, or using `psql`.
 
 #### Tier chunks
 
