@@ -39,6 +39,6 @@ $MCP_LONG exposes the following MCP tools to your AI Assistant:
 |                          | `pooled`            | -        | Use [connection pooling][Connection pooling]. This is only available if you have already enabled it for the $SERVICE_SHORT. Default: `false`.                                                                                                                                                                   |
 
 [Connection pooling]: /use-timescale/:currentVersion:/services/connection-pooling/
-[cloud-regions]: about/:currentVersion:/supported-platforms#available-regions
+[cloud-regions]: /about/:currentVersion:/supported-platforms#available-regions
 [create-service]: /getting-started/:currentVersion:/services/
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
