@@ -6,8 +6,6 @@ keywords: [chunks, hypertables, tablespaces, move]
 api:
   license: community
   type: function
-seo:
-  robots: noindex
 products: [cloud, mst, self_hosted]
 ---
 
