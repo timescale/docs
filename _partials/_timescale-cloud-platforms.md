@@ -62,4 +62,4 @@ You can deploy $TIMESCALE_DB and $TOOLKIT_LONG on the following systems:
 </Tabs>
 
 [available-services]: /about/:currentVersion:/supported-platforms/#available-services
-[supported-systems]: /about/:currentVersion:/supported-platforms/#supported-systems
+[supported-systems]: /about/:currentVersion:/supported-platforms/#supported-operating-system

@@ -31,9 +31,9 @@ choosing an algorithm:
 Before you begin, it is important to understand that the formal definition for
 a percentile is imprecise, and there are different methods for determining what
 the true percentile actually is. In $PG, given a target percentile `p`,
-[`percentile_disc`][pg-percentile] returns the smallest element of a set, so
+[`percentile_disc`][percentile_cont] returns the smallest element of a set, so
 that `p` percent of the set is less than that element. However,
-[`percentile_cont`][pg-percentile] returns an interpolated value between the two
+[`percentile_cont`][percentile_cont] returns an interpolated value between the two
 nearest matches for `p`. In practice, the difference between these methods is
 very small but, if it matters to your use case, keep in mind that `tdigest`
 approximates the continuous percentile, while `uddsketch` provides an estimate
@@ -78,6 +78,6 @@ For some more technical details and usage examples of the different algorithms,
 see the developer documentation for [uddsketch][gh-uddsketch] and
 [tdigest][gh-tdigest].
 
-[pg-percentile]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/tdigest.md
 [gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/uddsketch.md
+[percentile_cont]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE

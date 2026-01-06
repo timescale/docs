@@ -79,8 +79,5 @@ ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '0');
 |`column_name`|TEXT|Column used to order by or segment by|
 |`interval`|TEXT|Time interval used to roll compressed chunks into|
 
-
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
-[bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
-

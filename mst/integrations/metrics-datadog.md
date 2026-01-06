@@ -31,7 +31,7 @@ Before you begin, make sure you have:
 *   Signed up for [Datadog][datadog-login], and can log in to your Datadog
     dashboard.
 *   Created an API key in your Datadog account. For more information
-    about creating a Datadog API key, see [Datadog API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/).
+    about creating a Datadog API key, see [Datadog API and Application Keys][datadog-api-and-application-keys].
 
 ## Upload a Datadog API key
 
@@ -85,6 +85,7 @@ When you have your Datadog integration set up successfully, you can use the
 Datadog dashboard editor to configure your visualizations. For more information,
 see the [Datadog Dashboard documentation][datadog-dashboard-docs].
 
-[datadog-login]: https://app.datadoghq.com/
+[datadog-api-and-application-keys]: https://docs.datadoghq.com/account_management/api-app-keys/
 [datadog-dashboard-docs]: https://docs.datadoghq.com/dashboards/
+[datadog-login]: https://app.datadoghq.com/
 [mst-login]:https://portal.managed.timescale.com/login

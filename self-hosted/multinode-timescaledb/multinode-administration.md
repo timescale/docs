@@ -91,7 +91,7 @@ CALL distributed_exec($$ CREATE ROLE alice WITH LOGIN CONNECTION LIMIT -1; $$);
 ```
 
 For more information about setting up authentication, see the
-[multi-node authentication section][multi-node-authentication].
+[multi-node authentication section][password-config].
 
 Some roles can also be configured without the `LOGIN` attribute on
 the access node. This allows you to switch to the role locally, but not
@@ -225,7 +225,7 @@ databases after these commands have been executed.
 
 ### Manage privileges
 
-Privileges configured using [`GRANT`][grant] or [`REVOKE`][revoke]
+Privileges configured using [`GRANT`][pg-grant] or [`REVOKE`][revoke]
 statements are applied to all data nodes when they are run on a
 distributed hypertable. When granting privileges on other objects, the
 command needs to be manually distributed with
@@ -256,6 +256,6 @@ cluster.
 [alter-database]: https://www.postgresql.org/docs/current/sql-alterdatabase.html
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
 [drop-owned]: https://www.postgresql.org/docs/current/sql-drop-owned.html
-[grant]: https://www.postgresql.org/docs/current/sql-grant.html
-[multi-node-authentication]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/
+[password-config]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/
+[pg-grant]: https://www.postgresql.org/docs/current/sql-grant.html
 [revoke]: https://www.postgresql.org/docs/current/sql-revoke.html

@@ -10,6 +10,3 @@
     ```bash
     sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
-
-[config]: /self-hosted/:currentVersion:/configuration/
-[releases-page]: https://packagecloud.io/timescale/timescaledb

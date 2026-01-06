@@ -37,11 +37,11 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
 1. **Create a Prometheus exporter**
 
-   1. In [$CONSOLE][open-console], click `Exporters` > `+ New exporter`.
+   1. In [$CONSOLE][services-portal], click `Exporters` > `+ New exporter`.
 
    1. Select `Metrics` for data type and `Prometheus` for provider.
 
-      ![Create a Prometheus exporter in Tiger](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-create-prometheus-exporter.png)
+      ![Create a Prometheus exporter in Tiger][create-a-prometheus-exporter-in-tiger]
 
    1. Choose the region for the exporter. Only $SERVICE_SHORTs in the same project and region can be attached to this exporter.
    
@@ -55,17 +55,17 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Select the exporter in the drop-down, then click `Attach exporter`.
 
-      ![Attach a Prometheus exporter to a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/attach-prometheus-exporter-tiger-console.png)
+      ![Attach a Prometheus exporter to a $SERVICE_LONG][attach-a-prometheus-exporter-to-a-service_long]
 
    The exporter is now attached to your $SERVICE_SHORT. To unattach it, click the trash icon in the exporter list. 
 
-      ![Unattach a Prometheus exporter from a $SERVICE_LONG](https://assets.timescale.com/docs/images/tiger-on-azure/unattach-prometheus-exporter-tiger-console.png)
+      ![Unattach a Prometheus exporter from a $SERVICE_LONG][unattach-a-prometheus-exporter-from-a-service_long]
 
 1. **Configure the Prometheus scrape target**
 
    1. Select your service, then click `Operations` > `Exporters` and click the information icon next to the exporter. You see the exporter details. 
 
-      ![Prometheus exporter details in $CLOUD_LONG](https://assets.timescale.com/docs/images/tiger-cloud-console/prometheus-exporter-details-tiger-console.png)
+      ![Prometheus exporter details in $CLOUD_LONG][prometheus-exporter-details-in-cloud_long]
 
    1. Copy the exporter URL. 
 
@@ -196,20 +196,22 @@ To export metrics from $SELF_LONG, you import telemetry data about your database
 You can further [visualize your data][grafana-prometheus] with Grafana. Use the 
 [Grafana Postgres dashboard][postgresql-exporter-dashboard] or [create a custom dashboard][grafana] that suits your needs.
 
-[install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
-[postgresql-exporter-dashboard]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=dashboards
-[install-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
-[grafana]: /integrations/:currentVersion:/grafana/
-[grafana-prometheus]: https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/
-[prometheus]: https://prometheus.io/docs/introduction/overview/
-[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[psql]: /integrations/:currentVersion:/psql/
+[attach-a-prometheus-exporter-to-a-service_long]: https://assets.timescale.com/docs/images/tiger-on-azure/attach-prometheus-exporter-tiger-console.png
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[postgresql-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
+[create-a-prometheus-exporter-in-tiger]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-create-prometheus-exporter.png
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
-[prometheus-authentication]: https://prometheus.io/docs/guides/basic-auth/
-[scrape-targets]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config
+[grafana-prometheus]: https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/
+[grafana]: /integrations/:currentVersion:/grafana/
+[install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
+[install-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
+[postgresql-exporter-dashboard]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=dashboards
+[postgresql-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[prometheus-authentication]: https://prometheus.io/docs/guides/basic-auth/
+[prometheus-exporter-details-in-cloud_long]: https://assets.timescale.com/docs/images/tiger-cloud-console/prometheus-exporter-details-tiger-console.png
+[prometheus]: https://prometheus.io/docs/introduction/overview/
+[psql]: /integrations/:currentVersion:/psql/
+[scrape-targets]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[unattach-a-prometheus-exporter-from-a-service_long]: https://assets.timescale.com/docs/images/tiger-on-azure/unattach-prometheus-exporter-tiger-console.png

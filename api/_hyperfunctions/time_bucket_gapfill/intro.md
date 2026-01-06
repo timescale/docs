@@ -19,4 +19,4 @@ subquery, and let the outer query do the type cast.
 
 </Highlight>
 
-[time_bucket]: /api/latest/hyperfunctions/time_bucket/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

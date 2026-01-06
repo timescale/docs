@@ -34,6 +34,5 @@ Updating parameters on a $PG instance will cause an outage. Choose a time that w
 1. **Enable replication `DELETE` and`UPDATE` operations**
 
    <EnableReplication />
-   
-[mst-portal]: https://portal.managed.timescale.com/login
+
 [databases]: https://console.aws.amazon.com/rds/home#databases:

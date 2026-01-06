@@ -38,7 +38,7 @@ Before you begin, make sure you have:
 *   Installed Python 3
 *   Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for
     this tutorial.
-*   Made a note of your Twelve Data [API key](https://twelvedata.com/account/api-keys).
+*   Made a note of your Twelve Data [API key][api-key].
 
 ## Steps in this tutorial
 
@@ -56,12 +56,14 @@ This tutorial covers:
 
 <CandlestickIntro />
 
-![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
+![candlestick][candlestick]
 
 $TIMESCALE_DB is well suited to storing and analyzing financial candlestick data,
 and many $COMPANYcommunity members use it for exactly this purpose.
 
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
+[api-key]: https://twelvedata.com/account/api-keys
+[candlestick]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png
+[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [financial-ingest-dataset]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-dataset/
 [financial-ingest-query]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-query/
 [twelve-data]: https://twelvedata.com/

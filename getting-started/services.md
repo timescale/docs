@@ -7,16 +7,13 @@ content_group: Getting started
 
 import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
-import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 import StartUsingCloud from "versionContent/_partials/_start-using-cloud.mdx";
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import CreateService from "versionContent/_partials/_create-service.mdx";
 import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
-
 import InstallAzure from "versionContent/_partials/_cloud-installation-azure.mdx";
 import ServiceIntroAzure from "versionContent/_partials/_services-intro-azure.mdx";
-import ServiceOverviewAzure from "versionContent/_partials/_service-overview-azure.mdx";
 import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-azure.mdx";
 
 # Create a $SERVICE_LONG
@@ -30,8 +27,6 @@ import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-az
 ## What is a $SERVICE_LONG?
 
 <ServiceIntro />
-
-<ServiceOverview />
 
 <StartUsingCloud />
 
@@ -63,8 +58,6 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 <ServiceIntroAzure />
 
-<ServiceOverviewAzure />
-
 <StartUsingCloudAzure />
 
 ## Create a $ACCOUNT_LONG
@@ -88,17 +81,3 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 </Tab>
 
 </Tabs>
-
-[tsc-portal]: https://console.cloud.timescale.com/
-[services-how-to]: /use-timescale/:currentVersion:/services/
-[install-psql]: /integrations/:currentVersion:/psql/
-[create-an-account]: /getting-started/:currentVersion:/services/#create-an-account
-[create-a-service]: /getting-started/:currentVersion:/services/#create-a-service
-[connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
-[create-a-hypertable]: /getting-started/:currentVersion:/services/#create-a-hypertable
-[create-service]: https://console.cloud.timescale.com/dashboard/create_services
-[what-is-time-series]: https://www.timescale.com/blog/what-is-a-time-series-database/#what-is-a-time-series-database
-[what-is-dynamic-postgres]: https://www.timescale.com/dynamic-postgresql
-[hypertables]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
-[timescaledb]: https://www.tigerdata.com/docs/#TimescaleDB
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

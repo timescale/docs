@@ -16,6 +16,6 @@ To set up $CLOUD_LONG:
 
 </Procedure>
 
-[timescale-signup]: https://console.cloud.timescale.com/signup
 [console-billing]: https://console.cloud.timescale.com/dashboard/billing/plans
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[timescale-signup]: https://console.cloud.timescale.com/signup

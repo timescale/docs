@@ -14,5 +14,4 @@ with any other role. For a complete list of roles available, see the
 
 You cannot create multiple databases in a single $SERVICE_SHORT. If you need data isolation, use schemas or create additional $SERVICE_SHORTs.
 
-
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html

@@ -44,7 +44,7 @@ wmic
     
 </Terminal>
 
-If you already have the latest version of `psql` installed, proceed to the [Connect to your $SERVICE_SHORT][connect-database] section. 
+If you already have the latest version of `psql` installed, proceed to the [Connect to your $SERVICE_SHORT][connect-using-psql] section. 
 
 ## Install psql
 
@@ -256,12 +256,11 @@ loaded into the editor. When you have made your changes, press `Esc`, then type
 `:`＋`w`＋`q` to save the changes, and return to the command prompt. Access the
 edited query by pressing `↑`, and press `Enter` to run it.
 
-[psql-cheat-sheet]: https://www.timescale.com/learn/postgres-cheat-sheet
-[psql-docs]: https://www.postgresql.org/docs/current/app-psql.html
-[ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
+[connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
+[psql-cheat-sheet]: https://www.tigerdata.com/learn/postgres-cheat-sheet
+[psql-docs]: https://www.postgresql.org/docs/current/app-psql.html
+[ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
 [windows-installer]: https://www.postgresql.org/download/windows/
-[connect-database]:/integrations/:currentVersion:/psql/#connect-to-your-service
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
-

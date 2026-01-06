@@ -511,7 +511,7 @@ Data mode's [SQL assistant](https://docs.timescale.com/getting-started/latest/ru
 
 ### VPC support for passwordless data mode connections
 
-We previously made it much easier to connect newly created services to Timescale’s [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#data-mode). We have now expanded this functionality to services using a VPC.
+We previously made it much easier to connect newly created services to Timescale's [data mode](https://docs.timescale.com/getting-started/latest/run-queries-from-console/#data-view). We have now expanded this functionality to services using a VPC.
 
 ## 🕵🏻️ Enhanced service monitoring, TimescaleDB v2.20, and livesync for $PG
 <Label type="date">May 30, 2025</Label>
@@ -626,7 +626,7 @@ pgai vectorizer now supports automatic document vectorization. This makes it dra
 
 Instead of juggling multiple systems and syncing metadata, vectorizer handles the entire process: downloading documents from S3, parsing them, chunking text, and generating vector embeddings stored right in $PG using pgvector. As documents change, embeddings stay up-to-date automatically—keeping your $PG database the single source of truth for both structured and semantic data.
 
-![create a vectorizer](https://assets.timescale.com/docs/images/console-create-a-vectorizer.png )
+![create a vectorizer](https://assets.timescale.com/docs/images/console-create-a-vectorizer.png)
 
 ### Sample dataset for AI testing
 
@@ -746,7 +746,7 @@ For more information, see the [pgvectorscale release notes][log-28032025-pgvecto
 Each job now has an individual page in Timescale Console, and displays additional details about job errors. You use 
 this information to debug failing jobs. 
 
-To see the job information page, in [Timescale Console][console], select the service to check, then click `Jobs` > job ID to investigate.
+To see the job information page, in [Timescale Console][services-portal], select the service to check, then click `Jobs` > job ID to investigate.
 
 - Successful jobs: 
 
@@ -924,7 +924,7 @@ For enhanced network security, you can now also create IP allowlists in the Time
 
 This feature is available in:
 
-- [Timescale Console][console] data mode, for all pricing tiers
+- [Timescale Console][services-portal] data mode, for all pricing tiers
 - [PopSQL web][popsql-web]
 - [PopSQL desktop][popsql-desktop]
 
@@ -971,7 +971,7 @@ $PG 17 adds new capabilities and improvements to Timescale like:
   
 ### Submit feature requests from Timescale Console
 You can now submit feature requests directly from Console and see the list of feature requests you have made. Just click on `Feature Requests` on the right sidebar.
-All feature requests are automatically published to the [Timescale Forum](https://www.timescale.com/forum/c/cloud-feature-requests/39) and are reviewed by the product team, providing more visibility and transparency on their status as well as allowing other customers to vote for them.
+All feature requests are automatically published to the [Timescale Forum](https://forum.tigerdata.com/forum/c/cloud-feature-requests/39) and are reviewed by the product team, providing more visibility and transparency on their status as well as allowing other customers to vote for them.
 
 ![Submit a feature request in Timescale Console](https://assets.timescale.com/docs/images/submit-feature-request.png)
 
@@ -1132,7 +1132,7 @@ This release adds support for runtime chunk exclusion for queries that need to a
 SELECT * FROM  hypertable WHERE timestamp_col > now() - '100 days'::interval
 ```
 
-For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.timescale.com/blog/implementing-constraint-exclusion-for-faster-query-performance/).
+For more info on queries with immutable/stable/volatile filters, check our blog post on [Implementing constraint exclusion for faster query performance](https://www.tigerdata.com/blog/implementing-constraint-exclusion-for-faster-query-performance).
 
 If you no longer want to use tiered storage for a particular hypertable, you can now disable tiering and drop the associated tiering metadata on the hypertable with a call to [disable_tiering function](https://docs.timescale.com/use-timescale/latest/data-tiering/enabling-data-tiering/#disable-tiering). 
 
@@ -1249,7 +1249,7 @@ For more details on multiple HA replicas, see [Manage high availability](https:/
 
 ### One-click SQL statement execution from Timescale Console
 
-Now you can simply click to run SQL statements in various places in the Console. This requires that the [SQL Editor][sql-editor] is enabled for the service.
+Now you can simply click to run SQL statements in various places in the Console. This requires that the [SQL Editor][run-sqleditor] is enabled for the service.
 
 * Enable Continuous Aggregates from the CAGGs wizard by clicking **Run** below the SQL statement.
 ![Enable Continuous Aggregates](https://s3.amazonaws.com/assets.timescale.com/docs/images/enable-continuous-aggregates.gif)
@@ -1349,7 +1349,7 @@ We’ve added a 2FA status column to the Members page, allowing customers to eas
 ![2FA status](https://s3.amazonaws.com/assets.timescale.com/docs/images/2FA-status-indicator.png)
 
 ### Anthropic and Cohere integrations in pgai
-The pgai extension v0.3.0 now supports embedding creation and LLM reasoning using models from Anthropic and Cohere. For details and examples, see [this post for pgai and Cohere](https://www.timescale.com/blog/build-search-and-rag-systems-on-postgresql-using-cohere-and-pgai/), and [this post for pgai and Anthropic](https://www.timescale.com/blog/use-anthropic-claude-sonnet-3-5-in-postgresql-with-pgai/).
+The pgai extension v0.3.0 now supports embedding creation and LLM reasoning using models from Anthropic and Cohere. For details and examples, see [this post for pgai and Cohere](https://www.tigerdata.com/blog/build-search-and-rag-systems-on-postgresql-using-cohere-and-pgai), and [this post for pgai and Anthropic](https://www.tigerdata.com/blog/use-anthropic-claude-sonnet-3-5-in-postgresql-with-pgai).
 
 ### pgvectorscale extension: ARM builds and improved recall for low dimensional vectors
 pgvectorscale extension [v0.3.0](https://github.com/timescale/pgvectorscale/releases/tag/0.3.0) adds support for ARM processors and improves recall when using StreamingDiskANN indexes with low dimensionality vectors. We recommend updating to this version if you are self-hosting.
@@ -1531,7 +1531,7 @@ To access the compression wizard, navigate to `Explorer`, and select the hyperta
 
 <Label type="date">June 11, 2024</Label>
 
-The [vectorscale extension][pgvectorscale] is now available on [Timescale Cloud][signup].
+The [vectorscale extension][pgvectorscale] is now available on [Timescale Cloud][timescale-signup].
 
 pgvectorscale complements pgvector, the open-source vector data extension for $PG, and introduces the
 following key innovations for pgvector data:
@@ -1551,7 +1551,7 @@ To learn more, see the [pgvectorscale documentation][pgvectorscale].
 
 <Label type="date">June 11, 2024</Label>
 
-The [pgai extension][pgai] is now available on [Timescale Cloud][signup].
+The [pgai extension][pgai] is now available on [Timescale Cloud][timescale-signup].
 
 pgai brings embedding and generation AI models closer to the database. With pgai, you can now do the following directly
 from within $PG in a SQL query:
@@ -1580,7 +1580,7 @@ To learn more, see the [TimescaleDB release notes](https://github.com/timescale/
 ## 🔍 Database Audit Logging with pgaudit
 <Label type="date">May 31, 2024</Label>
 
-The [$PG Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][signup].
+The [$PG Audit extension(pgaudit)](https://github.com/pgaudit/pgaudit/) is now available on [Timescale Cloud][timescale-signup].
 pgaudit provides detailed database session and object audit logging in the Timescale
 Cloud logs.
 
@@ -1594,7 +1594,7 @@ To learn more, see the [pgaudit documentation](https://github.com/pgaudit/pgaudi
 <Label type="date">May 31, 2024</Label>
 
 The [SI Units for $PG extension(unit)](https://github.com/df7cb/postgresql-unit) provides support for the
-[ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in [Timescale Cloud][signup].
+[ISU](https://en.wikipedia.org/wiki/International_System_of_Units) in [Timescale Cloud][timescale-signup].
 
 You can use Timescale Cloud to solve day-to-day questions. For example, to see what 50°C is in °F, run the following
 query in your Timescale Cloud service:
@@ -1609,17 +1609,15 @@ SELECT '50°C'::unit @ '°F' as temp;
 
 To learn more, see the [postgresql-unit documentation](https://github.com/df7cb/postgresql-unit).
 
-[release-notes]: /about/:currentVersion:/release-notes/
-[timescaledb-releases]: https://github.com/timescale/timescaledb/releases/
+[aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
+[integrations]: /integrations/:currentVersion:/
+[log-28032025-pgvectorscale-example]: https://github.com/timescale/pgvectorscale?tab=readme-ov-file#label-based-filtering-with-diskann
+[log-28032025-pgvectorscale-rn]: https://github.com/timescale/pgvectorscale/releases/tag/0.7.0
+[ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
 [pgai]: https://github.com/timescale/pgai
 [pgvectorscale]: https://github.com/timescale/pgvectorscale/
-[signup]: https://console.cloud.timescale.com/signup
-[sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[aws-timescale]: https://aws.amazon.com/marketplace/seller-profile?id=seller-wbtecrjp3kxpm
-[ops-mode-allow-list]: /about/:currentVersion:/changelog/#-ip-allow-lists
-[popsql-web]: https://app.popsql.com/login
 [popsql-desktop]: https://popsql.com/download
-[console]: https://console.cloud.timescale.com/dashboard/services
-[integrations]: /integrations/:currentVersion:/
-[log-28032025-pgvectorscale-rn]: https://github.com/timescale/pgvectorscale/releases/tag/0.7.0
-[log-28032025-pgvectorscale-example]: https://github.com/timescale/pgvectorscale?tab=readme-ov-file#label-based-filtering-with-diskann
+[popsql-web]: https://app.popsql.com/login
+[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[timescale-signup]: https://console.cloud.timescale.com/signup

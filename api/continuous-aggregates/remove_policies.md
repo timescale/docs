@@ -19,7 +19,7 @@ continuous aggregate, _not_ to the original hypertable.
 
 <Highlight type="warning">
 
-This experimental function will be removed in future releases. Please use the [`delete_job()`](delete_job) function to delete policies.
+This experimental function will be removed in future releases. Please use the [`delete_job()`][delete_job] function to delete policies.
 
 </Highlight>
 
@@ -68,4 +68,5 @@ SELECT timescaledb_experimental.remove_policies(
 
 Returns true if successful.
 
-[delete_job]: /api/:currentVersion:/jobs-automation/delete_job/
+[delete_job]: /api/:currentVersion:/jobs-automation/delete_job
+[remove-all-policies]: /api/:currentVersion:/continuous-aggregates/remove_all_policies

@@ -32,11 +32,7 @@ You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE
 
 <Procedure>
 
-1. **Generate client credentials for programmatic use**
-
-   1. In [$CONSOLE][console], click `Projects` and save your `Project ID`, then click `Project settings`.
-   
-   1. Click `Create credentials`, then save `Public key` and `Secret key`.
+1. **[Generate client credentials][generate-credentials]**
 
 1. **Configure $COMPANY Terraform provider**
 
@@ -143,11 +139,12 @@ You can now manage your database with Terraform.
 
 </Tabs>
 
-[terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
-[terraform]: https://developer.hashicorp.com/terraform
-[console]: https://console.cloud.timescale.com/dashboard/services
-[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[terraform-resources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/resources/peering_connection
-[terraform-data-sources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/data-sources/products
 [pg-provider]: https://registry.terraform.io/providers/cyrilgdn/postgresql/latest
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[terraform-data-sources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/data-sources/products
+[terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
+[terraform-resources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/resources/peering_connection
+[terraform]: https://developer.hashicorp.com/terraform
+[generate-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials

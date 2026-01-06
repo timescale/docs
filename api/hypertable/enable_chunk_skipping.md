@@ -40,11 +40,11 @@ not participate in partitioning of the data. These ranges are
 used for chunk skipping when the `WHERE` clause of an SQL query specifies
 ranges on the column.
 
-A [DROP COLUMN](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-DESC-DROP-COLUMN)
+A [DROP COLUMN][drop-column]
 on a column with statistics tracking enabled on it ends up removing all relevant entries
 from the catalog table.
 
-A [decompress_chunk][decompress_chunk] invocation on a compressed chunk resets its entries
+A [decompress_chunk][api-reference-decompress] invocation on a compressed chunk resets its entries
 from the `chunk_column_stats` catalog table since now it's available for DML and the
 min/max range values can change on any further data manipulation in the chunk.
 
@@ -89,5 +89,6 @@ SELECT enable_chunk_skipping('conditions', 'device_id');
 |`column_stats_id`|INTEGER|ID of the entry in the TimescaleDB internal catalog|
 |`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not added|
 
+[api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
 [compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
-[decompress_chunk]: /api/:currentVersion:/compression/decompress_chunk/
+[drop-column]: https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-DESC-DROP-COLUMN

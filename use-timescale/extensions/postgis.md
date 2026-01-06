@@ -15,7 +15,7 @@ geographic data. It helps in spatial data analysis, the study of patterns,
 anomalies, and theories within spatial or geographical data.
 
 For more information about these functions and the options available, see the
-[PostGIS documentation] [postgis-docs].
+[PostGIS documentation][postgis-docs].
 
 ## Use the `postgis` extension to analyze geospatial data
 
@@ -47,8 +47,8 @@ particular location.
      pgcrypto            | 1.3     | public     | cryptographic functions
      plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
      postgis             | 3.3.3   | public     | PostGIS geometry and geography spatial types and functions
-     timescaledb         | 2.11.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
-     timescaledb_toolkit | 1.16.0  | public     | Library of analytical hyperfunctions,     time-series pipelining, and other SQL utilities
+     timescaledb         | 2.24.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+     timescaledb_toolkit | 1.22.0  | public     | Library of analytical hyperfunctions,     time-series pipelining, and other SQL utilities
     (6 rows)
     ```
 
@@ -107,7 +107,7 @@ particular location.
     (3 rows)
     ```
 
-1.  To fetch the latest logged cases of all states using the [$SKIPSCAN_LONG][skip-scan] feature, replace `<Interval_Time>` with the number of
+1.  To fetch the latest logged cases of all states using the [$SKIPSCAN_LONG][skipscan] feature, replace `<Interval_Time>` with the number of
     days between the day you are running the query and the day the last report
     was logged in the table, in this case 30, June, 2023:
 
@@ -154,5 +154,4 @@ particular location.
 
 </Procedure>
 
-[postgis-docs]: https://www.postgis.net
-[skip-scan]: /use-timescale/:currentVersion:/query-data/skipscan/
+[skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/

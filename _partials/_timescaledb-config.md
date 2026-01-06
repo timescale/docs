@@ -23,7 +23,7 @@ in this way.
 
 Set to `ON` to dramatically decrease the amount of data written on a continuous aggregate
 in the presence of a small number of changes, reduce the i/o cost of refreshing a
-[continuous aggregate][continuous-aggregates], and generate fewer Write-Ahead Logs (WAL). Only works for continuous aggregates that don't have compression enabled.
+[continuous aggregate][caggs], and generate fewer Write-Ahead Logs (WAL). Only works for continuous aggregates that don't have compression enabled.
 
 <ConfigCloudSelf />
 
@@ -53,4 +53,4 @@ Records last time `timescaledb-tune` ran.
 
 Version of `timescaledb-tune` used to tune when it runs.
 
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/

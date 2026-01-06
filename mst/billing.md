@@ -23,9 +23,11 @@ project. The price charged for your project includes:
 *   Setting up
 
 <Highlight type="note">
+
 $MST_LONG does not charge you for network traffic used by
 your service. However, your application cloud service provider might charge you
 for the network traffic going to or from your service.
+
 </Highlight>
 
 Terminating or powering a $MST_SERVICE_SHORT down stops the accumulation of new charges
@@ -41,10 +43,12 @@ Migrating a $MST_SERVICE_SHORT to another cloud region or different cloud provid
 incur extra charges.
 
 <Highlight type="note">
+
 All prices listed for $MST_LONG are inclusive of 
 credit card and processing fees. However, in some cases, your credit card 
 provider might charge additional fees, such as an international transaction 
 fee. These fees are not charged by $COMPANY or Aiven.
+
 </Highlight>
 
 ## Billing groups
@@ -122,8 +126,10 @@ To manage projects in billing groups, take the following steps.
   1. Click **Cancel** to close the dialog box.
 
   <Highlight type="note">
+
   Assigning a project that is already assigned to another billing group 
   will unassign it from that billing group.
+
   </Highlight>
 
 - Move a project to another billing group
@@ -173,7 +179,6 @@ and email address is correct in your project's billing settings, and send a mess
 to the [$COMPANY support team][timescale-support] asking to be changed to corporate
 billing.
 
-[timescale-support]: https://www.timescale.com/contact/
-[mst-console]: https://portal.managed.timescale.com
 [invoice-api]: https://api.aiven.io/doc/#tag/BillingGroup
-
+[mst-console]: https://portal.managed.timescale.com
+[timescale-support]: https://www.tigerdata.com/contact/

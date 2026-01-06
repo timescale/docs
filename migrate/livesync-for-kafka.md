@@ -125,7 +125,7 @@ Take the following steps to create a Kafka source connector in $CONSOLE_LONG.
 
 <Procedure>
 
-1. **In [$CONSOLE_SHORT][console], select your $SERVICE_SHORT**
+1. **In [$CONSOLE_SHORT][services-portal], select your $SERVICE_SHORT**
 1. **Go to `Connectors` > `Source connectors`. Click `New Connector`, then select `Kafka`**
 1. **Click the pencil icon, then set the connector name**
 1. **Set up Kafka authentication**
@@ -236,9 +236,9 @@ Unsupported examples:
 }
 ```
 
+[confluence-signup]: https://www.confluent.io/get-started/
 [confluent-cloud]: https://confluent.cloud/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[confluence-signup]: https://www.confluent.io/get-started/
 [create-kafka-cluster]: https://docs.confluent.io/cloud/current/clusters/create-cluster.html
-[console]: https://console.cloud.timescale.com/dashboard/services
 [limitations]: /migrate/:currentVersion:/livesync-for-kafka/#known-limitations-and-unsupported-types
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

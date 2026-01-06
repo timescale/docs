@@ -17,6 +17,7 @@ products: [cloud, mst, self_hosted]
 This interface is deprecated since [TimescaleDB v2.13.0][rn-2130].
 
 For information about the supported hypertable interface, see [add_dimension()][add-dimension].
+
 </Highlight>
 
 
@@ -25,14 +26,16 @@ The column selected as the dimension can either use interval
 partitioning (for example, for a second time partition) or hash partitioning.
 
 <Highlight type="warning">
+
 The `add_dimension` command can only be executed after a table has been
 converted to a hypertable (via `create_hypertable`), but must similarly
 be run only on an empty hypertable.
+
 </Highlight>
 
 **Space partitions**: Using space partitions is highly recommended
-for [distributed hypertables][distributed-hypertables] to achieve
-efficient scale-out performance. For [regular hypertables][regular-hypertables]
+for [distributed hypertables][create_distributed_hypertable] to achieve
+efficient scale-out performance. For [regular hypertables][create_hypertable]
 that exist only on a single node, additional partitioning can be used
 for specialized use cases and not recommended for most users.
 
@@ -88,7 +91,7 @@ across nodes, particularly when full or partial aggregations can be
 "pushed down" to data nodes (for example, as in the query
 `avg(temperature) FROM conditions GROUP BY hour, location`
 when using `location` as a space partition). Please see our
-[best practices about partitioning in distributed hypertables][distributed-hypertable-partitioning-best-practices]
+[best practices about partitioning in distributed hypertables][hypertables-section]
 for more information.
 
 ### Parallelizing disk I/O on a single node
@@ -137,7 +140,7 @@ queries.
 |-|-|-|
 |`number_partitions`|INTEGER|Number of hash partitions to use on `column_name`. Must be > 0|
 |`chunk_time_interval`|INTERVAL|Interval that each chunk covers. Must be > 0|
-|`partitioning_func`|REGCLASS|The function to use for calculating a value's partition (see `create_hypertable` [instructions][create_hypertable])|
+|`partitioning_func`|REGCLASS|The function to use for calculating a value's partition (see `create_hypertable` [instructions][create-hypertable-old])|
 |`if_not_exists`|BOOLEAN|Set to true to avoid throwing an error if a dimension for the column already exists. A notice is issued instead. Defaults to false|
 
 ## Returns
@@ -167,16 +170,16 @@ the column's underlying semantics (for example, the
 is the number of milliseconds since the UNIX epoch).
 
 <Highlight type="warning">
+
  Supporting more than **one** additional dimension is currently
  experimental. For any production environments, users are recommended
  to use at most one "space" dimension.
 
 </Highlight>
 
-
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable_old/
-[distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/
-[distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
-[regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/
 [add-dimension]: /api/:currentVersion:/hypertable/add_dimension/
+[create-hypertable-old]: /api/:currentVersion:/hypertable/create_hypertable_old/
+[create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [rn-2130]: https://github.com/timescale/timescaledb/releases/tag/2.13.0

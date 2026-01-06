@@ -102,7 +102,7 @@ connection pooling to.
     *   In the `Database` field, select a database to connect to. Each pool can
         only connect to one database.
     *   In the `Pool Mode` field, select which
-        [pool mode](#connection-pooling-modes) to use.
+        [pool mode][connection-pooling-modes-link] to use.
     *   In the `Pool Size` field, select the maximum number of server
         connections this pool can use at any one time.
     *   In the `Username` field, select which database username to connect to
@@ -120,5 +120,5 @@ to use both pooled and un-pooled connections at the same time.
 
 </Highlight>
 
-
+[connection-pooling-modes-link]: /mst/:currentVersion:/connection-pools/#connection-pooling-modes
 [mst-login]:https://portal.managed.timescale.com/login

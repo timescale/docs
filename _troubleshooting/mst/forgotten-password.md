@@ -19,5 +19,4 @@ To reset your password:
 A secure reset password link is sent to the email associated with this account. Click the link 
 and update your password. 
 
-
 [mst-login]:https://portal.managed.timescale.com/login

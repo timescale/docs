@@ -37,7 +37,7 @@ again.
     local repository list. Make sure the $TIMESCALE_DB repository is available and
     contains Toolkit. For instructions on adding the $TIMESCALE_DB repository, see
     the installation guides:
-    *   [Linux installation guide][linux-install]
+    *   [Linux installation guide][deb-install]
 1.  Update your local repository list with `apt update` or `yum update`.
 1.  Restart your $PG service.
 1.  Check that the right version of Toolkit is among your available extensions:
@@ -61,4 +61,4 @@ again.
 
 </Procedure>
 
-[linux-install]: /self-hosted/latest/install/installation-linux/
+[deb-install]: /self-hosted/:currentVersion:/install/installation-linux/

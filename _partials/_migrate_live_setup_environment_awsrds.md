@@ -20,7 +20,3 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 <TuneSourceDatabaseAWSRDS />
 
 </Procedure>
-
-
-[modify-parameters]: /use-timescale/:currentVersion:/configuration/customize-configuration/#modify-basic-parameters
-[mst-portal]: https://portal.managed.timescale.com/login

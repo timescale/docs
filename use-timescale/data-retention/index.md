@@ -13,16 +13,16 @@ data.
 
 In this section:
 
-*   [Learn about data retention][about-data-retention] before you start using it
+*   [Learn about data retention][data-retention] before you start using it
 *   [Learn about data retention with continuous aggregates][retention-with-caggs]
     for downsampling data
 *   Create a [data retention policy][retention-policy]
 *   [Manually drop chunks][manually-drop] of data
 *   [Troubleshoot] data retention
 
-[Troubleshoot]: /use-timescale/:currentVersion:/data-retention/troubleshooting/
-[about-data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/about-data-retention/
 [manually-drop]: /use-timescale/:currentVersion:/data-retention/manually-drop-chunks
 [retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy
 [retention-with-caggs]: /use-timescale/:currentVersion:/data-retention/data-retention-with-continuous-aggregates
+[Troubleshoot]: /use-timescale/:currentVersion:/data-retention/troubleshooting/

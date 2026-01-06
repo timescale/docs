@@ -14,7 +14,7 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 $LAKE_LONG enables you to build real-time applications alongside efficient data pipeline management within a single 
 system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. 
 
-![Tiger Lake architecture](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-lake-integration-tiger.svg)
+![Tiger Lake architecture][tiger-lake-architecture]
 
 $LAKE_LONG is a native integration enabling synchronization between $HYPERTABLEs and relational tables
 running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
@@ -363,23 +363,17 @@ data lake:
 * Iceberg snapshots are pruned automatically if the amount exceeds 2500.
 * A $HYPERTABLE with long running continuous aggregates refresh transactions, plus 30 minutes, can cause issues with holding the replication slot too long. Please consider batching in these cases.
 
-
+[aws-s3-tables]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html
 [cmc]: https://console.aws.amazon.com/cloudformation/
-[aws-athena]: https://aws.amazon.com/athena/
-[apache-spark]: https://spark.apache.org/
-[s3-tables]: https://aws.amazon.com/s3/features/tables/
-[aws-console]: https://console.aws.amazon.com/
-[s3-console]: https://console.aws.amazon.com/s3/
+[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[direct-compress]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#speed-up-data-ingestion
+[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [iam-dashboard]: https://console.aws.amazon.com/iamv2/home
 [iceberg-partition-spec]: https://iceberg.apache.org/spec/#partition-transforms
 [iceberg-truncate-options]: https://iceberg.apache.org/spec/#truncate-transform-details
-[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
-[setup-console]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-aws-management-console
-[setup-cli]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-using-the-aws-cloudformation-cli
-[setup-manual]: /use-timescale/:currentVersion:/tigerlake/#setup-tiger-lake-manually
-[samples]: /use-timescale/:currentVersion:/tigerlake/#sample-code
 [partitioning]: /use-timescale/:currentVersion:/tigerlake/#partitioning-intervals
+[s3-console]: https://console.aws.amazon.com/s3/
+[s3-tables]: https://aws.amazon.com/s3/features/tables/
+[samples]: /use-timescale/:currentVersion:/tigerlake/#sample-code
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[aws-s3-tables]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[direct-compress]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#speed-up-data-ingestion
+[tiger-lake-architecture]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-lake-integration-tiger.svg

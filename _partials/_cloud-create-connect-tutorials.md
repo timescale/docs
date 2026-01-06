@@ -2,11 +2,11 @@ A service in $CLOUD_LONG is a cloud instance which contains your database.
 Each service contains a single database, named `tsdb`.
 You can connect to a service from your local system using the `psql`
 command-line utility. If you've used $PG before, you might already have
-`psql` installed. If not, check out the [installing psql][install-psql] section.
+`psql` installed. If not, check out the [installing psql][psql] section.
 
 <Procedure>
 
-1.  In the [$CONSOLE][timescale-portal], click `Create service`.
+1.  In the [$CONSOLE][cloud-login], click `Create service`.
 1.  Click `Download the cheatsheet` to download an SQL file that contains the
     login details for your new service. You can also copy the details directly
     from this page. When you have copied your password,
@@ -36,5 +36,5 @@ command-line utility. If you've used $PG before, you might already have
 
 </Procedure>
 
-[timescale-portal]: https://console.cloud.timescale.com/
-[install-psql]: /integrations/:currentVersion:/psql/
+[cloud-login]: https://console.cloud.timescale.com/
+[psql]: /integrations/:currentVersion:/psql/

@@ -36,7 +36,7 @@ Before you begin, make sure you have:
 *   Installed Python 3
 *   Signed up for [Twelve Data][twelve-signup]. The free tier is
     perfect for this tutorial.
-*   Made a note of your Twelve Data [API key](https://twelvedata.com/account/api-keys).
+*   Made a note of your Twelve Data [API key][api-key].
 
 <Collapsible heading="Connect to the websocket server" defaultExpanded={false}>
 
@@ -431,11 +431,9 @@ You can visualize the OHLCV data that you created using the queries in Grafana.
 
 </Collapsible>
 
-[candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
-[get-started]: /getting-started/:currentVersion:/
-[install-ts]: /getting-started/latest/
+[api-key]: https://twelvedata.com/account/api-keys
+[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [psycopg2]: https://www.psycopg.org/docs/
 [twelve-data]: https://twelvedata.com
 [twelve-signup]: https://twelvedata.com/pricing
 [twelve-wrapper]: https://github.com/twelvedata/twelvedata-python
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account

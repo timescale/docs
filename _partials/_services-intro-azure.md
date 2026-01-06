@@ -35,6 +35,8 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 
   Free $SERVICE_SHORTs offer limited resources and a basic feature scope, perfect to get to know $CLOUD_LONG in a development environment.
 
+You can [manage, pause, or delete][service-management] your $SERVICE_SHORT at any time from $CONSOLE.
+
 [what-is-time-series]: https://www.timescale.com/blog/time-series-database-an-explainer#what-is-a-time-series-database
 [create-service]: /getting-started/:currentVersion:/services/
 [live-migration]: /migrate/:currentVersion:/live-migration/
@@ -44,10 +46,11 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
 [connection-pooling]: /use-timescale/:currentVersion:/services/connection-pooling
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-plans-work
+[how-plans-work]: /about/:currentVersion:/pricing-and-account-management/#how-your-bill-is-calculated
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [metrics]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics
 [insights]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#insights
 [maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [rbac]: /use-timescale/:currentVersion:/security/members/
+[service-management]: /use-timescale/:currentVersion:/services/service-management/

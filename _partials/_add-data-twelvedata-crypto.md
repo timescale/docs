@@ -7,7 +7,7 @@ download the dataset, then upload the data to your $SERVICE_LONG.
 <Procedure>
 
 
-1. Unzip <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> to a `<local folder>`.
+1. Unzip <Tag type="download">[crypto_sample.zip][crypto_samplezip]</Tag> to a `<local folder>`.
 
    This test dataset contains second-by-second trade data for the most-traded crypto-assets
    and a regular table of asset symbols and company names.  
@@ -43,7 +43,8 @@ download the dataset, then upload the data to your $SERVICE_LONG.
 
 </Procedure>
 
-[twelve-data]: https://twelvedata.com/
-[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[crypto_samplezip]: https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip
+[data-ingest]: /migrate/:currentVersion:/
 [migrate-live]: /migrate/:currentVersion:/live-migration/
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[twelve-data]: https://twelvedata.com/

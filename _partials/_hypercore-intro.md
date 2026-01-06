@@ -2,7 +2,7 @@ $HYPERCORE_CAP is a hybrid row-columnar storage engine in $TIMESCALE_DB. It is d
 real-time analytics and powered by time-series data. The advantage of $HYPERCORE is its ability
 to seamlessly switch between row-oriented and column-oriented storage, delivering the best of both worlds:
 
-![Hypercore workflow](https://assets.timescale.com/docs/images/hypertable-with-hypercore-enabled.png)
+![Hypercore workflow][hypercore-workflow]
 
 $HYPERCORE_CAP solves the key challenges in real-time analytics:
 
@@ -38,3 +38,4 @@ For an in-depth explanation of how $HYPERTABLEs and $HYPERCORE work, see the [Da
 
 [chunk-skipping]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/
 [data-model]: /about/:currentVersion:/whitepaper/#data-model
+[hypercore-workflow]: https://assets.timescale.com/docs/images/hypertable-with-hypercore-enabled.png

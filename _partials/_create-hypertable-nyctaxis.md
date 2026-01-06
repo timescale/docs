@@ -114,5 +114,4 @@ the `psql` command line. You should see this:
 (3 rows)
 ```
 
-
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/

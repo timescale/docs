@@ -41,5 +41,6 @@ can get even more information by enabling the
 [track\_io\_timing][track_io_timing] variable with `SET track_io_timing = 'on';`
 before running the above EXPLAIN.
 
-[track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
+
+[track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING

@@ -13,7 +13,7 @@ If you prefer to tune settings yourself, or for settings not covered by
 $PG configuration file.
 
 For some common configuration settings you might want to adjust, see the
-[about-configuration][about-configuration] page.
+[about-configuration][config] page.
 
 For more information about the $PG configuration page, see the
 [$PG documentation][pg-config].
@@ -60,5 +60,5 @@ For example:
 postgres -c log_connections=yes -c log_destination='syslog'
 ```
 
-[about-configuration]: /self-hosted/:currentVersion:/configuration/about-configuration
+[config]: /self-hosted/:currentVersion:/configuration/about-configuration
 [pg-config]: https://www.postgresql.org/docs/current/config-setting.html

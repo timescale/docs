@@ -47,9 +47,10 @@ See the [Contributing guide](CONTRIBUTING.md) for style and language guidance.
 
 ## Learn about Tiger Data
 
-Tiger Data is Postgres made powerful. To learn more about the company and its products, visit [tigerdata.com](https://www.tigerdata.com).
+Tiger Data is Postgres made powerful. To learn more about the company and its products, visit [tigerdata.com][tigerdata-home].
 
 [docs-issues]: https://github.com/timescale/docs/issues
-[github-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
-[github-clone]: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 [gatsby]: https://www.gatsbyjs.com/
+[github-clone]: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+[github-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+[tigerdata-home]: https://www.tigerdata.com

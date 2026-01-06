@@ -108,7 +108,7 @@ machine:
    ```
 
 1.  Connect to your new database and update your table statistics by running
-    [`ANALYZE`]   [analyze] on your entire dataset:
+    [`ANALYZE`][analyze] on your entire dataset:
 
     ```sql
     psql -d "$TARGET" defaultdb=> ANALYZE;
@@ -145,16 +145,10 @@ successfully.
 
  ```
 
-[analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[compression]: /use-timescale/:currentVersion:/hypercore/
 [install-mst]: /mst/:currentVersion:/installation-mst/#create-your-first-service
+[migrate-live]: /migrate/:currentVersion:/live-migration/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /integrations/:currentVersion:/psql/
-[upgrading-postgresql]: https://www.tigerdata.com/docs/latest/
 [upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/#timescaledb_pre_restore
-[timescaledb_post_restore]: /api/:currentVersion:/administration/#timescaledb_post_restore
-[migration]: /migrate/:currentVersion:/
-[migrate-live]: /migrate/:currentVersion:/live-migration/

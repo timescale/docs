@@ -10,11 +10,11 @@ tags: [authentication, credentials, members, security]
 
 When you create a $SERVICE_SHORT, $CLOUD_LONG assigns you the tsdmadmin role. This role has full permissions to modify data in your $SERVICE_SHORT. However, $CLOUD_LONG does not provide superuser access. tsdmadmin is not a superuser. 
 
-As tsdmadmin, you can use standard $PG means to create other roles or assign individual permissions. This page shows you how to create a read-only role for your database. Adding a read-only role does not provide resource isolation. To restrict the access of a read-only user, as well as isolate resources, create a [read replica][read-scaling] instead. 
+As tsdmadmin, you can use standard $PG means to create other roles or assign individual permissions. This page shows you how to create a read-only role for your database. Adding a read-only role does not provide resource isolation. To restrict the access of a read-only user, as well as isolate resources, create a [read replica][readreplica] instead. 
 
 <Highlight type="important">
 
-The database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT do not overlap with the $PROJECT_LONG user roles. This page describes the database-level roles. For user roles available in $CONSOLE_SHORT, see [Control user access to $PROJECT_LONGs][console-rbac].
+The database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT do not overlap with the $PROJECT_LONG user roles. This page describes the database-level roles. For user roles available in $CONSOLE_SHORT, see [Control user access to $PROJECT_LONGs][projects].
 
 </Highlight>
 
@@ -59,5 +59,5 @@ You can create a read-only user to provide limited access to your database.
 
 </Procedure>
 
-[console-rbac]: /use-timescale/:currentVersion:/security/members/
-[read-scaling]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[projects]: /use-timescale/:currentVersion:/security/members/
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/

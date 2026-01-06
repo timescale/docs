@@ -1,0 +1,53 @@
+## Install $TOOLKIT_LONG
+
+To install $TOOLKIT_SHORT from source:
+
+<Procedure>
+
+1.  **Build the extension from the latest source code**
+
+    Follow the build instructions in the [TimescaleDB Toolkit GitHub repository][toolkit-gh-install] to download and
+    build the latest version.
+
+1.  **Connect to your database**
+
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+1.  **Update the Toolkit extension in the database**
+
+    ```bash
+    CREATE EXTENSION timescaledb_toolkit;
+    ```
+
+
+</Procedure>
+
+## Update $TOOLKIT_LONG
+
+To update $TOOLKIT_SHORT installed from source:
+
+<Procedure>
+
+1.  **Build the extension from the latest source code**
+
+    Follow the build instructions in the [TimescaleDB Toolkit GitHub repository][toolkit-gh-install] to download and
+    build the latest version.
+
+1.  **Connect to your database**
+
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+1.  **Update the Toolkit extension in the database**
+
+    ```bash
+    ALTER EXTENSION timescaledb_toolkit UPDATE;
+    ```
+
+</Procedure>
+
+[toolkit-gh-install]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
+[source-install]: /self-hosted/:currentVersion:/install/installation-source/

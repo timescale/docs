@@ -27,7 +27,7 @@ You create $PG FDWs with the `postgres_fdw` extension, which is enabled by defau
 
 1. **Connect to your service**
 
-   See [how to connect][connect].
+   See [how to connect][in-console-editors].
 
 1. **Create a server**
 
@@ -117,7 +117,7 @@ IMPORT FOREIGN SCHEMA public
 
 <Tab title="Self-hosted TimescaleDB" label="self-hosted">
 
-You create $PG FDWs with the `postgres_fdw` extension. See [documenation][enable-fdw-docs] on how to enable it. 
+You create $PG FDWs with the `postgres_fdw` extension. See [documenation][pg-fdw] on how to enable it. 
 
 <Procedure>
 
@@ -188,9 +188,8 @@ You create $PG FDWs with the `postgres_fdw` extension. See [documenation][enable
 
 </Tabs>
 
-[vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
-[sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor/
-[connect]: /getting-started/:currentVersion:/run-queries-from-console/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[enable-fdw-docs]: https://www.postgresql.org/docs/current/postgres-fdw.html
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[pg-fdw]: https://www.postgresql.org/docs/current/postgres-fdw.html
 [psql]: /integrations/:currentVersion:/psql/
+[vpc-peering]: /use-timescale/:currentVersion:/security/vpc/

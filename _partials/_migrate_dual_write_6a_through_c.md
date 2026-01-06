@@ -29,6 +29,8 @@ psql $TARGET -c "DELETE FROM <hypertable> WHERE time >= <start> AND time < <end>
 ```
 
 <Highlight type="important">
+
 The BETWEEN operator is inclusive of both the start and end ranges, so it is
 not recommended to use it.
+
 </Highlight>

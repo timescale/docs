@@ -18,10 +18,10 @@ If your primary becomes unavailable, $CLOUD_LONG automatically fails over to you
 
 The replication strategies offered by $CLOUD_LONG are:
 
-- [High Availability(HA) replicas][ha-replica]: significantly reduce the risk of downtime and data 
+- [High Availability(HA) replicas][high-availability]: significantly reduce the risk of downtime and data 
   loss due to system failure, and enable $SERVICE_SHORTs to avoid downtime during routine maintenance.
 
-- [Read replicas][read-replica]: safely scale a $SERVICE_SHORT to power your read-intensive
+- [Read replicas][readreplica]: safely scale a $SERVICE_SHORT to power your read-intensive
   apps and business intelligence tooling and remove the load from the primary data instance.
 - 
 For $MST_SHORT, see [Failover in $MST_LONG][mst-failover]. 
@@ -45,14 +45,14 @@ worst-case scenario, $CLOUD_LONG recovery is an order of magnitude faster than a
 from backup. 
 
 - **Storage failure**: in the rare occurrence of disk failure, $CLOUD_LONG automatically
-[performs a full recovery from backup][backup-recovery].
+[performs a full recovery from backup][automatic-backups].
 
 If CPU usage for a $SERVICE_SHORT runs high for long periods of time, issues such as WAL archiving getting queued 
 behind other processes can occur. This can cause a failure and could result in a larger data loss. 
 To avoid data loss, $SERVICE_SHORTs are monitored for this kind of scenario.
 
-[ha-replica]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
+[automatic-backups]: /use-timescale/:currentVersion:/backup-restore/
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [mst-failover]: /mst/:currentVersion:/failover/
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/
-[backup-recovery]: /use-timescale/:currentVersion:/backup-restore/

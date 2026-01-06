@@ -26,7 +26,8 @@ We recommend not using $TIMESCALE_DB with $PG 17.1, 16.5, 15.9, 14.14, 13.17, 12
 These minor versions [introduced a breaking binary interface change][postgres-breaking-change] that,
 once identified, was reverted in subsequent minor $PG versions 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22.
 When you build from source, best practice is to build with $PG 17.2, 16.6, etc and higher.
-Users of [$CLOUD_LONG](https://console.cloud.timescale.com/) and platform packages for Linux, Windows, MacOS,
+Users of [$CLOUD_LONG][cloud-login] and platform packages for Linux, Windows, MacOS,
 Docker, and Kubernetes are unaffected.
 
 [postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
+[cloud-login]: https://console.cloud.timescale.com/

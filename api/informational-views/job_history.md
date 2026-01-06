@@ -48,7 +48,7 @@ ORDER BY id, job_id;
 |`start_time`|TIMESTAMP WITH TIME ZONE| The time the job started|
 |`finish_time`|TIMESTAMP WITH TIME ZONE| The time when the error was reported|
 |`config`|JSONB| The job configuration at the moment of execution|
-|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official $PG documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
+|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official $PG documentation][official-pg-documentation] for a full list of error codes|
 |`err_message`|TEXT|The detailed error message|
 
 ## Error retention policy
@@ -91,3 +91,4 @@ SELECT alter_job(id,config:=jsonb_set(config,'{drop_after}', '"2 weeks"')) FROM 
 ```
 
 [jobs]: /api/:currentVersion:/jobs-automation/
+[official-pg-documentation]: https://www.postgresql.org/docs/current/errcodes-appendix.html

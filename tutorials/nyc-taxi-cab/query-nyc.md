@@ -14,11 +14,11 @@ When you have your dataset loaded, you can start constructing some queries to
 discover what your data tells you. In this section, you learn how to write
 queries that answer these questions:
 
-*   [How many rides take place each day?](#how-many-rides-take-place-every-day)
-*   [What is the average fare amount?](#what-is-the-average-fare-amount)
-*   [How many rides of each rate type were taken?](#how-many-rides-of-each-rate-type-were-taken)
-*   [What kind of trips are going to and from airports?](#what-kind-of-trips-are-going-to-and-from-airports)
-*   [How many rides took place on New Year's Day 2016](#how-many-rides-took-place-on-new-years-day-2016)?
+*   [How many rides take place each day?][how-many-rides-take-place-every-day-link]
+*   [What is the average fare amount?][what-is-the-average-fare-amount-link]
+*   [How many rides of each rate type were taken?][how-many-rides-of-each-rate-type-were-taken-link]
+*   [What kind of trips are going to and from airports?][what-kind-of-trips-are-going-to-and-from-airports-link]
+*   [How many rides took place on New Year's Day 2016][how-many-rides-took-place-on-new-years-day-2016-link]?
 
 ## How many rides take place every day?
 
@@ -272,3 +272,9 @@ the data into time intervals instead.
     ```
 
 </Procedure>
+
+[how-many-rides-of-each-rate-type-were-taken-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-of-each-rate-type-were-taken
+[how-many-rides-take-place-every-day-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-take-place-every-day
+[how-many-rides-took-place-on-new-years-day-2016-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-took-place-on-new-years-day-2016
+[what-is-the-average-fare-amount-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#what-is-the-average-fare-amount
+[what-kind-of-trips-are-going-to-and-from-airports-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#what-kind-of-trips-are-going-to-and-from-airports

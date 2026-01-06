@@ -14,7 +14,7 @@ products: [cloud, mst, self_hosted]
 <Highlight type="warning">
 
 This page describes the hypertable API supported prior to TimescaleDB v2.13. Best practice is to use the new 
-[`create_hypertable`][api-create-hypertable] interface.
+[`create_hypertable`][create_hypertable] interface.
 
 </Highlight>
 
@@ -30,7 +30,7 @@ After creation, all actions, such as `ALTER TABLE`, `SELECT`, etc., still work
 on the resulting hypertable.
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 ## Samples
 
@@ -95,7 +95,7 @@ SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_sta
 |Name|Type|Description|
 |-|-|-|
 |`partitioning_column`|REGCLASS|Name of an additional column to partition by. If provided, the `number_partitions` argument must also be provided.|
-|`number_partitions`|INTEGER|Number of [hash partitions][hash-partitions] to use for `partitioning_column`. Must be > 0.|
+|`number_partitions`|INTEGER|Number of [hash partitions][hypertables] to use for `partitioning_column`. Must be > 0.|
 |`chunk_time_interval`|INTERVAL|Event time that each chunk covers. Must be > 0. Default is 7 days.|
 |`create_default_indexes`|BOOLEAN|Whether to create default indexes on time/partitioning columns. Default is TRUE.|
 |`if_not_exists`|BOOLEAN|Whether to print warning if table already converted to hypertable or raise exception. Default is FALSE.|
@@ -118,8 +118,10 @@ SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_sta
 |`created`|BOOLEAN|TRUE if the hypertable was created, FALSE when `if_not_exists` is true and no hypertable was created.|
 
 <Highlight type="note">
+
 If you use `SELECT * FROM create_hypertable(...)` you get the return value
 formatted as a table with column headings.
+
 </Highlight>
 
 The use of the `migrate_data` argument to convert a non-empty table can
@@ -137,7 +139,7 @@ to insert data into tables that are referenced in the foreign key constraints
 and into the converting table itself. The deadlock can be prevented by manually
 obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling
 `create_hypertable` in the same transaction, see
-[$PG documentation](https://www.postgresql.org/docs/current/sql-lock.html)
+[$PG documentation][pg-documentation]
 for the syntax.
 
 ## Units
@@ -151,9 +153,11 @@ The `time` column supports the following data types:
 |Integer|SMALLINT, INT, BIGINT|
 
 <Highlight type="note">
+
 The type flexibility of the 'time' column allows the use of non-time-based
 values as the primary chunk partitioning column, as long as those values can
 increment.
+
 </Highlight>
 
 For incompatible data types (for example, `jsonb`) you can specify a function to
@@ -183,13 +187,15 @@ is *not* a partition ID, but rather the inserted value's position in the
 dimension's key space, which is then divided across the partitions.
 
 <Highlight type="note">
+
 The time column in `create_hypertable` must be defined as `NOT NULL`. If this is
 not already specified on table creation, `create_hypertable` automatically adds
 this constraint on the table when it is executed.
+
 </Highlight>
 
-
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
-[hash-partitions]: /use-timescale/:currentVersion:/hypertables/#hypertable-partitioning
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
-[api-create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[hypertables]: /use-timescale/:currentVersion:/hypertables/#partition-by-time
+[pg-documentation]: https://www.postgresql.org/docs/current/sql-lock.html
