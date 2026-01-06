@@ -4,22 +4,16 @@ These instructions use the `yum` package manager.
 
 <Procedure>
 
-1.  **Set up the repository**
-
-    ```bash
-    curl -s https://packagecloud.io/install/repositories/timescale/timescaledb/script.deb.sh | sudo bash
-    ```
-
 1.  **Update your local repository list**
 
     ```bash
-    yum update
+    sudo yum update
     ```
 
 1.  **Install $TOOLKIT_LONG**
 
     ```bash
-    yum install timescaledb-toolkit-postgresql-18
+    sudo yum install timescaledb-toolkit-postgresql-18
     ```
 
 1.  **Connect to the database where you want to use $TOOLKIT_SHORT**
@@ -75,5 +69,14 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 
 </Procedure>
 
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
+
+[brew-install]: https://brew.sh
+[cloud]: /use-timescale/:currentVersion:/services/
 [debian-install]: /self-hosted/:currentVersion:/install/installation-linux/
+[docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
+[mst]: /mst/:currentVersion:/
+[red-hat-install]: /self-hosted/:currentVersion:/install/installation-linux/
+[toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
+[connect]: /integrations/:currentVersion:/find-connection-details/
+[update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
+[macos-install]: /self-hosted/:currentVersion:/install/installation-macos/

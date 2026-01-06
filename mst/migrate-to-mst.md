@@ -108,7 +108,7 @@ machine:
    ```
 
 1.  Connect to your new database and update your table statistics by running
-    [`ANALYZE`]   [analyze] on your entire dataset:
+    [`ANALYZE`][analyze] on your entire dataset:
 
     ```sql
     psql -d "$TARGET" defaultdb=> ANALYZE;

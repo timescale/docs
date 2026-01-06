@@ -123,7 +123,7 @@ column in each chunk. These ranges are stored in the start (inclusive) and end (
 catalog table. TimescaleDB uses these ranges for dynamic chunk exclusion when the `WHERE` clause of an SQL query 
 specifies ranges on the column. 
 
-![Chunk skipping][chunk-skipping]
+![Chunk skipping][chunk-skipping-image]
 
 You can enable chunk skipping on hypertables compressed into the columnstore for `smallint`, `int`, `bigint`, `serial`, 
 `bigserial`, `date`, `timestamp`, or `timestamptz` type columns. 
@@ -167,3 +167,4 @@ $PG planner to create the best query plan. For more information about the
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
 [our-blog-post]: https://www.tigerdata.com/blog/boost-postgres-performance-by-7x-with-chunk-skipping-indexes
 [pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html
+[chunk-skipping-image]: https://assets.timescale.com/docs/images/hypertable-with-chunk-skipping.png

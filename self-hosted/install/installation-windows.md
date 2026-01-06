@@ -42,9 +42,8 @@ $TIMESCALE_DB on a [supported platform][supported-platforms] using the packages 
 
 <Highlight type="warning">
 
-If you have previously installed $PG without a package manager, you may encounter errors
-following these install instructions. Best practice is to full remove any existing $PG
-installations before you begin.
+If you have previously installed $PG, you may encounter errors following these install instructions. 
+Best practice is to full remove any existing $PG installations before you begin.
 
 To keep your current $PG installation, [Install from source][install-from-source].
 
@@ -75,19 +74,21 @@ The latest $TIMESCALE_DB releases for $PG are:
     </Tag>
 
 *   <Tag type="download">
-        
-     [Postgres 17: TimescaleDB release][postgres-17-timescaledb-release]
-  
+
+    [Postgres 17: TimescaleDB release][postgres-17-timescaledb-release]
+
     </Tag>
+    
 *   <Tag type="download">
-        
+
     [Postgres 16: TimescaleDB release][postgres-16-timescaledb-release]
-  
+
     </Tag>
+    
 *   <Tag type="download">
-        
+
     [Postgres 15: TimescaleDB release][postgres-15-timescaledb-release]
-  
+
     </Tag>
 
 You can deploy $TIMESCALE_DB on the following systems:
@@ -105,9 +106,9 @@ For release information, see the [GitHub releases page][relnotes] and the [relea
 [install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-timescale_db-on-windows
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-extension]: https://www.postgresql.org/docs/current/external-extensions.html
-[postgres-15-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.23.1/timescaledb-postgresql-15-windows-amd64.zip
-[postgres-16-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.23.1/timescaledb-postgresql-16-windows-amd64.zip
-[postgres-17-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.23.1/timescaledb-postgresql-17-windows-amd64.zip
-[postgres-18-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.23.1/timescaledb-postgresql-18-windows-amd64.zip
+[postgres-15-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.24.0/timescaledb-postgresql-15-windows-amd64.zip
+[postgres-16-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.24.0/timescaledb-postgresql-16-windows-amd64.zip
+[postgres-17-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.24.0/timescaledb-postgresql-17-windows-amd64.zip
+[postgres-18-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.24.0/timescaledb-postgresql-18-windows-amd64.zip
 [relnotes]: https://github.com/timescale/timescaledb/releases
 [supported-platforms]: /self-hosted/:currentVersion:/install/installation-windows/#supported-platforms
