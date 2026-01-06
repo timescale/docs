@@ -255,6 +255,10 @@ To untier a chunk, call the `untier_chunk` stored procedure.
 
 </Procedure>
 
+### Drop tiered data
+
+To drop tiered data, call [DROP_TABLE][drop-hypertable] on the corresponding hypertable. This removes the hypertable and all its associated data from the high-performance and low-cost storage. 
+
 ### Disable tiering 
 
 If you no longer want to use tiered storage for a particular hypertable, drop the associated metadata by calling `disable_tiering`.
@@ -290,6 +294,7 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
 [default-standard-storage-in-tiger]: https://assets.timescale.com/docs/images/tiger-on-azure/high-performance-storage-tiger-console.png
+[drop-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud#drop-a-hypertable
 [enable-tiered-storage]: https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png
 [enhanced-storage-in-tiger]: https://assets.timescale.com/docs/images/tiger-on-azure/enable-enhanced-storage-tiger-console.png
 [high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
