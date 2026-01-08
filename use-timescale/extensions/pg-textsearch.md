@@ -124,37 +124,74 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
 1. **Perform ranked searches using the distance operator**
 
    ```sql
-   SELECT name, description, description <@> 'ergonomic work' as score
+   SELECT name, description, description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
    FROM products
    ORDER BY score
-   LIMIT 3
+   LIMIT 3;
+   ```
+
+   You see something like:
+
+   ```sql
+                name           |                                    description                                    |        score
+   ----------------------------+-----------------------------------------------------------------------------------+---------------------
+    Ergonomic Mouse            | Wireless mouse with ergonomic design to reduce wrist strain during long work sessions | -1.8132977485656738
+    Mechanical Keyboard        | Durable mechanical switches with RGB backlighting for gaming and productivity      |                   0
+    Standing Desk              | Adjustable height desk for better posture and productivity throughout the workday  |                   0
    ```
 
 1. **Filter results by score threshold**
 
    ```sql
-   SELECT name, description <@> 'wireless' as score
+   SELECT name, description <@> to_bm25query('wireless', 'products_search_idx') as score
    FROM products
-   WHERE description <@> 'wireless' < -2.0;
+   WHERE description <@> to_bm25query('wireless', 'products_search_idx') < -0.5;
+   ```
+
+   You see something like:
+
+   ```sql
+        name       |        score
+   ----------------+---------------------
+    Ergonomic Mouse | -0.9066488742828369
    ```
 
 1. **Combine with standard SQL operations**
 
    ```sql
-   SELECT category, name, description <@> 'ergonomic' as score
+   SELECT category, name, description <@> to_bm25query('ergonomic', 'products_search_idx') as score
    FROM products
    WHERE price < 500
-     AND description <@> 'ergonomic' < -1.0
-   ORDER BY description <@> 'ergonomic'
+     AND description <@> to_bm25query('ergonomic', 'products_search_idx') < -0.5
+   ORDER BY description <@> to_bm25query('ergonomic', 'products_search_idx')
    LIMIT 5;
+   ```
+
+   You see something like:
+
+   ```sql
+     category   |      name       |        score
+   -------------+-----------------+---------------------
+    Electronics | Ergonomic Mouse | -0.9066488742828369
    ```
 
 1. **Verify index usage with EXPLAIN**
 
    ```sql
    EXPLAIN SELECT * FROM products
-   ORDER BY description <@> 'ergonomic'
+   ORDER BY description <@> to_bm25query('ergonomic', 'products_search_idx')
    LIMIT 5;
+   ```
+
+   You see something like:
+
+   ```sql
+                                              QUERY PLAN
+   --------------------------------------------------------------------------------------------
+    Limit  (cost=8.55..8.56 rows=3 width=140)
+      ->  Sort  (cost=8.55..8.56 rows=3 width=140)
+            Sort Key: ((description <@> 'products_search_idx:ergonomic'::bm25query))
+            ->  Seq Scan on products  (cost=0.00..8.53 rows=3 width=140)
    ```
 
 </Procedure>
@@ -178,8 +215,19 @@ Combine `pg_textsearch` with `pgvector` or `pgvectorscale` to build powerful hyb
        id serial PRIMARY KEY,
        title text,
        content text,
-       embedding vector(1536)  -- OpenAI ada-002 embedding dimension
+       embedding vector(3)  -- Using 3 dimensions for this example; use 1536 for OpenAI ada-002
    );
+   ```
+
+1. **Insert sample data**
+
+   ```sql
+   INSERT INTO articles (title, content, embedding) VALUES
+   ('Database Query Optimization', 'Learn how to optimize database query performance using indexes and query planning', '[0.1, 0.15, 0.2]'),
+   ('Performance Tuning Guide', 'A comprehensive guide to performance tuning in distributed systems and databases', '[0.12, 0.18, 0.25]'),
+   ('Introduction to Indexing', 'Understanding how database indexes improve query performance and data retrieval', '[0.09, 0.14, 0.19]'),
+   ('Advanced SQL Techniques', 'Master advanced SQL techniques for complex data analysis and reporting', '[0.5, 0.6, 0.7]'),
+   ('Data Warehousing Basics', 'Getting started with data warehousing and analytical query processing', '[0.8, 0.9, 0.85]');
    ```
 
 1. **Create indexes for both search types**
@@ -220,7 +268,19 @@ Combine `pg_textsearch` with `pgvector` or `pgvectorscale` to build powerful hyb
    LEFT JOIN keyword_search k ON a.id = k.id
    WHERE v.id IS NOT NULL OR k.id IS NOT NULL
    ORDER BY combined_score DESC
-   LIMIT 10; 
+   LIMIT 10;
+   ```
+
+   You see something like:
+
+   ```sql
+    id |           title            |   combined_score
+   ----+----------------------------+--------------------
+     3 | Introduction to Indexing   | 0.0325224748810153
+     1 | Database Query Optimization| 0.0322664584959667
+     2 | Performance Tuning Guide   | 0.0320020481310804
+     5 | Data Warehousing Basics    | 0.0310096153846154
+     4 | Advanced SQL Techniques    | 0.0310096153846154
    ```
 
 1. **Adjust relative weights for different search types**
@@ -254,6 +314,18 @@ Combine `pg_textsearch` with `pgvector` or `pgvectorscale` to build powerful hyb
    LIMIT 10;
    ```
 
+   You see something like:
+
+   ```sql
+    id |           title            |   combined_score
+   ----+----------------------------+--------------------
+     3 | Introduction to Indexing   | 0.0163141195134849
+     2 | Performance Tuning Guide   | 0.0160522273425499
+     1 | Database Query Optimization| 0.0160291438979964
+     4 | Advanced SQL Techniques    | 0.0155528846153846
+     5 | Data Warehousing Basics    | 0.0154567307692308
+   ```
+
 </Procedure>
 
 You have implemented hybrid search combining semantic and keyword search.
@@ -283,16 +355,18 @@ Customize `pg_textsearch` behavior for your specific use case and data character
 
 1. **Configure language-specific text processing**
 
-   ```sql
-   -- French language configuration
-   CREATE INDEX products_fr_idx ON products_fr
-   USING bm25(description)
-   WITH (text_config='french');
+   You can create multiple BM25 indexes on the same column with different language configurations:
 
-   -- Simple tokenization without stemming
+   ```sql
+   -- Create an additional index with simple tokenization (no stemming)
    CREATE INDEX products_simple_idx ON products
    USING bm25(description)
    WITH (text_config='simple');
+
+   -- Example: French language configuration for a French products table
+   -- CREATE INDEX products_fr_idx ON products_fr
+   -- USING bm25(description)
+   -- WITH (text_config='french');
    ```
 
 1. **Tune BM25 parameters**
