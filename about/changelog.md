@@ -9,15 +9,26 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
-## 🧱 Terraform Support for S3 Source Connectors
+## 🧱 Terraform Support for S3 Source Connectors and pg_textsearch update
 <Label type="date">January 09, 2026</Label>
 
+### Terraform Support for S3 Source Connectors
 We’ve added a new `timescale_connector_s3` resource to the Tiger Data (TimescaleDB) Terraform provider, enabling full 
 Infrastructure as Code management of S3 source connectors. Teams can now declaratively create, update, and manage S3 
 connectors supporting CSV and Parquet files, multiple auth methods, and configurable sync options—directly alongside 
 their TimescaleDB infrastructure.
 
 Available in [Terraform provider v2.7.0+](https://releases.hashicorp.com/terraform-provider-archive).
+
+### pg_textsearch v0.2.0 released and on Tiger Cloud
+The newest version of pg_textsearch has:
+- Automated benchmark infrastructure
+- Groundwork for storage and query optimizations in upcoming releases
+- Numerous bugfixes
+
+See more details in the [pg_textsearch GitHub release notes](https://github.com/timescale/pg_textsearch/releases/tag/v0.2.0)
+
+The new extension version is also available for all services on Tiger Cloud.
 
 ## 🧭  Activity log and TimescaleDB v2.24
 <Label type="date">December 12, 2025</Label>
