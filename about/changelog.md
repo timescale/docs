@@ -9,6 +9,16 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## 🧱 Terraform Support for S3 Source Connectors
+<Label type="date">January 09, 2026</Label>
+
+We’ve added a new `timescale_connector_s3` resource to the Tiger Data (TimescaleDB) Terraform provider, enabling full 
+Infrastructure as Code management of S3 source connectors. Teams can now declaratively create, update, and manage S3 
+connectors supporting CSV and Parquet files, multiple auth methods, and configurable sync options—directly alongside 
+their TimescaleDB infrastructure.
+
+Available in [Terraform provider v2.7.0+](https://releases.hashicorp.com/terraform-provider-archive).
+
 ## 🧭  Activity log and TimescaleDB v2.24
 <Label type="date">December 12, 2025</Label>
 
