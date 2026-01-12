@@ -7,7 +7,7 @@ keywords: [jobs, compression, downsample]
 
 # Use a $JOB to downsample and compress $CHUNKs
 
-$TIMESCALE_DB lets you downsample and compress $CHUNKs by combining a [$CAGG refresh policy][cagg-refresh] with 
+$TIMESCALE_DB lets you downsample and compress $CHUNKs by combining a [$CAGG refresh policy][create-cagg] with 
 [$HYPERCORE][hypercore]. If you want to implement features not supported by those policies, you can write
 a $JOB to downsample and convert $CHUNKs to columnstore instead.
 
@@ -88,7 +88,5 @@ arbitrarily complex.
 
 </Procedure>
 
-
-[cagg-refresh]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
-[compression]: /use-timescale/:currentVersion:/compression/
+[create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/

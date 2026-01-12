@@ -17,11 +17,11 @@ additional hyperfunctions, you need to install the
 [$TOOLKIT_LONG][install-toolkit] $PG extension.
 
 For more information, see the [hyperfunctions
-documentation][hyperfunctions-howto].
+documentation][hyperfunctions].
 
 <HyperfunctionTable
     includeExperimental
 />
 
-[hyperfunctions-howto]: /use-timescale/:currentVersion:/hyperfunctions/
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

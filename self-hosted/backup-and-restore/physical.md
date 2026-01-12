@@ -11,7 +11,7 @@ import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 # Physical backups
 
 For full instance physical backups (which are especially useful for starting up
-new [replicas][replication-tutorial]), [`pg_basebackup`][postgres-pg_basebackup]
+new [replicas][self-hosted-ha]), [`pg_basebackup`][postgres-pg_basebackup]
 works with all $TIMESCALE_DB installation types. You can also use any of several
 external backup and restore managers such as [`pg_backrest`][pg-backrest], or [`barman`][pg-barman]. For ongoing physical backups, you can use
 [`wal-e`][wale], although this method is now deprecated. These tools all allow
@@ -23,5 +23,5 @@ incremental backups and other automation options.
 [pg-backrest]: https://pgbackrest.org/
 [pg-barman]: https://pgbarman.org/
 [postgres-pg_basebackup]: https://www.postgresql.org/docs/current/app-pgbasebackup.html
-[replication-tutorial]: /self-hosted/:currentVersion:/replication-and-ha/
+[self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/
 [wale]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/

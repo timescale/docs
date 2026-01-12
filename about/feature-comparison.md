@@ -88,9 +88,11 @@ The following table compares the features available in $CLOUD_LONG and self-host
 | Connection monitoring                                                                                               | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | Manual                                      |
 | Connection management                                                                                               | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | Manual                                      |
 | **Production-grade support and operations**                                                                         |                                           |                                     |                                             |
-| 24/7 follow-the-sun support with global support team across APAC, EMEA, and Americas                                | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales](mailto:sales@tigerdata.com) |
-| Production support (severity 1)                                                                                     | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales](mailto:sales@tigerdata.com) |
-| Architectural reviews, data modeling, and query optimization and assistance, feature testing, and migration support | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales](mailto:sales@tigerdata.com) |
-| 24/7 operational monitoring and control                                                                             | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales](mailto:sales@tigerdata.com) |
-| 98%+ customer satisfaction (CSAT scores)                                                                            | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales](mailto:sales@tigerdata.com) |
+| 24/7 follow-the-sun support with global support team across APAC, EMEA, and Americas                                | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales][contact-sales] |
+| Production support (severity 1)                                                                                     | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales][contact-sales] |
+| Architectural reviews, data modeling, and query optimization and assistance, feature testing, and migration support | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales][contact-sales] |
+| 24/7 operational monitoring and control                                                                             | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales][contact-sales] |
+| 98%+ customer satisfaction (CSAT scores)                                                                            | <span style="color:green">✓</span>  | <span style="color:green">✓</span>  | [Contact sales][contact-sales] |
 
+
+[contact-sales]: mailto:sales@tigerdata.com

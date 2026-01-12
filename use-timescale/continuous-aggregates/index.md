@@ -11,30 +11,30 @@ From real-time dashboards to performance monitoring and historical trend analysi
 
 In this section you:
 
-*   [Learn about continuous aggregates][about-caggs] to understand how it works
+*   [Learn about continuous aggregates][caggs] to understand how it works
     before you begin using it.
-*   [Create a continuous aggregate][cagg-create] and query it.
-*   [Create a continuous aggregate on top of another continuous aggregate][cagg-on-cagg].
-*   [Add refresh policies][cagg-autorefresh] to an existing continuous aggregate.
+*   [Create a continuous aggregate][create-cagg] and query it.
+*   [Create a continuous aggregate on top of another continuous aggregate][hierarchical-caggs].
+*   [Add refresh policies][refresh-policy] to an existing continuous aggregate.
 *   [Manage time][cagg-time] in your continuous aggregates.
-*   [Drop data][cagg-drop] from your continuous aggregates.
+*   [Drop data][cagg-drop-data] from your continuous aggregates.
 *   [Manage materialized hypertables][cagg-mat-hypertables].
-*   [Use real-time aggregates][cagg-realtime].
+*   [Use real-time aggregates][real-time-aggregates].
 *   [Convert continuous aggregates to the columnstore][cagg-compression].
 *   [Migrate your continuous aggregates][cagg-migrate] from old to new format.
     Continuous aggregates created in $TIMESCALE_DB v2.7 and later are in the new
     format, unless explicitly created in the old format.
 *   [Troubleshoot][cagg-tshoot] continuous aggregates.
 
-[about-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates
-[cagg-autorefresh]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
 [cagg-compression]: /use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates
-[cagg-create]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate
-[cagg-on-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
-[cagg-drop]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
+[cagg-drop-data]: /use-timescale/:currentVersion:/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
 [cagg-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate
-[cagg-realtime]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
 [cagg-time]: /use-timescale/:currentVersion:/continuous-aggregates/time
 [cagg-tshoot]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates
+[create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate
+[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
+[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
+[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies

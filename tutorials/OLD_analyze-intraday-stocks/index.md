@@ -26,7 +26,7 @@ This tutorial has a few main steps:
 *   $TIMESCALE_DB (see [installation options][install-timescale])
 *   Alpha Vantage API key ([get one for free][alpha-vantage-apikey])
 *   Virtualenv (installation: `pip install virtualenv`)
-*   [Psql][psql-install] or any other $PG client (for example, DBeaver)
+*   [Psql][psql] or any other $PG client (for example, DBeaver)
 
 ## Get started: create a virtual environment
 
@@ -47,8 +47,5 @@ pip install pandas
 ```
 
 [alpha-vantage-apikey]: https://www.alphavantage.co/support/#api-key
-[design-schema]: /tutorials/:currentVersion:/
-[explore]: /tutorials/:currentVersion:/
-[fetch-ingest]: /tutorials/:currentVersion:/
-[install-timescale]: /getting-started/latest/
-[psql-install]: /integrations/:currentVersion:/psql/
+[install-timescale]: /getting-started/:currentVersion:/
+[psql]: /integrations/:currentVersion:/psql/

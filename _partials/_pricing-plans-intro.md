@@ -3,7 +3,7 @@ $PRICING_PLANs provide more value, flexibility, and efficiency for your business
 Whether you're a growing startup or a well-established enterprise, our plans
 are structured to support your journey towards greater success.
 
-![$CLOUD_LONG pricing plans](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg)
+![$CLOUD_LONG pricing plans][cloud_long-pricing-plans]
 
 This page explains pricing plans for $CLOUD_LONG, and how to easily manage your $ACCOUNT_LONG.
 
@@ -27,4 +27,4 @@ There are no per-query fees, nor additional costs to read or write data. It's al
 
 Using $SELF_LONG and our open-source products is still free.
 
-[aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing
+[cloud_long-pricing-plans]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-pricing.svg

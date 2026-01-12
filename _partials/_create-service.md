@@ -18,5 +18,4 @@
 You can [manage, pause, or delete][service-management] your $SERVICE_SHORT at any time from $CONSOLE.
 
 [create-service]: https://console.cloud.timescale.com/dashboard/create_services
-[connect-to-your-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
 [service-management]: /use-timescale/:currentVersion:/services/service-management/

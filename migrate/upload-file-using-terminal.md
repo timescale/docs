@@ -22,7 +22,7 @@ The CSV file format is widely used for data migration. This page shows you how t
 
 <ImportPrerequisites />
 
-- Install [Go](https://go.dev/doc/install) v1.13 or later
+- Install [Go][go-install] v1.13 or later
 
 - Install [timescaledb-parallel-copy][install-parallel-copy]
 
@@ -46,7 +46,7 @@ To import data from a CSV file:
 
     <SetupConnectionString />
 
-1. **Create a [$HYPERTABLE][hypertable-docs] to hold your data**
+1. **Create a [$HYPERTABLE][hypertables-section] to hold your data**
 
    Create a $HYPERTABLE with a schema that is compatible with the data in your parquet file. For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types`TIMESTAMP`, `STRING`, and `DOUBLE`:
 
@@ -177,7 +177,7 @@ And that is it, you have imported your data from MySQL.
 
 <Tab title="From Parquet" label="import-parquet">
 
-[Apache Parquet][apache-parquet] is a free and open-source column-oriented data storage format in the
+[Apache Parquet][parquet] is a free and open-source column-oriented data storage format in the
 Apache Hadoop ecosystem. It provides efficient data compression and encoding schemes with
 enhanced performance to handle complex data in bulk. This page shows you how to import data into your $SERVICE_LONG from a Parquet file.
 
@@ -201,7 +201,7 @@ To import data from a Parquet file:
 
     <SetupConnectionString />
 
-1. **Create a [$HYPERTABLE][hypertable-docs] to hold your data**
+1. **Create a [$HYPERTABLE][hypertables-section] to hold your data**
 
    Create a $HYPERTABLE with a schema that is compatible with the data in your parquet file. For example, if your parquet file contains the columns `ts`, `location`, and `temperature` with types`TIMESTAMP`, `STRING`, and `DOUBLE`:
 
@@ -280,11 +280,11 @@ And that is it, you have imported your data from a Parquet file to your $SERVICE
 </Tabs>
 
 
-[apache-parquet]: https://parquet.apache.org/
-[apache-parquet-file-format]: https://parquet.apache.org/docs/file-format/
-[data-mode]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+
+[go-install]: https://go.dev/doc/install
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-docker]: https://docs.docker.com/engine/install/
 [install-duckdb]: https://duckdb.org/docs/installation/
 [install-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy?tab=readme-ov-file#go
+[parquet]: https://parquet.apache.org/
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy

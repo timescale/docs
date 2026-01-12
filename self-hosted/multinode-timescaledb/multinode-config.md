@@ -13,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # Multi-node configuration
 
 In addition to the
-[regular $TIMESCALE_DB configuration][timescaledb-configuration], it is recommended
+[regular $TIMESCALE_DB configuration][config], it is recommended
 that you also configure additional settings specific to multi-node operation.
 
 ## Update settings
@@ -70,6 +70,6 @@ For consistency, if the transaction isolation level is set to `READ COMMITTED`
 it is automatically upgraded to `REPEATABLE READ` whenever a distributed
 operation occurs. If the isolation level is `SERIALIZABLE`, it is not changed.
 
+[config]: /self-hosted/:currentVersion:/configuration/
 [copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
 [move_chunk]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental
-[timescaledb-configuration]: /self-hosted/:currentVersion:/configuration/

@@ -32,11 +32,11 @@ Create a table in $SERVICE_LONG to store time-series data.
 
 1. **Connect to your $SERVICE_LONG**
 
-      For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For $SELF_LONG, use [`psql`][psql].
+      For $CLOUD_LONG, open an [SQL editor][in-console-editors] in [$CONSOLE][services-portal]. For $SELF_LONG, use [`psql`][psql].
 
 1. **Create a hypertable to store sensor data**
 
-   [Hypertables][about-hypertables] are $PG tables that automatically partition your data by time. You interact
+   [Hypertables][hypertables-section] are $PG tables that automatically partition your data by time. You interact
    with hypertables in the same way as regular $PG tables, but with extra features that make managing your
    time-series data much easier.
 
@@ -177,7 +177,7 @@ To create an AWS Lambda function that injects data into your $SERVICE_LONG:
 
    1. Verify that the data is in your $SERVICE_SHORT.
 
-      Open an [SQL editor][run-queries] and check the `sensor_data` table:
+      Open an [SQL editor][in-console-editors] and check the `sensor_data` table:
 
       ```sql
       SELECT * FROM sensor_data;
@@ -193,16 +193,13 @@ To create an AWS Lambda function that injects data into your $SERVICE_LONG:
 
 You can now seamlessly ingest time-series data from AWS Lambda into $CLOUD_LONG.
 
+[aws-iam-role]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access-keys-admin-managed.html#admin-list-access-key
 [AWS-Lambda]: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
-[lambda-functions]: https://console.aws.amazon.com/lambda/home#/functions
 [aws-sign-up]: https://signin.aws.amazon.com/signup?request_type=register
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [install-aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 [install-nodejs]: https://nodejs.org/en/download
-[install-postgresql]: https://www.postgresql.org/download/
-[console]: https://console.cloud.timescale.com/
-[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /integrations/:currentVersion:/psql/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[aws-iam-role]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access-keys-admin-managed.html#admin-list-access-key
-[open-console]: https://console.cloud.timescale.com/dashboard/services
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

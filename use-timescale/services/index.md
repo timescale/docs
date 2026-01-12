@@ -21,10 +21,10 @@ import ServiceIntro from "versionContent/_partials/_services-intro.mdx";
 
 Read about $CLOUD_LONG features in the documentation:
 
-*   Create your first [hypertable][hypertable-info].
+*   Create your first [hypertable][hypertables-section].
 *   Run your first query using [time_bucket()][time-bucket-info].
 *   Trying more advanced time-series functions, starting with
-    [gap filling][gap-filling-info] or [real-time aggregates][aggregates-info].
+    [gap filling][gap-filling-info] or [real-time aggregates][caggs].
 
 ## Keep testing during your free trial
 
@@ -37,7 +37,7 @@ concludes.
 
 If you have any questions, you can
 [join our community Slack group][slack-info]
-or [contact us][contact-timescale] directly.
+or [contact us][timescale-support] directly.
 
 ## Advanced configuration
 
@@ -49,20 +49,20 @@ For more information about customizing your database configuration, see the
 
 <Highlight type="note">
 
-The [$TIMESCALE_DB Terraform provider](https://registry.terraform.io/providers/timescale/timescale/latest/)
+The [$TIMESCALE_DB Terraform provider][timescale_db-terraform-provider]
 provides configuration management resources for $CLOUD_LONG. You can use it to
 create, rename, resize, delete, and import $SERVICE_SHORTs. For more information about
 the supported $SERVICE_SHORT configurations and operations, see the
-[Terraform provider documentation](https://registry.terraform.io/providers/timescale/timescale/latest/docs).
+[Terraform provider documentation][terraform-provider-documentation].
 
 </Highlight>
 
-[aggregates-info]: /use-timescale/:currentVersion:/continuous-aggregates/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [configuration]: /use-timescale/:currentVersion:/configuration/
-[contact-timescale]: https://www.timescale.com/contact
 [gap-filling-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#gap-filling
-[hypertable-info]: /use-timescale/:currentVersion:/hypertables
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables
 [slack-info]: https://slack-login.timescale.com
+[terraform-provider-documentation]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [time-bucket-info]: /use-timescale/:currentVersion:/query-data/advanced-analytic-queries#time-bucket
-[terraform-provider-docs]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
-[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/
+[timescale-support]: https://www.tigerdata.com/contact
+[timescale_db-terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/

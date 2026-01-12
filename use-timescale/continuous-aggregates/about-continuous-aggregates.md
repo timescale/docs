@@ -28,7 +28,7 @@ daily data, create a continuous aggregate on top of your hourly continuous
 aggregate.
 
 For more information, see the documentation about
-[continuous aggregates on continuous aggregates][caggs-on-caggs].
+[continuous aggregates on continuous aggregates][hierarchical-caggs].
 
 ## Continuous aggregates with a `JOIN` clause
 
@@ -280,7 +280,7 @@ This logging does cause some write load. However, the threshold lags behind the
 area of data that is currently changing, so the writes are small and rare.
 
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
-[cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
-[caggs-on-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
-[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+[cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#create-continuous-aggregates
 [caggs-joins]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause
+[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
+[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION

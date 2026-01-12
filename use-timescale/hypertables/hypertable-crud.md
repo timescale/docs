@@ -13,7 +13,7 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
 
 $HYPERTABLE_CAP are designed for real-time analytics, they are $PG tables that automatically partition your data by
 time. Typically, you partition $HYPERTABLE on columns that hold time values.
-[Best practice is to use `timestamptz`][timestamps-best-practice] column type. However, you can also partition on 
+[Best practice is to use `timestamptz`][postgresql-timestamp] column type. However, you can also partition on 
 `date`, `integer`, `timestamp` and [UUIDv7][uuidv7_functions] types.
 
 ## Prerequisites
@@ -54,7 +54,7 @@ To convert an existing table with data in it, call `create_hypertable` on that t
 ## Alter a hypertable
 
 You can alter a $HYPERTABLE, for example to add a column, by using the $PG
-[`ALTER TABLE`][postgres-altertable] command. Some operations are not supported for $HYPERTABLE with $COLUMNSTORE enabled. See [Altering $HYPERTABLEs with $COLUMNSTORE enabled][alter-schema].
+[`ALTER TABLE`][postgres-alter-table] command. Some operations are not supported for $HYPERTABLE with $COLUMNSTORE enabled. See [Altering $HYPERTABLEs with $COLUMNSTORE enabled][alter-schema].
 
 ### Add a column to a hypertable
 
@@ -127,19 +127,12 @@ DROP TABLE weather;
 
 All data $CHUNKs belonging to the $HYPERTABLE are deleted.
 
-[postgres-droptable]: https://www.postgresql.org/docs/current/sql-droptable.html
-[postgres-altertable]: https://www.postgresql.org/docs/current/sql-altertable.html
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[install]: /getting-started/:currentVersion:/
-[postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
-[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
-[data-migration]: /migrate/:currentVersion:/
-[api-create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[api-create-hypertable-arguments]: /api/:currentVersion:/hypertable/create_hypertable/#arguments
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
-[timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
-[uuidv7_functions]: /api/:currentVersion:/uuid-functions/
 [alter-schema]: /use-timescale/:currentVersion:/schema-management/alter/#altering-hypertables-with-columnstore-enabled
+[api-create-hypertable-arguments]: /api/:currentVersion:/hypertable/create_hypertable/#arguments
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[postgres-alter-table]: https://www.postgresql.org/docs/current/sql-altertable.html
+[postgres-droptable]: https://www.postgresql.org/docs/current/sql-droptable.html
+[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[uuidv7_functions]: /api/:currentVersion:/uuid-functions/

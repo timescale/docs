@@ -117,7 +117,4 @@ To load data efficiently with `COPY`, then upsert:
 
 </Procedure>
 
-
-[postgres-upsert]: https://www.postgresql.org/docs/current/static/sql-insert.html#SQL-ON-CONFLICT
-[postgres-copy]: https://www.postgresql.org/docs/current/sql-copy.html
 [hypertables-and-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/

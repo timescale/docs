@@ -15,7 +15,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **ACID**: a set of properties (atomicity, consistency, isolation, durability) that guarantee database transactions are processed reliably.
 
-**ACID compliance**: a set of database properties—Atomicity, Consistency, Isolation, Durability—ensuring reliable and consistent transactions. Inherited from [$PG](#postgresql).
+**ACID compliance**: a set of database properties—Atomicity, Consistency, Isolation, Durability—ensuring reliable and consistent transactions. Inherited from [$PG][postgres-link].
 
 **Adaptive query optimization**: dynamic query plan adjustment based on actual execution statistics and data distribution patterns, improving performance over time.
 
@@ -41,7 +41,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Background job**: an automated task that runs in the background without user intervention, typically for maintenance operations like compression or data retention.
 
-**Background worker**: a [$PG](#postgresql) process that runs background tasks independently of client sessions.
+**Background worker**: a [$PG][postgres-link] process that runs background tasks independently of client sessions.
 
 **Batch processing**: handling data in grouped batches rather than as individual real-time events, often used for historical data processing.
 
@@ -49,13 +49,13 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Backup**: a copy of data stored separately from the original data to protect against data loss, corruption, or system failure.
 
-**Bloom filter**: a probabilistic data structure that tests set membership with possible false positives but no false negatives. [$TIMESCALE_DB](#timescaledb) uses blocked bloom filters to speed up point lookups by eliminating [chunks](#chunk) that don't contain queried values.
+**Bloom filter**: a probabilistic data structure that tests set membership with possible false positives but no false negatives. [$TIMESCALE_DB][timescaledb-link] uses blocked bloom filters to speed up point lookups by eliminating [chunks][chunk-link] that don't contain queried values.
 
 **Buffer pool**: memory area where frequently accessed data pages are cached to reduce disk I/O operations.
 
-**BRIN (Block Range Index)**: a [$PG](#postgresql) index type that stores summaries about ranges of table blocks, useful for large tables with naturally ordered data.
+**BRIN (Block Range Index)**: a [$PG][postgres-link] index type that stores summaries about ranges of table blocks, useful for large tables with naturally ordered data.
 
-**Bytea**: a [$PG](#postgresql) data type for storing binary data as a sequence of bytes.
+**Bytea**: a [$PG][postgres-link] data type for storing binary data as a sequence of bytes.
 
 ## C
 
@@ -67,7 +67,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 <a id="chunk" href=""></a>
 
-**Chunk**: a horizontal partition of a [$HYPERTABLE](#hypertable) that contains data for a specific time interval and space partition. See [chunks][use-hypertables-chunks].
+**Chunk**: a horizontal partition of a [$HYPERTABLE][hypertable-link] that contains data for a specific time interval and space partition. See [chunks][use-hypertables-chunks].
 
 **Chunk interval**: the time period covered by each chunk in a $HYPERTABLE, which affects query performance and storage efficiency.
 
@@ -81,7 +81,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Cloud**: computing services delivered over the internet, including servers, storage, databases, networking, software, analytics, and intelligence.
 
-**Cloud deployment**: the use of public, private, or hybrid cloud infrastructure to host [$TIMESCALE_DB](#timescaledb), enabling elastic scalability and managed services.
+**Cloud deployment**: the use of public, private, or hybrid cloud infrastructure to host [$TIMESCALE_DB][timescaledb-link], enabling elastic scalability and managed services.
 
 **Cloud-native**: an approach to building applications that leverage cloud infrastructure, scalability, and services like Kubernetes.
 
@@ -89,11 +89,11 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Columnar**: a data storage format that stores data column by column rather than row by row, optimizing for analytical queries.
 
-**Columnstore**: [$TIMESCALE_DB](#timescaledb)'s columnar storage engine optimized for analytical workloads and [compression](#compression).
+**Columnstore**: [$TIMESCALE_DB][timescaledb-link]'s columnar storage engine optimized for analytical workloads and [compression][compression-link].
 
 <a id="compression" href=""></a>
 
-**Compression**: the process of reducing data size by encoding information using fewer bits, improving storage efficiency and query performance. See [compression][use-compression].
+**Compression**: the process of reducing data size by encoding information using fewer bits, improving storage efficiency and query performance. See [compression][compression].
 
 **Connection pooling**: a technique for managing multiple database connections efficiently, reducing overhead for high-concurrency environments.
 
@@ -105,7 +105,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Constraint**: a rule enforced by the database to maintain data integrity and consistency.
 
-**Continuous aggregate**: a materialized view that incrementally updates with new data, providing fast access to pre-computed aggregations. See [continuous aggregates][use-continuous-aggregates].
+**Continuous aggregate**: a materialized view that incrementally updates with new data, providing fast access to pre-computed aggregations. See [continuous aggregates][caggs].
 
 **Counter aggregation**: aggregating monotonic counter data, handling counter resets and extrapolation.
 
@@ -123,7 +123,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Data migration**: the process of moving data from one system, storage type, or format to another. See the [migration guides][migrate].
 
-**Data retention**: the practice of storing data for a specified period before deletion, often governed by compliance requirements or storage optimization. See [data retention][use-data-retention].
+**Data retention**: the practice of storing data for a specified period before deletion, often governed by compliance requirements or storage optimization. See [data retention][data-retention].
 
 **Data rollup**: the process of summarizing detailed historical data into higher-level aggregates, balancing storage needs with query efficiency.
 
@@ -169,13 +169,13 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Exactly-once**: a message is delivered and processed precisely once. There is no loss and no duplicates.
 
-**Explain**: a [$PG](#postgresql) command that shows the execution plan for a query, useful for performance analysis.
+**Explain**: a [$PG][postgres-link] command that shows the execution plan for a query, useful for performance analysis.
 
 **Event sourcing**: an architectural pattern storing all changes as a sequence of events, naturally fitting time-series database capabilities.
 
 **Event-driven architecture**: a design pattern where components react to events such as sensor readings, requiring real-time data pipelines and storage.
 
-**Extension**: a [$PG](#postgresql) add-on that extends the database's functionality beyond the core features.
+**Extension**: a [$PG][postgres-link] add-on that extends the database's functionality beyond the core features.
 
 ## F
 
@@ -183,7 +183,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Failover**: the automatic switching to a backup system, server, or network upon the failure or abnormal termination of the primary system.
 
-**Financial time-series**: high-volume, timestamped datasets like stock market feeds or trade logs, requiring low-latency, scalable databases like [$TIMESCALE_DB](#timescaledb).
+**Financial time-series**: high-volume, timestamped datasets like stock market feeds or trade logs, requiring low-latency, scalable databases like [$TIMESCALE_DB][timescaledb-link].
 
 **Foreign key**: a database constraint that establishes a link between data in two tables by referencing the primary key of another table.
 
@@ -191,7 +191,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 <a id="free-tiger-service" href=""></a>
 
-**Free $SERVICE_SHORT**: a free instance of $CLOUD_LONG with limited resources. You can create up to two free $SERVICE_SHORTs under any $PRICING_PLAN. When a free $SERVICE_SHORT reaches the resource limit, it converts to the read-only state. You can convert a free $SERVICE_SHORT to a [standard one](#standard-tiger-service) under paid $PRICING_PLANs.  
+**Free $SERVICE_SHORT**: a free instance of $CLOUD_LONG with limited resources. You can create up to two free $SERVICE_SHORTs under any $PRICING_PLAN. When a free $SERVICE_SHORT reaches the resource limit, it converts to the read-only state. You can convert a free $SERVICE_SHORT to a [standard one][standard-tiger-service-link] under paid $PRICING_PLANs.  
 
 **FTP (File Transfer Protocol)**: a standard network protocol used for transferring files between a client and server on a computer network.
 
@@ -199,13 +199,13 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Gap filling**: a technique for handling missing data points in time-series by interpolation or other methods, often implemented with hyperfunctions.
 
-**GIN (Generalized Inverted Index)**: a [$PG](#postgresql) index type designed for indexing composite values and supporting fast searches.
+**GIN (Generalized Inverted Index)**: a [$PG][postgres-link] index type designed for indexing composite values and supporting fast searches.
 
-**GiST (Generalized Search Tree)**: a [$PG](#postgresql) index type that provides a framework for implementing custom index types.
+**GiST (Generalized Search Tree)**: a [$PG][postgres-link] index type that provides a framework for implementing custom index types.
 
 **GP-LTTB**: an advanced downsampling algorithm that extends Largest-Triangle-Three-Buckets with Gaussian Process modeling.
 
-**GUC (Grand Unified Configuration)**: [$PG](#postgresql)'s configuration parameter system that controls various aspects of database behavior.
+**GUC (Grand Unified Configuration)**: [$PG][postgres-link]'s configuration parameter system that controls various aspects of database behavior.
 
 **GUID (Globally Unique Identifier)**: a unique identifier used in software applications, typically represented as a 128-bit value.
 
@@ -231,17 +231,17 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Hot storage**: a tier of data storage for frequently accessed data that provides the fastest access times but at higher cost.
 
-**Hypercore**: [$TIMESCALE_DB](#timescaledb)'s hybrid storage engine that seamlessly combines row and column storage for optimal performance. See [Hypercore][use-hypercore].
+**Hypercore**: [$TIMESCALE_DB][timescaledb-link]'s hybrid storage engine that seamlessly combines row and column storage for optimal performance. See [Hypercore][hypercore].
 
-**Hyperfunction**: an SQL function in [$TIMESCALE_DB](#timescaledb) designed for time-series analysis, statistics, and specialized computations. See [Hyperfunctions][use-hyperfunctions].
+**Hyperfunction**: an SQL function in [$TIMESCALE_DB][timescaledb-link] designed for time-series analysis, statistics, and specialized computations. See [Hyperfunctions][hyperfunctions].
 
 **HyperLogLog**: a probabilistic data structure used for estimating the cardinality of large datasets with minimal memory usage.
 
-**Hypershift**: a migration tool and strategy for moving data to [$TIMESCALE_DB](#timescaledb) with minimal downtime.
+**Hypershift**: a migration tool and strategy for moving data to [$TIMESCALE_DB][timescaledb-link] with minimal downtime.
 
 <a id="hypertable" href=""></a>
 
-**Hypertable**: [$TIMESCALE_DB](#timescaledb)'s core abstraction that automatically partitions time-series data for scalability. See [Hypertables][use-hypertables].
+**Hypertable**: [$TIMESCALE_DB][timescaledb-link]'s core abstraction that automatically partitions time-series data for scalability. See [Hypertables][hypertables-section].
 
 ## I
 
@@ -271,7 +271,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Job execution**: the process of running scheduled background tasks or automated procedures.
 
-**JIT (Just-In-Time) compilation**: [$PG](#postgresql) feature that compiles frequently executed query parts for improved performance, available in [$TIMESCALE_DB](#timescaledb).
+**JIT (Just-In-Time) compilation**: [$PG][postgres-link] feature that compiles frequently executed query parts for improved performance, available in [$TIMESCALE_DB][timescaledb-link].
 
 **Job history**: a record of past job executions, including their status, duration, and any errors encountered.
 
@@ -289,7 +289,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Load balancer**: a service distributing traffic across servers or database nodes to optimize resource use and avoid single points of failure.
 
-**Log-Structured Merge (LSM) Tree**: a data structure optimized for write-heavy workloads, though [$TIMESCALE_DB](#timescaledb) primarily uses B-tree indexes for balanced read/write performance.
+**Log-Structured Merge (LSM) Tree**: a data structure optimized for write-heavy workloads, though [$TIMESCALE_DB][timescaledb-link] primarily uses B-tree indexes for balanced read/write performance.
 
 **LlamaIndex**: a framework for building applications with large language models, providing tools for data ingestion and querying.
 
@@ -297,7 +297,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Logical backup**: a backup method that exports data in a human-readable format, allowing for selective restoration.
 
-**Logical replication**: a [$PG](#postgresql) feature that replicates data changes at the logical level rather than the physical level.
+**Logical replication**: a [$PG][postgres-link] feature that replicates data changes at the logical level rather than the physical level.
 
 **Logging**: the process of recording events, errors, and system activities for monitoring and troubleshooting purposes.
 
@@ -329,7 +329,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **MQTT (Message Queuing Telemetry Transport)**: a lightweight messaging protocol designed for small sensors and mobile devices.
 
-**MST (Managed Service for TimescaleDB)**: a fully managed [$TIMESCALE_DB](#timescaledb) service that handles infrastructure and maintenance tasks.
+**MST (Managed Service for TimescaleDB)**: a fully managed [$TIMESCALE_DB][timescaledb-link] service that handles infrastructure and maintenance tasks.
 
 ## N
 
@@ -341,7 +341,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Not null**: a database constraint that ensures a column cannot contain empty values.
 
-**Numeric**: a [$PG](#postgresql) data type for storing exact numeric values with user-defined precision.
+**Numeric**: a [$PG][postgres-link] data type for storing exact numeric values with user-defined precision.
 
 ## O
 
@@ -367,7 +367,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Parallel copy**: a technique for copying large amounts of data using multiple concurrent processes to improve performance.
 
-**Parallel Query Execution**: a [$PG](#postgresql) feature that uses multiple CPU cores to execute single queries faster, inherited by [$TIMESCALE_DB](#timescaledb).
+**Parallel Query Execution**: a [$PG][postgres-link] feature that uses multiple CPU cores to execute single queries faster, inherited by [$TIMESCALE_DB][timescaledb-link].
 
 **Partitioning**: the practice of dividing large tables into smaller, more manageable pieces based on certain criteria.
 
@@ -375,19 +375,19 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Performance**: a measure of how efficiently a system operates, often quantified by metrics like throughput, latency, and resource utilization.
 
-**pg_basebackup**: a [$PG](#postgresql) utility for taking base backups of a running [$PG](#postgresql) cluster.
+**pg_basebackup**: a [$PG][postgres-link] utility for taking base backups of a running [$PG][postgres-link] cluster.
 
-**pg_dump**: a [$PG](#postgresql) utility for backing up database objects and data in various formats.
+**pg_dump**: a [$PG][postgres-link] utility for backing up database objects and data in various formats.
 
-**pg_restore**: a [$PG](#postgresql) utility for restoring databases from backup files created by `pg_dump`.
+**pg_restore**: a [$PG][postgres-link] utility for restoring databases from backup files created by `pg_dump`.
 
-**pgVector**: a [$PG](#postgresql) extension that adds vector similarity search capabilities for AI and machine learning applications. See [pgvector][ai-pgvector].
+**pgVector**: a [$PG][postgres-link] extension that adds vector similarity search capabilities for AI and machine learning applications. See [pgvector][ai-pgvector].
 
-**pgai on $CLOUD_LONG**: a cloud solution for building search, RAG, and AI agents with [$PG](#postgresql). Enables calling AI embedding and generation models directly from the database using SQL. See [pgai][ai-pgai].
+**pgai on $CLOUD_LONG**: a cloud solution for building search, RAG, and AI agents with [$PG][postgres-link]. Enables calling AI embedding and generation models directly from the database using SQL. See [pgai][pgai].
 
-**pgvectorscale**: a performance enhancement for pgvector featuring StreamingDiskANN indexing, binary quantization compression, and label-based filtering. See [pgvectorscale][ai-pgvectorscale].
+**pgvectorscale**: a performance enhancement for pgvector featuring StreamingDiskANN indexing, binary quantization compression, and label-based filtering. See [pgvectorscale][pgvectorscale].
 
-**pgvectorizer**: a [$TIMESCALE_DB](#timescaledb) tool for automatically vectorizing and indexing data for similarity search.
+**pgvectorizer**: a [$TIMESCALE_DB][timescaledb-link] tool for automatically vectorizing and indexing data for similarity search.
 
 **Physical backup**: a backup method that copies the actual database files at the storage level.
 
@@ -401,11 +401,11 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **$PG**: an open-source object-relational database system known for its reliability, robustness, and performance.
 
-**PostGIS**: a [$PG](#postgresql) extension that adds support for geographic objects and spatial queries.
+**PostGIS**: a [$PG][postgres-link] extension that adds support for geographic objects and spatial queries.
 
 **Primary key**: a database constraint that uniquely identifies each row in a table.
 
-**psql**: an interactive terminal-based front-end to [$PG](#postgresql) that allows users to type queries interactively.
+**psql**: an interactive terminal-based front-end to [$PG][postgres-link] that allows users to type queries interactively.
 
 ## Q
 
@@ -435,7 +435,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Real-time analytics**: the immediate analysis of incoming data streams, crucial for observability, trading platforms, and IoT monitoring.
 
-**Real**: a [$PG](#postgresql) data type for storing single-precision floating-point numbers.
+**Real**: a [$PG][postgres-link] data type for storing single-precision floating-point numbers.
 
 **Real-time aggregate**: a continuous aggregate that includes both materialized historical data and real-time calculations on recent data.
 
@@ -481,11 +481,11 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Service discovery**: mechanisms allowing applications to dynamically locate services like database endpoints, often used in distributed environments.
 
-**Segmentwise recompression**: a [$TIMESCALE_DB](#timescaledb) [compression](#compression) technique that recompresses data segments to improve [compression](#compression) ratios.
+**Segmentwise recompression**: a [$TIMESCALE_DB][timescaledb-link] [compression][compression-link] technique that recompresses data segments to improve [compression][compression-link] ratios.
 
 **Serializable**: the highest isolation level that ensures transactions appear to run serially even when executed concurrently.
 
-**Service**: see [$SERVICE_LONG](#tiger-service).
+**Service**: see [$SERVICE_LONG][tiger-service-link].
 
 **Sharding**: horizontal partitioning of data across multiple database instances, distributing load and enabling linear scalability.
 
@@ -507,7 +507,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Snapshot**: a point-in-time copy of data that can be used for backup and recovery purposes.
 
-**SP-GiST (Space-Partitioned Generalized Search Tree)**: a [$PG](#postgresql) index type for data structures that naturally partition search spaces.
+**SP-GiST (Space-Partitioned Generalized Search Tree)**: a [$PG][postgres-link] index type for data structures that naturally partition search spaces.
 
 **Storage optimization**: techniques for reducing storage costs and improving performance through compression, tiering, and efficient data organization.
 
@@ -521,9 +521,9 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 <a id="standard-tiger-service" href=""></a>
 
-**Standard $SERVICE_SHORT**: a regular [$SERVICE_LONG](#tiger-service) that includes the resources and features according to the pricing plan. You can create standard $SERVICE_SHORTs under any of the paid plans. 
+**Standard $SERVICE_SHORT**: a regular [$SERVICE_LONG][tiger-service-link] that includes the resources and features according to the pricing plan. You can create standard $SERVICE_SHORTs under any of the paid plans. 
 
-**Streaming replication**: a [$PG](#postgresql) replication method that continuously sends write-ahead log records to standby servers.
+**Streaming replication**: a [$PG][postgres-link] replication method that continuously sends write-ahead log records to standby servers.
 
 **Synthetic monitoring**: simulated transactions or probes used to test system health, generating time-series metrics for performance analysis.
 
@@ -531,7 +531,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Table**: a database object that stores data in rows and columns, similar to a spreadsheet.
 
-**Tablespace**: a [$PG](#postgresql) storage structure that defines where database objects are physically stored on disk.
+**Tablespace**: a [$PG][postgres-link] storage structure that defines where database objects are physically stored on disk.
 
 **TCP (Transmission Control Protocol)**: a connection-oriented protocol that ensures reliable data transmission between applications.
 
@@ -539,19 +539,19 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 **Telemetry**: the collection of real-time data from systems or devices for monitoring and analysis.
 
-**Text**: a [$PG](#postgresql) data type for storing variable-length character strings.
+**Text**: a [$PG][postgres-link] data type for storing variable-length character strings.
 
 **Throughput**: a measure of system performance indicating the amount of work performed or data processed per unit of time.
 
 **Tiered storage**: a storage strategy that automatically moves data between different storage classes based on access patterns and age.
 
-**$CLOUD_LONG**: $COMPANY's managed cloud platform that provides [$TIMESCALE_DB](#timescaledb) as a fully managed solution with additional features.
+**$CLOUD_LONG**: $COMPANY's managed cloud platform that provides [$TIMESCALE_DB][timescaledb-link] as a fully managed solution with additional features.
 
 **Tiger Lake**: $COMPANY's service for integrating operational databases with data lake architectures.
 
 <a id="tiger-service" href=""></a>
 
-**$SERVICE_LONG**: an instance of optimized [$PG](#postgresql) extended with database engine innovations such as [$TIMESCALE_DB](#timescaledb), in a cloud infrastructure that delivers speed without sacrifice. You can create [free $SERVICE_SHORTs](#free-tiger-service) and [standard $SERVICE_SHORTs](#standard-tiger-service). 
+**$SERVICE_LONG**: an optimized [$PG][postgres-link] instance extended with database engine innovations such as [$TIMESCALE_DB][timescaledb-link], in a cloud infrastructure that delivers speed without sacrifice. You can create [free $SERVICE_SHORTs][free-tiger-service-link] and [standard $SERVICE_SHORTs][standard-tiger-service-link]. 
 
 **Time series**: data points indexed and ordered by time, typically representing how values change over time.
 
@@ -563,11 +563,11 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 <a id="timescaledb" href=""></a>
 
-**$TIMESCALE_DB**: an open-source [$PG](#postgresql) extension for real-time analytics that provides scalability and performance optimizations.
+**$TIMESCALE_DB**: an open-source [$PG][postgres-link] extension for real-time analytics that provides scalability and performance optimizations.
 
 **Timestamp**: a data type that stores date and time information without timezone data.
 
-**Timestamptz**: a [$PG](#postgresql) data type that stores timestamp with timezone information.
+**Timestamptz**: a [$PG][postgres-link] data type that stores timestamp with timezone information.
 
 **TLS (Transport Layer Security)**: a cryptographic protocol that provides security for communication over networks.
 
@@ -595,7 +595,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 ## V
 
-**Vacuum**: a [$PG](#postgresql) maintenance operation that reclaims storage and updates database statistics.
+**Vacuum**: a [$PG][postgres-link] maintenance operation that reclaims storage and updates database statistics.
 
 **Varchar**: a variable-length character data type that can store strings up to a specified maximum length.
 
@@ -613,7 +613,7 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 
 ## W
 
-**WAL (Write-Ahead Log)**: [$PG](#postgresql)'s method for ensuring data integrity by writing changes to a log before applying them to data files.
+**WAL (Write-Ahead Log)**: [$PG][postgres-link]'s method for ensuring data integrity by writing changes to a log before applying them to data files.
 
 **Warm storage**: a storage tier that balances access speed and cost, suitable for data accessed occasionally.
 
@@ -640,21 +640,23 @@ This glossary defines technical terms, concepts, and terminology used in $COMPAN
 **Zero-downtime migration**: migration strategies that maintain service availability throughout the transition process, often using techniques like dual-write and gradual cutover.
 
 <!-- Link references -->
-[use-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[use-hypertables-chunks]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/
-[use-compression]: /use-timescale/:currentVersion:/compression/
-[use-hypercore]: /use-timescale/:currentVersion:/hypercore/
-[use-continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
-[use-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
-[use-data-retention]: /use-timescale/:currentVersion:/data-retention/
-[integrations-kafka]: /integrations/:currentVersion:/apache-kafka/
-[integrations-grafana]: /integrations/:currentVersion:/grafana/
-[integrations-prometheus]: /integrations/:currentVersion:/prometheus/
-[migrate]: /migrate/:currentVersion:/
+
 [ai-pgvector]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/
-[ai-pgai]: https://github.com/timescale/pgai
-[ai-pgvectorscale]: https://github.com/timescale/pgvectorscale
-[hyperfunctions-approx-count-distinct]: /use-timescale/:currentVersion:/hyperfunctions/approx-count-distincts/
-[hyperfunctions-asap-smooth]: /use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation/
-[hyperfunctions-candlestick-agg]: /use-timescale/:currentVersion:/hyperfunctions/stats-aggs/
-[hyperfunctions-stats-agg]: /use-timescale/:currentVersion:/hyperfunctions/stats-aggs/
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[chunk-link]: /api/:currentVersion:/glossary/#chunk
+[compression-link]: /api/:currentVersion:/glossary/#compression
+[compression]: /use-timescale/:currentVersion:/compression/
+[data-retention]: /use-timescale/:currentVersion:/data-retention/
+[free-tiger-service-link]: /api/:currentVersion:/glossary/#free-tiger-service
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[hypertable-link]: /api/:currentVersion:/glossary/#hypertable
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[migrate]: /migrate/:currentVersion:/
+[pgai]: https://github.com/timescale/pgai
+[pgvectorscale]: https://github.com/timescale/pgvectorscale
+[postgres-link]: /api/:currentVersion:/glossary/#postgresql
+[standard-tiger-service-link]: /api/:currentVersion:/glossary/#standard-tiger-service
+[tiger-service-link]: /api/:currentVersion:/glossary/#tiger-service
+[timescaledb-link]: /api/:currentVersion:/glossary/#timescaledb
+[use-hypertables-chunks]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/

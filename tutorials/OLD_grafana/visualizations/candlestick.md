@@ -116,7 +116,7 @@ applications.
 
       <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/15_min.png" alt="Screenshot of the Grafana variable dropdown."/>
 
-The query execution took more than 6 seconds. To decrease query execution time to sub-seconds, use continuous aggregates. See the how-to guide on [continuous aggregrates][continuous-aggregrate] to learn more.
+The query execution took more than 6 seconds. To decrease query execution time to sub-seconds, use continuous aggregates. See the how-to guide on [continuous aggregrates][candlestick-tutorial] to learn more.
 
 </Procedure>
 
@@ -170,4 +170,4 @@ This tutorial shows you how to use $TIMESCALE_DB to generate candlestick values
 that includes open, high, low, and close, from raw data in a hypertable. It also
 shows you how to query the traded volume for each time interval.
 
-[continuous-aggregrate]: /tutorials/:currentVersion:/financial-tick-data/
+[candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/

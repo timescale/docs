@@ -93,11 +93,12 @@ or `maven`.
     For more information about creating connection strings, see the [JDBC documentation][pg-jdbc-driver-conn-docs].
 
     <Highlight type="warning">
+
     
     This method of composing a connection string is for test or development
     purposes only. For production, use environment variables for sensitive
     details like your password, hostname, and port number.
-    
+
     </Highlight>
 
     ```java
@@ -215,9 +216,10 @@ and most other tasks are executed on the hypertable.
     ```
 
 	<Highlight type="note">
+
     
 	The `by_range` and `by_hash` dimension builder is an addition to $TIMESCALE_DB 2.13.
- 
+
 	</Highlight>
 
 1.  Execute the two statements you created, and commit your changes to the
@@ -396,7 +398,7 @@ your Java application, and generate the scaffolding necessary to build a new
 application from an existing $TIMESCALE_DB instance, be sure to check out these
 advanced $TIMESCALE_DB tutorials:
 
-*   [Continuous Aggregates][continuous-aggregates]
+*   [Continuous Aggregates][caggs]
 *   [Migrate Your own Data][migrate]
 
 ## Complete code samples
@@ -600,16 +602,10 @@ public class Main {
 }
 ```
 
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [jdk]: https://openjdk.java.net
+[migrate]: /migrate/:currentVersion:/
 [pg-jdbc-driver-artifact]: https://jdbc.postgresql.org/download/
 [pg-jdbc-driver-conn-docs]: https://jdbc.postgresql.org/documentation/datasource/
 [pg-jdbc-driver-dependency]: https://mvnrepository.com/artifact/org.postgresql/postgresql
 [pg-jdbc-driver]: https://jdbc.postgresql.org
-[connect]: #connect-java-to-timescaledb
-[create-table]: #create-a-relational-table
-[create-a-hypertable]: #create-a-hypertable
-[insert]: #insert-a-batch-of-rows-into-timescaledb
-[query]: #execute-queries-on-timescaledb
-[install]: /getting-started/latest/
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/
-[migrate]: /migrate/:currentVersion:/

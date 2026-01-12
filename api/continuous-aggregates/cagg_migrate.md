@@ -34,7 +34,7 @@ called the partial format, stores the data in a partially aggregated state.
 Use this procedure to migrate continuous aggregates from the old format to the
 new format.
 
-For more information, see the [migration how-to guide][how-to-migrate].
+For more information, see the [migration how-to guide][cagg-migrate].
 
 <Highlight type="warning">
 
@@ -56,4 +56,4 @@ Upgrade to version 2.8.1 or above before using it.
 |`override`|`BOOLEAN`|If false, the old continuous aggregate keeps its name. The new continuous aggregate is named `<OLD_CONTINUOUS_AGGREGATE_NAME>_new`. If true, the new continuous aggregate gets the old name. The old continuous aggregate is renamed `<OLD_CONTINUOUS_AGGREGATE_NAME>_old`. Defaults to `false`.|
 |`drop_old`|`BOOLEAN`|If true, the old continuous aggregate is deleted. Must be used together with `override`. Defaults to `false`.|
 
-[how-to-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
+[cagg-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/

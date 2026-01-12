@@ -217,14 +217,7 @@ module.exports = [
       {
         title: "Uninstall self-hosted TimescaleDB",
         href: "uninstall",
-        excerpt: "Uninstalling self-hosted TimescaleDB",
-        children: [
-          {
-            title: "Uninstall self-hosted TimescaleDB on macOS",
-            href: "uninstall-timescaledb",
-            excerpt: "Uninstall self-hosted TimescaleDB on macOS",
-          },
-        ],
+        excerpt: "Uninstall self-hosted TimescaleDB without removing PostgreSQL",
       },
       {
         title: "Troubleshooting self-hosted TimescaleDB",

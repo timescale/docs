@@ -221,13 +221,4 @@ You can use the following $CLI_LONG global flags when you run $MCP_SHORT:
 
 <GLOBALFLAGS />
 
-
-[rest-api-reference]: /api/:currentVersion:/api-reference/
-[rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
-[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
-[create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
-[curl]: https://curl.se/
-[cloud-regions]: /use-timescale/:currentVersion:/regions/
-[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
-[manual-config]: /ai/:currentVersion:/mcp-server/#manually-configure-the-tiger-mcp-server
- 
+[manual-config]: /ai/:currentVersion:/mcp-server/#manually-configure-tiger-mcp

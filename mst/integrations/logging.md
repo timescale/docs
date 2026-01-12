@@ -36,7 +36,7 @@ avn service logs -S desc -f --project <project name> <service_name> > tslogs.txt
 ```
 
 For more information about the Aiven CLI tool, see the
-[Aiven CLI section][aiven-cli].
+[Aiven CLI section][aiven-client-install].
 
 ## Logging integrations
 
@@ -85,7 +85,6 @@ This section covers how to create a service integration to Loggly with $MST_LONG
 
 </Procedure>
 
+[aiven-client-install]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client
 [loggly-site]: https://www.loggly.com/
-[aiven-cli]: /mst/:currentVersion:/aiven-client/#install-and-configure-the-aiven-client
-
 [mst-login]:https://portal.managed.timescale.com/login

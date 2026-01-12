@@ -99,10 +99,5 @@ And that is it, you are ready to use $CLI_LONG to manage your $SERVICE_SHORTs in
 
 <CLIREF />
 
-[rest-api-reference]: /api/:currentVersion:/api-reference/
-[rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
-[get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
-[create-client-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
-[curl]: https://curl.se/
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [cli-create-custom-service]: /getting-started/:currentVersion:/get-started-devops-as-code/#commands
+[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

@@ -11,9 +11,9 @@ tags: [ai, vector, pgvectorizer]
 PgVectorizer enables you to create vector embeddings from any data that
 you already have stored in $PG. You can get more background
 information in the [blog
-post](https://www.timescale.com/blog/a-complete-guide-to-creating-and-storing-embeddings-for-postgresql-data/)
+post][blog-post]
 announcing this feature, as well as the ["how we built
-it"](https://www.timescale.com/blog/how-we-designed-a-resilient-vector-embedding-creation-system-for-postgresql-data/)
+it"][how-we-built-it]
 post going into the details of the design.
 
 To create vector embeddings, simply attach PgVectorizer to any $PG
@@ -143,3 +143,6 @@ res
       0.12595687795193833)]
 
 
+
+[blog-post]: https://www.tigerdata.com/blog/how-to-automatically-create-update-embeddings-in-postgresql
+[how-we-built-it]: https://www.tigerdata.com/blog/how-we-designed-a-resilient-vector-embedding-creation-system-for-postgresql-data

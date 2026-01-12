@@ -13,20 +13,20 @@ You use pgai to power production grade AI applications. `timescale_vector` is th
 
 Before you get started with `timescale_vector`:
 
-- [Sign up for pgai on $CLOUD_LONG](https://console.cloud.timescale.com/signup?utm_campaign=vectorlaunch&utm_source=docs&utm_medium=direct): Get 90 days free to try pgai on $CLOUD_LONG. 
-- [Follow the Get Started Tutorial](https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html): 
+- [Sign up for pgai on $CLOUD_LONG][sign-up-for-pgai-on-cloud_long]: Get 90 days free to try pgai on $CLOUD_LONG. 
+- [Follow the Get Started Tutorial][follow-the-get-started-tutorial]: 
 Learn how to use pgai on $CLOUD_LONG for semantic search on a real-world dataset.
 
-If you prefer to use an LLM development or data framework, see pgai's integrations with [LangChain](https://python.langchain.com/docs/integrations/vectorstores/timescalevector) and [LlamaIndex](https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html).
+If you prefer to use an LLM development or data framework, see pgai's integrations with [LangChain][langchain] and [LlamaIndex][llamaindex].
 
 ## Prerequisites 
 
 `timescale_vector` depends on the source distribution of `psycopg2` and adheres 
-to [best practices for psycopg2](https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary). 
+to [best practices for psycopg2][best-practices-for-psycopg2]. 
 
 Before you install `timescale_vector`: 
 
-* Follow the [psycopg2 build prerequisites](https://www.psycopg.org/docs/install.html#build-prerequisites).
+* Follow the [psycopg2 build prerequisites][psycopg2-build-prerequisites].
 
 ## Install
 
@@ -407,7 +407,7 @@ tpvec.search([1.0, 9.0], limit=4, uuid_time_filter=client.UUIDTimeRange(specific
       0.14489260377438218]]
 
 A
-[`UUIDTimeRange`](https://timescale.github.io/python-vector/vector.html#uuidtimerange)
+[`UUIDTimeRange`][uuidtimerange]
 can specify a `start_date` or `end_date` or both(as in the example above).
 Specifying only the `start_date` or `end_date` leaves the other end
 unconstrained.
@@ -503,7 +503,7 @@ Below are the trade-offs between these algorithms:
 | ivfflat | Fastest     | Slowest     | Yes                           |
 
 You can see
-[benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/)
+[benchmarks][benchmarks]
 on the blog.
 
 You should use the StreamingDiskANN index for most use cases. This
@@ -529,9 +529,9 @@ details for how to adjust these options manually are below.
 <!-- vale Google.Headings = YES -->
 
 The StreamingDiskANN index is a graph-based algorithm that uses the
-[DiskANN](https://github.com/microsoft/DiskANN) algorithm. You can read
+[DiskANN][diskann] algorithm. You can read
 more about it in the
-[blog](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/)
+[blog][benchmarks]
 announcing its release.
 
 To create this index, run:
@@ -580,7 +580,7 @@ vec.drop_embedding_index()
 #### pgvector HNSW index
 
 Pgvector provides a graph-based indexing algorithm based on the popular
-[HNSW algorithm](https://arxiv.org/abs/1603.09320).
+[HNSW algorithm][hnsw-algorithm].
 
 To create this index, run:
 
@@ -627,7 +627,7 @@ vec.drop_embedding_index()
 #### pgvector ivfflat index
 
 Pgvector provides a clustering-based indexing algorithm. The [blog
-post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/)
+post][blog-post]
 describes how it works in detail. It provides the fastest
 index-build speed but the slowest query speeds of any indexing
 algorithm.
@@ -643,7 +643,7 @@ to cluster data, and that only happens when an index is first created,
 not when new rows are inserted or modified. Also, if your table
 undergoes a lot of modifications, you need to rebuild this index
 occasionally to maintain good accuracy. See the [blog
-post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/)
+post][blog-post]
 for details.
 
 Pgvector ivfflat has a `lists` index parameter that is automatically set
@@ -763,3 +763,16 @@ index is only valid for one particular type of distance measure.
 
 Note that the StreamingDiskANN index only supports cosine distance at
 this time.
+
+[benchmarks]: https://www.tigerdata.com/blog/how-we-made-postgresql-the-best-vector-database/
+[best-practices-for-psycopg2]: https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary
+[blog-post]: https://www.tigerdata.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/
+[blog]: https://www.tigerdata.com/blog/how-we-made-postgresql-the-best-vector-database/
+[diskann]: https://github.com/microsoft/DiskANN
+[follow-the-get-started-tutorial]: https://timescale.github.io/python-vector/tsv_python_getting_started_tutorial.html
+[hnsw-algorithm]: https://arxiv.org/abs/1603.09320
+[langchain]: https://python.langchain.com/docs/integrations/vectorstores/timescalevector
+[llamaindex]: https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html
+[psycopg2-build-prerequisites]: https://www.psycopg.org/docs/install.html#build-prerequisites
+[sign-up-for-pgai-on-cloud_long]: https://console.cloud.timescale.com/signup
+[uuidtimerange]: https://timescale.github.io/python-vector/vector.html#uuidtimerange

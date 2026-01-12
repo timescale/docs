@@ -10,9 +10,9 @@ tags: [jobs, scheduled jobs, background jobs, automation framework]
 
 $TIMESCALE_DB natively includes some $JOB-scheduling policies, such as:
 
-*   [$CAGG_CAP policies][caggs] to automatically refresh $CAGGs
+*   [$CAGG_CAP policies][refresh-policy] to automatically refresh $CAGGs
 *   [$HYPERCORE_CAP policies][setup-hypercore] to optimize and compress historical data
-*   [Retention policies][retention] to drop historical data
+*   [Retention policies][retention-policy] to drop historical data
 *   [Reordering policies][reordering] to reorder data within $CHUNKs
 
 If these don't cover your use case, you can create and schedule custom-defined $JOBs to run within
@@ -29,7 +29,7 @@ In this section, you see how to:
 [downsample-compress]: /use-timescale/:currentVersion:/jobs/example-downsample-and-compress
 [generic-retention]: /use-timescale/:currentVersion:/jobs/example-generic-retention
 [manage-storage]: /use-timescale/:currentVersion:/jobs/example-tiered-storage/
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
+[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
-[retention]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
+[retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

@@ -110,7 +110,7 @@ Insert this dataset into your $TIMESCALE_DB instance.
 
 ### Ingesting Bitcoin transactions
 
-1.  Download the sample `.csv` file: <Tag type="download">[tutorial_bitcoin_sample.csv](https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip)</Tag>
+1.  Download the sample `.csv` file: <Tag type="download">[tutorial_bitcoin_sample.csv][tutorial_bitcoin_samplecsv]</Tag>
 
     ```bash
     wget https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip
@@ -162,7 +162,9 @@ time               |hash                                                        
 <!-- vale Google.Units = YES -->
 
 <Highlight type="note">
+
 A coinbase transaction is the first transaction in each block. This transaction contains the miner's reward.
+
 </Highlight>
 
 Here's another example query that returns the five most recent blocks, with
@@ -200,3 +202,4 @@ your first SQL queries. In the next section, dig deeper into the blockchain and 
 $TIMESCALE_DB hyperfunctions to generate insights!
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[tutorial_bitcoin_samplecsv]: https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip
