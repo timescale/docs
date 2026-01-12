@@ -12,10 +12,11 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 # Optimize full text search with BM25 
 
-$PG full-text search at scale consistently hits a wall where performance degrades catastrophically. 
+$PG full-text search at scale consistently hits a wall where performance degrades catastrophically.
 $COMPANY's [pg_textsearch][pg_textsearch-github-repo] brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
-with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and 
-provides better search quality and performance than the $PG built-in full-text search.
+with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and
+provides better search quality and performance than the $PG built-in full-text search. With Block-Max WAND optimization,
+`pg_textsearch` delivers up to **4x faster top-k queries** compared to naive BM25 implementations.
 
 BM25 scores in `pg_textsearch` are returned as negative values, where lower (more negative) numbers indicate better 
 matches. `pg_textsearch` implements the following:
@@ -117,14 +118,16 @@ You have created a BM25 index for full-text search.
 
 ## Optimize search queries for performance
 
-Use efficient query patterns to leverage BM25 ranking and optimize search performance.
+Use efficient query patterns to leverage BM25 ranking and optimize search performance. The `<@>` operator supports both
+simple text queries and explicit index specification with `to_bm25query()`. Use the simple syntax for `ORDER BY` queries,
+but `to_bm25query()` is required for `WHERE` clauses, standalone expressions, and inside PL/pgSQL functions.
 
 <Procedure>
 
 1. **Perform ranked searches using the distance operator**
 
    ```sql
-   SELECT name, description, description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
+   SELECT name, description, description <@> 'ergonomic work' as score
    FROM products
    ORDER BY score
    LIMIT 3;
@@ -159,11 +162,11 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
 1. **Combine with standard SQL operations**
 
    ```sql
-   SELECT category, name, description <@> to_bm25query('ergonomic', 'products_search_idx') as score
+   SELECT category, name, description <@> 'ergonomic' as score
    FROM products
    WHERE price < 500
      AND description <@> to_bm25query('ergonomic', 'products_search_idx') < -0.5
-   ORDER BY description <@> to_bm25query('ergonomic', 'products_search_idx')
+   ORDER BY score
    LIMIT 5;
    ```
 
@@ -179,7 +182,7 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
 
    ```sql
    EXPLAIN SELECT * FROM products
-   ORDER BY description <@> to_bm25query('ergonomic', 'products_search_idx')
+   ORDER BY description <@> 'ergonomic'
    LIMIT 5;
    ```
 
@@ -255,9 +258,9 @@ Combine `pg_textsearch` with `pgvector` or `pgvectorscale` to build powerful hyb
    ),
    keyword_search AS (
      SELECT id,
-            ROW_NUMBER() OVER (ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')) AS rank
+            ROW_NUMBER() OVER (ORDER BY content <@> 'query performance') AS rank
      FROM articles
-     ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')
+     ORDER BY content <@> 'query performance'
      LIMIT 20
    )
    SELECT a.id,
@@ -295,9 +298,9 @@ Combine `pg_textsearch` with `pgvector` or `pgvectorscale` to build powerful hyb
    ),
    keyword_search AS (
      SELECT id,
-            ROW_NUMBER() OVER (ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')) AS rank
+            ROW_NUMBER() OVER (ORDER BY content <@> 'query performance') AS rank
      FROM articles
-     ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')
+     ORDER BY content <@> 'query performance'
      LIMIT 20
    )
    SELECT
@@ -350,6 +353,12 @@ Customize `pg_textsearch` behavior for your specific use case and data character
 
    -- Set default query limit when no LIMIT clause is present (default 1000)
    SET pg_textsearch.default_limit = 5000;
+
+   -- Enable Block-Max WAND optimization for faster top-k queries (enabled by default)
+   SET pg_textsearch.enable_bmw = true;
+
+   -- Log block skip statistics for debugging query performance (disabled by default)
+   SET pg_textsearch.log_bmw_stats = false;
    ```
    <SINCE010 />
 
