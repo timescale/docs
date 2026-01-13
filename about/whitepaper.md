@@ -21,7 +21,7 @@ Want to read this whitepaper from the comfort of your own computer?
 
 <center>
 
-Download the `PDF`: <Tag type="download">[Tiger Data architecture for real-time analytics (PDF)][whitepaper_pdf]</Tag>
+Download the PDF: <Tag type="download">[Tiger Data architecture for real-time analytics][whitepaper_pdf]</Tag>
 
 </center>
 
