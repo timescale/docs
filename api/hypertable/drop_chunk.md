@@ -11,22 +11,22 @@ products: [cloud, mst, self_hosted]
 
 # drop_chunk()
 
-Drop a single chunk from a [$HYPERTABLE][hypertable-docs]. 
+Drop a single $CHUNK from a [$HYPERTABLE][hypertable-docs].
 
-`drop_chunk()` first validates the chunk status, if it is safe to remove, it removes both the chunk 
-table and its entry from the chunk catalog.
+`drop_chunk()` first validates the $CHUNK status, then if it is safe to remove, it removes both the $CHUNK
+table and its entry from the $CHUNK catalog.
 
-You cannot drop compressed chunks directly. 
+You cannot drop compressed $CHUNKs directly. 
 
 ## Samples
 
-- **Drop a specific chunk by name**:
+- **Drop a specific $CHUNK by name**:
 
   ```sql
   SELECT _timescaledb_functions.drop_chunk('_timescaledb_internal._hyper_1_2_chunk');
   ```
 
-- **Drop a chunk using a variable**:
+- **Drop a $CHUNK using a variable**:
 
   ```sql
   DO $$
@@ -45,11 +45,11 @@ You cannot drop compressed chunks directly.
 
 |Name|Type|Default|Required| Description                                                                                                                                                                                 |
 |-|-|-|-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|`chunk`|REGCLASS||✔| The name of the chunk to drop. You can use a schema-qualified name, such as `_timescaledb_internal._hyper_1_2_chunk`. If the chunk is in the search path, you can use the unqualified name. |
+|`chunk`|REGCLASS||✔| The name of the $CHUNK to drop. You can use a schema-qualified name, such as `_timescaledb_internal._hyper_1_2_chunk`. If the $CHUNK is in the search path, you can use the unqualified name. |
 
 ## Returns
 
-Returns `true` when `chunk` is successfully dropped.
+Returns `true` when the $CHUNK is successfully dropped.
 
 [hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks/
