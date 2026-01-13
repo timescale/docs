@@ -14,7 +14,7 @@ hyperfunction:
   type: function
 api_details:
   summary: >
-    Downsample your data with the [Largest Triangle Three Buckets algorithm][largest-triangle-three-buckets-algorithm].
+    Downsample your data with the [Largest Triangle Three Buckets algorithm](https://github.com/sveinn-steinarsson/flot-downsample).
     This algorithm tries to retain visual similarity between the downsampled data and the original dataset.
   signatures:
     - language: sql
@@ -41,7 +41,7 @@ api_details:
         description: >
           An object representing a series of values occurring at set intervals from a starting time.
           It can be unpacked with `unnest`.
-          For more information, see the documentation on [timevectors][timevectors].
+          For more information, see the documentation on [timevectors](/use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#timevectors).
   examples:
     - description: >
         This example uses a table with raw data generated as a sine wave.
