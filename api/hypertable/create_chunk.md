@@ -22,12 +22,12 @@ as the parent table.
 
 ## Samples
 
-- **Create a new chunk for a $HYPERTABLE with specific time and space constraints**:
+- **Create a new chunk for a $HYPERTABLE with a time range**:
 
   ```sql
   SELECT * FROM _timescaledb_functions.create_chunk(
       'conditions',
-      '{"time": [1514419200000000, 1515024000000000], "device": [-9223372036854775808, 1073741823]}'
+      '{"time": ["2018-01-01 00:00:00", "2018-01-08 00:00:00"]}'
   );
   ```
 
@@ -36,7 +36,7 @@ as the parent table.
   ```sql
   SELECT * FROM _timescaledb_functions.create_chunk(
       'conditions',
-      '{"time": [1515024000000000, 1519024000000000], "device": [-9223372036854775808, 1073741823]}',
+      '{"time": ["2018-01-08 00:00:00", "2018-01-15 00:00:00"]}',
       'custom_schema',
       'custom_chunk_name'
   );
@@ -51,19 +51,21 @@ as the parent table.
   -- Attach it as a chunk
   SELECT * FROM _timescaledb_functions.create_chunk(
       'conditions',
-      '{"time": [1519024000000000, 1519628800000000]}',
+      '{"time": ["2018-01-15 00:00:00", "2018-01-22 00:00:00"]}',
       schema_name => 'public',
       table_name => 'my_chunk',
       chunk_table => 'my_chunk_table'
   );
   ```
 
-- **For timestamp dimensions, you can also use string values**:
+- **Create a chunk with space partitioning (advanced)**:
+
+  For $HYPERTABLES with additional space dimensions, specify all dimension constraints:
 
   ```sql
   SELECT * FROM _timescaledb_functions.create_chunk(
       'conditions',
-      '{"time": ["2018-01-01 00:00:00", "2018-01-08 00:00:00"]}'
+      '{"time": ["2018-01-22 00:00:00", "2018-01-29 00:00:00"], "device": [-9223372036854775808, 1073741823]}'
   );
   ```
 
