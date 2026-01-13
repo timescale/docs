@@ -74,5 +74,5 @@ with [`add_data_node`][add_data_node] first before attaching it.
 
 </Highlight>
 
-[add_data_node]: /api/:currentVersion:/distributed-hypertables/add_data_node/
+[add_data_node]: /api/:currentVersion:/distributed-hypertables/add_data_node
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/

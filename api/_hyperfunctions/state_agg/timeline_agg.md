@@ -48,4 +48,4 @@ products: [cloud, mst, self_hosted]
 ---
 
 
-[compact_state_agg]: /api/:currentVersion:/hyperfunctions/state-tracking/compact_state_agg/
+[compact_state_agg]: /api/:currentVersion:/hyperfunctions/state-tracking/compact_state_agg
