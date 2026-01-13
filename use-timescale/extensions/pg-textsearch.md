@@ -8,6 +8,7 @@ products: [cloud, self_hosted]
 
 import EA1125 from "versionContent/_partials/_early_access_11_25.mdx";
 import SINCE010 from "versionContent/_partials/_since_0_1_0.mdx";
+import SINCE040 from "versionContent/_partials/_since_0_4_0.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Optimize full text search with BM25 
@@ -16,7 +17,9 @@ $PG full-text search at scale consistently hits a wall where performance degrade
 $COMPANY's [pg_textsearch][pg_textsearch-github-repo] brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
 with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and
 provides better search quality and performance than the $PG built-in full-text search. With Block-Max WAND optimization,
-`pg_textsearch` delivers up to **4x faster top-k queries** compared to naive BM25 implementations.
+`pg_textsearch` delivers up to **4x faster top-k queries** compared to naive BM25 implementations. Advanced compression
+using delta encoding and bitpacking reduces index sizes by **41%** while improving query performance by 10-20% for
+shorter queries.
 
 BM25 scores in `pg_textsearch` are returned as negative values, where lower (more negative) numbers indicate better 
 matches. `pg_textsearch` implements the following:
@@ -118,16 +121,15 @@ You have created a BM25 index for full-text search.
 
 ## Optimize search queries for performance
 
-Use efficient query patterns to leverage BM25 ranking and optimize search performance. The `<@>` operator supports both
-simple text queries and explicit index specification with `to_bm25query()`. Use the simple syntax for `ORDER BY` queries,
-but `to_bm25query()` is required for `WHERE` clauses, standalone expressions, and inside PL/pgSQL functions.
+Use efficient query patterns to leverage BM25 ranking and optimize search performance. The `<@>` operator with `to_bm25query()`
+provides BM25-based ranking scores. The function takes two parameters: the search query text and the index name.
 
 <Procedure>
 
 1. **Perform ranked searches using the distance operator**
 
    ```sql
-   SELECT name, description, description <@> 'ergonomic work' as score
+   SELECT name, description, description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
    FROM products
    ORDER BY score
    LIMIT 3;
@@ -162,7 +164,7 @@ but `to_bm25query()` is required for `WHERE` clauses, standalone expressions, an
 1. **Combine with standard SQL operations**
 
    ```sql
-   SELECT category, name, description <@> 'ergonomic' as score
+   SELECT category, name, description <@> to_bm25query('ergonomic', 'products_search_idx') as score
    FROM products
    WHERE price < 500
      AND description <@> to_bm25query('ergonomic', 'products_search_idx') < -0.5
@@ -182,7 +184,7 @@ but `to_bm25query()` is required for `WHERE` clauses, standalone expressions, an
 
    ```sql
    EXPLAIN SELECT * FROM products
-   ORDER BY description <@> 'ergonomic'
+   ORDER BY description <@> to_bm25query('ergonomic', 'products_search_idx')
    LIMIT 5;
    ```
 
@@ -258,9 +260,9 @@ Combine `pg_textsearch` with `pgvector` or `pgvectorscale` to build powerful hyb
    ),
    keyword_search AS (
      SELECT id,
-            ROW_NUMBER() OVER (ORDER BY content <@> 'query performance') AS rank
+            ROW_NUMBER() OVER (ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')) AS rank
      FROM articles
-     ORDER BY content <@> 'query performance'
+     ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')
      LIMIT 20
    )
    SELECT a.id,
@@ -298,9 +300,9 @@ Combine `pg_textsearch` with `pgvector` or `pgvectorscale` to build powerful hyb
    ),
    keyword_search AS (
      SELECT id,
-            ROW_NUMBER() OVER (ORDER BY content <@> 'query performance') AS rank
+            ROW_NUMBER() OVER (ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')) AS rank
      FROM articles
-     ORDER BY content <@> 'query performance'
+     ORDER BY content <@> to_bm25query('query performance', 'articles_content_idx')
      LIMIT 20
    )
    SELECT
@@ -361,6 +363,13 @@ Customize `pg_textsearch` behavior for your specific use case and data character
    SET pg_textsearch.log_bmw_stats = false;
    ```
    <SINCE010 />
+
+   ```sql
+   -- Enable segment compression using delta encoding and bitpacking (enabled by default)
+   -- Reduces index size by ~41% with 10-20% query performance improvement for shorter queries
+   SET pg_textsearch.compress_segments = on;
+   ```
+   <SINCE040 />
 
 1. **Configure language-specific text processing**
 
