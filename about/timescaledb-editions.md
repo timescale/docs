@@ -182,7 +182,7 @@ You can access a hosted version of $TDB_COMMUNITY through
 [chunk_compression_stats]: /api/:currentVersion:/compression/chunk_compression_stats/
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/
 [cloud]: /use-timescale/:currentVersion:/services/
-[compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
+[compress_chunk]: /api/:currentVersion:/compression/compress_chunk
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
 [create-materialized-view-continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/
