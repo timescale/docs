@@ -104,5 +104,5 @@ END
 $$;
 ```
 
-[compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
+[compress_chunk]: /api/:currentVersion:/compression/compress_chunk
 [run-job]: /api/:currentVersion:/jobs-automation/run_job/

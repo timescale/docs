@@ -755,23 +755,23 @@ module.exports = [
   },
   {
     from: "/use-timescale/latest/integrations/data-ingest/",
-    to: "https://www.tigerdata.com/docs/use-timescale/latest/ingest-data/"
+    to: "https://www.tigerdata.com/docs/integrations/latest/#data-ingestion-and-streaming"
   },
   {
     from: "/use-timescale/latest/integrations/data-ingest/telegraf/",
-    to: "https://www.tigerdata.com/docs/use-timescale/latest/ingest-data/ingest-telegraf/"
+    to: "https://www.tigerdata.com/docs/integrations/latest/telegraf"
   },
   {
     from: "/use-timescale/latest/ingest-data/about-ingesting/",
-    to: "https://www.tigerdata.com/docs/use-timescale/latest/ingest-data"
+    to: "https://www.tigerdata.com/docs/integrations/latest/#data-ingestion-and-streaming"
   },
   {
     from: "/use-timescale/latest/ingest-data/about-timescaledb-parallel-copy/",
-    to: "https://www.tigerdata.com/docs/use-timescale/latest/ingest-data"
+    to: "https://github.com/timescale/timescaledb-parallel-copy"
   },
   {
     from: "/use-timescale/latest/ingest-data/ingest-prometheus/",
-    to: "https://www.tigerdata.com/docs/use-timescale/latest/ingest-data"
+    to: "https://www.tigerdata.com/docs/integrations/latest/prometheus"
   },
   {
     from: "/use-timescale/latest/migrate-data/",

@@ -90,5 +90,5 @@ SELECT enable_chunk_skipping('conditions', 'device_id');
 |`enabled`|BOOLEAN|Returns `true` when tracking is enabled, `if_not_exists` is `true`, and when a new entry is not added|
 
 [api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
-[compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
+[compress_chunk]: /api/:currentVersion:/compression/compress_chunk
 [drop-column]: https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-DESC-DROP-COLUMN
