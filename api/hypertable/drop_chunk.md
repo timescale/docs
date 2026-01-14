@@ -4,7 +4,7 @@ excerpt: Drop a single chunk
 topics: [hypertables, data retention]
 keywords: [chunks, hypertables, drop, delete]
 api:
-  license: apache
+  license: community
   type: function
 products: [cloud, mst, self_hosted]
 ---
