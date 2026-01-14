@@ -14,8 +14,8 @@ hyperfunction:
   type: function
 api_details:
   summary: |
-    Downsample your data with the [Largest Triangle Three Buckets algorithm][largest-triangle-three-buckets-algorithm], while preserving gaps in the underlying data.
-    This method is a specialization of the [LTTB][lttb] algorithm.
+    Downsample your data with the [Largest Triangle Three Buckets algorithm](https://github.com/sveinn-steinarsson/flot-downsample), while preserving gaps in the underlying data.
+    This method is a specialization of the [LTTB](/api/:currentVersion:/hyperfunctions/downsampling/#lttb) algorithm.
   signatures:
     - language: sql
       code: |
@@ -46,7 +46,7 @@ api_details:
         description: >
           An object representing a series of values occurring at set intervals from a starting time.
           It can be unpacked with `unnest`.
-          For more information, see the documentation on [timevectors][timevectors].
+          For more information, see the documentation on [timevectors](/use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#timevectors).
   examples:
     - description: >
         This example uses a table with raw data generated as a sine wave, and removes a day from the middle of the data.
