@@ -4,7 +4,7 @@ excerpt: Create a chunk with specified dimensional constraints
 topics: [hypertables]
 keywords: [chunks, hypertables, create]
 api:
-  license: apache
+  license: community
   type: function
 products: [cloud, mst, self_hosted]
 ---
