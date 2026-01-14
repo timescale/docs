@@ -1,7 +1,7 @@
 
 import SupportMatrix from "versionContent/_partials/_migrate_self_postgres_timescaledb_compatibility.mdx";
 
-Best practice is to always use the latest version of TimescaleDB. Subscribe to our releases on GitHub or use $CLOUD_LONG 
+Best practice is to always use the latest version of $TIMESCALE_DB. Subscribe to our releases on GitHub or use $CLOUD_LONG 
 and always run the latest update without any hassle. 
 
 Check the following support matrix against the versions of $TIMESCALE_DB and $PG that you are running currently
@@ -16,7 +16,7 @@ Older $TIMESCALE_DB versions may not be available in package repositories. If yo
 version that is no longer packaged, you can [build from source][build-from-source] or upgrade directly
 to the latest version that supports your current $PG version before upgrading $PG.
 
-You may need to [upgrade to the latest $PG version][upgrade-pg] before you upgrade TimescaleDB. Also,
+You may need to upgrade to the latest $PG version before you upgrade $TIMESCALE_DB. Also,
 if you use [$TOOLKIT_LONG][install-toolkit], ensure the `timescaledb_toolkit` extension is >=  
 v1.6.0 before you upgrade $TIMESCALE_DB extension.
 
