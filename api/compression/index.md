@@ -67,5 +67,5 @@ You can also use advanced insert statements like `ON CONFLICT` and `RETURNING`.
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [blog-post]: https://www.tigerdata.com/blog/building-columnar-compression-in-a-row-oriented-database
-[compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
+[compress_chunk]: /api/:currentVersion:/compression/compress_chunk
 [compression]: /use-timescale/:currentVersion:/compression/
