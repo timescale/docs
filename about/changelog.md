@@ -9,6 +9,39 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## pg_textsearch improvements (v0.3.0 and v0.4.0)
+<Label type="date">January 16, 2026</Label>
+
+Tiger Cloud now includes significant improvements to `pg_textsearch`, bringing major gains in query performance, index size, and scalability as we move toward GA.
+
+**What’s new:**
+- **Block MAX-WAND ranked search (v0.3.0):**  
+  Introduces the Block MAX-WAND algorithm for ranked keyword search, delivering substantial performance improvements. Query performance is now competitive with the fastest Postgres-based search solutions, including ParadeDB.
+- **Posting-list compression (v0.4.0):**  
+  Reduces index sizes by **40%+**, making `pg_textsearch` indexes smaller than ParadeDB in many cases.
+- **Improved partition handling (v0.4.0):**  
+  Fixes and stability improvements for indexes on tables with large numbers of partitions.
+
+Additional optimizations, including block compression and parallel indexing, are in progress as `pg_textsearch` continues its sprint toward GA.
+
+**Learn more:**
+- [pg_textsearch v0.3.0 release notes](https://github.com/timescale/pg_textsearch/releases/tag/v0.3.0)  
+- [pg_textsearch v0.4.0 release notes](https://github.com/timescale/pg_textsearch/releases/tag/v0.4.0)
+
+## Postgres 18 support
+<Label type="date">January 13, 2026</Label>
+
+Tiger Cloud now supports **Postgres 18**. All new services are created with Postgres 18 by default, and existing services will be able to upgrade to Postgres 18 over the next few weeks.
+
+**Postgres 18 highlights include:**
+- **Asynchronous I/O (AIO), including `io_uring` on Linux**, for significantly faster read-heavy workloads
+- **Faster, less disruptive major upgrades**, including improved `pg_upgrade` and the ability to **preserve planner statistics** across upgrades
+- **Virtual generated columns** (now the default for generated columns) and the **`uuidv7()`** function for better UUID indexing behavior
+- **Query performance improvements**, including expanded index usage (e.g., skip-scan on multicolumn B-tree indexes) and **parallel GIN index builds**
+- **Security and operability enhancements**, including **OAuth 2.0 authentication support** and **page checksums enabled by default for new clusters**
+
+For more details about Postgres 18, check the [official announcement](https://www.postgresql.org/about/news/postgresql-18-released-3142/)
+
 ## 🧱 Terraform Support for S3 Source Connectors and pg_textsearch update
 <Label type="date">January 09, 2026</Label>
 
