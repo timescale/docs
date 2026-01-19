@@ -18,7 +18,7 @@ Tiger Cloud now includes significant improvements to `pg_textsearch`, bringing m
 - **Block MAX-WAND ranked search (v0.3.0):**  
   Introduces the Block MAX-WAND algorithm for ranked keyword search, delivering substantial performance improvements. Query performance is now competitive with the fastest Postgres-based search solutions, including ParadeDB.
 - **Posting-list compression (v0.4.0):**  
-  Reduces index sizes by **40% and more**, making `pg_textsearch` indexes smaller than ParadeDB in many cases.
+  Reduces index sizes by **40% or more**, making `pg_textsearch` indexes smaller than ParadeDB in many cases.
 - **Improved partition handling (v0.4.0):**  
   Fixes and stability improvements for indexes on tables with large numbers of partitions.
 
