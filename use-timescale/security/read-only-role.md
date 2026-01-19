@@ -32,6 +32,12 @@ You can create a read-only user to provide limited access to your database.
     CREATE ROLE readaccess;
     ```
 
+1.  Grant usage on the schema to allow access to objects within it:
+
+    ```sql
+    GRANT USAGE ON SCHEMA <SCHEMA_NAME> TO readaccess;
+    ```
+
 1.  Grant the appropriate permissions for the role, as required. For example, to
     grant `SELECT` permissions to a specific table, use:
 
