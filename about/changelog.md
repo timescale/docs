@@ -18,7 +18,7 @@ Tiger Cloud now includes significant improvements to `pg_textsearch`, bringing m
 - **Block MAX-WAND ranked search (v0.3.0):**  
   Introduces the Block MAX-WAND algorithm for ranked keyword search, delivering substantial performance improvements. Query performance is now competitive with the fastest Postgres-based search solutions, including ParadeDB.
 - **Posting-list compression (v0.4.0):**  
-  Reduces index sizes by **40%+**, making `pg_textsearch` indexes smaller than ParadeDB in many cases.
+  Reduces index sizes by **40% and more**, making `pg_textsearch` indexes smaller than ParadeDB in many cases.
 - **Improved partition handling (v0.4.0):**  
   Fixes and stability improvements for indexes on tables with large numbers of partitions.
 
@@ -37,7 +37,7 @@ Tiger Cloud now supports **Postgres 18**. All new services are created with Post
 - **Asynchronous I/O (AIO), including `io_uring` on Linux**, for significantly faster read-heavy workloads
 - **Faster, less disruptive major upgrades**, including improved `pg_upgrade` and the ability to **preserve planner statistics** across upgrades
 - **Virtual generated columns** (now the default for generated columns) and the **`uuidv7()`** function for better UUID indexing behavior
-- **Query performance improvements**, including expanded index usage (e.g., skip-scan on multicolumn B-tree indexes) and **parallel GIN index builds**
+- **Query performance improvements**, including expanded index usage (for example, skip-scan on multicolumn B-tree indexes) and **parallel GIN index builds**
 - **Security and operability enhancements**, including **OAuth 2.0 authentication support** and **page checksums enabled by default for new clusters**
 
 For more details about Postgres 18, check the [official announcement](https://www.postgresql.org/about/news/postgresql-18-released-3142/)
