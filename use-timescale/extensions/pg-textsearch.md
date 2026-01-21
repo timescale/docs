@@ -17,7 +17,7 @@ $PG full-text search at scale consistently hits a wall where performance degrade
 $COMPANY's [pg_textsearch][pg_textsearch-github-repo] brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
 with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and
 provides better search quality and performance than the $PG built-in full-text search. With Block-Max WAND optimization,
-`pg_textsearch` delivers up to **4x faster top-k queries** compared to naive BM25 implementations. Advanced compression
+`pg_textsearch` delivers up to **4x faster top-k queries** compared to native BM25 implementations. Advanced compression
 using delta encoding and bitpacking reduces index sizes by **41%** while improving query performance by 10-20% for
 shorter queries.
 
