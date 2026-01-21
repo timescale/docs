@@ -63,7 +63,7 @@ api_details:
         for interpolation.
 
         If you prefer to see the result in seconds,
-        [`EXTRACT`][extract]
+        [`EXTRACT`](https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT)
         the epoch from the returned result.
       command:
         code: |
