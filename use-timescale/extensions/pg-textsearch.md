@@ -77,7 +77,7 @@ You have installed `pg_textsearch` on $CLOUD_LONG.
 
 ## Create BM25 indexes on your data
 
-BM25 indexes provide modern relevance ranking that outperforms $PG's built-in ts_rank functions by using corpus 
+BM25 indexes provide modern relevance ranking that outperforms $PG's built-in ts_rank functions by using corpus
 statistics and better algorithmic design.
 
 To create a BM25 index with pg_textsearch:
@@ -113,22 +113,65 @@ To create a BM25 index with pg_textsearch:
    WITH (text_config='english');
    ```
 
-   BM25 supports single-column indexes only. 
+   BM25 supports single-column indexes only. For optimal performance, load your data first, then create the index.
 
 </Procedure>
 
 You have created a BM25 index for full-text search.
 
+## Accelerate indexing with parallel builds
+
+`pg_textsearch` supports parallel index builds for faster indexing of large tables. $PG automatically uses parallel workers
+based on table size and the `max_parallel_maintenance_workers` configuration.
+
+<Procedure>
+
+1. **Configure parallel workers (optional)**
+
+   ```sql
+   -- Set parallel workers (uses server defaults if not specified)
+   SET max_parallel_maintenance_workers = 4;
+   ```
+
+1. **Create index on a large table**
+
+   ```sql
+   -- Parallel workers are used automatically for large tables
+   CREATE INDEX products_search_idx ON products
+   USING bm25(description)
+   WITH (text_config='english');
+   ```
+
+   You see a notice when parallel build is used:
+
+   ```
+   NOTICE:  Using parallel index build with 4 workers (1000000 tuples)
+   ```
+
+</Procedure>
+
+For partitioned tables, each partition builds its index independently with parallel workers if the partition is large
+enough. This enables efficient indexing of very large partitioned datasets.
+
 ## Optimize search queries for performance
 
-Use efficient query patterns to leverage BM25 ranking and optimize search performance. The `<@>` operator with `to_bm25query()`
-provides BM25-based ranking scores. The function takes two parameters: the search query text and the index name.
+Use efficient query patterns to leverage BM25 ranking and optimize search performance. The `<@>` operator provides
+BM25-based ranking scores as negative values, where lower (more negative) scores indicate better matches. In `ORDER BY`
+clauses, the index is automatically detected from the column. For `WHERE` clause filtering, use `to_bm25query()` with
+an explicit index name.
 
 <Procedure>
 
 1. **Perform ranked searches using the distance operator**
 
    ```sql
+   -- Simplified syntax: index is automatically detected in ORDER BY
+   SELECT name, description, description <@> 'ergonomic work' as score
+   FROM products
+   ORDER BY score
+   LIMIT 3;
+
+   -- Alternative explicit syntax (works in all contexts)
    SELECT name, description, description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
    FROM products
    ORDER BY score
@@ -146,6 +189,8 @@ provides BM25-based ranking scores. The function takes two parameters: the searc
    ```
 
 1. **Filter results by score threshold**
+
+   For filtering with WHERE clauses, use explicit index specification with `to_bm25query()`:
 
    ```sql
    SELECT name, description <@> to_bm25query('wireless', 'products_search_idx') as score
@@ -347,8 +392,8 @@ Customize `pg_textsearch` behavior for your specific use case and data character
    threshold, it automatically flushes to a segment at transaction commit.
 
    ```sql
-   -- Set memtable spill threshold (default 800000 posting entries, ~8MB segments)
-   SET pg_textsearch.memtable_spill_threshold = 1000000;
+   -- Set memtable spill threshold (default 32000000 posting entries, ~1M docs/segment)
+   SET pg_textsearch.memtable_spill_threshold = 32000000;
 
    -- Set bulk load spill threshold (default 100000 terms per transaction)
    SET pg_textsearch.bulk_load_threshold = 150000;
@@ -405,9 +450,24 @@ Customize `pg_textsearch` behavior for your specific use case and data character
           WHERE indexrelid::regclass::text ~ 'bm25';
           ```
 
-      - View detailed index information
+      - View index summary with corpus statistics and memory usage
+          ```sql
+          SELECT bm25_summarize_index('products_search_idx');
+          ```
+
+      - View detailed index structure (output is truncated for display)
           ```sql
           SELECT bm25_dump_index('products_search_idx');
+          ```
+
+      - Export full index dump to a file for detailed analysis
+          ```sql
+          SELECT bm25_dump_index('products_search_idx', '/tmp/index_dump.txt');
+          ```
+
+      - Force memtable spill to disk (useful for testing or memory management)
+          ```sql
+          SELECT bm25_spill_index('products_search_idx');
           ```
 
 </Procedure>
