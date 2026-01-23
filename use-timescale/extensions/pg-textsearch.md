@@ -119,40 +119,6 @@ To create a BM25 index with pg_textsearch:
 
 You have created a BM25 index for full-text search.
 
-## Accelerate indexing with parallel builds
-
-`pg_textsearch` supports parallel index builds for faster indexing of large tables. $PG automatically uses parallel workers
-based on table size and the `max_parallel_maintenance_workers` configuration.
-
-<Procedure>
-
-1. **Configure parallel workers (optional)**
-
-   ```sql
-   -- Set parallel workers (uses server defaults if not specified)
-   SET max_parallel_maintenance_workers = 4;
-   ```
-
-1. **Create index on a large table**
-
-   ```sql
-   -- Parallel workers are used automatically for large tables
-   CREATE INDEX products_search_idx ON products
-   USING bm25(description)
-   WITH (text_config='english');
-   ```
-
-   You see a notice when parallel build is used:
-
-   ```
-   NOTICE:  Using parallel index build with 4 workers (1000000 tuples)
-   ```
-
-</Procedure>
-
-For partitioned tables, each partition builds its index independently with parallel workers if the partition is large
-enough. This enables efficient indexing of very large partitioned datasets.
-
 ## Optimize search queries for performance
 
 Use efficient query patterns to leverage BM25 ranking and optimize search performance. The `<@>` operator provides
