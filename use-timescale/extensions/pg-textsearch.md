@@ -8,14 +8,18 @@ products: [cloud, self_hosted]
 
 import EA1125 from "versionContent/_partials/_early_access_11_25.mdx";
 import SINCE010 from "versionContent/_partials/_since_0_1_0.mdx";
+import SINCE040 from "versionContent/_partials/_since_0_4_0.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Optimize full text search with BM25 
 
-$PG full-text search at scale consistently hits a wall where performance degrades catastrophically. 
+$PG full-text search at scale consistently hits a wall where performance degrades catastrophically.
 $COMPANY's [pg_textsearch][pg_textsearch-github-repo] brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
-with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and 
-provides better search quality and performance than the $PG built-in full-text search.
+with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and
+provides better search quality and performance than the $PG built-in full-text search. With Block-Max WAND optimization,
+`pg_textsearch` delivers up to **4x faster top-k queries** compared to native BM25 implementations. Advanced compression
+using delta encoding and bitpacking reduces index sizes by **41%** while improving query performance by 10-20% for
+shorter queries.
 
 BM25 scores in `pg_textsearch` are returned as negative values, where lower (more negative) numbers indicate better 
 matches. `pg_textsearch` implements the following:
@@ -73,7 +77,7 @@ You have installed `pg_textsearch` on $CLOUD_LONG.
 
 ## Create BM25 indexes on your data
 
-BM25 indexes provide modern relevance ranking that outperforms $PG's built-in ts_rank functions by using corpus 
+BM25 indexes provide modern relevance ranking that outperforms $PG's built-in ts_rank functions by using corpus
 statistics and better algorithmic design.
 
 To create a BM25 index with pg_textsearch:
@@ -109,7 +113,7 @@ To create a BM25 index with pg_textsearch:
    WITH (text_config='english');
    ```
 
-   BM25 supports single-column indexes only. 
+   BM25 supports single-column indexes only. For optimal performance, load your data first, then create the index.
 
 </Procedure>
 
@@ -117,13 +121,23 @@ You have created a BM25 index for full-text search.
 
 ## Optimize search queries for performance
 
-Use efficient query patterns to leverage BM25 ranking and optimize search performance.
+Use efficient query patterns to leverage BM25 ranking and optimize search performance. The `<@>` operator provides
+BM25-based ranking scores as negative values, where lower (more negative) scores indicate better matches. In `ORDER BY`
+clauses, the index is automatically detected from the column. For `WHERE` clause filtering, use `to_bm25query()` with
+an explicit index name.
 
 <Procedure>
 
 1. **Perform ranked searches using the distance operator**
 
    ```sql
+   -- Simplified syntax: index is automatically detected in ORDER BY
+   SELECT name, description, description <@> 'ergonomic work' as score
+   FROM products
+   ORDER BY score
+   LIMIT 3;
+
+   -- Alternative explicit syntax (works in all contexts)
    SELECT name, description, description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
    FROM products
    ORDER BY score
@@ -141,6 +155,8 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
    ```
 
 1. **Filter results by score threshold**
+
+   For filtering with WHERE clauses, use explicit index specification with `to_bm25query()`:
 
    ```sql
    SELECT name, description <@> to_bm25query('wireless', 'products_search_idx') as score
@@ -163,7 +179,7 @@ Use efficient query patterns to leverage BM25 ranking and optimize search perfor
    FROM products
    WHERE price < 500
      AND description <@> to_bm25query('ergonomic', 'products_search_idx') < -0.5
-   ORDER BY description <@> to_bm25query('ergonomic', 'products_search_idx')
+   ORDER BY score
    LIMIT 5;
    ```
 
@@ -342,16 +358,29 @@ Customize `pg_textsearch` behavior for your specific use case and data character
    threshold, it automatically flushes to a segment at transaction commit.
 
    ```sql
-   -- Set memtable spill threshold (default 800000 posting entries, ~8MB segments)
-   SET pg_textsearch.memtable_spill_threshold = 1000000;
+   -- Set memtable spill threshold (default 32000000 posting entries, ~1M docs/segment)
+   SET pg_textsearch.memtable_spill_threshold = 32000000;
 
    -- Set bulk load spill threshold (default 100000 terms per transaction)
    SET pg_textsearch.bulk_load_threshold = 150000;
 
    -- Set default query limit when no LIMIT clause is present (default 1000)
    SET pg_textsearch.default_limit = 5000;
+
+   -- Enable Block-Max WAND optimization for faster top-k queries (enabled by default)
+   SET pg_textsearch.enable_bmw = true;
+
+   -- Log block skip statistics for debugging query performance (disabled by default)
+   SET pg_textsearch.log_bmw_stats = false;
    ```
    <SINCE010 />
+
+   ```sql
+   -- Enable segment compression using delta encoding and bitpacking (enabled by default)
+   -- Reduces index size by ~41% with 10-20% query performance improvement for shorter queries
+   SET pg_textsearch.compress_segments = on;
+   ```
+   <SINCE040 />
 
 1. **Configure language-specific text processing**
 
@@ -387,9 +416,24 @@ Customize `pg_textsearch` behavior for your specific use case and data character
           WHERE indexrelid::regclass::text ~ 'bm25';
           ```
 
-      - View detailed index information
+      - View index summary with corpus statistics and memory usage
+          ```sql
+          SELECT bm25_summarize_index('products_search_idx');
+          ```
+
+      - View detailed index structure (output is truncated for display)
           ```sql
           SELECT bm25_dump_index('products_search_idx');
+          ```
+
+      - Export full index dump to a file for detailed analysis
+          ```sql
+          SELECT bm25_dump_index('products_search_idx', '/tmp/index_dump.txt');
+          ```
+
+      - Force memtable spill to disk (useful for testing or memory management)
+          ```sql
+          SELECT bm25_spill_index('products_search_idx');
           ```
 
 </Procedure>
