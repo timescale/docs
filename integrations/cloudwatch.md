@@ -9,7 +9,7 @@ keywords: [integrate]
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter-aws.mdx";
 
 # Integrate Amazon CloudWatch with $CLOUD_LONG
 
@@ -33,6 +33,10 @@ A $CLOUD_LONG data exporter sends telemetry data from a $SERVICE_LONG to a third
 tool. You create an exporter on the [project level][projects], in the same AWS region as your $SERVICE_SHORT:
 
 <CloudWatchExporter />
+
+## Manage a data exporter
+
+This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 <ManageDataExporter />
 

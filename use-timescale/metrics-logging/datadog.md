@@ -9,7 +9,7 @@ tags: [telemetry, monitor]
 
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter-aws.mdx";
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Export telemetry data to Datadog
