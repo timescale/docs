@@ -1,11 +1,13 @@
 ---
 title: "DevOps as code with Tiger"
-excerpt: "Configure secure authentication and manage the resources in your Tiger project using REST, the cli or MCP."
+excerpt: "Configure secure authentication and manage the resources in your Tiger project using the Tiger CLI, REST API, or MCP."
 keywords:
   - authentication
   - service creation
   - API setup
   - security
+  - cli
+  - tiger cli
 tags:
   - setup
   - security
