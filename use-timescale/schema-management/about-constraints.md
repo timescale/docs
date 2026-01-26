@@ -38,8 +38,6 @@ CREATE TABLE conditions (
 );
 ```
 
-<CreateHypertablePolicyNote />
-
 This example also references values in another `locations` table using a foreign
 key constraint.
 
@@ -50,7 +48,6 @@ Time columns used for partitioning must not allow `NULL` values. A
 
 </Highlight>
 
-For more information on how to manage constraints, see the
-[$PG docs][postgres-createconstraint].
+For more information on how to manage constraints, see the [$PG docs][postgres-createconstraint].
 
 [postgres-createconstraint]: https://www.postgresql.org/docs/current/ddl-constraints.html
