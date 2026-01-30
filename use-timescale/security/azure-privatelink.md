@@ -10,22 +10,20 @@ cloud_ui:
         - [services, :serviceId, operations, azure-privatelink]
 ---
 
+import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
+
 # Secure your $CLOUD_LONG services with Azure Private Link
 
-Azure Private Link creates a private connection between your Azure Virtual Network and $CLOUD_LONG services, eliminating exposure to the public internet. Applications in your Azure VNet connect to a Private Endpoint with a private IP address, which links to a $CLOUD_LONG Private Link Service in a specific Azure region. Once bound to your $SERVICE_LONG, the database becomes accessible only through the Private Endpoint, providing enhanced security, reduced attack surface, and compliance with data isolation requirements.
-
-The setup involves authorizing your Azure subscription with $CLOUD_LONG, creating a Private Endpoint in your Azure VNet using a region-specific Private Link Service alias, and binding the endpoint to your $SERVICE_LONG. A single subscription authorization grants access to Private Link Services in all Azure regions, and you can create multiple Private Endpoints to the same region.
+Azure Private Link creates a private connection between your Azure Virtual Network and $CLOUD_LONG services, eliminating exposure to the public internet. Applications in your Azure VNet connect to a Private Endpoint with a private IP address, which links to $CLOUD_LONG. Once connected, your $SERVICE_SHORTs become accessible only through the Private Endpoint, providing enhanced security, reduced attack surface, and compliance with data isolation requirements.
 
 ![Azure Private Link architecture][azure-privatelink-architecture]
 
 ## Prerequisites
 
-To set up Azure Private Link, you need:
+<IntegrationPrereqsCloud />
 
-* An Azure subscription with appropriate permissions to create Private Endpoints and query network resources
-* An existing Azure Virtual Network and subnet with private endpoint network policies disabled
-* A $SERVICE_LONG in $CLOUD_LONG
-* Azure CLI installed, or access to Azure Cloud Shell
+* Get an Azure subscription with permissions to create Private Endpoints and query network resources
+* Create an Azure Virtual Network with a subnet with private endpoint network policies disabled
 
 ## Set up Azure Private Link connection
 
@@ -33,17 +31,15 @@ To set up Azure Private Link, you need:
 
 1. **Get your Azure subscription ID**
 
-   ```bash
-   az account show --query id -o tsv
-   ```
+    In Azure Portal, search for `Subscriptions` and copy the ID of the subscription you are going to use. 
 
-2. **In [$CONSOLE > Security > Azure Private Link][console-azure-privatelink], click `Authorize Subscription`**
+1. **In [$CONSOLE > `Security` > `Private Link`][console-azure-privatelink], click `Authorize Subscription`**
 
-3. **Enter your Azure subscription ID and click `Authorize`**
+1. **Enter your Azure subscription ID and click `Authorize`**
 
    $CLOUD_LONG adds your subscription to the visibility list for all Azure region Private Link Services.
 
-4. **Note the Private Link Service alias for your chosen region**
+1. **Note the Private Link Service alias for your chosen region**
 
    $CONSOLE displays the aliases you'll need to create Private Endpoints. These look like:
 
@@ -53,7 +49,7 @@ To set up Azure Private Link, you need:
 
    Choose the alias for the region closest to your Azure resources for optimal performance.
 
-5. **Create the Private Endpoint using the alias from the previous step**
+1. **Create the Private Endpoint using the alias from the previous step**
 
    Replace `<PRIVATE_LINK_SERVICE_ALIAS>` with the alias for your chosen region:
 
