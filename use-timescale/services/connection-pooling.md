@@ -37,8 +37,6 @@ you might need to add custom configurations for some cases such as
 
 <Procedure>
 
-### Creating a new user with custom settings
-
 1.  Connect to your $SERVICE_SHORT as the `tsdbadmin` user, and create a new role named
     `<MY_APP>` with the password as `<PASSWORD>`:
 
@@ -148,17 +146,17 @@ request a connection from the session pool or the transaction pool. The
 connection pooler will then allocate the connection if there is one free.
 
 The number of client connections allowed to each pool is proportional to the
-`max_connections` parameter set for the $SERVICE_SHORT. The session pool can have a 
-maximum of `max_connections - 17` client connections, while the transaction 
-pool can have a maximum of `(max_connections - 17) * 20` client connections. 
+`max_connections` parameter set for the $SERVICE_SHORT. The session pool can have a
+maximum of `max_connections - 17` client connections, while the transaction
+pool can have a maximum of `(max_connections - 17) * 20` client connections.
 
-Of the 17 reserved connections that are not allocated to either pool, 12 are 
-reserved for the database superuser by default, and another 5 for $CLOUD_LONG operations. 
+Of the 17 reserved connections that are not allocated to either pool, 12 are
+reserved for the database superuser by default, and another 5 for $CLOUD_LONG operations.
 
-For example, if `max_connections` is set to 500, the maximum number of client 
-connections for your session pool is `483 (500 - 17)` and `9,660 (483 * 20)` for 
-your transaction pool. The default value of `max_connections` varies depending 
-on your $SERVICE_SHORT's compute size.
+For example, if `max_connections` is set to 500, the maximum number of client
+connections for your session pool is `483 (500 - 17)` and `9,660 (483 * 20)` for
+your transaction pool. The configurable range of `max_connections` depends 
+on your $SERVICE_SHORT's compute size. See [Min and max connection ranges][max-connections].
 
 ## Add a connection pooler
 
@@ -199,7 +197,7 @@ same connection string and port that was used before.
 
 </Procedure>
 
-### pgBouncer statistics commands
+## pgBouncer statistics commands
 
 <Procedure>
 
@@ -210,12 +208,25 @@ same connection string and port that was used before.
 
 </Procedure>
 
-### VPC and connection pooling
+## VPC and connection pooling
 
 VPCs are supported with connection pooling. It does not matter the order you 
 add the pooler or connect to a VPC. Your connection strings will automatically 
 be updated to use the VPC connection string.
 
+## Min and max connection ranges 
+
+You can set `max_connections` within the following ranges, based on your $SERVICE_SHORT memory and CPU configuration:
+
+| Configuration                          | Minimum | Maximum |
+|----------------------------------------|---------|---------|
+| Shared memory and CPU                  | 25      | 25      |
+| From 0.5 CPU / 2 GiB to 4 CPU / 16 GiB | 25      | 500     |
+| 8 CPU / 32 GiB and more                | 25      | 2000    |
+
+`max_connections` of the primary $SERVICE_SHORT cannot be higher than its replica's. 
+
 [about-connection-pooling-types]: /use-timescale/:currentVersion:/services/connection-pooling#pool-types
 [cloud-login]: https://console.cloud.timescale.com
+[max-connections]: /use-timescale/:currentVersion:/services/connection-pooling#min-and-max-connection-ranges
 [pgbouncer]: https://www.pgbouncer.org/usage.html
