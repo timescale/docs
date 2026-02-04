@@ -195,7 +195,6 @@ $SERVICE_LONG in real time.
 [edit-s3-connector]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-pause.png
 [get-project-id]: /integrations/:currentVersion:/find-connection-details/#find-your-project-and-service-id
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
 [lex-order]: https://en.wikipedia.org/wiki/Lexicographic_order
 [s3-connector-change-config]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-edit.png
 [s3-connector-stats]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-details.png
