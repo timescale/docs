@@ -36,9 +36,6 @@ The $S3_CONNECTOR continuously imports data from an Amazon S3 bucket into your d
 
 **Note**: the connector currently only syncs existing and new files—it does not support updating or deleting records based on updates and deletes from S3 to tables in a $SERVICE_LONG.
 
-The $S3_CONNECTOR is **Generally Available** and production ready. If you have any questions or feedback, join us in
-the [$COMPANY community][join-livesync-on-slack].
-
 ## Prerequisites
 
 <PrereqCloud />
