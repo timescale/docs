@@ -9,6 +9,7 @@ products: [cloud, self_hosted]
 import EA1125 from "versionContent/_partials/_early_access_11_25.mdx";
 import SINCE010 from "versionContent/_partials/_since_0_1_0.mdx";
 import SINCE040 from "versionContent/_partials/_since_0_4_0.mdx";
+import SINCE050 from "versionContent/_partials/_since_0_5_0.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Optimize full text search with BM25 
@@ -17,9 +18,9 @@ $PG full-text search at scale consistently hits a wall where performance degrade
 $COMPANY's [pg_textsearch][pg_textsearch-github-repo] brings modern [BM25][bm25-wiki]-based full-text search directly into $PG,
 with a memtable architecture for efficient indexing and ranking. `pg_textsearch` integrates seamlessly with SQL and
 provides better search quality and performance than the $PG built-in full-text search. With Block-Max WAND optimization,
-`pg_textsearch` delivers up to **4x faster top-k queries** compared to native BM25 implementations. Advanced compression
-using delta encoding and bitpacking reduces index sizes by **41%** while improving query performance by 10-20% for
-shorter queries.
+`pg_textsearch` delivers up to **4x faster top-k queries** compared to native BM25 implementations. Parallel index builds
+reduce indexing times by **4x or more** for large tables. Advanced compression using delta encoding and bitpacking reduces
+index sizes by **41%** while improving query performance by 10-20% for shorter queries.
 
 BM25 scores in `pg_textsearch` are returned as negative values, where lower (more negative) numbers indicate better 
 matches. `pg_textsearch` implements the following:
@@ -30,8 +31,9 @@ matches. `pg_textsearch` implements the following:
 * **Relative ranking**: focuses on rank order rather than absolute score values
 
 This page shows you how to install `pg_textsearch`, configure BM25 indexes, and optimize your search capabilities using
-the following best practice: 
+the following best practices:
 
+* **Parallel indexing**: enable parallel workers for faster index creation on large tables
 * **Language configuration**: choose appropriate text search configurations for your data language
 * **Hybrid search**: combine with pgvector or pgvectorscale for applications requiring both semantic and keyword search
 * **Query optimization**: use score thresholds to filter low-relevance results
@@ -80,7 +82,7 @@ You have installed `pg_textsearch` on $CLOUD_LONG.
 BM25 indexes provide modern relevance ranking that outperforms $PG's built-in ts_rank functions by using corpus
 statistics and better algorithmic design.
 
-To create a BM25 index with pg_textsearch:
+To create a BM25 index with `pg_textsearch`:
 
 <Procedure>
 
@@ -118,6 +120,53 @@ To create a BM25 index with pg_textsearch:
 </Procedure>
 
 You have created a BM25 index for full-text search.
+
+## Enable parallel indexing for faster index creation
+
+`pg_textsearch` supports parallel index builds that can significantly reduce indexing times for large tables.
+$PG automatically uses parallel workers based on table size and available resources.
+
+<Procedure>
+
+1. **Configure parallel workers (optional)**
+
+   $PG uses server defaults, but you can adjust settings for your workload:
+
+   ```sql
+   -- Set number of parallel workers (uses CPU count by default)
+   SET max_parallel_maintenance_workers = 4;
+
+   -- Set memory for index builds (must be at least 64MB for parallel builds)
+   SET maintenance_work_mem = '256MB';
+   ```
+
+   **Note**: The planner requires `maintenance_work_mem >= 64MB` to enable parallel index builds. With insufficient
+   memory, builds fall back to serial mode silently.
+
+1. **Create index (parallel workers used automatically for large tables)**
+
+   ```sql
+   CREATE INDEX products_search_idx ON products
+   USING bm25(description)
+   WITH (text_config='english');
+   ```
+
+   When parallel build is used, you see a notice:
+
+   ```
+   NOTICE:  parallel index build: launched 4 of 4 requested workers
+   ```
+
+1. **Verify parallel execution in partitioned tables**
+
+   For partitioned tables, each partition builds its index independently with parallel workers if the partition is
+   large enough. This allows efficient indexing of very large partitioned datasets.
+
+</Procedure>
+
+<SINCE050 />
+
+You have configured parallel index builds for faster indexing.
 
 ## Optimize search queries for performance
 
@@ -438,12 +487,12 @@ Customize `pg_textsearch` behavior for your specific use case and data character
 
 </Procedure>
 
-You have configured `pg_textsearch` for optimal performance. For production applications, consider implementing result 
+You have configured `pg_textsearch` for optimal performance. For production applications, consider implementing result
 caching and pagination to improve user experience with large result sets.
 
 ## Current limitations
 
-This preview release focuses on core BM25 functionality. In this release, you cannot search for exact multi-word phrases.
+The preview releases focus on core BM25 functionality. You cannot search for exact multi-word phrases yet.
 
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
