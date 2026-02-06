@@ -90,9 +90,7 @@ You change from enhanced storage to standard in the same way. If you are using o
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
-You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually. 
-
-<NotSupportedAzure />
+You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually.
 
 ### Enable tiered storage
 
