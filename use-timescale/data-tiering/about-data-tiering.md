@@ -20,7 +20,7 @@ The tiered storage architecture in $CLOUD_LONG includes a high-performance stora
 
 ## High-performance storage 
 
-High-performance storage is where your data is stored by default, until you [enable tiered storage][low-cost-storage] and [move older data to the low-cost tier][creating-data-tiering-policy]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] enables you to compress the data in the high-performance storage by up to 98%, while improving performance. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
+High-performance storage is where your data is stored by default, until you [enable tiered storage][low-cost-storage] and [move older data to the low-cost tier][creating-data-tiering-policy]. In the high-performance storage, your data is stored on a block device that is optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] enables you to compress the data in the high-performance storage by up to 98%, while improving performance. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is durable and available, and your queries run as quickly as they can. 
 
 $CLOUD_LONG high-performance storage comes in the following types: 
 
