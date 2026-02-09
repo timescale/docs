@@ -12,7 +12,6 @@ import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-
 import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
-import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 import SupportPlans from "versionContent/_partials/_support-plans.mdx";
 
 # Try the key features in $COMPANY products
@@ -302,8 +301,6 @@ a $CAGG, run the query part of the $CAGG
 ## Slash storage charges 
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
-
-<NotSupportedAzure />
 
 In the previous sections, you used $CAGGs to make fast analytical queries, and
 $HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
