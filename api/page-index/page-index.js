@@ -357,10 +357,6 @@ module.exports = [
             href: "time_bucket",
           },
           {
-            title: "time_bucket_ng",
-            href: "time_bucket_ng",
-          },
-          {
             title: "days_in_month",
             href: "days_in_month",
           },
