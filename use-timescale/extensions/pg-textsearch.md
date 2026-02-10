@@ -180,13 +180,6 @@ an explicit index name.
 1. **Perform ranked searches using the distance operator**
 
    ```sql
-   -- Simplified syntax: index is automatically detected in ORDER BY
-   SELECT name, description, description <@> 'ergonomic work' as score
-   FROM products
-   ORDER BY score
-   LIMIT 3;
-
-   -- Alternative explicit syntax (works in all contexts)
    SELECT name, description, description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
    FROM products
    ORDER BY score
