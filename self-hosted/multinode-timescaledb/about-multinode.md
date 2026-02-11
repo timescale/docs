@@ -119,7 +119,7 @@ LIMIT 100;
 
 Partitioning on `time` and a space dimension such as `location`, is also best if
 you need faster insert performance. If you partition only on time, and your
-inserts are generally occuring in time order, then you are always writing to one
+inserts are generally occurring in time order, then you are always writing to one
 data node at a time. Partitioning on `time` and `location` means your
 time-ordered inserts are spread across multiple data nodes, which can lead to
 better performance.

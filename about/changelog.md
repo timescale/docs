@@ -9,6 +9,13 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Europe (Zurich) is now available
+<Label type="date">February 11, 2026</Label>
+
+Starting today, you can use Tiger Cloud in the AWS Europe (Zurich) Region. This enables applications to have low-latency access to Tiger Cloud services while meeting data residency requirements.
+
+To create your first service, see [Get started with Tiger Data](https://www.tigerdata.com/docs/getting-started/latest). For a complete list of regional availability, see [available regions](https://www.tigerdata.com/docs/about/latest/supported-platforms#available-regions).
+
 ## pg_textsearch improvements (v0.3.0 and v0.4.0)
 <Label type="date">January 16, 2026</Label>
 
@@ -784,7 +791,7 @@ Finding logs just got easier! We've added a date, time, and timezone picker, so 
 ## 📒Faster vector search and improved job information
 <Label type="date">April 4, 2025</Label>
 
-### pgvectorscale 0.7.0: faster filtered filtered vector search with filtered indexes
+### pgvectorscale 0.7.0: faster filtered vector search with filtered indexes
 
 This pgvectorscale release adds label-based filtered vector search to the StreamingDiskANN index.
 This enables you to return more precise and efficient results by combining vector 
