@@ -319,7 +319,7 @@ To set up data tiering:
 
    1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to modify.
    
-   1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
+   1. In `Explorer`, click `Data tiering` > `Enable tiered storage`.
 
       ![Enable tiered storage][enable-tiered-storage]
 
