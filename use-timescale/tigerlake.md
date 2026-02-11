@@ -163,7 +163,7 @@ To connect a $SERVICE_LONG to your data lake:
       `"Principal": { "AWS": "arn:aws:iam::123456789012:root" }` does not mean `root` access. This delegates 
         permissions to the entire AWS account, not just the root user.
 
-   1. Replace `<ProjectID>` and `<ServiceID>` with the the [connection details][get-project-id] for your $LAKE_LONG 
+   1. Replace `<ProjectID>` and `<ServiceID>` with the [connection details][get-project-id] for your $LAKE_LONG 
          $SERVICE_SHORT, then click `Next`.  
 
    1. In `Permissions policies`. click `Next`.
@@ -228,7 +228,7 @@ destination Iceberg table. This happens at approximately 30.000 events a second.
 can be handled for a certain amount of time and feathered out over time. This depends on duration of the
 ingestion burst, and the amount of extra events to be handled.
 
-Once the snapshot is fully imported, the snapshot and CDC Iceberg table branches are merged. Merging takes from a couple of seconds, to ten minutes for larger tables of 5TB or more. During this time, new events are held on the WAL. Once the merge is completed, events in the WAL are CDC'd to Iceberg. This implies eventual consistency of the Iceberg table after you started the the sync.
+Once the snapshot is fully imported, the snapshot and CDC Iceberg table branches are merged. Merging takes from a couple of seconds, to ten minutes for larger tables of 5TB or more. During this time, new events are held on the WAL. Once the merge is completed, events in the WAL are CDC'd to Iceberg. This implies eventual consistency of the Iceberg table after you started the sync.
 
 To stream data from a $PG relational table, or a $HYPERTABLE in your $SERVICE_LONG to your data lake, run the following 
 statement:
@@ -330,7 +330,7 @@ data lake:
 
 **Specify a different namespace**
 
-   By default, tables are created in the the `timescaledb` namespace. To specify a different namespace when you start the sync, use the  `tigerlake.iceberg_namespace` property. For example:
+   By default, tables are created in the `timescaledb` namespace. To specify a different namespace when you start the sync, use the `tigerlake.iceberg_namespace` property. For example:
    
    ```sql
    ALTER TABLE my_hypertable SET (

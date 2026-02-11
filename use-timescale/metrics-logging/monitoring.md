@@ -22,7 +22,7 @@ When something doesn't look right, $CLOUD_LONG provides a complete investigation
 
 Want to save some time? Check out [**Recommendations**][recommendations] for alerts that may have already flagged the problem!
 
-This pages explains what specific data you get at each point.
+This page explains what specific data you get at each point.
 
 ## Metrics
 

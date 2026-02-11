@@ -66,7 +66,7 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 
 1. **Verify Kafka Connect is running**
 
-    In yet another another Terminal window, run the following command:  
+    In yet another Terminal window, run the following command:  
     ```bash
     curl http://localhost:8083
     ```
