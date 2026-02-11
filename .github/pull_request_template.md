@@ -16,7 +16,7 @@ Issue: #number
 - [ ] - This has deployed to a staging environment correctly
 - [ ] - I have reviewed my changes.
 - [ ] - I have confirmed the content is technically accurate.
-- [ ] - I have confirmed the content is free of typos, or grammar errors.
+- [ ] - I have confirmed the content is free of typos or grammar errors.
 - [ ] - I have reviewed the deployed version of my changes.
 - [ ] - I have tested any code that is added or updated.
 - [ ] - I have verified all images and videos are clear, with appropriate zoom.
