@@ -791,7 +791,7 @@ Finding logs just got easier! We've added a date, time, and timezone picker, so 
 ## 📒Faster vector search and improved job information
 <Label type="date">April 4, 2025</Label>
 
-### pgvectorscale 0.7.0: faster filtered filtered vector search with filtered indexes
+### pgvectorscale 0.7.0: faster filtered vector search with filtered indexes
 
 This pgvectorscale release adds label-based filtered vector search to the StreamingDiskANN index.
 This enables you to return more precise and efficient results by combining vector 

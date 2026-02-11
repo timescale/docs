@@ -11,7 +11,7 @@ import CreateHypertablePolicyNote from "versionContent/_partials/_create-hyperta
 
 Real-time analytics applications require more than fast inserts and analytical queries. They also need high performance
 when retrieving individual records, enforcing constraints, or performing upserts, something that OLAP/columnar databases
-lack. This pages explains how to improve performance by segmenting and ordering data.
+lack. This page explains how to improve performance by segmenting and ordering data.
 
 To improve query performance using indexes, see [About indexes][about-index] and [Indexing data][create-index].
 
