@@ -39,7 +39,7 @@ Use the PostgreSQL ODBC driver to connect Power BI to $CLOUD_LONG.
 
 </Procedure>
 
-## Import the data from your your $SERVICE_LONG into Power BI  
+## Import the data from your $SERVICE_LONG into Power BI  
 
 Establish a connection and import data from your $SERVICE_LONG into Power BI:
 
