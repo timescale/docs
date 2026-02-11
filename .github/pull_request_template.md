@@ -13,7 +13,7 @@ Issue: #number
 ## Checklist before requesting a review
 
 - [ ] - Is this ready for review? If not, raise as a draft PR
-- [ ] - This deployed to a staging environment correctly
+- [ ] - This has deployed to a staging environment correctly
 - [ ] - I have reviewed my changes.
 - [ ] - I have confirmed the content is technically accurate.
 - [ ] - I have confirmed the content is free of typos, or grammar errors.
