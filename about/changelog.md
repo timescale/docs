@@ -9,6 +9,13 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Tiered Storage on Microsoft Azure
+<Label type="date">February 11, 2026</Label>
+
+Tiered Storage is now available for Tiger Cloud services running on Microsoft Azure, bringing cost-effective data management to our Azure customers. This feature enables you to automatically move rarely accessed data to low-cost storage on Azure Blob Storage while maintaining the ability to query it seamlessly with standard SQL. Customers typically see a reduction of 2-5x in storage costs depending on data compression rates.
+
+Azure Tiered Storage works just like the AWS version: enable it in Tiger Console, set tiering policies on your hypertables, and Tiger Cloud handles the rest. With this release, Tiger Cloud Services on Azure offer the same powerful data lifecycle management capabilities as those running on AWS.
+
 ## Europe (Zurich) is now available
 <Label type="date">February 11, 2026</Label>
 
