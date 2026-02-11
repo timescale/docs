@@ -90,9 +90,7 @@ You change from enhanced storage to standard in the same way. If you are using o
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
-You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually. 
-
-<NotSupportedAzure />
+You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually.
 
 ### Enable tiered storage
 
@@ -102,7 +100,7 @@ You enable tiered storage from the `Overview` tab in $CONSOLE.
 
 1. **In [$CONSOLE][services-portal], select the $SERVICE_SHORT to modify**
 
-1. **In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`**
+1. **In `Explorer`, click `Data Tiering` > then click `Enable tiered storage`**
 
    ![Enable tiered storage][enable-tiered-storage]
 
@@ -118,11 +116,11 @@ older than the `move_after` threshold to the object storage tier. This works sim
 
 A tiering policy schedules a job that runs periodically to asynchronously migrate eligible chunks to object storage. Chunks are considered tiered once they appear in the `timescaledb_osm.tiered_chunks` view. 
 
-You can add tiering policies to [hypertables][hypertables-section], including [continuous aggregates][caggs]. To manage tiering policies, [connect to your service][in-console-editors] and run the queries below in the data mode, the SQL editor, or using `psql`.
+You can add tiering policies to [hypertables][hypertables-section], including [continuous aggregates][caggs], via $CONSOLE_SHORT UI or an SQL editor. The following sections explain how to tier data with SQL commands. 
 
 #### Add a tiering policy
 
-To add a tiering policy, call `add_tiering_policy`:
+To add a tiering policy, [connect to your $SERVICE_SHORT][in-console-editors] and call `add_tiering_policy`:
 
 ```sql
 SELECT add_tiering_policy(hypertable REGCLASS, move_after INTERVAL, if_not_exists BOOL = false);

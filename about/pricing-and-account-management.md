@@ -110,7 +110,9 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 ## Charging for HA and read replicas
 
 HA and $READ_REPLICAs are both charged at the same rate as your primary $SERVICE_SHORTs, based on the
-compute and primary storage consumed by your replicas. 
+compute and primary storage consumed by your replicas. Data tiered to our bottomless storage
+tier is shared by all database replicas; replicas accessing tiered storage do not add to your
+bill.
 
 ## Charging over regions
 
