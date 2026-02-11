@@ -10,7 +10,7 @@ products: [cloud]
 All the latest features and updates to $CLOUD_LONG.
 
 ## Europe (Zurich) is now available
-<Label type="date">February 10, 2026</Label>
+<Label type="date">February 11, 2026</Label>
 
 Starting today, you can use Tiger Cloud in the AWS Europe (Zurich) Region. This enables applications to have low-latency access to Tiger Cloud services while meeting data residency requirements.
 
