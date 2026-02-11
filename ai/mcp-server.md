@@ -40,9 +40,8 @@ $MCP_SHORT is bundled with $CLI_LONG:
 
 <CLIINSTALL />
 
-1. **Configure your AI Assistant to interact with the $PROJECT_SHORT and $SERVICE_SHORTs in your $ACCOUNT_LONG**
+1. **Install $MCP_LONG**
 
-   For example:
    ```shell
    tiger mcp install
    ```
@@ -86,18 +85,25 @@ manage your $SERVICE_SHORTs and learn more about how to implement $CLOUD_LONG fe
    ```
    You see something like:
    ```shell
-   MCP server is active. I can see the following Tiger Data-related tools available:
+   ⏺ Yes, the Tiger MCP server is active! I have access to a comprehensive set of Tiger Cloud (Timescale) tools, including:                                                                          
+    Service Management:
+     - List, create, fork, start, stop, and resize database services
+     - View service details and logs
+     - Update passwords
 
-   - mcp__tiger__get_guide - Retrieve TimescaleDB guides and best practices
-   - mcp__tiger__semantic_search_postgres_docs - Search PostgreSQL documentation
-   - mcp__tiger__semantic_search_tiger_docs - Search Tiger Cloud and TimescaleDB documentation
-   - mcp__tiger__tiger_service_create - Create new database services
-   - mcp__tiger__tiger_service_list - List all database services
-   - mcp__tiger__tiger_service_show - Show detailed service information
-   - mcp__tiger__tiger_service_update_password - Update service passwords
+    Database Operations:
+    - Execute SQL queries against PostgreSQL/TimescaleDB databases
+    - Search documentation (Tiger Cloud and PostgreSQL)
+    - View specialized skills for TimescaleDB operations
 
-   Is there something specific you'd like to do with the Tiger Data MCP server?
-   ```
+    Available Skills:
+    - Design PostgreSQL tables
+    - Find hypertable candidates
+    - Migrate tables to hypertables
+    - Set up TimescaleDB hypertables with compression, retention policies, etc.
+
+    Is there something specific you'd like to do with the Tiger Data MCP server?
+     ```
 
 1. **Ask a basic question about your $SERVICE_SHORTs**
    ```shell

@@ -14,6 +14,12 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 This page explains how to configure Terraform to manage your $SERVICE_LONG or $SELF_LONG. 
 
+<Highlight type="note">
+
+Some resources and data sources may not be generally available. Refer to the relevant documentation pages for up-to-date release status.
+
+</Highlight>
+
 ## Prerequisites
 
 <IntegrationPrereqs />
