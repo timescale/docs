@@ -485,7 +485,7 @@ caching and pagination to improve user experience with large result sets.
 
 ## Current limitations
 
-The preview releases focus on core BM25 functionality. You cannot search for exact multi-word phrases yet.
+The preview releases focus on core BM25 functionality. You cannot search for exact multi-word phrases.
 
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
