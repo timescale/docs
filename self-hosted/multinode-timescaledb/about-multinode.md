@@ -1,8 +1,9 @@
 ---
 title: About multi-node
 excerpt: Sunsetted in v2.14.x. Multi-node TimescaleDB enables you to run and manage a cluster of databases, which can result in faster data ingest, and more responsive and efficient queries for large workloads
-products: [self_hosted]
 keywords: [multi-node]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
@@ -12,29 +13,31 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # About multi-node
 
 If you have a larger petabyte-scale workload, you might need more than
-one TimescaleDB instance. TimescaleDB multi-node allows you to run and
+one $TIMESCALE_DB instance. $TIMESCALE_DB multi-node allows you to run and
 manage a cluster of databases, which can give you faster data ingest,
 and more responsive and efficient queries for large workloads.
 
 <Highlight type="important">
+
 In some cases, your queries could be slower in a multi-node cluster due to the
 extra network communication between the various nodes. Queries perform the best
 when the query processing is distributed among the nodes and the result set is
 small relative to the queried dataset. It is important that you understand
 multi-node architecture before you begin, and plan your database according to
 your specific requirements.
+
 </Highlight>
 
 ## Multi-node architecture
 
-Multi-node TimescaleDB allows you to tie several databases together into a
+Multi-node $TIMESCALE_DB allows you to tie several databases together into a
 logical distributed database to combine the processing power of many physical
-PostgreSQL instances.
+$PG instances.
 
 One of the databases exists on an access node and stores
 metadata about the other databases. The other databases are
 located on data nodes and hold the actual data. In theory, a
-PostgreSQL instance can serve as both an access node and a data node
+$PG instance can serve as both an access node and a data node
 at the same time in different databases. However, it is recommended not to
 have mixed setups, because it can be complicated, and server
 instances are often provisioned differently depending on the role they
@@ -44,7 +47,7 @@ For self-hosted installations, create a server that can act as an
 access node, then use that access node to create data nodes on other
 servers.
 
-When you have configured multi-node TimescaleDB, the access node coordinates
+When you have configured multi-node $TIMESCALE_DB, the access node coordinates
 the placement and access of data chunks on the data nodes. In most
 cases, it is recommend that you use multidimensional partitioning to
 distribute data across chunks in both time and space dimensions. The
@@ -58,10 +61,10 @@ alt="Diagram showing how multi-node access and data nodes interact"/>
 
 A database user connects to the access node to issue commands and
 execute queries, similar to how one connects to a regular single
-node TimescaleDB instance. In most cases, connecting directly to the
+node $TIMESCALE_DB instance. In most cases, connecting directly to the
 data nodes is not necessary.
 
-Because TimescaleDB exists as an extension within a specific
+Because $TIMESCALE_DB exists as an extension within a specific
 database, it is possible to have both distributed and non-distributed
 databases on the same access node. It is also possible to
 have several distributed databases that use different sets of physical
@@ -76,7 +79,7 @@ automatically distributed. Regular tables and hypertables continue to work as
 usual, even when the underlying database is distributed. To enable multi-node
 capabilities, you need to explicitly create a distributed hypertable on the
 access node to make use of the data nodes. A distributed hypertable is similar
-to a regular [hypertable][hypertables], but with the difference that chunks are
+to a regular [hypertable][hypertables-section], but with the difference that chunks are
 distributed across data nodes instead of on local storage. By distributing the
 chunks, the processing power of the data nodes is combined to achieve higher
 ingest throughput and faster queries. However, the ability to achieve good
@@ -98,7 +101,7 @@ generally run faster than queries that run on a single data node, so it is
 important to think about what kind of data you have, and the type of queries you
 want to run.
 
-TimescaleDB multi-node currently supports capabilities that make it best suited
+$TIMESCALE_DB multi-node currently supports capabilities that make it best suited
 for large-volume time-series workloads that are partitioned on `time`, and a
 space dimension such as `location`. If you usually run wide queries that
 aggregate data across many locations and devices, choose this partitioning
@@ -116,7 +119,7 @@ LIMIT 100;
 
 Partitioning on `time` and a space dimension such as `location`, is also best if
 you need faster insert performance. If you partition only on time, and your
-inserts are generally occuring in time order, then you are always writing to one
+inserts are generally occurring in time order, then you are always writing to one
 data node at a time. Partitioning on `time` and `location` means your
 time-ordered inserts are spread across multiple data nodes, which can lead to
 better performance.
@@ -143,7 +146,7 @@ like those on regular hypertables. This means that a distributed
 transaction that involves multiple data nodes is guaranteed to
 either succeed on all nodes or on none of them. This guarantee
 is provided by the [two-phase commit protocol][2pc], which
-is used to implement distributed transactions in TimescaleDB.
+is used to implement distributed transactions in $TIMESCALE_DB.
 
 However, the read consistency of a distributed hypertable is different
 to a regular hypertable. Because a distributed transaction is a set of
@@ -166,7 +169,7 @@ hypertables.
 
 ## Using continuous aggregates in a multi-node environment
 
-If you are using Timescale in a multi-node environment, there are some
+If you are using $SELF_LONG in a multi-node environment, there are some
 additional considerations for continuous aggregates.
 
 When you create a continuous aggregate within a multi-node environment, the
@@ -194,5 +197,5 @@ For more information about setting up multi-node, see the
 [multi-node section][multi-node]
 
 [2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/

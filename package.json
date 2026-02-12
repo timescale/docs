@@ -1,8 +1,12 @@
 {
   "name": "timescale-docs",
   "version": "1.0.0",
-  "description": "Documentation for Timescale and related products",
+  "description": "Documentation for Tiger Cloud and related products",
   "scripts": {
     "template:hyperfunction": "node ./.helper-scripts/mkdir-hyperfn.mjs"
+  },
+  "dependencies": {
+    "markdown-link-check": "^3.13.7",
+    "mcp": "^1.4.2"
   }
 }

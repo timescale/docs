@@ -16,7 +16,7 @@ apis:
   - [hypertables, add_compression_policy()]
   - [hypertables, add_continuous_aggregate_policy()]
 keywords: [jobs, policies, actions]
-tags: [jobs, scheduled jobs, background jobs, background workers, automation framework, policies, user-defined actions]
+tags: [jobs, scheduled jobs, background jobs, background workers, automation framework, policies]
 ---
 
 <!---
@@ -40,4 +40,4 @@ equal the sum of `timescaledb.max_background_workers` and
 
 For more information, see the [worker configuration docs][worker-config].
 
-[worker-config]: /self-hosted/latest/configuration/about-configuration/#workers
+[worker-config]: /self-hosted/:currentVersion:/configuration/about-configuration/#workers

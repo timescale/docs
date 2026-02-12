@@ -12,7 +12,7 @@
    sudo docker run --rm -it -e PGCOPYDB_SOURCE_PGURI=$SOURCE  timescale/live-migration:latest migrate --help
    ```
  
-1. **Create a snapshot image of your source database in your Timescale Cloud service**
+1. **Create a snapshot image of your source database in your $SERVICE_LONG**
 
    This process checks that you have tuned your source database and target service correctly for replication, 
    then creates a snapshot of your data on the migration machine:
@@ -26,20 +26,19 @@
        timescale/live-migration:latest snapshot
    ```
 
-   Live-migration supplies information about updates you need to make to the source database and target service. For example:   
+   Live-migration supplies information about updates you need to make to the source database and target service. For example:
 
    ```shell
    2024-03-25T12:40:40.884 WARNING: The following tables in the Source DB have neither a primary key nor a REPLICA IDENTITY (FULL/INDEX)
    2024-03-25T12:40:40.884 WARNING: UPDATE and DELETE statements on these tables will not be replicated to the Target DB
    2024-03-25T12:40:40.884 WARNING:        - public.metrics
-   Press 'c' and ENTER to continue
    ```
 
    If you have warnings, stop live-migration, make the suggested changes and start again.
 
-1. **Synchronize data between your source database and your Timescale Cloud service**
+1. **Synchronize data between your source database and your $SERVICE_LONG**
 
-    This command migrates data from the snapshot to your Timescale Cloud service, then streams 
+    This command migrates data from the snapshot to your $SERVICE_LONG, then streams 
     transactions from the source to the target. 
 
    ```shell
@@ -50,7 +49,15 @@
        -v ~/live-migration:/opt/timescale/ts_cdc \
        timescale/live-migration:latest migrate
    ```
+
+   <Highlight type="important">
+
    
+   If the source $PG version is 17 or later, you need to pass additional
+   flag `-e PGVERSION=17` to the `migrate` command.
+
+   </Highlight>
+
    During this process, you see the migration process:
 
    ```shell
@@ -59,7 +66,7 @@
 
    If `migrate` stops add `--resume` to start from where it left off. 
 
-   Once the data in your target Timescale Cloud service has almost caught up with the source database, 
+   Once the data in your target $SERVICE_LONG has almost caught up with the source database, 
    you see the following message:
 
    ```shell
@@ -83,7 +90,7 @@
       ```
 
       Live-migration continues the remaining work. This includes copying
-      TimescaleDB metadata, sequences, and run policies. When the migration completes,
+      $TIMESCALE_DB metadata, sequences, and run policies. When the migration completes,
       you see the following message:
    
       ```sh

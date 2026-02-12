@@ -1,13 +1,16 @@
 ---
 title: Create a compression policy
-excerpt: Timescale Cloud can compress your data automatically, based on the conditions you set. Learn to create, view, pause, and remove data compression policies for a hypertable
+excerpt: TimescaleDB can compress your data automatically, based on the conditions you set. Learn to create, view, pause, and remove data compression policies for a hypertable
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, policy]
 ---
-
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # Compression policy
+
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/latest/hypercore/real-time-analytics-in-hypercore/">Optimize your data for real-time analytics</a>. 
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 You can enable compression on individual hypertables, by declaring which column
 you want to segment by.
@@ -57,7 +60,7 @@ SELECT * FROM timescaledb_information.jobs
   WHERE proc_name='policy_compression';
 ```
 
-For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
+For more information, see the API reference for [`timescaledb_information.jobs`][informational-views].
 
 ## Pause compression policy
 
@@ -101,8 +104,8 @@ If your hypertable contains compressed chunks, you need to
 [decompress each chunk][decompress-chunks] individually before you can turn off
 compression.
 
-[alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
+[alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
 [remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
-[timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/

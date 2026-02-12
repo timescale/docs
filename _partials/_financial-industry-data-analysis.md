@@ -1,0 +1,1 @@
+The financial industry is extremely data-heavy and relies on real-time and historical data for decision-making, risk assessment, fraud detection, and market analysis. $COMPANY simplifies management of these large volumes of data, while also providing you with meaningful analytical insights and optimizing storage costs.

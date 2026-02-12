@@ -1,11 +1,12 @@
 ---
 title: Simulate an IoT sensor dataset
-excerpt: It is often necessary to simulate IoT datasets, for example, when testing a new system. Simulate an IOT dataset in your Timescale Cloud service
-products: [cloud, mst, self_hosted]
+excerpt: It is often necessary to simulate IoT datasets, for example, when testing a new system. Simulate an IOT dataset in your Tiger Cloud service
+products: [cloud, self_hosted, mst]
 keywords: [IoT, simulate]
 ---
 
-import ImportPrerequisites from "versionContent/_partials/_migrate_import_prerequisites.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Simulate an IoT sensor dataset
 
@@ -18,10 +19,7 @@ To simulate a more advanced dataset, see [Time-series Benchmarking Suite (TSBS)]
 
 ## Prerequisites
 
-To follow this tutorial, you need to:
-
-- Create a target [Timescale Cloud service][create-a-service].
-- [Connect to your service][connect-to-service].
+<IntegrationPrereqs />
 
 ## Simulate a dataset
 
@@ -29,7 +27,7 @@ To follow this tutorial, you need to:
 
 To simulate a dataset, run the following queries:
 
-1. **Create the `sensors` and `sensor_data` tables**:
+1. **Create the `sensors` table**:
 
     ```sql
     CREATE TABLE sensors(
@@ -38,6 +36,8 @@ To simulate a dataset, run the following queries:
       location VARCHAR(50)
     );
     ```
+
+1. **Create the `sensor_data` hypertable**
     
     ```sql
     CREATE TABLE sensor_data (
@@ -46,15 +46,12 @@ To simulate a dataset, run the following queries:
       temperature DOUBLE PRECISION,
       cpu DOUBLE PRECISION,
       FOREIGN KEY (sensor_id) REFERENCES sensors (id)
+    ) WITH (
+      tsdb.hypertable
     );
     ```
-
-1. **Convert `sensor_data` into a hypertable**:
-
-    ```sql
-    SELECT create_hypertable('sensor_data', 'time');
-    ```
-
+    <CreateHypertablePolicyNote />
+   
 1. **Populate the `sensors` table**:
 
     ```sql
@@ -203,6 +200,4 @@ After you simulate a dataset, you can run some basic queries on it. For example:
 
 You have now successfully simulated and run queries on an IoT dataset.
 
-[create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
-[connect-to-service]: /getting-started/:currentVersion:/run-queries-from-console/
 [tsbs]: https://github.com/timescale/tsbs

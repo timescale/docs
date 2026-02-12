@@ -11,7 +11,7 @@ tags: [continuous aggregates, query]
 
 import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
 
-Continuous aggregates do not work on all queries. For example, TimescaleDB does not support window functions on 
+Continuous aggregates do not work on all queries. For example, $TIMESCALE_DB does not support window functions on 
 continuous aggregates. If you use an unsupported function, you see the following error:
 
 ```sql
@@ -20,6 +20,3 @@ continuous aggregates. If you use an unsupported function, you see the following
 ```
 
 <CaggsFunctionSupport />
-
-
-[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION

@@ -8,7 +8,7 @@ tags: [maintenance window]
 
 # Maintenance
 
-On Managed Service for TimescaleDB, software updates are handled automatically,
+On $MST_LONG, software updates are handled automatically,
 and you do not need to perform any actions to keep up to date.
 
 Non-critical software updates are applied during a maintenance window that you
@@ -16,7 +16,7 @@ can define to suit your workload. If a security vulnerability is found that
 affects you, maintenance might be performed outside of your scheduled
 maintenance window.
 
-After maintenance updates have been applied, if a new version of the Timescale
+After maintenance updates have been applied, if a new version of the $TIMESCALE_DB
 binary has been installed, you need to update the extension to use the new
 version. To do this, use this command:
 
@@ -25,8 +25,10 @@ ALTER EXTENSION timescaledb UPDATE;
 ```
 
 <Highlight type="important">
+
 After a maintenance update, the DNS name remains the same, but the IP address
 it points to changes.
+
 </Highlight>
 
 ## Non-critical maintenance updates
@@ -51,7 +53,7 @@ system during the upgrade.
 
 ### Adjusting your maintenance window
 
-1.  In [MST Portal][mst-login], click the service that you want to manage the maintenance window for.
+1.  In [$MST_CONSOLE_LONG][mst-login], click the $MST_SERVICE_SHORT that you want to manage the maintenance window for.
 1.  Click the ellipses (...) to the right of `Maintenance`, then click `Change maintenence window`.
 1.  In the `Service Maintenance Window` dialog, select the day of the week and
     the time (in Universal Coordinated Time) you want the maintenance window to
@@ -76,6 +78,5 @@ retired automatically after the new servers have taken over. The controlled
 failover is a very quick and safe operation and it takes less than a minute to
 get clients connected again. In most cases, there is five to ten second outage
 during this process.
-
 
 [mst-login]:https://portal.managed.timescale.com/login

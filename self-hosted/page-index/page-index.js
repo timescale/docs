@@ -65,7 +65,7 @@ module.exports = [
             title: "About Configuration",
             href: "about-configuration",
             excerpt:
-              "Overview of configuration options and methods for PostgreSQL and self-hosted TimescaleDB",
+              "Overview of configuration options and methods for Postgres and self-hosted TimescaleDB",
           },
           {
             title: "Using timescaledb-tune",
@@ -73,10 +73,10 @@ module.exports = [
             excerpt: "Configure self-hosted TimescaleDB using timescaledb-tune",
           },
           {
-            title: "Manual PostgreSQL configuration",
+            title: "Manual Postgres configuration",
             href: "postgres-config",
             excerpt:
-              "Configure self-hosted TimescaleDB using the PostgreSQL configuration file",
+              "Configure self-hosted TimescaleDB using the Postgres configuration file",
           },
           {
             title: "TimescaleDB configuration",
@@ -104,7 +104,7 @@ module.exports = [
           {
             title: "Logical backup",
             href: "logical-backup",
-            excerpt: "Back up and restore a hypertable or an entire database using native PostgreSQL commands",
+            excerpt: "Back up and restore a hypertable or an entire database using native Postgres commands",
           },
           {
             title: "Docker & WAL-E",
@@ -125,22 +125,22 @@ module.exports = [
           {
             title: "Migrate entire database",
             href: "entire-database",
-            excerpt: "Migrate an entire Timescale database to self-hosted Timescale in one go",
+            excerpt: "Migrate an entire database to self-hosted TimescaleDB in one go",
           },
           {
             title: "Migrate schema then data",
             href: "schema-then-data",
-            excerpt: "Migrate your Timescale data and schema to self-hosted TimescaleDB",
+            excerpt: "Migrate your schema and data to self-hosted TimescaleDB",
           },
           {
             title: "Migrate tables from the same database",
             href: "same-db",
-            excerpt: "Migrate data into a Timescale hypertable from a regular PostgreSQL table",
+            excerpt: "Migrate data into a TimescaleDB hypertable from a regular Postgres table",
           },
           {
-            title: "Migrate data to Timescale from InfluxDB",
+            title: "Migrate data to TimescaleDB from InfluxDB",
             href: "migrate-influxdb",
-            excerpt: "Migrate data into Timescale using the Outflux tool",
+            excerpt: "Migrate data into TimescaleDB using the Outflux tool",
           },
         ],
       },
@@ -150,7 +150,82 @@ module.exports = [
         excerpt: "Manage storage by moving data between tablespaces",
       },
       {
-        title: "Multi-node",
+        title: "Replication and High Availability",
+        href: "replication-and-ha",
+        children: [
+          {
+            title: "About high availability",
+            href: "about-ha",
+            excerpt: "High availability in self-hosted TimescaleDB",
+          },
+          {
+            title: "Configure replication",
+            href: "configure-replication",
+            excerpt: "Configure replication",
+          },
+        ],
+      },
+      {
+        title: "Additional tooling",
+        href: "tooling",
+        children: [
+          {
+            title: "TimescaleDB Tune",
+            href: "about-timescaledb-tune",
+          },
+          {
+            title: "Install and update TimescaleDB Toolkit",
+            href: "install-toolkit",
+            excerpt: "Install and update the TimescaleDB Toolkit",
+          },
+        ],
+      },
+      {
+        title: "Upgrade self-hosted TimescaleDB",
+        href: "upgrades",
+        children: [
+          {
+            title: "Upgrade TimescaleDB to a minor version",
+            href: "minor-upgrade",
+            excerpt:
+              "Upgrade self-hosted TimescaleDB to a new minor version",
+          },
+          {
+            title: "Upgrade TimescaleDB to a major version",
+            href: "major-upgrade",
+            excerpt:
+              "Upgrade self-hosted TimescaleDB to a new major version",
+          },
+          {
+            title: "Upgrade TimescaleDB running in Docker",
+            href: "upgrade-docker",
+            excerpt:
+              "Upgrade self-hosted TimescaleDB running in a Docker container to a new minor version",
+          },
+          {
+            title: "Upgrade Postgres",
+            href: "upgrade-pg",
+            excerpt: "Upgrade Postgres to a new version",
+          },
+          {
+            title: "Downgrade TimescaleDB to a minor version",
+            href: "downgrade",
+            excerpt: "Downgrade self-hosted TimescaleDB to the previous minor version",
+          },
+        ],
+      },
+      {
+        title: "Uninstall self-hosted TimescaleDB",
+        href: "uninstall",
+        excerpt: "Uninstall self-hosted TimescaleDB without removing PostgreSQL",
+      },
+      {
+        title: "Troubleshooting self-hosted TimescaleDB",
+        href: "troubleshooting",
+        type: "placeholder",
+      },
+      {
+        title: "Multi-node (Sunsetted v2.14.x)",
         href: "multinode-timescaledb",
         children: [
           {
@@ -196,7 +271,7 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed hypertables",
+        title: "Distributed hypertables (Sunsetted v2.14.x)",
         href: "distributed-hypertables",
         excerpt: "Distributed hypertables for multi-node Timescale",
         children: [
@@ -238,88 +313,6 @@ module.exports = [
               "Use row- and statement-level triggers in distributed hypertables",
           },
         ],
-      },
-      {
-        title: "Replication and High Availability",
-        href: "replication-and-ha",
-        children: [
-          {
-            title: "About high availability",
-            href: "about-ha",
-            excerpt: "High availability in self-hosted TimescaleDB",
-          },
-          {
-            title: "Configure replication",
-            href: "configure-replication",
-            excerpt: "Configure replication",
-          },
-        ],
-      },
-      {
-        title: "Additional tooling",
-        href: "tooling",
-        children: [
-          {
-            title: "TimescaleDB Tune",
-            href: "about-timescaledb-tune",
-          },
-          {
-            title: "Install and update Timescale Toolkit",
-            href: "install-toolkit",
-            excerpt: "Install and update the Timescale Toolkit",
-          },
-        ],
-      },
-      {
-        title: "Upgrade self-hosted TimescaleDB",
-        href: "upgrades",
-        children: [
-          {
-            title: "Upgrade TimescaleDB to a minor version",
-            href: "minor-upgrade",
-            excerpt:
-              "Upgrade self-hosted TimescaleDB to a new minor version",
-          },
-          {
-            title: "Upgrade TimescaleDB to a major version",
-            href: "major-upgrade",
-            excerpt:
-              "Upgrade self-hosted TimescaleDB to a new major version",
-          },
-          {
-            title: "Upgrade TimescaleDB running in Docker",
-            href: "upgrade-docker",
-            excerpt:
-              "Upgrade self-hosted TimescaleDB running in a Docker container to a new minor version",
-          },
-          {
-            title: "Upgrade PostgreSQL",
-            href: "upgrade-pg",
-            excerpt: "Upgrade PostgreSQL to a new version",
-          },
-          {
-            title: "Downgrade TimescaleDB to a minor version",
-            href: "downgrade",
-            excerpt: "Downgrade self-hosted TimescaleDB to the previous minor version",
-          },
-        ],
-      },
-      {
-        title: "Uninstall self-hosted TimescaleDB",
-        href: "uninstall",
-        excerpt: "Uninstalling self-hosted TimescaleDB",
-        children: [
-          {
-            title: "Uninstall self-hosted TimescaleDB on macOS",
-            href: "uninstall-timescaledb",
-            excerpt: "Uninstall self-hosted TimescaleDB on macOS",
-          },
-        ],
-      },
-      {
-        title: "Troubleshooting self-hosted TimescaleDB",
-        href: "troubleshooting",
-        type: "placeholder",
       },
     ],
   },

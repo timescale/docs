@@ -1,9 +1,11 @@
 ---
 title: Create a continuous aggregate
-excerpt: Create a continuous aggregate in your Timescale Cloud service and make sure you always have the latest aggregated data for your analytical queries
+excerpt: Learn to create a continuous aggregate and make sure you always have the latest aggregated data for your analytical queries
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, create]
 ---
+
+import Since2220 from "versionContent/_partials/_since_2_22_0.mdx";
 
 # Create continuous aggregates
 
@@ -16,7 +18,7 @@ Continuous aggregates require a `time_bucket` on the time partitioning column of
 the hypertable.
 
 By default, views are automatically refreshed. You can adjust this by setting
-the [WITH NO DATA](#using-the-with-no-data-option) option. Additionally, the
+the [WITH NO DATA][with-no-data] option. Additionally, the
 view can not be a [security barrier view][postgres-security-barrier].
 
 Continuous aggregates use hypertables in the background, which means that they
@@ -52,6 +54,10 @@ hypertable. Additionally, all functions and their arguments included in
     FROM conditions
     GROUP BY device, bucket;
     ```
+ 
+    To create a continuous aggregate within a transaction block, use the [WITH NO DATA option][with-no-data]. 
+
+    To improve continuous aggregate performance, [set `timescaledb.invalidate_using = 'wal'`][create_materialized_view] <Since2220 />. 
 
 1.  Create a policy to refresh the view every hour:
 
@@ -61,11 +67,11 @@ hypertable. Additionally, all functions and their arguments included in
       end_offset => INTERVAL '1 day',
       schedule_interval => INTERVAL '1 hour');
     ```
-
+    
 </Procedure>
 
-You can use most PostgreSQL aggregate functions in continuous aggregations. To
-see what PostgreSQL features are supported, check the
+You can use most $PG aggregate functions in continuous aggregations. To
+see what $PG features are supported, check the
 [function support table][cagg-function-support].
 
 ## Choosing an appropriate bucket interval
@@ -75,19 +81,11 @@ the hypertable. The time bucket allows you to define a time interval, instead of
 having to use specific timestamps. For example, you can define a time bucket as
 five minutes, or one day.
 
-When the continuous aggregate is materialized, the materialization table stores
-partials, which are then used to calculate the result of the query. This means a
-certain amount of processing capacity is required for any query, and the amount
-required becomes greater as the interval gets smaller. Because of this, if you
-have very small intervals, it can be more efficient to run the aggregate query
-on the raw data in the hypertable. You should test both methods to determine
-what is best for your dataset and desired bucket interval.
-
-You can't use [time_bucket_gapfill][api-time-bucket-gapfill] directly in a
+You can't use [time_bucket_gapfill][hyperfunctions-api-gapfilling] directly in a
 continuous aggregate. This is because you need access to previous data to
 determine the gapfill content, which isn't yet available when you create the
 continuous aggregate. You can work around this by creating the continuous
-aggregate using [`time_bucket`][api-time-bucket], then querying the continuous
+aggregate using [`time_bucket`][time_bucket], then querying the continuous
 aggregate using `time_bucket_gapfill`.
 
 ## Using the WITH NO DATA option
@@ -146,7 +144,7 @@ queries to run efficiently.
 
 ## Create a continuous aggregate with a JOIN
 
-In Timescale&nbsp;2.10 and later, with PostgreSQL&nbsp;12 or later, you can
+In $TIMESCALE_DB V2.10 and later, with $PG v12 or later, you can
 create a continuous aggregate with a query that also includes a `JOIN`. For
 example:
 
@@ -163,9 +161,11 @@ GROUP BY name, bucket;
 ```
 
 <Highlight type="note">
+
 For more information about creating a continuous aggregate with a `JOIN`,
 including some additional restrictions, see the
-[about continuous aggregates section](https://docs.timescale.com/use-timescale/latest/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause).
+[about continuous aggregates section][about-caggs-join-clause].
+
 </Highlight>
 
 ## Query continuous aggregates
@@ -208,60 +208,115 @@ enabled.
 
 </Procedure>
 
-## Use continuous aggregates with window functions
+## Use continuous aggregates with mutable functions: experimental
 
-Continuous aggregates don't currently support window functions. You can work
-around this by:
+<Since2200 />
 
-1.  Creating a continuous aggregate for the other parts of your query, then
-1.  Using the window function on your continuous aggregate at query time
+Mutable functions have experimental supported in the $CAGG query definition. Mutable functions are enabled 
+by default. However, if you use them in a materialized query a warning is returned.
 
-For example, say you have a hypertable named `example` with a `time` column and
-a `value` column. You bucket your data by `time` and calculate the delta between
-time buckets using the `lag` window function:
+When using non-immutable functions you have to ensure these functions produce consistent results across 
+continuous aggregate refresh runs. For example, if a function depends on the current time zone you have 
+to ensure all your $CAGG refreshes run with a consistent setting for this.
 
-```sql
-WITH t AS (
-  SELECT
-    time_bucket('10 minutes', time) as bucket,
-    first(value, time) as value
-  FROM example GROUP BY bucket
-)
-SELECT
-  bucket,
-  value - lag(value, 1) OVER (ORDER BY bucket) delta
-  FROM t;
-```
+## Use $CAGGs with window functions: experimental
 
-You can't create a continuous aggregate using this query, because it contains
-the `lag` function. But you can create a continuous aggregate by excluding the
-`lag` function:
+<Since2200 />
 
-```sql
-CREATE MATERIALIZED VIEW example_aggregate
-  WITH (timescaledb.continuous) AS
-    SELECT
-      time_bucket('10 minutes', time) AS bucket,
-      first(value, time) AS value
-    FROM example GROUP BY bucket;
-```
+Window functions have experimental supported in the $CAGG query definition. Window functions are disabled 
+ by default. To enable them, set `timescaledb.enable_cagg_window_functions` to `true`.
 
-Then, at query time, calculate the delta by using `lag` on your continuous
-aggregate:
+<Highlight type="info">
 
-```sql
-SELECT
-  bucket,
-  value - lag(value, 1) OVER (ORDER BY bucket) AS delta
-FROM example_aggregate;
-```
+Support is experimental, there is a risk of data inconsistency. For example, in backfill scenarios, buckets could be missed.
 
-This speeds up your query by calculating the aggregation ahead of time. The
-delta still needs to be calculated at query time.
+</Highlight>
 
-[api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
-[api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+### Create a window function 
+
+To use a window function in a $CAGG: 
+
+1. Create a simple table with to store a value at a specific time:
+
+    ```sql
+    CREATE TABLE example (
+      time       TIMESTAMPZ        NOT NULL,
+      value      TEXT              NOT NULL,
+    );
+    ```
+
+1. Enable window functions.
+
+   As window functions are experimental, in order to create continuous aggregates with window functions. 
+   you have to `enable_cagg_window_functions`. 
+
+   ```sql
+    SET timescaledb.enable_cagg_window_functions TO TRUE;
+    ```
+
+1. Bucket your data by `time` and calculate the delta between time buckets using the `lag` window function:
+
+    Window functions must stay within the time bucket. Any query that tries to look beyond the current 
+    time bucket will produce incorrect results around the refresh boundaries. 
+   ```sql
+   CREATE MATERIALIZED VIEW example_aggregate
+     WITH (timescaledb.continuous) AS
+       SELECT
+         time_bucket('1d', time),
+         customer_id,
+         sum(amount) AS amount,
+         sum(amount) - LAG(sum(amount),1,NULL) OVER (PARTITION BY time_bucket('1d', time) ORDER BY sum(amount) DESC) AS amount_diff,
+         ROW_NUMBER() OVER (PARTITION BY time_bucket('1d', time) ORDER BY sum(amount) DESC)
+       FROM sales GROUP BY 1,2;
+   ```
+   Window functions that partition by time_bucket should be safe even with LAG()/LEAD()
+
+
+### Window function workaround for older versions of $TIMESCALE_DB 
+
+For $TIMESCALE_DB v2.19.3 and below, $CAGGs do not support window functions. To work around this:
+
+1. Create a simple table with to store a value at a specific time:
+
+    ```sql
+    CREATE TABLE example (
+      time       TIMESTAMPZ        NOT NULL,
+      value      TEXT              NOT NULL,
+    );
+    ```
+      
+1. Create a continuous aggregate that does not use a window function:
+
+   ```sql
+   CREATE MATERIALIZED VIEW example_aggregate
+     WITH (timescaledb.continuous) AS
+       SELECT
+         time_bucket('10 minutes', time) AS bucket,
+         first(value, time) AS value
+       FROM example GROUP BY bucket;
+   ```
+
+1.  Use the `lag`  window function on your continuous aggregate at query time:
+
+    This speeds up your query by calculating the aggregation ahead of time. The
+    delta is calculated at query time.
+
+      ```sql
+      SELECT
+        bucket,
+        value - lag(value, 1) OVER (ORDER BY bucket) AS delta
+      FROM example_aggregate;
+      ```
+
+
+
+[about-caggs-join-clause]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause
 [cagg-function-support]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#function-support
+[create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
+[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
 [postgres-immutable]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
-[postgres-rls]: <https://www.postgresql.org/docs/current/ddl-rowsecurity.html>
-[postgres-security-barrier]: <https://www.postgresql.org/docs/current/rules-privileges.html>
+[postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
+[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[with-no-data]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#using-the-with-no-data-option
+

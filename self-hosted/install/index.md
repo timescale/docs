@@ -6,21 +6,21 @@ keywords: [installation]
 ---
 
 import TimescaleDB from "versionContent/_partials/_timescaledb.mdx";
-import CTA from "versionContent/_partials/_selfhosted_cta.mdx";
+import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
 
-# Install TimescaleDB
+# Install $TIMESCALE_DB
 
-<TimescaleDB />
-<CTA />
+$TIMESCALE_DB is an open-source $PG extension that powers $CLOUD_LONG. Designed for running real-time analytics on time-series data, it supercharges ingest, query, storage, and analytics performance.
 
-You can install self-hosted TimescaleDB for free from
-[source][self-hosted-source], or a [pre-built container][self-hosted-container].
-This guide provides instructions for installing the latest version of
-TimescaleDB. For more details about the latest release, see the
-[release notes][release-notes] section.
+You can install $SELF_LONG from [source][install-from-source], with a [pre-built Docker container][docker-install], or on one of the [supported platforms][platform-support]. This section provides instructions for installing the latest version of $SELF_LONG. 
+
+<TestingEnv />
 
 <Installation />
 
-[self-hosted-source]: /self-hosted/:currentVersion:/install/installation-source/
-[self-hosted-container]: /self-hosted/:currentVersion:/install/installation-docker/
-[release-notes]: https://github.com/timescale/timescaledb/releases
+For more details about the latest release, see the [release notes][relnotes] section.
+
+[docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
+[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
+[platform-support]: /about/:currentVersion:/supported-platforms/
+[relnotes]: https://github.com/timescale/timescaledb/releases

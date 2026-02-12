@@ -1,6 +1,6 @@
 ---
 title: About tablespaces
-excerpt: A tablespace is a logical storage unit that enables database objects to be stored in specific physical locations on a disk. Learn how tablespaces work for Timescale Cloud hypertable chunks
+excerpt: A tablespace is a logical storage unit that enables database objects to be stored in specific physical locations on a disk. Learn how tablespaces work for TimescaleDB hypertable chunks
 products: [cloud, mst, self_hosted]
 keywords: [schemas, tablepsaces]
 ---
@@ -42,10 +42,12 @@ Hypertables that are only time-partitioned add new partitions continuously, and
 therefore have chunks assigned to tablespaces in a way similar to round-robin.
 
 <Highlight type="note">
+
 It is possible to attach more tablespaces than there are partitions for the
 hypertable. In this case, some tablespaces remain unused until others are detached
 or additional partitions are added. This is especially true for hash-partitioned
 tables.
+
 </Highlight>
 
 [attach_tablespace]: /api/:currentVersion:/hypertable/attach_tablespace/

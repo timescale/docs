@@ -1,18 +1,21 @@
+import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
-## Create a hypertable
+## Optimize time-series data in a hypertable
 
-Hypertables are the core of Timescale. Hypertables enable Timescale to work
-efficiently with time-series data. Because Timescale is PostgreSQL, all the
-standard PostgreSQL tables, indexes, stored procedures, and other objects can be
-created alongside your Timescale hypertables. This makes creating and working
-with Timescale tables similar to standard PostgreSQL.
+<HypertableIntro />
 
 <Procedure>
 
-### Creating a hypertable
+1. **Connect to your $SERVICE_LONG**
 
-1.  Create a standard PostgreSQL table to store the real-time cryptocurrency data
-    using `CREATE TABLE`:
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][psql].
+
+1. **Create a $HYPERTABLE to store the real-time cryptocurrency data**
+
+   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
+   use most often to filter your data:
 
     ```sql
     CREATE TABLE crypto_ticks (
@@ -20,35 +23,24 @@ with Timescale tables similar to standard PostgreSQL.
         symbol TEXT,
         price DOUBLE PRECISION,
         day_volume NUMERIC
+    ) WITH (
+       tsdb.hypertable,
+       tsdb.segmentby='symbol', 
+       tsdb.orderby='time DESC'
     );
     ```
-
-1.  Convert the standard table into a hypertable partitioned on the `time`
-    column using the `create_hypertable()` function provided by Timescale. You
-    must provide the name of the table and the column in that table that holds
-    the timestamp data to use for partitioning:
-
-    ```sql
-    SELECT create_hypertable('crypto_ticks', by_range('time'));
-    ```
-
-	<Highlight type="note">
-	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
-	</Highlight>
-
+   <CreateHypertablePolicyNote />
+   
 </Procedure>
 
-## Create standard PostgreSQL tables for relational data
+## Create a standard $PG table for relational data
 
-When you have other relational data that enhances your time-series data, you can
-create standard PostgreSQL tables just as you would normally. For this dataset,
-there is one other table of data called `crypto_assets`.
+When you have relational data that enhances your time-series data, store that data in
+standard $PG relational tables. 
 
 <Procedure>
 
-### Creating standard PostgreSQL tables
-
-1.  Add a table to store the company name and symbol for the stock trade data:
+1.  **Add a table to store the asset symbol and name in a relational table**
 
     ```sql
     CREATE TABLE crypto_assets (
@@ -57,7 +49,14 @@ there is one other table of data called `crypto_assets`.
     );
     ```
 
-1.  You now have two tables within your Timescale database. One hypertable
-    named `crypto_ticks`, and one normal PostgreSQL table named `crypto_assets`.
-
 </Procedure>
+
+You now have two tables within your $SERVICE_LONG. A hypertable named `crypto_ticks`, and a normal
+$PG table named `crypto_assets`.
+
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[psql]: /integrations/:currentVersion:/psql
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

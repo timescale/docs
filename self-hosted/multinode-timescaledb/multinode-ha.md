@@ -1,8 +1,9 @@
 ---
 title: High availability with multi-node
 excerpt: Sunsetted v2.14.x. Configure your self-hosted multi-node TimescaleDB for high availability
-products: [self_hosted]
 keywords: [multi-node, high availability]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
@@ -11,16 +12,16 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 
 # High availability with multi-node
 
-A multi-node installation of TimescaleDB can be made highly available
+A multi-node installation of $TIMESCALE_DB can be made highly available
 by setting up one or more standbys for each node in the cluster, or by
 natively replicating data at the chunk level.
 
 Using standby nodes relies on streaming replication and you set it up
-in a similar way to [configuring single-node HA][single-ha], although the
+in a similar way to [configuring single-node HA][self-hosted-ha], although the
 configuration needs to be applied to each node independently.
 
 To replicate data at the chunk level, you can use the built-in
-capabilities of multi-node TimescaleDB to avoid having to
+capabilities of multi-node $TIMESCALE_DB to avoid having to
 replicate entire data nodes. The access node still relies on a
 streaming replication standby, but the data nodes need no additional
 configuration. Instead, the existing pool of data nodes share
@@ -40,7 +41,7 @@ the data nodes.
 
 The rest of this section discusses native replication. To set up
 standbys for each node, follow the instructions for [single node
-HA][single-ha].
+HA][self-hosted-ha].
 
 ## Native replication
 
@@ -55,21 +56,23 @@ lost chunk replicas can be re-replicated from other data nodes to
 reach the number of desired chunk replicas.
 
 <Highlight type="warning">
-Native replication in TimescaleDB is under development and
+
+Native replication in $TIMESCALE_DB is under development and
 currently lacks functionality for a complete high-availability
 solution. Some functionality described in this section is still
 experimental. For production environments, we recommend setting up
 standbys for each node in a multi-node cluster.
+
 </Highlight>
 
 ### Automation
 
 Similar to how high-availability configurations for single-node
-PostgreSQL uses a system like Patroni for automatically handling
+$PG uses a system like Patroni for automatically handling
 fail-over, native replication requires an external entity to
 orchestrate fail-over, chunk re-replication, and data node
 management. This orchestration is _not_ provided by default in
-TimescaleDB and therefore needs to be implemented separately. The
+$TIMESCALE_DB and therefore needs to be implemented separately. The
 sections below describe how to enable native replication and the steps
 involved to implement high availability in case of node failures.
 
@@ -77,7 +80,7 @@ involved to implement high availability in case of node failures.
 
 The first step to enable native replication is to configure a standby
 for the access node. This process is identical to setting up a [single
-node standby][single-ha].
+node standby][self-hosted-ha].
 
 The next step is to enable native replication on a distributed
 hypertable. Native replication is governed by the
@@ -101,8 +104,7 @@ Alternatively, you can use the
 replication factor on an existing distributed hypertable. Note,
 however, that only new chunks are replicated according to the
 updated replication factor. Existing chunks need to be re-replicated
-by copying those chunks to new data nodes (see the [node
-failures section](#node-failures) below).
+by copying those chunks to new data nodes (see the [node failures section][node-failures-link] below).
 
 When native replication is enabled, the replication happens whenever
 you write data to the table. On every `INSERT` and `COPY` call, each
@@ -163,8 +165,10 @@ chunks or the distributed hypertable has more chunk replicas than the
 configured replication factor.
 
 <Highlight type="important">
+
 You cannot force the deletion of a data node if it would mean that a multi-node
 cluster permanently loses data.
+
 </Highlight>
 
 When you have successfully removed a failed data node, or marked a
@@ -215,7 +219,11 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 
 </Highlight>
 
-[set_replication_factor]:  /api/:currentVersion:/distributed-hypertables/set_replication_factor
-[single-ha]: /self-hosted/:currentVersion:/replication-and-ha/
 [alter_data_node]: /api/:currentVersion:/distributed-hypertables/alter_data_node/
 [copy_chunk]:/api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
+[multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/#node-failures
+[node-failures-link]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/#node-failures
+[self-hosted-ha]: /self-hosted/:currentVersion:/replication-and-ha/
+[set_replication_factor]:  /api/:currentVersion:/distributed-hypertables/set_replication_factor
+
+

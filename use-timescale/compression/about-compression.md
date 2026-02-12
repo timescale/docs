@@ -1,13 +1,16 @@
 ---
 title: About compression
-excerpt: When you compress data in a hypertable, multiple records are grouped into a single row, into an array-like structure. Learn other key aspects of how data compression works in Timescale Cloud
-products: [self_hosted]
+excerpt: When you compress data in a hypertable, multiple records are grouped into a single row, into an array-like structure. Learn other key aspects of how data compression works in TimescaleDB
+products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
-
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 import CompressionIntro from 'versionContent/_partials/_compression-intro.mdx';
 
 # About compression
+
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/latest/hypercore/">hypercore</a>. 
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 <CompressionIntro />
 
@@ -29,7 +32,7 @@ Consider the table `metrics` with the following attributes:
  cpu| double precision|||
  disk_io| double precision|||
 
-All hypertables have a primary dimension which is used to partition the table into chunks. The primary dimension is given when [the hypertable is created][create-hypertable]. In the example below, you can see a classic time-series use case with a `time` column as the primary dimension. In addition, there are two columns `cpu` and `disk_io` containing the values  that are captured over time and a column `device_id` for the device that captured the values.
+All hypertables have a primary dimension which is used to partition the table into chunks. The primary dimension is given when [the hypertable is created][hypertable-create-table]. In the example below, you can see a classic time-series use case with a `time` column as the primary dimension. In addition, there are two columns `cpu` and `disk_io` containing the values  that are captured over time, and a column `device_id` for the device that captured the values.
 Columns can be used in a few different ways:
 - You can use values in a column as a lookup key, in the example above `device_id` is a typical example of such a column.
 - You can use a column for partitioning a table. This is typically a time column like `time` in the example above, but it is possible to partition the table using other types as well.
@@ -43,15 +46,17 @@ WHERE device_type = ‘SSD’
 AND time >= now() - ‘1 day’::interval;
 `} />
 
-When chunks are compressed in a hypertable, data stored in them is reorganized and stored in column-order rather than row-order. As a result, it is not possible to use the same uncompressed schema version of the chunk and a different schema must be created. This is automatically handled by TimescaleDB, but it has a few implications:
+When chunks are compressed in a hypertable, data stored in them is reorganized and stored in column-order rather than row-order. As a result, it is not possible to use the same uncompressed schema version of the chunk and a different schema must be created. This is automatically handled by $TIMESCALE_DB, but it has a few implications:
 The compression ratio and query performance is very dependent on the order and structure of the compressed data, so some considerations are needed when setting up compression.
 Indexes on the hypertable cannot always be used in the same manner for the compressed data.
 
 <Highlight type="note">
+
 Indexes set on the hypertable are used only on chunks containing uncompressed
-data. Timescale creates and uses custom indexes to incorporate the `segmentby` 
+data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` 
 and `orderby` parameters during compression which are used when reading compressed data.
 More on this in the next section.
+
 </Highlight>
 
 Based on the previous schema, filtering of data should happen over a certain time period and analytics are done on device granularity. This pattern of data access lends itself to organizing the data layout suitable for compression.
@@ -184,9 +189,11 @@ Time: 42,139 ms
 `} />
 
 <Highlight type="note">
+
 Number of rows that are compressed together in a single batch (like the ones we see above) is 1000.
 If your chunk does not contain enough data to create big enough batches, your compression ratio will be reduced.
 This needs to be taken into account when defining your compression settings.
+
 </Highlight> 
 
-[create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/

@@ -1,7 +1,11 @@
-Now you have TimescaleDB running, have a look at the:
+What next? [Try the key features offered by $COMPANY][try-timescale-features], see the [tutorials][tutorials],
+interact with the data in your $SERVICE_LONG using [your favorite programming language][connect-with-code], integrate
+your $SERVICE_LONG with a range of [third-party tools][integrations], plain old [Use $COMPANY products][use-timescale], or dive
+into the [API reference][use-the-api].
 
-* [Tutorials][tutorials]: walk through a variety of business scenarios using example datasets.
-* [Use Timescale][tsdb-docs]: browse the features available with TimescaleDB.
-
-[tsdb-docs]: /use-timescale/:currentVersion:/
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[integrations]: /integrations/:currentVersion:/
+[try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/
 [tutorials]: /tutorials/:currentVersion:/
+[use-the-api]: /api/:currentVersion:/
+[use-timescale]: /use-timescale/:currentVersion:/

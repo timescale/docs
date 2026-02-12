@@ -1,6 +1,6 @@
 ---
-title: About Timescale hyperfunctions
-excerpt: Timescale Cloud hyperfunctions enable you to run complex real-time analysis on your time-series and other data. Learn what hyperfunctions are and how to use them in your service
+title: About TimescaleDB hyperfunctions
+excerpt: TimescaleDB hyperfunctions enable you to run complex real-time analysis on your time-series and other data. Learn what hyperfunctions are and how to use them
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, analytics]
 ---
@@ -9,27 +9,20 @@ import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 import ExperimentalUpgrade from "versionContent/_partials/_experimental-schema-upgrade.mdx";
 
-# About Timescale hyperfunctions
+# About $TIMESCALE_DB hyperfunctions
 
-Timescale hyperfunctions are a specialized set of functions that allow you to
-analyze time-series data. You can use hyperfunctions to analyze anything you
-have stored as time-series data, including IoT devices, IT systems, marketing
-analytics, user behavior, financial metrics, and cryptocurrency.
+$TIMESCALE_DB hyperfunctions are a specialized set of functions that power real-time analytics on time series and events. 
+IoT devices, IT systems, marketing analytics, user behavior, financial metrics, cryptocurrency - these are only a few examples of domains where 
+hyperfunctions can make a huge difference. Hyperfunctions provide you with meaningful, actionable insights in real time.  
 
-Hyperfunctions allow you to perform critical time-series queries quickly,
-analyze time-series data, and extract meaningful information. They aim to
-identify, build, and combine all of the functionality SQL needs to perform
-time-series analysis into a single extension.
+$CLOUD_LONG includes all hyperfunctions by default, while self-hosted $TIMESCALE_DB includes a subset of them. For
+additional hyperfunctions, install the [$TOOLKIT_LONG][install-toolkit] $PG extension.
 
-Some hyperfunctions are included in the default TimescaleDB product. For
-additional hyperfunctions, you need to install the
-[Timescale Toolkit][install-toolkit] PostgreSQL extension.
+## Available hyperfunctions
 
-## Hyperfunctions available with TimescaleDB and Timescale Toolkit
-
-Here is a list of all the hyperfunctions provided by Timescale. Hyperfunctions
-marked 'Toolkit' require an installation of Timescale Toolkit. Hyperfunctions
-marked 'experimental' are still under development.
+Here is a list of all the hyperfunctions provided by $TIMESCALE_DB. Hyperfunctions
+with a tick in the `Toolkit` column require an installation of $TOOLKIT_LONG for self-hosted deployments. Hyperfunctions
+with a tick in the `Experimental` column are still under development.
 
 <Experimental />
 
@@ -45,7 +38,7 @@ For more information about each of the API calls listed in this table, see the
 ## Function pipelines
 
 Function pipelines are an experimental feature, designed to radically improve
-the developer ergonomics of analyzing data in PostgreSQL and SQL, by applying
+the developer ergonomics of analyzing data in $PG and SQL, by applying
 principles from functional programming and popular tools like Python's Pandas,
 and PromQL.
 
@@ -84,13 +77,13 @@ For more information about how function pipelines work, read our
 
 ## Toolkit feature development
 
-Timescale Toolkit features are developed in the open. As features are developed
+$TOOLKIT_LONG features are developed in the open. As features are developed
 they are categorized as experimental, beta, stable, or deprecated. This
 documentation covers the stable features, but more information on our
 experimental features in development can be found in the
 [Toolkit repository][gh-docs].
 
-## Contribute to Timescale Toolkit
+## Contribute to $TOOLKIT_LONG
 
 We want and need your feedback! What are the frustrating parts of analyzing
 time-series data? What takes far more code than you feel it should? What runs
@@ -103,7 +96,7 @@ community-wide problems and incorporate as much feedback as possible.
 *   Add your own [feature request][gh-newissue].
 
 [api-hyperfunctions]: /api/:currentVersion:/hyperfunctions
-[blog-function-pipelines]: https://www.timescale.com/blog/function-pipelines-building-functional-programming-into-postgresql-using-custom-operators/
+[blog-function-pipelines]: https://www.tigerdata.com/blog/function-pipelines-building-functional-programming-into-postgresql-using-custom-operators
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
 [gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
 [gh-newissue]: https://github.com/timescale/timescale-analytics/issues/new?assignees=&labels=feature-request&template=feature-request.md&title=

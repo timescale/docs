@@ -1,7 +1,7 @@
 ---
 title: Low-downtime migrations with dual-write and backfill
-excerpt: Migrate a hypertable or your entire database to Timescale Cloud with low downtime using dual-write and backfill
-products: [cloud, self_hosted]
+excerpt: Migrate a hypertable or your entire database to Tiger Cloud with low downtime using dual-write and backfill
+products: [cloud]
 keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
@@ -21,7 +21,7 @@ not be universally applicable.
 
 Dual-write and backfill can be used for any source database type, as long as it
 can provide data in csv format. It can be used to move data from a PostgresSQL
-source, and from TimescaleDB to TimescaleDB.
+source, and from $TIMESCALE_DB to $TIMESCALE_DB.
 
 Dual-write and backfill works well when:
 1. The bulk of the (on-disk) data is in time-series tables.
@@ -40,22 +40,24 @@ Dual-write and backfill works well when:
 
 <MigrationPrerequisites />
 
-## Migrate to Timescale Cloud
+## Migrate to $CLOUD_LONG
 
-To move your data from a self-hosted database to a Timescale Cloud service:
+To move your data from a self-hosted database to a $SERVICE_LONG:
 
-<Tabs label="Live migration">
+<Tabs label="Live migration" persistKey="source-database">
 
-<Tab title="From TimescaleDB">
-
-</Tab>
-<Tab title="From PostgreSQL">
+<Tab title="From TimescaleDB" label="self-hosted">
 
 </Tab>
-<Tab title="From AWS RDS">
+<Tab title="From Postgres" label="postgres">
 
 </Tab>
-<Tab title="From Non-PostgreSQL">
+<Tab title="From AWS RDS" label="aws-rds">
+
+</Tab>
+<Tab title="From Non-Postgres" label="non-postgres">
 
 </Tab>
 </Tabs>
+
+[pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/

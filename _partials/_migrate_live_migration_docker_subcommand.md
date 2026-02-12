@@ -8,7 +8,7 @@ docker run --rm -it --name live-migration \
     -v ~/live-migration:/opt/timescale/ts_cdc \
     timescale/live-migration:latest --help
 
-Live migration moves your PostgreSQL/TimescaleDB to Timescale Cloud with minimal downtime.
+Live migration moves your PostgreSQL/$TIMESCALE_DB to your $SERVICE_LONG with minimal downtime.
 
 options:
   -h, --help            Show this help message and exit
@@ -29,7 +29,7 @@ Live-migration contains 3 subcommands:
 
 On a high-level,
 
-the `snapshot` subcommand creates a Postgres snapshot connection to the source
+the `snapshot` subcommand creates a $PG snapshot connection to the source
 database along with a replication slot. This is pre-requisite before running
 the `migrate` subcommand.
 
@@ -111,8 +111,10 @@ docker run --rm -it --name live-migration-migrate \
     timescale/live-migration:latest migrate
 ```
 <Highlight type="note">
+
 If the migrate command stops for any reason during execution, you can resume
 the migration from where it left off by adding a `--resume` flag. This is only
 possible if the `snapshot` command is intact and if a volume mount, such
 as `~/live-migration`, is utilized.
+
 </Highlight>

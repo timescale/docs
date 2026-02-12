@@ -1,7 +1,8 @@
 ---
-title: Peer your Timescale Cloud services with AWS Transit Gateway
-excerpt: Securely connect to your Timescale Cloud services from AWS, GCP, Azure, or any other cloud or on-premise environment 
+title: Peer your Tiger Cloud services with AWS Transit Gateway
+excerpt: Securely connect to your Tiger Cloud services from AWS, GCP, Azure, or any other cloud or on-premise environment 
 products: [cloud]
+price_plans: [scale, enterprise]
 keywords: [AWS, transit gateway]
 tags: [aws]
 cloud_ui:
@@ -9,83 +10,89 @@ cloud_ui:
         - [services, :serviceId, operations, vpc]
 ---
 
-# Peer your $SERVICE_LONGs with AWS Transit Gateway
+import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
-You use [AWS Transit Gateway][aws-transit-gateway] as a traffic controller for your network. Instead of setting up lots of direct connections to virtual private clouds, on-premise data centers, and other AWS services, you connect everything to Transit Gateway. This simplifies your network and makes it easier to manage and scale.
+# Securely connect to $CLOUD_LONG using AWS Transit Gateway
 
-You can create a peering connection between your $SERVICE_LONGs and AWS Transit Gateway in $CLOUD_LONG. This means that, no matter how big or complex your infrastructure is, you can connect securely to your $SERVICE_LONGs. 
+[AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your $CLOUD_LONG from AWS, Google Cloud, Microsoft Azure, or any other cloud or on-premise environment.
+
+<NotSupportedAzure />
+
+You use AWS Transit Gateway as a traffic controller for your network. Instead of setting up multiple direct connections to different clouds, on-premise data centers, and other AWS services, you connect everything to AWS Transit Gateway. This simplifies your network and makes it easier to manage and scale.
+
+You can then create a peering connection between your $SERVICE_LONGs and AWS Transit Gateway in $CLOUD_LONG. This means that, no matter how big or complex your infrastructure is, you can connect securely to your $SERVICE_LONGs. 
+
+For enhanced security, you can add peering connections to multiple Transit Gateways with overlapping CIDRs—$CLOUD_LONG creates a new isolated connection for every unique Transit Gateway ID. Otherwise, the existing connection is reused for your $SERVICE_SHORTs in the same project and region. 
 
 To configure this secure connection, you:
 
-1. Create a $CLOUD_LONG Peering $VPC with a peering connection to your AWS Transit Gateway.
+1. Connect your infrastructure to AWS Transit Gateway.
+1. Create a $CLOUD_LONG Peering $VPC with a peering connection to AWS Transit Gateway.
 1. Accept and configure the peering connection on your side.
 1. Attach individual $SERVICE_SHORTs to the Peering $VPC.
 
-Transit Gateway feature is available for Scale and Enterprise [pricing plans][pricing-plans].
+AWS Transit Gateway enables you to connect from almost any environment, this page provides examples for the most common use cases. 
 
-## Create a Peering $VPC
+<Tabs label="Connect from any cloud" persistKey="source-cloud" >
 
-To create a Peering $VPC:
-
-<Procedure>
-
-1. **In [$CONSOLE][console-login] > `Security` > `VPC`, click `Create a VPC`**
-
-   ![$CLOUD_LONG new $VPC](https://assets.timescale.com/docs/images/add-peering-vpc.png)
-
-1.  **Choose your region and IP range, name your VPC, then click `Create VPC`**
-
-    ![Create a new VPC in $CLOUD_LONG](https://assets.timescale.com/docs/images/configure-peering-vpc.png)
-
-    Your $SERVICE_SHORT and Peering $VPC must be in the same AWS region. The number of Peering $VPCs you can create in your project depends on your [pricing plan][pricing-plans]. If you need another Peering $VPC, either contact [support@timescale.com](mailto:support@timescale.com) or change your pricing plan in [$CONSOLE][console-login].
-
-1.  **Add a peering connection**
-
-    1. In the `VPC Peering` column, click `Add`.
-    1. Provide your AWS account ID, VPC ID or Transit Gateway ID, CIDR ranges, and AWS region. 
-    1. Click `Add connection`.
-
-    ![Add peering](https://assets.timescale.com/docs/images/add-peering.png)
-
-</Procedure>
-
-## Accept and configure peering connection
-
-Once your peering connection appears as `Processing`, you can accept and configure it in AWS: 
+<Tab title="Amazon Web Services" label="aws">
 
 <Procedure>
 
-1. **Accept the peering request**
-
-   In your AWS account, accept the peering request coming from $CLOUD_LONG. The request can take up to 5 min to arrive. Within 5 more minutes after accepting, the peering should appear as `Connected` in $CONSOLE.
-
-1. **Configure networking in your AWS account**
-
-    Configure at least the following:
-
-    1. Your subnet route table to route traffic to your Transit Gateway for the Peering VPC CIDRs.
-    1. Your Transit Gateway route table to route traffic to the newly created Transit Gateway peering attachment for the Peering VPC CIDRs.
-    1. Security groups to allow outbound TCP 5432.
+<TransitGateway />
 
 </Procedure>
 
-## Attach a $CLOUD_LONG service to the Peering VPC
+</Tab>
 
-To attach a $SERVICE_SHORT to the Peering VPC:
+<Tab title="Microsoft Azure" label="ms-azure">
 
 <Procedure>
 
-1. **In [$CONSOLE][console-services], select the $SERVICE_SHORT you want to connect to the Peering VPC**
-1. **Click `Operations` > `Security` > `VPC`**
-1. **Select the VPC, then click `Attach VPC`**
+1. **Connect your infrastructure to AWS Transit Gateway**
 
-   You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
+    Establish connectivity between Azure and AWS. See the [AWS architectural documentation][azure-aws] for details. 
+
+<TransitGateway />
 
 </Procedure>
 
-You can now securely access your $SERVICE_SHORTs from any private cloud or on-premise data center connected to AWS Transit Gateway. 
+</Tab>
 
+<Tab title="Google Cloud" label="google-cloud">
+
+<Procedure>
+
+1. **Connect your infrastructure to AWS Transit Gateway**
+
+    Establish connectivity between Google Cloud and AWS. See [Connect HA VPN to AWS peer gateways][gcp-aws]. 
+
+<TransitGateway />
+
+</Procedure>
+
+</Tab>
+
+<Tab title="On-premise" label="on-premise">
+
+<Procedure>
+
+1. **Connect your infrastructure to AWS Transit Gateway**
+
+    Establish connectivity between your on-premise infrastructure and AWS. See the [Centralize network connectivity using AWS Transit Gateway][aws-onprem].
+
+<TransitGateway />
+
+</Procedure>
+
+</Tab>
+
+</Tabs>
+
+You can now securely access your $SERVICE_SHORTs in $CLOUD_LONG.
+
+[aws-onprem]: https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralize-network-connectivity-using-aws-transit-gateway.html
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[console-login]: https://console.cloud.timescale.com/
-[console-services]: https://console.cloud.timescale.com/dashboard/services
+[azure-aws]: https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/
+[gcp-aws]: https://cloud.google.com/network-connectivity/docs/vpn/how-to/connect-ha-vpn-aws-peer-gateway

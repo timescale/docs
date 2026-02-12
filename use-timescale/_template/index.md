@@ -5,7 +5,7 @@ example:
 
 ```txt
 Continuous aggregates are designed to make queries on very large
-datasets run faster. TimescaleDB continuous aggregates use PostgreSQL
+datasets run faster. TimescaleDB continuous aggregates use Postgres
 [materialized views][postgres-materialized-views]
 to continuously and incrementally refresh a query in the background, so that
 when you run the query, only the data that has changed needs to be computed, not
@@ -20,7 +20,6 @@ page, and include reference-style links. For example:
 *   [Create a widget][widget-create] and turn it on.
 *   [Fiddle with a widget][widget-fiddle] to make it do stuff.
 *   [Troubleshoot][widget-tshoot] widgets.
-
 
 [about-widgets]: /how-to-guides/:currentVersion:/_template/about-widgets/
 [widget-create]: /how-to-guides/:currentVersion:/_template/create-widgets/

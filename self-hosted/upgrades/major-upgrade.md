@@ -15,8 +15,8 @@ import ImplementMigrationPath from "versionContent/_partials/_migrate_self_postg
 
 A major upgrade is when you update from TimescaleDB `X.<minor version>` to `Y.<minor version>`.
 A minor upgrade is when you update from TimescaleDB `<major version>.x`, to TimescaleDB `<major version>.y`.
-You can run different versions of TimescaleDB on different databases within the same PostgreSQL instance.
-This process uses the PostgreSQL `ALTER EXTENSION` function to upgrade TimescaleDB independently on different
+You can run different versions of TimescaleDB on different databases within the same $PG instance.
+This process uses the $PG `ALTER EXTENSION` function to upgrade TimescaleDB independently on different
 databases.
 
 When you perform a major upgrade, new policies are automatically configured based on your current 
@@ -32,25 +32,25 @@ This page shows you how to perform a major upgrade. For minor upgrades, see
 
 <PlanUpgrade />
 
-## Check the TimescaleDB and PostgreSQL versions
+## Check the TimescaleDB and $PG versions
 
 <CheckVersions />
 
 ## Plan your upgrade path
 
-Best practice is to always use the latest version of TimescaleDB. Subscribe to our releases on GitHub or use Timescale
-Cloud and always get latest update without any hassle.
+Best practice is to always use the latest version of TimescaleDB. Subscribe to our releases on GitHub or use $CLOUD_LONG 
+and always get latest update without any hassle.
 
-Check the following support matrix against the versions of TimescaleDB and PostgreSQL that you are
+Check the following support matrix against the versions of TimescaleDB and $PG that you are
 running currently and the versions you want to update to, then choose your upgrade path.
 
-For example, to upgrade from TimescaleDB 1.7 on PostgreSQL 12 to TimescaleDB 2.17.2 on PostgreSQL 15 you 
+For example, to upgrade from TimescaleDB 1.7 on $PG 12 to TimescaleDB 2.17.2 on $PG 15 you 
 need to:
 1. Upgrade TimescaleDB to 2.10
-1. Upgrade PostgreSQL to 15
+1. Upgrade $PG to 15
 1. Upgrade TimescaleDB to 2.17.2.
 
-You may need to [upgrade to the latest PostgreSQL version][upgrade-pg] before you upgrade TimescaleDB.
+You may need to [upgrade to the latest $PG version][upgrade-pg] before you upgrade TimescaleDB.
 
 <SupportMatrix />
 
@@ -81,7 +81,7 @@ notice is shown.
    export SOURCE="postgres://<user>:<password>@<source host>:<source port>/<db_name>"
    ```
 
-1. **Connect to your PostgreSQL deployment**
+1. **Connect to your $PG deployment**
    ```bash
    psql -d $SOURCE
    ```
@@ -127,11 +127,12 @@ notice is shown.
 
 <ImplementMigrationPath />
 
-
 <Highlight type="note">
+
 To upgrade TimescaleDB in a Docker container, see the 
-[Docker container upgrades](/self-hosted/latest/upgrades/upgrade-docker) 
+[Docker container upgrades][docker-container-upgrades] 
 section.
+
 </Highlight>
 
 ## Verify the updated policy settings and jobs
@@ -144,7 +145,7 @@ section.
     SELECT * FROM timescaledb_information.jobs
       WHERE application_name LIKE 'Refresh Continuous%';
     ```
-    Postgres returns something like:
+    $PG returns something like:
     ```shell
     -[ RECORD 1 ]-----+--------------------------------------------------
     job_id            | 1001
@@ -175,7 +176,7 @@ section.
     SELECT * FROM timescaledb_information.job_stats
       WHERE job_id = 1001;
     ```
-    Postgres returns something like:
+    $PG returns something like:
     ```sql
     -[ RECORD 1 ]----------+------------------------------
     hypertable_schema      | _timescaledb_internal
@@ -196,8 +197,6 @@ section.
 
 You are running a shiny new version of TimescaleDB.
 
+[docker-container-upgrades]: /self-hosted/:currentVersion:/upgrades/upgrade-docker
 [upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/
-[relnotes]: https://github.com/timescale/timescaledb/releases
 [upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#upgrade-postgresql
-[backup]: /self-hosted/:currentVersion:/backup-and-restore/
-[export-policy-settings]: /self-hosted/:currentVersion:/upgrades/major-upgrade/#export-your-policy-settings

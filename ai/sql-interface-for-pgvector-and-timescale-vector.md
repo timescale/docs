@@ -1,8 +1,8 @@
 ---
 title: SQL inteface for pgvector and pgvectorscale
 excerpt: Use the SQL interface to work with pgvector and pgvectorscale, including installing the extensions, creating a table, querying the vector embeddings, and more
-products: [cloud]
-keywords: [ai, vector, pgvector, timescale vector, sql, pgvectorscale]
+products: [cloud, mst, self_hosted]
+keywords: [ai, vector, pgvector, tiger data vector, sql, pgvectorscale]
 tags: [ai, vector, sql]
 ---
 
@@ -10,7 +10,7 @@ tags: [ai, vector, sql]
 
 ## Installing the pgvector and pgvectorscale extensions
 
-If not already installed, install the `vector` and `vectorscale` extensions on your Timescale database.
+If not already installed, install the `vector` and `vectorscale` extensions on your $COMPANY database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS vector;
@@ -19,7 +19,7 @@ CREATE EXTENSION IF NOT EXISTS vectorscale;
 
 ## Creating the table for storing embeddings using pgvector
 
-Vectors inside of the database are stored in regular PostgreSQL tables using `vector` columns. The `vector` column type is provided by the pgvector extension. A common way to store vectors is alongside the data they are embedding. For example, to store embeddings for documents, a common table structure is:
+Vectors inside of the database are stored in regular $PG tables using `vector` columns. The `vector` column type is provided by the pgvector extension. A common way to store vectors is alongside the data they are embedding. For example, to store embeddings for documents, a common table structure is:
 
 ```sql
 CREATE TABLE IF NOT EXISTS document_embedding  (
@@ -61,7 +61,9 @@ The available distance types and their operators are:
 | Negative inner product | `<#>`           |
 
 <Highlight type="note">
+
 If you are using an index, you need to make sure that the distance function used in index creation is the same one used during query (see below). This is important because if you create your index with one distance function but query with another, your index cannot be used to speed up the query.
+
 </Highlight>
 
 
@@ -81,7 +83,7 @@ The key part is that the `ORDER BY` contains a distance measure against a consta
 Note that if performing a query without an index, you always get an exact result, but the query is slow (it has to read all of the data you store for every query). With an index, your queries are an order-of-magnitude faster, but the results are approximate (because there are no known indexing techniques that are exact see [here for more][vector-search-indexing]).
 
 <!-- vale Google.Colons = NO -->
-Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on the Timescale platform: StreamingDiskANN, HNSW, and ivfflat. Below is the trade-offs between these algorithms:
+Nevertheless, there are excellent approximate algorithms. There are 3 different indexing algorithms available on $TIMESCALE_DB: StreamingDiskANN, HNSW, and ivfflat. Below is the trade-offs between these algorithms:
 <!-- vale Google.Colons = Yes -->
 
 | Algorithm       | Build Speed | Query Speed | Need to rebuild after updates |
@@ -91,7 +93,7 @@ Nevertheless, there are excellent approximate algorithms. There are 3 different 
 | ivfflat | Fastest     | Slowest     | Yes                           |
 
 
-You can see [benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database/) in the blog.
+You can see [benchmarks][benchmarks] in the blog.
 
 For most use cases, the StreamingDiskANN index is recommended.
 
@@ -102,10 +104,9 @@ You can see the details of each index below.
 ### StreamingDiskANN index
 
 
-The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm. 
+The StreamingDiskANN index is a graph-based algorithm that was inspired by the [DiskANN][diskann] algorithm. 
 You can read more about it in 
-[How We Made PostgreSQL as Fast as Pinecone for Vector Data](https://www.timescale.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data/).
-
+[How We Made $PG as Fast as Pinecone for Vector Data][how-we-made-pg-as-fast-as-pinecone-for-vector-data].
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, with cosine distance metric, run:
 ```sql
@@ -132,7 +133,7 @@ These parameters can be set when an index is created.
 | `num_neighbors`    | Sets the maximum number of neighbors per node. Higher values increase accuracy but make the graph traversal slower.                                           | 50            |
 | `search_list_size` | This is the S parameter used in the greedy search algorithm used during construction. Higher values improve graph quality at the cost of slower index builds. | 100           |
 | `max_alpha`        | Is the alpha parameter in the algorithm. Higher values improve graph quality at the cost of slower index builds.                                              | 1.2           |
-| `num_dimensions` | The number of dimensions to index. By default, all dimensions are indexed. But you can also index less dimensions to make use of [Matryoshka embeddings](https://huggingface.co/blog/matryoshka) | 0 (all dimensions)
+| `num_dimensions` | The number of dimensions to index. By default, all dimensions are indexed. But you can also index less dimensions to make use of [Matryoshka embeddings][matryoshka-embeddings] | 0 (all dimensions)
 | `num_bits_per_dimension` | Number of bits used to encode each dimension when using SBQ | 2 for less than 900 dimensions, 1 otherwise
 
 An example of how to set the `num_neighbors` parameter is:
@@ -162,7 +163,7 @@ You can set the value by using `SET` before executing a query. For example:
 SET diskann.query_rescore = 400;
 ```
 
-Note the [SET command](https://www.postgresql.org/docs/current/sql-set.html) applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL` which will
+Note the [SET command][set-command] applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL` which will
 be reset after the end of the transaction:
 
 ```sql
@@ -185,7 +186,7 @@ LIMIT 10
 
 ### pgvector HNSW
 
-Pgvector provides a graph-based indexing algorithm based on the popular [HNSW algorithm](https://arxiv.org/abs/1603.09320).
+Pgvector provides a graph-based indexing algorithm based on the popular [HNSW algorithm][hnsw-algorithm].
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
@@ -229,7 +230,7 @@ You can set the value by running:
 SET hnsw.ef_search = 100;
 ```
 
-Before executing the query, note the [SET command](https://www.postgresql.org/docs/current/sql-set.html) applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL`:
+Before executing the query, note the [SET command][set-command] applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL`:
 
 ```sql
 BEGIN;
@@ -251,7 +252,7 @@ LIMIT 10
 
 ### pgvector ivfflat
 
-Pgvector provides a clustering-based indexing algorithm. The [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) describes how it works in detail. It provides the fastest index-build speed but the slowest query speeds of any indexing algorithm.
+Pgvector provides a clustering-based indexing algorithm. The [blog post][blog-post] describes how it works in detail. It provides the fastest index-build speed but the slowest query speeds of any indexing algorithm.
 
 To create an index named `document_embedding_idx` on table `document_embedding` having a vector column named `embedding`, run:
 ```sql
@@ -267,7 +268,7 @@ This command creates an index for cosine-distance queries because of `vector_cos
 | Euclidean / L2         | `<->`            | `vector_ip_ops`     |
 | Negative inner product | `<#>`            | `vector_l2_ops`     |
 
-Note: *ivfflat should never be created on empty tables* because it needs to cluster data, and that only happens when an index is first created, not when new rows are inserted or modified. Also, if your table undergoes a lot of modifications, you need to rebuild this index occasionally to maintain good accuracy. See the [blog post](https://www.timescale.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work/) for details.
+Note: *ivfflat should never be created on empty tables* because it needs to cluster data, and that only happens when an index is first created, not when new rows are inserted or modified. Also, if your table undergoes a lot of modifications, you need to rebuild this index occasionally to maintain good accuracy. See the [blog post][blog-post] for details.
 
 Pgvector ivfflat has a `lists` index parameter that should be set. See the next section.
 
@@ -317,7 +318,7 @@ You can set the value by running:
 SET ivfflat.probes = 100;
 ```
 
-Before executing the query, note the [SET command](https://www.postgresql.org/docs/current/sql-set.html) applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL`:
+Before executing the query, note the [SET command][set-command] applies to the entire session (database connection) from the point of execution. You can use a transaction-local variant using `LOCAL`:
 
 ```sql
 BEGIN;
@@ -338,5 +339,12 @@ ORDER BY embedding <=> $1
 LIMIT 10
 ```
 
+[benchmarks]: https://www.tigerdata.com/blog/how-we-made-postgresql-the-best-vector-database/
+[blog-post]: https://www.tigerdata.com/blog/nearest-neighbor-indexes-what-are-ivfflat-indexes-in-pgvector-and-how-do-they-work
+[diskann]: https://github.com/microsoft/DiskANN
 [distance-functions]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/#vector-distance-types
+[hnsw-algorithm]: https://arxiv.org/abs/1603.09320
+[how-we-made-pg-as-fast-as-pinecone-for-vector-data]: https://www.tigerdata.com/blog/how-we-made-postgresql-as-fast-as-pinecone-for-vector-data
+[matryoshka-embeddings]: https://huggingface.co/blog/matryoshka
+[set-command]: https://www.postgresql.org/docs/current/sql-set.html
 [vector-search-indexing]: /ai/:currentVersion:/key-vector-database-concepts-for-understanding-pgvector/#vector-search-indexing-approximate-nearest-neighbor-search

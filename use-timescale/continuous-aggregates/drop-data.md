@@ -1,6 +1,6 @@
 ---
 title: Dropping data
-excerpt: Drop a view or raw data from a continuous aggregate or its underlying hypertable in Timescale Cloud
+excerpt: Drop a view or raw data from a continuous aggregate or its underlying hypertable 
 products: [cloud, mst, self_hosted]
 keywords: [continuous aggregates, hypertables, delete]
 tags: [drop]
@@ -10,7 +10,7 @@ tags: [drop]
 
 When you are working with continuous aggregates, you can drop a view, or you can
 drop raw data from the underlying hypertable or from the continuous aggregate
-itself. A combination of [refresh][cagg-refresh] and data retention policies
+itself. A combination of [refresh][refresh-policy] and data retention policies
 can help you downsample your data. This lets you keep historical data at a
 lower granularity than recent data.
 
@@ -63,7 +63,6 @@ For more information, see the
 
 <PolicyVisualizerDownsampling />
 
-[cagg-refresh]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[data-retention-with-continuous-aggregates]:
-    /use-timescale/:currentVersion:/data-retention/data-retention-with-continuous-aggregates
+[data-retention-with-continuous-aggregates]: /use-timescale/:currentVersion:/data-retention/data-retention-with-continuous-aggregates
+[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [visualizer]: #set-up-downsampling-and-data-retention

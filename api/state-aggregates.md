@@ -8,7 +8,7 @@ keywords: [states, hyperfunctions, Toolkit]
 
 This section includes functions used to measure the time spent in a relatively small number of states.
 
-For these hyperfunctions, you need to install the [TimescaleDB Toolkit][install-toolkit] PostgreSQL extension.
+For these hyperfunctions, you need to install the [TimescaleDB Toolkit][install-toolkit] $PG extension.
 
 ## Notes on compact_state_agg and state_agg
 

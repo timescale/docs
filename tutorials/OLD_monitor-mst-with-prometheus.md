@@ -11,7 +11,7 @@ You can get more insights into the performance of your managed TimescaleDB
 database by monitoring it using [Prometheus][get-prometheus], a popular
 open-source metrics-based systems monitoring solution. This tutorial
 takes you through setting up a Prometheus endpoint for a database running
-in a [managed service for TimescaleDB][timescale-mst].
+in a [$MST_LONG][timescale-mst].
 
 This exposes metrics from the [node_exporter][node-exporter-metrics] as well
 as [pg_stats][pg-stats-metrics] metrics.
@@ -20,7 +20,7 @@ as [pg_stats][pg-stats-metrics] metrics.
 
 In order to proceed with this tutorial, you need a managed service for TimescaleDB database.
 To create one, see these instructions for how to
-[get started with managed service for TimescaleDB][timescale-mst-get-started]
+[get started with $MST_LONG][about-mst]
 
 ### Step 1: Enable Prometheus service integration
 
@@ -45,7 +45,7 @@ installation, substituting the target port, IP address, username, and password
 for those of your managed TimescaleDB instance:
 
 ```yaml
-# prometheus.yml for monitoring a Timescale instance
+# prometheus.yml for monitoring a Tiger Cloud service
 global:
  scrape_interval:     10s
  evaluation_interval: 10s
@@ -67,8 +67,7 @@ remote_read:
 
 ### Step 2: Associate Prometheus Endpoint with Managed Service
 
-Next, we want to associate our Prometheus endpoint with our Timescale
-managed service. Using the navigation menu, select the service we want to
+Next, we want to associate our Prometheus endpoint with our $MST. Using the navigation menu, select the $SERVICE_SHORT we want to
 monitor and click the 'Overview' tab.
 
 Navigate down to the 'Service Integrations' section and click the 'Manage Integrations' button.
@@ -80,22 +79,21 @@ Find the Prometheus integration option and select 'Use Prometheus'.
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_2.png" alt="Select Prometheus integration to integrate with"/>
 
 Next, select the endpoint name you created in Step 1 as the endpoint you'd like to use
-with this service and then click the 'Enable' button. It's possible to use the same
+with this $SERVICE_SHORT and then click the 'Enable' button. It's possible to use the same
 endpoint for multiple services or a separate one for services you'd like to keep apart.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_3.png" alt="Select name of Prometheus endpoint to integrate with"/>
 
-To check if this was successful, navigate back to the Service Integrations section of your
+To check if this was successful, navigate back to the `Service Integrations` section of your
 managed service, and check if that "Active" flag appears, along with the name of the endpoint
-you associated the service with.
+you associated the $SERVICE_SHORT with.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_5.png" alt="Success! Active prometheus endpoint with name"/>
 
-Congratulations, you have successfully set up a Prometheus endpoint on your managed
-service on managed service for TimescaleDB!
+Congratulations, you have successfully set up a Prometheus endpoint on your $MST!
 
+[about-mst]: /mst/:currentVersion:/about-mst
 [get-prometheus]: https://prometheus.io
 [node-exporter-metrics]: https://github.com/prometheus/node_exporter
 [pg-stats-metrics]: https://www.postgresql.org/docs/current/monitoring-stats.html
-[timescale-mst]: https://www.timescale.com/products
-[timescale-mst-get-started]: /mst/:currentVersion:/about-mst
+[timescale-mst]: https://www.tigerdata.com/products

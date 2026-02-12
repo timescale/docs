@@ -1,49 +1,35 @@
 ---
 title: Analyze financial tick data - Set up the dataset
-excerpt: Ingest and set up a financial dataset in Timescale Cloud to run real-time analytical queries on it
-products: [cloud, mst, self_hosted]
+excerpt: Ingest and set up a financial dataset in Tiger Cloud to run real-time analytical queries on it
+products: [cloud, self_hosted, mst]
 keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
 layout_components: [next_prev_large]
 content_group: Analyze financial tick data
 ---
 
-import CreateAndConnect from "versionContent/_partials/_cloud-create-connect-tutorials.mdx";
-import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-stocks.mdx";
-import AddData from "versionContent/_partials/_add-data-twelvedata-stocks.mdx";
+import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
+import CreateHypertableCrypto from "versionContent/_partials/_create-hypertable-twelvedata-crypto.mdx";
+import AddDataCrypto from "versionContent/_partials/_add-data-twelvedata-crypto.mdx";
+import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 
-# Set up the database
+# Ingest data into a $SERVICE_LONG
 
-This tutorial uses a dataset that contains second-by-second stock-trade data for
-the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
-also includes a separate table of company symbols and company names, in a
-regular PostgreSQL table named `company`.
-
-<Collapsible heading="Create a Timescale service and connect to your service" defaultExpanded={false}>
-
-<CreateAndConnect/>
-
-</Collapsible>
-
-<Collapsible heading="The dataset" defaultExpanded={false}>
+This tutorial uses a dataset that contains second-by-second trade data for
+the most-traded crypto-assets. You optimize this time-series data in a hypertable called `assets_real_time`. 
+You also create a separate table of asset symbols in a regular $PG table named `assets`.
 
 The dataset is updated on a nightly basis and contains data from the last four
-weeks, typically around 8 million rows of data. Stock trades are recorded in
-real-time Monday through Friday, typically during normal trading hours of the
-New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
+weeks, typically around 8 million rows of data. Trades are recorded in
+real-time from 180+ cryptocurrency exchanges.
 
-<CreateHypertable />
+## Prerequisites
 
-<AddData />
+<IntegrationPrereqs />
 
-</Collapsible>
+<CreateHypertableCrypto />
 
-<Collapsible heading="Connect to Grafana" defaultExpanded={false}>
-
-The queries in this tutorial are suitable for visualizing in Grafana. If you
-want to visualize the results of your queries, connect your Grafana account to
-the energy consumption dataset.
+<AddDataCrypto />
 
 <GrafanaConnect />
 
-</Collapsible>

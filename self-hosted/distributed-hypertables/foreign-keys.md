@@ -1,9 +1,10 @@
 ---
 title: Create foreign keys in a distributed hypertable
 excerpt: Sunsetted v2.14.x. Add foreign keys to the nodes of a distributed hypertable in your self-hosted TimescaleDB installation
-products: [self_hosted]
 keywords: [distributed hypertable, foreign keys]
 tags: [constraints]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";

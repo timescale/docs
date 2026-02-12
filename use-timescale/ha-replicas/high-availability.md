@@ -1,7 +1,8 @@
 ---
 title: Manage high availability
-excerpt: Timescale Cloud ensures high availability of your service by creating replicas that take over in case of the primary node downtime. Create and set up high availability replicas in Timescale Console
+excerpt: Tiger Cloud ensures high availability of your service by creating replicas that take over in case of the primary node downtime. Create and set up high availability replicas in Tiger Cloud Console
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [high availability, replicas]
 tags: [failover, availability zones, replication, wal]
 cloud_ui:
@@ -9,14 +10,19 @@ cloud_ui:
         - [services, :serviceId, operations, replication]
 ---
 
+import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
+
 
 # Manage high availability
 
-For Timescale Cloud Service with very low tolerance for downtime, Timescale Cloud offers 
-High Availability (HA) replicas. HA replicas significantly reduce the risk of downtime and data loss due to 
-system failure, and enable services to avoid downtime during routine maintenance.
+For $SERVICE_LONGs where every second of uptime matters, $CLOUD_LONG delivers High Availability (HA) replicas. 
+These replicas safeguard your data and keep your $SERVICE_SHORT running smoothly, even in the face of unexpected failures. 
+By minimizing downtime and protecting against data loss, HA replicas ensure business continuity and give you the confidence 
+to operate without interruption, including during routine maintenance.
 
-This page shows you how to choose the best high availability option for your Timescale Cloud Service.  
+![HA replicas in Tiger Cloud][ha-replicas-in-tiger-cloud]
+
+This page shows you how to choose the best high availability option for your $SERVICE_SHORT.
 
 ## What is HA replication?
 
@@ -28,23 +34,23 @@ HA replicas can be synchronous and asynchronous.
   
 - Asynchronous: the primary commits its next write without the confirmation of the previous write completion. The asynchronous HA replicas often have a lag, in both time and data, compared to the primary. This is preferable if you need the shortest primary ingest time.
 
-![Sync and async replication](https://assets.timescale.com/docs/images/sync_async_replication_draft.png)
+![Sync and async replication][sync-and-async-replication]
 
 HA replicas have separate unique addresses that you can use to serve read-only requests in parallel to your 
-primary data node. When your primary data node fails, Timescale Cloud automatically fails over to 
-an HA replica within 30 seconds. During failover, the read-only address is unavailable while Timescale Cloud automatically creates a new HA replica. The time to make this replica depends on several factors, including the size of your data.
+primary data node. When your primary data node fails, $CLOUD_LONG automatically fails over to 
+an HA replica within 30 seconds. During failover, the read-only address is unavailable while $CLOUD_LONG automatically creates a new HA replica. The time to make this replica depends on several factors, including the size of your data.
 
-Operations such as upgrading your Timescale Cloud Service to a new major or minor version may necessitate 
-a service restart. Restarts are run during the [maintenance window][upgrade]. To avoid any downtime, each data
+Operations such as upgrading your $SERVICE_SHORT to a new major or minor version may necessitate 
+a $SERVICE_SHORT restart. Restarts are run during the [maintenance window][maintain-upgrade]. To avoid any downtime, each data
 node is updated in turn. That is, while the primary data node is updated, a replica is promoted to primary. 
 After the primary is updated and online, the same maintenance is performed on the HA replicas.
 
-To ensure that all Timescale Cloud Services have minimum downtime and data loss in the most common
-failure scenarios and during maintenance, [rapid recovery][rapid-recovery] is enabled by default for all services.
+To ensure that all $SERVICE_SHORTs have minimum downtime and data loss in the most common
+failure scenarios and during maintenance, [rapid recovery][rapid-recovery] is enabled by default for all $SERVICE_SHORTs.
 
 ## Choose an HA strategy
 
-The following HA configurations are available in Timescale Cloud:
+The following HA configurations are available in $CLOUD_LONG:
 
 - **Non-production**: no replica, best for developer environments.
 
@@ -52,7 +58,7 @@ The following HA configurations are available in Timescale Cloud:
 
 - **Highest availability**: two replicas in different AWS availability zones from your primary. Available replication modes are:
 
-  - **High performance** - two async replicas. Provides the highest level of availability with two AZs and the ability to query the HA system. Best for absolutely critical apps.
+  - **High performance** - two async replicas. Provides the highest level of availability with two AZs and the ability to query the HA system. Best for apps where service availability is most critical.
   - **High data integrity** - one sync replica and one async replica. The sync replica is identical to the primary at all times. Best for apps that can tolerate no data loss.
 
 The following table summarizes the differences between these HA configurations:
@@ -67,29 +73,15 @@ The following table summarizes the differences between these HA configurations:
 | Cost composition | Primary + async (2x) |Primary + 2 async (3x)|Primary + 1 async + 1 sync (3x)|
 | Tier | Performance, Scale, and Enterprise  |Scale and Enterprise|Scale and Enterprise|
 
-The `High` and `Highest` HA strategies are available with the [Scale and the Enterprise][pricing-plans] pricing plans.
+The `High` and `Highest` HA strategies are available with the [$SCALE and the $ENTERPRISE][pricing-plans] $PRICING_PLANs.
 
-To enable HA for a Timescale Cloud Service:  
+To enable HA for a $SERVICE_SHORT:  
 
-<Procedure>
-
-1.  In [Timescale Console][cloud-login], select the service to enable replication for.
-1.  Click `Operations`, then select `High availability`.
-1.  Choose your replication strategy, then click `Change configuration`.
-    <img
-    class="main-content__illustration"
-    src="https://assets.timescale.com/docs/images/tsc-replication-add.png"
-    alt="Creating a database replica in Timescale"
-    />
-    
-1. In `Change high availability configuration`, click `Change config`. 
+<HASetup />
 
 To change your HA replica strategy, click `Change configuration`, choose a strategy and click `Change configuration`.
 To download the connection information for the HA replica, either click the link next to the replica
-`Active configuration`, or find the information in the `Overview` tab for this service.
-
-</Procedure>
-
+`Active configuration`, or find the information in the `Overview` tab for this $SERVICE_SHORT.
 
 ## Test failover for your HA replicas
 
@@ -103,7 +95,9 @@ primary is not in a state to safely switch.
     the `tsdbowner` group.
 
     <Highlight type="note">
+
     You can also connect to the HA replica and check its node using this procedure.
+
     </Highlight>
 
 1.  At the `psql` prompt, connect to the `postgres` database:
@@ -126,7 +120,7 @@ primary is not in a state to safely switch.
     select * from pg_stat_replication;
     ```
 
-    Note the `application_name`. This is your service ID followed by the
+    Note the `application_name`. This is your $SERVICE_SHORT ID followed by the
     node. The important part is the `-an-0` or `-an-1`.
 
 1.  Schedule a switchover:
@@ -161,7 +155,8 @@ primary is not in a state to safely switch.
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com
-[upgrade]: /use-timescale/:currentVersion:/upgrades/
+[ha-replicas-in-tiger-cloud]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-ha-architecture-diagram.svg
+[maintain-upgrade]: /use-timescale/:currentVersion:/upgrades/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [rapid-recovery]: /use-timescale/:currentVersion:/ha-replicas/#rapid-recovery
+[sync-and-async-replication]: https://assets.timescale.com/docs/images/sync_async_replication_draft.png

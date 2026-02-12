@@ -22,20 +22,20 @@ This tutorial shows you how to:
 
 *   Design a schema for NFT transactions
 *   Ingest time-series NFT data and additional relevant relational data
-*   Query the dataset using PostgreSQL and TimescaleDB to unlock insights from the data
+*   Query the dataset using $PG and $TIMESCALE_DB to unlock insights from the data
 
 ## NFT Starter Kit
 
-This tutorial is part of the [Timescale NFT Starter Kit][starter-kit], designed
+This tutorial is part of the [$COMPANYNFT Starter Kit][starter-kit], designed
 to get you up and running with analyzing NFT data, and give you the inspiration
 to build your own, more complex projects.
 The NFT Starter Kit contains:
 
 *   Data ingestion script, which collects historical data from OpenSea and ingests
-it into TimescaleDB
+it into $TIMESCALE_DB
 *   Sample dataset, to get started quickly, if you don't want to wait too much time ingesting data
 *   Schema for storing NFT sales, assets, collections, and accounts
-*   Local TimescaleDB database, pre-loaded with sample NFT data
+*   Local $TIMESCALE_DB database, pre-loaded with sample NFT data
 *   Pre-built dashboards and charts in [Apache Superset][superset] and [Grafana][grafana]
 for visualizing your data analysis
 *   Queries to use as a starting point for your own analysis
@@ -47,7 +47,7 @@ along with this tutorial.
 
 Because we love NFTs as much as you do, we created [Time Travel Tigers][eon-collection],
 a limited edition set of 20
-NFT about our Timescale mascot, Eon! The first 20 people to complete this tutorial
+NFT about our $COMPANYmascot, Eon! The first 20 people to complete this tutorial
 can earn a limited edition NFT from
 the collection, for free!
 
@@ -63,12 +63,12 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 ## Prerequisites
 
 *   OpenSea API key ([request one from here][opensea-key])
-*   TimescaleDB ([installation options][install-ts])
-*   Psql or any other PostgreSQL client (for example DBeaver, or PgAdmin)
+*   $TIMESCALE_DB ([installation options][install-timescale])
+*   Psql or any other $PG client (for example DBeaver, or PgAdmin)
 
 [eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
 [grafana]: https://grafana.com
-[install-ts]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
 [nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link
 [nft-wiki]: https://en.wikipedia.org/wiki/Non-fungible_token
 [opensea-key]: https://docs.opensea.io/reference/api-keys

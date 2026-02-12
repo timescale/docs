@@ -1,17 +1,17 @@
+import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 <Procedure>
 
-[Hypertables][hypertables] are PostgreSQL tables that automatically partition your data by time. You interact
-with hypertables in the same way as regular PostgreSQL tables, but with extra features that makes managing your
-time-series data much easier.
+<HypertableIntro />
 
 To create a hypertable:
 
 1. **Connect to your service**
 
-    In Timescale Console, click `Data`, then select a service.
+    In $CONSOLE, click `Data view`, then select a $SERVICE_SHORT.
 
-1. **Create a PostgreSQL table** 
+1. **Create a $PG table** 
 
     Copy the following into your query, then click `Run`:
 
@@ -21,27 +21,16 @@ To create a hypertable:
       symbol TEXT NOT NULL,
       price DOUBLE PRECISION NULL,
       day_volume INT NULL
+    ) WITH (
+       tsdb.hypertable
     );
     ```
-    You see the result immediately:
+   <CreateHypertablePolicyNote />
 
-    ![Data mode create table](https://assets.timescale.com/docs/images/data-mode-create-table.png)
+   You see the result immediately:
 
-1.  **Make a hypertable**
-
-    Copy the following into your SQL editor, then run your query:
-    ```sql
-    SELECT create_hypertable('stocks_real_time', by_range('time'));
-    ```
-    In data mode, you see the result immediately:
-
-    ![Data mode create hypertable](https://assets.timescale.com/docs/images/data-mode-create-hypertable.png)
+   ![Data view create table][data-mode-create-table]
 
 </Procedure>
 
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
-[run-sqleditor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
-[install-psql]: /use-timescale/:currentVersion:/integrations/psql/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/#hypertable-partitioning
+[data-mode-create-table]: https://assets.timescale.com/docs/images/data-mode-create-table.png

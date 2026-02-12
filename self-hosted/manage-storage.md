@@ -10,7 +10,7 @@ import ConsiderCloud from "versionContent/_partials/_consider-cloud.mdx";
 
 # Manage storage using tablespaces
 
-If you are running Timescale on your own hardware, you can save storage
+If you are running $TIMESCALE_DB on your own hardware, you can save storage
 by moving chunks between tablespaces. By moving older chunks to cheaper, slower
 storage, you can save on storage costs while still using faster, more expensive
 storage for frequently accessed data. Moving infrequently accessed chunks can
@@ -18,10 +18,12 @@ also improve performance, because it isolates historical data from the continual
 read-and-write workload of more recent data.
 
 <Highlight type="note">
-Using tablespaces is one way to manage data storage costs with Timescale. You
-can also use [compression](/use-timescale/latest/compression) and
-[data retention](/use-timescale/latest/data-retention) to reduce
+
+Using tablespaces is one way to manage data storage costs with $TIMESCALE_DB. You
+can also use [compression][compression] and
+[data retention][data-retention] to reduce
 your storage requirements.
+
 </Highlight>
 
 <ConsiderCloud />
@@ -36,11 +38,13 @@ you to move indexes belonging to those chunks to an appropriate tablespace.
 
 Additionally, `move_chunk` allows you reorder the chunk during the migration.
 This can be used to make your queries faster, and works in a similar way to the
-[`reorder_chunk` command][api-reorder-chunk].
+[`reorder_chunk` command][reorder_chunk].
 
 <Highlight type="note">
+
 You must be logged in as a super user, such as the `postgres` user, to use the
 `move_chunk()` API call.
+
 </Highlight>
 
 <Procedure>
@@ -138,9 +142,11 @@ You can also keep the data in `pg_default` but move the index to `history`.
 Alternatively, you can set up a third tablespace called `history_indexes`,
 and move the data to `history` and the indexes to `history_indexes`.
 
-In Timescale&nbsp;2.0 and later, you can use `move_chunk` with the job scheduler
-framework. For more information, see the [user-defined actions section][actions].
+In $TIMESCALE_DB v2.0 and later, you can use `move_chunk` with the job scheduler
+framework. For more information, see the [$JOBs section][jobs].
 
-[actions]: /use-timescale/:currentVersion:/user-defined-actions/
 [api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk
-[api-reorder-chunk]: /api/:currentVersion:/hypertable/reorder_chunk
+[compression]: /use-timescale/:currentVersion:/compression
+[data-retention]: /use-timescale/:currentVersion:/data-retention
+[jobs]: /use-timescale/:currentVersion:/jobs/
+[reorder_chunk]: /api/:currentVersion:/hypertable/reorder_chunk

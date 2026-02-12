@@ -21,5 +21,5 @@ The two-step aggregation pattern has several advantages:
 To learn more, see the [blog post on two-step
 aggregates][blog-two-step-aggregates].
 
-[blog-two-step-aggregates]: https://www.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/
+[blog-two-step-aggregates]: https://www.tigerdata.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/

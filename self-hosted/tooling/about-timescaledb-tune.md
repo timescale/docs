@@ -1,6 +1,6 @@
 ---
 title: About timescaledb-tune
-excerpt: Automatically tune your TimescaleDB database to match your system resources and PostgreSQL version
+excerpt: Automatically tune your TimescaleDB database to match your system resources and Postgres version
 products: [self_hosted]
 keywords: [configuration, timescaledb-tune]
 tags: [tune, settings]
@@ -9,7 +9,7 @@ tags: [tune, settings]
 # About timescaledb-tune
 
 Get better performance by tuning your TimescaleDB database to match your system
-resources and PostgreSQL version.  `timescaledb-tune` is an open source command
+resources and $PG version.  `timescaledb-tune` is an open source command
 line tool that analyzes and adjusts your database settings.
 
 ## Install timescaledb-tune
@@ -17,7 +17,7 @@ line tool that analyzes and adjusts your database settings.
 `timescaledb-tune` is packaged with binary releases of TimescaleDB. If you
 installed TimescaleDB from any binary release, including Docker, you already
 have access. For more install instructions, see the
-[GitHub repository][github-tstune].
+[GitHub repository][tstune].
 
 ## Tune your database with timescaledb-tune
 
@@ -42,8 +42,11 @@ write-ahead log, and other settings. These changes are written to your
 </Procedure>
 
 <Highlight type="note">
+
 For detailed instructions and other options, see the documentation in the
-[Github repository](https://github.com/timescale/timescaledb-tune).
+[Github repository][github-repository].
+
 </Highlight>
 
-[github-tstune]: https://github.com/timescale/timescaledb-tune
+[github-repository]: https://github.com/timescale/timescaledb-tune
+[tstune]: https://github.com/timescale/timescaledb-tune

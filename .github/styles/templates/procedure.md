@@ -26,17 +26,17 @@ If necessary, a paragraph or two explaining more about how things work.
 
 This section shows you how to:
 
-* [Verb \<what the user will do>](#verb-what-the-user-will-do) 
-* [Verb \<what the user will do if the procedure is cut into logical sections>](#verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections) 
+* [Verb \<what the user will do>][verb-what-the-user-will-do-link] 
+* [Verb \<what the user will do if the procedure is cut into logical sections>][verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections-link] 
 
 ## Prerequisites
 
 In order to \<a couple of words that sound like the title> you need the following:
 
-*  A [Timescale Cloud service][create-a-service]
+*  A [Tiger Cloud service][create-a-service]
 *  If you are using this template to write a new document, see some good doc examples:
-   * [Create your first Timescale service][create-a-service]
-   * [Secure your Timescale Service with VPC Peering and AWS PrivateLink][secure-vpc-aws]
+   * [Create your first Tiger Cloud service][create-a-service]
+   * [Secure your Tiger Cloud service with VPC Peering and AWS PrivateLink][secure-vpc-aws]
    * [Install TimescaleDB on Linux][install-linux]
 * Read the [Google Developer Style Guide][gdsg] 
 * ...
@@ -76,9 +76,9 @@ You have \<what the user will do in this section>.
 Intro sentence. This section shows how to use tabs to show multiple implementations
 of the same thing:
 
-<Tabs label="Install TimescaleDB">
+<Tabs label="Install TimescaleDB" persistKey="os">
 
-<Tab title="Platform, product or reason ">
+<Tab title="Platform, product or reason " label="windows">
 
 1. **Do this**
 
@@ -88,7 +88,7 @@ of the same thing:
    Code example or procedure
 </Tab>
 
-<Tab title="Platform, product or reason">
+<Tab title="Platform, product or reason" label="debian">
 
 <SelfHostedDebianBased />
 
@@ -99,8 +99,11 @@ of the same thing:
 You have \<what the user will do in this section>.
 
 <!-- Add links here as variables -->
-[workflow-diagram]: https://plantuml.com/activity-diagram-beta
+
 [create-a-service]: /getting-started/:currentVersion:/services
-[secure-vpc-aws]: /use-timescale/:currentVersion:/vpc/
-[install-linux]: /self-hosted/:currentVersion:/install/installation-linux/
 [gdsg]: https://developers.google.com/style/highlights
+[install-linux]: /self-hosted/:currentVersion:/install/installation-linux/
+[secure-vpc-aws]: /use-timescale/:currentVersion:/vpc/
+[verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections-link]: /.github/:currentVersion:/styles/templates/procedure/#verb-what-the-user-will-do-if-the-procedure-is-cut-into-logical-sections
+[verb-what-the-user-will-do-link]: /.github/:currentVersion:/styles/templates/procedure/#verb-what-the-user-will-do
+[workflow-diagram]: https://plantuml.com/activity-diagram-beta

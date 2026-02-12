@@ -182,9 +182,11 @@ If you want to see the exact JSON data file that is sent, use the
 [`get_telemetry_report`][get_telemetry_report] API call.
 
 <Highlight type="note">
+
 Telemetry reports are different if you are using an open source or community
 version of TimescaleDB. For these versions, the report includes an `edition`
 field, with a value of either `apache_only` or `community`.
+
 </Highlight>
 
 ## Change what is included the telemetry report
@@ -210,16 +212,18 @@ features for you, and helps to keep improving Timescale. However, you can turn
 off telemetry if you need to for a specific database, or for an entire instance.
 
 <Highlight type="important">
+
 If you turn off telemetry, the version checking feature is also turned off.
+
 </Highlight>
 
 <Procedure>
 
 ### Disabling telemetry
 
-1.  Open your PostgreSQL configuration file, and locate
+1.  Open your $PG configuration file, and locate
     the `timescaledb.telemetry_level` parameter. See the
-    [PostgreSQL configuration file][postgres-config] instructions for locating
+    [$PG configuration file][postgresql-conf] instructions for locating
     and opening the file.
 1.  Change the parameter setting to `off`:
 
@@ -248,9 +252,9 @@ If you turn off telemetry, the version checking feature is also turned off.
 
 ### Enabling telemetry
 
-1.  Open your PostgreSQL configuration file, and locate the
+1.  Open your $PG configuration file, and locate the
     'timescaledb.telemetry_level' parameter. See the
-    [PostgreSQL configuration file][postgres-config]
+    [$PG configuration file][postgresql-conf]
     instructions for locating and opening the file.
 
 1.  Change the parameter setting to 'off':
@@ -276,4 +280,4 @@ If you turn off telemetry, the version checking feature is also turned off.
 </Procedure>
 
 [get_telemetry_report]: /api/:currentVersion:/administration/#get_telemetry_report
-[postgres-config]: /self-hosted/:currentVersion:/configuration/postgres-config
+[postgresql-conf]: /self-hosted/:currentVersion:/configuration/postgres-config

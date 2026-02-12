@@ -1,10 +1,10 @@
 Before you begin, make sure you have:
 
-*   Created a [Timescale][cloud-login] service.
+*   Created a [$SERVICE_LONG][cloud-login].
 *   Installed a self-managed Grafana account, or signed up for
-    [Grafana Cloud][install-grafana].
+    [Grafana Cloud][grafana-cloud].
 *   Ingested some data to your database. You can use the stock trade data from
-    the [Getting Started Guide][gsg-data].
+    the [Try the key features in $COMPANY products][try-timescale-features].
 
 The examples in this section use these variables and Grafana functions:
 
@@ -15,6 +15,6 @@ The examples in this section use these variables and Grafana functions:
 *   `$bucket_interval`: the interval size to pass to the `time_bucket`
     function when aggregating data.
 
-[install-grafana]: https://grafana.com/get/
-[gsg-data]: /getting-started/:currentVersion:/
 [cloud-login]: https://console.cloud.timescale.com/
+[grafana-cloud]: https://grafana.com/get/
+[try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/

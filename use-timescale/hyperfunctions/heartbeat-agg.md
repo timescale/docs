@@ -1,25 +1,27 @@
 ---
 title: Heartbeat aggregation
-excerpt: Heartbeat aggregation helps analyze intermittent or irregular time-series data, especially with multiple sources or event-driven updates. Learn how to use heartbeat aggregation in Timescale Cloud
+excerpt: Heartbeat aggregation helps analyze intermittent or irregular time-series data, especially with multiple sources or event-driven updates. Learn how to use heartbeat aggregation in TimescaleDB
 keywords: [hyperfunctions, Toolkit, heartbeat, liveness]
+products: [cloud, mst, self_hosted]
 ---
 
 # Heartbeat aggregation
 
 Given a series of timestamped health checks, it can be tricky to determine the
-overall health of a system over a given interval. PostgresQL provides window
-functions which can be used to get a sense of where unhealthy gaps are, but can
-be somewhat awkward to use efficiently. The heartbeat aggregate is part of the
-Timescale Toolkit, and can be used to solve this problem in a simpler, more
-accessible manner.
+overall health of a system over a given interval. $PG provides window
+functions that you use to get a sense of where unhealthy gaps are, but they can
+be somewhat awkward to use efficiently. 
+
+This is one of the many cases where hyperfunctions provide an efficient, simple solution for 
+a frequently occurring problem. Heartbeat aggregation helps analyze event-based time-series data with intermittent or irregular signals.
 
 This example uses the [SustData public dataset][sustdata]. This dataset tracks
 the power usage of a small number of apartments and houses over four different
-deployment intervals. The data is collected in one minute samples from each
+deployment intervals. The data is collected in one-minute samples from each
 unit.
 
 When you have loaded the data into hypertables, you can create a materialized
-view containing weekly heartbeat aggregates for each of the units.
+view containing weekly heartbeat aggregates for each of the units:
 
 ```sql
 CREATE MATERIALIZED VIEW weekly_heartbeat AS
@@ -69,7 +71,7 @@ SELECT live_ranges(rollup(heartbeat_agg)) FROM weekly_heartbeat WHERE unit = 17;
  ("2012-03-25 03:00:51+00","2012-04-11 00:01:00+00")
 ```
 
-You can do also do more elaborate queries, like looking for the 5 units with the
+You can construct more elaborate queries. For example, to return the 5 units with the
 lowest uptime during the third deployment:
 
 ```sql
@@ -90,7 +92,7 @@ ORDER BY uptime LIMIT 5;
    30 | 222 days 22:05:00
 ```
 
-You can also combine aggregates from different units to get the combined
+Combine aggregates from different units to get the combined
 coverage. This example queries the interval where any part of a deployment was
 active:
 
@@ -115,15 +117,16 @@ FROM weekly_heartbeat group by deploy order by deploy;
       4 | ("2014-03-30 03:00:01+00","2014-04-25 00:01:00+00")
 ```
 
-You can use this data to make some observations. First, it looks like the second
-deployment had a lot more problems than the other ones. Second, it looks like
-there were some readings from February 2013 that were incorrectly categorized as
-a second deployment. And finally, it looks like the timestamps are given in a
-local time without time zone, resulting in some missing hours around springtime
+Then use this data to make observations and draw conclusions:
+
+- The second deployment had a lot more problems than the other ones.
+- There were some readings from February 2013 that were incorrectly categorized as
+a second deployment. 
+- The timestamps are given in a local time without time zone, resulting in some missing hours around springtime
 daylight savings time changes.
 
 For more information about heartbeat aggregation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-heartbeat-agg].
 
-[sustdata]: https://osf.io/2ac8q/
 [hyperfunctions-api-heartbeat-agg]: /api/:currentVersion:/hyperfunctions/state-tracking/heartbeat_agg/
+[sustdata]: https://osf.io/2ac8q/

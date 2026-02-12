@@ -1,14 +1,14 @@
 ---
-title: pgcrypto PostgreSQL extension
-excerpt: pgcrypto is a PostgreSQL extension that secures sensitive data within the database. See how to use pgcrypto to encrypt inserted data in a Timescale Cloud service
-products: [cloud]
+title: Encrypt data using pgcrypto
+excerpt: pgcrypto is a Postgres extension that secures sensitive data within the database. See how to use pgcrypto to encrypt the data in your service
+products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgcrypto]
 tags: [extensions, pgcrypto]
 ---
 
-# The `pgcrypto` extension
+# Encrypt data using pgcrypto
 
-The `pgcrypto` PostgreSQL extension provides cryptographic functions such as:
+The `pgcrypto` $PG extension provides cryptographic functions such as:
 
 *   General hashing
 *   Password hashing
@@ -22,7 +22,7 @@ For more information about these functions and the options available, see the
 ## Use the `pgcrypto` extension to encrypt inserted data
 
 The `pgcrypto` extension allows you to encrypt, decrypt, hash,
-and create digital signatures within your database. Timescale understands how
+and create digital signatures within your database. $COMPANY understands how
 precious your data is and safeguards sensitive information.
 
 <Procedure>
@@ -45,8 +45,8 @@ precious your data is and safeguards sensitive information.
      pg_stat_statements  | 1.10    | public     | track planning and execution statistics of all SQL statements executed
      pgcrypto            | 1.3     | public     | cryptographic functions
      plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
-     timescaledb         | 2.11.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
-     timescaledb_toolkit | 1.16.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
+     timescaledb         | 2.24.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+     timescaledb_toolkit | 1.22.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
      ```
 
 1.  Create a table named `user_passwords`:

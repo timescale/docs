@@ -3,15 +3,17 @@ import SetupSourceTarget from "versionContent/_partials/_migrate_set_up_source_a
 <SetupSourceTarget />
 
 <Highlight type="important">
-Do not use a Timescale connection pooler connection for live migration. There
+
+Do not use a $CLOUD_LONG connection pooler connection for live migration. There
 are a number of issues which can arise when using a connection pooler, and no
 advantage. Very small instances may not have enough connections configured by
 default, in which case you should modify the value of `max_connections`, in
-your instance, as shown on [Configure database parameters](/use-timescale/:currentVersion/configuration/customize-configuration/#configure-database-parameters).
+your instance, as shown on [Configure database parameters][configure-instance-parameters].
+
 </Highlight>
 
 It's important to ensure that the `old_snapshot_threshold` value is set to the
-default value of `-1` in your source database. This prevents PostgreSQL from
+default value of `-1` in your source database. This prevents $PG from
 treating the data in a snapshot as outdated. If this value is set other than
 `-1`, it might affect the existing data migration step.
 
@@ -54,3 +56,5 @@ configuration mechanism to set `wal_level` to `logical`.
 
 Restart your database for the changes to take effect, and verify that the
 settings are reflected in your database.
+
+[configure-instance-parameters]: /use-timescale/:currentVersion:/configuration/customize-configuration/#configure-database-parameters

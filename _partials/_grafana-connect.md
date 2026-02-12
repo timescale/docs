@@ -1,14 +1,6 @@
-## Prerequisites
+## Connect Grafana to $CLOUD_LONG
 
-import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-
-<IntegrationPrereqs />
-
-* Install [self-managed Grafana][grafana-self-managed] or sign up for [Grafana Cloud][grafana-cloud].
-
-## Add your $SERVICE_SHORT as a data source 
-
-To connect the data in your $SERVICE_SHORT to Grafana:
+To visualize the results of your queries, enable Grafana to read the data in your $SERVICE_SHORT:
 
 <Procedure>
 
@@ -21,20 +13,17 @@ To connect the data in your $SERVICE_SHORT to Grafana:
    1. Open `Connections` > `Data sources`, then click `Add new data source`.
    1. Select `PostgreSQL` from the list. 
    1. Configure the connection:
-       - `Host URL`, `Username`, `Password`, and `Database`: configure using your [connection details][connection-info]. 
-       - `Database name`: provide the name for your dataset.
-       - `TLS/SSL Mode`: select `require`.
-       - `PostgreSQL options`: enable `TimescaleDB`.
-       - Leave the default setting for all other fields.
+      - `Host URL`, `Database name`, `Username`, and `Password` 
+      
+          Configure using your [connection details][connection-info]. `Host URL` is in the format `<host>:<port>`.
+      - `TLS/SSL Mode`: select `require`.
+      - `PostgreSQL options`: enable `TimescaleDB`.
+      - Leave the default setting for all other fields.
 
-  1.  **Click `Save & test`** 
+   1. Click `Save & test`. 
   
-  Grafana checks that your details are set correctly.
+     Grafana checks that your details are set correctly.
 
 </Procedure>
 
-[grafana-self-managed]: https://grafana.com/get/?tab=self-managed
-[grafana-cloud]: https://grafana.com/get/
-[cloud-login]: https://console.cloud.timescale.com/
-[create-service]: /getting-started/:currentVersion:/services/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/

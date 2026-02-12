@@ -1,8 +1,9 @@
 ---
 title: Use triggers on distributed hypertables
 excerpt: Sunsetted v2.14.x. Set up triggers on a distributed hypertable in your self-hosted TimescaleDB installation
-products: [self_hosted]
 keywords: [distributed hypertables, triggers, multi-node]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
@@ -30,7 +31,7 @@ differences due to the data being distributed across multiple nodes:
 ## Create a trigger on a distributed hypertable
 
 Create a trigger on a distributed hypertable by using [`CREATE
-TRIGGER`][create-trigger] as usual. The trigger, and the function it executes,
+TRIGGER`][postgres-createtrigger] as usual. The trigger, and the function it executes,
 is automatically created on each data node. If the trigger function references
 any other functions or objects, they need to be present on all nodes before you
 create the trigger.
@@ -102,5 +103,5 @@ END
 $BODY$;
 ```
 
-[create-trigger]: https://www.postgresql.org/docs/current/sql-createtrigger.html
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec/
+[postgres-createtrigger]: https://www.postgresql.org/docs/current/sql-createtrigger.html

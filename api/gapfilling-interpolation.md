@@ -10,11 +10,11 @@ This section contains functions related to gapfilling and interpolation. You can
 use a gapfilling function to create additional rows of data in any gaps,
 ensuring that the returned rows are in chronological order, and contiguous. For
 more information about gapfilling and interpolation functions, see the
-[hyperfunctions documentation][hyperfunctions-gapfilling].
+[hyperfunctions documentation][hyperfunctions-asap-smooth].
 
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
-[Timescale Toolkit][install-toolkit] PostgreSQL extension.
+[$TOOLKIT_LONG][install-toolkit] $PG extension.
 
 <HyperfunctionTable
     hyperfunctionFamily='gapfilling and interpolation'
@@ -22,5 +22,5 @@ additional hyperfunctions, you need to install the
     sortByType
 />
 
-[hyperfunctions-gapfilling]: /use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation/
+[hyperfunctions-asap-smooth]: /use-timescale/:currentVersion:/hyperfunctions/gapfilling-interpolation/
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

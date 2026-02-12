@@ -1,33 +1,26 @@
-# Description
+## Describe your changes
 
-[Short summary of why you created this PR]
+What did you change? Why did you change it?
 
-# Links
+## Related Issues
 
-Fixes #[insert issue link, if any]
 
-# Writing help
 
-For information about style and word usage, see the [style guide](https://docs.timescale.com/about/latest/contribute-to-docs/)
+If there is a related issue, please add it below (just put the number after the # below, and GitHub will automatically create a link):
 
-# Review checklists
+Issue: #number
 
-Reviewers: use this section to ensure you have checked everything before approving this PR:
+## Checklist before requesting a review
 
-## Subject matter expert (SME) review checklist
-
-*   [ ] Is the content technically accurate?
-*   [ ] Is the content complete?
-*   [ ] Is the content presented in a logical order?
-*   [ ] Does the content use appropriate names for features and products?
-*   [ ] Does the content provide relevant links to further information?
-
-## Documentation team review checklist
-
-*   [ ] Is the content free from typos?
-*   [ ] Does the content use plain English?
-*   [ ] Does the content contain clear sections for concepts, tasks, and references?
-*   [ ] Have any images been uploaded to the correct location, and are resolvable?
-*   [ ] If the page index was updated, are redirects required
-      and have they been implemented?
-*   [ ] Have you checked the built version of this content?
+- [ ] - Is this ready for review? If not, raise as a draft PR
+- [ ] - This has deployed to a staging environment correctly
+- [ ] - I have reviewed my changes.
+- [ ] - I have confirmed the content is technically accurate.
+- [ ] - I have confirmed the content is free of typos or grammar errors.
+- [ ] - I have reviewed the deployed version of my changes.
+- [ ] - I have tested any code that is added or updated.
+- [ ] - I have verified all images and videos are clear, with appropriate zoom.
+- [ ] - I have verified all images and videos match production (or dev for unreleased features).
+- [ ] - I have tested that the content matches the functionality in production (or dev for unreleased features).
+- [ ] - All checks have passed.
+- [ ] - This references a feature that is public. If not, add a note and we can schedule the merge for after the feature release.

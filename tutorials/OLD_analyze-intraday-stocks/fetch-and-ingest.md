@@ -12,7 +12,7 @@ In this step:
 
 *   create a configuration file (optional)
 *   fetch stock data
-*   ingest the data into TimescaleDB
+*   ingest the data into $TIMESCALE_DB
 
 ## Create a configuration file
 
@@ -104,7 +104,7 @@ Here's an example API endpoint:
 https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY_EXTENDED&symbol=IBM&interval=1min&slice=year1month1&apikey=your_apikey
 ```
 
-Check out the [Alpha Vantage API](https://www.alphavantage.co/documentation/) docs for more information.
+Check out the [Alpha Vantage API][alpha-vantage-api] docs for more information.
 
 ### Create the function
 
@@ -205,13 +205,13 @@ timestamp value and the price data (candlestick):
 Remove the `test_stock_download()` so it doesn't get invoked unnecessarily
 when you run the script in the future.
 
-## Ingest data into TimescaleDB
+## Ingest data into $TIMESCALE_DB
 
 When you have the `fetch_stock_data` function working, and you can fetch the candlestick from the API, you can insert it into the database.
 
 To make the ingestion faster, use [pgcopy][pgcopy-docs] instead of ingesting
-data row by row. TimescaleDB is packaged as an extension to PostgreSQL, meaning all the PostgreSQL tools you know and
-love already work with TimescaleDB.
+data row by row. $TIMESCALE_DB is packaged as an extension to $PG, meaning all the $PG tools you know and
+love already work with $TIMESCALE_DB.
 
 ### Ingest data fast with pgcopy
 
@@ -291,8 +291,10 @@ time               |symbol|price_open|price_close|price_low|price_high|trading_v
 ```
 
 <Highlight type="tip">
+
 Fetching and ingesting intraday data can take a while, so if you want to see results quickly,
 reduce the number of months, or limit the number of symbols.
+
 </Highlight>
 
 This is what the final version of `ingest_stock_data.py` looks like:
@@ -388,6 +390,7 @@ for symbol in symbols:
 
 ```
 
+[alpha-vantage-api]: https://www.alphavantage.co/documentation/
 [pgcopy-docs]: https://pgcopy.readthedocs.io/en/latest/
 [scraping-example]: https://github.com/timescale/examples/blob/master/
 [symbols-csv]: https://assets.timescale.com/docs/downloads/symbols.csv

@@ -1,9 +1,10 @@
 ---
 title: Multi-node administration
 excerpt: Sunsetted v2.14.x. Administer your multi-node TimescaleDB cluster directly from the access node
-products: [self_hosted]
 keywords: [multi-node, admin]
 tags: [manage]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
@@ -12,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 
 # Multi-node administration
 
-Multi-node TimescaleDB allows you to administer your cluster directly
+Multi-node $TIMESCALE_DB allows you to administer your cluster directly
 from the access node. When your environment is set up, you do not
 need to log directly into the data nodes to administer your database.
 
@@ -56,7 +57,7 @@ administrative tasks are handled in a multi-node environment.
 ## Distributed role management
 
 In a multi-node environment, you need to manage roles on each
-PostgreSQL instance independently, because roles are instance-level
+$PG instance independently, because roles are instance-level
 objects that are shared across both distributed and non-distributed
 databases that each can be configured with a different set of data
 nodes or none at all. Therefore, an access node does not
@@ -90,7 +91,7 @@ CALL distributed_exec($$ CREATE ROLE alice WITH LOGIN CONNECTION LIMIT -1; $$);
 ```
 
 For more information about setting up authentication, see the
-[multi-node authentication section][multi-node-authentication].
+[multi-node authentication section][password-config].
 
 Some roles can also be configured without the `LOGIN` attribute on
 the access node. This allows you to switch to the role locally, but not
@@ -224,7 +225,7 @@ databases after these commands have been executed.
 
 ### Manage privileges
 
-Privileges configured using [`GRANT`][grant] or [`REVOKE`][revoke]
+Privileges configured using [`GRANT`][pg-grant] or [`REVOKE`][revoke]
 statements are applied to all data nodes when they are run on a
 distributed hypertable. When granting privileges on other objects, the
 command needs to be manually distributed with
@@ -255,6 +256,6 @@ cluster.
 [alter-database]: https://www.postgresql.org/docs/current/sql-alterdatabase.html
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
 [drop-owned]: https://www.postgresql.org/docs/current/sql-drop-owned.html
-[grant]: https://www.postgresql.org/docs/current/sql-grant.html
-[multi-node-authentication]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/
+[password-config]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/
+[pg-grant]: https://www.postgresql.org/docs/current/sql-grant.html
 [revoke]: https://www.postgresql.org/docs/current/sql-revoke.html

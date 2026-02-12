@@ -1,14 +1,14 @@
 <Procedure>
 
-### Restoring data into Timescale with COPY
+### Restoring data into a $SERVICE_LONG with COPY
 
-1.  Connect to your Timescale database:
+1.  Connect to your $SERVICE_LONG:
 
     ```sql
     psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
-1.  Restore the data to your Timescale database:
+1.  Restore the data to your $SERVICE_LONG:
 
     ```sql
     \copy <TABLE_NAME> FROM '<TABLE_NAME>.csv' WITH (FORMAT CSV);

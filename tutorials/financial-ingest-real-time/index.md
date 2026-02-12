@@ -1,7 +1,7 @@
 ---
-title: Ingest real-time financial websocket data
-excerpt: Ingest time-series data into Timescale Cloud using a websocket connection
-products: [cloud]
+title: Ingest real-time financial data using WebSocket
+excerpt: Ingest time-series data into Tiger Cloud using a websocket connection
+products: [cloud, self_hosted, mst]
 keywords: [finance, analytics, websockets, data pipeline]
 tags: [tutorials, intermediate]
 layout_components: [next_prev_large]
@@ -9,11 +9,14 @@ content_group: Ingest real-time financial websocket data
 ---
 
 import CandlestickIntro from "versionContent/_partials/_candlestick_intro.mdx";
+import FinancialIndustry from "versionContent/_partials/_financial-industry-data-analysis.mdx";
 
-# Ingest real-time financial websocket data
+# Ingest real-time financial data using WebSocket
+
+<FinancialIndustry />
 
 This tutorial shows you how to ingest real-time time-series data into
-TimescaleDB using a websocket connection. The tutorial sets up a data pipeline
+$TIMESCALE_DB using a websocket connection. The tutorial sets up a data pipeline
 to ingest real-time data from our data partner, [Twelve Data][twelve-data].
 Twelve Data provides a number of different financial APIs, including stock,
 cryptocurrencies, foreign exchanges, and ETFs. It also supports websocket
@@ -22,7 +25,7 @@ websockets, you need to connect to the server, subscribe to symbols, and you can
 start receiving data in real-time during market hours.
 
 When you complete this tutorial, you'll have a data pipeline set
-up that ingests real-time financial data into your Timescale.
+up that ingests real-time financial data into your $CLOUD_LONG.
 
 This tutorial uses Python and the API
 [wrapper library][twelve-wrapper] provided by Twelve Data.
@@ -31,35 +34,36 @@ This tutorial uses Python and the API
 
 Before you begin, make sure you have:
 
-*   Signed up for a [free Timescale account][cloud-install].
+*   Signed up for a [free $ACCOUNT_LONG][cloud-install].
 *   Installed Python 3
 *   Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for
     this tutorial.
-*   Made a note of your Twelve Data [API key](https://twelvedata.com/account/api-keys).
+*   Made a note of your Twelve Data [API key][api-key].
 
 ## Steps in this tutorial
 
 This tutorial covers:
 
 1.  [Setting up your dataset][financial-ingest-dataset]: Load data from
-    [Twelve Data][twelve-data] into your TimescaleDB database.
+    [Twelve Data][twelve-data] into your $TIMESCALE_DB database.
 1.  [Querying your dataset][financial-ingest-query]: Create candlestick views, query
     the aggregated data, and visualize the data in Grafana.
 
-    This tutorial shows you how to ingest real-time time-series data into a Timescale
-    database using a websocket connection. To create candlestick views, query the
+    This tutorial shows you how to ingest real-time time-series data into a $SERVICE_LONG using a websocket connection. To create candlestick views, query the
     aggregated data, and visualize the data in Grafana.
 
 ## About OHLCV data and candlestick charts
 
 <CandlestickIntro />
 
-![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
+![candlestick][candlestick]
 
-TimescaleDB is well suited to storing and analyzing financial candlestick data,
-and many Timescale community members use it for exactly this purpose.
+$TIMESCALE_DB is well suited to storing and analyzing financial candlestick data,
+and many $COMPANYcommunity members use it for exactly this purpose.
 
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
+[api-key]: https://twelvedata.com/account/api-keys
+[candlestick]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png
+[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [financial-ingest-dataset]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-dataset/
 [financial-ingest-query]: /tutorials/:currentVersion:/financial-ingest-real-time/financial-ingest-query/
 [twelve-data]: https://twelvedata.com/

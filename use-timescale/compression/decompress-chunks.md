@@ -1,24 +1,24 @@
 ---
 title: Decompression
-excerpt: While Timescale Cloud supports modifying compressed data, for bulk operations you need to decompress it first. Learn to decompress data manually
+excerpt: Manually decompress compressed chunks by name, time, or more precise constraints
 products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables, backfilling]
 tags: [decompression]
 ---
 
+import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
+
 # Decompression
 
-Timescale automatically supports `INSERT`s into compressed chunks. But if you
-need to insert a lot of data, for example as part of a bulk backfilling
-operation, you should first decompress the chunk. Inserting data into a
-compressed chunk is more computationally expensive than inserting data into an
-uncompressed chunk. This adds up over a lot of rows.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/convert_to_rowstore/">`convert_to_rowstore`</a>. 
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 <Highlight type="important">
-When compressing your data, you can reduce the amount of storage space for your
-Timescale instance. But you should always leave some additional storage
+
+When compressing your data, you can reduce the amount of storage space used. But you should always leave some additional storage
 capacity. This gives you the flexibility to decompress chunks when necessary,
 for actions such as bulk inserts.
+
 </Highlight>
 
 This section describes commands to use for decompressing chunks. You can filter
@@ -26,8 +26,10 @@ by time to select the chunks you want to decompress.
 
 ## Decompress chunks manually
 
-Before decompressing chunks, stop any compression policy on the hypertable you are decompressing. When you finish backfilling or updating data, turn the policy back on. The database automatically recompresses your
-chunks in the next scheduled job. For more information on how to stop and run compression policies with the `alter_job()` function, see the [API reference][api-reference-alter-job].
+Before decompressing chunks, stop any compression policy on the hypertable you are decompressing. 
+The database automatically recompresses your chunks in the next scheduled job. 
+If you accumulate a large amount of chunks that need to be compressed, the [troubleshooting guide][troubleshooting-oom-chunks] shows how to compress a backlog of chunks.
+For more information on how to stop and run compression policies using `alter_job()`, see the [API reference][alter_job].
 
 There are several methods for selecting chunks and decompressing them.
 
@@ -69,5 +71,6 @@ SELECT tableoid::regclass FROM metrics
  _timescaledb_internal._hyper_72_37_chunk
 ```
 
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [api-reference-decompress]: /api/:currentVersion:/compression/decompress_chunk/
-[api-reference-alter-job]: /api/:currentVersion:/actions/alter_job/
+[troubleshooting-oom-chunks]: /use-timescale/:currentVersion:/hypercore/troubleshooting/#out-of-memory-errors-after-enabling-the-columnstore

@@ -9,7 +9,7 @@ tags: [cloud image]
 import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
 
-# Install TimescaleDB from a pre-built cloud image
+# Install $TIMESCALE_DB from a pre-built cloud image
 
 You can install TimescaleDB on a cloud hosting provider,
 from a pre-built, publicly available machine image. These instructions show you
@@ -29,15 +29,15 @@ right EBS optimized EC2 instance type, see the AWS
 [instance configuration documentation][aws-instance-config].
 
 <Highlight type="note">
+
 This section shows how to use the AMI from within the AWS EC2 dashboard.
 However, you can also use the AMI to build an instance using tools like
 Cloudformation, Terraform, the AWS CLI, or any other AWS deployment tool that
 supports public AMIs.
+
 </Highlight>
 
 <Procedure>
-
-## Installing TimescaleDB from a pre-build cloud image
 
 1.  Make sure you have an [Amazon Web Services account][aws-signup], and are
     signed in to [your EC2 dashboard][aws-dashboard].
@@ -60,21 +60,21 @@ with the `timescaledb-tools` package. For more information, see the
 [configuration][config] section.
 
 <Highlight type="note">
-After running the `timescaledb-tune` script, you need to restart the PostgreSQL
+
+After running the `timescaledb-tune` script, you need to restart the $PG
 service for the configuration changes to take effect. To restart the service,
 run `sudo systemctl restart postgresql.service`.
+
 </Highlight>
 
-## Set up the TimescaleDB extension
+## Set up the $TIMESCALE_DB extension
 
-When you have PostgreSQL and TimescaleDB installed, connect to your instance and
+When you have $PG and TimescaleDB installed, connect to your instance and
 set up the TimescaleDB extension.
 
 <Procedure>
 
-### Setting up the TimescaleDB extension
-
-1.  On your instance, at the command prompt, connect to the PostgreSQL
+1.  On your instance, at the command prompt, connect to the $PG
     instance as the `postgres` superuser:
 
     ```bash
@@ -122,9 +122,8 @@ tsdb=# \dx
 
 <WhereTo />
 
-[aws-signup]: https://portal.aws.amazon.com/billing/signup
+[aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
 [aws-dashboard]: https://console.aws.amazon.com/ec2/
 [aws-instance-config]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html
-[aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
-[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[aws-signup]: https://portal.aws.amazon.com/billing/signup
 [config]: /self-hosted/:currentVersion:/configuration/

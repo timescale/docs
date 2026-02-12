@@ -15,13 +15,13 @@ To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-*   To start, [install TimescaleDB][install-timescale].
+*   To start, [install $TIMESCALE_DB][install-timescale].
 *   Next setup Grafana.
 
-Once your installation of TimescaleDB and Grafana are complete, ingest the data found
+Once your installation of $TIMESCALE_DB and Grafana are complete, ingest the data found
 in the NYC Taxi Cab tutorial and configure Grafana to connect
 to that database. Be sure to follow the full tutorial if you're interested in background
-on how to use TimescaleDB.
+on how to use $TIMESCALE_DB.
 
 ### Creating a variable
 
@@ -104,7 +104,7 @@ LIMIT 500;
 
 Now we can use the drop-down to filter our rides based on the type of payment used:
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_with_variable.png" alt="Visualizing time series data in PostgreSQL using the Grafana Worldmap and filtering using a variable"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_with_variable.png" alt="Visualizing time series data in Postgres using the Grafana Worldmap and filtering using a variable"/>
 
 #### Building dynamic panels using Grafana variables
 
@@ -230,4 +230,4 @@ Your dashboard should look something like this:
 
 Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-timescale]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/

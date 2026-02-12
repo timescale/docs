@@ -1,9 +1,10 @@
 ---
 title: Multi-node authentication
 excerpt: Sunsetted v2.14.x. Configure authentication between access nodes and data nodes in a multi-node TimescaleDB installation
-products: [self_hosted]
 keywords: [multi-node, authenticate]
 tags: [admin]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
@@ -33,10 +34,12 @@ you choose. The options are:
     authentication, but more secure and easier to automate.
 
 <Highlight type="important">
+
 Going beyond the simple trust approach to create a secure system can be complex,
 but it is important to secure your database appropriately for your environment.
 We do not recommend any one security model, but encourage you to perform a risk
 assessment and implement the security model that best suits your environment.
+
 </Highlight>
 
 ## Trust authentication
@@ -47,8 +50,10 @@ only for developing a proof of concept, do not use this method for production
 installations.
 
 <Highlight type="warning">
+
 The trust authentication method allows insecure access to all nodes. Do not use
 this method in production. It is not a secure method of operation.
+
 </Highlight>
 
 <Procedure>
@@ -114,9 +119,11 @@ this method in production. It is not a secure method of operation.
     ```
 
 <Highlight type="important">
+
 Make sure you create the role with the `LOGIN` privilege on the data nodes, even
 if you don't use this privilege on the access node. For all other privileges,
 ensure they are same on the access node and the data nodes.
+
 </Highlight>
 
 </Procedure>
@@ -140,7 +147,7 @@ data node in your cluster.
 
 This section sets up your password authentication using SCRAM SHA-256 password
 authentication. For other password authentication methods, see the
-[PostgreSQL authentication documentation][auth-password].
+[$PG authentication documentation][auth-password].
 
 Before you start, check that you can use the `postgres` username to log in to
 your access node.
@@ -231,8 +238,10 @@ your access node.
     ```
 
 <Highlight type="important">
+
 Any user passwords that you created before you set up password authentication
 need to be re-created so that they use the new encryption method.
+
 </Highlight>
 
 </Procedure>
@@ -366,11 +375,13 @@ authentication.
     ```
 
 <Highlight type="note">
+
 If you are using the default names for your certificate and key, you do not need
 to explicitly set them. The configuration looks for `server.crt` and
 `server.key` by default. If you use different names for your certificate and
 key, make sure you specify the correct names in the `postgresql.conf`
 configuration file.
+
 </Highlight>
 
 </Procedure>
@@ -426,9 +437,11 @@ the access node to log in to the data nodes.
     ```
 
 <Highlight type="note">
+
 By default, the user key files and certificates are stored on the access node in
 the `data` directory, under `timescaledb/certs`. You can change this location
 using the `timescaledb.ssl_dir` configuration variable.
+
 </Highlight>
 
 </Procedure>
@@ -466,6 +479,5 @@ step is add additional user roles.
 
 [auth-password]: https://www.postgresql.org/docs/current/auth-password.html
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
-[md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
 [multi-node-setup]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-setup/
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html

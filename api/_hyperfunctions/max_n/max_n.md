@@ -39,4 +39,5 @@ api_details:
         type: MaxN
         description: >
           The compiled aggregate.  Note that the exact type will be `MaxInts`, `MaxFloats`, or `MaxTimes` depending on the input type
+products: [cloud, mst, self_hosted]
 ---

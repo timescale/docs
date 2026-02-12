@@ -2,19 +2,22 @@
 title: Continuous aggregates on continuous aggregates
 excerpt: Running advanced real-time analytic workloads? Create continuous aggregates on top of continuous aggregates to summarize data at different levels of granularity
 keywords: [continuous aggregates, hierarchical, create]
+products: [cloud, self_hosted, mst]
 ---
+
+import RealTimeAgg from 'versionContent/_partials/_real-time-aggregates.mdx';
 
 # Hierarchical continuous aggregates
 
-You can create continuous aggregates on top of other continuous aggregates. This
-allows you to summarize data at different levels of granularity. For example,
-you might have an hourly continuous aggregate that summarizes minute-by-minute
+The more data you have, the more likely you are to run a more sophisticated analysis on it. When a simple one-level aggregation is not enough, $TIMESCALE_DB lets you create continuous aggregates on top of other continuous aggregates. This way, you summarize data at different levels of granularity, while still saving resources with precomputing. 
+
+For example, you might have an hourly continuous aggregate that summarizes minute-by-minute
 data. To get a daily summary, you can create a new continuous aggregate on top
 of your hourly aggregate. This is more efficient than creating the daily
 aggregate on top of the original hypertable, because you can reuse the
 calculations from the hourly aggregate.
 
-This feature is available in Timescale&nbsp;2.9 and later.
+This feature is available in $TIMESCALE_DB v2.9 and later.
 
 ## Create a continuous aggregate on top of another continuous aggregate
 
@@ -28,8 +31,9 @@ For more information, see the instructions for
 
 ## Use real-time aggregation with hierarchical continuous aggregates
 
-By default, all continuous aggregates use real-time aggregation. That means they
-always return up-to-date data in response to queries. They accomplish this by
+<RealTimeAgg />
+
+Real-time aggregates always return up-to-date data in response to queries. They accomplish this by
 joining the materialized data in the continuous aggregate with unmaterialized
 raw data from the source table or view.
 
@@ -64,7 +68,7 @@ continuous aggregate, and doesn't get even more recent data from the source
 hypertable. This happens because the materialized-only continuous aggregate
 provides a stopping point, and the yearly continuous aggregate is unaware of any
 layers beyond that stopping point. This is similar to
-[how stacked views work in PostgreSQL][postgresql-views].
+[how stacked views work in $PG][postgresql-views].
 
 To make queries on the yearly continuous aggregate access all recent data, you
 can either:
@@ -145,9 +149,9 @@ ensure valid time-bucketing:
 
 *   You can only create a continuous aggregate on top of a finalized continuous
     aggregate. This new finalized format is the default for all continuous
-    aggregates created since Timescale&nbsp;2.7. If you need to create a continuous
+    aggregates created since $TIMESCALE_DB 2.7. If you need to create a continuous
     aggregate on top of a continuous aggregate in the old format, you need to
-    [migrate your continuous aggregate][migrate-cagg] to the new format first.
+    [migrate your continuous aggregate][cagg-migrate] to the new format first.
 
 *   The time bucket of a continuous aggregate should be greater than or equal to
     the time bucket of the underlying continuous aggregate. It also needs to be
@@ -176,9 +180,9 @@ ensure valid time-bucketing:
     a daily continuous aggregate works, and is the one of the main use cases for
     this feature.
 
+[cagg-migrate]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
 [create-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
-[migrate-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/migrate/
+[percentile_agg_api]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#aggregate-and-roll-up-percentile-data-to-calculate-daily-percentiles-using-percentile_agg
 [postgresql-views]: https://www.postgresql.org/docs/current/rules-views.html
 [stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
-[percentile_agg_api]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#aggregate-and-roll-up-percentile-data-to-calculate-daily-percentiles-using-percentile_agg

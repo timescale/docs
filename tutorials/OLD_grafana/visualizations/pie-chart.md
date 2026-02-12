@@ -155,9 +155,11 @@ in the `stocks_real_time` hypertable.
 
 
 <Highlight type="note">
+
 If you go beyond a single trading day, you might get results that don't look
 very good, or you might get no data returned. To fix this, focus your
 calculation on a single trading day instead.
+
 </Highlight>
 
 </Procedure>
@@ -166,4 +168,4 @@ Pie charts are a great tool for comparing categorized data. They're especially g
 for visualizing percentages. But they don't work as well if you have too many categories
 with similar percentages or large amount of data.
 
-[gsg-data]: https://docs.timescale.com/getting-started/latest/time-series-data/
+[gsg-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables

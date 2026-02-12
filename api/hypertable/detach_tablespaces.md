@@ -1,0 +1,33 @@
+---
+api_name: detach_tablespaces()
+excerpt: Detach all tablespaces from a hypertable
+topics: [hypertables]
+keywords: [tablespaces, hypertables, detach]
+products: [cloud, mst, self_hosted]
+api:
+  license: apache
+  type: function
+---
+
+# detach_tablespaces()
+
+Detach all tablespaces from a hypertable. After issuing this command
+on a hypertable, it no longer has any tablespaces attached to
+it. New chunks are instead placed in the database's default
+tablespace.
+
+## Samples
+
+Detach all tablespaces from the hypertable `conditions`:
+
+```sql
+SELECT detach_tablespaces('conditions');
+```
+
+## Required arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Hypertable to detach a the tablespace from.|
+
+

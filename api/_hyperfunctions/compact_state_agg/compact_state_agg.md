@@ -40,5 +40,6 @@ api_details:
       command:
         code: |
           SELECT toolkit_experimental.compact_state_agg(time, status) FROM devices;
+products: [cloud, mst, self_hosted]
 ---
 

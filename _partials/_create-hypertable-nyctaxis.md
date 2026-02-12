@@ -1,17 +1,19 @@
-## Create a hypertable
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
-Hypertables are the core of Timescale. Hypertables enable Timescale to work
-efficiently with time-series data. Because Timescale is PostgreSQL, all the
-standard PostgreSQL tables, indexes, stored procedures and other objects can be
-created alongside your Timescale hypertables. This makes creating and working
-with Timescale tables similar to standard PostgreSQL.
+
+## Optimize time-series data in hypertables
+
+Time-series data represents how a system, process, or behavior changes over time. [$HYPERTABLE_CAPs][hypertables-section]
+are $PG tables that help you improve insert and query performance by automatically partitioning your data by
+time. Each $HYPERTABLE is made up of child tables called chunks. Each chunk is assigned a range of time, and only
+contains data from that range. 
+
+$HYPERTABLE_CAPs exist alongside regular $PG tables. You interact with $HYPERTABLEs and regular $PG tables in the 
+same way. You use regular $PG tables for relational data.
 
 <Procedure>
 
-### Creating a hypertable
-
-1.  Create a standard PostgreSQL table to store the taxi trip data
-    using `CREATE TABLE`:
+1. **Create a $HYPERTABLE to store the taxi trip data**
 
     ```sql
     CREATE TABLE "rides"(
@@ -33,26 +35,22 @@ with Timescale tables similar to standard PostgreSQL.
         tolls_amount NUMERIC,
         improvement_surcharge NUMERIC,
         total_amount NUMERIC
+    ) WITH (
+       tsdb.hypertable,
+       tsdb.create_default_indexes=false
     );
     ```
+    <CreateHypertablePolicyNote />
 
-1.  Convert the standard table into a hypertable partitioned on the `time`
-    column using the `create_hypertable()` function provided by Timescale. You
-    must provide the name of the table and the column in that table that holds
-    the timestamp data to use for partitioning:
+1.  **Add another dimension to partition your $HYPERTABLE more efficiently**
 
     ```sql
-    SELECT create_hypertable('rides', by_range('pickup_datetime'), create_default_indexes=>FALSE);
     SELECT add_dimension('rides', by_hash('payment_type', 2));
     ```
 
-	<Highlight type="note">
-	The `by_range` and `by_hash` dimension builder is an addition to TimescaleDB 2.13.
-	</Highlight>
+1.  **Create an index to support efficient queries** 
 
-1.  Create an index to support efficient queries by vendor, rate code, and
-    passenger count:
-
+    Index by vendor, rate code, and passenger count:
     ```sql
     CREATE INDEX ON rides (vendor_id, pickup_datetime DESC);
     CREATE INDEX ON rides (rate_code, pickup_datetime DESC);
@@ -61,17 +59,15 @@ with Timescale tables similar to standard PostgreSQL.
 
 </Procedure>
 
-## Create standard PostgreSQL tables for relational data
+## Create standard $PG tables for relational data
 
 When you have other relational data that enhances your time-series data, you can
-create standard PostgreSQL tables just as you would normally. For this dataset,
+create standard $PG tables just as you would normally. For this dataset,
 there are two other tables of data, called `payment_types` and `rates`.
 
 <Procedure>
 
-### Creating standard PostgreSQL tables
-
-1.  Add a table to store the payment types data:
+1.  **Add a relational table to store the payment types data**
 
     ```sql
     CREATE TABLE IF NOT EXISTS "payment_types"(
@@ -87,7 +83,7 @@ there are two other tables of data, called `payment_types` and `rates`.
     (6, 'voided trip');
     ```
 
-1.  Add a table to store the rates data:
+1. **Add a relational table to store the rates data**
 
     ```sql
     CREATE TABLE IF NOT EXISTS "rates"(
@@ -117,3 +113,5 @@ the `psql` command line. You should see this:
  public | rides         | table | tsdbadmin
 (3 rows)
 ```
+
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

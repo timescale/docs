@@ -1,8 +1,9 @@
 ---
 title: Set up multi-node on self-hosted TimescaleDB
 excerpt: Sunsetted v2.14.x. Learn how to set up a self-hosted multi-node TimescaleDB instance
-products: [self_hosted]
 keywords: [multi-node, self-hosted]
+seo:
+  robots: noindex
 ---
 
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
@@ -11,21 +12,21 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 
 # Set up multi-node on self-hosted TimescaleDB
 
-To set up multi-node on a self-hosted TimescaleDB instance, you need:
+To set up multi-node on a $SELF_LONG instance, you need:
 
-*   A PostgreSQL instance to act as an access node (AN)
-*   One or more PostgreSQL instances to act as data nodes (DN)
-*   TimescaleDB [installed][install] and [set up][setup] on all nodes
+*   A $PG instance to act as an access node (AN)
+*   One or more $PG instances to act as data nodes (DN)
+*   $TIMESCALE_DB [installed][install] and [set up][enable-timescaledb] on all nodes
 *   Access to a superuser role, such as `postgres`, on all nodes
 
-The access and data nodes must begin as individual TimescaleDB instances.
-They should be hosts with a running PostgreSQL server and a loaded TimescaleDB
-extension. For more information about installing self-hosted TimescaleDB
+The access and data nodes must begin as individual $TIMESCALE_DB instances.
+They should be hosts with a running $PG server and a loaded $TIMESCALE_DB
+extension. For more information about installing $SELF_LONG
 instances, see the [installation instructions][install]. Additionally, you
 can configure [high availability with multi-node][multi-node-ha] to
 increase redundancy and resilience.
 
-The multi-node TimescaleDB architecture consists of an access node (AN) which
+The multi-node $TIMESCALE_DB architecture consists of an access node (AN) which
 stores metadata for the distributed hypertable and performs query planning
 across the cluster, and a set of data nodes (DNs) which store subsets of the
 distributed hypertable dataset and execute queries locally. For more information
@@ -36,14 +37,16 @@ the additional considerations in the [continuous aggregates][caggs] section.
 
 ## Set up multi-node on self-hosted TimescaleDB
 
-When you have installed TimescaleDB on the access node and as many data nodes as
+When you have installed $TIMESCALE_DB on the access node and as many data nodes as
 you require, you can set up multi-node and create a distributed hypertable.
 
 <Highlight type="note">
+
 Before you begin, make sure you have considered what partitioning method you
 want to use for your multi-node cluster. For more information about multi-node
 and architecture, see the
-[About multi-node section](/self-hosted/latest/multinode-timescaledb/about-multinode/).
+[About multi-node section][about-multi-node-section].
+
 </Highlight>
 
 <Procedure>
@@ -83,9 +86,10 @@ and architecture, see the
 When you have set up your multi-node installation, you can configure your
 cluster. For more information, see the [configuration section][configuration].
 
+[about-multi-node-section]: /self-hosted/:currentVersion:/multinode-timescaledb/about-multinode/
 [about-multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/about-multinode/
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#using-continuous-aggregates-in-a-multi-node-environment
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#about-continuous-aggregates
 [configuration]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-config/
-[install]: /self-hosted/latest/install/
+[enable-timescaledb]: /self-hosted/:currentVersion:/install/
+[install]: /self-hosted/:currentVersion:/install/
 [multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
-[setup]: /self-hosted/:currentVersion:/install/

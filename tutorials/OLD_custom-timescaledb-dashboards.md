@@ -9,9 +9,9 @@ keywords: [visualizations, analytics, hasura]
 
 To help you understand what is going on in your database, you can create your
 own custom visualizations and dashboards. TimescaleDB allows you to create
-custom dashboards for your data, using the full functionality of PostgreSQL
+custom dashboards for your data, using the full functionality of $PG
 monitoring. Of course, you can always use other commercial tools to monitor
-TimescaleDB, just as you can with PostgreSQL, but custom dashboards give you the
+TimescaleDB, just as you can with $PG, but custom dashboards give you the
 most flexibility.
 
 This tutorial shows you how to build a custom visualization that shows how
@@ -28,11 +28,11 @@ tutorial includes:
 *   How to build your React front-end to visualize the data
 
 The project uses React, connecting to a [Hasura][] GraphQL API to visualize
-[hypertable chunks][hypertables] of a [TimescaleDB][] instance.
+[hypertable chunks][hypertables-section] of a [TimescaleDB][] instance.
 
 The easiest way to get a TimescaleDB instance is to
-[try for free][timescale-signup] using our hosted service. You can also
-[download TimescaleDB for free][timescale-install] and run locally or in your
+[try for free][sign-up] using our hosted service. You can also
+[download TimescaleDB for free][install-timescale] and run locally or in your
 own cloud infrastructure.
 
 You can get the full code for this project from
@@ -232,8 +232,10 @@ FROM (
 ```
 
 <Highlight type="warning">
+
 The view is dependent on TimescaleDB internals. You might need to drop the view
 to upgrade the TimescaleDB extension, and recreate it after the upgrade.
+
 </Highlight>
 
 To test, use the name of a random chunk from the hypertable to query this view
@@ -293,7 +295,7 @@ INSERT INTO conditions
 
 When you write a backend application, you need to protect the database and
 expose only the required information to an authorized user. The Hasura GraphQL
-Engine does this by providing GraphQL APIs over new or existing PostgreSQL
+Engine does this by providing GraphQL APIs over new or existing $PG
 databases. This allows you to create permission rules and dynamically expand
 your database resources.
 
@@ -320,7 +322,7 @@ created earlier as a GraphQL resource, so it can be consumed as a query or
 subscription. You can then map the changes, or mutations, as you compress and
 decompress a chunk. This image describes a SQL view is tracked on Hasura:
 
-![Tracking a SQL view on Hasura cloud](https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-track-view.png)
+![Tracking a SQL view on Hasura cloud][tracking-a-sql-view-on-hasura-cloud]
 
 ### Mutations
 
@@ -354,7 +356,7 @@ $$ LANGUAGE SQL VOLATILE;
 Note that the function adds an extra `where` clause so that it does not compress
 a chunk that is already compressed.
 
-![Tracking compress chunk mutation on Hasura cloud](https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-compress-chunk-mutation.png)
+![Tracking compress chunk mutation on Hasura cloud][tracking-compress-chunk-mutation-on-hasura-cloud]
 
 #### Decompress chunk mutation
 
@@ -370,7 +372,7 @@ $$ LANGUAGE SQL VOLATILE;
 ```
 
 The next step is to go to the Hasura cloud and connect the database as a new
-data source. In the data panel, set up the PostgreSQL URI of your database, and
+data source. In the data panel, set up the $PG URI of your database, and
 then you can track each function as a query or mutation. This is an example of
 the `compress_chunk_named` function. In our case, the subscription goes to the
 `chunks_with_compression` function. You can also track `decompress_chunk_named`
@@ -394,7 +396,7 @@ As a summary, the front-end:
 ## Summary
 
 TimescaleDB is a powerful relational database for time-series data, bringing the
-full spectrum of tools and dashboards available for PostgreSQL.
+full spectrum of tools and dashboards available for $PG.
 
 In this tutorial you learned how to collect hypertables metadata from
 TimescaleDB internals. Expose it through GraphQL and fetch the data using a
@@ -405,20 +407,21 @@ You can get the full code for this project from
 
 This tutorial was originally created for HasuraCon 2021.
 
-[![Click here to watch the video](https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasuracon-talk-thumbnail.png)](https://hasura.io/events/hasura-con-2021/talks/visualizing-timescale-db-%20compression-status-in-real-time-with-hasura/ "Watch compression status in real time with Hasura")
+[![Click here to watch the video][click-here-to-watch-the-video]](https://hasura.io/events/hasura-con-2021/talks/visualizing-timescale-db-%20compression-status-in-real-time-with-hasura/ "Watch compression status in real time with Hasura")
 
 We hope you find new ways to explore your data and make your decisions smarter
 and data-driven. If you get any interesting results or have any questions about
-this tutorial, drop us a line on our [community Slack channel][timescale-slack].
+this tutorial, drop us a line on our [community Slack channel][slack].
 
-[Hasura]: http://hasura.io/
-[TimescaleDB]: https://timescale.com/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[compression]: /use-timescale/:currentVersion:/compression/
-[data retention]: /use-timescale/:currentVersion:/data-retention/
+[click-here-to-watch-the-video]: https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasuracon-talk-thumbnail.png
 [hasura-cloud]: https://cloud.hasura.io/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[Hasura]: http://hasura.io/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[install-timescale]: /getting-started/:currentVersion:/
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
-[timescale-install]: /getting-started/latest/
-[timescale-signup]: http://console.cloud.timescale.com/signup
-[timescale-slack]: https://slack.timescale.com
+[sign-up]: http://console.cloud.timescale.com/signup
+[slack]: https://slack.timescale.com
+[TimescaleDB]: https://timescale.com/
+[tracking-a-sql-view-on-hasura-cloud]: https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-track-view.png
+[tracking-compress-chunk-mutation-on-hasura-cloud]: https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-compress-chunk-mutation.png

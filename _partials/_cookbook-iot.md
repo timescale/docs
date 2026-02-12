@@ -5,7 +5,7 @@ This section contains recipes for IoT issues:
 ### Work with columnar IoT data
 
 Narrow and medium width tables are a great way to store IoT data. A lot of reasons are outlined in
-[Designing Your Database Schema: Wide vs. Narrow Postgres Tables][blog-wide-vs-narrow].
+[Designing Your Database Schema: Wide vs. Narrow $PG Tables][blog-wide-vs-narrow].
 
 One of the key advantages of narrow tables is that the schema does not have to change when you add new
 sensors. Another big advantage is that each sensor can sample at different rates and times. This helps
@@ -16,7 +16,7 @@ certain amount.
 
 Working with narrow table data structures presents a few challenges. In the IoT world one concern is that
 many data analysis approaches - including machine learning as well as more traditional data analysis -
-require that your data is resampled and synchronized to a common time basis. Fortunately, TimescaleDB provides
+require that your data is resampled and synchronized to a common time basis. Fortunately, $TIMESCALE_DB provides
 you with [hyperfunctions][hyperfunctions] and other tools to help you work with this data. 
 
 An example of a narrow table format is:
@@ -53,10 +53,7 @@ To remove all-null entries, use an optional constraint such as:
 #### Get the last value of every sensor
 
 There are several ways to get the latest value of every sensor. The following examples use the
-structure defined in [Narrow table format example][setup-a-narrow-table-format] as a reference:
-
-- [SELECT DISTINCT ON][select-distinct-on]
-- [JOIN LATERAL][join-lateral]
+structure defined in [Narrow table format example][setup-a-narrow-table-format] as a reference
 
 ##### SELECT DISTINCT ON
 
@@ -124,8 +121,8 @@ the previous example into a materialized query that refreshes infrequently, perh
 
 Shoutout to **Christopher Piggott** for this recipe.
 
-[blog-wide-vs-narrow]: https://www.timescale.com/learn/designing-your-database-schema-wide-vs-narrow-postgres-tables
-[setup-a-narrow-table-format]: /tutorials/:currentVersion:/cookbook/#narrow-table-format-example
-[select-distinct-on]: /tutorials/:currentVersion:/cookbook/#select-distinct-on
-[join-lateral]: /tutorials/:currentVersion:/cookbook/#join-lateral
+[blog-wide-vs-narrow]: https://www.tigerdata.com/learn/designing-your-database-schema-wide-vs-narrow-postgres-tables
 [hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[join-lateral]: /tutorials/:currentVersion:/cookbook/#join-lateral
+[select-distinct-on]: /tutorials/:currentVersion:/cookbook/#select-distinct-on
+[setup-a-narrow-table-format]: /tutorials/:currentVersion:/cookbook/#narrow-table-format-example

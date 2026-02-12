@@ -4,7 +4,7 @@
 
     For more information about MacPorts, including installation instructions,
     see the [MacPorts documentation][macports].
-1.  Install TimescaleDB and psql:
+1.  Install $TIMESCALE_DB and psql:
 
     ```bash
     sudo port install timescaledb libpqxx
@@ -19,11 +19,11 @@
     <Highlight type="important">
 
     MacPorts does not install the `timescaledb-tools` package or run the `timescaledb-tune`
-    script. For more information about tuning your database, see the [TimescaleDB tuning tool][timescale-tuner].
+    script. For more information about tuning your database, see the [$TIMESCALE_DB tuning tool][timescale-tuner].
 
     </Highlight>
 
-1.  **Login to PostgreSQL as `postgres`**
+1.  **Log in to $PG as `postgres`**
 
     ```bash
     sudo -u postgres psql

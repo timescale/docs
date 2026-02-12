@@ -27,7 +27,7 @@ This tutorial uses Python and the API
 Before you begin, make sure you have:
 
 *   A TimescaleDB instance running locally or on the cloud. For more information,
-   [see installation options][install-ts]
+   [see installation options][install-timescale]
 *   Installed Python 3
 *   Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for this tutorial.
 
@@ -142,10 +142,12 @@ websocket object and establish connection.
 </Procedure>
 
 <Highlight type="note">
+
 To keep the websocket connection alive indefinitely, use the `keep_alive()`
 function of the wrapper library. It makes sure the connection will
 stay active until it gets terminated. If you don't add this line the
 connection might break instantly.
+
 </Highlight>
 
 When you have established a connection to the websocket server,
@@ -351,11 +353,11 @@ Continue with one of our other tutorials that show you how to
 efficiently store and analyze your data after ingestion:
 
 *   [Store financial tick data in TimescaleDB using the OHLCV (candlestick) format][candlestick-tutorial]
-*   [Getting started with TimescaleDB][get-started]
+*   [Getting started with TimescaleDB][install]
 
 [candlestick-tutorial]: /tutorials/:currentVersion:/financial-tick-data/
-[get-started]: /getting-started/:currentVersion:/
-[install-ts]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
+[install]: /getting-started/:currentVersion:/
 [psycopg2]: https://www.psycopg.org/docs/
 [twelve-data]: https://twelvedata.com
 [twelve-signup]: https://twelvedata.com/pricing

@@ -1,21 +1,21 @@
 ## Load financial data
 
-This tutorial uses Bitcoin transactions from the past five days.
-
-## Ingest the dataset
+The dataset contains around 1.5 million Bitcoin transactions, the trades for five days. It includes
+information about each transaction, along with the value in [satoshi][satoshi-def]. It also states if a
+trade is a [coinbase][coinbase-def] transaction, and the reward a coin miner receives for mining the coin.
 
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
 
 <Procedure>
 
-### Ingesting the dataset
-
 1.  Download the `bitcoin_sample.zip` file. The file contains a `.csv`
     file that contains Bitcoin transactions for the past five days. Download:
 
     <Tag type="download">
-      [bitcoin_sample.zip](https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip)
+    
+      [bitcoin_sample.zip][bitcoin_samplezip]
+
     </Tag>
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
@@ -24,8 +24,11 @@ dataset and copy the data to your database.
     unzip bitcoin_sample.zip
     ```
 
+1. In Terminal, navigate to the folder where you unzipped the Bitcoin transactions, then 
+   connect to your $SERVICE_SHORT using [psql][connect-using-psql].
+
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    Timescale instance. If the `.csv` files aren't in your current directory,
+    $SERVICE_LONG. If the `.csv` files aren't in your current directory,
     specify the file paths in these commands:
 
     ```sql
@@ -37,3 +40,8 @@ dataset and copy the data to your database.
     resources.
 
 </Procedure>
+
+[bitcoin_samplezip]: https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip
+[coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction
+[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
+[satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi

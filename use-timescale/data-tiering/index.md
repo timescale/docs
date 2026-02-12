@@ -1,68 +1,47 @@
 ---
-title: Tiered Storage
-excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier. Timescale Cloud tiered storage makes sure you cut costs while having data available for analytical queries
+title: Storage on Tiger Cloud
+excerpt: Save on storage costs by tiering older data to a low-cost bottomless object storage tier. Tiger tiered storage makes sure you cut costs while having data available for analytical queries
 products: [cloud]
 keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
-# Tiered storage
+# Storage
 
-Tiered storage is a [hierarchical storage management architecture](https://en.wikipedia.org/wiki/Hierarchical_storage_management) for 
-[Time series and analytics][create-service] services you create in [$CLOUD_LONG](https://console.cloud.timescale.com/).
+All $SERVICE_SHORTs in [$CLOUD_LONG][cloud_long] come with high-performance storage. For [real-time analytics][create-service] $SERVICE_SHORTs, [$CLOUD_LONG][cloud_long] additionally offers a [hierarchical storage management architecture][hierarchical-storage] called tiered storage.
 
-Engineered for infinite low-cost scalability, tiered storage consists of the:
+Engineered for infinite low-cost scalability, tiered storage consists of the following:
 
-* **High-performance tier**: rapid access to the most recent, and frequently accessed data.
+* **High-performance storage tier**: stores the most recent and frequently queried data. This tier comes in two types, 
+standard and enhanced, and provides you with up to 64 TB of storage and 32,000 IOPS depending on your pricing plan and cloud provider. 
 
-* **Object storage tier**: store data that is rarely accessed and has lower performance requirements.
-  For example, to save old data for auditing or reporting purposes over long periods of time, even forever.
-  The object store is low-cost bottomless data storage built on Amazon S3. You use it to avoid the
-  higher costs and data size limitations associated with the high-performance tier. 
+* **Object storage tier**: stores data that is rarely accessed and has lower performance requirements.
+  For example, old data for auditing or reporting purposes over long periods of time, even forever.
+  The object storage tier is low-cost and bottomless.
 
-No matter the tier your data is stored in, [query it when you need it][querying-tiered-data]. 
-Timescale seamlessly accesses the correct storage tier and generates the response.
+No matter the tier your data is stored in, you can [query it when you need it][querying-tiered-data]. 
+$CLOUD_LONG seamlessly accesses the correct storage tier and generates the response.
 
-<img
-class="main-content__illustration"
-src="https://assets.timescale.com/docs/images/timescale-tiered-storage-architecture.png"
-width={1228} height={688}
-alt="Timescale Tiered Storage architecture"
-/>
+You can [define tiering policies][creating-data-tiering-policy] to migrate 
+data from the high-performance storage tier to the object tier automatically, and then set up 
+[retention policies][add-retention-policies] to remove very old data from the object storage tier.
 
-<!-- vale Google.SmartQuotes = NO -->
+This section covers:
 
-You use the API to [define tiering policies][creating-data-tiering-policy] that automatically migrate 
-data from the high-performance storage tier to the object store as it ages. You use 
-[retention policies][add-retention-policies] to remove very old data from the object store.
-
-With tiered storage you don't need an ETL process, infrastructure changes, or custom-built, bespoke 
-solutions to offload data to secondary storage and fetch it back in when needed. Kick back and relax, 
-we do the work for you. 
-
-<Highlight type="info">
-
-Tiered storage is only available for the [Time series and analytics](https://www.timescale.com/products)
-instances you create in [$CLOUD_LONG](https://console.cloud.timescale.com/). 
-
-Tiered storage **DOES NOT** work on Self-hosted TimescaleDB or Managed Service for TimescaleDB.  
-</Highlight>
-
-<!-- vale Google.SmartQuotes = YES -->
-
-This section explains the following:
-* [Learn about the object storage tier][about-data-tiering]: understand tiered storage.
-* [Manage tiering][enabling-data-tiering]: enable and disable data tiering, automate tiering with 
-   policies, or tier and untier manually.
-* [Query tiered data][querying-tiered-data]: query and performance for tiered data.
-* [Replicas and forks with tiered data][replicas-and-forks]: how tiered storage works
-  with forks and replicas. 
-
+* [Tiered storage architecture][about-data-tiering]: understand how the tiers are built and how they differ. 
+* [Tiered storage workflow][data-tiering-workflow]: enable, manage, and query data in low-cost storage.
+* [Manage storage and tiering][enabling-data-tiering]: configure high-performance storage, object storage, and data tiering. 
+* [Query tiered data][querying-tiered-data]: query the data in the object storage.
+* [Replicas and forks with tiered data][tiered-forks]: understand how tiered storage works with forks and replicas of your $SERVICE_SHORT.
 
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
-[enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
-[replicas-and-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/
-[creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
-[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/
+[aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
+[cloud_long]: https://console.cloud.timescale.com/
 [create-service]: /getting-started/:currentVersion:/services/
+[creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
+[data-tiering-workflow]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/#the-tiered-storage-workflow
+[enabling-data-tiering]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/
+[hierarchical-storage]: https://en.wikipedia.org/wiki/Hierarchical_storage_management
+[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
+[tiered-forks]: /use-timescale/:currentVersion:/data-tiering/tiered-data-replicas-forks/

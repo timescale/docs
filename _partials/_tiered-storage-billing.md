@@ -1,0 +1,1 @@
+For low-cost storage, $COMPANY charges for data tiered based on its original uncompressed size in the high-performance storage tier. There are no additional expenses, such as data transfer or compute.

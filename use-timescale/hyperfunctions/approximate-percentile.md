@@ -1,6 +1,6 @@
 ---
 title: Approximate percentiles
-excerpt: Timescale Cloud relies on approximation algorithms to calculate percentiles on large datasets in a more efficient manner. Learn to construct and run an approximate percentage query
+excerpt: TimescaleDB relies on approximation algorithms to calculate percentiles on large datasets in a more efficient manner. Learn to construct and run an approximate percentage query
 products: [cloud, mst, self_hosted]
 keywords: [hyperfunctions, Toolkit, percentiles]
 tags: [tdigest, uddsketch]
@@ -8,11 +8,11 @@ tags: [tdigest, uddsketch]
 
 # Approximate percentiles
 
-Timescale uses approximation algorithms to calculate a percentile without
+$TIMESCALE_DB uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
 aggregates.
 
-By default, Timescale Toolkit uses `uddsketch`, but you can also choose to use
+By default, $TOOLKIT_LONG uses `uddsketch`, but you can also choose to use
 `tdigest`. For more information about these algorithms, see the
 [advanced aggregation methods][advanced-agg] documentation.
 
@@ -42,7 +42,7 @@ information about how long a server takes to respond to API calls.
     ninety-fifth percentile:
 
     ```sql
-    SELECT approx_percentile(0.95, percentile_agg(percentile_agg)) as threshold
+    SELECT approx_percentile(0.95, percentile_agg) as threshold
     FROM response_times_daily
     WHERE bucket >= time_bucket('1 day'::interval, now() - '30 days'::interval);
     ```

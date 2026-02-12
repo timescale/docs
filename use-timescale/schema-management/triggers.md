@@ -1,13 +1,13 @@
 ---
 title: Triggers
-excerpt: PostgreSQL triggers are special functions that automatically execute upon a specific event. In Timescale Cloud, you can easily create, alter, and drop triggers on a hypertable
+excerpt: Postgres triggers are special functions that automatically execute upon a specific event. In TimescaleDB, you can easily create, alter, and drop triggers on a hypertable
 products: [cloud, mst, self_hosted]
 keywords: [hypertables, triggers]
 ---
 
 # Triggers
 
-Timescale supports the full range of PostgreSQL triggers. Creating, altering,
+$TIMESCALE_DB supports the full range of $PG triggers. Creating, altering,
 or dropping triggers on a hypertable propagates the changes to all of the
 underlying chunks.
 
@@ -53,9 +53,9 @@ reading with a value that is greater than or equal to 1000.
 
 </Procedure>
 
-Timescale supports the full range of triggers, including `BEFORE INSERT`,
+$TIMESCALE_DB supports the full range of triggers, including `BEFORE INSERT`,
 `AFTER INSERT`, `BEFORE UPDATE`, `AFTER UPDATE`, `BEFORE DELETE`, and
 `AFTER DELETE`. For more information, see the
-[PostgreSQL docs][postgres-createtrigger].
+[$PG docs][postgres-createtrigger].
 
-[postgres-createtrigger]: https://www.postgresql.org/docs/current/static/sql-createtrigger.html
+[postgres-createtrigger]: https://www.postgresql.org/docs/current/sql-createtrigger.html

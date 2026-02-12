@@ -17,4 +17,4 @@ Because `state_agg` tracks more information, it uses more memory than
 timestamps of state transitions, consider using [`compact_state_agg`][compact_state_agg]
 instead.
 
-[compact_state_agg]: /api/:currentVersion:/hyperfunctions/state-tracking/compact_state_agg/
+[compact_state_agg]: /api/:currentVersion:/hyperfunctions/state-tracking/compact_state_agg
