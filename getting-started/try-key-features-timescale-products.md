@@ -305,7 +305,7 @@ a $CAGG, run the query part of the $CAGG
 In the previous sections, you used $CAGGs to make fast analytical queries, and
 $HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
 you create tiering policies to move rarely accessed data to the object store. The object store is 
-low-cost bottomless data storage built on Amazon S3. However, no matter the tier, you can 
+low-cost bottomless data storage built on Amazon S3 or Azure Blob storage. However, no matter the tier, you can 
 [query your data when you need][querying-tiered-data]. $CLOUD_LONG seamlessly accesses the correct storage 
 tier and generates the response.
 

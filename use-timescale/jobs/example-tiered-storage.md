@@ -14,7 +14,7 @@ moves automatically, you can write a custom $JOB.
 
 <Highlight type="note">
 
-On $CLOUD_LONG, use [tiered storage][tiered-storage] which handles this by providing a [tiering policy API][tiering-policy-api] to move data to low-cost object storage backed by Amazon S3.
+On $CLOUD_LONG, use [tiered storage][tiered-storage] which handles this by providing a [tiering policy API][tiering-policy-api] to move data to low-cost object storage backed by Amazon S3 and Azure Blob storage.
 
 </Highlight>
 
