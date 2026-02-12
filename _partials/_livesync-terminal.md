@@ -175,7 +175,7 @@ instance to a $SERVICE_LONG:
    As you run the $PG_CONNECTOR continuously, best practice is to run it as a Docker daemon.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.7.0 run \
+   docker run -d --rm --name livesync timescale/live-sync:v0.11.2 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET --table-map <table_map_as_json>
    ```
@@ -232,10 +232,11 @@ instance to a $SERVICE_LONG:
 
    | state | description |
    |-------|-------------|
-   | d | initial table data sync |
-   | f | initial table data sync completed |
-   | s | catching up with the latest changes |
-   | r | table is ready, syncing live changes |
+   | i | initial state, table data sync not started |
+   | d | initial table data sync is in progress |
+   | f | initial table data sync completed, catching up with incremental changes |
+   | s | synchronized, waiting for the main apply worker to take over |
+   | r | table is ready, applying changes in real-time |
 
    To see the replication lag, run the following against the SOURCE database:
 
@@ -330,7 +331,7 @@ EOF
    Use the `--drop` flag to remove the replication slots created by the $PG_CONNECTOR on the source database.
 
    ```shell
-   docker run -it --rm --name livesync timescale/live-sync:v0.7.0 run \
+   docker run -it --rm --name livesync timescale/live-sync:v0.11.2 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET \
       --drop
