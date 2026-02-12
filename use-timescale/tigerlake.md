@@ -3,7 +3,7 @@ title: Integrate data lakes with Tiger Cloud
 excerpt: Unifies the Tiger Cloud operational architecture with data lake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 products: [cloud]
 price_plans: [scale, enterprise]
-keywords: [data lake, lakehouse, s3, iceberg]
+keywords: [data lake, lakehouse, s3, iceberg, blob storage]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
