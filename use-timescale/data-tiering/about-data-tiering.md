@@ -20,14 +20,14 @@ The tiered storage architecture in $CLOUD_LONG includes a high-performance stora
 
 ## High-performance storage 
 
-High-performance storage is where your data is stored by default, until you [enable tiered storage][low-cost-storage] and [move older data to the low-cost tier][creating-data-tiering-policy]. In the high-performance storage, your data is stored in the block format and optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] available in this tier is designed specifically for real-time analytics. It enables you to compress the data in the high-performance storage by up to 90%, while improving performance. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is always accessible and your queries run at lightning speed. 
+High-performance storage is where your data is stored by default, until you [enable tiered storage][low-cost-storage] and [move older data to the low-cost tier][creating-data-tiering-policy]. In the high-performance storage, your data is stored on a block device that is optimized for frequent querying. The [$HYPERCORE row-columnar storage engine][hypercore] enables you to compress the data in the high-performance storage by up to 98%, while improving performance. Coupled with other optimizations, $CLOUD_LONG high-performance storage makes sure your data is durable and available, and your queries run as quickly as they can. 
 
 $CLOUD_LONG high-performance storage comes in the following types: 
 
-- **Standard** (default): based on [AWS EBS gp3][aws-gp3] and designed for general workloads. Provides up to 16 TB of storage and 16,000 IOPS.
-- **Enhanced**: based on [EBS io2][ebs-io2] and designed for high-scale, high-throughput workloads. Provides up to 64 TB of storage and 32,000 IOPS.
+- **Standard** (default): designed for general workloads. Provides up to 16 TB of storage and 16,000 IOPS.
+- **Enhanced**: designed for high-scale, high-throughput workloads. Provides up to 64 TB of storage and 32,000 IOPS.
 
-[See the differences][aws-storage-types] in the underlying AWS storage. You [enable enhanced storage][high-performance-storage] as needed in $CONSOLE. 
+You [enable enhanced storage][high-performance-storage] as needed in $CONSOLE. 
 
 ## Low-cost storage
 
@@ -36,8 +36,6 @@ $CLOUD_LONG high-performance storage comes in the following types:
 Once you [enable tiered storage][low-cost-storage], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed $HYPERTABLE may even take more space in S3 than it does in $CLOUD_LONG.
 
 <TieredStorageBilling />
-
-<NotSupportedAzure />
 
 Apache Parquet allows for more efficient scans across longer time periods, and $CLOUD_LONG uses other metadata and query optimizations to reduce the amount of data that needs to be fetched to satisfy a query, such as: 
 
@@ -97,14 +95,14 @@ The low-cost storage tier comes with the following limitations:
     on $HYPERTABLEs with tiered chunks.
 
     _Allowed_ modifications include: renaming the $HYPERTABLE, adding columns
-    with `NULL` defaults, adding indexes, changing or renaming the $HYPERTABLE
+    without defaults, adding indexes, changing or renaming the $HYPERTABLE
     schema, and adding `CHECK` constraints. For `CHECK` constraints, only
     untiered data is verified.
     Columns can also be deleted, but you cannot subsequently add a new column
     to a tiered $HYPERTABLE with the same name as the now-deleted column.
 
-    _Disallowed_ modifications include: adding a column with non-`NULL`
-    defaults, renaming a column, changing the data type of a
+    _Disallowed_ modifications include: adding a column with any default value
+    (including `NULL`), renaming a column, changing the data type of a
     column, and adding a `NOT NULL` constraint to the column.
 
 -  **Limited data changes**: you cannot insert data into, update, or delete a
@@ -140,7 +138,7 @@ The typical workflow to use tiered storage in $CLOUD_LONG is:
    Choose how to move data to the low-cost tier:
    - **Automated tiering**: create an interval-based policy using
      `add_tiering_policy()` to automatically tier chunks older than a
-     specified age. By default, policies run hourly, and continuously manage
+     specified age. By default, policies run hourly and continuously manage
      data placement.
    - **Manual tiering**: identify specific chunks to tier by querying the
      `timescaledb_information.chunks` view, then use the `tier_chunk()`

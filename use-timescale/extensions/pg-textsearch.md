@@ -485,7 +485,11 @@ caching and pagination to improve user experience with large result sets.
 
 ## Current limitations
 
-The preview releases focus on core BM25 functionality. You cannot search for exact multi-word phrases.
+
+The preview releases focus on core BM25 functionality. Current limitations include:
+
+* **No phrase search**: you cannot search for exact multi-word phrases.
+* **No compressed data support**: `pg_textsearch` does not work with compressed data. 
 
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
