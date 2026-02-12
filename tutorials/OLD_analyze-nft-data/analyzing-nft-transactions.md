@@ -637,7 +637,7 @@ for visualizing your data analysis
 Check out these resources for more about using $TIMESCALE_DB with crypto data:
 
 *   [Analyze cryptocurrency market data][crypto-tutorial]
-*   [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using $PG and $TIMESCALE_DB][crypto-blog]
+*   [Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using $PG and $TIMESCALE_DB][crypto-blog]
 *   [Learn how $TIMESCALE_DB user Messari uses data to open the crypto economy to everyone][messari]
 *   [How one $TIMESCALE_DB user built a successful crypto trading bot][trading-bot]
 

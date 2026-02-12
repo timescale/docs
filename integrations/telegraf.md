@@ -1,6 +1,6 @@
 ---
 title: Ingest data using Telegraf
-excerpt: Ingest data into a Tiger Cloud service using using the Telegraf plugin
+excerpt: Ingest data into a Tiger Cloud service using the Telegraf plugin
 products: [cloud, self_hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
