@@ -9,21 +9,31 @@ jobs:
   prose:
     if: github.repository == 'timescale/docs'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v2 # Ensure using the latest stable version
-
-      - name: Install Vale
-        run: |
-          curl -sSfL https://github.com/errata-ai/vale/releases/download/v2.14.0/vale_2.14.0_Linux_64-bit.tar.gz -o vale.tar.gz
-          tar -xzf vale.tar.gz
-          sudo mv vale /usr/local/bin/vale  # Move vale to a directory in PATH
-          sudo chmod +x /usr/local/bin/vale
+        uses: actions/checkout@v4.1.7
 
       - name: Run Vale
+        uses: errata-ai/vale-action@v2.1.0
+        with:
+          files: |
+            _partials
+            _troubleshooting
+            about
+            api
+            getting-started
+            mst
+            navigation
+            quick-start
+            self-hosted
+            tutorials
+            use-timescale
+            ai
+          reporter: github-pr-review
+          fail_on_error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          vale --version
-          vale --glob='["_partials/**/*", "_troubleshooting/**/*", "about/**/*", "api/**/*", "getting-started/**/*", "mst/**/*", "navigation/**/*", "quick-start/**/*", "self-hosted/**/*", "tutorials/**/*", "use-timescale/**/*", "ai/**/*"]'
 

@@ -404,7 +404,7 @@ WITH total_yards AS (
  FROM player_yards_by_game t
  GROUP BY t.player_id, t.gameid
 ), avg_yards AS (
--- This table takes the average of the yards run by each player and calls out thier position
+-- This table takes the average of the yards run by each player and calls out their position
  SELECT p.player_id, p.display_name, AVG(yards) AS avg_yards, p."position"
  FROM total_yards t
  LEFT JOIN player p ON t.player_id = p.player_id

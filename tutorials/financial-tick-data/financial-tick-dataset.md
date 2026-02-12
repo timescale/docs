@@ -16,7 +16,7 @@ import GrafanaConnect from "versionContent/_partials/_grafana-connect.mdx";
 # Ingest data into a $SERVICE_LONG
 
 This tutorial uses a dataset that contains second-by-second trade data for
-the most-traded crypto-assets. You optimize this time-series data in a a hypertable called `assets_real_time`. 
+the most-traded crypto-assets. You optimize this time-series data in a hypertable called `assets_real_time`. 
 You also create a separate table of asset symbols in a regular $PG table named `assets`.
 
 The dataset is updated on a nightly basis and contains data from the last four
