@@ -1,6 +1,6 @@
 ---
 title: About Tiger Cloud storage tiers 
-excerpt: Learn how Tiger Cloud helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon s3
+excerpt: Learn how Tiger Cloud helps you save on storage costs. The tiered storage architecture includes a high-performance storage tier and a low-cost object storage tier built on Amazon S3 or Azure Blob storage
 products: [cloud]
 keywords: [tiered storage]
 tags: [storage, data management]
@@ -33,7 +33,7 @@ You [enable enhanced storage][high-performance-storage] as needed in $CONSOLE.
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
-Once you [enable tiered storage][low-cost-storage], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in S3. A compressed $HYPERTABLE may even take more space in S3 than it does in $CLOUD_LONG.
+Once you [enable tiered storage][low-cost-storage], you can start moving rarely used data to the object tier. The object tier is based on AWS S3 and Azure Blob storage and stores your data in the [Apache Parquet][parquet] format. Within a Parquet file, a set of rows is grouped together to form a row group. Within a row group, values for a single column across multiple rows are stored together. The original size of the data in your $SERVICE_SHORT, compressed or uncompressed, does not correspond directly to its size in the object store.
 
 <TieredStorageBilling />
 
@@ -115,7 +115,7 @@ The low-cost storage tier comes with the following limitations:
     native data types, but not for non-native types, such as `JSON`, `JSONB`,
     and `GIS`.
 
-*   **Latency**: S3 has higher access latency than local storage. This can affect the
+*   **Latency**: The object store has higher access latency than local storage. This can affect the
     execution time of queries in latency-sensitive environments, especially
     lighter queries.
 
