@@ -12,7 +12,7 @@ This repository contains the complete documentation for Tiger Data products avai
 
 - [Get started overview](https://www.tigerdata.com/docs/getting-started/latest/): Introduction to Tiger Data products and services
 - [Create a Tiger Cloud service](https://www.tigerdata.com/docs/getting-started/latest/services/): Learn about Tiger Cloud capabilities and create your first service
-- [Run queries from Tiger Cloud Console](https://www.tigerdata.com/docs/getting-started/latest/run-queries-from-console/): Use the SQL editor and SQL Assistant in Tiger Cloud
+- [Run queries from Tiger Console](https://www.tigerdata.com/docs/getting-started/latest/run-queries-from-console/): Use the SQL editor and SQL Assistant in Tiger Cloud
 - [Try key Tiger Data features](https://www.tigerdata.com/docs/getting-started/latest/try-key-features-timescale-products/): Explore hypertables, time buckets, compression, and continuous aggregates
 - [Start coding with Tiger Data](https://www.tigerdata.com/docs/getting-started/latest/start-coding-with-timescale/): Connect and code with your preferred programming language
 

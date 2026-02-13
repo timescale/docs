@@ -1,6 +1,6 @@
 ---
 title: Control access to Tiger Cloud projects
-excerpt: Manage your projects and services in Tiger Cloud Console. Add and delete users, assign roles, join and leave projects, transfer project ownership, and configure authentication
+excerpt: Manage your projects and services in Tiger Console. Add and delete users, assign roles, join and leave projects, transfer project ownership, and configure authentication
 products: [cloud]
 keywords: [members, projects, admin, roles]
 tags: [users]
