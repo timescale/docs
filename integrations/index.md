@@ -254,7 +254,7 @@ Some of the most in-demand integrations are listed below.
 [stitch]: https://stitch-docs.netlify.app/docs/integrations/databases/postgresql
 [streamlit]: https://docs.streamlit.io/develop/tutorials/databases/postgresql
 [striim]: https://www.striim.com/connectors/postgresql/
-[superset]: https://superset.apache.org/docs/configuration/databases#timescaledb
+[superset]: https://superset.apache.org/docs/databases/supported/timescaledb/
 [tableau]: /integrations/:currentVersion:/tableau/
 [telegraf]: /integrations/:currentVersion:/telegraf/
 [terraform]: /integrations/:currentVersion:/terraform

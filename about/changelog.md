@@ -9,12 +9,25 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## pg_textsearch v0.5.0
+<Label type="date">February 13, 2026</Label>
+
+`pg_textsearch` v0.5.0 is now available on Tiger Cloud!
+
+This release includes the following highlights: 
+
+- Parallel index builds: `CREATE INDEX` now uses multiple workers for faster indexing of large tables. $PG automatically allocates workers based on the table size and `max_parallel_maintenance_workers` setting.
+- Improvements for bm25 indexes on hypertables.
+- Stability fixes.
+
+See [Optimize full text search with BM25](https://www.tigerdata.com/docs/use-timescale/latest/extensions/pg-textsearch) for how to use it. 
+
 ## Tiered Storage on Microsoft Azure
 <Label type="date">February 11, 2026</Label>
 
 Tiered Storage is now available for Tiger Cloud services running on Microsoft Azure, bringing cost-effective data management to our Azure customers. This feature enables you to automatically move rarely accessed data to low-cost storage on Azure Blob Storage while maintaining the ability to query it seamlessly with standard SQL. Customers typically see a reduction of 2-5x in storage costs depending on data compression rates.
 
-Azure Tiered Storage works just like the AWS version: enable it in Tiger Console, set tiering policies on your hypertables, and Tiger Cloud handles the rest. With this release, Tiger Cloud Services on Azure offer the same powerful data lifecycle management capabilities as those running on AWS.
+Azure Tiered Storage works just like the AWS version: enable it in Tiger Console, set tiering policies on your hypertables, and Tiger Cloud handles the rest. With this release, Tiger Cloud services on Azure offer the same powerful data lifecycle management capabilities as those running on AWS.
 
 ## Europe (Zurich) is now available
 <Label type="date">February 11, 2026</Label>
