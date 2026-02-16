@@ -20,7 +20,7 @@ that you want to convert to hypertables:
 *   The compression policy you want to use
 
 If you are not sure what chunk time interval to use, see the
-[time partitioning section][chunk-time].
+[time partitioning section][best-practices].
 
 Use this format:
 
@@ -171,8 +171,10 @@ exclude_tables:
 ```
 
 <Highlight type="important">
+
 Hypershift does not currently support pattern matching on schema or table names
 in either inclusion or exclusion rules.
+
 </Highlight>
 
 ## Hypertable configuration
@@ -347,4 +349,4 @@ verbose: <boolean> # Default = false
 
 </Collapsible>
 
-[chunk-time]: /use-timescale/:currentVersion:/hypertables/#best-practices-for-time-partitioning
+[best-practices]: /use-timescale/:currentVersion:/hypertables/#time-partitioning

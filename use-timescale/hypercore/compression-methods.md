@@ -279,11 +279,29 @@ have a lot of repeated values, then the dictionary is the same size as the
 original data. TimescaleDB automatically detects this case, and falls back to
 not using a dictionary in that scenario.
 
-[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
-[manual-compression]: /use-timescale/:currentVersion:/compression/manual-compression/
-[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
+#### JSONB compression
+
+For JSONB columns, $TIMESCALE_DB uses a two-layer compression approach:
+
+1. **$TIMESCALE_DB dictionary compression**: $TIMESCALE_DB attempts to apply
+   its own dictionary compression to the JSONB data. This works well when JSONB
+   values have high repetition. It does not perform when each JSONB value is unique or nearly unique.
+
+2. **$PG TOAST compression**: if dictionary compression does not perform, $TIMESCALE_DB skips compression and allows $PG to handle the data using
+   Oversized-Attribute Storage Technique (TOAST) compression. By default,
+   $PG uses `pglz` compression. To configure $PG to use more 
+   modern compression algorithms like `lz4`, set the `default_toast_compression`
+   configuration parameter.
+
+To check your current TOAST compression setting:
+
+```sql
+SHOW default_toast_compression;
+```
+
 [delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
-[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
-[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
-[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-encoding
+[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
 [dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression
+[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
+[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
+[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-compression

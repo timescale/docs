@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure Data Studio with Tiger Cloud
-excerpt: Azure Data Studio is an open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape. Integrate Azure Data Studio with Tiger Cloud
+title: Integrate Azure Data Studio with Tiger
+excerpt: Azure Data Studio is an open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape. Integrate Azure Data Studio with Tiger
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---
@@ -46,10 +46,8 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated Azure Data Studio with $CLOUD_LONG.
 
+[azure-data-studio]: https://azure.microsoft.com/en-us/products/data-studio
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [ms-azure-data-studio]: https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?view=sql-server-ver16#install-azure-data-studio
 [postgresql-azure-data-studio]: https://learn.microsoft.com/en-us/azure-data-studio/extensions/postgres-extension?view=sql-server-ver16
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
-[azure-data-studio]: https://azure.microsoft.com/en-us/products/data-studio
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
-

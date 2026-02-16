@@ -23,6 +23,7 @@ transparently looks up the backing hypertable and returns its statistics
 instead.
 
 <Highlight type="note">
+
 This function relies on the per backend caching using the in-built
 $PG storage manager layer to compute the approximate size
 cheaply. The PG cache invalidation clears off the cached size for a
@@ -33,10 +34,11 @@ or modified chunks and can use the cached data (which is calculated
 afresh the first time around) effectively for older chunks. Thus it
 is recommended to use a single connected $PG backend session to
 compute the approximate sizes of hypertables to get faster results.
+
 </Highlight>
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 ## Samples
 
@@ -84,5 +86,4 @@ SELECT hypertable_approximate_size('device_stats_15m');
 
 </Highlight>
 
-
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

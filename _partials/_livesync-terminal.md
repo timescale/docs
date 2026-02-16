@@ -10,31 +10,28 @@ import TuneSourceDatabaseAWSRDS from "versionContent/_partials/_migrate_live_tun
 
 - Ensure that the source $PG instance and the target $SERVICE_LONG have the same extensions installed.
 
-  $LIVESYNC_CAP does not create extensions on the target. If the table uses column types from an extension,
+  The $PG_CONNECTOR does not create extensions on the target. If the table uses column types from an extension,
   first create the extension on the target $SERVICE_LONG before syncing the table.
 
 - [Install Docker][install-docker] on your sync machine.
 
-  For a better experience, use a 4 CPU/16GB EC2 instance or greater to run $LIVESYNC.
+  For a better experience, use a 4 CPU/16GB EC2 instance or greater to run the $PG_CONNECTOR.
 
-- Install the [$PG client tools][install-psql] on your sync machine.
+- Install the [$PG client tools][psql] on your sync machine.
 
-  This includes `psql`, `pg_dump`, `pg_dumpall` and `vacuumdb` commands.
-
+  This includes `psql`, `pg_dump`, `pg_dumpall`, and `vacuumdb` commands.
 
 ## Limitations
 
-- The schema is not migrated by $LIVESYNC, you use `pg_dump`/`pg_restore` to migrate it.
+- The schema is not migrated by the $PG_CONNECTOR, you use `pg_dump`/`pg_restore` to migrate it.
 
 <LivesyncLimitations />
-
 
 ## Set your connection strings
 
 The `<user>` in the `SOURCE` connection must have the replication role granted in order to create a replication slot.
 
 <SetupConnectionStrings />
-
 
 ## Tune your source database
 
@@ -50,7 +47,7 @@ The `<user>` in the `SOURCE` connection must have the replication role granted i
 
 </Tab>
 
-<Tab title="From PostgreSQL" label="postgres">
+<Tab title="From Postgres" label="postgres">
 <Procedure>
 
 <LivesyncConfigureSourceDatabase />
@@ -91,7 +88,7 @@ Use `pg_dump` to:
 
 For efficient querying and analysis, you can convert tables which contain time-series or
 events data, and tables that are already partitioned using $PG declarative partition into
-[hypertables][about-hypertables].
+[hypertables][hypertables-section].
 
 <Procedure>
 
@@ -112,8 +109,8 @@ events data, and tables that are already partitioned using $PG declarative parti
 
 1. **Convert $PG partitions to hypertables**
 
-   Rename the partition and create a new normal table with the same name as the partitioned table, then
-   convert to a hypertable:
+   Rename the partition and create a new regular table with the same name as the partitioned table, then
+   convert to a $HYPERTABLE:
 
    ```shell
    psql $TARGET -f - <<'EOF'
@@ -155,7 +152,7 @@ specifies the tables to synchronize.
    ALTER PUBLICATION <publication_name> SET(publish_via_partition_root=true);
    ```
 
-   To convert partitioned table to hypertable, follow [Convert partitions and tables with time-series data into hypertables](#convert-partitions-and-tables-with-time-series-data-into-hypertables).
+   To convert a partitioned table to a hypertable, follow [Convert partitions and tables with time-series data into hypertables][convert-partitions-and-tables-with-time-series-data-into-hypertables-link].
 
 1. **Stop syncing a table in the `PUBLICATION`, use `DROP TABLE`**
 
@@ -168,22 +165,22 @@ specifies the tables to synchronize.
 
 ## Synchronize data to your $SERVICE_LONG
 
-You use the $LIVESYNC docker image to synchronize changes in real-time from a $PG database
+You use the $PG_CONNECTOR docker image to synchronize changes in real time from a $PG database
 instance to a $SERVICE_LONG:
 
 <Procedure>
 
-1. **Start $LIVESYNC**
+1. **Start the $PG_CONNECTOR**
 
-   As you run $LIVESYNC continuously, best practice is to run it as a Docker daemon.
+   As you run the $PG_CONNECTOR continuously, best practice is to run it as a Docker daemon.
 
    ```shell
-   docker run -d --rm --name livesync timescale/live-sync:v0.1.25 run \
+   docker run -d --rm --name livesync timescale/live-sync:v0.11.2 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET --table-map <table_map_as_json>
    ```
 
-   `--publication`: The name of the publication as you created in the previous step. To use multiple publication repeat the `--publication` flag.
+   `--publication`: The name of the publication as you created in the previous step. To use multiple publications, repeat the `--publication` flag.
 
    `--subscription`: The name that identifies the subscription on the target $SERVICE_LONG.
 
@@ -193,6 +190,11 @@ instance to a $SERVICE_LONG:
 
    `--table-map`: (Optional) A JSON string that maps source tables to target tables. If not provided, the source and target table names are assumed to be the same.
    For example, to map the source table `metrics` to the target table `metrics_data`:
+
+   `--table-sync-workers`: (Optional) The number of parallel workers to use for initial table sync. Default is 4.
+
+   `--copy-data`: (Optional) By default, the initial table data is copied from source to target before starting logical replication. Set to `false` so only changes made after replication slot creation are replicated.
+   Best practice is to set to `false` during dry-run livesync so you do not copy table data.
 
    ```
    --table-map '{"source": {"schema": "public", "table": "metrics"}, "target": {"schema": "public", "table": "metrics_data"}}'
@@ -204,16 +206,16 @@ instance to a $SERVICE_LONG:
    ```
    This flag can be repeated for multiple table mappings.
 
-1. **Capture Logs**
+1. **Capture logs**
 
-   Once $LIVESYNC is running as a docker daemon, you can also capture the logs:
+   Once the $PG_CONNECTOR is running as a docker daemon, you can also capture the logs:
    ```shell
    docker logs -f livesync
    ```
 
 1. **View the progress of tables being synchronized**
 
-   List the tables being synchronized by $LIVESYNC using the `_ts_live_sync.subscription_rel` table in the target $SERVICE_LONG:
+   List the tables being synchronized by the $PG_CONNECTOR using the `_ts_live_sync.subscription_rel` table in the target $SERVICE_LONG:
 
    ```bash
    psql $TARGET -c "SELECT * FROM _ts_live_sync.subscription_rel"
@@ -230,10 +232,11 @@ instance to a $SERVICE_LONG:
 
    | state | description |
    |-------|-------------|
-   | d | initial table data sync |
-   | f | initial table data sync completed |
-   | s | catching up with the latest changes |
-   | r | table is ready, synching live changes |
+   | i | initial state, table data sync not started |
+   | d | initial table data sync is in progress |
+   | f | initial table data sync completed, catching up with incremental changes |
+   | s | synchronized, waiting for the main apply worker to take over |
+   | r | table is ready, applying changes in real-time |
 
    To see the replication lag, run the following against the SOURCE database:
 
@@ -272,7 +275,7 @@ EOF
    vacuumdb --analyze --verbose --dbname=$TARGET
    ```
 
-1. **Stop $LIVESYNC**
+1. **Stop the $PG_CONNECTOR**
 
    ```shell
    docker stop live-sync
@@ -280,7 +283,7 @@ EOF
 
 1. **(Optional) Reset sequence nextval on the target $SERVICE_LONG**
 
-   $LIVESYNC does not automatically reset the sequence nextval on the target
+   The $PG_CONNECTOR does not automatically reset the sequence nextval on the target
    $SERVICE_LONG.
 
    Run the following script to reset the sequence for all tables that have a
@@ -323,12 +326,12 @@ EOF
 EOF
    ```
 
-1. **Cleanup**
+1. **Clean up**
 
-   Use the `--drop` flag to remove the replication slots created by $LIVESYNC on the source database.
+   Use the `--drop` flag to remove the replication slots created by the $PG_CONNECTOR on the source database.
 
    ```shell
-   docker run -it --rm --name livesync timescale/live-sync:v0.1.25 run \
+   docker run -it --rm --name livesync timescale/live-sync:v0.11.2 run \
       --publication <publication_name> --subscription <subscription_name> \
       --source $SOURCE --target $TARGET \
       --drop
@@ -336,13 +339,10 @@ EOF
 
 </Procedure>
 
-
-[create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
 [alter-publication]: https://www.postgresql.org/docs/current/sql-alterpublication.html
+[convert-partitions-and-tables-with-time-series-data-into-hypertables-link]: /migrate/:currentVersion:/livesync-for-postgresql/#convert-partitions-and-tables-with-time-series-data-into-hypertables
+[create-publication]: https://www.postgresql.org/docs/current/sql-createpublication.html
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-docker]: https://docs.docker.com/engine/install/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
-[lives-sync-specify-tables]: /migrate/:currentVersion:/livesync-for-postgresql/#specify-the-tables-to-synchronize
-[compression]: /use-timescale/:currentVersion:/compression/about-compression
-[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
-[join-livesync-on-slack]: https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88
-[install-psql]: /integrations/:currentVersion:/psql/
+[psql]: /integrations/:currentVersion:/psql/
+

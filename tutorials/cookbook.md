@@ -1,6 +1,6 @@
 ---
-title: TigerData cookbook
-excerpt: Browse code examples from the Tiger Cloud community that resolve common issues and provide solutions for non-standard tasks
+title: Tiger Data cookbook
+excerpt: Browse code examples from the Tiger community that resolve common issues and provide solutions for non-standard tasks
 products: [cloud, self_hosted, mst]
 ---
 
@@ -12,7 +12,7 @@ import IOT from "versionContent/_partials/_cookbook-iot.mdx";
 
 # $COMPANY community cookbook
 
-This page contains suggestions from the [$COMPANY Community](https://timescaledb.slack.com/) about how to resolve 
+This page contains suggestions from the [$COMPANY Community][company-community] about how to resolve 
 common issues. Use these code examples as guidance to work with your own data. 
 
 
@@ -24,7 +24,4 @@ common issues. Use these code examples as guidance to work with your own data.
 
 <IOT />
 
-
-
-[create-a-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
-[connect-to-service]: /getting-started/:currentVersion:/run-queries-from-console/
+[company-community]: https://timescaledb.slack.com/

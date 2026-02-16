@@ -137,9 +137,11 @@ The `created_before` and `created_after` parameters can be specified in two ways
     the chunk creation time is used for the filtering.
 
 <Highlight type="warning">
+
 When using just an interval type, the function assumes that
 you are removing things _in the past_. If you want to remove data
 in the future, for example to delete erroneous entries, use a timestamp.
+
 </Highlight>
 
 When both `older_than` and `newer_than` arguments are used, the
@@ -161,8 +163,10 @@ Similarly, specifying `created_after`=> '2017-01-01'` and `created_before`
 overlapping intersection between two ranges results in an error.
 
 <Highlight type="note">
+
 The `created_before`/`created_after` parameters cannot be used together with
 `older_than`/`newer_than`.
+
 </Highlight>
 
 [show_chunks]: /api/:currentVersion:/hypertable/show_chunks/

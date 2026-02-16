@@ -14,15 +14,16 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # hypertable_compression_stats() <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/hypertable_columnstore_stats/">hypertable_columnstore_stats()</a>.
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Get statistics related to hypertable compression. All sizes are in bytes.
 
 For more information about using hypertables, including chunk size partitioning,
-see the [hypertable section][hypertable-docs].
+see the [hypertable section][hypertables-section].
 
 For more information about compression, see the
-[compression section][compression-docs].
+[compression section][compression].
 
 ## Samples
 
@@ -81,7 +82,5 @@ Returns show `NULL` if the data is currently uncompressed.
 
 </Highlight>
 
-
-
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
-[compression-docs]: /use-timescale/:currentVersion:/compression/
+[compression]: /use-timescale/:currentVersion:/compression/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

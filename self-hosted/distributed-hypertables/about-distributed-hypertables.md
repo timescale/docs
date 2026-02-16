@@ -18,7 +18,7 @@ machines. The database can also parallelize some inserts and queries.
 
 A distributed hypertable still acts as if it were a single table. You can work
 with one in the same way as working with a standard hypertable. To learn more
-about hypertables, see the [hypertables section][hypertables].
+about hypertables, see the [hypertables section][hypertables-section].
 
 Certain nuances can affect distributed hypertable performance. This section
 explains how distributed hypertables work, and what you need to consider before
@@ -199,7 +199,7 @@ for several reasons:
     results. In some cases, your query could be slightly less performant, but
     this is rare and the affected chunks usually move quickly out of your
     retention window.
-*   The query includes [non-immutable functions][volatility] and expressions.
+*   The query includes [non-immutable functions][postgres-immutable] and expressions.
     The function cannot be pushed down to the data node, because by definition,
     it isn't guaranteed to have a consistent result across each node. An example
     non-immutable function is [`random()`][random-func], which depends on the
@@ -263,12 +263,12 @@ currently unsupported features might still work on individual data nodes,
 but such usage is neither tested nor officially supported. Future versions
 of $TIMESCALE_DB might remove some of these limitations.
 
-[native-replication]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#replicating-distributed-hypertables
 [create_distributed_restore_point]: /api/:currentVersion:/distributed-hypertables/create_distributed_restore_point/
-[limitations]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#query-push-down/
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
-[limitations-pushing-down]: #limitations-of-query-push-down
-[multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[limitations]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#query-push-down
+[limitations-pushing-down]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#query-push-down
 [multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/
-[random-func]: <https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE>
-[volatility]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>
+[multi-node-ha]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-ha/
+[native-replication]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/#replicating-distributed-hypertables
+[postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
+[random-func]: https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM

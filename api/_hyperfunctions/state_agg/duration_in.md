@@ -79,3 +79,5 @@ api_details:
           3 days 22:00:00
 ---
 
+
+[extract]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT

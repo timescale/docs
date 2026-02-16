@@ -1,6 +1,6 @@
 ---
 title: Query time-series data tutorial - set up compression
-excerpt: Compress the dataset so you can store the NYC taxi trip data more efficiently with Tiger Cloud
+excerpt: Compress the dataset so you can store the NYC taxi trip data more efficiently with Tiger
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]
@@ -141,8 +141,7 @@ On an example setup, speedup performance observed was pretty significant,
 
 Try it yourself and see what you get!
 
-
-[segment-by-columns]: /use-timescale/:currentVersion:/compression/about-compression/#segment-by-columns
+[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [automatic-compression]: /tutorials/:currentVersion:/nyc-taxi-cab/compress-nyc/#add-a-compression-policy
 [compression-design]: /use-timescale/:currentVersion:/compression/compression-design/
-[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
+[segment-by-columns]: /use-timescale/:currentVersion:/compression/about-compression/#segment-by-columns

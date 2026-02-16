@@ -26,7 +26,20 @@ data by time and location.
     UPDATE rides SET pickup_geom = ST_Transform(ST_SetSRID(ST_MakePoint(pickup_longitude,pickup_latitude),4326),2163),
        dropoff_geom = ST_Transform(ST_SetSRID(ST_MakePoint(dropoff_longitude,dropoff_latitude),4326),2163);
     ```
-    This updates 10,906,860 rows of data on both columns, it takes a while. Coffee is your friend.  
+    This updates 10,906,860 rows of data on both columns, it takes a while. Coffee is your friend.
+    
+    You might run into this error while the update happens
+
+       `Error: tuple decompression limit exceeded by operation
+        Error Code: 53400
+        Details: current limit: 100000, tuples decompressed: 10906860
+        Hint: Consider increasing timescaledb.max_tuples_decompressed_per_dml_transaction or set to 0 (unlimited).`
+    
+    To fix this, use
+
+    ```sql
+    SET timescaledb.max_tuples_decompressed_per_dml_transaction TO 0;
+    ```
 
 </Procedure>
 
@@ -48,7 +61,7 @@ and make more money.
  
    1. In the `Queries` section, select `Code`, then select the Time series `Format`.
 
-      ![Real-time analytics geolocation](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png)
+      ![Real-time analytics geolocation][real-time-analytics-geolocation]
 
    1. To find rides longer than 5 miles in Manhattan, paste the following query:
 
@@ -78,11 +91,11 @@ and make more money.
      You now see the areas where a taxi driver is most likely to pick up a passenger who wants a
      longer ride, and make more money.
 
-      ![Real-time analytics geolocation](https://assets.timescale.com/docs/images/use-case-rta-grafana-heatmap.png)
+      ![Real-time analytics geolocation][real-time-analytics-geolocation-1]
 
 </Procedure>
 
-
-
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [postgis]: http://postgis.net/
+[real-time-analytics-geolocation-1]: https://assets.timescale.com/docs/images/use-case-rta-grafana-heatmap.png
+[real-time-analytics-geolocation]: https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png

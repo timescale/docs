@@ -6,7 +6,8 @@
 * You **cannot attach** a $SERVICE_LONG to multiple Peering $VPCs at the same time.
 
   The number of Peering $VPCs you can create in your project depends on your [$PRICING_PLAN][pricing-plans].
-  If you need another Peering $VPC, either contact [support@tigerdata.com](mailto:support@tigerdata.com) or change your $PRICING_PLAN in [$CONSOLE][console-login].
+  If you need another Peering $VPC, either contact [support@tigerdata.com][supporttigerdatacom] or change your $PRICING_PLAN in [$CONSOLE][cloud-login].
 
-[console-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.timescale.com/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
+[supporttigerdatacom]: mailto:support@tigerdata.com

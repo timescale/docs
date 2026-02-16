@@ -15,7 +15,7 @@ see the documentation on [creating a read replica using the CLI][read-replica-cl
 
 <Highlight type="note">
 
-If you are running a $MST_LONG [Pro plan](https://docs.tigerdata.com/mst/latest/about-mst/#service-configuration-plans),
+If you are running a $MST_LONG [Pro plan][service-configuration-plans],
 you have standby nodes available in a high availability setup. The standby nodes
 support read-only queries to reduce the effect of slow queries on the primary
 node.
@@ -67,12 +67,14 @@ click the `Promote to master` button.
 </Procedure>
 
 <Highlight type="note">
+
 $MST_LONG uses asynchronous replication, so some lag is
 expected. When you run an `INSERT` operation on the primary node, a small
 delay of less than a second is expected for the change to propagate to the
 replica.
+
 </Highlight>
 
-[read-replica-cli]: /mst/:currentVersion:/aiven-client/#create-a-read-only-replica-with-aiven-client
-
 [mst-login]:https://portal.managed.timescale.com/login
+[read-replica-cli]: /mst/:currentVersion:/aiven-client/#create-a-read-only-replica-with-aiven-client
+[service-configuration-plans]: /mst/:currentVersion:/about-mst/#service-configuration-plans

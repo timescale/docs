@@ -69,5 +69,3 @@
    You are connected to your RDS instance from your intermediary EC2 instance.
 
 </Procedure>
-
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/

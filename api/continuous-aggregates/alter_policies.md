@@ -11,14 +11,18 @@ api:
 products: [cloud, self_hosted, mst]
 ---
 
-import Experimental from "versionContent/_partials/_experimental.mdx";
-
 <!-- markdownlint-disable-next-line line-length -->
 # alter_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
 Alter refresh, columnstore, or data retention policies on a continuous
 aggregate. The altered columnstore and retention policies apply to the
 continuous aggregate, _not_ to the original hypertable.
+
+<Highlight type="warning">
+
+This experimental function will be removed in future releases. Please use the [`alter_job()`][alter_job] function to modify a policy.
+
+</Highlight>
 
 ```sql
 timescaledb_experimental.alter_policies(
@@ -30,8 +34,6 @@ timescaledb_experimental.alter_policies(
      drop_after "any" = NULL
 ) RETURNS BOOL
 ```
-
-<Experimental />
 
 ## Samples
 
@@ -70,3 +72,8 @@ time bucket is based on integers.
 ## Returns
 
 Returns true if successful.
+
+<!-- vale Vale.Terms = NO -->
+<!-- vale Vale.Terms = YES -->
+
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/

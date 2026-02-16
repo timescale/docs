@@ -12,15 +12,15 @@ import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-d
 
 # Install self-hosted $TIMESCALE_DB from source
 
-TimescaleDB is a [$PG extension](https://www.postgresql.org/docs/current/external-extensions.html) for
+TimescaleDB is a [$PG extension][pg-extension] for
 time series and demanding workloads that ingest and query high volumes of data. You can install a TimescaleDB
 instance on any local system, from source.
 
 This section shows you how to:
 
-* [Install and configure $TIMESCALE_DB on $PG](#install-and-configure-timescaledb-on-postgresql) - set up
+* [Install and configure $TIMESCALE_DB on $PG][install-and-configure-timescaledb-on-postgres-link] - set up
   a self-hosted $PG instance to efficiently run TimescaleDB1.
-* [Add the $TIMESCALE_DB extension to your database](#add-the-timescaledb-extension-to-your-database) - enable TimescaleDB features and
+* [Add the $TIMESCALE_DB extension to your database][add-the-timescaledb-extension-to-your-database-link] - enable TimescaleDB features and
   performance improvements on a database.
 
 < TestingEnv/>
@@ -31,13 +31,13 @@ To install TimescaleDB from source, you need the following on your developer env
 
 * **$PG**: 
 
-   Install a [supported version of $PG][compatibility-matrix] using the [$PG installation instructions][postgres-download]. 
+   Install a [supported version of $PG][compatibility-matrix] using the [$PG installation instructions][install-postgresql]. 
 
     We recommend not using TimescaleDB with $PG 17.1, 16.5, 15.9, 14.14, 13.17, 12.21.  
     These minor versions [introduced a breaking binary interface change][postgres-breaking-change] that,
     once identified, was reverted in subsequent minor $PG versions 17.2, 16.6, 15.10, 14.15, 13.18, and 12.22.
     When you build from source, best practice is to build with $PG 17.2, 16.6, etc and higher.
-    Users of [$CLOUD_LONG](https://console.cloud.timescale.com/) and Platform packages built and
+    Users of [$CLOUD_LONG][cloud_long] and Platform packages built and
     distributed by $COMPANY are unaffected.
 
 
@@ -73,9 +73,11 @@ And that is it! You have TimescaleDB running on a database on a self-hosted inst
 
 <WhereTo />
 
-[install-psql]: /integrations/:currentVersion:/psql/
-[config]: /self-hosted/:currentVersion:/configuration/
-[postgres-download]: https://www.postgresql.org/download/
+[add-the-timescaledb-extension-to-your-database-link]: /self-hosted/:currentVersion:/install/installation-source/#add-the-timescale_db-extension-to-your-database
+[cloud_long]: https://console.cloud.timescale.com/
 [cmake-download]: https://cmake.org/download/
 [compatibility-matrix]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#plan-your-upgrade-path
+[install-and-configure-timescaledb-on-postgres-link]: /self-hosted/:currentVersion:/install/installation-source/#install-and-configure-timescale_db-on-pg
+[install-postgresql]: https://www.postgresql.org/download/
+[pg-extension]: https://www.postgresql.org/docs/current/external-extensions.html
 [postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/

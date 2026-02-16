@@ -1,5 +1,5 @@
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 ## Optimize time-series data in a hypertable
 
@@ -9,7 +9,7 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 1. **Connect to your $SERVICE_LONG**
 
-   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][connect-using-psql].
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your service using [psql][psql].
 
 1. **Create a $HYPERTABLE to store the real-time cryptocurrency data**
 
@@ -25,12 +25,11 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
         day_volume NUMERIC
     ) WITH (
        tsdb.hypertable,
-       tsdb.partition_column='time',
        tsdb.segmentby='symbol', 
        tsdb.orderby='time DESC'
     );
     ```
-   <OldCreateHypertable />
+   <CreateHypertablePolicyNote />
    
 </Procedure>
 
@@ -55,10 +54,9 @@ standard $PG relational tables.
 You now have two tables within your $SERVICE_LONG. A hypertable named `crypto_ticks`, and a normal
 $PG table named `crypto_assets`.
 
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[connect-using-psql]: /integrations/:currentVersion:/psql
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[psql]: /integrations/:currentVersion:/psql
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

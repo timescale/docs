@@ -15,13 +15,14 @@ chunks. For more information about manually compressing chunks, see the
 [manual compression section][manual-compression].
 
 <Highlight type="warning">
+
 Compression alters data on your disk, so always back up before you start.
+
 </Highlight>
 
 ## Set a compression policy
 
-You can set a compression policy on a hypertable directly from the Timescale
-Cloud console.
+You can set a compression policy on a hypertable directly from the Tiger Cloud Console.
 
 <Procedure>
 
@@ -45,8 +46,10 @@ Cloud console.
     each row to see the policy details and change your configuration.
 
     <Highlight type="note">
+
     Compression begins immediately if you already have data older than the
     selected interval. The order of compression is from oldest to newest chunks.
+
     </Highlight>
 
 </Procedure>

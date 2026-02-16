@@ -1,1 +1,1 @@
-$COMPANY charges only for the storage that your data occupies in S3 in the Apache Parquet format, regardless of whether it was compressed in $CLOUD_LONG before tiering. There are no additional expenses, such as data transfer or compute. 
+For low-cost storage, $COMPANY charges for data tiered based on its original uncompressed size in the high-performance storage tier. There are no additional expenses, such as data transfer or compute.

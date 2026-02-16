@@ -29,15 +29,15 @@ right EBS optimized EC2 instance type, see the AWS
 [instance configuration documentation][aws-instance-config].
 
 <Highlight type="note">
+
 This section shows how to use the AMI from within the AWS EC2 dashboard.
 However, you can also use the AMI to build an instance using tools like
 Cloudformation, Terraform, the AWS CLI, or any other AWS deployment tool that
 supports public AMIs.
+
 </Highlight>
 
 <Procedure>
-
-## Installing $TIMESCALE_DB from a pre-build cloud image
 
 1.  Make sure you have an [Amazon Web Services account][aws-signup], and are
     signed in to [your EC2 dashboard][aws-dashboard].
@@ -122,9 +122,8 @@ tsdb=# \dx
 
 <WhereTo />
 
-[aws-signup]: https://portal.aws.amazon.com/billing/signup
+[aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
 [aws-dashboard]: https://console.aws.amazon.com/ec2/
 [aws-instance-config]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html
-[aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
-[install-psql]: /use-timescale/:currentVersion:/connecting/psql/
+[aws-signup]: https://portal.aws.amazon.com/billing/signup
 [config]: /self-hosted/:currentVersion:/configuration/

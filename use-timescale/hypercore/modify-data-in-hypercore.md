@@ -1,7 +1,7 @@
 ---
 title: Modify data in hypercore
 excerpt: Update data and the table schema in the columnstore
-products: [cloud, self_hosted]
+products: [cloud, mst, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
@@ -104,11 +104,9 @@ You can modify the schema of a table in the $COLUMNSTORE. To do this, you need t
 
 </Procedure>
 
-[write]: /use-timescale/:currentVersion:/write-data/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
-[job]: /api/:currentVersion:/actions/
-[alter_job]: /api/:currentVersion:/actions/alter_job/
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
-[insert]: /use-timescale/:currentVersion:/write-data/insert/
+[job]: /api/:currentVersion:/actions/
 [setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
+[write]: /use-timescale/:currentVersion:/write-data/

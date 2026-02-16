@@ -14,7 +14,7 @@ import GettingHelp from "versionContent/_partials/_migrate_dual_write_backfill_g
 Dual-write and backfill is a migration strategy to move a large amount of
 time-series data (100&nbsp;GB-10&nbsp;TB+) with low downtime (on the order of
 minutes of downtime). It is significantly more complicated to execute than a
-migration with downtime using [pg_dump/restore][pg-dump-and-restore], and has
+migration with downtime using [pg_dump/restore][migrate-with-downtime], and has
 some prerequisites on the data ingest patterns of your application, so it may
 not be universally applicable.
 
@@ -51,7 +51,7 @@ For more information, consult the step-by-step guide for your source database:
 
 <GettingHelp />
 
-[from-timescaledb]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-timescaledb/
-[from-postgres]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-postgres/
 [from-other]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-other/
-[pg-dump-and-restore]: /migrate/:currentVersion:/pg-dump-and-restore/
+[from-postgres]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-postgres/
+[from-timescaledb]: /migrate/:currentVersion:/dual-write-and-backfill/dual-write-from-timescaledb/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/

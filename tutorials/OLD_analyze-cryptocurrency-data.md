@@ -25,10 +25,10 @@ schema or your dataset.
 
 You can also download the resources for this tutorial:
 
-*   Schema creation script: <Tag type="download" >[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</Tag>
-*   Dataset creation script: <Tag type="download" >[crypto_data_extraction.py](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</Tag>
+*   Schema creation script: <Tag type="download" >[schema.sql][schemasql]</Tag>
+*   Dataset creation script: <Tag type="download" >[crypto_data_extraction.py][crypto_data_extractionpy]</Tag>
 <!-- vale Google.Units = NO -->
-*   Dataset: <Tag type="download" >[Crypto Currency Dataset September 2019](https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019)</Tag> (Note that this data is from
+*   Dataset: <Tag type="download" >[Crypto Currency Dataset September 2019][crypto-currency-dataset-september-2019]</Tag> (Note that this data is from
     September 2019. Follow the steps in Section 2 of this tutorial if you require fresh data)
 <!-- vale Google.Units = YES -->
 
@@ -156,7 +156,7 @@ SELECT create_hypertable('crypto_prices', 'time');
 Note that there are three `create_hypertable` statements which are
 TimescaleDB-specific statements. A hypertable is an abstraction of a single
 continuous table across time intervals, so that you can query it using standard
-SQL. For more on hypertables, see the [$COMPANY docs][hypertable-docs] and this
+SQL. For more on hypertables, see the [$COMPANY docs][hypertables-section] and this
 [blog post][hypertable-blog].
 
 ## Create a dataset to analyze
@@ -183,7 +183,7 @@ The script consists of five parts:
     `eth_prices`
 
 Here's the full Python script, which you can also
-<Tag type="download" >[download](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</Tag>
+<Tag type="download" >[download][crypto_data_extractionpy]</Tag>
 
 ```python
 #####################################################################
@@ -362,7 +362,7 @@ Before you start, you need a
 Now all your hard work at the beginning comes in handy, and you can use the SQL
 script you created to set up the TimescaleDB unstance. If you don't want to
 enter the SQL script by yourself, you can download
-<Tag type="download">[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</Tag> instead.
+<Tag type="download">[schema.sql][schemasql]</Tag> instead.
 
 Log in to the TimescaleDB instance. Locate your `host`, `port`, and `password`
 and then connect to the database:
@@ -463,8 +463,10 @@ of these commands in turn:
 ```
 
 <Highlight type="important">
+
 Data ingestion could take a while, depending on the speed of your Internet
 connection.
+
 </Highlight>
 
 You can verify that the ingestion worked by running a simple SQL command, such
@@ -651,8 +653,12 @@ GROUP BY
 ```
 
 [crypto-blog]: https://www.tigerdata.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb
+[crypto-currency-dataset-september-2019]: https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019
+[crypto_data_extractionpy]: https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
 [cryptocompare]: https://www.cryptocompare.com
+[download]: https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py
 [hypertable-blog]: https://www.tigerdata.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables
-[install-timescale]: /getting-started/latest/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables
+[install-timescale]: /getting-started/:currentVersion:/
+[schemasql]: https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql

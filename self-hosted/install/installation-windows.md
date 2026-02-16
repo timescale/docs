@@ -10,10 +10,11 @@ import WhereTo from "versionContent/_partials/_where-to-next.mdx";
 import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
 import SelfHostedWindowsBased from "versionContent/_partials/_install-self-hosted-windows-based.mdx";
 import AddTimescaleDBToDB from "versionContent/_partials/_add-timescaledb-to-a-database.mdx";
+import WindowsSupport from "versionContent/_partials/_timescaledb_supported_windows.mdx";
 
 # Install $TIMESCALE_DB on Windows
 
-$TIMESCALE_DB is a [$PG extension](https://www.postgresql.org/docs/current/external-extensions.html) for
+$TIMESCALE_DB is a [$PG extension][pg-extension] for
 time series and demanding workloads that ingest and query high volumes of data.
 
 This section shows you how to:
@@ -41,9 +42,8 @@ $TIMESCALE_DB on a [supported platform][supported-platforms] using the packages 
 
 <Highlight type="warning">
 
-If you have previously installed $PG without a package manager, you may encounter errors
-following these install instructions. Best practice is to full remove any existing $PG
-installations before you begin.
+If you have previously installed $PG, you may encounter errors following these install instructions. 
+Best practice is to full remove any existing $PG installations before you begin.
 
 To keep your current $PG installation, [Install from source][install-from-source].
 
@@ -63,48 +63,52 @@ This section shows you how to enable $TIMESCALE_DB for a new database in $PG usi
 
 And that is it! You have $TIMESCALE_DB running on a database on a self-hosted instance of $PG.
 
+## Supported platforms
+
+The latest $TIMESCALE_DB releases for $PG are:
+
+*   <Tag type="download">
+
+    [Postgres 18: TimescaleDB release][postgres-18-timescaledb-release]
+
+    </Tag>
+
+*   <Tag type="download">
+
+    [Postgres 17: TimescaleDB release][postgres-17-timescaledb-release]
+
+    </Tag>
+    
+*   <Tag type="download">
+
+    [Postgres 16: TimescaleDB release][postgres-16-timescaledb-release]
+
+    </Tag>
+    
+*   <Tag type="download">
+
+    [Postgres 15: TimescaleDB release][postgres-15-timescaledb-release]
+
+    </Tag>
+
+You can deploy $TIMESCALE_DB on the following systems:
+
+<WindowsSupport />
+
+For release information, see the [GitHub releases page][relnotes] and the [release notes][relnotes].
 
 ## Where to next
 
 <WhereTo />
 
-## Supported platforms
-
-* The latest $TIMESCALE_DB releases for $PG are:
-
-    *   <Tag type="download">
-        
-        [$PG 17: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.21.2/timescaledb-postgresql-17-windows-amd64.zip)
-  
-        </Tag>
-    *   <Tag type="download">
-        
-        [$PG 16: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.21.2/timescaledb-postgresql-16-windows-amd64.zip)
-  
-        </Tag>
-    *   <Tag type="download">
-        
-        [$PG 15: TimescaleDB release](https://github.com/timescale/timescaledb/releases/download/2.21.2/timescaledb-postgresql-15-windows-amd64.zip)
-  
-        </Tag>
-
-* $TIMESCALE_DB is supported on the following platforms:
-
-  *   Microsoft Windows 10
-  *   Microsoft Windows 11
-  *   Microsoft Windows Server 2019
-  *   Microsoft Windows Server 2022
-
-For release information, see the [GitHub releases page][gh-releases] and the [release notes][release-notes].
-
-
-[config]: /self-hosted/:currentVersion:/configuration/
-[gh-releases]: https://github.com/timescale/timescaledb/releases
-[ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
-[pg-download]: https://www.postgresql.org/download/windows/
-[release-notes]: https://github.com/timescale/timescaledb/releases
-[windows-releases]: #windows-releases
-[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
-[install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-and-configure-timescaledb-on-postgresql
 [add-timescledb-extension]: /self-hosted/:currentVersion:/install/installation-windows/#add-the-timescaledb-extension-to-your-database
+[install-from-source]: /self-hosted/:currentVersion:/install/installation-source/
+[install-timescaledb]: /self-hosted/:currentVersion:/install/installation-windows/#install-timescale_db-on-windows
+[ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
+[pg-extension]: https://www.postgresql.org/docs/current/external-extensions.html
+[postgres-15-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.24.0/timescaledb-postgresql-15-windows-amd64.zip
+[postgres-16-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.24.0/timescaledb-postgresql-16-windows-amd64.zip
+[postgres-17-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.24.0/timescaledb-postgresql-17-windows-amd64.zip
+[postgres-18-timescaledb-release]: https://github.com/timescale/timescaledb/releases/download/2.24.0/timescaledb-postgresql-18-windows-amd64.zip
+[relnotes]: https://github.com/timescale/timescaledb/releases
 [supported-platforms]: /self-hosted/:currentVersion:/install/installation-windows/#supported-platforms

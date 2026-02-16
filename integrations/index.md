@@ -51,34 +51,35 @@ Some of the most in-demand integrations are listed below.
 
 ## Data engineering and extract, transform, load
 
-|            Name                      | Description                                                                              |
-|:------------------------------------:|------------------------------------------------------------------------------------------|
-|          <img isIcon src='https://assets.timescale.com/docs/icons/airbyte-logo.png' alt='airbyte-logo'  />[Airbyte][airbyte]          | Sync data between various sources and destinations.                                      |
-| <img isIcon src='https://assets.timescale.com/docs/icons/amazon-sagemaker-logo.png' alt='amazon-sagemaker-logo'  />[Amazon SageMaker][amazon-sagemaker] | Build, train, and deploy ML models into a production-ready hosted environment.           |
-|   <img isIcon src='https://assets.timescale.com/docs/icons/airflow-logo.png' alt='airflow-logo'  />[Apache Airflow][apache-airflow]   | Programmatically author, schedule, and monitor workflows.                                |
-|      <img isIcon src='https://assets.timescale.com/docs/icons/beam-logo.png' alt='beam-logo'  />[Apache Beam][apache-beam]      | Build and execute batch and streaming data pipelines across multiple processing engines. |
-|        <img isIcon src='https://assets.timescale.com/docs/icons/kafka-logo.png' alt='kafka-logo'  />[Apache Kafka][kafka]         | Stream high-performance data pipelines, analytics, and data integration.                 |
-|       <img isIcon src='https://assets.timescale.com/docs/icons/lambda-logo.png' alt='lambda-logo'  />[AWS Lambda][aws-lambda]       | Run code without provisioning or managing servers, scaling automatically as needed.      |
-|              <img isIcon src='https://assets.timescale.com/docs/icons/dbt-logo.png' alt='dbt-logo'  />[dbt][dbt]              | Transform and model data in your warehouse using SQL-based workflows.                    |
-|         <img isIcon src='https://assets.timescale.com/docs/icons/debezium-logo.png' alt='debezium-logo'  />[Debezium][debezium]         | Capture and stream real-time changes from databases.                                     |
-|        <img isIcon src='https://assets.timescale.com/docs/icons/decodable-logo.png' alt='decodable-logo'  />[Decodable][decodable]        | Build, run, and manage data pipelines effortlessly.                                      |
-|        <img isIcon src='https://assets.timescale.com/docs/icons/delta-lake-logo.png' alt='delta-lake-logo'  />[DeltaLake][deltalake]        | Enhance data lakes with ACID transactions and schema enforcement.                        |
-| <img isIcon src='https://assets.timescale.com/docs/icons/firebase-logo.png' alt='firebase-logo'  />[Firebase Wrapper][firebase-wrapper] | Simplify interactions with Firebase services through an abstraction layer.               |
-|           <img isIcon src='https://assets.timescale.com/docs/icons/stitch-logo.png' alt='stitch-logo'  />[Stitch][stitch]           | Extract, load, and transform data from various sources to data warehouses.               |
+|            Name                      | Description                                                                                                                                                                                                                                         |
+|:------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <img isIcon src='https://assets.timescale.com/docs/icons/airbyte-logo.png' alt='airbyte-logo'  />[Airbyte][airbyte]          | Sync data between various sources and destinations.                                                                                                                                                                                                 |
+| <img isIcon src='https://assets.timescale.com/docs/icons/amazon-sagemaker-logo.png' alt='amazon-sagemaker-logo'  />[Amazon SageMaker][amazon-sagemaker] | Build, train, and deploy ML models into a production-ready hosted environment.                                                                                                                                                                      |
+|   <img isIcon src='https://assets.timescale.com/docs/icons/airflow-logo.png' alt='airflow-logo'  />[Apache Airflow][apache-airflow]   | Programmatically author, schedule, and monitor workflows.                                                                                                                                                                                           |
+|      <img isIcon src='https://assets.timescale.com/docs/icons/beam-logo.png' alt='beam-logo'  />[Apache Beam][apache-beam]      | Build and execute batch and streaming data pipelines across multiple processing engines.                                                                                                                                                            |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/kafka-logo.png' alt='kafka-logo'  />[Apache Kafka][kafka]         | Stream high-performance data pipelines, analytics, and data integration.                                                                                                                                                                            |
+|       <img isIcon src='https://assets.timescale.com/docs/icons/lambda-logo.png' alt='lambda-logo'  />[AWS Lambda][aws-lambda]       | Run code without provisioning or managing servers, scaling automatically as needed.                                                                                                                                                                 |
+|              <img isIcon src='https://assets.timescale.com/docs/icons/dbt-logo.png' alt='dbt-logo'  />[dbt][dbt]              | Transform and model data in your warehouse using SQL-based workflows. <br /><br /> **Note:** dbt uses `DELETE` with `ctid`. In hypertables, `ctid` can match rows across multiple chunks. Use `(tableoid, ctid)` to uniquely identify rows instead. |
+|         <img isIcon src='https://assets.timescale.com/docs/icons/debezium-logo.png' alt='debezium-logo'  />[Debezium][debezium]         | Capture and stream real-time changes from databases.                                                                                                                                                                                                |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/decodable-logo.png' alt='decodable-logo'  />[Decodable][decodable]        | Build, run, and manage data pipelines effortlessly.                                                                                                                                                                                                 |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/delta-lake-logo.png' alt='delta-lake-logo'  />[DeltaLake][deltalake]        | Enhance data lakes with ACID transactions and schema enforcement.                                                                                                                                                                                   |
+| <img isIcon src='https://assets.timescale.com/docs/icons/firebase-logo.png' alt='firebase-logo'  />[Firebase Wrapper][firebase-wrapper] | Simplify interactions with Firebase services through an abstraction layer.                                                                                                                                                                          |
+|           <img isIcon src='https://assets.timescale.com/docs/icons/stitch-logo.png' alt='stitch-logo'  />[Stitch][stitch]           | Extract, load, and transform data from various sources to data warehouses.                                                                                                                                                                          |
 
 ## Data ingestion and streaming
 
-|             Name             | Description                                                                                                                       |
-|:----------------------------:|-----------------------------------------------------------------------------------------------------------------------------------|
-| <img isIcon src='https://assets.timescale.com/docs/icons/spark-logo.png' alt='spark-logo' />[Apache Spark][apache-spark] | Process large-scale data workloads quickly using distributed computing.                                                           |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/confluent-logo.png' alt='confluent-logo'  />[Confluent][confluent]    | Manage and scale Apache Kafka-based event streaming applications. You can also [set up $PG as a source][confluent-source]. |
-|  <img isIcon src='https://assets.timescale.com/docs/icons/electric-sql-logo.png' alt='electric-sql-logo'  />[ElectricSQL][electricsql]  | Enable real-time synchronization between databases and frontend applications.                                                     |
-|         <img isIcon src='https://assets.timescale.com/docs/icons/emqx-logo.png' alt='emqx-logo'  />[EMQX][emqx]         | Deploy an enterprise-grade MQTT broker for IoT messaging.                                                                         |
-|      <img isIcon src='https://assets.timescale.com/docs/icons/estuary-logo.png' alt='estuary-logo'  />[Estuary][estuary]      | Stream and synchronize data in real time between different systems.                                                               |
-|        <img isIcon src='https://assets.timescale.com/docs/icons/flink-logo.png' alt='flink-logo'  />[Flink][flink]        | Process real-time data streams with fault-tolerant distributed computing.                                                         |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/fivetran-logo.png' alt='fivetran-logo'  />[Fivetran][fivetran]      | Sync data from multiple sources to your data warehouse.                                                                           |
-|     <img isIcon src='https://assets.timescale.com/docs/icons/red-panda-logo.png' alt='red-panda-logo'  />[Redpanda][redpanda]     | Stream and process real-time data as a Kafka-compatible platform.                                                                 |
-|       <img isIcon src='https://assets.timescale.com/docs/icons/striim-logo.png' alt='strimm-logo'  />[Striim][striim]       | Ingest, process, and analyze real-time data streams.                                                                              |
+|                                                                 Name                                                                  | Description                                                                                                                |
+|:-------------------------------------------------------------------------------------------------------------------------------------:|----------------------------------------------------------------------------------------------------------------------------|
+|       <img isIcon src='https://assets.timescale.com/docs/icons/spark-logo.png' alt='spark-logo' />[Apache Spark][apache-spark]        | Process large-scale data workloads quickly using distributed computing.                                                    |
+|      <img isIcon src='https://assets.timescale.com/docs/icons/confluent-logo.png' alt='confluent-logo'  />[Confluent][confluent]      | Manage and scale Apache Kafka-based event streaming applications. You can also [set up $PG as a source][confluent-source]. |
+| <img isIcon src='https://assets.timescale.com/docs/icons/electric-sql-logo.png' alt='electric-sql-logo'  />[ElectricSQL][electricsql] | Enable real-time synchronization between databases and frontend applications.                                              |
+|                <img isIcon src='https://assets.timescale.com/docs/icons/emqx-logo.png' alt='emqx-logo'  />[EMQX][emqx]                | Deploy an enterprise-grade MQTT broker for IoT messaging.                                                                  |
+|          <img isIcon src='https://assets.timescale.com/docs/icons/estuary-logo.png' alt='estuary-logo'  />[Estuary][estuary]          | Stream and synchronize data in real time between different systems.                                                        |
+|              <img isIcon src='https://assets.timescale.com/docs/icons/flink-logo.png' alt='flink-logo'  />[Flink][flink]              | Process real-time data streams with fault-tolerant distributed computing.                                                  |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/fivetran-logo.png' alt='fivetran-logo'  />[Fivetran][fivetran]        | Sync data from multiple sources to your data warehouse.                                                                    |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/highbyte-logo.svg' alt='highbyte-logo'  />[HighByte][highbyte]        | Connect operational technology sources, model the data, and stream it into $PG.                                            |
+|       <img isIcon src='https://assets.timescale.com/docs/icons/red-panda-logo.png' alt='red-panda-logo'  />[Redpanda][redpanda]       | Stream and process real-time data as a Kafka-compatible platform.                                                          |
+|            <img isIcon src='https://assets.timescale.com/docs/icons/striim-logo.png' alt='strimm-logo'  />[Striim][striim]            | Ingest, process, and analyze real-time data streams.                                                                       |
 
 ## Development tools
 
@@ -94,11 +95,11 @@ Some of the most in-demand integrations are listed below.
 
 |        Name        | Description                                       |
 |:------------------:|---------------------------------------------------|
-|  <img isIcon src='https://assets.timescale.com/docs/icons/golang-logo.png' alt='golang-logo' />[Golang][golang]  | Integrate $CLOUD_LONG with a Golang application.  |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/java-logo.png' alt='java-logo' />[Java][java]    | Integrate $CLOUD_LONG with a Java application.    |
-| <img isIcon src='https://assets.timescale.com/docs/icons/node-logo.png' alt='node-logo' />[Node.js][node-js] | Integrate $CLOUD_LONG with a Node.js application. |
-|  <img isIcon src='https://assets.timescale.com/docs/icons/python-logo.png' alt='python-logo' />[Python][python]  | Integrate $CLOUD_LONG with a Python application.  |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/ruby-logo.png' alt='ruby-logo' />[Ruby][ruby]    | Integrate $CLOUD_LONG with a Ruby application.    |
+|  <img isIcon src='https://assets.timescale.com/docs/icons/golang-logo.png' alt='golang-logo' />[Golang][connect-with-code]  | Integrate $CLOUD_LONG with a Golang application.  |
+|    <img isIcon src='https://assets.timescale.com/docs/icons/java-logo.png' alt='java-logo' />[Java][connect-with-code]    | Integrate $CLOUD_LONG with a Java application.    |
+| <img isIcon src='https://assets.timescale.com/docs/icons/node-logo.png' alt='node-logo' />[Node.js][connect-with-code] | Integrate $CLOUD_LONG with a Node.js application. |
+|  <img isIcon src='https://assets.timescale.com/docs/icons/python-logo.png' alt='python-logo' />[Python][connect-with-code]  | Integrate $CLOUD_LONG with a Python application.  |
+|    <img isIcon src='https://assets.timescale.com/docs/icons/ruby-logo.png' alt='ruby-logo' />[Ruby][connect-with-code]    | Integrate $CLOUD_LONG with a Ruby application.    |
 
 ## Logging and system administration
 
@@ -113,7 +114,8 @@ Some of the most in-demand integrations are listed below.
 |:------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |            <img isIcon src='https://assets.timescale.com/docs/icons/cloudwatch-logo.png' alt='cloudwatch-logo' />[Amazon Cloudwatch][cloudwatch]             | Collect, analyze, and act on data from applications, infrastructure, and services running in AWS and on-premises environments.                            |
 |         <img isIcon src='https://assets.timescale.com/docs/icons/skywalking-logo.png' alt='skywalking-logo' />[Apache SkyWalking][apache-skywalking]         | Monitor, trace, and diagnose distributed applications for improved observability. You can also [set up $PG as storage][apache-skywalking-storage]. |
-|             <img isIcon src='https://assets.timescale.com/docs/icons/azure-monitor-logo.png' alt='azure-monitor-logo' />[Azure Monitor][azure-monitor]             | Collect and analyze telemetry data from cloud and on-premises environments.                                                                               |
+|             <img isIcon src='https://assets.timescale.com/docs/icons/azure-monitor-logo.png' alt='azure-monitor-logo' />[Azure Monitor][azure-monitor]             | Collect and analyze telemetry data from cloud and on-premises environments.   
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/dash0-logo.png' alt='dash0-logo' />[Dash0][dash0]                   | OpenTelemetry Native Observability, built on CNCF Open Standards like PromQL, Perses, and OTLP, and offering full cost control.     |
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/datadog-logo.png' alt='datadog-logo' />[Datadog][datadog]                   | Gain comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics.                        |
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/grafana-logo.png' alt='grafana-logo' />[Grafana][grafana]                   | Query, visualize, alert on, and explore your metrics and logs.                                                                                            |
 |               <img isIcon src='https://assets.timescale.com/docs/icons/instana-logo.png' alt='instana-logo' />[IBM Instana][ibm-instana]               | Monitor application performance and detect issues in real-time.                                                                                           |
@@ -123,6 +125,8 @@ Some of the most in-demand integrations are listed below.
 |                <img isIcon src='https://assets.timescale.com/docs/icons/prometheus-logo.png' alt='prometheus-logo' />[Prometheus][prometheus]                | Track the performance and health of systems, applications, and infrastructure.                                                                            |
 |                             <img isIcon src='https://assets.timescale.com/docs/icons/signoz-logo.png' alt='signoz-logo' />[SigNoz][signoz]           | Monitor application performance with an open-source observability tool.                                                                                   |
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/tableau-logo.png' alt='tableau-logo' />[Tableau][tableau]                   | Connect to data sources, analyze data, and create interactive visualizations and dashboards.                                                              |
+|              <img isIcon src='https://assets.timescale.com/docs/icons/Influx-telegraf.svg' alt='telegraf-logo' />[Telegraf][telegraf]               | Collect, process, and ship metrics and events into databases or monitoring platforms.                             |
+
 
 ## Query and administration
 
@@ -157,42 +161,46 @@ Some of the most in-demand integrations are listed below.
 
 ## Workflow automation and no-code tools
 
-|       Name           | Description                                                               |
-|:--------------------:|---------------------------------------------------------------------------|
-| <img isIcon src='https://assets.timescale.com/docs/icons/appsmith-logo.png' alt='appsmith-logo' />[Appsmith][appsmith] | Create internal business applications with a low-code platform.           |
-|      <img isIcon src='https://assets.timescale.com/docs/icons/n8n-logo.png' alt='n8n-logo' />[n8n][n8n]      | Automate workflows and integrate services with a no-code platform.        |
-|   <img isIcon src='https://assets.timescale.com/docs/icons/retool-logo.png' alt='retool-logo' />[Retool][retool]   | Build custom internal tools quickly using a drag-and-drop interface.      |
-|  <img isIcon src='https://assets.timescale.com/docs/icons/tooljet-logo.png' alt='tooljet-logo' />[Tooljet][tooljet]  | Develop internal tools and business applications with a low-code builder. |
-|   <img isIcon src='https://assets.timescale.com/docs/icons/zapier-logo.png' alt='zapier-logo' />[Zapier][zapier]   | Automate workflows by connecting different applications and services.     |
+|                                                          Name                                                          | Description                                                                  |
+|:----------------------------------------------------------------------------------------------------------------------:|------------------------------------------------------------------------------|
+| <img isIcon src='https://assets.timescale.com/docs/icons/appsmith-logo.png' alt='appsmith-logo' />[Appsmith][appsmith] | Create internal business applications with a low-code platform.              |
+|         <img isIcon src='https://assets.timescale.com/docs/icons/dbos-logo.png' alt='n8n-logo' />[DBOS][dbos]          | Add durable workflows to your code and make apps resilient to any failure.   |
+|           <img isIcon src='https://assets.timescale.com/docs/icons/n8n-logo.png' alt='n8n-logo' />[n8n][n8n]           | Automate workflows and integrate services with a no-code platform.           |
+|     <img isIcon src='https://assets.timescale.com/docs/icons/retool-logo.png' alt='retool-logo' />[Retool][retool]     | Build custom internal tools quickly using a drag-and-drop interface.         |
+|   <img isIcon src='https://assets.timescale.com/docs/icons/tooljet-logo.png' alt='tooljet-logo' />[Tooljet][tooljet]   | Develop internal tools and business applications with a low-code builder.    |
+|     <img isIcon src='https://assets.timescale.com/docs/icons/zapier-logo.png' alt='zapier-logo' />[Zapier][zapier]     | Automate workflows by connecting different applications and services.        |
 
 [ads]: /integrations/:currentVersion:/azure-data-studio/
 [airbyte]: https://docs.airbyte.com/integrations/sources/postgres
 [amazon-sagemaker]: /integrations/:currentVersion:/amazon-sagemaker
 [apache-airflow]: /integrations/:currentVersion:/apache-airflow
 [apache-beam]: https://beam.apache.org/releases/javadoc/current/org/apache/beam/sdk/io/jdbc/JdbcIO.html
-[apache-skywalking]: https://skywalking.apache.org/docs/main/next/en/setup/backend/backend-postgresql-monitoring/
 [apache-skywalking-storage]: https://skywalking.apache.org/docs/main/next/en/setup/backend/storages/postgresql/
-[apache-spark]: https://spark.apache.org/docs/3.5.4/sql-data-sources-jdbc.html
+[apache-skywalking]: https://skywalking.apache.org/docs/main/next/en/setup/backend/backend-postgresql-monitoring/
+[apache-spark]: https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html
 [appsmith]: https://docs.appsmith.com/connect-data/reference/querying-postgres
 [auth-js]: https://authjs.dev/getting-started/adapters/pg?framework=next-js
 [auth0]: https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
-[aws]: /integrations/:currentVersion:/aws
 [aws-lambda]: /integrations/:currentVersion:/aws-lambda
-[azure]: /integrations/:currentVersion:/microsoft-azure
+[aws]: /integrations/:currentVersion:/aws
 [azure-functions]: https://github.com/Azure/azure-functions-postgresql-extension
 [azure-monitor]: https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-monitoring
+[azure]: /integrations/:currentVersion:/microsoft-azure
 [cloudwatch]: /integrations/:currentVersion:/cloudwatch/
-[confluent]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-sink.html
 [confluent-source]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-source.html
+[confluent]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-sink.html
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [cube-js]: https://cube.dev/integrations/Timescale-API
+[dash0]: https://www.dash0.com/hub/integrations/int_tiger_service/overview
 [data-center]: /integrations/:currentVersion:/corporate-data-center
 [datadog]: /integrations/:currentVersion:/datadog/
-[dbt]: https://dbt-timescaledb.debruyn.dev/
 [dbeaver]: /integrations/:currentVersion:/dbeaver/
+[dbos]: https://docs.dbos.dev/integrations/tigerdata
+[dbt]: https://dbt-timescaledb.debruyn.dev/
 [debezium]: /integrations/:currentVersion:/debezium/
 [decodable]: /integrations/:currentVersion:/decodable
 [deepnote]: https://deepnote.com/docs/postgresql
-[deltalake]: https://github.com/delta-io/delta/blob/master/connectors/sql-delta-import/readme.md
+[deltalake]: https://github.com/delta-io/delta/blob/master/connectors/README.md
 [deno-deploy]: https://docs.deno.com/deploy/manual/postgres/
 [django]: https://docs.djangoproject.com/en/5.1/ref/databases/#postgresql-notes
 [electricsql]: https://electric-sql.com/docs/intro
@@ -203,14 +211,14 @@ Some of the most in-demand integrations are listed below.
 [flink]: https://nightlies.apache.org/flink/flink-cdc-docs-release-3.1/docs/connectors/flink-sources/postgres-cdc/
 [flyway]: https://documentation.red-gate.com/flyway/reference/database-driver-reference/timescaledb
 [forest-admin]: https://www.forestadmin.com/integrations/postgresql
-[golang]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [google-cloud]: /integrations/:currentVersion:/google-cloud
 [grafana]: /integrations/:currentVersion:/grafana/
 [hasura]: https://hasura.io/docs/2.0/databases/postgres/timescale-cloud/
+[highbyte]: https://guide.highbyte.com/configuration/connect/connections/historians/timescaledb/
 [ibm-instana]: https://www.ibm.com/docs/en/instana-observability/current?topic=technologies-monitoring-postgresql
 [jaeger]: https://www.jaegertracing.io/docs/2.0/storage/
-[java]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [kafka]: /integrations/:currentVersion:/apache-kafka
+[kubernetes]: /integrations/:currentVersion:/kubernetes
 [langchain]: https://api.python.langchain.com/en/latest/postgres/index.html#
 [liquibase]: https://docs.liquibase.com/start/tutorials/postgresql/postgresql.html
 [looker]: https://cloud.google.com/looker/docs/db-config-postgresql
@@ -219,19 +227,16 @@ Some of the most in-demand integrations are listed below.
 [n8n]: https://n8n.io/integrations/redis/and/timescaledb/
 [neon]: https://neon.com/docs/extensions/timescaledb
 [new-relic]: https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/postgresql/postgresql-integration/
-[node-js]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [okta]: https://help.okta.com/oag/en-us/content/topics/access-gateway/integrate-app-datastores.htm
 [opentelemetry]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/postgresqlreceiver
 [pgadmin]: /integrations/:currentVersion:/pgadmin/
-[postgresql]: /integrations/:currentVersion:/postgresql
 [postgresql-integrations]: https://slashdot.org/software/p/PostgreSQL/integrations/
+[postgresql]: /integrations/:currentVersion:/postgresql
 [power-bi]: /integrations/:currentVersion:/power-bi
 [prisma]: https://www.prisma.io/docs/orm/overview/databases/postgresql
 [prometheus]: /integrations/:currentVersion:/prometheus
-[kubernetes]: /integrations/:currentVersion:/kubernetes
 [psql]: /integrations/:currentVersion:/psql/
 [pulumi]: https://www.pulumi.com/registry/packages/timescale/
-[python]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [qlik-replicate]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql.htm#ar_postgresds_802412600_1325150
 [qlik-source]: https://help.qlik.com/en-US/replicate/November2024/Content/Replicate/Main/PostgreSQL/postgresql_source.htm
 [qstudio]: /integrations/:currentVersion:/qstudio/
@@ -240,20 +245,19 @@ Some of the most in-demand integrations are listed below.
 [render]: https://render.com/docs/postgresql
 [retool]: https://retool.com/integrations/postgresql
 [rsyslog]: https://www.rsyslog.com/doc/configuration/modules/ompgsql.html
-[ruby]: /getting-started/:currentVersion:/start-coding-with-timescale/
 [rust]: https://github.com/sfackler/rust-postgres
 [schemaspy]: https://wiki.postgresql.org/wiki/SchemaSpy
+[sequelize]: https://sequelize.org/docs/v7/databases/postgres/
 [signoz]: https://signoz.io/docs/integrations/postgresql/
 [sqlalchemy]: https://docs.sqlalchemy.org/en/20/dialects/postgresql.html
-[sequelize]: https://sequelize.org/docs/v7/databases/postgres/
-[stepzen]: https://stepzen.com/docs/quick-start/with-database-postgresql
+[stepzen]: https://www.ibm.com/docs/en/api-connect-graphql/saas?topic=apis-tutorial-create-graphql-api-postgresql-database
 [stitch]: https://stitch-docs.netlify.app/docs/integrations/databases/postgresql
 [streamlit]: https://docs.streamlit.io/develop/tutorials/databases/postgresql
 [striim]: https://www.striim.com/connectors/postgresql/
-[superset]: https://superset.apache.org/docs/configuration/databases#timescaledb
+[superset]: https://superset.apache.org/docs/databases/supported/timescaledb/
 [tableau]: /integrations/:currentVersion:/tableau/
+[telegraf]: /integrations/:currentVersion:/telegraf/
 [terraform]: /integrations/:currentVersion:/terraform
 [tooljet]: https://docs.tooljet.ai/docs/data-sources/postgresql/
 [typeorm]: https://typeorm.biunav.com/en/connection-options.html#postgres-cockroachdb-connection-options
 [zapier]: https://zapier.com/apps/postgresql/integrations
-

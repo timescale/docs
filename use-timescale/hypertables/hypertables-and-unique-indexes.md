@@ -5,11 +5,11 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, unique indexes, primary keys]
 ---
 
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Enforce constraints with unique indexes
 
-You use unique indexes on a $HYPERTABLE to enforce [constraints][constraints]. If you have a primary key, 
+You use unique indexes on a $HYPERTABLE to enforce [constraints][postgres-createconstraint]. If you have a primary key, 
 you have a unique index. In $PG, a primary key is a unique index with a `NOT NULL` constraint.
 
 You do not need to have a unique index on your $HYPERTABLEs. When you create a unique index,
@@ -46,12 +46,11 @@ To create a unique index on a $HYPERTABLE:
         value FLOAT
       ) WITH (
         tsdb.hypertable,
-        tsdb.partition_column='time',
         tsdb.segmentby = 'device_id',
         tsdb.orderby = 'time DESC'
       );
       ```
-   <OldCreateHypertable />
+   <CreateHypertablePolicyNote />
 
 1. **Create a unique index on the $HYPERTABLE**
 
@@ -133,11 +132,7 @@ in your unique index.
 
 </Procedure>
 
-
-
-
-[constraints]: https://www.postgresql.org/docs/current/ddl-constraints.html
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[postgres-createconstraint]: https://www.postgresql.org/docs/current/ddl-constraints.html
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/

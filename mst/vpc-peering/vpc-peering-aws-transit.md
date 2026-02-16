@@ -56,5 +56,5 @@ the $MST_CONSOLE_SHORT.
 
 </Procedure>
 
-[vpc-peering]: /mst/:currentVersion:/vpc-peering/vpc-peering
 [mst-login]:https://portal.managed.timescale.com/login
+[vpc-peering]: /mst/:currentVersion:/vpc-peering/vpc-peering

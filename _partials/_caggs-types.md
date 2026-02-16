@@ -7,7 +7,7 @@ later on. Materialized views do not update regularly, although you can manually
 refresh them as required.
 
 
-[Continuous aggregates][about-caggs] are a $TIMESCALE_DB-only feature. They work in
+[Continuous aggregates][caggs] are a $TIMESCALE_DB-only feature. They work in
 a similar way to a materialized view, but they are updated automatically in the
 background, as new data is added to your database. Continuous aggregates are
 updated continuously and incrementally, which means they are less resource
@@ -15,11 +15,12 @@ intensive to maintain than materialized views. Continuous aggregates are based
 on hypertables, and you can query them in the same way as you do your other
 tables.
 
-[Real-time aggregates][real-time-aggs] are a $TIMESCALE_DB-only feature. They are
+[Real-time aggregates][real-time-aggregates] are a $TIMESCALE_DB-only feature. They are
 the same as continuous aggregates, but they add the most recent raw data to the
 previously aggregated data to provide accurate and up-to-date results, without
 needing to aggregate data as it is being written.
 
 [pg-materialized views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[about-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
-[real-time-aggs]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
+
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/
+[real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/

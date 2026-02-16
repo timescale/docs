@@ -69,7 +69,7 @@ api_details:
         type: TimeWeightSummary
         description: >
           The `TimeWeightSummary` from the next interval, used to interpolate
-          the value at `start` + `interval`. If NULL, the first timestamp in
+          the value at `start` + `interval`. If NULL, the last timestamp in
           `tws` is used for the starting value. The next interval can be
           determined from the Postgres
           [`lead()`](https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW-TABLE)
@@ -116,4 +116,5 @@ api_details:
             FROM
                 user_storage_usage;
 ---
+
 

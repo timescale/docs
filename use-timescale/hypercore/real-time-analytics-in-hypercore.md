@@ -1,7 +1,7 @@
 ---
 title: Optimize your data for real-time analytics
-excerpt: Reduce your chunk size by more than 90% and speed up your queries by automatically converting data between the rowstore and columnstore
-products: [cloud, self_hosted]
+excerpt: Reduce your chunk size by up to 98% and speed up your queries by automatically converting data between the rowstore and columnstore
+products: [cloud, mst, self_hosted]
 keywords: [hyperscore, hypertable, compression, row-columnar storage, hypercore]
 ---
 
@@ -26,7 +26,7 @@ from the $ROWSTORE to the $COLUMNSTORE.
 
 <PrereqCloud />
 
-The code samples in this page use the <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> data from [this key features tutorial][ingest-data].   
+The code samples in this page use the <Tag type="download">[crypto_sample.zip][crypto_samplezip]</Tag> data from [this key features tutorial][ingest-data].   
 
 ## Optimize your data with $COLUMNSTORE policies 
 
@@ -62,22 +62,13 @@ For integers, timestamps, and other integer-like types, data is compressed using
 repeated values, [XOR-based][xor] and [dictionary compression][dictionary] is used. For all other types,
 [dictionary compression][dictionary] is used.
 
-
-
-[create-hypertable]: /use-timescale/:currentVersion:/compression/
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
-[delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
-[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
-[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
-[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-encoding
-[dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression
-[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[run-job]: /api/:currentVersion:/jobs-automation/run_job/
-[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
-[insert]: /use-timescale/:currentVersion:/write-data/insert/
-[modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
-[cardinality-blog]: https://www.timescale.com/blog/what-is-high-cardinality
+[cardinality-blog]: https://www.tigerdata.com/blog/what-is-high-cardinality
+[crypto_samplezip]: https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip
 [data-model]: /about/:currentVersion:/whitepaper/#data-model
+[delta-delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-of-delta-encoding
+[delta]: /use-timescale/:currentVersion:/hypercore/compression-methods/#delta-encoding
+[dictionary]: /use-timescale/:currentVersion:/hypercore/compression-methods/#dictionary-compression
+[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore
+[run-length]: /use-timescale/:currentVersion:/hypercore/compression-methods/#run-length-encoding
+[simple-8b]: /use-timescale/:currentVersion:/hypercore/compression-methods/#simple-8b
+[xor]: /use-timescale/:currentVersion:/hypercore/compression-methods/#xor-based-compression

@@ -23,7 +23,7 @@ For some systems, recovering from backup alone can be a suitable availability
 strategy.
 
 For more information about backups in $SELF_LONG, see the
-[backup and restore section][db-backup] in the $TIMESCALE_DB documentation.
+[backup and restore section][backup] in the $TIMESCALE_DB documentation.
 
 ## Storage redundancy
 
@@ -56,10 +56,10 @@ replicating partition root tables, which are
 
 $PG achieves streaming replication by having replicas continuously stream
 the WAL from the primary database. See the official
-[replication documentation](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION)
+[replication documentation][replication-documentation]
 for details. For more information about how $PG implements Write-Ahead
 Logging, see their
-[WAL Documentation](https://www.postgresql.org/docs/current/wal-intro.html).
+[WAL Documentation][wal-documentation].
 
 ## Failover
 
@@ -70,10 +70,12 @@ out-of-the-box support for automatic failover. Read more in the $PG
 [failover documentation][failover-docs]. [Patroni][patroni-github] offers a
 configurable high availability solution with automatic failover functionality.
 
-[db-backup]: /self-hosted/:currentVersion:/backup-and-restore/
+[backup]: /self-hosted/:currentVersion:/backup-and-restore/
 [failover-docs]: https://www.postgresql.org/docs/current/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
 [pgctl-docs]: https://www.postgresql.org/docs/current/app-pg-ctl.html
 [postgres-logrep-docs]: https://www.postgresql.org/docs/current/logical-replication.html
 [postgres-partition-limitations]: https://www.postgresql.org/docs/current/logical-replication-restrictions.html
 [postgres-streaming-replication-docs]: https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION
+[replication-documentation]: https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION
+[wal-documentation]: https://www.postgresql.org/docs/current/wal-intro.html

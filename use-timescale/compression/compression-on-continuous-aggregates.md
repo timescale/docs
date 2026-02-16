@@ -9,18 +9,21 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Compress continuous aggregates
 
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/latest/continuous-aggregates/compression-on-continuous-aggregates/">Convert continuous aggregates to the columnstore</a>. 
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
+
 Continuous aggregates are often used to downsample historical data. If the data is only used for analytical queries 
 and never modified, you can compress the aggregate to save on storage.
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/use-timescale/latest/continuous-aggregates/compression-on-continuous-aggregates/">Convert continuous aggregates to the columnstore</a>.
-
 <Highlight type="warning">
+
 Before version
-[2.18.1](https://github.com/timescale/timescaledb/releases/tag/2.18.1), you can't
+[2.18.1][2181], you can't
 refresh the compressed regions of a continuous aggregate. To avoid conflicts
 between compression and refresh, make sure you set `compress_after` to a larger
 interval than the `start_offset` of your [refresh
-policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
+policy][refresh-policy].
+
 </Highlight>
 
 Compression on continuous aggregates works similarly to [compression on
@@ -85,6 +88,7 @@ continuous aggregate policy:
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 ```
 
+[2181]: https://github.com/timescale/timescaledb/releases/tag/2.18.1
 [compression]: /use-timescale/:currentVersion:/compression/
-[decompress-chunks]:  /use-timescale/:currentVersion:/compression/decompress-chunks
-[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies
+[decompress-chunks]: /use-timescale/:currentVersion:/compression/decompress-chunks
+[refresh-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy

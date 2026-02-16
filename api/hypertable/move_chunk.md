@@ -6,8 +6,6 @@ keywords: [chunks, hypertables, tablespaces, move]
 api:
   license: community
   type: function
-seo:
-  robots: noindex
 products: [cloud, mst, self_hosted]
 ---
 
@@ -23,11 +21,13 @@ these $PG commands, however, the `move_chunk` function uses lower lock
 levels so that the chunk and hypertable are able to be read for most of the
 process. This comes at a cost of slightly higher disk usage during the
 operation. For a more detailed discussion of this capability, see the
-documentation on [managing storage with tablespaces][manage-storage].
+documentation on [managing storage with tablespaces][about-tablespaces].
 
 <Highlight type="note">
+
 You must be logged in as a super user, such as the `postgres` user,
 to use the `move_chunk()` call.
+
 </Highlight>
 
 ## Samples
@@ -57,6 +57,6 @@ SELECT move_chunk(
 |`reorder_index`|REGCLASS|The name of the index (on either the hypertable or chunk) to order by|
 |`verbose`|BOOLEAN|Setting to true displays messages about the progress of the move_chunk command. Defaults to false.|
 
-[manage-storage]: /use-timescale/:currentVersion:/schema-management/about-tablespaces/
-[postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
+[about-tablespaces]: /use-timescale/:currentVersion:/schema-management/about-tablespaces/
 [postgres-altertable]: https://www.postgresql.org/docs/13/sql-altertable.html
+[postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html

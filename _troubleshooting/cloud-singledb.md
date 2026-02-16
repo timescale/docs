@@ -26,8 +26,8 @@ tags: [services]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-Each $SERVICE_LONG hosts a single $TIGER_POSTGRES instance called `tsdb`. You see this error when you try 
+Each $SERVICE_LONG hosts a single $PG instance called `tsdb`. You see this error when you try 
 to create an additional database in a service. If you need another database, 
 [create a new service][create-service].
 
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
+[create-service]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-service

@@ -8,15 +8,17 @@ tags: [change]
 
 # Altering and updating table schemas
 
-To modify the schema of an existing hypertable, you can use the `ALTER TABLE`
-command. When you change the hypertable schema, the changes are also propagated
-to each underlying chunk.
+To modify the schema of an existing $HYPERTABLE, you can use the `ALTER TABLE`
+command. When you change the $HYPERTABLE schema, the changes are also propagated
+to each underlying $CHUNK.
 
 <Highlight type="note">
-While you can change the schema of an existing hypertable, you cannot change
-the schema of a continuous aggregate. For continuous aggregates, the only
+
+While you can change the schema of an existing $HYPERTABLE, you cannot change
+the schema of a $CAGG. For $CAGGs, the only
 permissible changes are renaming a view, setting a schema, changing the owner,
 and adjusting other parameters.
+
 </Highlight>
 
 For example, to add a new column called `address` to a table called `distributors`:
@@ -43,7 +45,70 @@ ALTER TABLE distributors
 This scans the table to verify that existing rows meet the constraint, but does
 not require a table rewrite.
 
-For more information, see the
-[$PG ALTER TABLE documentation][postgres-alter-table].
+## Altering $HYPERTABLEs with $COLUMNSTORE enabled
+
+Most common schema modifications work on $HYPERTABLEs with $COLUMNSTORE enabled, including adding
+columns, renaming columns, dropping columns, adding constraints, setting NOT NULL,
+and changing defaults. However, some operations are blocked, the most common of them being:
+
+- **Changing column data type** (`ALTER COLUMN ... TYPE`)
+- **Changing column storage** (`ALTER COLUMN ... SET STORAGE`)
+- **Dropping orderby or segmentby columns**
+- **Row-level security operations** (`ENABLE/DISABLE ROW SECURITY`)
+
+When you attempt a blocked operation, you receive an error:
+
+```
+ERROR: operation not supported on hypertables that have columnstore enabled
+```
+
+If you encounter this error, you need to:
+
+1. Stop any $COLUMNSTORE policy
+2. Convert the affected $CHUNKs back into $ROWSTORE
+3. Disable $COLUMNSTORE
+4. Perform the schema change
+5. Re-enable $COLUMNSTORE and restart the policy
+
+### Example: change the column type on a $HYPERTABLE with $COLUMNSTORE enabled
+
+This example shows how to change a column's data type on a $HYPERTABLE with
+$COLUMNSTORE enabled, which requires conversion to $ROWSTORE:
+
+```sql
+-- Step 1: Check if you have a columnstore policy and note its settings
+SELECT job_id, config FROM timescaledb_information.jobs
+WHERE proc_name = 'policy_compression'
+  AND hypertable_name = 'conditions';
+
+-- Step 2: If a policy exists, pause it
+SELECT alter_job(<job_id>, scheduled => false);
+
+-- Step 3: Convert all chunks back to rowstore
+SELECT decompress_chunk(show_chunks('conditions'));
+
+-- Step 4: Disable columnstore (required for some operations)
+ALTER TABLE conditions SET (timescaledb.columnstore = false);
+
+-- Step 5: Perform the schema modification
+ALTER TABLE conditions
+  ALTER COLUMN temperature TYPE double precision;
+
+-- Step 6: Re-enable columnstore with original settings
+ALTER TABLE conditions SET (
+  timescaledb.columnstore = true,
+  timescaledb.compress_orderby = 'time DESC',
+  timescaledb.compress_segmentby = 'device_id'
+);
+
+-- Step 7: Restart the columnstore policy
+SELECT alter_job(<job_id>, scheduled => true);
+
+-- Step 8: Optionally, manually convert the chunks to columnstore immediately
+SELECT compress_chunk(show_chunks('conditions'));
+```
+
+For more information about $PG `ALTER TABLE` operations, see the
+[$PG `ALTER TABLE` documentation][postgres-alter-table].
 
 [postgres-alter-table]: https://www.postgresql.org/docs/current/sql-altertable.html

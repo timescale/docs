@@ -38,7 +38,7 @@ Get information about the weather conditions at each location, for each
 measurements taken, the maximum temperature, and the maximum humidity. Order the
 results by maximum temperature.
 
-This examples uses the [`time_bucket`][time_bucket] function to aggregate data
+This examples uses the [`time_bucket`][time-buckets] function to aggregate data
 into 15-minute buckets:
 
 ```sql
@@ -65,6 +65,4 @@ SELECT COUNT(DISTINCT location) FROM conditions
 ```
 
 [postgres-select]: https://www.postgresql.org/docs/current/sql-select.html
-[time_bucket]: /use-timescale/:currentVersion:/time-buckets/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
-
+[time-buckets]: /use-timescale/:currentVersion:/time-buckets/

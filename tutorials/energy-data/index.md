@@ -25,7 +25,7 @@ in Grafana.
 Before you begin, make sure you have:
 
 *   Signed up for a [free $ACCOUNT_LONG][cloud-install].
-*   [](#)<Optional /> [Signed up for a Grafana account][grafana-setup] to graph queries.
+*   [](#)<Optional /> [Signed up for a Grafana account][grafana] to graph queries.
 
 ## Steps in this tutorial
 
@@ -52,8 +52,8 @@ create tables, and load data into the tables using `psql`.
 You then learn how to conduct analysis and monitoring on your dataset. It also walks
 you through the steps to visualize the results in Grafana.
 
-[dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
-[query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/
+[cloud-install]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
 [compress-energy]: /tutorials/:currentVersion:/energy-data/compress-energy/
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
-[grafana-setup]: /integrations/:currentVersion:/grafana/
+[dataset-energy]: /tutorials/:currentVersion:/energy-data/dataset-energy/
+[grafana]: /integrations/:currentVersion:/grafana/
+[query-energy]: /tutorials/:currentVersion:/energy-data/query-energy/

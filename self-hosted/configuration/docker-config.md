@@ -7,7 +7,7 @@ keywords: [configuration, settings, Docker]
 
 # Configuration with Docker
 
-If you are running TimescaleDB in a [Docker container][docker], there are two
+If you are running TimescaleDB in a [Docker container][docker-install], there are two
 different ways to modify your $PG configuration. You can edit the
 $PG configuration file inside the Docker container, or you can set
 parameters at the command prompt.
@@ -56,7 +56,7 @@ set parameters directly from the command prompt inside your Docker container,
 using the `-c` option. For example:
 
 ```bash
-docker run -i -t timescale/timescaledb:latest-pg10 postgres -c max_wal_size=2GB
+docker run -i -t timescale/timescaledb:latest-pg18 postgres -c max_wal_size=2GB
 ```
 
-[docker]: /self-hosted/:currentVersion:/install/installation-docker/
+[docker-install]: /self-hosted/:currentVersion:/install/installation-docker/

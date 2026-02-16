@@ -12,7 +12,7 @@ intervals, and number of values for the partition field.
 Each gzip archive contains a single `.sql` file to create the necessary
 hypertables within the database, and several `.csv` files that contain the
 data to be copied into those tables. These files presume the database
-you are importing them to has already been [set up with the TimescaleDB extension][installation].
+you are importing them to has already been [set up with the TimescaleDB extension][install-timescale].
 
 **Device ops**: these datasets include metrics such as CPU, memory, and network,
 that are collected from mobile devices. Click on the name to download.
@@ -82,7 +82,7 @@ The data is now ready for use.
 
 The standard `COPY` command in $PG is single threaded. To speed up
 importing the larger sample datasets, you can use the
-[parallel importer](https://github.com/timescale/timescaledb-parallel-copy)
+[parallel importer][parallel-importer]
 instead.
 
 </Highlight>
@@ -340,4 +340,5 @@ hour                   | avg_temp | min_temp | max_temp
 (24 rows)
 ```
 
-[installation]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
+[parallel-importer]: https://github.com/timescale/timescaledb-parallel-copy

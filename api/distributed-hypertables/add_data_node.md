@@ -32,7 +32,7 @@ data node, the access node also tries to connect to the data node
 and therefore needs a way to authenticate with it. TimescaleDB
 currently supports several different such authentication methods for
 flexibility (including trust, user mappings, password, and certificate
-methods). Refer to [Setting up Multi-Node TimescaleDB][multinode] for more
+methods). Refer to [Setting up Multi-Node TimescaleDB][password-config] for more
 information about node-to-node authentication.
 
 Unless `bootstrap` is false, the function attempts to bootstrap
@@ -132,4 +132,4 @@ regular hypertable, but it can be useful for testing.
 
 [attach_data_node]: /api/:currentVersion:/distributed-hypertables/attach_data_node/
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec/
-[multinode]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/
+[password-config]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-auth/

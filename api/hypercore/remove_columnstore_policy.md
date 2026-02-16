@@ -7,7 +7,7 @@ tags: [delete, drop]
 api:
   license: community
   type: procedure
-products: [cloud, self_hosted]
+products: [cloud, mst, self_hosted]
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
@@ -43,6 +43,5 @@ You see the $COLUMNSTORE policies in the [informational views][informational-vie
 |`hypertable`|REGCLASS|-|✔| Name of the hypertable or continuous aggregate to remove the policy from|
 | `if_exists` | BOOLEAN | `false` |✖| Set to `true` so this job fails with a warning rather than an error if a $COLUMNSTORE policy does not exist on `hypertable` |
 
-
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/

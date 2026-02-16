@@ -21,7 +21,7 @@ TimescaleDB&nbsp;2.6.
 
 If you originally installed TimescaleDB using Docker, you can upgrade from
 within the Docker container. For more information, and instructions, see the
-[Upgrading with Docker section][upgrade-docker].
+[Upgrading with Docker section][update-docker].
 
 <ExperimentalUpgrade />
 
@@ -55,4 +55,4 @@ upgrade, and again after your upgrade is complete:
 (1 row)
 ```
 
-[upgrade-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
+[update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/

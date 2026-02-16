@@ -14,7 +14,7 @@ moves automatically, you can write a custom $JOB.
 
 <Highlight type="note">
 
-On $CLOUD_LONG, use [tiered storage](https://docs.tigerdata.com/use-timescale/latest/data-tiering/) which handles this by providing a [tiering policy API](https://docs.tigerdata.com/use-timescale/latest/data-tiering/enabling-data-tiering/#add-a-tiering-policy) to move data to low-cost object storage backed by Amazon S3.
+On $CLOUD_LONG, use [tiered storage][tiered-storage] which handles this by providing a [tiering policy API][tiering-policy-api] to move data to low-cost object storage backed by Amazon S3 and Azure Blob storage.
 
 </Highlight>
 
@@ -87,3 +87,6 @@ To implement automatic $CHUNK moving with a $JOB:
 
 </Procedure>
 
+
+[tiered-storage]: https://www.tigerdata.com/docs/use-timescale/latest/data-tiering/
+[tiering-policy-api]: https://www.tigerdata.com/docs/use-timescale/latest/data-tiering/enabling-data-tiering/#add-a-tiering-policy

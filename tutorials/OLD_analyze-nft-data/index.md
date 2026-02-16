@@ -63,12 +63,12 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 ## Prerequisites
 
 *   OpenSea API key ([request one from here][opensea-key])
-*   $TIMESCALE_DB ([installation options][install-ts])
+*   $TIMESCALE_DB ([installation options][install-timescale])
 *   Psql or any other $PG client (for example DBeaver, or PgAdmin)
 
 [eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
 [grafana]: https://grafana.com
-[install-ts]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
 [nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link
 [nft-wiki]: https://en.wikipedia.org/wiki/Non-fungible_token
 [opensea-key]: https://docs.opensea.io/reference/api-keys

@@ -284,6 +284,6 @@ Slack (webhooks) and PagerDuty (API or Integration Key).
 
 Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-timescale]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
 [pagerduty-integration-key]: https://support.pagerduty.com/docs/services-and-integrations
 [slack-webhook-instructions]: https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack

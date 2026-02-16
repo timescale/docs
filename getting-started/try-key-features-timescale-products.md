@@ -1,5 +1,5 @@
 ---
-title: Try the key features in TigerData products
+title: Try the key features in Tiger Data products
 excerpt: Improve database performance with hypertables, time bucketing, compression and continuous aggregates.
 products: [cloud, self_hosted, mst]
 content_group: Getting started
@@ -7,17 +7,23 @@ content_group: Getting started
 
 import HASetup from 'versionContent/_partials/_high-availability-setup.mdx';
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
 import HypercoreIntroShort from "versionContent/_partials/_hypercore-intro-short.mdx";
 import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-compress.mdx";
+import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
+
+import SupportPlans from "versionContent/_partials/_support-plans.mdx";
 
 # Try the key features in $COMPANY products
 
 $CLOUD_LONG offers managed database services that provide a stable and reliable environment for your
-applications. Each $SERVICE_SHORT is an instance of $TIGER_POSTGRES, a radically faster $PG for
-transactional, analytical and agentic workloads at scale.
+applications. 
 
-$CLOUD_LONG scales $TIGER_POSTGRES to ingest and query vast amounts of live data. $CLOUD_LONG 
+Each $SERVICE_LONG is a single optimised $PG instance extended with innovations such as $TIMESCALE_DB in the database 
+engine, in a cloud infrastructure that delivers speed without sacrifice. A radically faster $PG for transactional, 
+analytical, and agentic workloads at scale.
+
+$CLOUD_LONG scales $PG to ingest and query vast amounts of live data. $CLOUD_LONG 
 provides a range of features and optimizations that supercharge your queries while keeping the 
 costs down. For example: 
 * The $HYPERCORE row-columnar engine in $TIMESCALE_DB makes queries up to 350x faster, ingests 44% faster, and reduces 
@@ -27,7 +33,7 @@ costs down. For example:
 
 The following figure shows how $TIMESCALE_DB optimizes your data for superfast real-time analytics:
 
-![Main features and tiered data](https://assets.timescale.com/docs/images/mutation.png )
+![Main features and tiered data][main-features-and-tiered-data]
 
 This page shows you how to rapidly implement the features in $CLOUD_LONG that enable you to 
 ingest and query data faster while keeping the costs low. 
@@ -44,7 +50,7 @@ is made up of child tables called $CHUNKs. Each $CHUNK is assigned a range of ti
 contains data from that range. When you run a query, $TIMESCALE_DB identifies the correct $CHUNK and runs the query on 
 it, instead of going through the entire table. You can also tune $HYPERTABLEs to increase performance even more. 
 
-![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
+![Hypertable structure][hypertable-structure]
 
 <HypercoreIntroShort />
 
@@ -59,14 +65,14 @@ relational and time-series data from external files.
 
 1.  **Import some time-series data into $HYPERTABLEs**
 
-    1. Unzip <Tag type="download">[crypto_sample.zip](https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip)</Tag> to a `<local folder>`.
+    1. Unzip <Tag type="download">[crypto_sample.zip][crypto_samplezip]</Tag> to a `<local folder>`.
 
        This test dataset contains: 
          - Second-by-second data for the most-traded crypto-assets. This time-series data is best suited for
            optimization in a [hypertable][hypertables-section].
          - A list of asset symbols and company names. This is best suited for a regular relational table.  
 
-       To import up to 100GB of data directly from your current $PG-based database, 
+       To import up to 100 GB of data directly from your current $PG-based database, 
        [migrate with downtime][migrate-with-downtime] using native $PG tooling. To seamlessly import 100GB-10TB+ 
        of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG data 
        sources, see [Import and ingest data][data-ingest].
@@ -75,16 +81,18 @@ relational and time-series data from external files.
 
        To more fully understand how to create a $HYPERTABLE, how $HYPERTABLEs work, and how to optimize them for 
        performance by tuning $CHUNK intervals and enabling chunk skipping, see 
-       [the $HYPERTABLEs documentation][hypertables-section]. 
+       [the $HYPERTABLEs documentation][hypertables-section].
     
        <Tabs label="Upload data" persistKey="sql-editor">
 
        <Tab title="Tiger Cloud Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
-          1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to add data to, then click `Actions` > `Upload CSV`.
-          1. Drag `<local folder>/tutorial_sample_tick.csv` to `Upload .CSV` and change `New table name` to `crypto_ticks`.
-          1. Enable `hypertable partition` for the `time` column and click `Upload CSV`.
+          1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.
+          1. Click to browse, or drag and drop `<local folder>/tutorial_sample_tick.csv` to upload. 
+          1. Leave the default settings for the delimiter, skipping the header, and creating a new table. 
+          1. In `Table`, provide `crypto_ticks` as the new table name. 
+          1. Enable `hypertable partition` for the `time` column and click `Process CSV file`.
        
               The upload wizard creates a $HYPERTABLE containing the data from the CSV file.
           1. When the data is uploaded, close `Upload .CSV`.
@@ -122,12 +130,10 @@ relational and time-series data from external files.
                   day_volume NUMERIC
                 ) WITH (
                    tsdb.hypertable,
-                   tsdb.partition_column='time',
                    tsdb.segmentby = 'symbol'
                 );
                 ```
-                
-                <OldCreateHypertable />
+                <CreateHypertablePolicyNote />
    
           - For the relational data:
       
@@ -160,52 +166,11 @@ relational and time-series data from external files.
 
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
-    - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
-    - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
+    - **$DATA_MODE**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs. <NotAvailableFreePlan />
+    - **$SQL_EDITOR**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
     - **psql**: easily run queries on your $SERVICE_LONGs or self-hosted $TIMESCALE_DB deployment from Terminal.
 
     <TryItOutCodeBlock queryId="getting-started-crypto-srt-orderby" />
-
-</Procedure>
-
-## Enhance query performance for analytics
-
-$HYPERCORE_CAP is the $TIMESCALE_DB hybrid row-columnar storage engine, designed specifically for real-time 
-analytics and
-powered by time-series data. The advantage of $HYPERCORE is its ability to seamlessly switch between row-oriented and
-column-oriented storage. This flexibility enables $TIMESCALE_DB to deliver the best of both worlds, solving the key
-challenges in real-time analytics.
-
-![Move from rowstore to columstore in hypercore](https://assets.timescale.com/docs/images/hypercore.png )
-
-When $TIMESCALE_DB converts $CHUNKs from the $ROWSTORE to the $COLUMNSTORE, multiple records are grouped into a single row.
-The columns of this row hold an array-like structure that stores all the data. Because a single row takes up less disk
-space, you can reduce your $CHUNK size by more than 90%, and can also speed up your queries. This helps you save on storage costs,
-and keeps your queries operating at lightning speed.
-
-$HYPERCORE is enabled by default when you call [CREATE TABLE][hypertable-create-table]. Best practice is to compress
-data that is no longer needed for highest performance queries, but is still accessed regularly in the $COLUMNSTORE.
-For example, yesterday's market data.
-
-<Procedure>
-
-1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
-
-   For example, yesterday's data:
-   ``` sql
-   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
-   ```
-   If you have not configured a `segmentby` column, $TIMESCALE_DB chooses one for you based on the data in your 
-   $HYPERTABLE. For more information on how to tune your $HYPERTABLEs for the best performance, see 
-   [efficient queries][secondary-indexes].
-
-1. **View your data space saving**
-
-   When you convert data to the $COLUMNSTORE, as well as being optimized for analytics, it is compressed by more than
-   90%. This helps you save on storage costs and keeps your queries operating at lightning speed. To see the amount of space
-   saved, click `Explorer` > `public` > `crypto_ticks`. 
-
-   ![Columnstore data savings](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-columstore-data-savings.png )
 
 </Procedure>
 
@@ -217,7 +182,7 @@ $CAGG_CAPs are a kind of $HYPERTABLE that is refreshed automatically in
 the background as new data is added, or old data is modified. Changes to your dataset are tracked, 
 and the $HYPERTABLE behind the $CAGG is automatically updated in the background.
 
-![Reduced data calls with $CAGGs](https://assets.timescale.com/docs/images/continuous-aggregate.png )
+![Reduced data calls with $CAGGs][reduced-data-calls-with-caggs]
 
 You create $CAGGs on uncompressed data in high-performance storage. They continue to work 
 on [data in the $COLUMNSTORE][test-drive-enable-compression]
@@ -234,20 +199,24 @@ $CONSOLE. You can also do this using psql.
 
 <Tabs label="Upload data to " persistKey="sql-editor">
 
-<Tab title="Data mode" label="data-mode">
+<Tab title="Data view" label="data-mode">
+
+<NotAvailableFreePlan />
 
 <Procedure>
 
+1. **In $CONSOLE, click `Data view`** 
+
 1.  **Connect to your $SERVICE_SHORT**
 
-    In [$CONSOLE][portal-data-mode], select your $SERVICE_SHORT in the connection drop-down in the top right.
+    In the connection drop-down in the top right, select your $SERVICE_SHORT.
 
 1.  **Create a $CAGG**
 
     For a $CAGG, data grouped using a $TIME_BUCKET is stored in a
     $PG `MATERIALIZED VIEW` in a $HYPERTABLE. `timescaledb.continuous` ensures that this data
     is always up to date.
-    In data mode, use the following code to create a $CAGG on the real-time data in
+    In $DATA_MODE, use the following code to create a $CAGG on the real-time data in
     the `crypto_ticks` table:
 
     ```sql
@@ -292,10 +261,10 @@ $CONSOLE. You can also do this using psql.
 
 <Procedure>
 
-1. **In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT you uploaded data to**
-1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate`** next to the `crypto_ticks` hypertable. 
-   ![$CAGG wizard](https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-cloud.png )
+1. **In [$CONSOLE][services-portal], select the $SERVICE_SHORT you uploaded data to**
+1. **Click `Explorer` > `Continuous Aggregates` > `Create a Continuous Aggregate` next to the `crypto_ticks` hypertable**
 1. **Create a view called `assets_candlestick_daily` on the `time` column with an interval of `1 day`, then click `Next step`**
+   ![$CAGG wizard][cagg-wizard]
 1. **Update the view SQL with the following functions, then click `Run`**
    ```sql
    CREATE MATERIALIZED VIEW assets_candlestick_daily
@@ -331,16 +300,16 @@ a $CAGG, run the query part of the $CAGG
 
 ## Slash storage charges 
 
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
+
 In the previous sections, you used $CAGGs to make fast analytical queries, and
 $HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
 you create tiering policies to move rarely accessed data to the object store. The object store is 
-low-cost bottomless data storage built on Amazon S3. However, no matter the tier, you can 
+low-cost bottomless data storage built on Amazon S3 or Azure Blob storage. However, no matter the tier, you can 
 [query your data when you need][querying-tiered-data]. $CLOUD_LONG seamlessly accesses the correct storage 
 tier and generates the response.
 
-![Tiered storage](https://assets.timescale.com/docs/images/tiered-storage.png )
-
-Data tiering is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
+![Tiered storage][tiered-storage]
 
 To set up data tiering: 
 
@@ -348,17 +317,17 @@ To set up data tiering:
 
 1. **Enable data tiering**
 
-   1. In [$CONSOLE][portal-ops-mode], select the $SERVICE_SHORT to modify.
+   1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to modify.
    
-   1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
+   1. In `Explorer`, click `Data tiering` > `Enable tiered storage`.
 
-   ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-cloud-console.png)
+      ![Enable tiered storage][enable-tiered-storage]
 
       When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
 1. **Set the time interval when data is tiered**
 
-    In $CONSOLE, click `Data` to switch to the data mode, then enable data tiering on a $HYPERTABLE with the following query:
+    In $CONSOLE, click `Data view`, then enable data tiering on a $HYPERTABLE with the following query:
      ```sql
      SELECT add_tiering_policy('assets_candlestick_daily', INTERVAL '3 weeks');   
      ```
@@ -386,54 +355,52 @@ To set up data tiering:
 
 ## Reduce the risk of downtime and data loss
 
+<Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
+
 By default, all $SERVICE_LONGs have rapid recovery enabled. However, if your app has very low tolerance 
 for downtime, $CLOUD_LONG offers $HA_REPLICAs. HA replicas are exact, up-to-date copies 
 of your database hosted in multiple AWS availability zones (AZ) within the same region as your primary node.
 HA replicas automatically take over operations if the original primary data node becomes unavailable. 
 The primary node streams its write-ahead log (WAL) to the replicas to minimize the chances of 
-data loss during failover.
-
-High availability is available in the [$SCALE and $ENTERPRISE][pricing-plans] $PRICING_PLANs for $CLOUD_LONG. 
+data loss during failover. 
 
 <HASetup />
 
 For more information, see [High availability][high-availability].
 
+## $CLOUD_LONG support
+
+<SupportPlans />
+
 What next? See the [use case tutorials][tutorials], interact with the data in your $SERVICE_LONG using
 [your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of
 [third-party tools][integrations], plain old [Use $COMPANY products][use-timescale], or dive into [the API][use-the-api].
 
-[tutorials]: /tutorials/:currentVersion:/
+[cagg-wizard]: https://assets.timescale.com/docs/images/tiger-cloud-console/continuous-aggregate-wizard-tiger-console.png 
+[charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
-[integrations]: /integrations/:currentVersion:/
-[use-the-api]: /api/:currentVersion:/
-[use-timescale]: /use-timescale/:currentVersion:/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[create-a-service]: /getting-started/:currentVersion:/services/
-[deploy-self-hosted]: /self-hosted/:currentVersion:/install/
-[connect-to-your-service]: /getting-started/:currentVersion:/run-queries-from-console/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
-[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
-[migrate-live]: /migrate/:currentVersion:/live-migration/
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
+[crypto_samplezip]: https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip
+[data-ingest]: /migrate/:currentVersion:/
+[enable-tiered-storage]: https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png
+[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertable-structure]: https://assets.timescale.com/docs/images/hypertable-structure.png
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[integrations]: /integrations/:currentVersion:/
+[main-features-and-tiered-data]: https://assets.timescale.com/docs/images/mutation.png 
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
+[reduced-data-calls-with-caggs]: https://assets.timescale.com/docs/images/continuous-aggregate.png
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
 [test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[compression]: /use-timescale/:currentVersion:/compression/
-[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
-[charts]: https://www.investopedia.com/terms/c/candlestick.asp
-[hierarchical-storage]: https://en.wikipedia.org/wiki/Hierarchical_storage_management
-[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[pricing-plans]: /about/:currentVersion:/pricing-and-account-management
-[querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
-[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[sign-up]: https://console.cloud.timescale.com/signup
-[job]: /api/:currentVersion:/actions/add_job/
-[alter-table-arguments]: /api/:currentVersion:/hypercore/alter_table/#arguments
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[tiered-storage]: https://assets.timescale.com/docs/images/tiered-storage.png 
+[tutorials]: /tutorials/:currentVersion:/
+[use-the-api]: /api/:currentVersion:/
+[use-timescale]: /use-timescale/:currentVersion:/

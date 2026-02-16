@@ -1,6 +1,6 @@
 ---
 title: Query the Bitcoin blockchain
-excerpt: Learn to use Tiger Cloud to query and analyze transactions on a blockchain as you would any other time-series data. In this tutorial, you use Tiger Cloud to ingest, store, and analyze transactions
+excerpt: Learn to use Tiger Cloud to query and analyze transactions on a blockchain as you would any other time-series data. In this tutorial, you use Tiger to ingest, store, and analyze transactions
 products: [cloud, self_hosted, mst]
 keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]
@@ -28,16 +28,12 @@ This tutorial covers:
 1.  [Ingest data into a $SERVICE_SHORT][blockchain-dataset]: set up and connect to a $SERVICE_LONG, create tables and $HYPERTABLEs, and ingest data.  
 1.  [Query your data][blockchain-query]: obtain information, including finding the most recent transactions on the blockchain, and 
    gathering information about the transactions using aggregation functions.
-1.  [Compress your data using $HYPERCORE][blockchain-compress]: compress data that is no longer needed for highest performance queries, but is still accessed regularly
-    for real-time analytics.
 
-When you've completed this tutorial, you can use the same dataset to  [Analyze the Bitcoin data][analyze-blockchain], 
+When you've completed this tutorial, you can use the same dataset to  [Analyze the Bitcoin data][blockchain-analyze], 
 using $TIMESCALE_DB hyperfunctions.
 
-[cloud-install]: /getting-started/:currentVersion:/#create-your-timescale-account
+[blockchain-analyze]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/
 [blockchain-dataset]: /tutorials/:currentVersion:/blockchain-query/blockchain-dataset/
-[blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
-[blockchain-compress]: /tutorials/:currentVersion:/blockchain-query/blockchain-compress/
 [blockchain-def]: https://www.pcmag.com/encyclopedia/term/blockchain
+[blockchain-query]: /tutorials/:currentVersion:/blockchain-query/beginner-blockchain-query/
 [transactions-def]: https://www.pcmag.com/encyclopedia/term/bitcoin-transaction
-[analyze-blockchain]: /tutorials/:currentVersion:/blockchain-analyze/analyze-blockchain-query/

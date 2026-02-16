@@ -34,6 +34,14 @@ module.exports = [
             href: "drop_chunks",
           },
           {
+            title: "create_chunk",
+            href: "create_chunk",
+          },
+          {
+            title: "drop_chunk",
+            href: "drop_chunk",
+          },
+          {
             title: "reorder_chunk",
             href: "reorder_chunk",
           },
@@ -44,6 +52,14 @@ module.exports = [
           {
             title: "merge_chunks",
             href: "merge_chunks",
+          },
+          {
+            title: "merge_chunks_concurrently",
+            href: "merge_chunks_concurrently",
+          },
+          {
+            title: "chunk_rewrite_cleanup",
+            href: "chunk_rewrite_cleanup",
           },
           {
             title: "move_chunk",
@@ -284,6 +300,36 @@ module.exports = [
             href: "run_job",
           },
         ],
+      },
+      {
+        title: "UUIDv7 functions",
+        href: "uuid-functions",
+        children: [
+          {
+            title: "generate_uuidv7",
+            href: "generate_uuidv7",                    
+          },
+          {
+              title: "to_uuidv7",
+              href: "to_uuidv7",                    
+          },
+          {
+              title: "to_uuidv7_boundary",
+              href: "to_uuidv7_boundary",                    
+          },
+          {
+              title: "uuid_timestamp",
+              href: "uuid_timestamp",                    
+          },
+          {
+              title: "uuid_timestamp_micros",
+              href: "uuid_timestamp_micros",                    
+          },
+          {
+              title: "uuid_version",
+              href: "uuid_version",                    
+          },
+        ],            
       },
       {
         title: "Hyperfunctions",
@@ -560,10 +606,10 @@ module.exports = [
       {
         title: "Service configuration",
         href: "configuration",
-        excerpt: "Configure Tiger Postgres",
+        excerpt: "Configure your Tiger Cloud services",
         children: [
           {
-            title: "Tiger Postgres configuration",
+            title: "TimescaleDB configuration",
             href: "tiger-postgres",
             excerpt: "Configure PostgreSQL and TimescaleDB",
           },
@@ -585,7 +631,19 @@ module.exports = [
         title: "API Reference Tag Overview",
         href: "api-tag-overview",
         description:
-          "An overview of what different tags represent in the API section of TigerData Documentation.",
+          "An overview of what different tags represent in the API section of Tiger Data Documentation.",
+      },
+      {
+        title: "Tiger Cloud REST API",
+        href: "api-reference",
+        description:
+          "A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.",
+      },
+      {
+        title: "Glossary",
+        href: "glossary",
+        description:
+          "Comprehensive glossary of technical terms, concepts, and terminology used in Tiger Data documentation and the time-series database industry.",
       },
       {
         title: "Compression (Old API, replaced by Hypercore)",

@@ -57,6 +57,5 @@ This applies to all chunks except the two most recent ones.
 |-|-|-|
 |`job_id`|INTEGER|TimescaleDB background job ID created to implement this policy|
 
-
-[reorder_chunk]: /api/:currentVersion:/hypertable/reorder_chunk
 [alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
+[reorder_chunk]: /api/:currentVersion:/hypertable/reorder_chunk

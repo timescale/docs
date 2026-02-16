@@ -7,7 +7,7 @@ tags: [disk space, schemas, size]
 api:
   license: community
   type: procedure
-products: [cloud, self_hosted]
+products: [cloud, mst, self_hosted]
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
@@ -16,10 +16,11 @@ import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 Retrieve statistics about the chunks in the $COLUMNSTORE
 
 `chunk_columnstore_stats` returns the size of chunks in the $COLUMNSTORE, these values are computed when you call either:
-- [add_columnstore_policy][add_columnstore_policy]: create a [job][job] that automatically moves chunks in a hypertable to the $COLUMNSTORE at a
-  specific time interval.
-- [convert_to_columnstore][convert_to_columnstore]: manually add a specific chunk in a hypertable to the $COLUMNSTORE.
-
+- [CREATE TABLE][hypertable-create-table]: create a $HYPERTABLE with a default [job][job] that automatically
+  moves chunks in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval.  
+- [add_columnstore_policy][add_columnstore_policy]: create a [job][job] on an existing $HYPERTABLE that automatically 
+  moves chunks in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval.
+- [convert_to_columnstore][convert_to_columnstore]: manually add a specific chunk in a $HYPERTABLE to the $COLUMNSTORE.
 
 Inserting into a chunk in the $COLUMNSTORE does not change the chunk size. For more information about how to compute 
 chunk sizes, see [chunks_detailed_size][chunks_detailed_size].
@@ -103,8 +104,8 @@ To retrieve statistics about chunks:
 |`after_compression_total_bytes`|BIGINT| Size of the entire chunk table (`after_compression_table_bytes` + `after_compression_index_bytes `+ `after_compression_toast_bytes`) after compression. Returns `NULL` if `compression_status` == `Uncompressed`. |
 |`node_name`|TEXT| **DEPRECATED**: nodes the chunk is located on, applicable only to distributed hypertables.                                                                                                                       |
 
-
 [add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
-[job]: /api/:currentVersion:/jobs-automation/add_job/
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/
+[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[job]: /api/:currentVersion:/jobs-automation/add_job/

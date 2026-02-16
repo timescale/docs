@@ -16,7 +16,7 @@ It enables you to capture changes in a $SELF_LONG instance and stream them to ot
 
 Debezium can capture events about:
 
-- [Hypertables][hypertables]: captured events are rerouted from their chunk-specific topics to a single logical topic 
+- [Hypertables][hypertables-section]: captured events are rerouted from their chunk-specific topics to a single logical topic 
    named according to the following pattern: `<topic.prefix>.<hypertable-schema-name>.<hypertable-name>`
 - [Continuous aggregates][caggs]: captured events are rerouted from their chunk-specific topics to a single logical topic
   named according to the following pattern: `<topic.prefix>.<aggregate-schema-name>.<aggregate-name>`
@@ -62,7 +62,7 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
 
 </Tab>
 
-<Tab title="Tiger Cloud" label="tiger-cloud">
+<Tab title="Tiger" label="tiger-cloud">
 
 Debezium requires logical replication to be enabled. Currently, this is not enabled by default on $SERVICE_LONGs.
 We are working on enabling this feature as you read. As soon as it is live, these docs will be updated.
@@ -71,20 +71,10 @@ We are working on enabling this feature as you read. As soon as it is live, thes
 
 </Tabs>
 
-And that is it,  you have configured Debezium to interact with $COMPANY products. 
+And that is it,  you have configured Debezium to interact with $COMPANY products.
 
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [debezium]: https://debezium.io/
-[java-installers]: https://www.oracle.com/java/technologies/downloads/
-[debezium-install]: https://debezium.io/documentation/reference/stable/operations/debezium-server.html#_installation
-[console]: https://console.cloud.timescale.com/dashboard/services
-[redis-local]: https://redis.io/docs/getting-started/
-[redis-cloud]: https://redis.com/try-free/
-[connect]: /getting-started/:currentVersion:/run-queries-from-console/
-[kafka-install-configure]: /integrations/:currentVersion:/debezium#install-and-configure-apache-kafka
-[debezium-configure-database]: /integrations/:currentVersion:/debezium##configure-your-database-to-work-with-debezium
-[psql-connect]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-docker]: https://docs.docker.com/engine/install/

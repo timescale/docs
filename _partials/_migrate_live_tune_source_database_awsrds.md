@@ -26,7 +26,7 @@ Updating parameters on a $PG instance will cause an outage. Choose a time that w
    1. In RDS, navigate back to your [databases][databases], select the RDS instance to migrate, and click `Modify`.  
 
    1. Scroll down to `Database options`, select your new parameter group, and click `Continue`. 
-   1. Either `Apply immediately` or choose a maintenance window, then click `Modify DB instance`.
+   1. Click `Apply immediately` or choose a maintenance window, then click `Modify DB instance`.
 
       Changing parameters will cause an outage. Wait for the database instance to reboot before continuing. 
    1. Verify that the settings are live in your database.
@@ -34,6 +34,5 @@ Updating parameters on a $PG instance will cause an outage. Choose a time that w
 1. **Enable replication `DELETE` and`UPDATE` operations**
 
    <EnableReplication />
-   
-[mst-portal]: https://portal.managed.timescale.com/login
+
 [databases]: https://console.aws.amazon.com/rds/home#databases:

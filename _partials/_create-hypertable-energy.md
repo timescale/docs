@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
 
 ## Optimize time-series data in hypertables
@@ -15,15 +15,12 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
         type_id integer                                not null,
         value   double precision                       not null
     ) WITH (
-       tsdb.hypertable,
-       tsdb.partition_column='time'
+       tsdb.hypertable
     );
     ```
 
-    <OldCreateHypertable />
+    <CreateHypertablePolicyNote />
 
 </Procedure>
 
-
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[indexing]: /use-timescale/:currentVersion:/schema-management/indexing/

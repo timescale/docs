@@ -1,7 +1,7 @@
 ---
 title: Hypercore
-excerpt: Explore hypercore by Tiger Cloud - the hybrid row-columnar storage engine that is perfect for real-time analytics powered by time-series data
-products: [cloud, self_hosted]
+excerpt: Explore hypercore in Tiger Cloud - the hybrid row-columnar storage engine that is perfect for real-time analytics powered by time-series data
+products: [cloud, mst, self_hosted]
 keywords: [hypercore, hypertable, compression, row-columnar storage]
 ---
 
@@ -19,8 +19,7 @@ This section shows the following:
 * [Compression methods in hypercore][compression-methods]
 * [Troubleshooting][troubleshooting]
 
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
-[modify-data-in-hypercore]: /use-timescale/:currentVersion:/hypercore/modify-data-in-hypercore/
-[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [compression-methods]: /use-timescale/:currentVersion:/hypercore/compression-methods/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [troubleshooting]: /use-timescale/:currentVersion:/hypercore/troubleshooting/

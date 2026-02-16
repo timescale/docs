@@ -28,7 +28,7 @@ a high-level understanding of chunk time intervals in $TIMESCALE_DB
 hypertables and continuous aggregates. The chunk time interval you set
 for your tick data table directly affects how these automation policies
 work. For more information, see the
-[hypertables and chunks][chunks] section.
+[hypertables and chunks][hypertables-section] section.
 
 ## Hypertable chunk time intervals and automation policies
 
@@ -37,7 +37,7 @@ layer to interact with $PG tables. You just need to access one
 hypertable to access all of your time-series data.
 
 Under the hood, $TIMESCALE_DB creates chunks based on the timestamp column.
-Each chunk size is determined by the [`chunk_time_interval`][interval]
+Each chunk size is determined by the [`chunk_time_interval`][chunk_interval]
 parameter. You can provide this parameter when creating the hypertable, or you can change
 it afterwards. If you don't provide this optional parameter, the
 chunk time interval defaults to 7 days. This means that each of the
@@ -61,7 +61,7 @@ interval.
 
 $TIMESCALE_DB has a built-in way to automatically remove raw data after a
 specific time. You can set up this automation using a
-[data retention policy][retention]:
+[data retention policy][retention-policy]:
 
 ```sql
 SELECT add_retention_policy('crypto_ticks', INTERVAL '7 days');
@@ -84,14 +84,16 @@ set the chunk time interval to be two days only, you could create a retention
 policy with a 2-day interval that would drop a chunk every other day
 (assuming you're ingesting data in the meantime).
 
-For more information, see the [data retention][retention] section.
+For more information, see the [data retention][retention-policy] section.
 
 <Highlight type="important">
+
 Make sure none of the continuous aggregate policies intersect with a data
 retention policy. It's possible to keep the candlestick data in the continuous
 aggregate and drop tick data from the underlying hypertable, but only if you
 materialize data in the continuous aggregate first, before the data is dropped
 from the underlying hypertable.
+
 </Highlight>
 
 ## Automatically delete older candlestick data
@@ -104,12 +106,14 @@ $TIMESCALE_DB allows you to create data retention policies on continuous
 aggregates as well.
 
 <Highlight type="note">
+
 Continuous aggregates also have chunk time intervals because they use
 hypertables in the background. By default, the continuous aggregate's chunk
 time interval is 10 times what the original hypertable's chunk time interval is.
 For example, if the original hypertable's chunk time interval is 7 days, the
 continuous aggregates that are on top of it will have a 70 day chunk time
 interval.
+
 </Highlight>
 
 You can set up a data retention policy to remove old data from
@@ -177,16 +181,18 @@ SELECT add_compression_policy('one_min_candle', compress_after=> INTERVAL '70 da
 ```
 
 <Highlight type="important">
+
 Before setting a compression policy on any of the candlestick views,
 set a refresh policy first. The compression policy interval should
 be set so that actively refreshed time intervals are not compressed.
+
 </Highlight>
 
-[Read more about compressing continuous aggregates.][caggs-compress]
+[Read more about compressing continuous aggregates.][cagg-compression]
 
-[caggs-compress]: /use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates/
-[chunks]: /use-timescale/:currentVersion:/hypertables/
+[cagg-compression]: /use-timescale/:currentVersion:/continuous-aggregates/compression-on-continuous-aggregates/
+[chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
 [compression]: /use-timescale/:currentVersion:/compression/
-[interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
-[release-blog]: https://www.timescale.com/blog/increase-your-storage-savings-with-timescaledb-2-6-introducing-compression-for-continuous-aggregates/
-[retention]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[release-blog]: https://www.tigerdata.com/blog/increase-your-storage-savings-with-timescaledb-2-6-introducing-compression-for-continuous-aggregates
+[retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/

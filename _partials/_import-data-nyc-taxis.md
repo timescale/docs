@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
 
 <HypertableIntro />
@@ -7,7 +7,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 1.  **Import time-series data into a $HYPERTABLE**
 
-    1. Unzip <Tag type="download">[nyc_data.tar.gz](https://assets.timescale.com/docs/downloads/nyc_data.tar.gz)</Tag> to a `<local folder>`.
+    1. Unzip <Tag type="download">[nyc_data.tar.gz][nyc_datatargz]</Tag> to a `<local folder>`.
        
        This test dataset contains historical data from New York's yellow taxi network.
 
@@ -53,13 +53,12 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
                total_amount NUMERIC
              ) WITH (
                tsdb.hypertable,
-               tsdb.partition_column='pickup_datetime',
                tsdb.create_default_indexes=false,
                tsdb.segmentby='vendor_id',
                tsdb.orderby='pickup_datetime DESC'
              );
              ```
-             <OldCreateHypertable />
+             <CreateHypertablePolicyNote />
    
          1.  Add another dimension to partition your $HYPERTABLE more efficiently:
              ```sql
@@ -116,7 +115,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
-       - **Data mode**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
+       - **$DATA_MODE**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
        - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
        - **psql**: easily run queries on your $SERVICE_LONGs or $SELF_LONG deployment from Terminal.
 
@@ -164,16 +163,15 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 </Procedure>
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
-[migrate-live]: /migrate/:currentVersion:/live-migration/
-[data-ingest]: /use-timescale/:currentVersion:/ingest-data/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[data-ingest]: /migrate/:currentVersion:/
 [hypercore]: /use-timescale/:currentVersion:/hypercore/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[migrate-live]: /migrate/:currentVersion:/live-migration/
+[migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
+[nyc_datatargz]: https://assets.timescale.com/docs/downloads/nyc_data.tar.gz
+[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

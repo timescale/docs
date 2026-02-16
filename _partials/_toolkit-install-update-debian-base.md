@@ -1,9 +1,3 @@
-## Prerequisites
-
-To follow this procedure:
-
-- [Install $TIMESCALE_DB][debian-install].
-- Add the $TIMESCALE_DB repository and the GPG key.
 
 ## Install $TOOLKIT_LONG
 
@@ -11,20 +5,25 @@ These instructions use the `apt` package manager.
 
 <Procedure>
 
-1.  Update your local repository list:
+1.  **Update your local repository list**
 
     ```bash
     sudo apt update
     ```
 
-1.  Install TimescaleDB Toolkit:
+1.  **Install TimescaleDB Toolkit**
 
     ```bash
-    sudo apt install timescaledb-toolkit-postgresql-17
+    sudo apt install timescaledb-toolkit-postgresql-18
     ```
 
-1.  [Connect to the database][connect] where you want to use $TOOLKIT_SHORT.
-1.  Create the $TOOLKIT_SHORT extension in the database:
+1.  **Connect to the database where you want to use $TOOLKIT_SHORT**
+
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+1.  **Create the $TOOLKIT_SHORT extension in the database**
 
     ```sql
     CREATE EXTENSION timescaledb_toolkit;
@@ -38,20 +37,25 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 
 <Procedure>
 
-1.  Update your local repository list:
+1.  **Update your local repository list**
 
     ```bash
     apt update
     ```
 
-1. Install the latest version of $TOOLKIT_LONG:
+1.  **Install the latest version of $TOOLKIT_LONG**
 
     ```bash
-    apt install timescaledb-toolkit-postgresql-17
+    apt install timescaledb-toolkit-postgresql-18
     ```
 
-1.  [Connect to the database][connect] where you want to use the new version of $TOOLKIT_SHORT.
-1.  Update the $TOOLKIT_SHORT extension in the database:
+1.  **Connect to the database where you want to use $TOOLKIT_SHORT**
+
+    ```bash
+    psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
+    ```
+
+1.  **Update the $TOOLKIT_SHORT extension in the database**
 
     ```sql
     ALTER EXTENSION timescaledb_toolkit UPDATE;
@@ -66,13 +70,5 @@ Update $TOOLKIT_SHORT by installing the latest version and running `ALTER EXTENS
 
 </Procedure>
 
-[brew-install]: https://brew.sh
-[cloud]: /use-timescale/:currentVersion:/services/
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [debian-install]: /self-hosted/:currentVersion:/install/installation-linux/
-[docker-install]: /self-hosted/:currentVersion:/install/installation-docker/
-[mst]: /mst/:currentVersion:/
-[red-hat-install]: /self-hosted/:currentVersion:/install/installation-linux/
-[toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
-[connect]: /integrations/:currentVersion:/find-connection-details/
-[update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
-[macos-install]: /self-hosted/:currentVersion:/install/installation-macos/

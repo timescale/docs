@@ -15,7 +15,7 @@ import Since2210 from "versionContent/_partials/_since_2_21_0.mdx";
 
 Attach a hypertable as a chunk in another [hypertable][hypertables-section] at a given slice in a dimension.  
 
-![Hypertable structure](https://assets.timescale.com/docs/images/hypertable-structure.png)
+![Hypertable structure][hypertable-structure]
 
 The schema, name, existing constraints, and indexes of `chunk` do not change, even 
 if a constraint conflicts with a chunk constraint in `hypertable`.
@@ -55,6 +55,6 @@ CALL attach_chunk('ht', '_timescaledb_internal._hyper_1_2_chunk', '{"device_id":
 
 This function returns void.
 
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
 [hypertable-detach-chunk]: /api/:currentVersion:/hypertable/detach_chunk/
+[hypertable-structure]: https://assets.timescale.com/docs/images/hypertable-structure.png
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

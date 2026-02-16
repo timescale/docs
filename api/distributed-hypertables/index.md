@@ -13,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # Distributed hypertables ( Sunsetted v2.14.x) <Tag type="community">Community</Tag>
 
 Distributed hypertables are an extension of regular hypertables, available when
-using a [multi-node installation][getting-started-multi-node] of TimescaleDB.
+using a [multi-node installation][multi-node] of TimescaleDB.
 Distributed hypertables provide the ability to store data chunks across multiple
 data nodes for better scale-out performance.
 
@@ -22,4 +22,4 @@ hypertables as documented in this section. There are a number of APIs for
 specifically dealing with data nodes and a special API for executing SQL commands
 on data nodes.
 
-[getting-started-multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/
+[multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/

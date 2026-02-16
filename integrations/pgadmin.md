@@ -1,6 +1,6 @@
 ---
-title: Integrate pgAdmin with Tiger Cloud
-excerpt: pgAdmin is a feature-rich open-source administration and development platform for PostgreSQL. Integrate pgadmin with Tiger Cloud
+title: Integrate pgAdmin with Tiger
+excerpt: pgAdmin is a feature-rich open-source administration and development platform for PostgreSQL. Integrate pgadmin with Tiger
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---
@@ -12,7 +12,7 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 [pgAdmin][pgadmin] is a feature-rich open-source administration and development platform for $PG. It is available for Chrome, Firefox, Edge, and
 Safari browsers, or can be installed on Microsoft Windows, Apple macOS, or various Linux flavors.
 
-![Tiger Cloud pgadmin](https://assets.timescale.com/docs/images/timescale-cloud-pgadmin.png)
+![$CLOUD_LONG pgadmin][cloud_long-pgadmin]
 
 This page explains how to integrate pgAdmin with your $SERVICE_LONG.
 
@@ -40,7 +40,8 @@ To connect to $CLOUD_LONG:
 
 You have successfully integrated pgAdmin with $CLOUD_LONG.
 
-[pgadmin]: https://www.pgadmin.org/
-[download-pgadmin]: https://www.pgadmin.org/download/
+[cloud_long-pgadmin]: https://assets.timescale.com/docs/images/timescale-cloud-pgadmin.png
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[download-pgadmin]: https://www.pgadmin.org/download/
+[pgadmin]: https://www.pgadmin.org/
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/

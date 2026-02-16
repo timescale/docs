@@ -14,7 +14,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # ALTER TABLE (Compression) <Tag type="community" content="community" />
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/alter_table/">ALTER TABLE (Hypercore)</a>.
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 'ALTER TABLE' statement is used to turn on compression and set compression
 options.  
@@ -78,8 +79,5 @@ ALTER TABLE metrics SET (timescaledb.compress_chunk_time_interval = '0');
 |`column_name`|TEXT|Column used to order by or segment by|
 |`interval`|TEXT|Time interval used to roll compressed chunks into|
 
-
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
-[compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
-[bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
-
+[compress_chunk]: /api/:currentVersion:/compression/compress_chunk
