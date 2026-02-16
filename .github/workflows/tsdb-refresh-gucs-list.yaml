@@ -29,7 +29,7 @@ jobs:
           python .helper-scripts/timescaledb/generate_guc_overview.py "${{ github.event.inputs.tag }}" ./_partials/_timescaledb-gucs.md
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
           add-paths: |
