@@ -1,13 +1,13 @@
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
-You use PostgreSQL foreign data wrappers (FDWs) to query external data sources from a $SERVICE_LONG. These external data sources can be one of the following:
+You use $PG foreign data wrappers (FDWs) to query external data sources from a $SERVICE_LONG. These external data sources can be one of the following:
 
 - Other $SERVICE_LONGs
-- PostgreSQL databases outside of $CLOUD_LONG
+- $PG databases outside of $CLOUD_LONG
 
 If you are using $VPC peering, you can create FDWs in your Customer VPC to query a $SERVICE_SHORT in your $CLOUD_LONG project. However, you can't create FDWs in your $SERVICE_LONGs to query a data source in your Customer VPC. This is because $CLOUD_LONG $VPC peering uses AWS PrivateLink for increased security. See [VPC peering documentation][vpc-peering] for additional details.
 
-PostgreSQL FDWs are particularly useful if you manage multiple $SERVICE_LONGs with different capabilities, and need to seamlessly access and merge regular and time-series data.
+$PG FDWs are particularly useful if you manage multiple $SERVICE_LONGs with different capabilities, and need to seamlessly access and merge regular and time-series data.
 
 ## Prerequisites
 
@@ -17,17 +17,17 @@ PostgreSQL FDWs are particularly useful if you manage multiple $SERVICE_LONGs wi
 
 To query another data source: 
 
-<Tabs label="Query another data source">
+<Tabs label="Query another data source" persistKey="source-database">
 
-<Tab title="Timescale Cloud">
+<Tab title="Tiger" label="tiger-cloud">
 
-You create PostgreSQL FDWs with the `postgres_fdw` extension, which is enabled by default in $CLOUD_LONG.
+You create $PG FDWs with the `postgres_fdw` extension, which is enabled by default in $CLOUD_LONG.
 
 <Procedure>
 
 1. **Connect to your service**
 
-   See [how to connect][connect].
+   See [how to connect][in-console-editors].
 
 1. **Create a server**
 
@@ -89,7 +89,7 @@ You create PostgreSQL FDWs with the `postgres_fdw` extension, which is enabled b
 </Procedure>
 
 
-A user with the `tsdbadmin` role assigned already has the required `USAGE` permission to create PostgreSQL FDWs. You can enable another user, without the `tsdbadmin` role assigned, to query foreign data. To do so, explicitly grant the permission. For example, for a new `grafana` user:
+A user with the `tsdbadmin` role assigned already has the required `USAGE` permission to create $PG FDWs. You can enable another user, without the `tsdbadmin` role assigned, to query foreign data. To do so, explicitly grant the permission. For example, for a new `grafana` user:
 
 ```sql
 CREATE USER grafana;
@@ -115,9 +115,9 @@ IMPORT FOREIGN SCHEMA public
 
 </Tab>
 
-<Tab title="Self-hosted TimescaleDB">
+<Tab title="Self-hosted TimescaleDB" label="self-hosted">
 
-You create PostgreSQL FDWs with the `postgres_fdw` extension. See [documenation][enable-fdw-docs] on how to enable it. 
+You create $PG FDWs with the `postgres_fdw` extension. See [documenation][pg-fdw] on how to enable it. 
 
 <Procedure>
 
@@ -188,9 +188,8 @@ You create PostgreSQL FDWs with the `postgres_fdw` extension. See [documenation]
 
 </Tabs>
 
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[pg-fdw]: https://www.postgresql.org/docs/current/postgres-fdw.html
+[psql]: /integrations/:currentVersion:/psql/
 [vpc-peering]: /use-timescale/:currentVersion:/security/vpc/
-[sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor/
-[connect]: /getting-started/:currentVersion:/run-queries-from-console/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/
-[enable-fdw-docs]: https://www.postgresql.org/docs/current/postgres-fdw.html
-[psql]: /use-timescale/:currentVersion:/integrations/psql/

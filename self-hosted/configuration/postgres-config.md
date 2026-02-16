@@ -1,29 +1,29 @@
 ---
-title: Manual PostgreSQL configuration and tuning
-excerpt: Manually configure your self-hosted database using the PostgreSQL configuration file
+title: Manual Postgres configuration and tuning
+excerpt: Manually configure your self-hosted database using the Postgres configuration file
 products: [self_hosted]
 keywords: [configuration, settings]
 tags: [tune]
 ---
 
-# Manual PostgreSQL configuration and tuning
+# Manual $PG configuration and tuning
 
 If you prefer to tune settings yourself, or for settings not covered by
 `timescaledb-tune`, you can manually configure your installation using the
-PostgreSQL configuration file.
+$PG configuration file.
 
 For some common configuration settings you might want to adjust, see the
-[about-configuration][about-configuration] page.
+[about-configuration][config] page.
 
-For more information about the PostgreSQL configuration page, see the
-[PostgreSQL documentation][pg-config].
+For more information about the $PG configuration page, see the
+[$PG documentation][pg-config].
 
-## Edit the PostgreSQL configuration file
+## Edit the $PG configuration file
 
-The location of the PostgreSQL configuration file depends on your operating
+The location of the $PG configuration file depends on your operating
 system and installation. 
 
-1. **Find the location of the config file for your Postgres instance**
+1. **Find the location of the config file for your $PG instance**
    1. Connect to your database:
       ```shell
       psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
@@ -32,14 +32,14 @@ system and installation.
       ```sql
       SHOW config_file;
       ```
-      Postgres returns the path to your configuration file. For example:
+      $PG returns the path to your configuration file. For example:
       ```sql
       --------------------------------------------
       /home/postgres/pgdata/data/postgresql.conf
       (1 row)
       ```
 
-1. **Open the config file, then [edit your postgres configuration][pg-config]** 
+1. **Open the config file, then [edit your $PG configuration][pg-config]** 
    ```shell
    vi /home/postgres/pgdata/data/postgresql.conf
    ```
@@ -60,5 +60,5 @@ For example:
 postgres -c log_connections=yes -c log_destination='syslog'
 ```
 
-[about-configuration]: /self-hosted/:currentVersion:/configuration/about-configuration
+[config]: /self-hosted/:currentVersion:/configuration/about-configuration
 [pg-config]: https://www.postgresql.org/docs/current/config-setting.html

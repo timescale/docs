@@ -1,7 +1,7 @@
 ---
 title: Energy consumption data tutorial - query the data
 excerpt: Construct and run queries on a sample dataset to find out energy consumption by hour, day, and month
-products: [cloud, mst, self_hosted]
+products: [cloud, self_hosted, mst]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]
 layout_components: [next_prev_large]
@@ -12,14 +12,14 @@ content_group: Analyze energy consumption data
 
 When you have your dataset loaded, you can start constructing some queries to
 discover what your data tells you.
-This tutorial uses [Timescale hyperfunctions][about-hyperfunctions] to construct
-queries that are not possible in standard PostgreSQL.
+This tutorial uses [$TIMESCALE_DB hyperfunctions][about-hyperfunctions] to construct
+queries that are not possible in standard $PG.
 
 In this section, you learn how to construct queries, to answer these questions:
 
-*   [Energy consumption by hour of day](#what-is-the-energy-consumption-by-the-hour-of-the-day)
-*   [Energy consumption by weekday](#what-is-the-energy-consumption-by-the-day-of-the-week).
-*   [Energy consumption by month](#what-is-the-energy-consumption-on-a-monthly-basis).
+*   [Energy consumption by hour of day][what-is-the-energy-consumption-by-the-hour-of-the-day-link]
+*   [Energy consumption by weekday][what-is-the-energy-consumption-by-the-day-of-the-week-link].
+*   [Energy consumption by month][what-is-the-energy-consumption-on-a-monthly-basis-link].
 
 ## What is the energy consumption by the hour of the day?
 
@@ -31,10 +31,10 @@ hourly basis in a typical day.
 
 ### Finding how many kilowatts of energy is consumed on an hourly basis
 
-1.  Connect to the Timescale database that contains the energy consumption dataset.
-1.  At the psql prompt, use the Timescale Toolkit functionality to get calculate
+1.  Connect to the $SERVICE_LONG that contains the energy consumption dataset.
+1.  At the psql prompt, use the $TOOLKIT_LONG functionality to get calculate
     the fiftieth percentile or the median. Then calculate the maximum energy
-    consumed using the standard PostgreSQL max function:
+    consumed using the standard $PG max function:
 
     ```sql
     WITH per_hour AS (
@@ -88,7 +88,7 @@ You can also check how energy consumption varies between weekends and weekdays.
 
 ### Finding energy consumption during the weekdays
 
-1.  Connect to the Timescale database that contains the energy consumption dataset.
+1.  Connect to the $SERVICE_LONG that contains the energy consumption dataset.
 1.  At the psql prompt, use this query to find difference in consumption during
     the weekdays and the weekends:
 
@@ -146,7 +146,7 @@ You may also want to check the energy consumption that occurs on a monthly basis
 
 ### Finding energy consumption for each month of the year
 
-1.  Connect to the Timescale database that contains the energy consumption
+1.  Connect to the $SERVICE_LONG that contains the energy consumption
     dataset.
 1.  At the psql prompt, use this query to find consumption for each month of the
     year:
@@ -212,4 +212,7 @@ You may also want to check the energy consumption that occurs on a monthly basis
 
 </Procedure>
 
-[about-hyperfunctions]: https://docs.timescale.com/use-timescale/latest/hyperfunctions/about-hyperfunctions/
+[about-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/about-hyperfunctions/
+[what-is-the-energy-consumption-by-the-day-of-the-week-link]: /tutorials/:currentVersion:/energy-data/query-energy/#what-is-the-energy-consumption-by-the-day-of-the-week
+[what-is-the-energy-consumption-by-the-hour-of-the-day-link]: /tutorials/:currentVersion:/energy-data/query-energy/#what-is-the-energy-consumption-by-the-hour-of-the-day
+[what-is-the-energy-consumption-on-a-monthly-basis-link]: /tutorials/:currentVersion:/energy-data/query-energy/#what-is-the-energy-consumption-on-a-monthly-basis

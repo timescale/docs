@@ -6,7 +6,7 @@
    ```sh
    ssh -i "<key-pair>.pem" ubuntu@<EC2 instance's Public IPv4>
    ```
-1. On your intermediary EC2 instance, install the PostgreSQL client.
+1. On your intermediary EC2 instance, install the $PG client.
    ```sh
    sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
    wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo tee /etc/apt/trusted.gpg.d/pgdg.asc &>/dev/null
@@ -60,7 +60,7 @@
    ```sh
    export SOURCE="postgres://<Master username>:<Master password>@<Endpoint>:<Port>/<DB name>"
    ```
-   The value of `Master password` was supplied when this PostgreSQL RDS instance was created.
+   The value of `Master password` was supplied when this $PG RDS instance was created.
 
 1. Test your connection:
    ```sh
@@ -69,5 +69,3 @@
    You are connected to your RDS instance from your intermediary EC2 instance.
 
 </Procedure>
-
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/about-hypertables/

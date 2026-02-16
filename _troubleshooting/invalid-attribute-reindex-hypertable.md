@@ -2,7 +2,7 @@
 title: Reindex hypertables to fix large indexes
 section: troubleshooting
 products: [cloud, mst, self_hosted]
-topics: [hypertables, distributed hypertables, schema management, data retention, compression]
+topics: [hypertables, distributed hypertables, schema management, data retention, compression, hypercore]
 errors:
   - language: bash
     message: |-
@@ -34,6 +34,6 @@ resolve the problem, reindex your hypertables with this command:
 reindex table _timescaledb_internal._hyper_2_1523284_chunk
 ```
 
-For more information, see the [hypertable documentation][hypertables].
+For more information, see the [hypertable documentation][hypertables-section].
 
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

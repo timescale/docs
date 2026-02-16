@@ -22,17 +22,17 @@ tags: [passwords, md5, scram, jdbc]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-When connecting to Timescale with a Java Database Connectivity (JDBC)
+When connecting to $CLOUD_LONG with a Java Database Connectivity (JDBC)
 driver, you might get this error message.
 
-Your Timescale authentication type doesn't match your JDBC driver's
+Your $CLOUD_LONG authentication type doesn't match your JDBC driver's
 supported authentication types. The recommended approach is to upgrade your JDBC
 driver to a version that supports `scram-sha-256` encryption. If that isn't an
-option, you can change the authentication type for your Timescale service
+option, you can change the authentication type for your $SERVICE_LONG
 to `md5`. Note that `md5` is less secure, and is provided solely for
 compatibility with older clients.
 
 For information on changing your authentication type, see the documentation on
 [resetting your service password][password-reset].
 
-[password-reset]: /use-timescale/:currentVersion:/services/service-management/#reset-service-password
+[password-reset]: /use-timescale/:currentVersion:/services/service-management/#reset-your-service-password

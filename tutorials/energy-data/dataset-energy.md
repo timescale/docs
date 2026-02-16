@@ -1,7 +1,7 @@
 ---
 title: Energy time-series data tutorial - set up dataset
-excerpt: Ingest and set up a sample dataset with energy consumption data so that you can run queries on it in Timescale Console
-products: [cloud, mst, self_hosted]
+excerpt: Ingest and set up a sample dataset with energy consumption data so that you can run queries on it in Tiger Cloud Console
+products: [cloud, self_hosted, mst]
 keywords: [tutorials, create, dataset]
 tags: [tutorials, beginner]
 layout_components: [next_prev_large]

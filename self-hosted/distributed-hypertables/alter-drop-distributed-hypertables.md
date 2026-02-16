@@ -1,7 +1,6 @@
 ---
 title: Alter and drop distributed hypertables
 excerpt: Sunsetted v2.14.x. Alter and drop distributed hypertables in your self-hosted TimescaleDB installation
-products: [self_hosted]
 keywords: [distributed hypertables, alter, delete]
 tags: [change, delete]
 seo:
@@ -25,6 +24,6 @@ are automatically applied across all data nodes. For more information, see the
 section on
 [multi-node administration][multinode-admin].
 
-[alter]: /use-timescale/:currentVersion:/hypertables/alter/
-[drop]: /use-timescale/:currentVersion:/hypertables/drop/
-[multinode-admin]: /self-hosted/latest/multinode-timescaledb/multinode-administration/
+[alter]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#alter-a-hypertable
+[drop]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#drop-a-hypertable
+[multinode-admin]: /self-hosted/:currentVersion:/multinode-timescaledb/multinode-administration/

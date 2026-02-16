@@ -7,12 +7,13 @@ tags: [hypertable columnstore, columnstore settings]
 api:
   license: community
   type: view
+products: [cloud, mst, self_hosted]
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # timescaledb_information.hypertable_columnstore_settings 
 
-Retrieve information about the settings for all hypertables in the columnstore.
+Retrieve information about the settings for all hypertables in the $COLUMNSTORE.
 
 <Since2180 />
 
@@ -20,7 +21,7 @@ Retrieve information about the settings for all hypertables in the columnstore.
 
 To retrieve information about settings:
 
-- **Show columnstore settings for all hypertables**:
+- **Show $COLUMNSTORE settings for all hypertables**:
 
    ```sql 
    SELECT * FROM timescaledb_information.hypertable_columnstore_settings;
@@ -33,7 +34,7 @@ To retrieve information about settings:
    compress_interval_length | 
    ```
 
-- **Retrieve columnstore settings for a specific hypertable**:
+- **Retrieve $COLUMNSTORE settings for a specific hypertable**:
 
    ```sql
    SELECT * FROM timescaledb_information.hypertable_columnstore_settings WHERE hypertable::TEXT LIKE 'metrics';
@@ -48,15 +49,13 @@ To retrieve information about settings:
 
 ## Returns
 
-|Name|Type| Description                                                                                                         |
-|-|-|---------------------------------------------------------------------------------------------------------------------|
-|`hypertable`|`REGCLASS`| A hypertable which has the [columnstore enabled][compression_alter-table].                                          |
-|`segmentby`|`TEXT`| The list of columns used to segment data                                                                            |
-|`orderby`|`TEXT`| List of columns used to order the data, along with ordering and NULL ordering information                           |
-|`compress_interval_length`|`TEXT`| Interval used for [rolling up chunks during compression][rollup-compression] IAIN, update when main doc is written. |
+|Name|Type| Description   |
+|-|-|-------------------------------------------------------------------------------------------|
+|`hypertable`|`REGCLASS`| A hypertable which has the [$COLUMNSTORE enabled][alter_table_hypercore].|
+|`segmentby`|`TEXT`| The list of columns used to segment data. |
+|`orderby`|`TEXT`| List of columns used to order the data, along with ordering and NULL ordering information. |
+|`compress_interval_length`|`TEXT`| Interval used for [rolling up chunks during compression][rollup-compression]. |
+|`index`| `TEXT` | The sparse index details.  |
 
-
-
+[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
 [rollup-compression]: /use-timescale/:currentVersion:/compression/manual-compression/#roll-up-uncompressed-chunks-when-compressing
-[compression_alter-table]: /api/:currentVersion:/hypercore/alter_table/
-

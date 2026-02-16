@@ -1,0 +1,38 @@
+name: "TimescaleDB: Update GUCs list"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to refesh list from'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-gucs-list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip' # caching pip dependencies
+      
+      - name: Update list of GUCs
+        run: |
+          pip install -r .helper-scripts/timescaledb/requirements.txt
+          python .helper-scripts/timescaledb/generate_guc_overview.py "${{ github.event.inputs.tag }}" ./_partials/_timescaledb-gucs.md
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.ORG_AUTOMATION_TOKEN }}
+          add-paths: |
+            _partials/_timescaledb-gucs.md
+          delete-branch: true
+          title: "Updated list of GUCs from TimescaleDB ${{ github.event.inputs.tag }}"

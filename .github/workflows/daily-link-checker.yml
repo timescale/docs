@@ -12,10 +12,10 @@ jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+      - uses: actions/checkout@v4
 
       - name: Check links
-        uses: gaurav-nelson/github-action-markdown-link-check@0f074c8562c5a8fed38282b7c741d1970bb1512d
+        uses: tcort/github-action-markdown-link-check@v1.0.16
         id: linkcheck
         with:
           use-quiet-mode: "yes"
@@ -24,7 +24,7 @@ jobs:
 
       - name: Create issue
         if: ${{ failure() }}
-        uses: JasonEtco/create-an-issue@e27dddc79c92bc6e4562f268fffa5ed752639abd
+        uses: JasonEtco/create-an-issue@v2.9.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

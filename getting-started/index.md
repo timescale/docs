@@ -1,39 +1,30 @@
 ---
-title: Get started with Timescale
-excerpt: Supercharge your real-time analytics on time-series data with Timescale Cloud. Create a free account, launch your first service, and use some of the advanced features
+title: Get started with Tiger Data
+excerpt: Supercharge your real-time analytics on time-series data with Tiger Cloud on AWS and Tiger Cloud on Azure. Create a free account, launch your first service, and use some of the advanced features
 products: [cloud]
-layout_components: [next_prev_large]
 content_group: Getting started
 ---
 
-import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
+import CloudIntroShort from "versionContent/_partials/_cloud-intro-short.mdx";
 import TimescaleIntro from "versionContent/_partials/_timescale-intro.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 
-# Get started with Timescale
+# Get started with $COMPANY
 
-<CloudIntro />
+<CloudIntroShort />
 
 This section shows you how to:
 
-1.  [Create and connect to a $SERVICE_LONG][services-create]: choose the capabilities that match your business and 
-    engineering needs on $COMPANY's cloud-based PostgreSQL platform. 
-1.  [Run queries from $CONSOLE][run-queries-from-console]: securely interact with your data in the $CONSOLE UI. 
-1.  [Try the main features in Timescale products][test-drive]: rapidly implement the features in $CLOUD_LONG that
-    enable you to ingest and query data faster while keeping prices low.
+- [Create and connect to a $SERVICE_LONG][services-create]: choose the capabilities that match your business and 
+  engineering needs on $COMPANY's cloud-based $PG platform.
+- [Try the main features in $COMPANY products][try-timescale-features]: rapidly implement the features in $CLOUD_LONG that 
+  enable you to ingest and query data faster while keeping the costs low.
+- [Start coding with $COMPANY][connect-with-code]: quickly integrate $CLOUD_LONG and $TIMESCALE_DB into your apps using your favorite programming language.
+- [Run queries from $CONSOLE][in-console-editors]: securely interact with your data in the $CONSOLE UI.
 
-What next? See the [use case tutorials][tutorials], interact with the data in your $SERVICE_LONG using 
-[your favorite programming language][connect-with-code], integrate your $SERVICE_LONG with a range of 
-[third-party tools][integrations], plain old [Use Timescale][use-timescale], or dive into [the API][use-the-api].
+<WhereNext />
 
-[tutorials]: /tutorials/:currentVersion:/
-[connect-with-code]: /quick-start/:currentVersion:/
-[integrations]: /use-timescale/:currentVersion:/integrations/
-[use-the-api]: /api/:currentVersion:/
-[use-timescale]: /use-timescale/:currentVersion:/
-[services-create]: /getting-started/:currentVersion:/services#create-your-timescale-account
-[services-connect]: /getting-started/:currentVersion:/services/#connect-to-your-service
-[test-drive]: /getting-started/:currentVersion:/try-key-features-timescale-products/
-[run-queries-from-console]: /getting-started/:currentVersion:/run-queries-from-console/
-[ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables
-
+[connect-with-code]: /getting-started/:currentVersion:/start-coding-with-timescale/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[services-create]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-account
+[try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/

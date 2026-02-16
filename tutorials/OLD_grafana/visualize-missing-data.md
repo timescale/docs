@@ -18,9 +18,9 @@ time intervals or analyzing today's CPU utilization by 15 minute
 intervals. Gaps in data can also have other negative consequences,
 for example, breaking applications downstream.
 
-In this tutorial, you'll see how to use [Grafana][grafana-external]
+In this tutorial, you'll see how to use [Grafana][grafana]
 (an open-source visualization tool) and TimescaleDB for
-handling missing time-series data (using the TimescaleDB/PostgreSQL data
+handling missing time-series data (using the TimescaleDB/$PG data
 source natively available in Grafana).
 
 ### Prerequisites
@@ -49,7 +49,7 @@ For this tutorial, we are going to load our TimescaleDB instance with
 simulated IoT sensor data (available in our How to explore TimescaleDB
 using simulated IoT sensor data tutorial).
 
-This dataset simulates four sensors that each collect temperature and CPU data, in a [hypertable][docs-hypertable] structured like this:
+This dataset simulates four sensors that each collect temperature and CPU data, in a [hypertable][hypertables-section] structured like this:
 
 ```sql
 CREATE TABLE sensor_data (
@@ -75,7 +75,7 @@ dataset).*
 
 To confirm we're missing data values, let's create a simple graph that
 calculates the average temperature readings from `sensor_1` over the past
-6 hours (using [`time_bucket`][docs-timebucket]).
+6 hours (using [`time_bucket`][time_bucket]).
 
 ```sql
 SELECT
@@ -97,7 +97,7 @@ data points (flat line) during that time period.
 ### Step 2 - Interpolate (fill in) the missing data
 
 For interpolating the missing data, we use
-[`time_bucket_gapfill`][docs-timebucket-gapfill],
+[`time_bucket_gapfill`][hyperfunctions-api-gapfilling],
 combined with [`LOCF`][docs-LOCF] ("Last Observation Carried Forward").
 This takes the last reading before the missing data began and plots it
 (the last recorded value) at regular time intervals until new data is
@@ -179,9 +179,9 @@ how to use TimescaleDB, check out our other [tutorials][tutorials]
 (which range from beginner to advanced).
 
 [docs-LOCF]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill#locf
-[docs-hypertable]: /use-timescale/:currentVersion:/hypertables/
-[docs-timebucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
-[docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
-[grafana-external]: https://grafana.com/
-[install-timescale]: /getting-started/latest/
+[grafana]: https://grafana.com/
+[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[install-timescale]: /getting-started/:currentVersion:/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [tutorials]: /tutorials/:currentVersion:/

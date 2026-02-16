@@ -10,19 +10,21 @@ keywords: [continuous aggregates, hyperfunctions, analytics]
 So far in this tutorial, you have ingested the data and run an aggregate query.
 Then you improved the performance of your analysis with continuous aggregates.
 
-Now, let's go over some ideas on analyzing the data using PostgreSQL and
-TimescaleDB, to help you understand more about player activity during the NFL
+Now, let's go over some ideas on analyzing the data using $PG and
+$TIMESCALE_DB, to help you understand more about player activity during the NFL
 season.
 
 <Highlight type="tip">
+
 Some of this analysis includes visualizations to help you see the potential uses
-of this data. These are created using the [Matplotlib](https://matplotlib.org/)
+of this data. These are created using the [Matplotlib][matplotlib]
 Python module, which is one of many great visualization tools.
+
 </Highlight>
 
 ### Average yards run for a player over a game
 
-This query uses a percentile approximation [hyperfunction][api-hyperfunctions]
+This query uses a percentile approximation [hyperfunction][hyperfunctions-api-approx-percentile]
 to find the mean yards run per game by a single player.
 
 ```sql
@@ -54,7 +56,7 @@ football.
 
 ### Average and median yards run per game by type of player
 
-For this query, you use another one of the TimescaleDB percentile functions
+For this query, you use another one of the $TIMESCALE_DB percentile functions
 called `percentile_agg`. You can use the `percentile_agg` function to find the
 fiftieth percentile, which is the approximate median.
 
@@ -176,15 +178,17 @@ glean from this type of query, this scatter plot is just one possibility.
 
 ### Average yards per game for top three players of each position
 
-You can use this PostgreSQL query to extract the average yards run by an individual
+You can use this $PG query to extract the average yards run by an individual
 player over one game. This query only includes the top three highest players'
 average yard values per position type. The data is ordered by the average yards
 run across all players for each position. This becomes important later on.
 
 <Highlight type="note">
+
 This query excludes some position types from the list due to such low average
 yard values, the excluded positions are Kicker, Punter, Nose Tackle, Long Snapper,
 and Defensive Tackle
+
 </Highlight>
 
 ```sql
@@ -194,7 +198,7 @@ WITH total_yards AS (
  FROM player_yards_by_game t
  GROUP BY t.player_id, t.gameid
 ), avg_yards AS (
--- This table takes the average of the yards run by each player and calls out thier position
+-- This table takes the average of the yards run by each player and calls out their position
  SELECT p.player_id, p.displayname, AVG(yards) AS avg_yards, p."position"
  FROM total_yards t
  LEFT JOIN player p ON t.player_id = p.player_id
@@ -233,4 +237,5 @@ aggregates. Consider joining in stadium data that we provided to see if teams
 tend to score or run less at Mile High Stadium. Does natural or artificial turf
 affect any teams consistently?
 
-[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
+[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
+[matplotlib]: https://matplotlib.org/

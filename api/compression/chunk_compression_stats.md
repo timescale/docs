@@ -7,13 +7,15 @@ tags: [disk space, schemas, size]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # chunk_compression_stats() <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/chunk_columnstore_stats/">chunk_columnstore_stats()</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/chunk_columnstore_stats/">chunk_columnstore_stats()</a>.
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Get chunk-specific statistics related to hypertable compression.
 All sizes are in bytes.
@@ -24,30 +26,7 @@ the chunk. An insert into a compressed chunk does not update the compressed
 sizes. For more information about how to compute chunk sizes, see the
 `chunks_detailed_size` section.
 
-### Required arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`hypertable`|REGCLASS|Name of the hypertable|
-
-### Returns
-
-|Column|Type|Description|
-|-|-|-|
-|`chunk_schema`|TEXT|Schema name of the chunk|
-|`chunk_name`|TEXT|Name of the chunk|
-|`compression_status`|TEXT|the current compression status of the chunk|
-|`before_compression_table_bytes`|BIGINT|Size of the heap before compression (NULL if currently uncompressed)|
-|`before_compression_index_bytes`|BIGINT|Size of all the indexes before compression (NULL if currently uncompressed)|
-|`before_compression_toast_bytes`|BIGINT|Size the TOAST table before compression (NULL if currently uncompressed)|
-|`before_compression_total_bytes`|BIGINT|Size of the entire chunk table (table+indexes+toast) before compression (NULL if currently uncompressed)|
-|`after_compression_table_bytes`|BIGINT|Size of the heap after compression (NULL if currently uncompressed)|
-|`after_compression_index_bytes`|BIGINT|Size of all the indexes after compression (NULL if currently uncompressed)|
-|`after_compression_toast_bytes`|BIGINT|Size the TOAST table after compression (NULL if currently uncompressed)|
-|`after_compression_total_bytes`|BIGINT|Size of the entire chunk table (table+indexes+toast) after compression (NULL if currently uncompressed)|
-|`node_name`|TEXT|nodes on which the chunk is located, applicable only to distributed hypertables|
-
-### Sample usage
+## Samples
 
 ```sql
 SELECT * FROM chunk_compression_stats('conditions')
@@ -92,3 +71,28 @@ SELECT pg_size_pretty(after_compression_total_bytes) AS total
 total | 48 kB
 
 ```
+
+## Required arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`hypertable`|REGCLASS|Name of the hypertable|
+
+## Returns
+
+|Column|Type|Description|
+|-|-|-|
+|`chunk_schema`|TEXT|Schema name of the chunk|
+|`chunk_name`|TEXT|Name of the chunk|
+|`compression_status`|TEXT|the current compression status of the chunk|
+|`before_compression_table_bytes`|BIGINT|Size of the heap before compression (NULL if currently uncompressed)|
+|`before_compression_index_bytes`|BIGINT|Size of all the indexes before compression (NULL if currently uncompressed)|
+|`before_compression_toast_bytes`|BIGINT|Size the TOAST table before compression (NULL if currently uncompressed)|
+|`before_compression_total_bytes`|BIGINT|Size of the entire chunk table (table+indexes+toast) before compression (NULL if currently uncompressed)|
+|`after_compression_table_bytes`|BIGINT|Size of the heap after compression (NULL if currently uncompressed)|
+|`after_compression_index_bytes`|BIGINT|Size of all the indexes after compression (NULL if currently uncompressed)|
+|`after_compression_toast_bytes`|BIGINT|Size the TOAST table after compression (NULL if currently uncompressed)|
+|`after_compression_total_bytes`|BIGINT|Size of the entire chunk table (table+indexes+toast) after compression (NULL if currently uncompressed)|
+|`node_name`|TEXT|nodes on which the chunk is located, applicable only to distributed hypertables|
+
+

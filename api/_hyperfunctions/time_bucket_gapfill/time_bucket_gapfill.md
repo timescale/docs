@@ -30,7 +30,7 @@ api_details:
       - name: bucket_width
         type: INTERVAL | INTEGER
         description: >
-          A PostgreSQL time interval to specify the length of each bucket.
+          A Postgres time interval to specify the length of each bucket.
           For example, use `1 day` to get daily buckets.
           Use `INTEGER` only if your time column is integer-based.
       - name: time
@@ -65,5 +65,6 @@ api_details:
         type: TIMESTAMPTZ
         description: >
           The start time of the time bucket.
+products: [cloud, mst, self_hosted]
 ---
 

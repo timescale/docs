@@ -1,6 +1,6 @@
 ---
 title: SELECT data
-excerpt: Query data from a hypertable in Timescale Cloud using the standard SELECT command
+excerpt: Query data from a hypertable in TimescaleDB using the standard SELECT command
 products: [cloud, mst, self_hosted]
 keywords: [queries]
 ---
@@ -8,7 +8,7 @@ keywords: [queries]
 # SELECT data
 
 You can query data from a hypertable using a standard
-[`SELECT`][postgres-select] command. All SQL clauses and features are supported. Use [PopSQL][popsql] to work on data with centralized SQL queries, interactive visuals and real-time collaboration
+[`SELECT`][postgres-select] command. All SQL clauses and features are supported. 
 
 ## Basic query examples
 
@@ -38,7 +38,7 @@ Get information about the weather conditions at each location, for each
 measurements taken, the maximum temperature, and the maximum humidity. Order the
 results by maximum temperature.
 
-This examples uses the [`time_bucket`][time_bucket] function to aggregate data
+This examples uses the [`time_bucket`][time-buckets] function to aggregate data
 into 15-minute buckets:
 
 ```sql
@@ -64,7 +64,5 @@ SELECT COUNT(DISTINCT location) FROM conditions
     AND time > NOW() - INTERVAL '1 day';
 ```
 
-[postgres-select]: https://www.postgresql.org/docs/current/static/sql-select.html
-[time_bucket]: /use-timescale/:currentVersion:/time-buckets/
-[popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
-
+[postgres-select]: https://www.postgresql.org/docs/current/sql-select.html
+[time-buckets]: /use-timescale/:currentVersion:/time-buckets/

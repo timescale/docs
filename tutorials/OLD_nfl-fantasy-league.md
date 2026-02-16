@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [analytics, psycopg2]
 ---
 
-# Win your NFL fantasy league with TimescaleDB
+# Win your NFL fantasy league with $TIMESCALE_DB
 
 This tutorial is a step-by-step guide on how to ingest and analyze American football data with TimescaleDB.
 
@@ -24,7 +24,7 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 
 *   Python 3
 *   TimescaleDB (see [installation options][install-timescale])
-*   [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
+*   [Psql][psql] or any other $PG client (for example, DBeaver)
 
 ## Download the dataset
 
@@ -230,7 +230,7 @@ conn.close()
 
 ## Analyze NFL data
 
-Now that you have all the data ingested, let's go over some ideas on how you can analyze the data using PostgreSQL and TimescaleDB to help you perfect
+Now that you have all the data ingested, let's go over some ideas on how you can analyze the data using $PG and TimescaleDB to help you perfect
 your fantasy drafting strategy and win your fantasy season.
 
 Some of this analysis includes visualizations to help you see the potential uses for this data. These are created using the Matplotlib Python module, which is one of many great visualization tools.
@@ -393,7 +393,7 @@ The y-axis, or the number of plays for one team during a single game shows that 
 
 ### **Average yards per game for top three players of each position**
 
-You can use this PostgreSQL query to extract the average yards run by an individual player over one game. This query only includes the top three highest player's average yard values per position type. The data is ordered by the average yards run across all players for each position. This becomes important later on.
+You can use this $PG query to extract the average yards run by an individual player over one game. This query only includes the top three highest player's average yard values per position type. The data is ordered by the average yards run across all players for each position. This becomes important later on.
 
 Note: This query excludes some position types from the list due to such low average yard values, the excluded positions are Kicker, Punter, Nose Tackle, Long Snapper, and Defensive Tackle
 
@@ -404,7 +404,7 @@ WITH total_yards AS (
  FROM player_yards_by_game t
  GROUP BY t.player_id, t.gameid
 ), avg_yards AS (
--- This table takes the average of the yards run by each player and calls out thier position
+-- This table takes the average of the yards run by each player and calls out their position
  SELECT p.player_id, p.display_name, AVG(yards) AS avg_yards, p."position"
  FROM total_yards t
  LEFT JOIN player p ON t.player_id = p.player_id
@@ -447,7 +447,6 @@ def generate_field():
     """Generates a realistic american football field with line numbers and hash marks.
 
     Returns:
-        [tuple]: (figure, axis)
     """
     rect = patches.Rectangle((0, 0), 120, 53.3, linewidth=2,
                              edgecolor='black', facecolor='green', zorder=0)
@@ -567,7 +566,7 @@ draw_play(game_id=2018112900,
           movements=False)
 ```
 
-![pre snap players figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement_pre_snap.png)
+![pre snap players figure][pre-snap-players-figure]
 
 You can also visualize player movement during the play if you set `movements` to `True`:
 
@@ -579,13 +578,16 @@ draw_play(game_id=2018112900,
           movements=True)
 ```
 
-![player movement figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement.png)
+![player movement figure][player-movement-figure]
 
 ## Resources
 
-*   [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
+*   [NFL Big Data Bowl 2021 on Kaggle][nfl-big-data-bowl-2021-on-kaggle]
 
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
-[install-timescale]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
-[psql-install]: /use-timescale/:currentVersion:/integrations/psql/
+[nfl-big-data-bowl-2021-on-kaggle]: https://www.kaggle.com/c/nfl-big-data-bowl-2021
+[player-movement-figure]: https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement.png
+[pre-snap-players-figure]: https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement_pre_snap.png
+[psql]: /integrations/:currentVersion:/psql/

@@ -1,6 +1,6 @@
 ---
-title: Real-time analytics with Timescale Cloud and Grafana
-excerpt: Simulate an IOT dataset in your Timescale Cloud service
+title: Real-time analytics with Tiger Cloud and Grafana
+excerpt: Integrate Grafana with a Tiger Cloud service and make insights based on visualization of data optimized for size and speed in the columnstore
 products: [cloud, mst, self_hosted]
 keywords: [IoT, simulate]
 ---
@@ -25,7 +25,7 @@ a $SERVICE_LONG and keep those lights on.
 [Grafana][grafana-docs] is a popular data visualization tool that enables you to create customizable dashboards 
 and effectively monitor your systems and applications.
 
-![Grafana real-time analytics](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-energy-cagg.png)
+![Grafana real-time analytics][grafana-real-time-analytics]
 
 This page shows you how to integrate Grafana with a $SERVICE_LONG and make insights based on visualization of
 data optimized for size and speed in the columnstore.
@@ -62,83 +62,6 @@ create [continuous aggregates on top of your continuous aggregates][hierarchical
 
 </Procedure>
 
-## Optimize your data for real-time analytics
-
-[Hypercore][hypercore] is the $COMPANY hybrid row-columnar storage engine used by hypertables. Hypertables partition your data in 
-chunks. Chunks stored in the rowstore use a row-oriented data format optimized for high-speed inserts and updates. 
-Chunks stored in the columnstore use a columnar data format optimized for analytics. You ingest `hot` data into the 
-rowstore. As data cools and becomes more suited for analytics, $CLOUD_LONG automatically converts these chunks of data 
-to the columnstore. You define the moment when data is converted using a columnstore policy.
-
-When $CLOUD_LONG converts a chunk to the columnstore, TimescaleDB automatically creates a different schema for your
-data. $TIMESCALE_DB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters when
-you write to and read from the columstore.
-
-To increase the speed of your analytical queries by a factor of 10 and reduce storage costs by up to 90%, convert data
-to the columnstore:
-
-<Procedure>
-
-1. **Connect to your $SERVICE_LONG**
-
-   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
-   You can also connect to your service using [psql][connect-using-psql].
-
-1. **Enable columnstore on a hypertable**
-
-   Create a [job][job] that automatically moves chunks in a hypertable to the columnstore at a specific time interval.
-   By default, your table is `orderedby` the time column. For efficient queries on columnstore data, remember to
-   `segmentby` the column you will use most often to filter your data:
-
-   ```sql
-   ALTER TABLE metrics SET (
-     timescaledb.enable_columnstore = true,
-     timescaledb.segmentby = 'type_id',
-     timescaledb.orderby = 'created DESC'
-   );
-   ```
-
-1. **Add a policy to convert chunks to the columnstore at a specific time interval**
-
-   For example, 60 days after the data was added to the table:
-   ``` sql
-   CALL add_columnstore_policy('metrics', INTERVAL '8 days');
-   ```
-   See [add_columnstore_policy][add_columnstore_policy].
-
-1. **View your data space saving**
-
-   When you convert data to the columnstore, as well as being optimized for analytics, it is compressed by more than 90%.
-   This saves on storage costs and keeps your queries operating at lightning speed. To see the amount of space saved:
-   ```sql
-   SELECT 
-        pg_size_pretty(before_compression_total_bytes) as before,
-        pg_size_pretty(after_compression_total_bytes) as after
-   FROM hypertable_compression_stats('metrics');
-   ```
-   You see something like:
-
-   | before | after |  
-   |--------|-------|
-   | 181 MB | 16 MB |
-
-1. **Faster analytical queries on data in the columnstore**
-
-   Now run the analytical query again:
-   ```sql
-    SELECT time_bucket('1 day', created, 'Europe/Berlin') AS "time",
-    round((last(value, created) - first(value, created)) * 100.) / 100. AS value
-    FROM metrics                                   
-    WHERE type_id = 5
-    GROUP BY 1;
-   ```
-   On this amount of data, this analytical query on data in the columnstore takes about 0.8 seconds.
-
-</Procedure>
-
-Just to hit this one home, by converting cooling data to the columnstore, you have increased the speed of your analytical
-queries by a factor of 10, and reduced storage by up to 90%.
-
 <GrafanaConnect />
 
 ## Visualize energy consumption
@@ -157,7 +80,7 @@ To visually monitor the volume of energy consumption over time:
    1. Click `Add visualization`, then select the data source that connects to your $SERVICE_LONG and the `Bar chart` 
       visualization.
    
-      ![Grafana create dashboard](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png)
+      ![Grafana create dashboard][grafana-create-dashboard]
    1. In the `Queries` section, select `Code`, then run the following query based on your continuous aggregate:
       
        ```sql
@@ -186,7 +109,7 @@ To visually monitor the volume of energy consumption over time:
       This query averages the results for households in a specific time zone by hour and orders them by time.
       Because you use a continuous aggregate, this data is always correct in real time.
    
-      ![Grafana real-time analytics](https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-energy-cagg.png)
+      ![Grafana real-time analytics][grafana-real-time-analytics]
 
       You see that energy consumption is highest in the evening and at breakfast time. You also know that the wind
       drops off in the evening. This data proves that you need to supply a supplementary power source for peak times, 
@@ -197,30 +120,13 @@ To visually monitor the volume of energy consumption over time:
 
 </Procedure>
 
-You have integrated Grafana with a Timescale Cloud service and made insights based on visualization of your data.
+You have integrated Grafana with a $SERVICE_LONG and made insights based on visualization of your data.
 
-[grafana-docs]: https://grafana.com/docs/
-[grafana-self-managed]: https://grafana.com/get/?tab=self-managed
 [grafana-cloud]: https://grafana.com/get/
-[use-time-buckets]: /use-timescale/:currentVersion:/time-buckets/use-time-buckets/
-
+[grafana-create-dashboard]: https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-configure-dashboard.png
+[grafana-docs]: https://grafana.com/docs/
+[grafana-real-time-analytics]: https://assets.timescale.com/docs/images/use-case-rta-grafana-timescale-energy-cagg.png
+[grafana-self-managed]: https://grafana.com/get/?tab=self-managed
+[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
 [test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
 [test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
-[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
-[compression]: /use-timescale/:currentVersion:/compression/
-[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
-[job]: /api/:currentVersion:/actions/add_job/
-[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/hypercore/alter_materialized_view/
-[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
-[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
-[alter_job]: /api/:currentVersion:/actions/alter_job/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
-[connect-using-psql]: /use-timescale/:currentVersion:/integrations/query-admin/psql#connect-to-your-service
-[insert]: /use-timescale/:currentVersion:/write-data/insert/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/

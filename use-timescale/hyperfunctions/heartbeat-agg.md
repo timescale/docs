@@ -1,13 +1,14 @@
 ---
 title: Heartbeat aggregation
-excerpt: Heartbeat aggregation helps analyze intermittent or irregular time-series data, especially with multiple sources or event-driven updates. Learn how to use heartbeat aggregation in Timescale Cloud
+excerpt: Heartbeat aggregation helps analyze intermittent or irregular time-series data, especially with multiple sources or event-driven updates. Learn how to use heartbeat aggregation in TimescaleDB
 keywords: [hyperfunctions, Toolkit, heartbeat, liveness]
+products: [cloud, mst, self_hosted]
 ---
 
 # Heartbeat aggregation
 
 Given a series of timestamped health checks, it can be tricky to determine the
-overall health of a system over a given interval. PostgreSQL provides window
+overall health of a system over a given interval. $PG provides window
 functions that you use to get a sense of where unhealthy gaps are, but they can
 be somewhat awkward to use efficiently. 
 
@@ -16,7 +17,7 @@ a frequently occurring problem. Heartbeat aggregation helps analyze event-based 
 
 This example uses the [SustData public dataset][sustdata]. This dataset tracks
 the power usage of a small number of apartments and houses over four different
-deployment intervals. The data is collected in one minute samples from each
+deployment intervals. The data is collected in one-minute samples from each
 unit.
 
 When you have loaded the data into hypertables, you can create a materialized
@@ -127,5 +128,5 @@ daylight savings time changes.
 For more information about heartbeat aggregation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-heartbeat-agg].
 
-[sustdata]: https://osf.io/2ac8q/
 [hyperfunctions-api-heartbeat-agg]: /api/:currentVersion:/hyperfunctions/state-tracking/heartbeat_agg/
+[sustdata]: https://osf.io/2ac8q/

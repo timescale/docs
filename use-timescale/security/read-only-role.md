@@ -1,20 +1,21 @@
 ---
-title: Read-only role
-excerpt: Timescale Cloud includes different levels of access to your services for enhanced security. Learn how to grant read-only access to your data in Timescale Console
-product: [cloud, mst, self_hosted]
+title: Manage data security in your Tiger Cloud service
+excerpt: Learn about the available user roles to access data in your database
+products: [cloud]
 keywords: [client credentials, accounts, users, members, read-only, security]
 tags: [authentication, credentials, members, security]
 ---
 
-# Read-only user
+# Manage data security in your $SERVICE_LONG
 
-You can create a role that provides read-only access to your database.
+When you create a $SERVICE_SHORT, $CLOUD_LONG assigns you the tsdmadmin role. This role has full permissions to modify data in your $SERVICE_SHORT. However, $CLOUD_LONG does not provide superuser access. tsdmadmin is not a superuser. 
+
+As tsdmadmin, you can use standard $PG means to create other roles or assign individual permissions. This page shows you how to create a read-only role for your database. Adding a read-only role does not provide resource isolation. To restrict the access of a read-only user, as well as isolate resources, create a [read replica][readreplica] instead. 
 
 <Highlight type="important">
-Adding a read-only user role to your database does not provide resource
-isolation. If you want to restrict the access of a read-only user, as well as isolate resources, you can create a read replica instead. For more information, see the
-[read scaling](/use-timescale/latest/ha-replicas/read-scaling/)
-section.
+
+The database-level roles for the individual $SERVICE_SHORTs in your $PROJECT_SHORT do not overlap with the $PROJECT_LONG user roles. This page describes the database-level roles. For user roles available in $CONSOLE_SHORT, see [Control user access to $PROJECT_LONGs][projects].
+
 </Highlight>
 
 ## Create a read-only user
@@ -23,14 +24,18 @@ You can create a read-only user to provide limited access to your database.
 
 <Procedure>
 
-### Creating a read-only user
+1.  Connect to your $SERVICE_SHORT as the tsdbadmin user.
 
-1.  Connect to your database as the `tsdbadmin` user.
-
-1.  At the psql prompt, create the new role:
+1.  Create the new role:
 
     ```sql
     CREATE ROLE readaccess;
+    ```
+
+1.  Grant usage on the schema to allow access to objects within it:
+
+    ```sql
+    GRANT USAGE ON SCHEMA <SCHEMA_NAME> TO readaccess;
     ```
 
 1.  Grant the appropriate permissions for the role, as required. For example, to
@@ -59,3 +64,6 @@ You can create a read-only user to provide limited access to your database.
     ```
 
 </Procedure>
+
+[projects]: /use-timescale/:currentVersion:/security/members/
+[readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/

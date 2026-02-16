@@ -1,27 +1,31 @@
 ---
-title: Supported PostgreSQL extensions in Managed Service for TimescaleDB
+title: Supported Postgres extensions in Managed Service for TimescaleDB
 excerpt: Add an extension and see a list of available extensions in Managed Service for TimescaleDB
 products: [mst]
 tags: [extensions]
 ---
 
-# Supported PostgreSQL extensions
+# Supported $PG extensions
 
-Managed Service for TimescaleDB supports many PostgreSQL extensions. See
-[available extensions](#available-extensions) for a full list.
+$MST_LONG supports many $PG extensions. See
+[available extensions][available-extensions-link] for a full list.
 
 ## Add an extension
 
 You can add a supported extension to your database from the command line.
 
 <Highlight type="important">
+
 Some extensions have dependencies. When adding these, make sure to create them
 in the proper order.
+
 </Highlight>
 
 <Highlight type="important">
+
 Some extensions require disconnecting and reconnecting the client connection
 before they are fully available.
+
 </Highlight>
 
 <Procedure>
@@ -35,66 +39,91 @@ before they are fully available.
 
 ## Available extensions
 
-These extensions are available on Managed Service for TimescaleDB:
+These extensions are available on $MST_LONG:
 
 <!-- vale Vale.Spelling = NO -->
 
-*   address_standardizer
-*   address_standardizer_data_us
-*   aiven_extras (logical replication support)
-*   bloom
-*   btree_gin
-*   btree_gist
-*   chkpass
-*   citext
-*   cube
-*   dblink
-*   dict_int
-*   earthdistance
-*   fuzzystrmatch
-*   hstore
-*   intagg
-*   intarray
-*   isn
-*   ltree
-*   pg_buffercache
-*   pg_cron
-*   pg_partman (PostgreSQL 10 and older)
-*   pg_prometheus (PostgreSQL 10 and newer)
-*   pg_repack (PostgreSQL 10 and newer)
-*   pg_stat_statements
-*   pg_trgm
-*   pgcrypto
-*   pgrouting
-*   pgrowlocks
-*   pgstattuple
-*   plcoffee
-*   plls
-*   plperl
-*   plv8  (PostgreSQL 10 and older)
-*   postgis
-*   postgis_address_standardizer
-*   postgis_sfcgal
-*   postgis_tiger_geocoder
-*   postgis_topology
-*   postgis_legacy (see notes in this section)
-*   postgres_fdw
-*   rum
-*   sslinfo
-*   tablefunc
-*   tsearch2
-*   tsm_system_rows
-*   unaccent
-*   unit
-*   uuid-ossp
-*   wal2json
+- address_standardizer
+- address_standardizer_data_us
+- aiven_extras
+- amcheck
+- anon
+- autoinc
+- bloom
+- bool_plperl
+- btree_gin
+- btree_gist
+- citext
+- cube
+- dblink
+- dict_int
+- dict_xsyn
+- earthdistance
+- file_fdw
+- fuzzystrmatch
+- h3
+- h3_postgis
+- hll
+- hstore
+- hstore_plperl
+- insert_username
+- intagg
+- intarray
+- isn
+- jsonb_plperl
+- lo
+- ltree
+- moddatetime
+- pageinspect
+- pg_buffercache
+- pg_cron
+- pg_freespacemap
+- pg_prewarm
+- pg_repack
+- pg_similarity
+- pg_stat_monitor
+- pg_stat_statements
+- pg_surgery
+- pg_trgm
+- pg_visibility
+- pg_walinspect
+- pgaudit
+- pgcrypto
+- pgrouting
+- pgrowlocks
+- pgstattuple
+- plperl
+- plpgsql
+- postgis
+- postgis_raster
+- postgis_sfcgal
+- postgis_tiger_geocoder
+- postgis_topology
+- postgres_fdw
+- refint
+- rum
+- seg
+- sslinfo
+- tablefunc
+- tcn
+- timescaledb
+- tsm_system_rows
+- tsm_system_time
+- unaccent
+- unit
+- uuid-ossp
+- vector
+- vectorscale
+- xml2
+- timescaledb_toolkit
 
 <!-- vale Vale.Spelling = YES -->
 
 <Highlight type="note">
+
 The `postgis_legacy` extension is not packaged or supported as an extension by
-the PostGIS project. Timescale provides the extension package for Managed
-Service for TimescaleDB.
+the PostGIS project. $COMPANY provides the extension package for $MST_LONG.
+
 </Highlight>
 
 ## Request an extension
@@ -108,6 +137,10 @@ ability to offer the highest possible service level. An example of an untrusted
 language extension is `plpythonu`.
 
 <Highlight type="note">
-You can contact Support directly from Managed Service for TimescaleDB. Click the
+
+You can contact Support directly from $MST_LONG. Click the
 life-preserver icon in the upper-right corner of your dashboard.
+
 </Highlight>
+
+[available-extensions-link]: /mst/:currentVersion:/extensions/#available-extensions

@@ -1,9 +1,8 @@
 <Procedure>
 
+1. **Install the latest version of $PG and psql**
 
-1. **Install the latest version of PostgreSQL and psql**
-
-    1. Download [PostgreSQL][pg-download], then run the installer.
+    1. Download [$PG][pg-download], then run the installer.
 
         1. In the `Select Components` dialog, check `Command Line Tools`, along with any other components
            you want to install, and click `Next`.
@@ -17,7 +16,7 @@
 
 1.  **Install TimescaleDB**
 
-    1.  Unzip the [TimescaleDB installer][supported-platforms] to `<install_dir>`, that is, your selected directory.
+    1.  Unzip the [$TIMESCALE_DB installer][supported-platforms] to `<install_dir>`, that is, your selected directory.
 
         Best practice is to use the latest version.
 
@@ -25,28 +24,18 @@
 
     1. Complete the installation wizard.
 
+        During installation, the wizard will prompt you to run the `timescaledb-tune` script to optimize your $PG configuration. It is recommended to accept this option. For more information, see [configuration][config].
+
         If you see an error like `could not load library "C:/Program Files/PostgreSQL/17/lib/timescaledb-2.17.2.dll": The specified module could not be found.`, use
         [Dependencies][dependencies] to ensure that your system can find the compatible DLLs for this release of TimescaleDB.
 
-1.  **Tune your PostgreSQL instance for TimescaleDB**
+1.  **Restart the $PG service**
 
-     Run the `timescaledb-tune` script included in the `timescaledb-tools` package with TimescaleDB. For more
-            information, see [configuration][config].
-
-1.  **Login to PostgreSQL as `postgres`**
-
-    ```bash
-    sudo -u postgres psql
-    ```
-    You are in the psql shell.
-
-1. **Set the password for `postgres`**
-
-    ```bash
-    \password postgres
+    ```powershell
+    Restart-Service postgresql-x64-18
     ```
 
-    When you have set the password, type `\q` to exit psql.
+    Replace `18` with your $PG version if different.
 
 </Procedure>
 

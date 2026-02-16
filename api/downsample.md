@@ -2,6 +2,7 @@
 title: Downsample
 excerpt: Downsample data to a smaller, representative subset
 keywords: [downsample, hyperfunctions, Toolkit]
+products: [cloud, mst, self_hosted]
 ---
 
 # Downsample
@@ -13,7 +14,7 @@ graphing applications.
 
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
-[Timescale Toolkit][install-toolkit] PostgreSQL extension.
+[$TOOLKIT_LONG][install-toolkit] $PG extension.
 
 <HyperfunctionTable
     hyperfunctionFamily='downsample'

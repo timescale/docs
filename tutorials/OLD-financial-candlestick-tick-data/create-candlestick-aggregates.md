@@ -13,20 +13,20 @@ example if you receive it in an already aggregated form such as 1-min buckets,
 you can still use these functions to help you create
 additional aggregates of your data into larger buckets, such as 1-hour or 1-day
 buckets. If you want to work with pre-aggregated stock and crypto data, see the
-[Analyzing Intraday Stock Data][intraday-tutorial] tutorial for more examples.
+[Analyzing Intraday Stock Data][tutorials] tutorial for more examples.
 
-TimescaleDB includes [hyperfunctions][hyperfunctions] that you can use to
+$TIMESCALE_DB includes [hyperfunctions][api-hyperfunctions] that you can use to
 store and query your financial data more
-easily. Hyperfunctions are SQL functions within TimescaleDB that make it
-easier to manipulate and analyze time-series data in PostgreSQL with fewer
+easily. Hyperfunctions are SQL functions within $TIMESCALE_DB that make it
+easier to manipulate and analyze time-series data in $PG with fewer
 lines of code. There are three
 hyperfunctions that are essential for calculating candlestick values:
-[`time_bucket()`][time-bucket], [`FIRST()`][first], and [`LAST()`][last].
+[`time_bucket()`][time_bucket], [`FIRST()`][first], and [`LAST()`][last].
 
 The `time_bucket()` hyperfunction helps you aggregate records into buckets of
 arbitrary time intervals based on the timestamp value. `FIRST()` and `LAST()`
 help you calculate the opening and closing prices. To calculate
-highest and lowest prices, you can use the standard PostgreSQL aggregate
+highest and lowest prices, you can use the standard $PG aggregate
 functions `MIN` and `MAX`.
 
 In this first SQL example, use the hyperfunctions to query the tick data,
@@ -61,6 +61,7 @@ like `MIN` and `MAX`, which calculate the lowest and highest prices in the
 candlestick.
 
 <Highlight type="note">
+
 This tutorial uses the `LAST()` hyperfunction to calculate the volume within a bucket, because
 the sample tick data already provides an incremental `day_volume` field which
 contains the total volume for the given day with each trade. Depending on the
@@ -68,13 +69,14 @@ raw data you receive and whether you want to calculate volume in terms of
 trade count or the total value of the trades, you might need to use
 `COUNT(*)`, `SUM(price)`, or subtraction between the last and first values
 in the bucket to get the correct result.
+
 </Highlight>
 
 ## Create continuous aggregates for candlestick data
 
-In TimescaleDB, the most efficient way to create candlestick views is to
+In $TIMESCALE_DB, the most efficient way to create candlestick views is to
 use [continuous aggregates][caggs]. Continuous aggregates are very similar
-to PostgreSQL materialized views but with three major advantages.
+to $PG materialized views but with three major advantages.
 
 First,
 materialized views recreate all of the data any time the view
@@ -122,7 +124,7 @@ WITH (timescaledb.continuous) AS
     GROUP BY bucket, symbol
 ```
 
-When you run this query, TimescaleDB queries 1-minute aggregate values of all
+When you run this query, $TIMESCALE_DB queries 1-minute aggregate values of all
 your tick data, creating the continuous aggregate and materializing the
 results. But your candlestick data has only been materialized up to the
 last data point. If you want the continuous aggregate to stay up to date
@@ -270,9 +272,9 @@ creating multiple continuous aggregates for the same hypertable. Due
 to the efficient materialization mechanism of continuous aggregates, both
 refresh and query performance should work well.
 
+[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
-[hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[intraday-tutorial]: /tutorials/:currentVersion:/
 [last]: /api/:currentVersion:/hyperfunctions/last/
-[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[tutorials]: /tutorials/:currentVersion:/

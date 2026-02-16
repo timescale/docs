@@ -7,9 +7,9 @@ keywords: [visualizations, analytics, Tableau]
 
 # Using Tableau to visualize data in TimescaleDB
 
-[Tableau][get-tableau] is a popular analytics platform that enables you to gain
+[Tableau][tableau-cloud] is a popular analytics platform that enables you to gain
 greater intelligence about your business. It is an ideal tool for visualizing
-data stored in [TimescaleDB][timescale-products].
+data stored in [TimescaleDB][timescale-mst].
 
 This tutorial covers:
 
@@ -27,7 +27,7 @@ To start, [install TimescaleDB][install-timescale]. When your installation is
 complete, you can proceed to ingesting or creating sample data and finishing the
 tutorial.
 
-Also, [get a copy or license of Tableau][get-tableau].
+Also, [get a copy or license of Tableau][tableau-cloud].
 
 You also want to [complete the Cryptocurrency tutorial][crypto-tutorial], as it
 sets up and configures the data you need to complete the remainder of this
@@ -39,8 +39,8 @@ Cryptocurrency tutorial.
 Locate the `host`, `port`, and `password` of your TimescaleDB instance.
 
 Connecting your TimescaleDB instance to Tableau takes just a few clicks, thanks
-to Tableau's  built-in Postgres connector. To connect to your database add a new
-connection and under the  'to a server' section, select PostgreSQL as the
+to Tableau's  built-in $PG connector. To connect to your database add a new
+connection and under the  'to a server' section, select $PG as the
 connection type. Then enter your database  credentials.
 
 ### Step 2: Run a simple query in Tableau
@@ -109,6 +109,6 @@ stored in TimescaleDB. This tutorial only scratched the surface of the kinds of
 data you can visualize using Tableau.
 
 [crypto-tutorial]: /tutorials/:currentVersion:/blockchain-analyze/
-[get-tableau]: https://www.tableau.com/products/trial
-[install-timescale]: /getting-started/latest/
-[timescale-products]: https://www.timescale.com/products/
+[install-timescale]: /getting-started/:currentVersion:/
+[tableau-cloud]: https://www.tableau.com/products/trial
+[timescale-mst]: https://www.tigerdata.com/products/

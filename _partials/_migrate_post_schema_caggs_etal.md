@@ -1,7 +1,6 @@
 ## Migrate schema post-data
 
-When you have migrated your table and hypertable data, migrate your PostgreSQL
-schema post-data. This includes information about constraints.
+When you have migrated your table and hypertable data, migrate your $PG schema post-data. This includes information about constraints.
 
 <Procedure>
 
@@ -20,7 +19,7 @@ schema post-data. This includes information about constraints.
     ```
 
 1.  Restore the dumped schema post-data from the `dump_post_data.dump` file into
-    your Timescale database, using your connection details. To avoid permissions
+    your $SERVICE_LONG, using your connection details. To avoid permissions
     errors, include the `--no-owner` flag:
 
     ```bash
@@ -48,8 +47,8 @@ pg_restore: error: could not execute query: ERROR:  trigger "ts_insert_blocker" 
 
 Continuous aggregates aren't migrated by default when you transfer your schema
 and data separately. You can restore them by recreating the continuous aggregate
-definitions and recomputing the results on your Timescale database. The recomputed
-continuous aggregates only aggregate existing data in your Timescale database. They
+definitions and recomputing the results on your $SERVICE_LONG. The recomputed
+continuous aggregates only aggregate existing data in your $SERVICE_LONG. They
 don't include deleted raw data.
 
 <Procedure>
@@ -82,7 +81,7 @@ don't include deleted raw data.
     (1 row)
     ```
 
-1.  Connect to your Timescale database:
+1.  Connect to your $SERVICE_LONG:
 
     ```bash
     psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
@@ -101,7 +100,7 @@ don't include deleted raw data.
 ## Recreate policies
 
 By default, policies aren't migrated when you transfer your schema and data
-separately. Recreate them on your Timescale database.
+separately. Recreate them on your $SERVICE_LONG.
 
 <Procedure>
 
@@ -123,15 +122,15 @@ separately. Recreate them on your Timescale database.
         FROM timescaledb_information.jobs WHERE owner = '<SOURCE_DB_USERNAME>';
     ```
 
-1.  Connect to your Timescale database:
+1.  Connect to your $SERVICE_LONG:
 
     ```sql
     psql "postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require"
     ```
 
 1.  Recreate each policy. For more information about recreating policies, see
-    the sections on [continuous-aggregate refresh policies][cagg-policy],
-    [retention policies][retention-policy], [Hypercore policies][setup-hypercore], and [reorder policies][reorder-policy].
+    the sections on [continuous-aggregate refresh policies][refresh-policy],
+    [retention policies][retention-policy], [Hypercore policies][setup-hypercore], and [reorder policies][reordering].
 
 </Procedure>
 
@@ -158,8 +157,7 @@ The skipped tables and indexes correspond to system catalogs that can't be
 accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[cagg-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
-[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/
+[refresh-policy]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
+[reordering]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
-[reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
-[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[setup-hypercore]: /use-timescale/:currentVersion:/hypercore/real-time-analytics-in-hypercore/

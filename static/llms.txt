@@ -1,0 +1,382 @@
+# Tiger Data Documentation
+
+Over 3 million Tiger Data databases power customer-facing applications. Speed without sacrifice for real-time analytics, time series, and vector workloads. Creators of TimescaleDB.
+
+Tiger Cloud is the modern Postgres data platform for all your applications. It enhances Postgres to handle time series, events, real-time analytics, and vector search—all in a single database alongside transactional workloads.
+
+You get one system that handles live data ingestion, late and out-of-order updates, and low latency queries, with the performance, reliability, and scalability your app needs. Ideal for IoT, crypto, finance, SaaS, and a myriad other domains, Tiger Cloud allows you to build data-heavy, mission-critical apps while retaining the familiarity and reliability of PostgreSQL.
+
+This repository contains the complete documentation for Tiger Data products available at https://www.tigerdata.com/docs/.
+
+## Getting Started
+
+- [Get started overview](https://www.tigerdata.com/docs/getting-started/latest/): Introduction to Tiger Data products and services
+- [Create a Tiger Cloud service](https://www.tigerdata.com/docs/getting-started/latest/services/): Learn about Tiger Cloud capabilities and create your first service
+- [Run queries from Tiger Cloud Console](https://www.tigerdata.com/docs/getting-started/latest/run-queries-from-console/): Use the SQL editor and SQL Assistant in Tiger Cloud
+- [Try key Tiger Data features](https://www.tigerdata.com/docs/getting-started/latest/try-key-features-timescale-products/): Explore hypertables, time buckets, compression, and continuous aggregates
+- [Start coding with Tiger Data](https://www.tigerdata.com/docs/getting-started/latest/start-coding-with-timescale/): Connect and code with your preferred programming language
+
+## Core Features and Functionality
+
+### Hypertables
+- [About hypertables](https://www.tigerdata.com/docs/use-timescale/latest/hypertables/about-hypertables/): Core concept for time-series optimization
+- [Create and manage hypertables](https://www.tigerdata.com/docs/use-timescale/latest/hypertables/hypertable-crud/): CRUD operations on hypertables
+- [Improve query performance](https://www.tigerdata.com/docs/use-timescale/latest/hypertables/improve-query-performance/): Performance optimization techniques
+- [Unique indexes on hypertables](https://www.tigerdata.com/docs/use-timescale/latest/hypertables/hypertables-and-unique-indexes/): Handling unique constraints
+
+### Hypercore (Columnar Storage)
+- [Hypercore overview](https://www.tigerdata.com/docs/use-timescale/latest/hypercore/): Advanced columnar storage for real-time analytics
+- [Real-time analytics in Hypercore](https://www.tigerdata.com/docs/use-timescale/latest/hypercore/real-time-analytics-in-hypercore/): High-performance analytics capabilities
+- [Compression methods](https://www.tigerdata.com/docs/use-timescale/latest/hypercore/compression-methods/): Advanced compression techniques
+- [Secondary indexes](https://www.tigerdata.com/docs/use-timescale/latest/hypercore/secondary-indexes/): Indexing strategies for columnar data
+- [Modify data in Hypercore](https://www.tigerdata.com/docs/use-timescale/latest/hypercore/modify-data-in-hypercore/): Data modification operations
+
+### Continuous Aggregates
+- [About continuous aggregates](https://www.tigerdata.com/docs/use-timescale/latest/continuous-aggregates/about-continuous-aggregates/): Materialized views for time-series data
+- [Create continuous aggregates](https://www.tigerdata.com/docs/use-timescale/latest/continuous-aggregates/create-a-continuous-aggregate/): Implementation guide
+- [Real-time aggregates](https://www.tigerdata.com/docs/use-timescale/latest/continuous-aggregates/real-time-aggregates/): Real-time query capabilities
+- [Hierarchical continuous aggregates](https://www.tigerdata.com/docs/use-timescale/latest/continuous-aggregates/hierarchical-continuous-aggregates/): Multi-level aggregation
+- [Refresh policies](https://www.tigerdata.com/docs/use-timescale/latest/continuous-aggregates/refresh-policies/): Automated refresh management
+- [Compression on continuous aggregates](https://www.tigerdata.com/docs/use-timescale/latest/continuous-aggregates/compression-on-continuous-aggregates/): Storage optimization
+
+### Hyperfunctions
+- [About hyperfunctions](https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/about-hyperfunctions/): Advanced analytical functions
+- [Function pipelines](https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/function-pipelines/): Chaining analytical operations
+- [Statistical aggregates](https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/stats-aggs/): Statistical analysis functions
+- [Time-weighted averages](https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/time-weighted-averages/): Time-series averaging
+- [Gapfilling and interpolation](https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/gapfilling-interpolation/): Handle missing data
+- [Counter aggregation](https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/counter-aggregation/): Monitor counter metrics
+- [Approximate count distincts](https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/approx-count-distincts/): Efficient distinct counting
+- [Percentile approximation](https://www.tigerdata.com/docs/use-timescale/latest/hyperfunctions/percentile-approx/): Statistical percentile calculations
+
+## Data Operations
+
+### Writing Data
+- [About writing data](https://www.tigerdata.com/docs/use-timescale/latest/write-data/about-writing-data/): Overview of data ingestion
+- [Insert data](https://www.tigerdata.com/docs/use-timescale/latest/write-data/insert/): Insert operations and best practices
+- [Update data](https://www.tigerdata.com/docs/use-timescale/latest/write-data/update/): Update existing records
+- [Upsert data](https://www.tigerdata.com/docs/use-timescale/latest/write-data/upsert/): Insert or update patterns
+- [Delete data](https://www.tigerdata.com/docs/use-timescale/latest/write-data/delete/): Data deletion strategies
+
+### Querying Data
+- [About querying data](https://www.tigerdata.com/docs/use-timescale/latest/query-data/about-query-data/): Query fundamentals
+- [SELECT queries](https://www.tigerdata.com/docs/use-timescale/latest/query-data/select/): Basic and advanced SELECT operations
+- [Advanced analytic queries](https://www.tigerdata.com/docs/use-timescale/latest/query-data/advanced-analytic-queries/): Complex analytical queries
+- [SkipScan for DISTINCT](https://www.tigerdata.com/docs/use-timescale/latest/query-data/skipscan/): Optimized DISTINCT operations
+
+### Time Buckets
+- [About time buckets](https://www.tigerdata.com/docs/use-timescale/latest/time-buckets/about-time-buckets/): Time-based data grouping
+- [Use time buckets](https://www.tigerdata.com/docs/use-timescale/latest/time-buckets/use-time-buckets/): Implementation examples
+
+### Data Ingestion
+- [Import CSV data](https://www.tigerdata.com/docs/use-timescale/latest/ingest-data/import-csv/): CSV data import
+- [Import from MySQL](https://www.tigerdata.com/docs/use-timescale/latest/ingest-data/import-mysql/): MySQL migration
+- [Import Parquet files](https://www.tigerdata.com/docs/use-timescale/latest/ingest-data/import-parquet/): Parquet data ingestion
+- [Ingest from Kafka](https://www.tigerdata.com/docs/use-timescale/latest/ingest-data/ingest-kafka/): Apache Kafka integration
+- [Ingest with Telegraf](https://www.tigerdata.com/docs/use-timescale/latest/ingest-data/ingest-telegraf/): Telegraf data collection
+
+## Data Management
+
+### Compression
+- [About compression](https://www.tigerdata.com/docs/use-timescale/latest/compression/about-compression/): Storage optimization overview
+- [Compression design](https://www.tigerdata.com/docs/use-timescale/latest/compression/compression-design/): Design considerations
+- [Manual compression](https://www.tigerdata.com/docs/use-timescale/latest/compression/manual-compression/): Manual compression operations
+- [Compression policies](https://www.tigerdata.com/docs/use-timescale/latest/compression/compression-policy/): Automated compression
+- [Modify compressed data](https://www.tigerdata.com/docs/use-timescale/latest/compression/modify-compressed-data/): Working with compressed data
+- [Modify schemas](https://www.tigerdata.com/docs/use-timescale/latest/compression/modify-a-schema/): Schema changes on compressed tables
+
+### Data Retention
+- [About data retention](https://www.tigerdata.com/docs/use-timescale/latest/data-retention/about-data-retention/): Automated data lifecycle management
+- [Create retention policies](https://www.tigerdata.com/docs/use-timescale/latest/data-retention/create-a-retention-policy/): Policy creation and management
+- [Data retention with continuous aggregates](https://www.tigerdata.com/docs/use-timescale/latest/data-retention/data-retention-with-continuous-aggregates/): Retention for aggregated data
+- [Manually drop chunks](https://www.tigerdata.com/docs/use-timescale/latest/data-retention/manually-drop-chunks/): Manual data removal
+
+### Data Tiering
+- [About data tiering](https://www.tigerdata.com/docs/use-timescale/latest/data-tiering/about-data-tiering/): Multi-tier storage strategy
+- [Enable data tiering](https://www.tigerdata.com/docs/use-timescale/latest/data-tiering/enabling-data-tiering/): Setup and configuration
+- [Query tiered data](https://www.tigerdata.com/docs/use-timescale/latest/data-tiering/querying-tiered-data/): Working with tiered storage
+- [Tiered data with replicas and forks](https://www.tigerdata.com/docs/use-timescale/latest/data-tiering/tiered-data-replicas-forks/): Advanced tiering scenarios
+
+### Jobs and Automation
+- [Create and manage jobs](https://www.tigerdata.com/docs/use-timescale/latest/jobs/create-and-manage-jobs/): Background job management
+- [Downsample and compress example](https://www.tigerdata.com/docs/use-timescale/latest/jobs/example-downsample-and-compress/): Automated data processing
+- [Generic retention example](https://www.tigerdata.com/docs/use-timescale/latest/jobs/example-generic-retention/): Custom retention policies
+- [Tiered storage example](https://www.tigerdata.com/docs/use-timescale/latest/jobs/example-tiered-storage/): Automated tiering
+
+## Infrastructure and Operations
+
+### Tiger Cloud Services
+- [Service overview](https://www.tigerdata.com/docs/use-timescale/latest/services/service-overview/): Tiger Cloud service architecture
+- [Service management](https://www.tigerdata.com/docs/use-timescale/latest/services/service-management/): Lifecycle management
+- [Service explorer](https://www.tigerdata.com/docs/use-timescale/latest/services/service-explorer/): Service monitoring and insights
+- [Change resources](https://www.tigerdata.com/docs/use-timescale/latest/services/change-resources/): Scale compute and storage
+- [Connection pooling](https://www.tigerdata.com/docs/use-timescale/latest/services/connection-pooling/): Manage database connections
+
+### Configuration
+- [About configuration](https://www.tigerdata.com/docs/use-timescale/latest/configuration/about-configuration/): Configuration overview
+- [Customize configuration](https://www.tigerdata.com/docs/use-timescale/latest/configuration/customize-configuration/): Custom settings
+- [Advanced parameters](https://www.tigerdata.com/docs/use-timescale/latest/configuration/advanced-parameters/): Advanced tuning options
+
+### High Availability
+- [High availability overview](https://www.tigerdata.com/docs/use-timescale/latest/ha-replicas/high-availability/): HA architecture and setup
+- [Read scaling](https://www.tigerdata.com/docs/use-timescale/latest/ha-replicas/read-scaling/): Read replica configuration
+
+### Backup and Restore
+- [Backup and restore overview](https://www.tigerdata.com/docs/use-timescale/latest/backup-restore/backup-restore-cloud/): Cloud backup strategies
+- [Point-in-time recovery](https://www.tigerdata.com/docs/use-timescale/latest/backup-restore/point-in-time-recovery/): PITR capabilities
+
+### Security
+- [Security overview](https://www.tigerdata.com/docs/use-timescale/latest/security/overview/): Security architecture
+- [Member management](https://www.tigerdata.com/docs/use-timescale/latest/security/members/): User and role management
+- [Multi-factor authentication](https://www.tigerdata.com/docs/use-timescale/latest/security/multi-factor-authentication/): MFA setup
+- [SAML authentication](https://www.tigerdata.com/docs/use-timescale/latest/security/saml/): SSO integration
+- [Client credentials](https://www.tigerdata.com/docs/use-timescale/latest/security/client-credentials/): Application authentication
+- [Read-only role](https://www.tigerdata.com/docs/use-timescale/latest/security/read-only-role/): Restricted access roles
+- [Strict SSL](https://www.tigerdata.com/docs/use-timescale/latest/security/strict-ssl/): SSL configuration
+- [VPC peering](https://www.tigerdata.com/docs/use-timescale/latest/security/vpc/): Private network connectivity
+- [Transit Gateway](https://www.tigerdata.com/docs/use-timescale/latest/security/transit-gateway/): Multi-cloud connectivity
+- [IP allow list](https://www.tigerdata.com/docs/use-timescale/latest/security/ip-allow-list/): Network access control
+
+### Schema Management
+- [About schemas](https://www.tigerdata.com/docs/use-timescale/latest/schema-management/about-schemas/): Schema design principles
+- [About indexing](https://www.tigerdata.com/docs/use-timescale/latest/schema-management/about-indexing/): Index strategies
+- [About constraints](https://www.tigerdata.com/docs/use-timescale/latest/schema-management/about-constraints/): Constraint management
+- [About tablespaces](https://www.tigerdata.com/docs/use-timescale/latest/schema-management/about-tablespaces/): Storage management
+- [Alter operations](https://www.tigerdata.com/docs/use-timescale/latest/schema-management/alter/): Schema modifications
+- [Indexing](https://www.tigerdata.com/docs/use-timescale/latest/schema-management/indexing/): Index creation and management
+- [JSON support](https://www.tigerdata.com/docs/use-timescale/latest/schema-management/json/): Working with JSON data
+- [Triggers](https://www.tigerdata.com/docs/use-timescale/latest/schema-management/triggers/): Database triggers
+- [Foreign data wrappers](https://www.tigerdata.com/docs/use-timescale/latest/schema-management/foreign-data-wrappers/): External data integration
+
+### Extensions
+- [pgvector](https://www.tigerdata.com/docs/use-timescale/latest/extensions/pgvector/): Vector similarity search
+- [PostGIS](https://www.tigerdata.com/docs/use-timescale/latest/extensions/postgis/): Geospatial data support
+- [pgcrypto](https://www.tigerdata.com/docs/use-timescale/latest/extensions/pgcrypto/): Cryptographic functions
+
+### Monitoring and Metrics
+- [Monitoring overview](https://www.tigerdata.com/docs/use-timescale/latest/metrics-logging/monitoring/): System monitoring
+- [AWS CloudWatch](https://www.tigerdata.com/docs/use-timescale/latest/metrics-logging/aws-cloudwatch/): CloudWatch integration
+- [Datadog](https://www.tigerdata.com/docs/use-timescale/latest/metrics-logging/datadog/): Datadog monitoring
+- [Prometheus metrics](https://www.tigerdata.com/docs/use-timescale/latest/metrics-logging/metrics-to-prometheus/): Prometheus integration
+
+## AI and Vector Database
+
+- [AI overview](https://www.tigerdata.com/docs/ai/latest/): AI and vector database capabilities
+- [pgvector key concepts](https://www.tigerdata.com/docs/ai/latest/key-vector-database-concepts-for-understanding-pgvector/): Vector database fundamentals
+- [SQL interface for pgvector](https://www.tigerdata.com/docs/ai/latest/sql-interface-for-pgvector-and-timescale-vector/): SQL-based vector operations
+- [Python interface for pgvector](https://www.tigerdata.com/docs/ai/latest/python-interface-for-pgvector-and-timescale-vector/): Python vector operations
+- [LangChain integration](https://www.tigerdata.com/docs/ai/latest/langchain-integration-for-pgvector-and-timescale-vector/): LLM framework integration
+- [LlamaIndex integration](https://www.tigerdata.com/docs/ai/latest/llamaindex-integration-for-pgvector-and-timescale-vector/): Document indexing integration
+- [pgvectorizer](https://www.tigerdata.com/docs/ai/latest/pgvectorizer/): Automated vectorization
+
+## Tutorials and Examples
+
+- [Tutorials overview](https://www.tigerdata.com/docs/tutorials/latest/): Hands-on tutorials and examples
+- [Community cookbook](https://www.tigerdata.com/docs/tutorials/latest/cookbook/): Code examples and recipes
+- [Real-time analytics for energy consumption](https://www.tigerdata.com/docs/tutorials/latest/real-time-analytics-energy-consumption/): Energy data analysis
+- [Real-time analytics for transport](https://www.tigerdata.com/docs/tutorials/latest/real-time-analytics-transport/): Transportation data analysis
+- [Simulate IoT sensor data](https://www.tigerdata.com/docs/tutorials/latest/simulate-iot-sensor-data/): IoT data simulation
+- [Ingest real-time websocket data](https://www.tigerdata.com/docs/tutorials/latest/ingest-real-time-websocket-data/): WebSocket data streaming
+
+### Dataset Tutorials
+- [Bitcoin blockchain analysis](https://www.tigerdata.com/docs/tutorials/latest/blockchain-analyze/): Analyze blockchain transactions with Hypercore
+- [Financial tick data analysis](https://www.tigerdata.com/docs/tutorials/latest/financial-tick-data/): High-frequency financial data
+- [Financial real-time ingestion](https://www.tigerdata.com/docs/tutorials/latest/financial-ingest-real-time/): Real-time financial data streaming
+- [NYC taxi data analysis](https://www.tigerdata.com/docs/tutorials/latest/nyc-taxi-cab/): Time-series analysis with NYC taxi data
+- [NYC taxi geospatial analysis](https://www.tigerdata.com/docs/tutorials/latest/nyc-taxi-geospatial/): Geospatial data visualization
+- [Energy consumption analysis](https://www.tigerdata.com/docs/tutorials/latest/energy-data/): Energy usage patterns and optimization
+
+## Integrations
+
+### Cloud Platforms
+- [AWS integrations](https://www.tigerdata.com/docs/integrations/latest/aws/): Amazon Web Services integration
+- [AWS Lambda](https://www.tigerdata.com/docs/integrations/latest/aws-lambda/): Serverless functions
+- [Amazon SageMaker](https://www.tigerdata.com/docs/integrations/latest/amazon-sagemaker/): Machine learning platform
+- [Google Cloud](https://www.tigerdata.com/docs/integrations/latest/google-cloud/): Google Cloud Platform integration
+- [Microsoft Azure](https://www.tigerdata.com/docs/integrations/latest/microsoft-azure/): Microsoft Azure integration
+
+### Data Integration
+- [Apache Kafka](https://www.tigerdata.com/docs/integrations/latest/apache-kafka/): Kafka streaming integration
+- [Apache Airflow](https://www.tigerdata.com/docs/integrations/latest/apache-airflow/): Workflow orchestration
+- [Debezium](https://www.tigerdata.com/docs/integrations/latest/debezium/): Change data capture
+- [Decodable](https://www.tigerdata.com/docs/integrations/latest/decodable/): Real-time stream processing
+- [Fivetran](https://www.tigerdata.com/docs/integrations/latest/fivetran/): Data pipeline automation
+- [PostgreSQL](https://www.tigerdata.com/docs/integrations/latest/postgresql/): PostgreSQL compatibility
+
+### Visualization and Analytics
+- [Grafana](https://www.tigerdata.com/docs/integrations/latest/grafana/): Monitoring and visualization
+- [Tableau](https://www.tigerdata.com/docs/integrations/latest/tableau/): Business intelligence
+- [Power BI](https://www.tigerdata.com/docs/integrations/latest/power-bi/): Microsoft business analytics
+
+### Development Tools
+- [psql](https://www.tigerdata.com/docs/integrations/latest/psql/): PostgreSQL command line
+- [pgAdmin](https://www.tigerdata.com/docs/integrations/latest/pgadmin/): PostgreSQL administration
+- [DBeaver](https://www.tigerdata.com/docs/integrations/latest/dbeaver/): Database management tool
+- [Azure Data Studio](https://www.tigerdata.com/docs/integrations/latest/azure-data-studio/): Microsoft database tool
+- [qStudio](https://www.tigerdata.com/docs/integrations/latest/qstudio/): SQL analytics platform
+
+### Monitoring and Observability
+- [Prometheus](https://www.tigerdata.com/docs/integrations/latest/prometheus/): Monitoring and alerting
+- [Datadog](https://www.tigerdata.com/docs/integrations/latest/datadog/): Infrastructure monitoring
+- [CloudWatch](https://www.tigerdata.com/docs/integrations/latest/cloudwatch/): AWS monitoring service
+
+### Infrastructure
+- [Kubernetes](https://www.tigerdata.com/docs/integrations/latest/kubernetes/): Container orchestration
+- [Terraform](https://www.tigerdata.com/docs/integrations/latest/terraform/): Infrastructure as code
+- [Supabase](https://www.tigerdata.com/docs/integrations/latest/supabase/): Backend-as-a-service
+- [Corporate Data Center](https://www.tigerdata.com/docs/integrations/latest/corporate-data-center/): On-premises connectivity
+
+### Connection Details
+- [Find connection details](https://www.tigerdata.com/docs/integrations/latest/find-connection-details/): Service connection information
+- [Troubleshooting](https://www.tigerdata.com/docs/integrations/latest/troubleshooting/): Integration troubleshooting guide
+
+## Migration and Sync
+
+- [Migration overview](https://www.tigerdata.com/docs/migrate/latest/): Migration strategies and tools
+- [pg_dump and restore](https://www.tigerdata.com/docs/migrate/latest/pg-dump-and-restore/): Traditional PostgreSQL migration
+- [Live migration](https://www.tigerdata.com/docs/migrate/latest/live-migration/): Low-downtime migration for large databases
+- [Live sync for PostgreSQL](https://www.tigerdata.com/docs/migrate/latest/livesync-for-postgresql/): Real-time sync from PostgreSQL
+- [Live sync for S3](https://www.tigerdata.com/docs/migrate/latest/livesync-for-s3/): Sync data from S3 storage
+- [Dual-write and backfill](https://www.tigerdata.com/docs/migrate/latest/dual-write-and-backfill/): Migration with zero downtime
+- [Migration troubleshooting](https://www.tigerdata.com/docs/migrate/latest/troubleshooting/): Common migration issues
+
+## Self-hosted TimescaleDB
+
+### Installation
+- [Self-hosted overview](https://www.tigerdata.com/docs/self-hosted/latest/): Installation options
+- [Docker installation](https://www.tigerdata.com/docs/self-hosted/latest/install/installation-docker/): Docker-based deployment
+- [Kubernetes installation](https://www.tigerdata.com/docs/self-hosted/latest/install/installation-kubernetes/): Kubernetes deployment
+- [Linux installation](https://www.tigerdata.com/docs/self-hosted/latest/install/installation-linux/): Linux package installation
+- [macOS installation](https://www.tigerdata.com/docs/self-hosted/latest/install/installation-macos/): macOS Homebrew/MacPorts
+- [Windows installation](https://www.tigerdata.com/docs/self-hosted/latest/install/installation-windows/): Windows installation
+- [Source installation](https://www.tigerdata.com/docs/self-hosted/latest/install/installation-source/): Build from source
+
+### Configuration and Management
+- [Configuration overview](https://www.tigerdata.com/docs/self-hosted/latest/configuration/about-configuration/): Configuration fundamentals
+- [TimescaleDB configuration](https://www.tigerdata.com/docs/self-hosted/latest/configuration/timescaledb-config/): TimescaleDB-specific settings
+- [PostgreSQL configuration](https://www.tigerdata.com/docs/self-hosted/latest/configuration/postgres-config/): PostgreSQL tuning
+- [Docker configuration](https://www.tigerdata.com/docs/self-hosted/latest/configuration/docker-config/): Docker-specific configuration
+- [timescaledb-tune](https://www.tigerdata.com/docs/self-hosted/latest/configuration/timescaledb-tune/): Automated tuning tool
+- [Telemetry](https://www.tigerdata.com/docs/self-hosted/latest/configuration/telemetry/): Usage telemetry configuration
+
+### Backup and Restore
+- [Backup overview](https://www.tigerdata.com/docs/self-hosted/latest/backup-and-restore/): Self-hosted backup strategies
+- [Logical backups](https://www.tigerdata.com/docs/self-hosted/latest/backup-and-restore/logical-backup/): pg_dump/pg_restore
+- [Physical backups](https://www.tigerdata.com/docs/self-hosted/latest/backup-and-restore/physical/): WAL-E and pgBackRest
+- [Docker and WAL-E](https://www.tigerdata.com/docs/self-hosted/latest/backup-and-restore/docker-and-wale/): Container backup solutions
+
+### High Availability and Replication
+- [About high availability](https://www.tigerdata.com/docs/self-hosted/latest/replication-and-ha/about-ha/): HA architecture
+- [Configure replication](https://www.tigerdata.com/docs/self-hosted/latest/replication-and-ha/configure-replication/): Replication setup
+
+### Migration
+- [Entire database migration](https://www.tigerdata.com/docs/self-hosted/latest/migration/entire-database/): Full database migration
+- [Schema then data migration](https://www.tigerdata.com/docs/self-hosted/latest/migration/schema-then-data/): Phased migration approach
+- [Same database migration](https://www.tigerdata.com/docs/self-hosted/latest/migration/same-db/): In-place migration
+- [Migrate from InfluxDB](https://www.tigerdata.com/docs/self-hosted/latest/migration/migrate-influxdb/): InfluxDB migration
+
+### Upgrades and Maintenance
+- [About upgrades](https://www.tigerdata.com/docs/self-hosted/latest/upgrades/about-upgrades/): Upgrade strategies
+- [Major upgrades](https://www.tigerdata.com/docs/self-hosted/latest/upgrades/major-upgrade/): Major version upgrades
+- [Minor upgrades](https://www.tigerdata.com/docs/self-hosted/latest/upgrades/minor-upgrade/): Minor version upgrades
+- [Docker upgrades](https://www.tigerdata.com/docs/self-hosted/latest/upgrades/upgrade-docker/): Container upgrades
+- [PostgreSQL upgrades](https://www.tigerdata.com/docs/self-hosted/latest/upgrades/upgrade-pg/): PostgreSQL version upgrades
+- [Downgrade](https://www.tigerdata.com/docs/self-hosted/latest/upgrades/downgrade/): Version rollback
+
+### Tooling
+- [About timescaledb-tune](https://www.tigerdata.com/docs/self-hosted/latest/tooling/about-timescaledb-tune/): Performance tuning tool
+- [Install toolkit](https://www.tigerdata.com/docs/self-hosted/latest/tooling/install-toolkit/): TimescaleDB toolkit installation
+
+### Storage Management
+- [Manage storage](https://www.tigerdata.com/docs/self-hosted/latest/manage-storage/): Storage and tablespace management
+
+### Uninstallation
+- [Uninstall TimescaleDB](https://www.tigerdata.com/docs/self-hosted/latest/uninstall/uninstall-timescaledb/): Clean removal
+
+## Managed Service for TimescaleDB (MST)
+
+### Getting Started
+- [About MST](https://www.tigerdata.com/docs/mst/latest/about-mst/): Managed service overview
+- [Install MST](https://www.tigerdata.com/docs/mst/latest/installation-mst/): Service setup and configuration
+- [User management](https://www.tigerdata.com/docs/mst/latest/user-management/): User roles and permissions
+- [Billing](https://www.tigerdata.com/docs/mst/latest/billing/): Pricing and billing information
+
+### Data Operations
+- [Ingest data](https://www.tigerdata.com/docs/mst/latest/ingest-data/): Data ingestion patterns
+- [Migrate to MST](https://www.tigerdata.com/docs/mst/latest/migrate-to-mst/): Migration to managed service
+
+### Infrastructure and Networking
+- [Connection pools](https://www.tigerdata.com/docs/mst/latest/connection-pools/): Connection management
+- [PostgreSQL read replicas](https://www.tigerdata.com/docs/mst/latest/postgresql-read-replica/): Read scaling
+- [VPC peering overview](https://www.tigerdata.com/docs/mst/latest/vpc-peering/): Private network connectivity
+- [AWS VPC peering](https://www.tigerdata.com/docs/mst/latest/vpc-peering/vpc-peering-aws/): Amazon VPC integration
+- [AWS Transit Gateway](https://www.tigerdata.com/docs/mst/latest/vpc-peering/vpc-peering-aws-transit/): Multi-VPC connectivity
+- [Azure VPC peering](https://www.tigerdata.com/docs/mst/latest/vpc-peering/vpc-peering-azure/): Microsoft Azure networking
+- [GCP VPC peering](https://www.tigerdata.com/docs/mst/latest/vpc-peering/vpc-peering-gcp/): Google Cloud networking
+
+### Operations and Monitoring
+- [Extensions](https://www.tigerdata.com/docs/mst/latest/extensions/): Available PostgreSQL extensions
+- [Security](https://www.tigerdata.com/docs/mst/latest/security/): Security configuration
+- [Maintenance](https://www.tigerdata.com/docs/mst/latest/maintenance/): Maintenance windows and updates
+- [Failover](https://www.tigerdata.com/docs/mst/latest/failover/): High availability failover
+- [Manage backups](https://www.tigerdata.com/docs/mst/latest/manage-backups/): Backup management
+- [View service logs](https://www.tigerdata.com/docs/mst/latest/viewing-service-logs/): Log access and analysis
+
+### Tools and APIs
+- [Aiven Client](https://www.tigerdata.com/docs/mst/latest/aiven-client/): Command-line management tool
+- [REST API](https://www.tigerdata.com/docs/mst/latest/restapi/): Programmatic service management
+- [Identify index issues](https://www.tigerdata.com/docs/mst/latest/identify-index-issues/): Performance optimization
+
+### Integrations
+- [MST integrations overview](https://www.tigerdata.com/docs/mst/latest/integrations/): Integration options
+- [Grafana integration](https://www.tigerdata.com/docs/mst/latest/integrations/grafana-mst/): Visualization
+- [Prometheus integration](https://www.tigerdata.com/docs/mst/latest/integrations/prometheus-mst/): Monitoring
+- [Datadog metrics](https://www.tigerdata.com/docs/mst/latest/integrations/metrics-datadog/): Infrastructure monitoring
+- [Logging integration](https://www.tigerdata.com/docs/mst/latest/integrations/logging/): Log management
+
+## API Reference
+
+### Core APIs
+- [API overview](https://www.tigerdata.com/docs/api/latest/): Complete API reference
+- [Hypertable management](https://www.tigerdata.com/docs/api/latest/hypertable/): Hypertable creation and management
+- [Hypercore APIs](https://www.tigerdata.com/docs/api/latest/hypercore/): Columnar storage operations
+- [Continuous aggregates](https://www.tigerdata.com/docs/api/latest/continuous-aggregates/): Materialized view management
+- [Compression APIs](https://www.tigerdata.com/docs/api/latest/compression/): Data compression functions
+- [Data retention](https://www.tigerdata.com/docs/api/latest/data-retention/): Retention policy management
+- [Jobs and automation](https://www.tigerdata.com/docs/api/latest/jobs-automation/): Background job management
+
+### Hyperfunctions
+- [Hyperfunctions overview](https://www.tigerdata.com/docs/api/latest/hyperfunctions/): Advanced analytical functions
+- [Statistical aggregates](https://www.tigerdata.com/docs/api/latest/stats-aggregates/): Statistical analysis
+- [Frequency analysis](https://www.tigerdata.com/docs/api/latest/frequency-analysis/): Frequency and histogram functions
+- [Time-weighted averages](https://www.tigerdata.com/docs/api/latest/time-weighted-averages/): Time-series averaging
+- [Gapfilling and interpolation](https://www.tigerdata.com/docs/api/latest/gapfilling-interpolation/): Missing data handling
+- [Counter aggregates](https://www.tigerdata.com/docs/api/latest/counter-aggregates/): Counter metrics
+- [Gauge aggregates](https://www.tigerdata.com/docs/api/latest/gauge-aggregates/): Gauge metrics
+- [State aggregates](https://www.tigerdata.com/docs/api/latest/state-aggregates/): State tracking
+
+### Configuration and Administration
+- [Configuration APIs](https://www.tigerdata.com/docs/api/latest/configuration/): Database configuration
+- [Administration functions](https://www.tigerdata.com/docs/api/latest/administration/): Administrative operations
+- [Informational views](https://www.tigerdata.com/docs/api/latest/informational-views/): System information views
+
+## About Tiger Data
+
+- [About overview](https://www.tigerdata.com/docs/about/latest/): Company and product information
+- [Pricing and account management](https://www.tigerdata.com/docs/about/latest/pricing-and-account-management/): Pricing plans and billing
+- [TimescaleDB editions](https://www.tigerdata.com/docs/about/latest/timescaledb-editions/): Product tiers and features
+- [Changelog](https://www.tigerdata.com/docs/about/latest/changelog/): Latest product updates
+- [Release notes](https://www.tigerdata.com/docs/about/latest/release-notes/): Version release information
+- [Whitepaper](https://www.tigerdata.com/docs/about/latest/whitepaper/): Technical architecture paper
+- [Contribute to Tiger Data](https://www.tigerdata.com/docs/about/latest/contribute-to-timescale/): Community contribution guide
+
+## Contributing
+
+To contribute to this documentation:
+1. Fork or clone the repository
+2. Create a branch from `latest`
+3. Make your changes following the style guide in CONTRIBUTING.md
+4. Submit a pull request back to `latest`
+5. Sign the Contributor License Agreement (CLA) if this is your first contribution
+
+The documentation is built using Gatsby framework and automatically generates preview links for pull requests.

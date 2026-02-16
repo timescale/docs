@@ -15,7 +15,7 @@ rows.
 If you need to track when each state is entered and exited, use the
 [`state_agg`][state_agg] functions. If you need to track the liveness of a
 system based on a heartbeat signal, consider using the
-[`heartbeat_agg`][heartbeat_agg] functions.
+[`heartbeat_agg`][hyperfunctions-api-heartbeat-agg] functions.
 
-[heartbeat_agg]: /api/:currentVersion:/hyperfunctions/state-tracking/heartbeat_agg/
+[hyperfunctions-api-heartbeat-agg]: /api/:currentVersion:/hyperfunctions/state-tracking/heartbeat_agg/
 [state_agg]: /api/:currentVersion:/hyperfunctions/state-tracking/state_agg/

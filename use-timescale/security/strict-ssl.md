@@ -1,20 +1,22 @@
 ---
 title: Connect with a stricter SSL mode
-excerpt: While require is the default SSL mode used to connect to Timescale Cloud services, you can also configure the connection with a stricter mode, such as verify-ca or verify-full. Learn how to set it up
+excerpt: While require is the default SSL mode used to connect to Tiger Cloud services, you can also configure the connection with a stricter mode, such as verify-ca or verify-full. Learn how to set it up
 products: [cloud]
 keywords: [security]
+price_plans: [scale, enterprise, performance]
 tags: [ssl]
 ---
 
 # Connect with a stricter SSL mode
 
-The default connection string for Timescale uses the Secure Sockets Layer (SSL) mode `require`.
-Users can choose not to use Transport Layer Security (TLS) while connecting to their databases, but connecting to production databases without encryption is strongly discouraged. To
+The default connection string for $CLOUD_LONG uses the Secure Sockets Layer (SSL) mode `require`.
+Users can choose not to use Transport Layer Security (TLS) while connecting to their databases, but connecting to 
+production databases without encryption is strongly discouraged. To
 achieve even stronger security, clients may select to verify the identity of the
 server. If you want your connection client to verify the server's identity, you
 can connect with an [SSL mode][ssl-modes] of `verify-ca` or `verify-full`. To
 do so, you need to store a copy of the certificate chain where your connection
-tool can find it.
+tool can find it.  
 
 This section provides instructions for setting up a stricter SSL connection.
 
@@ -25,17 +27,17 @@ providing clients with a certificate. This certificate should be issued and
 signed by a well-known and trusted Certificate Authority.
 
 Because requesting a certificate from a Certificate Authority takes some time,
-Timescale databases are initialized with a self-signed certificate. This
-lets you start up a database immediately. After your service is started, a
+$SERVICE_LONGs are initialized with a self-signed certificate. This
+lets you start up a $SERVICE_SHORT immediately. After your $SERVICE_SHORT is started, a
 signed certificate is requested behind the scenes. The new certificate is
-usually received within 30 minutes. Your database certificate is then replaced
+usually received within 30 minutes. Your certificate is then replaced
 with almost no interruption. Connections are reset, and most clients reconnect
-automatically.
+automatically. Free services do not supply SSL certificates.
 
 With the signed certificate, you can switch your connections to a stricter SSL
 mode, such as `verify-ca` or `verify-full`.
 
-For more information on the different SSL modes, see the [PostgreSQL SSL mode
+For more information on the different SSL modes, see the [$PG SSL mode
 descriptions][ssl-modes].
 
 ## Connect to your database with a stricter SSL mode
@@ -43,16 +45,16 @@ descriptions][ssl-modes].
 To set up a stricter SSL connection:
 
 1.  Generate a copy of your certificate chain and store it in the right location
-1.  Change your Timescale connection string
+1.  Change your $CLOUD_LONG connection string
 
 <Procedure>
 
 ### Connecting to your database with a stricter SSL mode
 
-1.  Use the `openssl` tool to connect to your Timescale service and get
+1.  Use the `openssl` tool to connect to your $SERVICE_LONG and get
     the certificate bundle. Store the bundle in a file called `bundle.crt`.
 
-    Replace `$SERVICE_URL_WITH_PORT` with your Timescale connection URL:
+    Replace `$SERVICE_URL_WITH_PORT` with your $CLOUD_LONG connection URL:
 
     ```shell
     openssl s_client -showcerts -partial_chain -starttls postgres \
@@ -99,7 +101,7 @@ To set up a stricter SSL connection:
 
 1.  Save the downloaded certificate chain to `~/.postgresql/root.crt`.
 
-1.  Change your Timescale connection string from `sslmode=require` to
+1.  Change your $CLOUD_LONG connection string from `sslmode=require` to
     either `sslmode=verify-full` or `sslmode=verify-ca`. For example, to
     connect to your database with `psql`, run:
 

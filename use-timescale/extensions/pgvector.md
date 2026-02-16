@@ -1,36 +1,36 @@
 ---
-title: pgvector PostgreSQL extension
-excerpt: pgvector is an open-source extension for PostgreSQL that enables efficient vector similarity search and can be used with Timescale CLoud. Learn to use pgvector to create a chatbot
-products: [cloud]
+title: Create a chatbot using pgvector
+excerpt: pgvector is an open-source extension for Postgres that enables efficient vector similarity search and can be used with Tiger. Learn to use pgvector to create a chatbot
+products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgvector]
 tags: [extensions, pgvector]
 ---
 
-# The `pgvector` extension
+# Create a chatbot using pgvector
 
-The `pgvector` PostgreSQL extension helps you to store and search over machine
+The `pgvector` $PG extension helps you to store and search over machine
 learning-generated embeddings. It provides different capabilities that allows
 you to identify both exact and approximate nearest neighbors. It is designed to
-work seamlessly with other PostgreSQL features, including indexing and querying.
+work seamlessly with other $PG features, including indexing and querying.
 
 For more information about these functions and the options available, see the
 [pgvector][pgvector-repo] repository.
 
 ## Use the `pgvector` extension to create a `chatbot`
 
-The `pgvector` PostgreSQL extension allows you to create, store, and query
-OpenAI [vector embeddings][vector-embeddings] in Timescale. Learn how to use
-[retrieval augmented generation (RAG)][rag-docs] to create a chatbot that combines
+The `pgvector` $PG extension allows you to create, store, and query
+OpenAI [vector embeddings][vector-embeddings] in a $PG database instance. This page shows you how to 
+use [retrieval augmented generation (RAG)][rag-docs] to create a chatbot that combines
 your data with ChatGPT using OpenAI and `pgvector`. RAG provides a solution to the
 problem that a foundational model such as GPT-3 or GPT-4 could be missing some
 information needed to give a good answer, because that information was not in the
 dataset used to train the model. This can happen if the information is stored in
 private documents or only became available recently.
 
-In this example, you create embeddings, insert the embeddings into Timescale and
+In this example, you create embeddings, insert the embeddings into a $SERVICE_LONG and
 query the embeddings using `pgvector`. The content for the
-embeddings is from the Timescale blog, specifically from the
-[Developer Q&A][developer-qa] section, which features posts by Timescale users talking
+embeddings is from the $COMPANY blog, specifically from the
+[Developer Q&A][developer-qa] section, which features posts by $COMPANY users talking
 about their real-world use cases.
 
 ### Prerequisites
@@ -38,15 +38,17 @@ about their real-world use cases.
 Before you begin, make sure you have:
 
 *   Installed Python.
-*   Created a [Timescale][cloud-login] service.
+*   Created a [$SERVICE_LONG][cloud-login].
 *   Downloaded the cheatsheet when you created the service. This sheet contains
     the connection details for the database you want to use as a vector database.
-*   Cloned the [Timescale pgvector repository][timescale-pgvector].
+*   Cloned the [pgvector repository][timescale-pgvector].
 *   Signed up for an [OpenAI developer account][openai-signup].
 *   Created an API key and made a note of your OpenAI [API key][api-key].
     <Highlight type="note">
+
     If you are on a free plan there may be rate limiting for
     your API requests.
+
     </Highlight>
 
 <Procedure>
@@ -66,8 +68,7 @@ Before you begin, make sure you have:
 1.  Set the environment variables for `OPENAI_API_KEY` and
     `TIMESCALE_CONNECTION_STRING`. In this example, to set the environment
     variables in macOS, open the `zshrc` profile. Replace
-    `<OPENAI_API>`, and `<SERVICE_URL>` with your OpenAI API key and the service
-    URL of your Timescale service:
+    `<OPENAI_API>`, and `<SERVICE_URL>` with your OpenAI API key and the URL of your $SERVICE_LONG:
 
     ```bash
     nano ~/.zshrc
@@ -227,14 +228,14 @@ Before you begin, make sure you have:
     Done! Check the file blog_data_and_embeddings.csv for your results.
     ```
 
-1.  To insert these embeddings into Timescale using the `pgvector` extension,
+1.  To insert these embeddings into your $SERVICE_LONG using the `pgvector` extension,
     open an editor of your choice and create the `insert_embeddings.py` file.
 
     ```python
     ###############################################################################
     # insert_embeddings.py
-    # This script inserts OpenAI embedding vectors into a PostgreSQL database
-    # using pgvector, a PostgreSQL extension for vector similarity search
+    # This script inserts OpenAI embedding vectors into a Postgres database
+    # using pgvector, a Postgres extension for vector similarity search
     ###############################################################################
     import openai
     import os
@@ -250,10 +251,10 @@ Before you begin, make sure you have:
     ###############################################################################
     # Setup your database to insert embeddings
     ###############################################################################
-    # Get Timescale / PostgreSQL database connection string by reading local .env file
+    # Get a Tiger Cloud / Postgres database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to PostgreSQL database in Timescale using connection string
+    # Connect to Postgres database in Tiger Cloud using connection string
     conn = psycopg2.connect(connection_string)
     cur = conn.cursor()
 
@@ -343,20 +344,20 @@ Before you begin, make sure you have:
     0  How to Build a Weather Station With Elixir, Ne...  ...  [0.021399984136223793, 0.021850213408470154, -...
     1  How to Build a Weather Station With Elixir, Ne...  ...  [0.01620873250067234, 0.011362895369529724, 0....
     2  How to Build a Weather Station With Elixir, Ne...  ...  [0.022517921403050423, -0.0019158280920237303,...
-    3  CloudQuery on Using PostgreSQL for Cloud Asset...  ...  [0.008915113285183907, -0.004873732570558786, ...
+    3  CloudQuery on Using Postgres for Cloud Asset...  ...  [0.008915113285183907, -0.004873732570558786, ...
     4  CloudQuery on Using PostgreSQL for Cloud Asset...  ...  [0.0204352755099535, 0.010087345726788044, 0.0...
 
     [5 rows x 5 columns]
     Number of vector records in table:  129
 
-    First record in table:  [(1, 'How to Build a Weather Station With Elixir, Nerves, and TimescaleDB', 'https://www.timescale.com/blog/how-to-build-a-weather-station-with-elixir-nerves-and-timescaledb/', 'This is an installment of our “Community Member Spotlight” series, where we invite our customers to share their work, shining a light on their success and inspiring others with new ways to use technology to solve problems.In this edition,Alexander Koutmos, author of the Build a Weather Station with Elixir and Nerves book, joins us to share how he uses Grafana and TimescaleDB to store and visualize weather data collected from IoT sensors.About the teamThe bookBuild a Weather Station with Elixir and Nerveswas a joint effort between Bruce Tate, Frank Hunleth, and me.I have been writing software professionally for almost a decade and have been working primarily with Elixir since 2016. I currently maintain a few Elixir libraries onHexand also runStagira, a software consultancy company.Bruce Tateis a kayaker, programmer, and father of two from Chattanooga, Tennessee. He is the author of more than ten books and has been around Elixir from the beginning. He is the founder ofGroxio, a company that trains Elixir developers.Frank Hunlethis an embedded systems programmer, OSS maintainer, and Nerves core team member. When not in front of a computer, he loves running and spending time with his family.About the projectIn the Pragmatic Bookshelf book,Build a Weather Station with Elixir and Nerves, we take a project-based approach and guide the reader to create a Nerves-powered IoT weather station.For those unfamiliar with the Elixir ecosystem,Nervesis an IoT framework that allows you to build and deploy IoT applications on a wide array of embedded devices. At a high level, Nerves allows you to focus on building your project and takes care of a lot of the boilerplate associated with running Elixir on embedded devices.The goal of the book is to guide the reader through the process of building an end-to-end IoT solution for capturing, persisting, and visualizing weather data.Assembled weather station hooked up to development machine.One of the motivating factors for this book was to create a real-world project where readers could get hands-on experience with hardware without worrying too much about the nitty-gritty of soldering components together. Experimenting with hardware can often feel intimidating and confusing, but with Elixir and Nerves, we feel confident that even beginners get comfortable and productive quickly. As a result, in the book, we leverage a Raspberry Pi Zero W along with a few I2C enabled sensors to', 501, array([ 0.02139998,  0.02185021, -0.00537814, ..., -0.01257126,
+    First record in table:  [(1, 'How to Build a Weather Station With Elixir, Nerves, and TimescaleDB', 'https://www.tigerdata.com/blog/how-to-build-a-weather-station-with-elixir-nerves-and-timescaledb', 'This is an installment of our “Community Member Spotlight” series, where we invite our customers to share their work, shining a light on their success and inspiring others with new ways to use technology to solve problems.In this edition,Alexander Koutmos, author of the Build a Weather Station with Elixir and Nerves book, joins us to share how he uses Grafana and TimescaleDB to store and visualize weather data collected from IoT sensors.About the teamThe bookBuild a Weather Station with Elixir and Nerveswas a joint effort between Bruce Tate, Frank Hunleth, and me.I have been writing software professionally for almost a decade and have been working primarily with Elixir since 2016. I currently maintain a few Elixir libraries onHexand also runStagira, a software consultancy company.Bruce Tateis a kayaker, programmer, and father of two from Chattanooga, Tennessee. He is the author of more than ten books and has been around Elixir from the beginning. He is the founder ofGroxio, a company that trains Elixir developers.Frank Hunlethis an embedded systems programmer, OSS maintainer, and Nerves core team member. When not in front of a computer, he loves running and spending time with his family.About the projectIn the Pragmatic Bookshelf book,Build a Weather Station with Elixir and Nerves, we take a project-based approach and guide the reader to create a Nerves-powered IoT weather station.For those unfamiliar with the Elixir ecosystem,Nervesis an IoT framework that allows you to build and deploy IoT applications on a wide array of embedded devices. At a high level, Nerves allows you to focus on building your project and takes care of a lot of the boilerplate associated with running Elixir on embedded devices.The goal of the book is to guide the reader through the process of building an end-to-end IoT solution for capturing, persisting, and visualizing weather data.Assembled weather station hooked up to development machine.One of the motivating factors for this book was to create a real-world project where readers could get hands-on experience with hardware without worrying too much about the nitty-gritty of soldering components together. Experimenting with hardware can often feel intimidating and confusing, but with Elixir and Nerves, we feel confident that even beginners get comfortable and productive quickly. As a result, in the book, we leverage a Raspberry Pi Zero W along with a few I2C enabled sensors to', 501, array([ 0.02139998,  0.02185021, -0.00537814, ..., -0.01257126,
        -0.02165324, -0.03714396], dtype=float32))]
     Index created on embeddings table
     ```
 
-1.  To query the embeddings that you inserted in Timescale, open an editor of
+1.  To query the embeddings that you inserted in to your $SERVICE_LONG, open an editor of
     your choice and create the `query_embeddings.py` file. Here, the query is
-    `How does Density use Timescale?`.
+    `How does Density use $TIMESCALE_DB?`.
 
     ```python
     ###############################################################################
@@ -383,10 +384,10 @@ Before you begin, make sure you have:
     _ = load_dotenv(find_dotenv())
     openai.api_key  = os.environ['OPENAI_API_KEY']
 
-    # Get Timescale / PostgreSQL database connection string by reading local .env file
+    # Get Tiger Cloud / Postgres database connection string by reading local .env file
     connection_string  = os.environ['TIMESCALE_CONNECTION_STRING']
 
-    # Connect to PostgreSQL database in Timescale using connection string
+    # Connect to Postgres Tiger Cloud service using connection string
     conn = psycopg2.connect(connection_string)
 
     ###############################################################################
@@ -449,15 +450,15 @@ Before you begin, make sure you have:
         messages = [
             {"role": "system", "content": system_message},
             {"role": "user", "content": f"{delimiter}{user_input}{delimiter}"},
-            {"role": "assistant", "content": f"Relevant Timescale case studies information: \n {related_docs[0] [0]} \n {related_docs[1][0]} {related_docs[2][0]}"}
+            {"role": "assistant", "content": f"Relevant Tiger Data case studies information: \n {related_docs[0] [0]} \n {related_docs[1][0]} {related_docs[2][0]}"}
         ]
 
         final_response = get_completion_from_messages(messages)
         return final_response
     ###############################################################################
 
-    # Question about a Timescale blog post we want the model to answer
-    input = "How does Density use Timescale?"
+    # Question about a Tiger Data blog post we want the model to answer
+    input = "How does Density use TimescaleDB?"
     # Get a response from the model using most reelvant documents from the database
     response = process_input_with_retrieval(input)
     print(input)
@@ -468,7 +469,7 @@ Before you begin, make sure you have:
     You should see an output that looks a bit like this:
 
     ```bash
-    How does Density use Timescale?
+    How does Density use TimescaleDB?
     Density uses TimescaleDB as the main database in their smart city system.
     They store counts of people in spaces over time and derive metrics such as dwell time and space usage.
     TimescaleDB's flexibility and ability to handle time-series data efficiently allows Density to slice, dice, and compose queries in various ways.
@@ -479,13 +480,14 @@ Before you begin, make sure you have:
 
 </Procedure>
 
+<!-- markdown-link-check-disable -->
+<!-- markdown-link-check-enable-->
+
+[api-key]:https://platform.openai.com/account/api-keys
+[cloud-login]: https://console.cloud.timescale.com/
+[developer-qa]: https://www.tigerdata.com/blog/tag/dev-q-a
+[openai-signup]: https://platform.openai.com/overview
 [pgvector-repo]: https://github.com/pgvector/pgvector/blob/master/README.md
 [rag-docs]: https://www.promptingguide.ai/techniques/rag
-[cloud-login]: https://console.cloud.timescale.com/
-<!-- markdown-link-check-disable -->
-[vector-embeddings]: https://platform.openai.com/docs/guides/embeddings/what-are-embeddings
-[openai-signup]: https://platform.openai.com/overview
-[api-key]:https://platform.openai.com/account/api-keys
-<!-- markdown-link-check-enable-->
 [timescale-pgvector]: https://github.com/timescale/vector-cookbook/tree/main/openai_pgvector_helloworld
-[developer-qa]: https://www.timescale.com/blog/tag/dev-q-a/
+[vector-embeddings]: https://platform.openai.com/docs/guides/embeddings/what-are-embeddings

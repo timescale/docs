@@ -1,26 +1,41 @@
 module.exports = [
   {
-    title: "AI  and Vector: pgai on Timescale",
+    title: "Integrate AI with Tiger Data",
     href: "ai",
     filePath: "index.md",
     pageComponents: ["featured-cards"],
     excerpt:
-      "Information about pgai on Timescale and how to use it.",
+      "Integrate AI with your Tiger Data products",
     children: [
+      {
+        title: "Integrate Tiger Cloud with your AI Assistant",
+        href: "mcp-server",
+        excerpt: "Manage your services and optimize your schema and queries with your AI Assistant",
+      },
+      {        
+        title: "Aggregate organizational data with AI agents",
+        href: "tiger-eon",
+        excerpt: "Unify company knowledge with slack-native AI agents",
+      },
+      {
+        title: "Integrate a slack-native AI agent",
+        href: "tiger-agents-for-work",
+        excerpt: "Configure a Slack-native AI agent to do what you want",
+      },
       {
         title: "Key vector database concepts",
         href: "key-vector-database-concepts-for-understanding-pgvector",
-        excerpt: "Key concepts for working with pgvector data in PostgreSQL",
+        excerpt: "Key concepts for working with pgvector data in Postgres",
       },
       {
         title: "SQL interface",
         href: "sql-interface-for-pgvector-and-timescale-vector",
-        excerpt: "SQL interface for pgai, pgvector and pgvectorscale in PostgreSQL",
+        excerpt: "SQL interface for pgai, pgvector and pgvectorscale in Postgres",
       },
       /*{
         title: "Python interface",
         href: "python-interface-for-pgvector-and-timescale-vector",
-        excerpt: "Python interface for pgai, pgvector, and pgvectorscale in PostgreSQL",
+        excerpt: "Python interface for pgai, pgvector, and pgvectorscale in Postgres",
       },
       {
         title: "LangChain integration",
@@ -33,9 +48,9 @@ module.exports = [
         excerpt: "Integration of LlamaIndex with pgvector and pgvectorscale",
       },
       {
-        title: "Embed PostgreSQL data with PgVectorizer",
+        title: "Embed Postgres data with PgVectorizer",
         href: "pgvectorizer",
-        excerpt: "Create vector embeddings from PostgreSQL data with PgVectorizer",
+        excerpt: "Create vector embeddings from Postgres data with PgVectorizer",
       },*/
     ],
   },

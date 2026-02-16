@@ -15,7 +15,7 @@ aggregation functions, see the
 
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
-[Timescale Toolkit][install-toolkit] PostgreSQL extension.
+[$TOOLKIT_LONG][install-toolkit] $PG extension.
 
 <HyperfunctionTable
     hyperfunctionFamily='metric aggregation'
@@ -24,8 +24,10 @@ additional hyperfunctions, you need to install the
 />
 
 <Highlight type="important">
+
 All accessors can be used with `CounterSummary`, and all but `num_resets`
 with `GaugeSummary`.
+
 </Highlight>
 
 [hyperfunctions-counter-agg]: /use-timescale/:currentVersion:/hyperfunctions/counter-aggregation/

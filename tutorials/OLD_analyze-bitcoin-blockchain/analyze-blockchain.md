@@ -16,11 +16,11 @@ and analyze blockchain data.
 ## Hyperfunctions for simplified statistical queries
 
 In some of the following queries you can find custom SQL functions that are
-not part of vanilla PostgreSQL. These queries are TimescaleDB
-[hyperfunctions][docs-hyperfunctions] and they are
-either part of the TimescaleDB extension or the Toolkit extension.
+not part of vanilla $PG. These queries are $TIMESCALE_DB
+[hyperfunctions][hyperfunctions] and they are
+either part of the $TIMESCALE_DB extension or the Toolkit extension.
 Hyperfunctions is a series of SQL functions that make it easier to manipulate
-and analyze time-series data in PostgreSQL. You need to
+and analyze time-series data in $PG. You need to
 [install and enable the Toolkit extension][install-toolkit] to be able to use
 the whole set of hyperfunctions and successfully run the following queries.
 
@@ -34,7 +34,7 @@ Now set up a few continuous aggregates for faster and simplifed analysis.
 
 ## Continuous aggregates for blockchain analytics
 
-[Continuous aggregates][docs-cagg] are materialized views for time-series data.
+[Continuous aggregates][caggs] are materialized views for time-series data.
 They make
 queries faster by continuously materializing aggregated data. At the same
 time, they provide real-time results. That means they include the latest data
@@ -87,7 +87,7 @@ aggregate:
 *   `total_fee_sat`: Total fees paid in Sat
 *   `total_fee_usd`: Total fees paid in USD
 *   `stats_fee_sat`: Fee stats (in Sat)
-    This column uses a hyperfunction called [`stats_agg`][stats_agg].
+    This column uses a hyperfunction called [`stats_agg`][stats-aggs].
     The raw `stats_agg` value isn't easily interpretable.
     Later, you can use `stats_agg` to calculate other statistics, such as the average.
 *   `avg_tx_size`: Average transaction size in KB
@@ -249,7 +249,7 @@ time               |tx volume|fees              |
 
 </Terminal>
 
-![Hourly transaction volume and fees, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/tx_volume_fees.png)
+![Hourly transaction volume and fees, plotted over the last day][hourly-transaction-volume-and-fees-plotted-over-the-last-day]
 
 On this chart, the green line indicates the average transaction volume over
 time. The yellow line indicates the average fee per transaction over
@@ -294,7 +294,7 @@ time               |tx volume|btc-usd rate      |
 
 </Terminal>
 
-![Hourly transaction volume and BTC-USD conversion rate, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/volume_btc_usd.png)
+![Hourly transaction volume and BTC-USD conversion rate, plotted over the last day][hourly-transaction-volume-and-btc-usd-conversion-rate-plotted-over-the-last-day]
 
 Again, the green line shows the average transaction volume over time. The
 yellow line shows the BTC-USD conversion rate.
@@ -340,7 +340,7 @@ time               |transactions         |mining fee |
 
 </Terminal>
 
-![Line graph with two lines showing the average number of transactions in a block and the block mining fee, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/tx_in_block_expensive.png)
+![Line graph with two lines showing the average number of transactions in a block and the block mining fee, over the last five days][line-graph-with-two-lines-showing-the-average-number-of-transactions-in-a-block-and-the-block-mining-fee-over-the-last-five-days]
 
 Unsurprisingly, there's a high correlation between the number of transactions
 in a block and the mining fee. The more transactions a block has, the higher
@@ -383,7 +383,7 @@ time               |block weight        |mining fee            |
 
 </Terminal>
 
-![Line graph with two lines showing the block weight and the block mining fee, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/weight_fee.png)
+![Line graph with two lines showing the block weight and the block mining fee, over the last five days][line-graph-with-two-lines-showing-the-block-weight-and-the-block-mining-fee-over-the-last-five-days]
 
 You can see the same kind of high correlation between block weight
 (defined in weight units) and mining fee. The relationship weakens when the block weight gets
@@ -438,7 +438,7 @@ time               |fees                  |reward    |
 
 </Terminal>
 
-![Line graph with two lines showing the average fee and block reward, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/revenue_ratio.png)
+![Line graph with two lines showing the average fee and block reward, over the last five days][line-graph-with-two-lines-showing-the-average-fee-and-block-reward-over-the-last-five-days]
 
 This chart analyzes the last five days of average miner revenue. The left
 axis shows the percentage of total revenue that
@@ -500,7 +500,7 @@ time               |block weight      |mining fee          |
 
 </Terminal>
 
-![block weight and fees](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/weight_fees.png)
+![block weight and fees][block-weight-and-fees]
 
 You can see that the block weight and block mining fee are indeed tightly
 connected to each other. In practice, you can also see that four million
@@ -544,7 +544,7 @@ time               |revenue in BTC    |
 
 </Terminal>
 
-![Average miner revenue per block, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block.png)
+![Average miner revenue per block, plotted over the last day][average-miner-revenue-per-block-plotted-over-the-last-day]
 
 To make the chart more interesting, add the BTC-USD rate to the analysis
 and increase the time range:
@@ -580,9 +580,17 @@ time               |revenue in BTC    |revenue in USD    |
 
 </Terminal>
 
-![Average miner revenue per block, plotted in BTC and USD, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png)
+![Average miner revenue per block, plotted in BTC and USD, over the last five days][average-miner-revenue-per-block-plotted-in-btc-and-usd-over-the-last-five-days]
 
-[docs-cagg]: /use-timescale/:currentVersion:/continuous-aggregates/
-[docs-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
+[average-miner-revenue-per-block-plotted-in-btc-and-usd-over-the-last-five-days]: https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png
+[average-miner-revenue-per-block-plotted-over-the-last-day]: https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block.png
+[block-weight-and-fees]: https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/weight_fees.png
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
+[hourly-transaction-volume-and-btc-usd-conversion-rate-plotted-over-the-last-day]: https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/volume_btc_usd.png
+[hourly-transaction-volume-and-fees-plotted-over-the-last-day]: https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/tx_volume_fees.png
+[hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/
-[stats_agg]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
+[line-graph-with-two-lines-showing-the-average-fee-and-block-reward-over-the-last-five-days]: https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/revenue_ratio.png
+[line-graph-with-two-lines-showing-the-average-number-of-transactions-in-a-block-and-the-block-mining-fee-over-the-last-five-days]: https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/tx_in_block_expensive.png
+[line-graph-with-two-lines-showing-the-block-weight-and-the-block-mining-fee-over-the-last-five-days]: https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/weight_fee.png
+[stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

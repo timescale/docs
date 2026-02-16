@@ -1,4 +1,5 @@
 {
+  "aliveStatusCodes": [429, 200],
   "replacementPatterns": [
     {
       "pattern": ":currentVersion:",
@@ -6,10 +7,16 @@
     },
     {
       "pattern": "^/",
-      "replacement": "https://docs.timescale.com/"
+      "replacement": "https://www.tigerdata.com/docs/"
     }
   ],
   "ignorePatterns": [
+    {
+      "pattern": "^https://console.anthropic.com/settings/keys"
+    },
+    {
+      "pattern": "^https://console.cloud.timescale.com/public/api/v1"
+    },
     {
       "pattern": "^https://console.aws.amazon.com/rds/home#databases"
     },
@@ -78,6 +85,30 @@
     },
     {
       "pattern": "^https://www.tableau.com/support/releases/server/2024.2.6#esdalt"
+    },
+    {
+      "pattern": "^https://azure.microsoft.com/en-us/products/data-studio"
+    },
+    {
+      "pattern": "^https://azure.microsoft.com/en-gb/"
+    },
+    {
+      "pattern": "^https://typeorm.biunav.com/en/connection-options.html#postgres-cockroachdb-connection-options"
+    },
+    {
+      "pattern": "^https://www.nagios.com/solutions/postgresql-monitoring/"
+    },
+    {
+      "pattern": "^https://www.gnu.org/s/libc/manual/html_node/Locked-Memory-Details.html"
+    },
+    {
+      "pattern": "^https://docs.llamaindex.ai/en/stable/examples/vector_stores/Timescalevector.html"
+    },
+    {
+      "pattern": "^https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html"
+    },
+    {
+      "pattern": "^https://portal.support.timescale.com/login"
     }
   ]
 }

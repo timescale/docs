@@ -1,17 +1,14 @@
 ---
 title: Manual compression
-excerpt: Timescale Cloud provides automated and manual data compression. Learn to manually compress specific chunks of a hypertable for a more granular control
-products: [self_hosted]
+excerpt: TimescaleDB provides automated and manual data compression. Learn to manually compress specific chunks of a hypertable for a more granular control
+products: [cloud, mst, self_hosted]
 keywords: [compression, hypertables]
 ---
-import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Manually compress chunks
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/modify-data-in-hypercore">Modify your data in Hypercore</a>.
-
 In most cases, an [automated compression policy][add_compression_policy] is sufficient to automatically compress your 
-chunks. However, if you want more control over compression, you can also manually compress specific chunks.
+chunks. However, if you want more control, you can also use manual synchronous compression of specific chunks. 
 
 Before you start, you need a list of chunks to compress. In this example, you
 use a hypertable called `example`, and compress chunks older than three days.
@@ -29,12 +26,11 @@ use a hypertable called `example`, and compress chunks older than three days.
 
 1.  This returns a list of chunks. Take note of the chunks' names:
 
-    ```sql
     ||show_chunks|
     |---|---|
     |1|_timescaledb_internal_hyper_1_2_chunk|
     |2|_timescaledb_internal_hyper_1_3_chunk|
-    ```
+
 
 </Procedure>
 
@@ -61,12 +57,11 @@ manually compress each one.
     The results show the chunks for the given hypertable, their compression
     status, and some other statistics:
 
-    ```sql
     |chunk_schema|chunk_name|compression_status|before_compression_table_bytes|before_compression_index_bytes|before_compression_toast_bytes|before_compression_total_bytes|after_compression_table_bytes|after_compression_index_bytes|after_compression_toast_bytes|after_compression_total_bytes|node_name|
     |---|---|---|---|---|---|---|---|---|---|---|---|
     |_timescaledb_internal|_hyper_1_1_chunk|Compressed|8192 bytes|16 kB|8192 bytes|32 kB|8192 bytes|16 kB|8192 bytes|32 kB||
     |_timescaledb_internal|_hyper_1_20_chunk|Uncompressed||||||||||
-    ```
+
 
 1.  Repeat for all chunks you want to compress.
 
@@ -90,7 +85,7 @@ SELECT compress_chunk(i, if_not_compressed => true)
 
 ## Roll up uncompressed chunks when compressing
 
-In Timescale&nbsp;2.9 and later, you can roll up multiple uncompressed chunks into
+In $TIMESCALE_DB v2.9 and later, you can roll up multiple uncompressed chunks into
 a previously compressed chunk as part of your compression procedure. This allows
 you to have much smaller uncompressed chunk intervals, which reduces the disk
 space used for uncompressed data. For example, if you have multiple smaller
@@ -102,9 +97,11 @@ settings to set the compress chunk time interval and run compression operations
 to roll up the chunks while compressing.
 
 <Highlight type="note">
+
 The default setting of `compress_orderby` is `'time DESC'` (the descending or DESC command is used to sort the data returned in ascending order), which causes chunks to be re-compressed
 many times during the rollup, possibly leading to a steep performance penalty. 
 Set `timescaledb.compress_orderby = 'time ASC'` to avoid this penalty.
+
 </Highlight>
 
 

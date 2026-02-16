@@ -1,6 +1,6 @@
 ---
 title: JSONB support for semi-structured data
-excerpt: In Timescale Cloud, you can use JSON or JSONB to store semi-structured data, such as user-defined fields. Learn how to index the JSONB structure and individual fields
+excerpt: In TimescaleDB, you can use JSON or JSONB to store semi-structured data, such as user-defined fields. Learn how to index the JSONB structure and individual fields
 products: [cloud, mst, self_hosted]
 keywords: [schemas, JSONB]
 ---
@@ -24,18 +24,20 @@ CREATE TABLE metrics (
 When you are defining a schema using JSON, ensure that common fields, such as
 `time`, `user_id`, and `device_id`, are pulled outside of the JSONB structure
 and stored as columns. This is because field accesses are more efficient on
-table columns than inside of JSONB structures. Storage is also more efficient.
+table columns than inside JSONB structures. Storage is also more efficient.
 
 You should also use the JSONB data type, that is, JSON stored in a binary
 format, rather than JSON data type. JSONB data types are more efficient in both
 storage overhead and lookup performance.
 
 <Highlight type="note">
+
 Use JSONB for user-defined data rather than sparse data. This works best for most
 data sets. For sparse data, use NULLable fields and, if possible, run on top of
 a compressed file system like ZFS. This will work better than a JSONB data type,
 unless the data is extremely sparse, for example, more than 95% of fields for a
 row are empty.
+
 </Highlight>
 
 ## Index the JSONB structure
@@ -49,11 +51,11 @@ CREATE INDEX idxgin ON metrics USING GIN (data);
 ```
 
 For more information about GIN indexes, see the
-[PostgreSQL documentation][json-indexing].
+[$PG documentation][json-indexing].
 
 This index only optimizes queries where the `WHERE` clause uses the `?`, `?&`,
 `?|`, or `@>` operator. For more information about these operators, see the
-[PostgreSQL documentation][json-operators].
+[$PG documentation][json-operators].
 
 ## Index individual fields
 
@@ -85,8 +87,8 @@ adding `time DESC` as a leading column. Note, however, that to enable index-only
 scans, you need `data` as a column, not the full expression
 `((data->>'cpu')::double precision)`.
 
-[expression-index]: https://www.postgresql.org/docs/current/static/indexes-expressional.html
-[json-indexing]: https://www.postgresql.org/docs/current/static/datatype-json.html#JSON-INDEXING
-[json-operators]: https://www.postgresql.org/docs/current/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
-[multicolumn-index]: https://www.postgresql.org/docs/current/static/indexes-multicolumn.html
-[partial-index]: https://www.postgresql.org/docs/current/static/indexes-partial.html
+[expression-index]: https://www.postgresql.org/docs/current/indexes-expressional.html
+[json-indexing]: https://www.postgresql.org/docs/current/datatype-json.html#JSON-INDEXING
+[json-operators]: https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
+[multicolumn-index]: https://www.postgresql.org/docs/current/indexes-multicolumn.html
+[partial-index]: https://www.postgresql.org/docs/current/indexes-partial.html

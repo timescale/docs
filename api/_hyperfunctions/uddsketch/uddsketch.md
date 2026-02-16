@@ -67,5 +67,6 @@ api_details:
         relative error of 0.01.
       command:
         code: SELECT uddsketch(100, 0.01, data) FROM samples;
+products: [cloud, mst, self_hosted]
 ---
 

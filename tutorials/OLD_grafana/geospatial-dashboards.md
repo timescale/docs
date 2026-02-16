@@ -5,7 +5,7 @@ products: [cloud, mst, self_hosted]
 keywords: [Grafana, visualizations, analytics, geospatial data]
 ---
 
-# Use Grafana to visualize geospatial data stored in TimescaleDB
+# Use Grafana to visualize geospatial data stored in $TIMESCALE_DB
 
 Grafana includes a WorldMap visualization that help you see geospatial data overlaid
 atop a map of the world. This can be helpful to understand how data changes based on
@@ -17,15 +17,16 @@ To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-*   To start, [install TimescaleDB][install-timescale].
+*   To start, [install $TIMESCALE_DB][install-timescale].
 *   Next setup Grafana.
 
-Once your installation of TimescaleDB and Grafana are complete, ingest the data found
+Once your installation of $TIMESCALE_DB and Grafana are complete, ingest the data found
 in the NYC Taxi Cab tutorial and configure Grafana to connect
 to that database. Be sure to follow the full tutorial if you're interested in background
-on how to use TimescaleDB.
+on how to use $TIMESCALE_DB.
 
 <Highlight type="tip">
+
  Be sure to pay close attention to the geospatial query portion
  of the tutorial and complete those steps.
 
@@ -79,6 +80,7 @@ Finally, in the `GROUP BY` clause, we supply the `trip_distance` and location va
 so that Grafana can plot data properly.
 
 <Highlight type="warning">
+
  This query may take a while, depending on the speed of your Internet connection. This
  is why we're using the `LIMIT` statement for demonstration purposes.
 
@@ -107,13 +109,13 @@ Your configuration should look like this:
 
 At this point, data should be flowing into our Worldmap visualization, like so:
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_results.png" alt="Visualizing time series data in PostgreSQL using the Grafana Worldmap"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_worldmap_query_results.png" alt="Visualizing time series data in Postgres using the Grafana Worldmap"/>
 
 You should be able to edit the time filter at the top of your visualization to see trip pickup data
 for different timeframes.
 
 ### Summary
 
-Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
+Complete your Grafana knowledge by following all the $TIMESCALE_DB + Grafana tutorials.
 
-[install-timescale]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/

@@ -44,4 +44,5 @@ api_details:
         type: MaxNBy
         description: >
           The compiled aggregate.  Note that the exact type will be MaxByInts, MaxByFloats, or MaxByTimes depending on the input type
+products: [cloud, mst, self_hosted]
 ---

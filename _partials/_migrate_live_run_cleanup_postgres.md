@@ -7,7 +7,7 @@
 1. **Stop app downtime**
 
    Once you are confident that your data is successfully replicated, configure your apps
-   to use your Timescale Cloud service.
+   to use your $SERVICE_LONG.
 
 1. **Cleanup resources associated with live-migration from your migration machine**
 

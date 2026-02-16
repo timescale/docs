@@ -1,14 +1,11 @@
 <Highlight
   type="cloud"
-  header="Timescale Cloud or MST?"
+  header="Try Tiger Cloud"
 >
 
-Timescale Cloud is a high-performance developer focused cloud that provides PostgreSQL services enhanced 
-with our blazing fast vector search. You can securely integrate Timescale Cloud with your AWS, GCS or Azure 
-infrastructure. [Create a Timescale Cloud service][timescale-service] and try for free.
-
-If you need to run TimescaleDB on GCP or Azure, you're in the right place — keep reading.
+$CLOUD_LONG is a high-performance, developer-focused cloud that provides $PG services enhanced 
+with our blazing fast vector search, data tiering, monitoring suite, and other features. [Create a $SERVICE_LONG][create-service] and try for free.
 
 </Highlight>
 
-[timescale-service]: /getting-started/:currentVersion:/services
+[create-service]: /getting-started/:currentVersion:/services

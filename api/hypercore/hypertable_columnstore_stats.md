@@ -7,15 +7,16 @@ tags: [statistics, size]
 api:
   license: community
   type: procedure
+products: [cloud, mst, self_hosted]
 ---
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 
 # hypertable_columnstore_stats() <Tag type="community">Community</Tag>
 
-Retrieve compression statistics for the columnstore.
+Retrieve compression statistics for the $COLUMNSTORE.
 
 For more information about using hypertables, including chunk size partitioning,
-see [hypertables][hypertable-docs].
+see [hypertables][hypertables-section].
 
 <Since2180 />
 
@@ -78,5 +79,4 @@ To retrieve compression statistics:
 |`after_compression_total_bytes`|BIGINT|Size of the entire table (`after_compression_table_bytes` + `after_compression_index_bytes `+ `after_compression_toast_bytes`) after compression. Returns `NULL` if `compression_status` == `Uncompressed`. |
 |`node_name`|TEXT|nodes on which the hypertable is located, applicable only to distributed hypertables. Returns `NULL` if `compression_status` == `Uncompressed`. |
 
-[hypertable-docs]: /use-timescale/:currentVersion:/hypertables/
-
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/

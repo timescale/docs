@@ -5,28 +5,38 @@ products: [self_hosted]
 keywords: [installation, self-hosted, Kubernetes]
 ---
 
-import Skip from "versionContent/_partials/_selfhosted_cta.mdx";
+import TestingEnv from "versionContent/_partials/_selfhosted_production_alert.mdx" ;
+import KubernetesPrereqs from "versionContent/_partials/_kubernetes-prereqs.mdx";
+import KubernetesInstallSelf from "versionContent/_partials/_kubernetes-install-self-hosted.mdx";
 
-# Install TimescaleDB on Kubernetes
 
-TimescaleDB can be run inside Kubernetes using the TimescaleDB Docker 
-container images. In the past Timescale maintained Helm charts to 
-manage the Kubernetes deployment, but we now recommend that Kubernetes
-users rely on one of the amazing PostgreSQL Kubernetes operators to 
-simplify installation, configuration, and life-cycle.
+# Install $TIMESCALE_DB on Kubernetes
 
-<Skip />
+You can run TimescaleDB inside Kubernetes using the TimescaleDB Docker container images. 
 
-The operators which our community members have told us work well are:
+<TestingEnv />
+
+## Prerequisites
+
+To follow the steps on this page:
+
+<KubernetesPrereqs />
+
+## Integrate $TIMESCALE_DB in a Kubernetes cluster
+
+<KubernetesInstallSelf />
+
+## Install with $PG Kubernetes operators
+
+You can also use $PG Kubernetes operators to simplify installation, configuration, and life cycle. The operators which our community members have 
+told us work well are:
 
 - [StackGres][stackgres] (includes TimescaleDB images)
-- [Postgres Operator (Patroni)][patroni] 
+- [$PG Operator (Patroni)][patroni] 
 - [PGO][pgo]
 - [CloudNativePG][cnpg]
 
-
-[stackgres]: https://github.com/ongres/stackgres
+[cnpg]: https://github.com/cloudnative-pg/cloudnative-pg
 [patroni]: https://github.com/zalando/postgres-operator
 [pgo]: https://github.com/CrunchyData/postgres-operator
-[cnpg]: https://github.com/cloudnative-pg/cloudnative-pg
-
+[stackgres]: https://github.com/ongres/stackgres

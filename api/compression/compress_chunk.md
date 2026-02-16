@@ -7,15 +7,17 @@ tags: [chunks]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # compress_chunk() <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
-The `compress_chunk` function is used to compress (or recompress, if necessary) 
+The `compress_chunk` function is used for synchronous compression (or recompression, if necessary) of 
 a specific chunk. This is most often used instead of the
 [`add_compression_policy`][add_compression_policy] function, when a user
 wants more control over the scheduling of compression. For most users, we
@@ -27,30 +29,13 @@ You can also compress chunks by
 allowing you to target a specific chunk that needs compressing.
 
 <Highlight type="tip">
+
 You can get a list of chunks belonging to a hypertable using the
-[`show_chunks` function](/api/latest/hypertable/show_chunks/).
+[`show_chunks` function][show_chunks-function].
+
 </Highlight>
 
-### Required arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `chunk_name` | REGCLASS | Name of the chunk to be compressed|
-
-### Optional arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `if_not_compressed` | BOOLEAN | Disabling this will make the function error out on chunks that are already compressed. Defaults to true.|
-| `hypercore_use_access_method`         | BOOLEAN | `NULL` |✖| Set to `true` to use hypercore table access metod. If set to `NULL` it will use the value from `timescaledb.default_hypercore_use_access_method`. |
-
-### Returns
-
-|Column|Type|Description|
-|---|---|---|
-| `compress_chunk` | REGCLASS | Name of the chunk that was compressed|
-
-### Sample usage
+## Samples
 
 Compress a single chunk.
 
@@ -58,5 +43,26 @@ Compress a single chunk.
 SELECT compress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 ```
 
+## Required arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `chunk_name` | REGCLASS | Name of the chunk to be compressed|
+
+## Optional arguments
+
+| Name                 | Type | Default | Required | Description                                                                                                                    |
+|----------------------|--|---------|--|--------------------------------------------------------------------------------------------------------------------------------|
+| `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the $COLUMNSTORE.                                                                                  |
+| `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the $COLUMNSTORE.                |
+| `recompress`         | BOOLEAN | `false` |✖| Set to true to recompress. In-memory recompression is attempted first; it falls back to internal decompress/compress. |
+
+## Returns
+
+|Column|Type|Description|
+|---|---|---|
+| `compress_chunk` | REGCLASS | Name of the chunk that was compressed|
+
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
-[run-job]: /api/:currentVersion:/actions/run_job/
+[run-job]: /api/:currentVersion:/jobs-automation/run_job/
+[show_chunks-function]: /api/:currentVersion:/hypertable/show_chunks/

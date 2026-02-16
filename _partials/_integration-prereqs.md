@@ -1,11 +1,10 @@
 To follow the steps on this page:
 
-* Create a target [$SERVICE_LONG][create-service] with time-series and analytics enabled.
+* Create a target [$SERVICE_LONG][create-service] with the Real-time analytics capability.
 
    You need [your connection details][connection-info]. This procedure also 
-   works for [self-hosted $TIMESCALE_DB][enable-timescaledb].
+   works for [$SELF_LONG][enable-timescaledb].
 
-
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
-[connection-info]: /use-timescale/:currentVersion:/integrations/find-connection-details/

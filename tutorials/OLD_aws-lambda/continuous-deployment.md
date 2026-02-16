@@ -22,8 +22,8 @@ deploy your code to AWS Lambda.
 
 ## Prerequisites
 
-*   Git ([installation options here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
-*   GitHub CLI tool ([installation options here](https://github.com/cli/cli#installation))
+*   Git ([installation options here][installation-options-here])
+*   GitHub CLI tool ([installation options here][installation-options-here-1])
 *   AWS account
 
 <Procedure>
@@ -31,9 +31,9 @@ deploy your code to AWS Lambda.
 ## Creating a new Lambda function in AWS console
 
 1.  Create a new Lambda function called `lambda-cd` by navigating to the AWS Lambda console and creating a new function:
-    ![create new function](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/create_new_function.png)
+    ![create new function][create-new-function]
 1.  Add `lambda-cd` as your function name, choose your preferred runtime environment, and click `Create function`:
-    ![create lambda from scratch](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/from_scratch.png)
+    ![create lambda from scratch][create-lambda-from-scratch]
     Take a note of the function name, you need it later to configure the deployment file.
 
 </Procedure>
@@ -44,7 +44,7 @@ deploy your code to AWS Lambda.
 
 Now you can create a new GitHub repository which contains the function code.
 
-1.  Create a new GitHub [repository](https://github.com/new).
+1.  Create a new GitHub [repository][repository].
 1.  On your local system, create a new project folder called `lambda-cd`:
 
     ```bash
@@ -53,8 +53,8 @@ Now you can create a new GitHub repository which contains the function code.
     ```
 
 1.  Create the Lambda function that you want to upload.
-    As an example, here's a Python Lambda function which returns data from a TimescaleDB table called `stocks_intraday`
-    read the tutorial to build a TimescaleDB API with Lambda here
+    As an example, here's a Python Lambda function which returns data from a $TIMESCALE_DB table called `stocks_intraday`
+    read the tutorial to build a $TIMESCALE_DB API with Lambda here
 
     ```bash
     touch function.py
@@ -166,7 +166,7 @@ Now you know that you have your AWS credentials available for the repository to 
 
 ### Setting up GitHub actions
 
-You can now set up some automation based on the ["AWS Lambda Deploy" GitHub action](https://github.com/marketplace/actions/aws-lambda-deploy)
+You can now set up some automation based on the ["AWS Lambda Deploy" GitHub action][aws-lambda-deploy-github-action]
 to auto-deploy to AWS Lambda.
 
 1.  Create a new YAML file that contains the deployment configuration:
@@ -229,11 +229,17 @@ You can test if the hook works by pushing the changes to GitHub.
     ```
 
 1.  Navigate to the GitHub actions page of your repository, to see the build run and succeed:
-    ![github action build](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/github_action_lambda.png)
+    ![github action build][github-action-build]
 
 </Procedure>
 
 You now have a continuous deployment pipeline set up between GitHub and AWS Lambda.
 
-[create-data-api]: /tutorials/:currentVersion:/aws-lambda/create-data-api/
+[aws-lambda-deploy-github-action]: https://github.com/marketplace/actions/aws-lambda-deploy
+[create-lambda-from-scratch]: https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/from_scratch.png
+[create-new-function]: https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/create_new_function.png
+[github-action-build]: https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/github_action_lambda.png
 [github-secrets]: https://docs.github.com/en/actions/reference/encrypted-secrets
+[installation-options-here-1]: https://github.com/cli/cli#installation
+[installation-options-here]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+[repository]: https://github.com/new

@@ -13,7 +13,9 @@ dataset and copy the data to your database.
     file that contains Bitcoin transactions for the past five days. Download:
 
     <Tag type="download">
-      [bitcoin_sample.zip](https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip)
+    
+      [bitcoin_sample.zip][bitcoin_samplezip]
+
     </Tag>
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
@@ -22,8 +24,11 @@ dataset and copy the data to your database.
     unzip bitcoin_sample.zip
     ```
 
+1. In Terminal, navigate to the folder where you unzipped the Bitcoin transactions, then 
+   connect to your $SERVICE_SHORT using [psql][connect-using-psql].
+
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    Timescale instance. If the `.csv` files aren't in your current directory,
+    $SERVICE_LONG. If the `.csv` files aren't in your current directory,
     specify the file paths in these commands:
 
     ```sql
@@ -36,5 +41,7 @@ dataset and copy the data to your database.
 
 </Procedure>
 
-[satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi
+[bitcoin_samplezip]: https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip
 [coinbase-def]: https://www.pcmag.com/encyclopedia/term/coinbase-transaction
+[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
+[satoshi-def]: https://www.pcmag.com/encyclopedia/term/satoshi

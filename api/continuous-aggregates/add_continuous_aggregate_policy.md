@@ -1,0 +1,89 @@
+---
+api_name: add_continuous_aggregate_policy()
+excerpt: Add policy to schedule automatic refresh of a continuous aggregate
+topics: [continuous aggregates, jobs]
+keywords: [continuous aggregates, policies]
+tags: [scheduled jobs, refresh]
+api:
+  license: community
+  type: function
+products: [cloud, self_hosted, mst]
+---
+
+# add_continuous_aggregate_policy() <Tag type="community">Community</Tag>
+
+Create a policy that automatically refreshes a continuous aggregate. To view the
+policies that you set or the policies that already exist, see
+[informational views][informational-views].
+
+## Samples
+
+Add a policy that refreshes the last month once an hour, excluding the latest
+hour from the aggregate. For performance reasons, we recommend that you
+exclude buckets that see lots of writes:
+
+```sql
+SELECT add_continuous_aggregate_policy('conditions_summary',
+  start_offset => INTERVAL '1 month',
+  end_offset => INTERVAL '1 hour',
+  schedule_interval => INTERVAL '1 hour');
+```
+
+## Required arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`continuous_aggregate`|REGCLASS|The continuous aggregate to add the policy for|
+|`start_offset`|INTERVAL or integer|Start of the refresh window as an interval relative to the time when the policy is executed. `NULL` is equivalent to `MIN(timestamp)` of the hypertable.|
+|`end_offset`|INTERVAL or integer|End of the refresh window as an interval relative to the time when the policy is executed. `NULL` is equivalent to `MAX(timestamp)` of the hypertable.|
+|`schedule_interval`|INTERVAL|Interval between refresh executions in wall-clock time. Defaults to 24 hours|
+|`initial_start`|TIMESTAMPTZ|Time the policy is first run. Defaults to NULL. If omitted, then the schedule interval is the intervalbetween the finish time of the last execution and the next start. If provided, it serves as the origin with respect to which the next_start is calculated |
+
+The `start_offset` should be greater than `end_offset`.
+
+You must specify the `start_offset` and `end_offset` parameters differently,
+depending on the type of the time column of the hypertable:
+
+*   For hypertables with `TIMESTAMP`, `TIMESTAMPTZ`, and `DATE` time columns,
+    set the offset as an `INTERVAL` type.
+*   For hypertables with integer-based timestamps, set the offset as an
+    `INTEGER` type.
+
+<Highlight type="important">
+
+While setting `end_offset` to `NULL` is possible, it is not recommended. To include the data between `end_offset` and
+the current time in queries, enable [real-time aggregation][real-time-aggregation].
+
+</Highlight>
+
+You can add [concurrent refresh policies][concurrent-refresh-policies] on each continuous aggregate, as long as the `start_offset` and `end_offset` does not overlap with another policy on the same continuous aggregate.
+
+## Optional arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`if_not_exists`|BOOLEAN|Set to `true` to issue a notice instead of an error if the job already exists. Defaults to false.|
+|`timezone`|TEXT|A valid time zone. If you specify `initial_start`, subsequent executions of the refresh policy are aligned on `initial_start`. However, daylight savings time (DST) changes may shift this alignment. If this is an issue you want to mitigate, set `timezone` to a valid time zone. Default is `NULL`, [UTC bucketing][utc-bucketing] is performed.|
+| `include_tiered_data` | BOOLEAN | Enable/disable reading tiered data. This setting helps override the current settings for the`timescaledb.enable_tiered_reads` GUC. The default is NULL i.e we use the current setting for `timescaledb.enable_tiered_reads` GUC  | |
+| `buckets_per_batch` | INTEGER | Number of buckets to be refreshed by a _batch_. This value is multiplied by the CAgg bucket width to determine the size of the batch range. Default value is `1`, single batch execution. Values of less than `0` are not allowed. | |
+| `max_batches_per_execution` | INTEGER | Limit the maximum number of batches to run when a policy executes. If some batches remain, they are processed the next time the policy runs. Default value is `0`, for an unlimted number of batches. Values of less than `0` are not allowed. | |
+| `refresh_newest_first` | BOOLEAN | Control the order of incremental refreshes.  Set to `TRUE` to refresh from the newest data to the oldest. Set to `FALSE` for oldest to newest. The default is `TRUE`. | |
+
+
+<Highlight type="important">
+
+Setting `buckets_per_batch` greater than zero means that the refresh window is split in batches of `bucket width` * `buckets per batch`. For example, a given Continuous Aggregate with `bucket width` of `1 day` and `buckets_per_batch` of 10 has a batch size of `10 days` to process the refresh.
+Because each `batch` is an individual transaction, executing a policy in batches make the data visible for the users before the entire job is executed. Batches are processed from the most recent data to the oldest.
+
+</Highlight>
+
+## Returns
+
+|Column|Type|Description|
+|-|-|-|
+|`job_id`|INTEGER|TimescaleDB background job ID created to implement this policy|
+
+[concurrent-refresh-policies]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[real-time-aggregation]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
+[utc-bucketing]: https://www.tigerdata.com/docs/use-timescale/:currentVersion:/time-buckets/about-time-buckets/

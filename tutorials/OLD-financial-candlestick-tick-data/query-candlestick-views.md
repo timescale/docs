@@ -12,12 +12,14 @@ and set up multiple candlestick views. In this section, use some
 example candlestick queries and see how they can be represented in data visualizations.
 
 <Highlight type="note">
-The queries in this section are example queries. The [sample data](https://assets.timescale.com/docs/downloads/crypto_sample.zip)
+
+The queries in this section are example queries. The [sample data][sample-data]
 provided with this tutorial is updated on a regular basis to have near-time
 data, typically no more than a few days old. Our sample queries reflect time
 filters that might be longer than you would normally use, so feel free to
 modify the time filter in the `WHERE` clause as the data ages, or as you begin
 to insert updated tick readings.
+
 </Highlight>
 
 ## 1-min BTC/USD candlestick chart
@@ -31,7 +33,7 @@ WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '24 hour'
 ORDER BY bucket
 ```
 
-![1-min candlestick](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_min.png)
+![1-min candlestick][1-min-candlestick]
 
 ## 1-hour BTC/USD candlestick chart
 
@@ -44,7 +46,7 @@ WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '2 day'
 ORDER BY bucket
 ```
 
-![1-hour candlestick](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_hour.png)
+![1-hour candlestick][1-hour-candlestick]
 
 ## 1-day BTC/USD candlestick chart
 
@@ -57,7 +59,7 @@ WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '14 days'
 ORDER BY bucket
 ```
 
-![1-day candlestick](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_day.png)
+![1-day candlestick][1-day-candlestick]
 
 ## BTC vs. ETH 1-day price changes delta line chart
 
@@ -75,6 +77,11 @@ WHERE symbol IN ('BTC/USD', 'ETH/USD') AND bucket >= NOW() - INTERVAL '14 days'
 ORDER BY bucket
 ```
 
-![btc vs eth](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/pct_change.png)
+![btc vs eth][btc-vs-eth]
 
-[lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
+[1-day-candlestick]: https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_day.png
+[1-hour-candlestick]: https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_hour.png
+[1-min-candlestick]: https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_min.png
+[btc-vs-eth]: https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/pct_change.png
+[lag]: https://www.pgtutorial.com/postgresql-window-functions/postgresql-lag/
+[sample-data]: https://assets.timescale.com/docs/downloads/crypto_sample.zip

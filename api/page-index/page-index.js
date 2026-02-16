@@ -7,19 +7,22 @@ module.exports = [
     excerpt:
       "The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension",
     description:
-      "User-defined actions allow you to run functions and procedures implemented in a language of your choice on a schedule within TimescaleDB. This allows...",
+      "Jobs allow you to run functions and procedures implemented in a language of your choice on a schedule within TimescaleDB. This allows...",
     children: [
       {
-        title: "Hypertables & chunks",
-        type: "directory",
+        title: "Hypertables and chunks",
         href: "hypertable",
         children: [
+          {
+            title: "CREATE TABLE",
+            href: "create_table",
+          },
           {
             title: "create_hypertable",
             href: "create_hypertable",
           },
           {
-            title: "create_hypertable (old interface)",
+            title: "create_hypertable (old API)",
             href: "create_hypertable_old",
           },
           {
@@ -31,16 +34,44 @@ module.exports = [
             href: "drop_chunks",
           },
           {
+            title: "create_chunk",
+            href: "create_chunk",
+          },
+          {
+            title: "drop_chunk",
+            href: "drop_chunk",
+          },
+          {
             title: "reorder_chunk",
             href: "reorder_chunk",
+          },
+          {
+            title: "split_chunk",
+            href: "split_chunk",
           },
           {
             title: "merge_chunks",
             href: "merge_chunks",
           },
           {
+            title: "merge_chunks_concurrently",
+            href: "merge_chunks_concurrently",
+          },
+          {
+            title: "chunk_rewrite_cleanup",
+            href: "chunk_rewrite_cleanup",
+          },
+          {
             title: "move_chunk",
             href: "move_chunk",
+          },
+          {
+            title: "detach_chunk",
+            href: "detach_chunk",
+          },
+          {
+            title: "attach_chunk",
+            href: "attach_chunk",
           },
           {
             title: "add_reorder_policy",
@@ -126,11 +157,6 @@ module.exports = [
         href: "hypercore",
         children: [
           {
-            title: "ALTER MATERIALIZED VIEW",
-            href: "alter_materialized_view",
-            excerpt: "Enable the columnstore for a materialized view.",
-          },
-          {
             title: "ALTER TABLE",
             href: "alter_table",
             excerpt: "Enable the columnstore for a hypertable.",
@@ -179,7 +205,6 @@ module.exports = [
       },
       {
         title: "Continuous aggregates",
-        type: "redirect-to-child-page",
         href: "continuous-aggregates",
         children: [
           {
@@ -242,7 +267,6 @@ module.exports = [
       },
       {
         title: "Data retention",
-        type: "directory",
         href: "data-retention",
         children: [
           {
@@ -256,9 +280,8 @@ module.exports = [
         ],
       },
       {
-        title: "Actions and automation",
-        type: "directory",
-        href: "actions",
+        title: "Jobs and automation",
+        href: "jobs-automation",
         children: [
           {
             title: "add_job",
@@ -277,6 +300,36 @@ module.exports = [
             href: "run_job",
           },
         ],
+      },
+      {
+        title: "UUIDv7 functions",
+        href: "uuid-functions",
+        children: [
+          {
+            title: "generate_uuidv7",
+            href: "generate_uuidv7",                    
+          },
+          {
+              title: "to_uuidv7",
+              href: "to_uuidv7",                    
+          },
+          {
+              title: "to_uuidv7_boundary",
+              href: "to_uuidv7_boundary",                    
+          },
+          {
+              title: "uuid_timestamp",
+              href: "uuid_timestamp",                    
+          },
+          {
+              title: "uuid_timestamp_micros",
+              href: "uuid_timestamp_micros",                    
+          },
+          {
+              title: "uuid_version",
+              href: "uuid_version",                    
+          },
+        ],            
       },
       {
         title: "Hyperfunctions",
@@ -494,7 +547,6 @@ module.exports = [
       },
       {
         title: "Informational views",
-        type: "directory",
         href: "informational-views",
         children: [
           {
@@ -552,8 +604,21 @@ module.exports = [
         ],
       },
       {
+        title: "Service configuration",
         href: "configuration",
-        excerpt: "Configure PostgreSQL and TimescaleDB",
+        excerpt: "Configure your Tiger Cloud services",
+        children: [
+          {
+            title: "TimescaleDB configuration",
+            href: "tiger-postgres",
+            excerpt: "Configure PostgreSQL and TimescaleDB",
+          },
+          {
+            title: "Grand Unified Configuration (GUC) parameters",
+            href: "gucs",
+            excerpt: "Change the behaviour of TimescaleDB using GUCs",
+          },
+          ],
       },
       {
         title: "Administration Functions",
@@ -566,7 +631,19 @@ module.exports = [
         title: "API Reference Tag Overview",
         href: "api-tag-overview",
         description:
-          "An overview of what different tags represent in the API section of Timescale Documentation.",
+          "An overview of what different tags represent in the API section of Tiger Data Documentation.",
+      },
+      {
+        title: "Tiger Cloud REST API",
+        href: "api-reference",
+        description:
+          "A comprehensive RESTful API for managing Tiger Cloud resources including VPCs, services, and read replicas.",
+      },
+      {
+        title: "Glossary",
+        href: "glossary",
+        description:
+          "Comprehensive glossary of technical terms, concepts, and terminology used in Tiger Data documentation and the time-series database industry.",
       },
       {
         title: "Compression (Old API, replaced by Hypercore)",
@@ -610,7 +687,6 @@ module.exports = [
       },
       {
         title: "Distributed hypertables (Sunsetted v2.14.x)",
-        type: "directory",
         href: "distributed-hypertables",
         children: [
           {

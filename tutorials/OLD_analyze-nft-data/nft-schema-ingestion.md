@@ -27,7 +27,7 @@ One theme across all these questions is that most of the insights are about the
 sale itself, or the aggregation of sales. So you need to create a schema which
 focuses on the time-series aspect of the data. It's also important to make sure
 that you can JOIN supporting tables, so you can more easily make queries that
-touch both the time-series and the relational tables. TimescaleDB's PostgreSQL
+touch both the time-series and the relational tables. $TIMESCALE_DB's $PG
 foundation and full-SQL support allows you to easily combine time-series and
 relational tables during your analysis.
 
@@ -35,11 +35,11 @@ relational tables during your analysis.
 
 You need these tables:
 
-TimescaleDB hypertable:
+$TIMESCALE_DB hypertable:
 
 *   **nft_sales**: successful NFT transactions
 
-Relational tables (regular PostgreSQL tables):
+Relational tables (regular $PG tables):
 
 *   **assets**: unique NFT items
 *   **collections**: NFT collections
@@ -192,11 +192,11 @@ CREATE INDEX idx_payment_symbol ON nft_sales (payment_symbol);
 ### Schema design
 
 The `id` field in each table is `BIGINT` because its storage size is 8 bytes in
-PostgreSQL (as opposed to `INT`'s 4 bytes) which is needed to make sure this
+$PG (as opposed to `INT`'s 4 bytes) which is needed to make sure this
 value doesn't overflow.
 
 For the `quantity` field we suggest using numeric or decimal (which works the
-same way in PostgreSQL) as the data type, because in some edge cases we
+same way in $PG) as the data type, because in some edge cases we
 experience transactions where the quantity was too big even for BIGINT.
 
 `total_price` needs to be `double precision` because NFT prices often include
@@ -234,17 +234,21 @@ in the starter kit repository on GitHub. The script connects to the OpenSea
 API `/events` endpoint, and fetches data from the specified time period.
 
 <Highlight type="note">
+
 You need an OpenSEA API key to fetch data from the OpenSea API. To request your
-key, see the [OpenSea API documentation](https://docs.opensea.io/reference/request-an-api-key).
+key, see the [OpenSea API documentation][opensea-api-documentation].
+
 </Highlight>
 
 <Highlight type="warning">
+
 This procedure relies on the OpenSea API. The OpenSea API is provided and
 maintained by OpenSea. Recently, the API has stopped functioning for extended
 periods of time. If the API has changed or is not accessible when you attempt
 to run the `opensea_ingest.py` script, try following the procedure to download
 a historical data file and import it. You can use this data file to complete the
 tutorial.
+
 </Highlight>
 
 <Procedure>
@@ -343,4 +347,5 @@ SELECT count(*), MIN(time) AS min_date, MAX(time) AS max_date FROM nft_sales
 ```
 
 [nft-schema]: https://github.com/timescale/nft-starter-kit/blob/master/schema.sql
+[opensea-api-documentation]: https://docs.opensea.io/reference/api-keys
 [sample-data]: https://assets.timescale.com/docs/downloads/nft_sample.zip

@@ -44,4 +44,5 @@ api_details:
         type: MinNBy
         description: >
           The compiled aggregate.  Note that the exact type is `MinByInts`, `MinByFloats`, or `MinByTimes` depending on the input type
+products: [cloud, mst, self_hosted]
 ---

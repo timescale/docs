@@ -14,11 +14,11 @@ When you have your dataset loaded, you can start constructing some queries to
 discover what your data tells you. In this section, you learn how to write
 queries that answer these questions:
 
-*   [How many rides take place each day?](#how-many-rides-take-place-every-day)
-*   [What is the average fare amount?](#what-is-the-average-fare-amount)
-*   [How many rides of each rate type were taken?](#how-many-rides-of-each-rate-type-were-taken)
-*   [What kind of trips are going to and from airports?](#what-kind-of-trips-are-going-to-and-from-airports)
-*   [How many rides took place on New Year's Day 2016](#how-many-rides-took-place-on-new-years-day-2016)?
+*   [How many rides take place each day?][how-many-rides-take-place-every-day-link]
+*   [What is the average fare amount?][what-is-the-average-fare-amount-link]
+*   [How many rides of each rate type were taken?][how-many-rides-of-each-rate-type-were-taken-link]
+*   [What kind of trips are going to and from airports?][what-kind-of-trips-are-going-to-and-from-airports-link]
+*   [How many rides took place on New Year's Day 2016][how-many-rides-took-place-on-new-years-day-2016-link]?
 
 ## How many rides take place every day?
 
@@ -30,7 +30,7 @@ count the total number of rides each day, and show them in a list by date.
 
 ### Finding how many rides take place every day
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to select all rides taken in the first
     week of January 2016, and return a count of rides for each day:
 
@@ -67,7 +67,7 @@ paid by each passenger.
 
 ### Finding the average fare amount
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.
 2.  At the psql prompt, use this query to select all rides taken in the first
     week of January 2016, and return the average fare paid on each day:
 
@@ -108,7 +108,7 @@ shows you the nuber of trips taken for each different fare type. It also uses a
 
 ### Finding the number of rides for each fare type
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.
 2.  At the psql prompt, use this query to select all rides taken in the first
     week of January 2016, and return the total number of trips taken for each
     rate code:
@@ -147,7 +147,7 @@ information from both in your results.
 
 ### Displaying the number of rides for each fare type
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.
 2.  At the psql prompt, copy this query to select all rides taken in the first
     week of January 2016, join the `rides` and `rates` tables, and return the
     total number of trips taken for each rate code, with a description of the
@@ -194,7 +194,7 @@ trips going only to the new main airports.
 
 ### Finding what kind of trips are going to and from airports
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to select all rides taken to and from JFK
     and Newark airports, in the first week of January 2016, and return the number
     of trips to that airport, the average trip duration, average trip cost, and
@@ -232,20 +232,20 @@ into the city: to their favorite bar, to gather with friends for a meal, or back
 home. This section shows you how to construct a query that returns the number of
 taxi trips taken on 1 January, 2016, in 30 minute intervals.
 
-In PostgreSQL, it's not particularly easy to segment the data by 30 minute time
+In $PG, it's not particularly easy to segment the data by 30 minute time
 intervals. To do this, you would need to use a `TRUNC` function to calculate the
 quotient of the minute that a ride began in divided by 30, then truncate the
 result to take the floor of that quotient. When you had that result, you could
 multiply the truncated quotient by 30.
 
-In your Timescale database, you can use the `time_bucket` function to segment
+In your $SERVICE_LONG, you can use the `time_bucket` function to segment
 the data into time intervals instead.
 
 <Procedure>
 
 ### Finding how many rides took place on New Year's Day 2016
 
-1.  Connect to the Timescale database that contains the NYC taxi dataset.
+1.  Connect to the $SERVICE_LONG that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to select all rides taken on the first
     day of January 2016, and return a count of rides for each 30 minute interval:
 
@@ -272,3 +272,9 @@ the data into time intervals instead.
     ```
 
 </Procedure>
+
+[how-many-rides-of-each-rate-type-were-taken-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-of-each-rate-type-were-taken
+[how-many-rides-take-place-every-day-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-take-place-every-day
+[how-many-rides-took-place-on-new-years-day-2016-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#how-many-rides-took-place-on-new-years-day-2016
+[what-is-the-average-fare-amount-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#what-is-the-average-fare-amount
+[what-kind-of-trips-are-going-to-and-from-airports-link]: /tutorials/:currentVersion:/nyc-taxi-cab/query-nyc/#what-kind-of-trips-are-going-to-and-from-airports

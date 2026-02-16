@@ -1,8 +1,8 @@
 <Procedure>
 
-1. **Install the latest PostgreSQL packages**
+1. **Install the latest $PG packages**
 
-    <Terminal>
+    <Terminal persistKey="os-redhat">
 
     <tab label='Red Hat'>
 
@@ -21,9 +21,9 @@
     </tab>
     </Terminal>
 
-1.  **Add the TimescaleDB repository**
+1.  **Add the $TIMESCALE_DB repository**
 
-    <Terminal>
+    <Terminal persistKey="os-redhat">
 
     <tab label='Red Hat'>
 
@@ -72,44 +72,48 @@
 
 1.  **Install TimescaleDB**
 
+    To avoid errors, **do not** install $TDB_APACHE and $TDB_COMMUNITY at the same time.
+
     ```bash
-    sudo yum install timescaledb-2-postgresql-17 postgresql17
+    sudo yum install timescaledb-2-postgresql-18 postgresql18
     ```
 
     <!-- hack until we have bandwidth to rewrite this linting rule -->
 
     <!-- markdownlint-disable TS007 -->
     <Highlight type="note">
-    On Red Hat Enterprise Linux 8 and later, disable the built-in PostgreSQL module:
+
+    On Red Hat Enterprise Linux 8 and later, disable the built-in $PG module:
     
     `sudo dnf -qy module disable postgresql`
+
     </Highlight>
 
     <!-- markdownlint-enable TS007 -->
     
- 1.  Initialize the PostgreSQL instance:
+ 1.  **Initialize the $PG instance**
 
     ```bash
-    sudo /usr/pgsql-17/bin/postgresql-17-setup initdb
+    sudo /usr/pgsql-18/bin/postgresql-18-setup initdb
     ```   
 
-1.  **Tune your PostgreSQL instance for TimescaleDB**
+1.  **Tune your $PG instance for TimescaleDB**
 
     ```bash
-    sudo timescaledb-tune --pg-config=/usr/pgsql-17/bin/pg_config 
+    sudo timescaledb-tune --pg-config=/usr/pgsql-18/bin/pg_config 
     ```   
 
     This script is included with the `timescaledb-tools` package when you install TimescaleDB.
     For more information, see [configuration][config].
 
-1.  **Enable and start PostgreSQL**
+1.  **Enable and start $PG**
 
     ```bash
-    sudo systemctl enable postgresql-17
-    sudo systemctl start postgresql-17
+    sudo systemctl enable postgresql-18
+    sudo systemctl start postgresql-18
     ```
 
-1.  **Login to PostgreSQL as `postgres`**
+1.  **Log in to $PG as `postgres`**
 
     ```bash
     sudo -u postgres psql

@@ -1,6 +1,6 @@
 ---
 title: Manually drop chunks
-excerpt: If data retention policies don't meet your ad hoc needs, you can manually drop chunks from your hypertables based on time value. Learn how to do it in Timescale Cloud
+excerpt: If data retention policies don't meet your ad hoc needs, you can manually drop chunks from your hypertables based on time value. Learn how to do it in TimescaleDB
 products: [cloud, mst, self_hosted]
 keywords: [data retention]
 tags: [drop, delete]
@@ -12,9 +12,11 @@ Drop chunks manually by time value. For example, drop chunks containing data
 older than 30 days.
 
 <Highlight type="note">
+
 Dropping chunks manually is a one-time operation. To automatically drop chunks
 as they age, set up a
-[data retention policy](/use-timescale/latest/data-retention/create-a-retention-policy/).
+[data retention policy][data-retention-policy].
+
 </Highlight>
 
 ## Drop chunks older than a certain date
@@ -46,9 +48,9 @@ SELECT drop_chunks(
 
 ## Drop chunks in the future
 
-You can also drop chunks in the future, for example to correct data with the
-wrong timestamp. For example, to drop all chunks more than 3 months in the
-future:
+You can also drop chunks in the future, for example, to correct data with the
+wrong timestamp. To drop all chunks that are more than 3 months in the
+future, from a hypertable called `conditions`:
 
 ```sql
 SELECT drop_chunks(
@@ -57,4 +59,5 @@ SELECT drop_chunks(
 );
 ```
 
+[data-retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks/

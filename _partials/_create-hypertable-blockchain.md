@@ -1,20 +1,24 @@
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
+import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
 
-## Optimize time-series data in hypertables
+## Optimize time-series data using hypertables
 
-Hypertables are the core of Timescale. Hypertables enable Timescale to work
-efficiently with time-series data. Because Timescale is PostgreSQL, all the
-standard PostgreSQL tables, indexes, stored procedures and other objects can be
-created alongside your Timescale hypertables. This makes creating and working
-with Timescale tables similar to standard PostgreSQL.
+<HypertableIntro />
 
 <Procedure>
 
-1.  Create a standard PostgreSQL table to store the Bitcoin blockchain data
-    using `CREATE TABLE`:
+1. Connect to your $SERVICE_LONG
+
+   In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. The in-Console editors display the query speed.
+   You can also connect to your service using [psql][connect-using-psql].
+
+1. Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table]. 
+   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will 
+   use most often to filter your data:
 
     ```sql
     CREATE TABLE transactions (
-       time TIMESTAMPTZ,
+       time TIMESTAMPTZ NOT NULL,
        block_id INT,
        hash TEXT,
        size INT,
@@ -25,21 +29,14 @@ with Timescale tables similar to standard PostgreSQL.
        fee BIGINT,
        fee_usd DOUBLE PRECISION,
        details JSONB
+    ) WITH (
+       tsdb.hypertable,
+       tsdb.segmentby='block_id', 
+       tsdb.orderby='time DESC'
     );
     ```
-
-1.  Convert the standard table into a hypertable partitioned on the `time`
-    column using the `create_hypertable()` function provided by Timescale. You
-    must provide the name of the table and the column in that table that holds
-    the timestamp data to use for partitioning:
-
-    ```sql
-    SELECT create_hypertable('transactions', by_range('time'));
-    ```
-
-	<Highlight type="note">
-	The `by_range` dimension builder is an addition to TimescaleDB 2.13.
-	</Highlight>
+                
+    <CreateHypertablePolicyNote />
 
 1.  Create an index on the `hash` column to make queries for individual
     transactions faster:
@@ -49,6 +46,11 @@ with Timescale tables similar to standard PostgreSQL.
     ```
 
 1.  Create an index on the `block_id` column to make block-level queries faster:
+
+   When you create a $HYPERTABLE, it is partitioned on the time column. $TIMESCALE_DB
+   automatically creates an index on the time column. However, you'll often filter
+   your time-series data on other columns as well. You use [indexes][indexing] to improve
+   query performance.
 
     ```sql
     CREATE INDEX block_idx ON public.transactions (block_id);
@@ -61,12 +63,13 @@ with Timescale tables similar to standard PostgreSQL.
     CREATE UNIQUE INDEX time_hash_idx ON public.transactions (time, hash);
     ```
 
-<Highlight type="note">
-When you create a hypertable, it is automatically partitioned on the time column
-you provide as the second parameter to `create_hypertable()`. Also, Timescale
-automatically creates an index on the time column. However, you'll often filter
-your time-series data on other columns as well. Using indexes appropriately helps
-your queries perform better.
-</Highlight>
 
 </Procedure>
+
+[connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[indexing]: /use-timescale/:currentVersion:/schema-management/indexing/
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

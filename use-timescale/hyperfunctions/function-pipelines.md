@@ -1,6 +1,6 @@
 ---
 title: Function pipelines
-excerpt: Timescale Cloud function pipelines improve the experience of writing data analysis queries in PostgreSQL and SQL. Learn how to use function pipelines for real-time analytics and other queries
+excerpt: TimescaleDB function pipelines improve the experience of writing data analysis queries in Postgres and SQL. Learn how to use function pipelines for real-time analytics and other queries
 products: [cloud, mst, self_hosted]
 keywords: [Toolkit, function pipelines]
 ---
@@ -10,17 +10,19 @@ import Experimental from 'versionContent/_partials/_experimental.mdx';
 # Function pipelines <Tag type="toolkit">Toolkit</Tag><Tag type="experimental-toolkit">Experimental</Tag>
 
 Function pipelines are an experimental feature, designed to radically improve
-how you write queries to analyze data in PostgreSQL and SQL. They work by
+how you write queries to analyze data in $PG and SQL. They work by
 applying principles from functional programming and popular tools like Python
 Pandas, and PromQL.
 
 <Experimental />
 
 <Highlight type="important">
+
 The `timevector()` function materializes all its data points in
 memory. This means that if you use it on a very large dataset,
 it runs out of memory. Do not use the `timevector` function
 on a large dataset, or in production.
+
 </Highlight>
 
 SQL is the best language for data analysis, but it is not perfect, and at times
@@ -224,7 +226,7 @@ timevector('2021-01-01 UTC', 10) -> add(5) -> mul(2) -> add(1)
 Both of these examples produce `('2020-01-01 00:00:00+00', 31.0)`.
 
 If multiple arithmetic operations are needed and precedence is important,
-consider using a [Lambda](#lambda-elements) instead.
+consider using a [Lambda][lambda-elements-link] instead.
 
 ### Unary mathematical functions
 
@@ -365,8 +367,10 @@ The output for this example:
 ```
 
 <Highlight type="note">
+
 The first row of the output is missing, as there is no way to compute a delta
 without a previous value.
+
 </Highlight>
 
 #### Fill method transform
@@ -483,10 +487,10 @@ A Lambda expression can be constructed using these components:
     `or`, `=`, `!=`, `<`, `<=`, `>`, `>=`, `^`, `*`, `/`, `+`, and `-` are
     supported.
 *   **Interval literals** are expressed with a trailing `i`. For example,
-    `'1 day'i`. Except for the trailing `i`, these follow the PostgreSQL
+    `'1 day'i`. Except for the trailing `i`, these follow the $PG
     `INTERVAL` input format.
 *   **Time literals** such as `'2021-01-02 03:00:00't` expressed with a
-    trailing `t`. Except for the trailing `t` these follow the PostgreSQL
+    trailing `t`. Except for the trailing `t` these follow the $PG
     `TIMESTAMPTZ` input format.
 *   **Number literals** such as `42`, `0.0`, `-7`, or `1e2`.
 
@@ -786,8 +790,8 @@ SELECT hyperloglog(device_id) -> distinct_count() FROM measurements;
 You can turn a timevector into a formatted text representation. There are two
 functions for turning a timevector to text:
 
-*   [`to_text`](#to-text), which allows you to specify the template
-*   [`to_plotly`](#to-plotly), which outputs a format suitable for use with the
+*   [`to_text`][to-text-link], which allows you to specify the template
+*   [`to_plotly`][to-plotly-link], which outputs a format suitable for use with the
     [Plotly JSON chart schema][plotly]
 
 ### `to_text`
@@ -915,4 +919,7 @@ This table lists all function pipeline elements in alphabetical order:
 |`trunc`|Unary Mathematical|`timevector` pipeline|
 |`unnest`|Output|`TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)`|
 
+[lambda-elements-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#lambda-elements
 [plotly]: https://plotly.com/chart-studio-help/json-chart-schema/
+[to-plotly-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to-plotly
+[to-text-link]: /use-timescale/:currentVersion:/hyperfunctions/function-pipelines/#to-text

@@ -5,14 +5,14 @@ excerpt: Download these sample datasets to start exploring TimescaleDB
 
 # Sample datasets
 
-Timescale have created several sample datasets to help you get started using
+$COMPANY has created several sample datasets to help you get started using
 TimescaleDB. These datasets vary in database size, number of time
 intervals, and number of values for the partition field.
 
 Each gzip archive contains a single `.sql` file to create the necessary
 hypertables within the database, and several `.csv` files that contain the
 data to be copied into those tables. These files presume the database
-you are importing them to has already been [set up with the TimescaleDB extension][installation].
+you are importing them to has already been [set up with the TimescaleDB extension][install-timescale].
 
 **Device ops**: these datasets include metrics such as CPU, memory, and network,
 that are collected from mobile devices. Click on the name to download.
@@ -79,10 +79,12 @@ psql -U postgres -d tsdb -c "\COPY device_info FROM devices_small_device_info.cs
 The data is now ready for use.
 
 <Highlight type="tip">
-The standard `COPY` command in PostgreSQL is single threaded. To speed up
+
+The standard `COPY` command in $PG is single threaded. To speed up
 importing the larger sample datasets, you can use the
-[parallel importer](https://github.com/timescale/timescaledb-parallel-copy)
+[parallel importer][parallel-importer]
 instead.
+
 </Highlight>
 
 ```bash
@@ -93,7 +95,7 @@ psql -U postgres -h localhost -d tsdb
 ## Device ops datasets
 
 After importing one of these datasets (`devices_small`, `devices_med`,
-`devices_big`), you have a plain PostgreSQL table called `device_info` and a
+`devices_big`), you have a plain $PG table called `device_info` and a
 hypertable called `readings`. The `device_info` table has static metadata
 about each device, such as the OS name and manufacturer. The `readings`
 hypertable tracks data sent from each device, for example CPU activity, or
@@ -215,7 +217,7 @@ hour                   | min_battery_level | max_battery_level
 ## Weather datasets
 
 After importing one of these datasets (`weather_small`, `weather_med`,
-`weather_big`), you notice a plain PostgreSQL table called `locations` and a
+`weather_big`), you notice a plain $PG table called `locations` and a
 hypertable called `conditions`. The `locations` table has metadata about each of
 the locations, such as its name and environmental type. The `conditions`
 hypertable tracks readings of temperature and humidity from those locations.
@@ -338,4 +340,5 @@ hour                   | avg_temp | min_temp | max_temp
 (24 rows)
 ```
 
-[installation]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/
+[parallel-importer]: https://github.com/timescale/timescaledb-parallel-copy

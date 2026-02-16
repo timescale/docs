@@ -6,9 +6,9 @@ keywords: [configuration]
 tags: [settings]
 ---
 
-# Configuring TimescaleDB
+# Configuring $TIMESCALE_DB
 
-TimescaleDB works with the default PostgreSQL server configuration settings.
+$TIMESCALE_DB works with the default $PG server configuration settings.
 However, we find that these settings are typically too conservative and
 can be limiting when using larger servers with more resources (CPU, memory,
 disk, etc). Adjusting these settings, either
@@ -16,8 +16,10 @@ disk, etc). Adjusting these settings, either
 your machine's `postgresql.conf`, can improve performance.
 
 <Highlight type="tip">
+
 You can determine the location of `postgresql.conf` by running
-`SHOW config_file;` from your PostgreSQL client (for example, `psql`).
+`SHOW config_file;` from your $PG client (for example, `psql`).
+
 </Highlight>
 
 In addition, other TimescaleDB specific settings can be modified through the
@@ -27,7 +29,7 @@ In addition, other TimescaleDB specific settings can be modified through the
 
 To streamline the configuration process, use [`timescaledb-tune`][tstune] that
 handles setting the most common parameters to appropriate values based on your
-system, accounting for memory, CPU, and PostgreSQL version. `timescaledb-tune`
+system, accounting for memory, CPU, and $PG version. `timescaledb-tune`
 is packaged along with the binary releases as a dependency, so if you installed
 one of the binary releases (including Docker), you should have access to the
 tool. Alternatively, with a standard Go environment, you can also `go get` the
@@ -78,7 +80,7 @@ and append the suggestions to the end of your `postgresql.conf` like so:
 timescaledb-tune --quiet --yes --dry-run >> /path/to/postgresql.conf
 ```
 
-## PostgreSQL configuration and tuning
+## $PG configuration and tuning
 
 If you prefer to tune the settings yourself, or are curious about the
 suggestions that `timescaledb-tune` makes, then check these. However,
@@ -87,7 +89,9 @@ suggestions that `timescaledb-tune` makes, then check these. However,
 ### Memory settings
 
 <Highlight type="tip">
+
 All of these settings are handled by `timescaledb-tune`.
+
 </Highlight>
 The settings `shared_buffers`, `effective_cache_size`, `work_mem`, and
 `maintenance_work_mem` need to be adjusted to match the machine's available
@@ -100,9 +104,11 @@ PgTune may also be helpful.
 ### Worker settings
 
 <Highlight type="tip">
+
 All of these settings are handled by `timescaledb-tune`.
+
 </Highlight>
-PostgreSQL utilizes worker pools to provide the required workers needed to
+$PG utilizes worker pools to provide the required workers needed to
 support both live queries and background jobs. If you do not configure these
 settings, you may observe performance degradation on both queries and
 background jobs.
@@ -115,7 +121,7 @@ point in time. You need a background worker allocated to each database to run
 a lightweight scheduler that schedules jobs. On top of that, any additional
 workers you allocate here run background jobs when needed.
 
-For larger queries, PostgreSQL automatically uses parallel workers if
+For larger queries, $PG automatically uses parallel workers if
 they are available. To configure this use the `max_parallel_workers` setting.
 Increasing this setting improves query performance for
 larger queries. Smaller queries may not trigger parallel workers. By default,
@@ -125,7 +131,7 @@ or the `TS_TUNE_NUM_CPUS` docker environment variable to change it.
 Finally, you must configure `max_worker_processes` to be at least the sum of
 `timescaledb.max_background_workers` and `max_parallel_workers`.
 `max_worker_processes` is the total pool of workers available to both
-background and parallel workers (as well as a handful of built-in PostgreSQL
+background and parallel workers (as well as a handful of built-in $PG
 workers).
 
 By default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 16.
@@ -136,10 +142,10 @@ setting is automatically adjusted as well.
 ### Disk-write settings
 
 In order to increase write throughput, there are
-[multiple settings][async-commit] to adjust the behavior that PostgreSQL uses
+[multiple settings][async-commit] to adjust the behavior that $PG uses
 to write data to disk. In tests, performance is good with the default, or safest,
 settings. If you want a bit of additional performance, you can set
-`synchronous_commit = 'off'`([PostgreSQL docs][synchronous-commit]).
+`synchronous_commit = 'off'`([$PG docs][synchronous-commit]).
 Please note that when disabling
 `synchronous_commit` in this way, an operating system or database crash might
 result in some recent allegedly committed transactions being lost. We actively
@@ -170,7 +176,7 @@ max_locks_per_transaction = 2 * num_chunks / max_connections
 ```
 where `num_chunks` is the maximum number of chunks you expect to have in a
 hypertable and `max_connections` is the number of connections configured for
-PostgreSQL.
+$PG.
 This takes into account that the number of locks used by a hypertable query is
 roughly equal to the number of chunks in the hypertable if you need to access
 all chunks in a query, or double that number if the query uses an index.
@@ -178,21 +184,21 @@ You can see how many chunks you currently have using the
 [`timescaledb_information.hypertables`][timescaledb_information-hypertables] view.
 Changing this parameter requires a database restart, so make sure you pick a larger
 number to allow for some growth.  For more information about lock management,
-see the [PostgreSQL documentation][lock-management].
+see the [$PG documentation][lock-management].
 
 ## TimescaleDB configuration and tuning
 
-Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of
+Just as you can tune settings in $PG, TimescaleDB provides a number of
 configuration settings that may be useful to your specific installation and
 performance needs. These can also be set within the `postgresql.conf` file or as
-command-line parameters when starting PostgreSQL.
+command-line parameters when starting $PG.
 
 ### Policies
 
 #### `timescaledb.max_background_workers (int)`
 
 Max background worker processes allocated to TimescaleDB. Set to at
-least 1 + number of databases in Postgres instance to use background
+least 1 + number of databases in $PG instance to use background
 workers. Default value is 8.
 
 ### Distributed hypertables
@@ -257,7 +263,7 @@ can be either `rowbyrow` or `cursor`. The default is `rowbyrow`.
 
 Specifies the path used to search user certificates and keys when
 connecting to data nodes using certificate authentication. Defaults to
-`timescaledb/certs` under the PostgreSQL data directory.
+`timescaledb/certs` under the $PG data directory.
 
 #### `timescaledb.passfile (string)`
 
@@ -291,7 +297,7 @@ Version of `timescaledb-tune` used to tune when it ran.
 ## Changing configuration with Docker
 
 When running TimescaleDB in a [Docker container][docker], there are
-two approaches to modifying your PostgreSQL configuration. In the
+two approaches to modifying your $PG configuration. In the
 following example, we modify the size of the database instance's
 write-ahead-log (WAL) from 1&nbsp;GB to 2&nbsp;GB in a Docker container named
 `timescaledb`.
@@ -336,18 +342,18 @@ Alternatively, one or more parameters can be passed in to the `docker run`
 command via a `-c` option, as in the following.
 
 ```bash
-docker run -i -t timescale/timescaledb:latest-pg10 postgres -cmax_wal_size=2GB
+docker run -i -t timescale/timescaledb:latest-pg18 postgres -cmax_wal_size=2GB
 ```
 
 Additional examples of passing in arguments at boot can be found in our
 [discussion about using WAL-E][wale] for incremental backup.
 
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
-[chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
-[docker]: /self-hosted/latest/install/installation-docker/
+[docker]: /self-hosted/:currentVersion:/install/installation-docker/
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
 [pgtune]: http://pgtune.leopard.in.ua/
 [synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
+[timescaledb_information-hypertables]: /api/:currentVersion:/informational-views/hypertables/
 [ts-settings]: /self-hosted/:currentVersion:/configuration/timescaledb-config/
 [tstune]: https://github.com/timescale/timescaledb-tune
 [wale]: /self-hosted/:currentVersion:/backup-and-restore/docker-and-wale/

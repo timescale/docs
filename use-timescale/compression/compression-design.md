@@ -1,6 +1,6 @@
 ---
 title: Designing your database for compression
-excerpt: Data compression can save you up to 90% of storage space. Learn how to design your Timescale Cloud service to achieve the best data compression results
+excerpt: Data compression can save you up to 90% of storage space. Learn how to design your Tiger Cloud service to achieve the best data compression results
 products: [cloud, mst, self_hosted]
 keywords: [compression, schema, tables]
 ---
@@ -9,7 +9,7 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # Designing for compression
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/use-timescale/latest/hypercore/">Hypercore</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/use-timescale/latest/hypercore/">hypercore</a>. However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 
 Time-series data can be unique, in that it needs to handle both shallow and wide
@@ -28,9 +28,9 @@ designing your database for maximum compression effectiveness.
 
 ## Compressing data
 
-TimescaleDB is built on PostgreSQL which is, by nature, a row-based database.
+$TIMESCALE_DB is built on $PG which is, by nature, a row-based database.
 Because time-series data is accessed in order of time, when you enable
-compression, TimescaleDB converts many wide rows of data into a single row of
+compression, $TIMESCALE_DB converts many wide rows of data into a single row of
 data, called an array form. This means that each field of that new, wide row
 stores an ordered set of data comprising the entire column.
 
@@ -52,7 +52,7 @@ You can convert this to a single row in array form, like this:
 |[12:00:01, 12:00:01, 12:00:02, 12:00:02, 12:00:03, 12:00:03]|[A, B, A, B, A, B]|[0, 0, 0, 0, 0, 4]|[70.11, 69.70, 70.12, 69.69, 70.14, 69.70]|
 
 Even before you compress any data, this format immediately saves storage by
-reducing the per-row overhead. PostgreSQL typically adds a small number of bytes
+reducing the per-row overhead. $PG typically adds a small number of bytes
 of overhead per row. So even without any compression, the schema in this example
 is now smaller on disk than the previous format.
 
@@ -78,7 +78,7 @@ GROUP BY minute;
 The query engine can fetch and decompress only the timestamp and temperature
 columns to efficiently compute and return these results.
 
-Finally, TimescaleDB uses non-inline disk pages to store the compressed arrays.
+Finally, $TIMESCALE_DB uses non-inline disk pages to store the compressed arrays.
 This means that the in-row data points to a secondary disk page that stores the
 compressed array, and the actual row in the main table becomes very small,
 because it is now just pointers to the data. When data stored like this is
@@ -94,17 +94,17 @@ itself is in a compressed column. You don't want to have to decompress all the
 data in a chunk, or even an entire hypertable, to determine which rows are
 required.
 
-TimescaleDB automatically includes more information in the row and includes
+$TIMESCALE_DB automatically includes more information in the row and includes
 additional groupings to improve query performance. When you compress a
 hypertable, either manually or through a compression policy, it can help to specify
 an `ORDER BY` column.
 
 `ORDER BY` columns specify how the rows that are part of a compressed batch are
 ordered. For most time-series workloads, this is by timestamp, so if you don't
-specify an `ORDER BY` column, TimescaleDB defaults to using the time column. You
+specify an `ORDER BY` column, $TIMESCALE_DB defaults to using the time column. You
 can also specify additional dimensions, such as location.
 
-For each `ORDER BY` column, TimescaleDB automatically creates additional columns
+For each `ORDER BY` column, $TIMESCALE_DB automatically creates additional columns
 that store the minimum and maximum value of that column. This way, the query
 planner can look at the range of timestamps in the compressed column, without
 having to do any decompression, and determine whether the row could possibly
@@ -130,4 +130,4 @@ device IDs or timestamps does not require decompression. This means the
 query executor only decompresses the timestamp and temperature columns
 corresponding to those selected rows.
 
-[compression-methods]: /use-timescale/:currentVersion:/compression/compression-methods/
+[compression-methods]: /use-timescale/:currentVersion:/hypercore/compression-methods/

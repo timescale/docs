@@ -5,84 +5,68 @@ products: [cloud, mst, self_hosted]
 keywords: [queries, DISTINCT, SkipScan]
 ---
 
-# Get faster `DISTINCT` queries with `SkipScan`
+import Since220 from "versionContent/_partials/_since_2_2_0.mdx";
 
-SkipScan improves query times for `DISTINCT` queries. It works on PostgreSQL
-tables, Timescale hypertables, and Timescale distributed hypertables.
-SkipScan is included in TimescaleDB&nbsp;2.2.1 and later.
+# Get faster `DISTINCT` queries with $SKIPSCAN_SHORT
 
-<Highlight type="note">
-This page discusses the Timescale Skipscan feature. SkipScan is not currently
-available in standard PostgreSQL.
-</Highlight>
+$SKIPSCAN_LONG dramatically speeds up `DISTINCT` queries. It jumps directly to the first row of each distinct value in an 
+index instead of scanning all rows. First introduced for the rowstore hypertables and relational tables, 
+$SKIPSCAN_SHORT now extends to columnstore hypertables, distinct aggregates like `COUNT(DISTINCT)`, and even multiple columns.
+
+<Since220 />
 
 ## Speed up `DISTINCT` queries
 
-To query your database and find the most recent value of an item, you
-could use a `DISTINCT` query. For example, you might want to find the latest
-stock or cryptocurrency price for each of your investments. Or you might have graphs
-and alarms that repeatedly query the most recent values for every device or
-service.
+You use `DISTINCT` queries to get only the unique values in your data. For example, the IDs of customers who placed orders, the countries where your users are located, or the devices reporting into an IoT system. You might also have graphs and alarms that repeatedly query the most recent values for every device or service.
 
-As your tables get larger, `DISTINCT` queries tend to get slower. This is
-because PostgreSQL does not currently have a good mechanism for pulling a list
-of unique values from an ordered index. Even when you have an index that matches
-the exact order and columns for these kinds of queries, PostgreSQL scans the
-entire index to find all unique values. As a table grows, this operation keeps
+As your tables get larger, `DISTINCT` queries tend to get slower. Even when your index matches
+the exact order and columns for these kinds of queries, $PG (without $SKIPSCAN_SHORT) has to scan the
+entire index and then run deduplication. As the table grows, this operation keeps
 getting slower.
 
-<Highlight type="note">
-Timescale SkipScan does not currently work on compressed chunks.
-</Highlight>
-
-SkipScan allows queries to incrementally jump from one ordered value to the next
-without reading all of the rows in between. Without support for this feature,
-the database engine has to scan the entire ordered index and then de-duplicate
-at the end, which is a much slower process.
-
-SkipScan is an optimization for queries of the form `SELECT DISTINCT ON
-column_name`. Conceptually, SkipScan is a regular IndexScan that skips across an
+$SKIPSCAN_SHORT is an optimization for `DISTINCT` and `DISTINCT ON` queries, including multi-column `DISTINCT`. $SKIPSCAN_SHORT allows queries to incrementally jump from one ordered value to the next,
+without reading the rows in between. Conceptually, $SKIPSCAN_SHORT is a regular IndexScan that skips across an
 index looking for the next value that is greater than the current value.
 
-When you issue a query that uses SkipScan, the `EXPLAIN` output includes a new
+When you issue a query that uses $SKIPSCAN_SHORT, the `EXPLAIN` output includes a new `Custom Scan (SkipScan)` 
 operator, or node, that can quickly return distinct items from a properly
-ordered index. With an IndexOnly scan, PostgreSQL has to scan the entire index,
-but SkipScan incrementally searches for each successive item in the ordered
-index. As it locates one item, the SkipScan node quickly restarts the search for
+ordered index. As it locates one item, the $SKIPSCAN_SHORT node quickly restarts the search for
 the next item. This is a much more efficient way of finding distinct items in an
 ordered index.
 
-For benchmarking information on how SkipScan compares to regular `DISTINCT`
-queries, see the [SkipScan blog post][blog-skipscan].
+$SKIPSCAN_SHORT cost is based on the ratio of distinct tuples to total tuples. If the number of distinct tuples is close to the total number of tuples, $SKIPSCAN_SHORT is unlikely to be used due to its higher estimated cost.
 
-<Highlight type="note">
-Skip scan cost is based on the ratio of distinct tuples to total tuples. If the number of distinct tuples is close to the total number of tuples, skip scan is unlikely to be chosen due to its higher estimated cost.
-</Highlight>
-
-## Use SkipScan queries
-
-SkipScan is included in TimescaleDB&nbsp;2.2.1 and later. This section describes
-how to set up your database index and query to use a SkipScan node.
-
-Your index must:
-
-*   Contain the `DISTINCT` column as the first column.
-*   Be a `BTREE` index.
-*   Match the `ORDER BY` used in your query.
-
-Your query must:
-
-*   Use the `DISTINCT` keyword on a single column.
-
-If the `DISTINCT` column is not the first column of the index, ensure any
-leading columns are used as constraints in your query. This means that if you
-are asking a question such as "retrieve a list of unique IDs in order" and
-"retrieve the last reading of each ID," you need at least one index like this:
+Multi-column $SKIPSCAN_SHORT is supported for queries that do not produce NULL distinct values. For example:
 
 ```sql
-CREATE INDEX "cpu_customer_tags_id_time_idx" \
-ON readings (customer_id, tags_id, time DESC)
+CREATE INDEX ON metrics(region, device, metric_type);
+-- All distinct columns have filters which don't allow NULLs: can use SkipScan
+SELECT DISTINCT ON (region, device, metric_type) *
+FROM   metrics
+WHERE region IN ('UK','EU','JP') AND device > 1 AND metric_type IS NOT NULL
+ORDER  BY region, device, metric_type, time DESC;
+-- Distinct columns are declared NOT NULL: can use SkipScan with index on (region, device)
+CREATE TABLE metrics(region TEXT NOT NULL, device INT NOT NULL, ...);
+SELECT DISTINCT ON (region, device) *
+FROM   metrics
+ORDER  BY region, device, time DESC;
 ```
+
+For benchmarking information on how $SKIPSCAN_SHORT compares to regular `DISTINCT`
+queries, see the [SkipScan blog post][blog-skipscan].
+
+## Use $SKIPSCAN_SHORT queries
+
+Design your layout:
+
+- Rowstore: create an index starting with the `DISTINCT` columns, followed by your time sort. If the `DISTINCT` columns are not the first in your index, ensure any leading columns are used as constraints in your query. This means that if you are asking a question such as "retrieve a list of unique IDs in order" and "retrieve the last reading of each ID," you need at least one index like this:
+
+    ```sql
+    CREATE INDEX "cpu_customer_tags_id_time_idx" \
+    ON readings (customer_id, tags_id, time DESC)
+    ```
+  
+- Columnstore: set `timescaledb.compress_segmentby` to the distinct columns and `compress_orderby` to match your query’s sort. Compress your historical chunks.
 
 With your index set up correctly, you should start to see immediate benefit for
 `DISTINCT` queries. When SkipScan is chosen for your query, the `EXPLAIN
@@ -100,4 +84,4 @@ ANALYZE` output shows one or more `Custom Scan (SkipScan)` nodes, like this:
          Index Cond: (tags_id > NULL::integer)
 ```
 
-[blog-skipscan]: https://www.timescale.com/blog/how-we-made-distinct-queries-up-to-8000x-faster-on-postgresql/
+[blog-skipscan]: https://www.tigerdata.com/blog/skipscan-in-timescaledb-why-distinct-was-slow-how-we-built-it-and-how-you-can-use-it

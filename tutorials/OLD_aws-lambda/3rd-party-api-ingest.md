@@ -8,19 +8,19 @@ keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pip
 # Pull and ingest data from a third-party API
 
 This tutorial builds a data pipeline that pulls data from a third-party finance
-API and loads it into TimescaleDB.
+API and loads it into $TIMESCALE_DB.
 
 This tutorial requires multiple libraries. This can make your deployment package
 size  larger than the 250&nbsp;MB limit of Lambda. You can use a Docker
 container to extend the package size up to 10&nbsp;GB, giving you much more
 flexibility in libraries and dependencies. For more about AWS Lambda container
-support, see the [AWS documentation][aws-lambda-docs].
+support, see the [AWS documentation][lambda-container-images].
 
 The libraries used in this tutorial:
 
-*   [`pandas`][pandas]
+*   [`pandas`][pandas-docs]
 *   `requests`
-*   [`psycopg2`][psycopg2]
+*   [`psycopg2`][lambda-psycopg2]
 *   [`pgcopy`][pgcopy]
 
 ## Create an ETL function
@@ -28,7 +28,7 @@ The libraries used in this tutorial:
 Extract, transform, and load (ETL) functions are used to pull data from one
 database and ingest the data into another. In this tutorial, the ETL function
 pulls data from a finance API called Alpha Vantage, and inserts the data into
-TimescaleDB. The connection is made using the values from environment variables.
+$TIMESCALE_DB. The connection is made using the values from environment variables.
 
 This is the ETL function used in this tutorial:
 
@@ -118,9 +118,11 @@ pgcopy
 ```
 
 <Highlight type="note">
+
 This example uses `psycopg2-binary` instead of `psycopg2` in the
 `requirements.txt` file. The binary version of the library contains all its
 dependencies, so that you don't need to install them separately.
+
 </Highlight>
 
 ## Create the Dockerfile
@@ -254,9 +256,11 @@ an EventBridge trigger. This creates a rule using a [`cron` expression][cron-exa
 </Procedure>
 
 <Highlight type="important">
+
 If you get an error saying `Parameter ScheduleExpression is not valid`, you
-might have made a mistake in the cron expression. Check the [cron expression examples](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions)
+might have made a mistake in the cron expression. Check the [cron expression examples][cron-expression-examples]
 documentation.
+
 </Highlight>
 
 You can check if the rule is connected correctly to the Lambda function in the
@@ -265,8 +269,9 @@ you created. The Lambda function's name is listed under `Target(s)`:
 
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/targets.png" alt="Lamdba function target in AWS Console"/>
 
-[aws-lambda-docs]: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html
 [cron-examples]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions
-[pandas]: https://pandas.pydata.org/
+[cron-expression-examples]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions
+[lambda-container-images]: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html
+[lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2
+[pandas-docs]: https://pandas.pydata.org/
 [pgcopy]: https://github.com/G-Node/pgcopy
-[psycopg2]: https://github.com/jkehler/awslambda-psycopg2

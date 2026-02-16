@@ -15,7 +15,7 @@ handle candlestick data. This is what a typical candlestick looks like:
 
 At least four data points are needed to create a candlestick chart: high, open, close, low.
 
-![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
+![candlestick][candlestick]
 
 You also need to have fields for the ticker symbol, time, and trading volume. The data fields we are using are:
 
@@ -43,13 +43,13 @@ CREATE TABLE public.stocks_intraday (
 );
 ```
 
-This creates a regular PostgreSQL table with all the columns needed to ingest candlestick data records.
+This creates a regular $PG table with all the columns needed to ingest candlestick data records.
 
 # Create hypertable
 
-To use TimescaleDB features, you need to enable TimescaleDB, and create a hypertable from the `stocks_intraday` table.
+To use $TIMESCALE_DB features, you need to enable $TIMESCALE_DB, and create a hypertable from the `stocks_intraday` table.
 
-**Enable TimescaleDB extension:**
+**Enable $TIMESCALE_DB extension:**
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb;
@@ -66,3 +66,5 @@ SELECT create_hypertable('stocks_intraday', 'time');
 ```
 
 At this point, you have an empty hypertable, ready to ingest time-series data.
+
+[candlestick]: https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png

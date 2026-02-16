@@ -1,24 +1,26 @@
 ---
-title: postgis PostgreSQL extension
-excerpt: PostGIS enables you to store, query, and manipulate geographic and spatial data directly within PostgreSQL. Learn to use PostGIS to analyze geospatial data within a Timescale Cloud service
-products: [cloud]
+title: Analyse geospatial data with postgis
+excerpt: PostGIS enables you to store, query, and manipulate geographic and spatial data directly within Postgres. Learn to use PostGIS to analyze geospatial data 
+products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, postgis]
 tags: [extensions, postgis]
 ---
 
-# The `postgis` extension
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
-The `postgis` PostgreSQL extension provides storing, indexing and querying
+# Analyze geospatial data using postgis
+
+The `postgis` $PG extension provides storing, indexing, and querying
 geographic data. It helps in spatial data analysis, the study of patterns,
 anomalies, and theories within spatial or geographical data.
 
 For more information about these functions and the options available, see the
-[PostGIS documentation] [postgis-docs].
+[PostGIS documentation][postgis-docs].
 
 ## Use the `postgis` extension to analyze geospatial data
 
-The `postgis` PostgreSQL extension allows you to conduct complex analyses of
-your geospatial time-series data. Timescale understands that you have a
+The `postgis` $PG extension allows you to conduct complex analyses of
+your geospatial time-series data. $COMPANY understands that you have a
 multitude of data challenges and helps you discover when things happened, and
 where they occurred. In this example you can query when the `covid` cases were
 reported, where they were reported, and how many were reported around a
@@ -45,36 +47,30 @@ particular location.
      pgcrypto            | 1.3     | public     | cryptographic functions
      plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
      postgis             | 3.3.3   | public     | PostGIS geometry and geography spatial types and functions
-     timescaledb         | 2.11.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
-     timescaledb_toolkit | 1.16.0  | public     | Library of analytical hyperfunctions,     time-series pipelining, and other SQL utilities
+     timescaledb         | 2.24.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+     timescaledb_toolkit | 1.22.0  | public     | Library of analytical hyperfunctions,     time-series pipelining, and other SQL utilities
     (6 rows)
     ```
 
-1.  Create a table named `covid_location`, where, `location` is a `GEOGRAPHY`
+1.  Create a hypertable named `covid_location`, where, `location` is a `GEOGRAPHY`
     type column that stores GPS coordinates using the 4326/WGS84 coordinate
     system, and `time` records the time the GPS coordinate was logged for a
-    specific `state_id`:
+    specific `state_id`. This hypertable is partitioned on the `time` column:
 
     ```sql
     CREATE TABLE covid_location (
-    time TIMESTAMPTZ NOT NULL,
-    state_id INT NOT NULL,
-    location GEOGRAPHY(POINT, 4326),
-    cases INT NOT NULL,
-    deaths INT NOT NULL 
+      time TIMESTAMPTZ NOT NULL,
+      state_id INT NOT NULL,
+      location GEOGRAPHY(POINT, 4326),
+      cases INT NOT NULL,
+      deaths INT NOT NULL 
+    ) WITH (
+      tsdb.hypertable
     );
     ```
+    <CreateHypertablePolicyNote />
 
-1.  Convert the standard table into a hypertable partitioned on the `time` column
-    using the `create_hypertable()` function provided by Timescale. You must
-    provide the name of the table and the column in that table that holds the
-    timestamp data to use for partitioning:
-
-    ```sql
-    SELECT create_hypertable('covid_location', by_range('time'));
-    ```
-
-1.  Create an index on the `state_id` column, to support efficient queries:
+1. To support efficient queries, create an index on the `state_id` column:
 
     ```sql
     CREATE INDEX ON covid_location (state_id, time DESC);
@@ -111,8 +107,7 @@ particular location.
     (3 rows)
     ```
 
-1.  To fetch the latest logged cases of all states using the [Timescale
-    SkipScan][skip-scan] feature. Replace `<Interval_Time>` with the number of
+1.  To fetch the latest logged cases of all states using the [$SKIPSCAN_LONG][skipscan] feature, replace `<Interval_Time>` with the number of
     days between the day you are running the query and the day the last report
     was logged in the table, in this case 30, June, 2023:
 
@@ -159,5 +154,4 @@ particular location.
 
 </Procedure>
 
-[postgis-docs]: https://www.postgis.net
-[skip-scan]: /use-timescale/:currentVersion:/query-data/skipscan/
+[skipscan]: /use-timescale/:currentVersion:/query-data/skipscan/

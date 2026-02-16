@@ -8,48 +8,50 @@ keywords: [services]
 import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
 import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
 
-# About Managed Service for TimescaleDB
+# About $MST_LONG
 
 <MSTIntro />
 
 <CloudMSTComparison />
 
-Your Managed Service for TimescaleDB account has three main components:
-projects, services, and databases.
+Your $MST_LONG account has three main components:
+projects, $MST_SERVICE_SHORTs, and databases.
 
 ## Projects
 
-When you [sign up for Managed Service for TimescaleDB][mst-signup], an empty project is
+When you [sign up for $MST_LONG][mst-signup], an empty project is
 created for you automatically. Projects are the highest organization level, and
 they contain all your services and databases. You can use projects to organize
-groups of services. Each project can also have its own billing settings.
+groups of $MST_SERVICE_SHORTs. Each project can also have its own billing settings.
 
-To create a new project: In [MST Console][mst-login], click `Projects` > `Create project`.
+To create a new project: In [$MST_CONSOLE_SHORT][mst-login], click `Projects` > `Create project`.
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/mst/create-project.png"
 alt="MST projects"/>
 
-## Services
+## $MST_SERVICE_LONGs
 
-Each project contains one or more services. You can have multiple services under
-each project, and each service corresponds to a cloud service provider tier. You
-can access all your services from the `Services` tab within your projects.
+Each project contains one or more $MST_SERVICE_SHORTs. You can have multiple $MST_SERVICE_SHORTs under
+each project, and each $MST_SERVICE_SHORT corresponds to a cloud service provider tier. You
+can access all your $MST_SERVICE_SHORTs from the `Services` tab within your projects.
 
 <img class="main-content__illustration"
 src="https://assets.timescale.com/docs/images/mst/services.png"
 alt="MST services list"/>
 
-For more information about getting your first service up and running, see the
-[Managed Service for Timescale installation section][mst-install].
+For more information about getting your first $MST_SERVICE_SHORT up and running, see the
+[$MST_LONG installation section][create-managed-service].
 
 
 <Highlight type="important">
+
 When you have created, and named, a new Managed Service for TimescaleDB service,
 you cannot rename it. If you need to have your service running under a different
 name, you need to create a new service, and manually migrate the data. For more
 information about migrating data, see
-[migrating your data](https://docs.timescale.com/mst/latest/migrate-to-mst/).
+[migrating your data][mst-migration].
+
 </Highlight>
 
 For information about billing on Managed Service for TimescaleDB, see the
@@ -139,8 +141,10 @@ problems or the node stops communicating entirely. The monitoring infrastructure
 automatically schedules a new replacement node to be created when this happens.
 
 <Highlight type="note">
+
 In case of database failover, the service URL of your service remains the same.
 Only the IP address changes to point at the new master node.
+
 </Highlight>
 
 Managed Service for TimescaleDB availability features differ based on the service
@@ -163,12 +167,12 @@ Typically this time window is limited to either five minutes, or one WAL file.
 
 ### Highly available nodes
 
-In Pro plans, if a PostgreSQL standby fails, the master node keeps running
+In Pro plans, if a $PG standby fails, the master node keeps running
 normally and provides normal service level to the client applications. When the
 new replacement standby node is ready and synchronized with the master, it
 starts replicating the master in real time and normal operation resumes.
 
-If the PostgreSQL master fails, the combined information from the MST monitoring
+If the $PG master fails, the combined information from the MST monitoring
 infrastructure and the standby node is used to make a failover decision. On the
 nodes, the open source monitoring daemon `PGLookout`, in combination with the
 information from the MST system infrastructure, reports the failover. If the
@@ -207,9 +211,11 @@ about connection pooling, see the
 [connection pooling section][connection-pooling].
 
 <Highlight type="note">
+
 If you have a high number of connections to your database, your service might
 run more slowly, and could run out of memory. Remain aware of how many open
 connections your have to your database at any given time.
+
 </Highlight>
 
 ## Service termination protection
@@ -226,9 +232,11 @@ tab. Locate the `Termination protection` section, and toggle to enable
 protection.
 
 <Highlight type="important">
+
 If you run out of free sign-up credit, and have not entered a valid credit card
 for payment, your service is powered down, even if you have enabled termination
 protection.
+
 </Highlight>
 
 ## Idle connections
@@ -247,7 +255,7 @@ client resolves the DNS address correctly, as the underlying address changes
 during automatic failover.
 
 For more information about adjusting keep alive settings, see the
-[PostgreSQL documentation][pg-keepalive].
+[$PG documentation][pg-keepalive].
 
 ## Long running queries
 
@@ -282,11 +290,11 @@ of time, you can use this command:
 SET statement_timeout = <milliseconds>
 ```
 
-[mst-install]: /mst/:currentVersion:/installation-mst/
-[sign-up]: https://www.timescale.com/cloud-signup
 [aiven-sla]: https://aiven.io/sla
-[pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
 [connection-pooling]: /mst/:currentVersion:/connection-pools/
+[create-managed-service]: /mst/:currentVersion:/installation-mst/
 [mst-billing]: /mst/:currentVersion:/billing/
-[mst-signup]: https://www.timescale.com/mst-signup
 [mst-login]:https://portal.managed.timescale.com/login
+[mst-migration]: /mst/:currentVersion:/migrate-to-mst/
+[mst-signup]: https://www.tigerdata.com/mst-signup
+[pg-keepalive]: https://www.postgresql.org/docs/9.5/libpq-connect.html#LIBPQ-KEEPALIVES

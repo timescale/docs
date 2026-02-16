@@ -21,22 +21,24 @@ as their payment symbol, but you can modify the script to include more
 payment symbols in your analysis if you want to.
 
 All the queries in this section, plus some additional ones, are in our
-[NFT Starter Kit on GitHub][nft-starter-kit]
+[NFT Starter Kit on GitHub][starter-kit]
 in the [`queries.sql` file][queries].
 
 We divide our analysis into two parts: simple queries and complex queries. But
-first we create something to speed up our queries: TimescaleDB continuous
+first we create something to speed up our queries: $TIMESCALE_DB continuous
 aggregates.
 
 <Highlight type="note">
+
 All queries in this section only include data that's accessible from the
 OpenSea API.
+
 </Highlight>
 
 ## Speeding up queries with continuous aggregates
 
-TimescaleDB continuous aggregates speed up workloads that need to process large
-amounts of data. They look like PostgreSQL materialized views, but have a
+$TIMESCALE_DB continuous aggregates speed up workloads that need to process large
+amounts of data. They look like $PG materialized views, but have a
 built-in refresh policy that makes sure that the data is up to date as new
 data comes in. Additionally, the refresh procedure is careful to only refresh
 data in the materialized view that actually needs to be changed, thereby
@@ -44,7 +46,7 @@ avoiding recomputation of data that did not change. This smart refresh procedure
 massively improves the refresh performance of the materialized view and the
 refresh policy ensures that the data is always up to date.
 
-[Continuous aggregates][cont-agg] are often used to speed up dashboards and
+[Continuous aggregates][caggs] are often used to speed up dashboards and
 visualizations, summarizing data sampled at high frequency, and querying
 downsampled data over long time periods.
 
@@ -133,7 +135,7 @@ to analyze the time-period, asset, collection, or account that you are curious a
 Where possible, we include dashboard examples from Superset to serve as
 inspiration for creating your own dashboard which monitors and analyzes NFT
 sales using free, open-source tools. You can find the code used to create each
-graph in the [NFT Starter Kit Github repo][nft-starter-kit].
+graph in the [NFT Starter Kit Github repo][starter-kit].
 
 ### Collections with the highest sales volume
 
@@ -207,11 +209,11 @@ bucket             |slug         |volume|
 
 Here's what this query would look like as a time-series chart in Apache Superset:
 
-![daily number of nft transactions](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/daily-number-of-nft-transactions.jpg)
+![daily number of nft transactions][daily-number-of-nft-transactions]
 
 As a reminder, charts like this are pre-built and ready for you to use and
 modify as part of the pre-built dashboards
-in our [NFT Starter Kit][nft-starter-kit].
+in our [NFT Starter Kit][starter-kit].
 
 ### Comparison of daily NFT sales for different collections
 
@@ -238,7 +240,7 @@ bucket             |slug         |volume|
 2021-10-10 02:00:00|cryptokitties|    84|
 ...
 
-![comparison of different collections](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/comparison-of-different-collections.jpg)
+![comparison of different collections][comparison-of-different-collections]
 
 This sort of query is useful to track sales activity in collections you're
 interested in or own assets in, so you can see the activity of other NFT holders.
@@ -346,10 +348,12 @@ bucket             |slug         |volume_eth         |
 2021-10-06 02:00:00|cryptokitties| 11.390538587035808|
 ...
 
-![daily eth volume of assets](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/daily-eth-volume-of-assets.jpg)
+![daily eth volume of assets][daily-eth-volume-of-assets]
 
 <Highlight type="note">
+
 This graph uses a logarithmic scale, which you can configure in the graph's settings in Superset.
+
 </Highlight>
 
 ### Comparison of daily ETH volume of multiple collections
@@ -379,11 +383,13 @@ bucket             |slug         |volume_eth        |
 2021-10-10 02:00:00|cryptokitties| 2.839395250444517|
 ...
 
-![comparison-daily-eth-volume-collections](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/comparison-daily-eth-volume-collections.jpg)
+![comparison-daily-eth-volume-collections][comparison-daily-eth-volume-collections]
 
 <Highlight type="note">
+
 The graph above uses a logarithmic scale, which we configured in the graph's
 settings in Superset.
+
 </Highlight>
 
 ### Daily mean and median sale price of assets in a collection
@@ -410,11 +416,11 @@ bucket             |slug         |mean_price          |median_price         |
 2021-10-08 02:00:00|cryptokitties| 0.09585439560835196| 0.010001681651251936|
 ...
 
-![daily mean median](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/daily-mean-median.jpg)
+![daily mean median][daily-mean-median]
 
 Since calculating the mean and median are computationally expensive for large
-datasets, we use the [`percentile_agg` hyperfunction][percentile-agg], a SQL
-function that is part of the Timescale Toolkit extension. It accurately
+datasets, we use the [`percentile_agg` hyperfunction][percentile_agg], a SQL
+function that is part of the $TOOLKIT_LONG extension. It accurately
 approximates both statistics, as shown in the definition of `mean_price` and
 `median_price` in the continuous aggregate we created earlier in the tutorial:
 
@@ -457,7 +463,7 @@ GROUP BY bucket
 ORDER BY bucket DESC
 ```
 
-![volume top buyers](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/volume-top-buyers.jpg)
+![volume top buyers][volume-top-buyers]
 
 ## Complex queries
 
@@ -495,10 +501,10 @@ bucket             |nft           |mean_price         |median_price        |
 2021-10-17 22:00:00|Zero [Genesis]|             0.0775| 0.09995839119153871|
 2021-10-17 21:30:00|Zero [Genesis]|             0.0555| 0.05801803032917102|
 
-This is a more complex query which uses PostgreSQL Common Table Expressions (CTE)
+This is a more complex query which uses $PG Common Table Expressions (CTE)
 to first create a sub-table of the data from the past day, called `one_day`.
 Then you use the hyperfunction time_bucket to create 30-minute buckets of our data
-and use the [percentile_agg hyperfunction][percentile-agg] to find the mean and
+and use the [percentile_agg hyperfunction][percentile_agg] to find the mean and
 median prices for each interval period. Finally, you JOIN on the `assets` table
 to get the name of the specific NFT in order to return it along with the mean and
 median price for each time interval.
@@ -534,12 +540,12 @@ bucket             |asset_id|open_price|close_price|low_price  |high_price|volum
 2021-02-26 01:00:00|18198072|       0.1|        0.1|        0.1|       0.1|   154|
 2021-02-26 01:00:00|18198081|      0.25|       0.25|       0.25|      0.25|   155|
 
-In this query, you used the TimescaleDB hyperfunctions [`first()`][first-docs] and
-[`last()`][last-docs] to find the open and close prices respectively. These
+In this query, you used the $TIMESCALE_DB hyperfunctions [`first()`][first] and
+[`last()`][last] to find the open and close prices respectively. These
 hyperfunctions allow you to find the value of one column as ordered by another,
 by performing a sequential scan through their groups. In this case, you get the
 first and last values of the `total_price` column, as ordered by
-the `time` column. [See the docs for more information.][first-docs]
+the `time` column. [See the docs for more information.][first]
 
 If you want to run this query regularly, you can create a continuous aggregate
 for it, which greatly improves the query performance. Moreover, you can remove
@@ -612,42 +618,48 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 
 ### Build on the NFT Starter Kit
 
-Congratulations! You're now up and running with NFT data and TimescaleDB. Check out
-our [NFT Starter Kit][nft-starter-kit] to use as your starting point to
+Congratulations! You're now up and running with NFT data and $TIMESCALE_DB. Check out
+our [NFT Starter Kit][starter-kit] to use as your starting point to
 build your own, more complex NFT analysis projects.
 
 The Starter Kit contains:
 
-*   A data ingestion script, which collects real-time data from OpenSea and ingests it into TimescaleDB
+*   A data ingestion script, which collects real-time data from OpenSea and ingests it into $TIMESCALE_DB
 *   A sample dataset, to get started quickly, if you don't want to ingest real-time data
 *   A schema for storing NFT sales, assets, collections, and owners
-*   A local TimescaleDB database, pre-loaded with sample NFT data
+*   A local $TIMESCALE_DB database, pre-loaded with sample NFT data
 *   Pre-built dashboards and charts in [Apache Superset][superset] and [Grafana][grafana]
 for visualizing your data analysis
 *   Queries to use as a starting point for your own analysis
 
 ### Learn more about how to use TimescaleDB to store and analyze crypto data
 
-Check out these resources for more about using TimescaleDB with crypto data:
+Check out these resources for more about using $TIMESCALE_DB with crypto data:
 
-*   [Analyze cryptocurrency market data][analyze-cryptocurrency]
-*   [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and TimescaleDB][analyze-bitcoin]
-*   [Learn how TimescaleDB user Messari uses data to open the crypto economy to everyone][messari]
-*   [How one TimescaleDB user built a successful crypto trading bot][trading-bot]
+*   [Analyze cryptocurrency market data][crypto-tutorial]
+*   [Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using $PG and $TIMESCALE_DB][crypto-blog]
+*   [Learn how $TIMESCALE_DB user Messari uses data to open the crypto economy to everyone][messari]
+*   [How one $TIMESCALE_DB user built a successful crypto trading bot][trading-bot]
 
-[analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
-[analyze-cryptocurrency]: /tutorials/:currentVersion:/blockchain-analyze/
-[cont-agg]: /use-timescale/:currentVersion:/continuous-aggregates
+[caggs]: /use-timescale/:currentVersion:/continuous-aggregates
+[comparison-daily-eth-volume-collections]: https://assets.timescale.com/docs/images/tutorials/nft-tutorial/comparison-daily-eth-volume-collections.jpg
+[comparison-of-different-collections]: https://assets.timescale.com/docs/images/tutorials/nft-tutorial/comparison-of-different-collections.jpg
+[crypto-blog]: https://www.tigerdata.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb
+[crypto-tutorial]: /tutorials/:currentVersion:/blockchain-analyze/
+[daily-eth-volume-of-assets]: https://assets.timescale.com/docs/images/tutorials/nft-tutorial/daily-eth-volume-of-assets.jpg
+[daily-mean-median]: https://assets.timescale.com/docs/images/tutorials/nft-tutorial/daily-mean-median.jpg
+[daily-number-of-nft-transactions]: https://assets.timescale.com/docs/images/tutorials/nft-tutorial/daily-number-of-nft-transactions.jpg
 [daliso-opensea]: https://opensea.io/daliso
 [eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
-[first-docs]: /api/:currentVersion:/hyperfunctions/first/
+[first]: /api/:currentVersion:/hyperfunctions/first/
 [grafana]: https://grafana.com
-[last-docs]: /api/:currentVersion:/hyperfunctions/last
-[messari]: https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
+[last]: /api/:currentVersion:/hyperfunctions/last
+[messari]: https://www.tigerdata.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone
 [nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link
-[nft-starter-kit]: https://github.com/timescale/nft-starter-kit
-[percentile-agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#percentile_agg
+[percentile_agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#percentile_agg
 [queries]: https://github.com/timescale/nft-starter-kit/blob/master/queries.sql
 [snoop-dogg-opensea]: https://opensea.io/Cozomo_de_Medici
+[starter-kit]: https://github.com/timescale/nft-starter-kit
 [superset]: https://superset.apache.org
-[trading-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
+[trading-bot]: https://www.tigerdata.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb
+[volume-top-buyers]: https://assets.timescale.com/docs/images/tutorials/nft-tutorial/volume-top-buyers.jpg

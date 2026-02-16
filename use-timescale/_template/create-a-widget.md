@@ -17,9 +17,11 @@ the hypertable.
 ```
 
 <Highlight type="note|important|warning">
+
 If there are prerequisites that apply to the entire section, if this is a
 pre-release or beta feature, or if there is a risk of data loss that could apply
 to this entire section, add the warning here in an admonition.
+
 </Highlight>
 
 ## Create a widget
@@ -61,8 +63,10 @@ hypertable. Additionally, all functions and their arguments included in
 1.  Finish the procedure on the final step. Do not include a result statement.
 
 <Highlight type="note|important|warning">
+
 Do not embed admonitions within steps. If you need an admonition in the procedure,
 add it before or after the steps, but inside the procedure tags,
+
 </Highlight>
 
 </Procedure>
@@ -74,8 +78,8 @@ logical progression through the procedures, and that they go from simpler to mor
 complex (as much as is possible). If you find you have a procedure that only has
 one step, write out the single step without a procedure tag and the L3 heading.
 Try to avoid documenting anything that is thoroughly documented elsewhere (for
-example, in the PostgreSQL docs), instead, use the form "For more information
+example, in the Postgres docs), instead, use the form "For more information
 about adjective nouns, see the
-[adjective noun PostgreSQL documentation[noun-pg-docs]."
+[adjective noun $Postgres documentation[noun-pg-docs]."
 
 Include any reference-style links at the bottom of the page.

@@ -1,65 +1,82 @@
 <Procedure>
 
-1.  Install Homebrew, if you don't already have it:
+1.  **Install Homebrew**
 
+    If homebrew is not already installed on your machine, run the following command:
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
     For more information about Homebrew, including installation instructions,
     see the [Homebrew documentation][homebrew].
-1.  At the command prompt, add the TimescaleDB Homebrew tap:
+
+1.  **Install and start $PG**
+
+    ```bash
+    brew install postgresql@17
+    brew cleanup --prune-prefix
+    brew services start postgresql@17
+    ```
+
+1. **Add $PG to your path**
+
+    ```bash
+    echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> ~/.zshrc
+    source ~/.zshrc
+    ```
+
+1.  **Add the $TIMESCALE_DB Homebrew tap**
 
     ```bash
     brew tap timescale/tap
     ```
 
-1.  Install TimescaleDB and psql:
+1.  **Install $TIMESCALE_DB**
 
     ```bash
-    brew install timescaledb libpq
+    brew install timescaledb
     ```
 
-1.  Update your path to include psql.
-
-    ```bash
-    brew link --force libpq
-    ```
-
-    On Intel chips, the symbolic link is added to `/usr/local/bin`. On Apple
-    Silicon, the symbolic link is added to `/opt/homebrew/bin`.
-
-1.  Run the `timescaledb-tune` script to configure your database:
+1.  **Configure your database**
 
    ```bash
    timescaledb-tune --quiet --yes
    ```
 
-1.  Change to the directory where the setup script is located. It is typically,
-   located at `/opt/homebrew/Cellar/timescaledb/<VERSION>/bin/`, where
-   `<VERSION>` is the version of `timescaledb` that you installed:
-
-   ```bash
-   cd /opt/homebrew/Cellar/timescaledb/<VERSION>/bin/
-   ```
-
-1.  Run the setup script to complete installation.
+1.  **Run the setup script to complete installation**
 
     ```bash
-    ./timescaledb_move.sh
+    $(brew --prefix)/Cellar/timescaledb/$(brew list --versions timescaledb | awk '{print $2}')/bin/timescaledb_move.sh
     ```
 
-1.  **Login to PostgreSQL as `postgres`**
+    This command automatically locates the correct version and runs the setup script.
+
+1.  **Start the $PG service**
 
     ```bash
-    sudo -u postgres psql
+    brew services restart postgresql@17
     ```
-    You are in the psql shell.
 
-1. **Set the password for `postgres`**
+1.  **Verify $PG is running**
 
     ```bash
-    \password postgres
+    brew services list | grep postgresql
+    ```
+
+    You should see `postgresql@17` with status `started`.
+
+1.  **Connect to $PG**
+
+    ```bash
+    psql postgres
+    ```
+
+    You are now in the psql shell.
+
+1. **Set the password for your database user** (optional but recommended)
+
+    ```bash
+    \password
     ```
 
     When you have set the password, type `\q` to exit psql.

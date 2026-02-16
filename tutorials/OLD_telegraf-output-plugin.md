@@ -1,17 +1,19 @@
 ---
-title: Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
+title: Collecting metrics with the Postgres and TimescaleDB output plugin for Telegraf
 excerpt: Collect metrics with Telegraf (deprecated)
 products: [cloud, mst, self_hosted]
 keywords: [metrics, monitor, Telegraf]
 ---
 
-# Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
+# Collecting metrics with the $PS and $TIMESCALE_DB output plugin for Telegraf
 
 <Highlight type="deprecation">
+
 This section describes a feature that is deprecated on TimescaleDB. We strongly
 recommend that you do not use this feature in a production environment. For some
 suggestions of workarounds, see this
-[Timescale Forum post](https://www.timescale.com/forum/t/telegraf-plugin/118).
+[$COMPANYForum post][companyforum-post].
+
 </Highlight>
 
 Telegraf collects metrics from a wide array of inputs and writes them to a wide
@@ -22,19 +24,19 @@ external dependencies, or package management tools required.
 
 Telegraf is an open source tool. It contains over 200 plugins for gathering and
 writing different types of data written by people who work with that data.
-Timescale have built downloadable binaries of Telegraf with the plugin included.
-This tutorial runs through a couple of examples on how to use the PostgreSQL and
+$COMPANY have built downloadable binaries of Telegraf with the plugin included.
+This tutorial runs through a couple of examples on how to use the $PG and
 TimescaleDB output plugin for Telegraf.
 
 ## Installation
 
-Before you start, you need [TimescaleDB installed][getting-started] and a means to connect to it.
+Before you start, you need [TimescaleDB installed][install-timescale] and a means to connect to it.
 
 ### Setting up Telegraf
 
 Telegraf is written in Go, and the current build process of the tool is
 configured to produce one standalone binary. Because of this all the code for
-the different plugins must be part of that binary. Timescale have an unofficial
+the different plugins must be part of that binary. $COMPANY have an unofficial
 build of Telegraf version 1.13.0 with the plugin added, that you can download
 from:
 
@@ -46,13 +48,13 @@ from:
 
 -->
 
-Timescale also provide you with builds for:
+$COMPANY also provide you with builds for:
 
 *   Windows i386
 *   Linux (i386, armhf, armel, arm64, static_amd64, s390x, mipsel)
 *   FreeBSD (amd64, i386)
 
-You can get in contact using the Timescale [community Slack][public-slack]
+You can get in contact using the $COMPANY [community Slack][slack]
 
 Once you download the binary and extract it to a suitable location (or install
 the packages) you can test out the build. You might need to make the file
@@ -77,7 +79,7 @@ configuration file sets up:
 *   Global tags added to all collected metrics from all inputs
 *   Enabled outputs, processors, aggregators, inputs (and their respective configuration)
 
-A sample config file with PostgreSQL included as a plugin can be generated with
+A sample config file with $PG included as a plugin can be generated with
 this command:
 
 ```bash
@@ -85,7 +87,7 @@ telegraf --input-filter=cpu --output-filter=postgresql config > telegraf.conf
 ```
 
 This command generates a configuration file that enables a CPU input plugin that
-samples various metrics about CPU usage, and the PostgreSQL output plugin. The
+samples various metrics about CPU usage, and the $PG output plugin. The
 file also includes all available input, output, processor, and aggregator
 plugins, commented out, so you can enable them as required.
 
@@ -109,7 +111,7 @@ A line is outputted for each core of the CPU and the total. Values are presented
 When writing to STDOUT you can distinguish between *tags*, which are indexed fields (`cpu`, `host`) and value *fields* (like `usage_quest` or `usage_user`) by a blank space (in this example the space after `host=local`).
 The distinction exists because different configuration options are available for the different fields.
 
-### Configuring the PostgreSQL output plugin
+### Configuring the $PS output plugin
 
 The `telegraf.conf` file you generated has a section (around line 80) headed with
 
@@ -119,7 +121,7 @@ The `telegraf.conf` file you generated has a section (around line 80) headed wit
 ################################################
 ```
 
-Below this header, the default configuration for the PostgreSQL output plugin is
+Below this header, the default configuration for the $PG output plugin is
 shown. It looks like this:
 
 ```txt
@@ -177,7 +179,7 @@ From the configuration, you can see a few important things:
 
 The commented out parameters also show their default values.
 
-In the first example you'll set the connection parameter to a proper connection string to establish a connection to an instance of TimescaleDB or PostgreSQL.
+In the first example you'll set the connection parameter to a proper connection string to establish a connection to an instance of TimescaleDB or $PG.
 All the other parameters have their default values.
 
 ### Creating hypertables
@@ -213,7 +215,7 @@ telegraf --config telegraf.conf
 2019-05-23T13:48:09Z I! [agent] Config: Interval:10s, Quiet:false, Hostname:"local", Flush Interval:10s
 ```
 
-Now you can connect to the PostgreSQL instance and inspect the data:
+Now you can connect to the $PG instance and inspect the data:
 
 ```bash
 psql -U postgres -h localhost
@@ -380,12 +382,12 @@ Instead of having three text columns, now you have one JSONB column.
 
 ## Next steps
 
-When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with the [API reference][api].
+When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with the [API reference][use-the-api].
 
 Additionally, there are several other [tutorials][] available for you to explore
 as you become accustomed to working with TimescaleDB.
 
-[api]: /api/:currentVersion:/
-[getting-started]: /getting-started/latest/
-[public-slack]: https://slack.timescale.com/
-[tutorials]: /tutorials/:currentVersion:/
+[companyforum-post]: https://forum.tigerdata.com/forum/t/telegraf-plugin/118
+[install-timescale]: /getting-started/:currentVersion:/
+[slack]: https://slack.timescale.com/
+[use-the-api]: /api/:currentVersion:/

@@ -1,6 +1,6 @@
 ---
 title: Create a data retention policy
-excerpt: Create a data retention policy to automatically drop historical data from your hypertables when it reaches a certain age. Timescale Cloud enables you to save on storage while speeding up your queries
+excerpt: Create a data retention policy to automatically drop historical data from your hypertables when it reaches a certain age. TimescaleDB enables you to save on storage while speeding up your queries
 products: [cloud, mst, self_hosted]
 keywords: [data retention, policies]
 tags: [drop, delete]
@@ -9,7 +9,7 @@ tags: [drop, delete]
 # Create a data retention policy
 
 Automatically drop data once its time value ages past a certain interval. When
-you create a data retention policy, Timescale automatically schedules a
+you create a data retention policy, $TIMESCALE_DB automatically schedules a
 background job to drop old chunks.
 
 ## Add a data retention policy
@@ -33,9 +33,11 @@ Add a data retention policy by using the
 </Procedure>
 
 <Highlight type="note">
+
 A data retention policy only allows you to drop chunks based on how far they are
 in the past. To drop chunks based on how far they are in the future,
-[manually drop chunks](/use-timescale/latest/data-retention/manually-drop-chunks).
+[manually drop chunks][manually-drop-chunks].
+
 </Highlight>
 
 ## Remove a data retention policy
@@ -90,7 +92,9 @@ total_successes     | 1
 total_failures      | 0
 ```
 
-[add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
-[remove_retention_policy]: /api/:currentVersion:/data-retention/remove_retention_policy
 [timescaledb_information.job_stats]: /api/:currentVersion:/informational-views/job_stats/
 [timescaledb_information.jobs]: /api/:currentVersion:/informational-views/jobs/
+
+[add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
+[manually-drop-chunks]: /use-timescale/:currentVersion:/data-retention/manually-drop-chunks
+[remove_retention_policy]: /api/:currentVersion:/data-retention/remove_retention_policy

@@ -7,13 +7,15 @@ tags: [hypertables]
 api:
   license: community
   type: function
+products: [cloud, mst, self_hosted]
 ---
 
 import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # recompress_chunk() <Tag type="community" content="Community" />
 
-<Deprecated2180 /> Replaced by <a href="https://docs.timescale.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 Recompresses a compressed chunk that had more data inserted after compression.
 
@@ -30,20 +32,34 @@ You can also recompress chunks by
 allowing you to target a specific chunk.
 
 <Highlight type="important">
-`recompress_chunk` is deprecated since version 2.14 and will be removed in the future. 
-The procedure is now a wrapper which calls [`compress_chunk`](/api/latest/compression/compress_chunk/) 
+
+`recompress_chunk` is deprecated since $TIMESCALE_DB v2.14 and will be removed in the future. 
+The procedure is now a wrapper which calls [`compress_chunk`][compress_chunk] 
 instead of it. 
+
 </Highlight>
 
 <Highlight type="important">
+
 `recompress_chunk` is implemented as an SQL procedure and not a function. Call
 the procedure with `CALL`. Don't use a `SELECT` statement.
+
 </Highlight>
 
 <Highlight type="note">
+
 `recompress_chunk` only works on chunks that have previously been compressed. To compress a
-chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
+chunk for the first time, use [`compress_chunk`][compress_chunk].
+
 </Highlight>
+
+## Samples
+
+Recompress the chunk `timescaledb_internal._hyper_1_2_chunk`:
+
+```sql
+CALL recompress_chunk('_timescaledb_internal._hyper_1_2_chunk');
+```
 
 ## Required arguments
 
@@ -57,19 +73,11 @@ chunk for the first time, use [`compress_chunk`](/api/latest/compression/compres
 |-|-|-|
 |`if_not_compressed`|`BOOLEAN`|If `true`, prints a notice instead of erroring if the chunk is already compressed. Defaults to `false`.|
 
-## Sample usage
-
-Recompress the chunk `timescaledb_internal._hyper_1_2_chunk`:
-
-```sql
-CALL recompress_chunk('_timescaledb_internal._hyper_1_2_chunk');
-```
-
 ## Troubleshooting
 
-In TimescaleDB 2.6.0 and above, `recompress_chunk` is implemented as a procedure.
+In $TIMESCALE_DB 2.6.0 and above, `recompress_chunk` is implemented as a procedure.
 Previously, it was implemented as a function. If you are upgrading to
-TimescaleDB 2.6.0 or above, the`recompress_chunk`
+$TIMESCALE_DB 2.6.0 or above, the`recompress_chunk`
 function could cause an error. For example, trying to run `SELECT
 recompress_chunk(i.show_chunks, true) FROM...` gives the following error:
 
@@ -96,4 +104,5 @@ END
 $$;
 ```
 
-[run-job]: /api/:currentVersion:/actions/run_job/
+[compress_chunk]: /api/:currentVersion:/compression/compress_chunk
+[run-job]: /api/:currentVersion:/jobs-automation/run_job/

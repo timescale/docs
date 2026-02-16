@@ -1,7 +1,6 @@
 ---
 title: Query data in distributed hypertables
 excerpt: Sunsetted v2.14.x. Query data in distributed hypertables in your self-hosted TimescaleDB installation
-products: [self_hosted]
 keywords: [distributed hypertables, multi-node, queries]
 seo:
   robots: noindex
@@ -14,7 +13,7 @@ import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecati
 # Query data in distributed hypertables
 
 You can query a distributed hypertable just as you would query a standard
-hypertable or PostgreSQL table. For more information, see the section on
+hypertable or $PG table. For more information, see the section on
 [writing data][write].
 
 Queries perform best when the access node can push transactions down to the data

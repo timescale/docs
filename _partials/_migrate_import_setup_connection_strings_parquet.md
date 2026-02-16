@@ -1,9 +1,10 @@
-This variable hold the connection information for the target Timescale Cloud service.
+This variable holds the connection information for the target $SERVICE_LONG. 
 
-In Terminal on the source machine, set the following:
+In the terminal on the source machine, set the following:
 
 ```bash
 export TARGET=postgres://tsdbadmin:<PASSWORD>@<HOST>:<PORT>/tsdb?sslmode=require
 ```
-You find the connection information for your Timescale Cloud service in the configuration file you
-downloaded when you created the service.
+See where to [find your connection details][connection-info].
+
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
