@@ -173,7 +173,7 @@ SELECT time_bucket_gapfill('1 day', time) AS day,
     FROM metrics m
     WHERE time > '2021-12-31 00:00:00+00'::timestamptz
         AND time < '2022-01-10 00:00:00-00'::timestamptz
-    GROUP BY day
+    GROUP BY day, device_id
     ORDER BY day desc;
 ```
 
