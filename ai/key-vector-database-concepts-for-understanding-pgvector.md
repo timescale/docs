@@ -12,7 +12,7 @@ tags: [ai, vector]
 
 ## `Vector` data type provided by pgvector
 
-Vectors inside of the database are stored in regular $PG tables using `vector` columns. The `vector` column type is provided by the [pgvector](https://github.com/pgvector/pgvector) extension. A common way to store vectors is alongside the data they have indexed. For example, to store embeddings for documents, a common table structure is:
+Vectors inside of the database are stored in regular $PG tables using `vector` columns. The `vector` column type is provided by the [pgvector][pgvector-github] extension. A common way to store vectors is alongside the data they have indexed. For example, to store embeddings for documents, a common table structure is:
 
 ```sql
 CREATE TABLE IF NOT EXISTS document_embedding  (
@@ -26,13 +26,13 @@ CREATE TABLE IF NOT EXISTS document_embedding  (
 
 This table contains a primary key, a foreign key to the document table, some metadata, the text being embedded (in the `contents` column), and the embedded vector.
 
-This may seem like a bit of a weird design: why aren't the embeddings simply a separate column in the document table? The answer has to do with context length limits of embedding models and of LLMs. When embedding data, there is a limit to the length of content you can embed (for example, OpenAI's ada-002 has a limit of [8191 tokens](https://platform.openai.com/docs/guides/embeddings/embedding-models) ), and so, if you are embedding a long piece of text, you have to break it up into smaller chunks and embed each chunk individually. Therefore, when thinking about this at the database layer, there is usually a one-to-many relationship between the thing being embedded and the embeddings which is represented by a foreign key from the embedding to the thing.
+This may seem like a bit of a weird design: why aren't the embeddings simply a separate column in the document table? The answer has to do with context length limits of embedding models and of LLMs. When embedding data, there is a limit to the length of content you can embed (for example, OpenAI's ada-002 has a limit of [8191 tokens][openai-embedding-models] ), and so, if you are embedding a long piece of text, you have to break it up into smaller chunks and embed each chunk individually. Therefore, when thinking about this at the database layer, there is usually a one-to-many relationship between the thing being embedded and the embeddings which is represented by a foreign key from the embedding to the thing.
 
 Of course, if you do not want to store the original data in the database and you are just storing only the embeddings, that's totally fine too. Just omit the foreign key from the table. Another popular alternative is to put the foreign key into the metadata JSONB.
 
 ## Querying vectors using pgvector
 
-The canonical query for vectors is for the closest query vectors to an embedding of the user's query. This is also known as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
+The canonical query for vectors is for the closest query vectors to an embedding of the user's query. This is also known as finding the [K nearest neighbors][knn-wikipedia].
 
 In the example query below, `$1` is a parameter taking a query embedding, and the `<=>` operator calculates the distance between the query embedding and embedding vectors stored in the database (and returns a float value).
 
@@ -60,7 +60,7 @@ In practice, the choice of distance measure doesn't matters much and it is recom
 
 Here's a succinct description of three common vector distance measures
 
-- **Cosine distance a.k.a. angular distance**: This measures the cosine of the angle between two vectors. It's not a true "distance" in the mathematical sense but a similarity measure, where a smaller angle corresponds to a higher similarity. The cosine distance is particularly useful in high-dimensional spaces where the magnitude of the vectors (their length) is less important, such as in text analysis or information retrieval. It ranges from -1 (meaning exactly opposite) to 1 (exactly the same), with 0 typically indicating orthogonality (no similarity). See here for more on [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity).
+- **Cosine distance a.k.a. angular distance**: This measures the cosine of the angle between two vectors. It's not a true "distance" in the mathematical sense but a similarity measure, where a smaller angle corresponds to a higher similarity. The cosine distance is particularly useful in high-dimensional spaces where the magnitude of the vectors (their length) is less important, such as in text analysis or information retrieval. It ranges from -1 (meaning exactly opposite) to 1 (exactly the same), with 0 typically indicating orthogonality (no similarity). See here for more on [cosine similarity][cosine-similarity].
 
 - **Negative inner product**: This is simply the negative of the inner product (also known as the dot product) of two vectors. The inner product measures vector similarity based on the vectors' magnitudes and the cosine of the angle between them. A higher inner product indicates greater similarity. However, it's important to note that, unlike cosine similarity, the magnitude of the vectors influences the inner product.
 
@@ -75,11 +75,11 @@ Many embedding systems (for example OpenAI's ada-002) use vectors with length 1 
 #### Recommended vector distance for use in $PG
 <!-- vale Google.Headings = YES -->
 
-Using cosine distance, especially on unit vectors, is recommended. These recommendations are based on OpenAI's [recommendation](https://platform.openai.com/docs/guides/embeddings/which-distance-function-should-i-use) as well as the fact that the ranking of different distances on unit vectors is preserved.
+Using cosine distance, especially on unit vectors, is recommended. These recommendations are based on OpenAI's [recommendation][openai-distance-recommendation] as well as the fact that the ranking of different distances on unit vectors is preserved.
 
 ## Vector search indexing (approximate nearest neighbor search)
 
-In $PG and other relational databases, indexing is a way to speed up queries. For vector data, indexes speed up the similarity search query shown above where you find the most similar embedding to some given query embedding. This problem is often referred to as finding the [K nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm).
+In $PG and other relational databases, indexing is a way to speed up queries. For vector data, indexes speed up the similarity search query shown above where you find the most similar embedding to some given query embedding. This problem is often referred to as finding the [K nearest neighbors][knn-wikipedia].
 
 <Highlight type="note">
 
@@ -104,8 +104,15 @@ There are 3 different indexing algorithms available as part of pgai on $CLOUD_LO
 | ivfflat | Fastest     | Slowest     | Yes                           |
 
 
-See the [performance benchmarks](https://www.timescale.com/blog/how-we-made-postgresql-the-best-vector-database) for details on how the each index performs on a dataset of 1 million OpenAI embeddings.
+See the [performance benchmarks][performance-benchmarks] for details on how the each index performs on a dataset of 1 million OpenAI embeddings.
 
 ## Recommended index types
 
 For most applications, the StreamingDiskANN index is recommended.
+
+[cosine-similarity]: https://en.wikipedia.org/wiki/Cosine_similarity
+[knn-wikipedia]: https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm
+[openai-distance-recommendation]: https://platform.openai.com/docs/guides/embeddings/which-distance-function-should-i-use
+[openai-embedding-models]: https://platform.openai.com/docs/guides/embeddings/embedding-models
+[performance-benchmarks]: https://www.tigerdata.com/blog/how-we-made-postgresql-the-best-vector-database
+[pgvector-github]: https://github.com/pgvector/pgvector

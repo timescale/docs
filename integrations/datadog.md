@@ -9,6 +9,7 @@ keywords: [integrate]
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate Datadog with $CLOUD_LONG
 
@@ -19,22 +20,24 @@ This page explains how to:
 
 - [Monitor $SERVICE_LONG metrics with Datadog][datadog-monitor-cloud]
 
-  This integration is available for [Scale and Enterprise][pricing-plan-features] pricing plans.
+  This integration is available for [$SCALE and $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 - Configure Datadog Agent to collect metrics for your $SERVICE_LONG
 
-   This integration is available for all pricing plans.
+   This integration is available for all $PRICING_PLANs.
 
 
 ## Prerequisites
 
 <IntegrationPrereqsCloud />
 
-- Sign up for [Datadog][datadog-signup].
+- Sign up for [Datadog][datadog].
 
   You need your [Datadog API key][datadog-api-key] to follow this procedure.
 
 - Install [Datadog Agent][datadog-agent-install].
+
+<NotSupportedAzure />
 
 ## Monitor $SERVICE_LONG metrics with Datadog
 
@@ -56,12 +59,12 @@ This section shows you how to attach, monitor, edit, and delete a data exporter.
 
 ## Configure Datadog Agent to collect metrics for your $SERVICE_LONGs
 
-Datadog Agent includes a [$PG integration][datadog-postgres] that you use to collect detailed $PG database
+Datadog Agent includes a [$PG integration][datadog-install] that you use to collect detailed $PG database
 metrics about your $SERVICE_LONGs.
 
 1. **Connect to your $SERVICE_LONG**
 
-   For $CLOUD_LONG, open an [SQL editor][run-queries] in [$CONSOLE][open-console]. For $SELF_LONG, use [`psql`][psql].
+   For $CLOUD_LONG, open an [SQL editor][in-console-editors] in [$CONSOLE][services-portal]. For $SELF_LONG, use [`psql`][psql].
 
 1. **Add the `datadog` user to your $SERVICE_LONG**
 
@@ -132,20 +135,17 @@ metrics about your $SERVICE_LONGs.
 Metrics for your $SERVICE_LONG are now visible in Datadog. Check the Datadog $PG integration documentation for a
 comprehensive list of [metrics][datadog-postgres-metrics] collected.
 
-[datadog]: https://www.datadoghq.com/
-[datadog-agent-install]: https://docs.datadoghq.com/getting_started/agent/#installation
-[datadog-postgres]: https://docs.datadoghq.com/integrations/postgres/
-[datadog-postgres-metrics]:https://docs.datadoghq.com/integrations/postgres/?tab=host#metrics
-[datadog-postgres-setup]: https://docs.datadoghq.com/integrations/postgres/?tab=host#configuration
-[datadog-signup]: https://www.datadoghq.com/
-[datadog-monitor-cloud]: /integrations/:currentVersion:/datadog/#monitor-timescale-cloud-service-metrics-with-datadog
-[datadog-agent]: /integrations/:currentVersion:/datadog/#configure-datadog-agent-to-collect-metrics-for-your-timescale-cloud-services
-[datadog-agent-restart]: https://docs.datadoghq.com/agent/configuration/agent-commands/#start-stop-and-restart-the-agent
-[projects]: /use-timescale/:currentVersion:/security/members/
-[datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
-[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
-[psql]: /integrations/:currentVersion:/psql/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[datadog-agent-install]: https://docs.datadoghq.com/getting_started/agent/#installation
+[datadog-agent-restart]: https://docs.datadoghq.com/agent/configuration/agent-commands/#start-stop-and-restart-the-agent
+[datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
 [datadog-config]: https://docs.datadoghq.com/database_monitoring/setup_postgres/selfhosted?tab=postgres15
+[datadog-install]: https://docs.datadoghq.com/integrations/postgres/
+[datadog-monitor-cloud]: /integrations/:currentVersion:/datadog/#integrate-datadog-with-tiger-cloud
+[datadog-postgres-metrics]: https://docs.datadoghq.com/integrations/postgres/?tab=host#metrics
+[datadog]: https://www.datadoghq.com/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[projects]: /use-timescale/:currentVersion:/security/members/
+[psql]: /integrations/:currentVersion:/psql/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

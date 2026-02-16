@@ -1,5 +1,5 @@
 ---
-title: Start coding with TigerData
+title: Start coding with Tiger Data
 excerpt: Integrate Tiger Cloud with your app using your preferred programming language. Connect to a service, 
   create and manage hypertables, then and ingest and query data
 products: [cloud, self_hosted, mst]
@@ -17,7 +17,7 @@ import StartCodingJava from "versionContent/_partials/_start-coding-java.mdx";
 Easily integrate your app with $CLOUD_LONG or $SELF_LONG. Use your favorite programming language to connect to your
 $SERVICE_LONG, create and manage hypertables, then ingest and query data.
 
-<Tabs label="Start coding with TigerData" persistKey="language">
+<Tabs label="Start coding with Tiger Data" persistKey="language">
 
 <Tab title="Ruby" label="ruby">
 
@@ -51,6 +51,5 @@ $SERVICE_LONG, create and manage hypertables, then ingest and query data.
 
 You are not limited to these languages. $CLOUD_LONG is based on $PG, you can interface
 with $TIMESCALE_DB and $CLOUD_LONG using any [$PG client driver][postgres-drivers].
-
 
 [postgres-drivers]: https://wiki.postgresql.org/wiki/List_of_drivers

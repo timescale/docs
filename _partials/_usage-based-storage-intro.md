@@ -4,6 +4,6 @@ data grows—we handle it all for you. To reduce your data costs further,
 combine [$HYPERCORE][hypercore], a [data retention policy][data-retention], and
 [tiered storage][data-tiering].
 
-[hypercore]: /api/:currentVersion:/hypercore/
 [data-retention]: /use-timescale/:currentVersion:/data-retention/
 [data-tiering]: /use-timescale/:currentVersion:/data-tiering/
+[hypercore]: /api/:currentVersion:/hypercore/

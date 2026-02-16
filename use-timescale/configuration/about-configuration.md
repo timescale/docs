@@ -20,5 +20,5 @@ and flexibility you need when running your workloads in a hosted environment.
 You can use [$SERVICE_SHORT settings][settings] and [$SERVICE_SHORT operations][operations] to
 customize $CLOUD_LONG configurations.
 
-[settings]: /use-timescale/:currentVersion:/configuration/advanced-parameters/
 [operations]: /use-timescale/:currentVersion:/configuration/customize-configuration/
+[settings]: /use-timescale/:currentVersion:/configuration/advanced-parameters/

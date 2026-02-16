@@ -230,4 +230,4 @@ Your dashboard should look something like this:
 
 Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-timescale]: /getting-started/latest/
+[install-timescale]: /getting-started/:currentVersion:/

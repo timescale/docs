@@ -1,6 +1,6 @@
 ---
-title: Integrate DBeaver with Tiger Cloud
-excerpt: DBeaver is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. Integrate DBeaver with Tiger Cloud
+title: Integrate DBeaver with Tiger
+excerpt: DBeaver is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. Integrate DBeaver with Tiger
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---
@@ -32,7 +32,7 @@ To connect to $CLOUD_LONG:
 1.  **Configure the connection** 
 
     Use your [connection details][connection-info] to add your connection settings.
-    ![DBeaver integration](https://assets.timescale.com/docs/images/integrations-dbeaver.png)
+    ![DBeaver integration][dbeaver-integration]
     
     If you configured your $SERVICE_SHORT to connect using a [stricter SSL mode][ssl-mode], in the `SSL` tab check 
     `Use SSL` and set `SSL mode` to the configured mode. Then, in the `CA Certificate` field type the location of the SSL 
@@ -44,9 +44,10 @@ To connect to $CLOUD_LONG:
 
 </Procedure>
 
-You have successfully integrated DBeaver with $CLOUD_LONG. 
+You have successfully integrated DBeaver with $CLOUD_LONG.
 
-[dbeaver]: https://dbeaver.io/
-[dbeaver-downloads]: https://dbeaver.io/download/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[dbeaver-downloads]: https://dbeaver.io/download/
+[dbeaver-integration]: https://assets.timescale.com/docs/images/integrations-dbeaver.png
+[dbeaver]: https://dbeaver.io/
 [ssl-mode]: /use-timescale/:currentVersion:/security/strict-ssl/

@@ -14,7 +14,8 @@ import Deprecated2180 from "versionContent/_partials/_deprecated_2_18_0.mdx";
 
 # compress_chunk() <Tag type="community">Community</Tag>
 
-<Deprecated2180 /> Replaced by <a href="https://docs.tigerdata.com/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+<Deprecated2180 /> Superseded by <a href="https://www.tigerdata.com/docs/api/latest/hypercore/convert_to_columnstore/">convert_to_columnstore()</a>.
+However, compression APIs are still supported, you do not need to migrate to the hypercore APIs.
 
 The `compress_chunk` function is used for synchronous compression (or recompression, if necessary) of 
 a specific chunk. This is most often used instead of the
@@ -30,7 +31,7 @@ allowing you to target a specific chunk that needs compressing.
 <Highlight type="tip">
 
 You can get a list of chunks belonging to a hypertable using the
-[`show_chunks` function](/api/latest/hypertable/show_chunks/).
+[`show_chunks` function][show_chunks-function].
 
 </Highlight>
 
@@ -50,9 +51,11 @@ SELECT compress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 
 ## Optional arguments
 
-|Name|Type|Description|
-|---|---|---|
-| `if_not_compressed` | BOOLEAN | Disabling this will make the function error out on chunks that are already compressed. Defaults to true.|
+| Name                 | Type | Default | Required | Description                                                                                                                    |
+|----------------------|--|---------|--|--------------------------------------------------------------------------------------------------------------------------------|
+| `chunk`         | REGCLASS | -       |✔| Name of the chunk to add to the $COLUMNSTORE.                                                                                  |
+| `if_not_columnstore` | BOOLEAN | `true`  |✖| Set to `false` so this job fails with an error rather than a warning if `chunk` is already in the $COLUMNSTORE.                |
+| `recompress`         | BOOLEAN | `false` |✖| Set to true to recompress. In-memory recompression is attempted first; it falls back to internal decompress/compress. |
 
 ## Returns
 
@@ -60,6 +63,6 @@ SELECT compress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 |---|---|---|
 | `compress_chunk` | REGCLASS | Name of the chunk that was compressed|
 
-
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [run-job]: /api/:currentVersion:/jobs-automation/run_job/
+[show_chunks-function]: /api/:currentVersion:/hypertable/show_chunks/

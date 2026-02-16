@@ -10,14 +10,18 @@ api:
 products: [cloud, self_hosted, mst]
 ---
 
-import Experimental from "versionContent/_partials/_experimental.mdx";
-
 <!-- markdownlint-disable-next-line line-length -->
 # remove_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
 Remove refresh, columnstore, and data retention policies from a continuous
 aggregate. The removed columnstore and retention policies apply to the
 continuous aggregate, _not_ to the original hypertable.
+
+<Highlight type="warning">
+
+This experimental function will be removed in future releases. Please use the [`delete_job()`][delete_job] function to delete policies.
+
+</Highlight>
 
 ```sql
 timescaledb_experimental.remove_policies(
@@ -29,8 +33,6 @@ timescaledb_experimental.remove_policies(
 
 To remove all policies on a continuous aggregate, see
 [`remove_all_policies()`][remove-all-policies].
-
-<Experimental />
 
 ## Samples
 
@@ -66,4 +68,5 @@ SELECT timescaledb_experimental.remove_policies(
 
 Returns true if successful.
 
-[remove-all-policies]: /api/:currentVersion:/continuous-aggregates/remove_all_policies/
+[delete_job]: /api/:currentVersion:/jobs-automation/delete_job
+[remove-all-policies]: /api/:currentVersion:/continuous-aggregates/remove_all_policies

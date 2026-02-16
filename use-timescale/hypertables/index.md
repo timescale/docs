@@ -21,7 +21,7 @@ a range of time, and only contains data from that range.
 ### Time partitioning
 
 Typically, you partition $HYPERTABLEs on columns that hold time values.
-[Best practice is to use `timestamptz`][timestamps-best-practice] column type. However, you can also partition on
+[Best practice is to use `timestamptz`][postgresql-timestamp] column type. However, you can also partition on
 `date`, `integer`, `timestamp` and [UUIDv7][uuidv7_functions] types.
 
 By default, each $HYPERTABLE chunk holds data for 7 days. You can change this to better suit your
@@ -36,51 +36,6 @@ necessarily equal the earliest timestamp in your $HYPERTABLE. Instead, there
 might be a time gap between the start time and the earliest timestamp. This
 doesn't affect your usual interactions with your $HYPERTABLE, but might affect
 the number of chunks you see when inspecting it.
-
-## Partition by dimension
-
-Partitioning on time is the most common use case for $HYPERTABLE, but it may not be enough for your needs. For example,
-you may need to scan for the latest readings that match a certain condition without locking a critical $HYPERTABLE.
-Best practice to optimize ingest and query performance is to add a partitioning dimension on a non-time column such as
-location or device UUID, and specify a number of partitions.
-
-You add a partitioning dimension at the same time as you create the hypertable, when the table is empty. The good news 
-is that although you select the number of partitions at creation time, as your data grows you can change the number of 
-partitions later and improve query performance. Changing the number of partitions only affects chunks created after the 
-change, not existing chunks. To set the number of partitions for a partitioning dimension, call `set_number_partitions`. 
-For example:
-
-<Procedure>
-
-1. **Create the $HYPERTABLE with the 1-day interval chunk interval**
-
-   ```sql
-   CREATE TABLE conditions(
-      "time"      timestamptz not null,
-      device_id   integer,
-      temperature float
-   )
-   WITH(
-      timescaledb.hypertable,
-      timescaledb.partition_column='time',
-      timescaledb.chunk_interval='1 day'
-   );
-   ```
-
-1. **Add a hash partition on a non-time column**
-
-   ```sql
-   select * from add_dimension('conditions', by_hash('device_id', 3));
-   ``` 
-   Now use your $HYPERTABLE as usual, but you can also ingest and query efficiently by the `device_id` column.
-
-1. **Change the number of partitions as you data grows**
-
-   ```sql
-   select set_number_partitions('conditions', 5, 'device_id');
-   ```
-
-</Procedure>
 
 ## Best practices for scaling and partitioning
 
@@ -114,22 +69,58 @@ columns for the table. To learn more, see
 
 You can prevent index creation by setting the `create_default_indexes` option to `false`.
 
-This section shows you:
+## Partition by dimension
 
-* [Optimize time-series data in hypertables][create-hypertables]
-* [Improve hypertable and query performance][change-chunk-intervals]
-* [Enforce constraints with unique indexes][hypertables-and-unique-indexes]
-* [Troubleshooting][troubleshooting]
+Partitioning on time is the most common use case for $HYPERTABLE, but it may not be enough for your needs. For example,
+you may need to scan for the latest readings that match a certain condition without locking a critical $HYPERTABLE.
 
-[about-distributed-hypertables]: /self-hosted/:currentVersion:/distributed-hypertables/about-distributed-hypertables/
-[best-practices-space]: #best-practices-for-space-partitioning
-[blog-chunk-time]: https://www.timescale.com/blog/timescale-cloud-tips-testing-your-chunk-size
-[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals/
-[create-hypertables]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
-[hypertable-concepts]: /use-timescale/:currentVersion:/hypertables/
+<Highlight type="note">
+
+The use case for a partitioning dimension is a multi-tenant setup. You isolate the tenants using the `tenant_id` space
+partition. However, you must perform extensive testing to ensure this works as expected, and there is a strong risk of
+partition explosion.
+
+</Highlight>
+
+You add a partitioning dimension at the same time as you create the hypertable, when the table is empty. The good news
+is that although you select the number of partitions at creation time, as your data grows you can change the number of
+partitions later and improve query performance. Changing the number of partitions only affects chunks created after the
+change, not existing chunks. To set the number of partitions for a partitioning dimension, call `set_number_partitions`.
+For example:
+
+<Procedure>
+
+1. **Create the $HYPERTABLE with the 1-day interval chunk interval**
+
+   ```sql
+   CREATE TABLE conditions(
+      "time"      timestamptz not null,
+      device_id   integer,
+      temperature float
+   )
+   WITH(
+      timescaledb.hypertable,
+      timescaledb.chunk_interval='1 day'
+   );
+   ```
+
+1. **Add a hash partition on a non-time column**
+
+   ```sql
+   select * from add_dimension('conditions', by_hash('device_id', 3));
+   ``` 
+   Now use your $HYPERTABLE as usual, but you can also ingest and query efficiently by the `device_id` column.
+
+1. **Change the number of partitions as you data grows**
+
+   ```sql
+   select set_number_partitions('conditions', 5, 'device_id');
+   ```
+
+</Procedure>
+
+[blog-chunk-time]: https://www.tigerdata.com/blog/timescale-cloud-tips-testing-your-chunk-size
+[change-chunk-intervals]: /use-timescale/:currentVersion:/hypertables/improve-query-performance/#optimize-hypertable-chunk-intervals
 [hypertables-and-unique-indexes]: /use-timescale/:currentVersion:/hypertables/hypertables-and-unique-indexes/
-[pg-analyze]: https://www.postgresql.org/docs/current/sql-analyze.html
-[chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
-[troubleshooting]: /use-timescale/:currentVersion:/hypertables/troubleshooting/
-[timestamps-best-practice]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+[postgresql-timestamp]: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
 [uuidv7_functions]: /api/:currentVersion:/uuid-functions/

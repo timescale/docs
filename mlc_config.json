@@ -7,10 +7,16 @@
     },
     {
       "pattern": "^/",
-      "replacement": "https://docs.tigerdata.com/"
+      "replacement": "https://www.tigerdata.com/docs/"
     }
   ],
   "ignorePatterns": [
+    {
+      "pattern": "^https://console.anthropic.com/settings/keys"
+    },
+    {
+      "pattern": "^https://console.cloud.timescale.com/public/api/v1"
+    },
     {
       "pattern": "^https://console.aws.amazon.com/rds/home#databases"
     },
@@ -100,6 +106,9 @@
     },
     {
       "pattern": "^https://gpt-index.readthedocs.io/en/stable/examples/vector_stores/Timescalevector.html"
+    },
+    {
+      "pattern": "^https://portal.support.timescale.com/login"
     }
   ]
 }

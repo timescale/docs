@@ -31,11 +31,13 @@ format, rather than JSON data type. JSONB data types are more efficient in both
 storage overhead and lookup performance.
 
 <Highlight type="note">
+
 Use JSONB for user-defined data rather than sparse data. This works best for most
 data sets. For sparse data, use NULLable fields and, if possible, run on top of
 a compressed file system like ZFS. This will work better than a JSONB data type,
 unless the data is extremely sparse, for example, more than 95% of fields for a
 row are empty.
+
 </Highlight>
 
 ## Index the JSONB structure

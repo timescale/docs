@@ -104,7 +104,7 @@ Here's an example API endpoint:
 https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY_EXTENDED&symbol=IBM&interval=1min&slice=year1month1&apikey=your_apikey
 ```
 
-Check out the [Alpha Vantage API](https://www.alphavantage.co/documentation/) docs for more information.
+Check out the [Alpha Vantage API][alpha-vantage-api] docs for more information.
 
 ### Create the function
 
@@ -291,8 +291,10 @@ time               |symbol|price_open|price_close|price_low|price_high|trading_v
 ```
 
 <Highlight type="tip">
+
 Fetching and ingesting intraday data can take a while, so if you want to see results quickly,
 reduce the number of months, or limit the number of symbols.
+
 </Highlight>
 
 This is what the final version of `ingest_stock_data.py` looks like:
@@ -388,6 +390,7 @@ for symbol in symbols:
 
 ```
 
+[alpha-vantage-api]: https://www.alphavantage.co/documentation/
 [pgcopy-docs]: https://pgcopy.readthedocs.io/en/latest/
 [scraping-example]: https://github.com/timescale/examples/blob/master/
 [symbols-csv]: https://assets.timescale.com/docs/downloads/symbols.csv

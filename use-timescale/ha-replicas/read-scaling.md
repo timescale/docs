@@ -13,7 +13,7 @@ When read-intensive workloads compete with high ingest rates, your primary data 
 
 With $READ_REPLICA sets in $CLOUD_LONG, you can scale reads horizontally and keep your applications responsive. By offloading queries to replicas, your $SERVICE_SHORT maintains high ingest throughput while serving large or unpredictable read traffic with ease. This approach not only protects write performance but also gives you confidence that your read-heavy apps and BI workloads will run smoothly—even under pressure.
 
-![Read scaling in Timescale](https://assets.timescale.com/docs/images/read-scaling-timescale.png)
+![Read scaling in Timescale][read-scaling-in-timescale]
 
 This page shows you how to create and manage $READ_REPLICA sets in $CONSOLE.
 
@@ -25,7 +25,7 @@ A $READ_REPLICA set in $CLOUD_LONG is a group of one or more $READ_REPLICA nodes
 
 You can create as many $READ_REPLICA sets as you need. For security and resource isolation, each $READ_REPLICA set has unique connection details.
 
-You use $READ_REPLICA sets for horizontal **read** scaling. To limit data loss for your $SERVICE_LONGs, use [$HA_REPLICAs][ha].
+You use $READ_REPLICA sets for horizontal **read** scaling. To limit data loss for your $SERVICE_LONGs, use [$HA_REPLICAs][high-availability].
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ To create a secure $READ_REPLICA set for your read-intensive apps:
 
 <Procedure>
 
-1. **In [$CONSOLE][timescale-console-services], select your target $SERVICE_SHORT**
+1. **In [$CONSOLE][services-portal], select your target $SERVICE_SHORT**
 
 1. **Click `Operations` > `Read scaling` > `Add a read replica set`**
 
@@ -50,7 +50,7 @@ To create a secure $READ_REPLICA set for your read-intensive apps:
 
     Configure the number of nodes, compute size, connection pooling, and the name for your replica, then click `Create read replica set`.
 
-   ![Create a read replica set in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/create-read-replica-set-tiger-cloud-console.png)
+   ![Create a read replica set in $CONSOLE_LONG][create-a-read-replica-set-in-console_long]
 
 1. **Save the connection information**
 
@@ -76,13 +76,13 @@ You can edit an existing $READ_REPLICA set to better handle your reads. This inc
 
 To change the compute and storage configuration of your $READ_REPLICA set: 
 
-1. **In [$CONSOLE][timescale-console-services], expand and click the $READ_REPLICA set under your primary $SERVICE_SHORT**
+1. **In [$CONSOLE][services-portal], expand and click the $READ_REPLICA set under your primary $SERVICE_SHORT**
 
-   ![Read replicas in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-sets-tiger-cloud-console.png)
+   ![Read replicas in $CONSOLE_LONG][read-replicas-in-console_long]
 
 1. **Click `Operations` > `Compute and storage`**
 
-   ![Read replica compute and storage in Tiger Cloud Console](https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-set-config.png)
+   ![Read replica compute and storage in $CONSOLE_LONG][read-replica-compute-and-storage-in-console_long]
 
 1. **Change the replica configuration and click `Apply`**
 
@@ -96,13 +96,13 @@ is measured in bytes, against the current state of the primary instance. To chec
 
 <Procedure>
 
-1. **In [$CONSOLE][timescale-console-services], select your primary $SERVICE_SHORT**
+1. **In [$CONSOLE][services-portal], select your primary $SERVICE_SHORT**
    
 1. **Click `Operations` > `Read scaling`**
 
    You see a list of configured $READ_REPLICA sets for this $SERVICE_SHORT, including their status and lag:
 
-   ![Read replica sets](https://assets.timescale.com/docs/images/tiger-cloud-console/configured-replica-set-tiger-cloud.png)
+   ![Read replica sets][read-replica-sets]
 
 1. **Configure the allowable lag**
 
@@ -121,7 +121,7 @@ To delete a replica set:
 
 <Procedure>
 
-1. **In [$CONSOLE][timescale-console-services], select your primary $SERVICE_SHORT**
+1. **In [$CONSOLE][services-portal], select your primary $SERVICE_SHORT**
 
 1. **Click `Operations` > `Read scaling`**
 
@@ -129,10 +129,13 @@ To delete a replica set:
 
    Confirm the deletion when prompted.
 
-</Procedure> 
+</Procedure>
 
-
-[cloud-login]: https://console.cloud.timescale.com
-[ha]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
+[create-a-read-replica-set-in-console_long]: https://assets.timescale.com/docs/images/tiger-cloud-console/create-read-replica-set-tiger-console.png
+[high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [read-only-role]: /use-timescale/:currentVersion:/security/read-only-role/#create-a-read-only-user
-[timescale-console-services]: https://console.cloud.timescale.com/dashboard/services
+[read-replica-compute-and-storage-in-console_long]: https://assets.timescale.com/docs/images/tiger-cloud-console/read-replica-set-config-tiger-console.png
+[read-replica-sets]: https://assets.timescale.com/docs/images/tiger-on-azure/configured-replica-set-tiger-console.png
+[read-replicas-in-console_long]: https://assets.timescale.com/docs/images/tiger-on-azure/read-replica-sets-tiger-console.png
+[read-scaling-in-timescale]: https://assets.timescale.com/docs/images/read-scaling-timescale.png
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

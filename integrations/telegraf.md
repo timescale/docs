@@ -1,6 +1,6 @@
 ---
 title: Ingest data using Telegraf
-excerpt: Ingest data into a Tiger Cloud service using using the Telegraf plugin
+excerpt: Ingest data into a Tiger Cloud service using the Telegraf plugin
 products: [cloud, self_hosted]
 keywords: [ingest, Telegraf]
 tags: [insert]
@@ -15,11 +15,11 @@ Telegraf is a server-based agent that collects and sends metrics and events from
 systems, and IoT sensors. Telegraf is an open source, plugin-driven tool for the collection 
 and output of data. 
 
-To view metrics gathered by Telegraf and stored in a [hypertable][about-hypertables] in a
+To view metrics gathered by Telegraf and stored in a [hypertable][hypertables-section] in a
 $SERVICE_LONG.
 
-- [Link Telegraf to your $SERVICE_LONG](#link-telegraf-to-your-service): create a Telegraf configuration
-- [View the metrics collected by Telegraf](#view-the-metrics-collected-by-telegraf): connect to your $SERVICE_SHORT and
+- [Link Telegraf to your $SERVICE_LONG][link-telegraf-to-your-service-link]: create a Telegraf configuration
+- [View the metrics collected by Telegraf][view-the-metrics-collected-by-telegraf-link]: connect to your $SERVICE_SHORT and
   query the metrics table
 
 ## Prerequisites
@@ -89,14 +89,10 @@ To create a Telegraf configuration that exports data to a hypertable in your $SE
 
       ```bash
       ## Templated statements to execute when creating a new table.
-      # create_templates = [
-      #   '''CREATE TABLE {{ .table }} ({{ .columns }})''',
-      # ]
-      #  table_template=`CREATE TABLE IF NOT EXISTS {TABLE}({COLUMNS}); SELECT create_hypertable({TABLELITERAL},by_range('time', INTERVAL '1 week'),if_not_exists := true);`
-
+      create_templates = [
+        '''CREATE TABLE IF NOT EXISTS {{ .table }} ({{ .columns }}) WITH (tsdb.hypertable, tsdb.chunk_interval='1 week')''',
+      ]
       ```
-
-      The `by_range` dimension builder was added to TimescaleDB 2.13.
 
 </Procedure>
 
@@ -104,13 +100,13 @@ To create a Telegraf configuration that exports data to a hypertable in your $SE
 ## View the metrics collected by Telegraf
 
 This section shows you how to generate system metrics using Telegraf, then connect to your 
-$SERVICE_SHORT and query the metrics [hypertable][about-hypertables].
+$SERVICE_SHORT and query the metrics [hypertable][hypertables-section].
 
 <Procedure>
 
 1. **Collect system metrics using Telegraf**
 
-    Run the following command for a 30 seconds:  
+    Run the following command for 30 seconds:  
 
     ```bash
     telegraf --config telegraf.conf
@@ -153,10 +149,8 @@ $SERVICE_SHORT and query the metrics [hypertable][about-hypertables].
 For more information about the options that you can configure in Telegraf,
 see the [PostgreQL output plugin][output-plugin].
 
-
-[output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-telegraf]: https://docs.influxdata.com/telegraf/v1/introduction/installation/
-[create-service]: /getting-started/latest/
-[connect-timescaledb]: /integrations/:currentVersion:/find-connection-details/
-[grafana]: /integrations/:currentVersion:/grafana/
-[about-hypertables]: /use-timescale/:currentVersion:/hypertables/
+[link-telegraf-to-your-service-link]: /integrations/:currentVersion:/telegraf/#link-telegraf-to-your-service
+[output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
+[view-the-metrics-collected-by-telegraf-link]: /integrations/:currentVersion:/telegraf/#view-the-metrics-collected-by-telegraf

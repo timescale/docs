@@ -1,5 +1,5 @@
 ---
-title: Integrate Apache Kafka with Tiger Cloud 
+title: Integrate Apache Kafka with Tiger Cloud  
 excerpt: Apache Kafka is a distributed event streaming platform used for high-performance data pipelines. Learn how to integrate Apache Kafka with Tiger Cloud to manage and analyze streaming data
 products: [cloud, self_hosted]
 keywords: [Apache Kafka, integrations]
@@ -7,7 +7,7 @@ keywords: [Apache Kafka, integrations]
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import IntegrationApacheKafka from "versionContent/_partials/_integration-apache-kafka-install.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Integrate Apache Kafka with $CLOUD_LONG
 
@@ -66,7 +66,7 @@ To set up Kafka Connect server, plugins, drivers, and connectors:
 
 1. **Verify Kafka Connect is running**
 
-    In yet another another Terminal window, run the following command:  
+    In yet another Terminal window, run the following command:  
     ```bash
     curl http://localhost:8083
     ```
@@ -83,7 +83,7 @@ To prepare your $SERVICE_LONG for Kafka integration:
 
 <Procedure>
 
-1. **[Connect][connect] to your $SERVICE_LONG**
+1. **[Connect][in-console-editors] to your $SERVICE_LONG**
 
 1. **Create a hypertable to ingest Kafka events**
 
@@ -93,11 +93,10 @@ To prepare your $SERVICE_LONG for Kafka integration:
     name TEXT,
     city TEXT
    ) WITH (
-     tsdb.hypertable,
-     tsdb.partition_column='created_at'
+     tsdb.hypertable
    );
    ```
-   <OldCreateHypertable />   
+   <CreateHypertablePolicyNote />   
 
 </Procedure>
 
@@ -185,11 +184,8 @@ To test this integration, send some messages onto the `accounts` topic. You can 
 
 You have successfully integrated Apache Kafka with $CLOUD_LONG.
 
-[connection-info]: /integrations/:currentVersion:/find-connection-details/
 [apache-kafka]: https://kafka.apache.org/documentation/
-[install-kafka]: https://kafka.apache.org/quickstart
+[connection-info]: /integrations/:currentVersion:/find-connection-details/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [java-installers]: https://www.oracle.com/java/technologies/downloads/
 [kafka-connect]: https://docs.confluent.io/platform/current/connect/index.html
-[kraft]: https://developer.confluent.io/learn/kraft/
-[connect]: /getting-started/:currentVersion:/run-queries-from-console/
-[kcat]: https://github.com/edenhill/kcat

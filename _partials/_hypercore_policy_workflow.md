@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertableProcedure from "versionContent/_partials/_hypercore_create_hypertable_columnstore_policy.mdx";
 
 <Procedure>
 
@@ -6,46 +6,7 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
    In [$CONSOLE][services-portal] open an [SQL editor][in-console-editors]. You can also connect to your $SERVICE_SHORT using [psql][connect-using-psql].
 
-1. **Enable $COLUMNSTORE on a $HYPERTABLE**
-
-   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
-   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
-   use most often to filter your data. For example:
-
-   * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]
-
-     ```sql
-     CREATE TABLE crypto_ticks (
-        "time" TIMESTAMPTZ,
-        symbol TEXT,
-        price DOUBLE PRECISION,
-        day_volume NUMERIC
-     ) WITH (
-       tsdb.hypertable,
-       tsdb.partition_column='time',
-       tsdb.segmentby='symbol', 
-       tsdb.orderby='time DESC'
-     );
-     ```
-     <OldCreateHypertable />
-   
-   * [Use `ALTER MATERIALIZED VIEW` for a $CAGG][compression_continuous-aggregate]
-     ```sql
-     ALTER MATERIALIZED VIEW assets_candlestick_daily set (
-        timescaledb.enable_columnstore = true, 
-        timescaledb.segmentby = 'symbol' );
-     ``` 
-     Before you say `huh`, a $CAGG is a specialized $HYPERTABLE.
- 
-1. **Add a policy to convert $CHUNKs to the $COLUMNSTORE at a specific time interval**
-
-   Create a [columnstore_policy][add_columnstore_policy] that automatically converts $CHUNKs in a $HYPERTABLE to the $COLUMNSTORE at a specific time interval. For example, convert yesterday's crypto trading data to the $COLUMNSTORE:
-   ``` sql
-   CALL add_columnstore_policy('crypto_ticks', after => INTERVAL '1d');
-   ```
-
-   $TIMESCALE_DB is optimized for fast updates on compressed data in the $COLUMNSTORE. To modify data in the 
-   $COLUMNSTORE, use standard SQL.
+<CreateHypertableProcedure />
 
 1. **Check the $COLUMNSTORE policy**
 
@@ -112,21 +73,11 @@ import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypert
 
 </Procedure>
 
-[job]: /api/:currentVersion:/actions/add_job/
+[alter_job]: /api/:currentVersion:/jobs-automation/alter_job/
 [alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
-[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
-[convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
-[add_columnstore_policy]: /api/:currentVersion:/hypercore/add_columnstore_policy/
-[hypercore_workflow]: /api/:currentVersion:/hypercore/#hypercore-workflow
-[alter_job]: /api/:currentVersion:/actions/alter_job/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
-[insert]: /use-timescale/:currentVersion:/write-data/insert/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[convert_to_rowstore]: /api/:currentVersion:/hypercore/convert_to_rowstore/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

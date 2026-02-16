@@ -2,18 +2,20 @@
 title: Stream data from Kafka into your service
 excerpt: Stream data from Kafka into a Tiger Cloud service in order to store, query, and analyze your Kafka events efficiently
 products: [cloud]
+price_plans: [performance, scale, enterprise]
 keywords: [stream, kafka, connect]
 tags: [stream, connector]
 ---
 
 import PrereqCloud from "versionContent/_partials/_prereqs-cloud-only.mdx";
 import EarlyAccessNoRelease from "versionContent/_partials/_early_access.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Stream data from Kafka
 
 You use the Kafka source connector in $CLOUD_LONG to stream events from Kafka into your $SERVICE_SHORT. $CLOUD_LONG connects to your Confluent Cloud Kafka cluster and Schema Registry using SASL/SCRAM authentication and service account–based API keys. Only the Avro format is currently supported [with some limitations][limitations]. 
 
-This page explains how to connect $CLOUD_LONG to your Confluence Cloud Kafka cluster.
+This page explains how to connect $CLOUD_LONG to your Confluent Cloud Kafka cluster.
 
 <EarlyAccessNoRelease />: the Kafka source connector is not yet supported for production use.
 
@@ -23,6 +25,8 @@ This page explains how to connect $CLOUD_LONG to your Confluence Cloud Kafka clu
 
 - [Sign up][confluence-signup] for Confluence Cloud.
 - [Create][create-kafka-cluster] a Kafka cluster in Confluence Cloud.
+
+<NotSupportedAzure />
 
 ## Access your Kafka cluster in Confluent Cloud
 
@@ -121,7 +125,7 @@ Take the following steps to create a Kafka source connector in $CONSOLE_LONG.
 
 <Procedure>
 
-1. **In [$CONSOLE_SHORT][console], select your $SERVICE_SHORT**
+1. **In [$CONSOLE_SHORT][services-portal], select your $SERVICE_SHORT**
 1. **Go to `Connectors` > `Source connectors`. Click `New Connector`, then select `Kafka`**
 1. **Click the pencil icon, then set the connector name**
 1. **Set up Kafka authentication**
@@ -232,9 +236,9 @@ Unsupported examples:
 }
 ```
 
+[confluence-signup]: https://www.confluent.io/get-started/
 [confluent-cloud]: https://confluent.cloud/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[confluence-signup]: https://www.confluent.io/get-started/
 [create-kafka-cluster]: https://docs.confluent.io/cloud/current/clusters/create-cluster.html
-[console]: https://console.cloud.timescale.com/dashboard/services
 [limitations]: /migrate/:currentVersion:/livesync-for-kafka/#known-limitations-and-unsupported-types
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

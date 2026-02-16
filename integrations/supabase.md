@@ -1,12 +1,12 @@
 ---
-title: Integrate Supabase with Tiger Cloud
-excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Tiger Cloud
+title: Integrate Supabase with Tiger
+excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Tiger
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---
 
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # Integrate Supabase with $CLOUD_LONG
 
@@ -32,7 +32,7 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
    are $PG tables that help you improve insert and query performance by automatically partitioning your data by
    time.
 
-   1. [Connect to your $SERVICE_LONG][connect] and create a table that will point to a Supabase database:
+   1. [Connect to your $SERVICE_LONG][in-console-editors] and create a table that will point to a Supabase database:
    
       ```sql
       CREATE TABLE signs (
@@ -40,11 +40,10 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
           origin_time timestamptz NOT NULL, 
           name TEXT
       ) WITH (
-        tsdb.hypertable,
-        tsdb.partition_column='time'
+        tsdb.hypertable
       );
       ```
-     <OldCreateHypertable />   
+     <CreateHypertablePolicyNote />   
 
 1. **Optimize cooling data for analytics**
 
@@ -93,7 +92,7 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
       WITH NO DATA;
       ```
 
-   1. Setup a view to recieve the data from Supabase.
+   1. Setup a view to receive the data from Supabase.
 
       ```sql
       CREATE VIEW signs_per_minute_delay
@@ -247,7 +246,7 @@ To inject data into your $SERVICE_LONG from a Supabase database using a foreign 
 
 1. **Check the data in your $SERVICE_LONG**
 
-   [Connect to your $SERVICE_LONG][connect] and run the following query:
+   [Connect to your $SERVICE_LONG][in-console-editors] and run the following query:
 
    ```sql
    SELECT * from signs;
@@ -260,12 +259,11 @@ To inject data into your $SERVICE_LONG from a Supabase database using a foreign 
 
 </Procedure>
 
-You have successfully integrated Supabase with your $SERVICE_LONG.  
+You have successfully integrated Supabase with your $SERVICE_LONG.
 
-[supabase]: https://supabase.com/
-[supabase-new-project]: https://supabase.com/dashboard/new
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[connect]: /getting-started/:currentVersion:/run-queries-from-console/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
+[supabase-new-project]: https://supabase.com/dashboard/new
+[supabase]: https://supabase.com/

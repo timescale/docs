@@ -6,14 +6,18 @@ When you have your database set up, you can load the taxi trip data into the
 <Procedure>
 
 <Highlight type="important">
+
 This is a large dataset, so it might take a long time, depending on your network
 connection.
+
 </Highlight>
 
 1.  Download the dataset:
 
    <Tag type="download">
-   [nyc_data.tar.gz](https://assets.timescale.com/docs/downloads/nyc_data.tar.gz)
+
+   [nyc_data.tar.gz][nyc_datatargz]
+
    </Tag>
 
 1.  Use your file manager to decompress the downloaded dataset, and take a note
@@ -58,3 +62,5 @@ tolls_amount          | 0
 improvement_surcharge | 0.3
 total_amount          | 10.3
 ```
+
+[nyc_datatargz]: https://assets.timescale.com/docs/downloads/nyc_data.tar.gz

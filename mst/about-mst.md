@@ -41,15 +41,17 @@ src="https://assets.timescale.com/docs/images/mst/services.png"
 alt="MST services list"/>
 
 For more information about getting your first $MST_SERVICE_SHORT up and running, see the
-[$MST_LONG installation section][mst-install].
+[$MST_LONG installation section][create-managed-service].
 
 
 <Highlight type="important">
+
 When you have created, and named, a new Managed Service for TimescaleDB service,
 you cannot rename it. If you need to have your service running under a different
 name, you need to create a new service, and manually migrate the data. For more
 information about migrating data, see
-[migrating your data](https://docs.tigerdata.com/mst/latest/migrate-to-mst/).
+[migrating your data][mst-migration].
+
 </Highlight>
 
 For information about billing on Managed Service for TimescaleDB, see the
@@ -139,8 +141,10 @@ problems or the node stops communicating entirely. The monitoring infrastructure
 automatically schedules a new replacement node to be created when this happens.
 
 <Highlight type="note">
+
 In case of database failover, the service URL of your service remains the same.
 Only the IP address changes to point at the new master node.
+
 </Highlight>
 
 Managed Service for TimescaleDB availability features differ based on the service
@@ -207,9 +211,11 @@ about connection pooling, see the
 [connection pooling section][connection-pooling].
 
 <Highlight type="note">
+
 If you have a high number of connections to your database, your service might
 run more slowly, and could run out of memory. Remain aware of how many open
 connections your have to your database at any given time.
+
 </Highlight>
 
 ## Service termination protection
@@ -226,9 +232,11 @@ tab. Locate the `Termination protection` section, and toggle to enable
 protection.
 
 <Highlight type="important">
+
 If you run out of free sign-up credit, and have not entered a valid credit card
 for payment, your service is powered down, even if you have enabled termination
 protection.
+
 </Highlight>
 
 ## Idle connections
@@ -282,11 +290,11 @@ of time, you can use this command:
 SET statement_timeout = <milliseconds>
 ```
 
-[mst-install]: /mst/:currentVersion:/installation-mst/
-[sign-up]: https://www.timescale.com/cloud-signup
 [aiven-sla]: https://aiven.io/sla
-[pg-keepalive]: https://www.postgresql.org/docs/9.5/libpq-connect.html#LIBPQ-KEEPALIVES
 [connection-pooling]: /mst/:currentVersion:/connection-pools/
+[create-managed-service]: /mst/:currentVersion:/installation-mst/
 [mst-billing]: /mst/:currentVersion:/billing/
-[mst-signup]: https://www.timescale.com/mst-signup
 [mst-login]:https://portal.managed.timescale.com/login
+[mst-migration]: /mst/:currentVersion:/migrate-to-mst/
+[mst-signup]: https://www.tigerdata.com/mst-signup
+[pg-keepalive]: https://www.postgresql.org/docs/9.5/libpq-connect.html#LIBPQ-KEEPALIVES

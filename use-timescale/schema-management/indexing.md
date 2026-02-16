@@ -5,6 +5,8 @@ products: [cloud, mst, self_hosted]
 keywords: [hypertables, indexes]
 ---
 
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
+
 # Indexing data
 
 You can use an index on your database to speed up read operations. You can
@@ -39,7 +41,7 @@ You can also create an additional index on another column and time. For example:
 CREATE INDEX ON conditions (location, time DESC);
 ```
 
-$TIMESCALE_DB also creates sparse indexes per compressed chunk for optimization. You can manually set up those indexes when you call [`CREATE TABLE`][hypertable-create-table] or [`ALTER_TABLE`][alter-table].
+$TIMESCALE_DB also creates sparse indexes per compressed chunk for optimization. You can manually set up those indexes when you call [`CREATE TABLE`][hypertable-create-table] or [`ALTER_TABLE`][alter_table_hypercore].
 
 For more information about the order to use when declaring indexes, see the
 [about indexing][about-index] section.
@@ -56,13 +58,11 @@ CREATE TABLE conditions (
   humidity    DOUBLE PRECISION  NULL
 ) WITH (
   tsdb.hypertable,
-  tsdb.partition_column='time',
   tsdb.create_default_indexes=false
 );
 ```
 
-<OldCreateHypertable />
-
+<CreateHypertablePolicyNote />
 
 ## Best practices for indexing
 
@@ -92,13 +92,13 @@ than having to wait until index creation is complete.
 <Highlight type="note">
 
 You can also use the
-[$PG `WITH` clause](https://www.postgresql.org/docs/current/queries-with.html)
+[$PG `WITH` clause][pg-with-clause]
 to perform indexing transactions on an individual chunk.
 
 </Highlight>
 
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
-[create-index]: https://docs.tigerdata.com/api/latest/hypertable/create_index/
+[alter_table_hypercore]: /api/:currentVersion:/hypercore/alter_table/
+[create-index]: https://www.tigerdata.com/docs/api/:currentVersion:/hypertable/create_index/
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[alter-table]: /api/:currentVersion:/hypercore/alter_table/
+[pg-with-clause]: https://www.postgresql.org/docs/current/queries-with.html

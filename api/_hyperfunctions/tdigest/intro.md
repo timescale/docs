@@ -17,14 +17,14 @@ data arranged in different order, the results should be nearly equal, but they
 are unlikely to be exact.
 
 The other advanced percentile approximation aggregate is
-[`uddsketch`][uddsketch], which produces stable estimates within a guaranteed
+[`uddsketch`][hyperfunctions-api-approx-percentile], which produces stable estimates within a guaranteed
 relative error. If you aren't sure which to use, try the default percentile
 estimation method, [`percentile_agg`][percentile_agg]. It uses the `uddsketch`
 algorithm with some sensible defaults.
 
 For more information about percentile approximation algorithms, see the
-[algorithms overview][algorithms].
+[algorithms overview][advanced-agg].
 
-[algorithms]: /use-timescale/:currentVersion:/hyperfunctions/percentile-approx/advanced-agg/
+[advanced-agg]: /use-timescale/:currentVersion:/hyperfunctions/percentile-approx/advanced-agg/
+[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
 [percentile_agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#percentile_agg
-[uddsketch]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/

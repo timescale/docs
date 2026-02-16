@@ -4,7 +4,7 @@
 1.  **Click `New exporter`**
 1.  **Select the data type and specify `AWS CloudWatch` for provider**
 
-    ![Add CloudWatch data exporter](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-integrations-cloudwatch.png)
+    ![Add CloudWatch data exporter][add-cloudwatch-data-exporter]
 
 1.  **Provide your AWS CloudWatch configuration**
 
@@ -16,7 +16,7 @@
 
 1.  **Choose the authentication method to use for the exporter**
 
-    ![Add CloudWatch authentication](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-integrations-cloudwatch-authentication.png)
+    ![Add CloudWatch authentication][add-cloudwatch-authentication]
 
     <Tabs label="Authentication methods" persistKey="authentication">
 
@@ -30,7 +30,7 @@
 
        Set `Provider URL` to the [region where you are creating your exporter][reference].
 
-       ![oidc provider creation](https://assets.timescale.com/docs/images/aws-create-iam-oicd-provider.png)
+       ![oidc provider creation][oidc-provider-creation]
 
     1. Click `Add provider`.
 
@@ -38,7 +38,7 @@
 
     1. Add your identity provider as a Web identity role and click `Next`.
 
-        ![web identity role creation](https://assets.timescale.com/docs/images/aws-create-role-web-identity.png)
+        ![web identity role creation][web-identity-role-creation]
 
     1. Set the following permission and trust policies:
 
@@ -131,13 +131,17 @@
 
 </Procedure>
 
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
-[console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
-[console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
-[cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
-[reference]: #reference
-[list-iam-users]: https://console.aws.amazon.com/iam/home#/users
-[create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
-[create-an-iam-id-provider]: https://console.aws.amazon.com/iam/home#/identity_providers
+[add-cloudwatch-authentication]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-integrations-cloudwatch-authentication.png
+[add-cloudwatch-data-exporter]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-integrations-cloudwatch.png
 [add-id-provider-as-wi-role]: https://console.aws.amazon.com/iam/home#/roles
 [aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
+[cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
+[console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
+[console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
+[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[create-an-iam-id-provider]: https://console.aws.amazon.com/iam/home#/identity_providers
+[create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
+[list-iam-users]: https://console.aws.amazon.com/iam/home#/users
+[oidc-provider-creation]: https://assets.timescale.com/docs/images/aws-create-iam-oicd-provider.png
+[reference]: /use-timescale/:currentVersion:/metrics-logging/aws-cloudwatch/#reference
+[web-identity-role-creation]: https://assets.timescale.com/docs/images/aws-create-role-web-identity.png

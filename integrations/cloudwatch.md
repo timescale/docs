@@ -6,6 +6,7 @@ price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
@@ -16,13 +17,15 @@ import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter
 
 You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to CloudWatch. The available metrics include CPU usage, RAM usage, and storage. This integration is available for [Scale and Enterprise][pricing-plan-features] pricing tiers.
 
-This pages explains how to export telemetry data from your $SERVICE_LONG into CloudWatch by creating a $CLOUD_LONG data exporter, then attaching it to the $SERVICE_SHORT.
+This page explains how to export telemetry data from your $SERVICE_LONG into CloudWatch by creating a $CLOUD_LONG data exporter, then attaching it to the $SERVICE_SHORT.
 
 ## Prerequisites
 
 <IntegrationPrereqsCloud />
 
 - Sign up for [Amazon CloudWatch][cloudwatch-signup].
+
+<NotSupportedAzure />
 
 ## Create a data exporter
 
@@ -33,8 +36,7 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 
 <ManageDataExporter />
 
-[projects]: /use-timescale/:currentVersion:/security/members/
-[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-plan
-[cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-signup]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GettingSetup.html
-
+[cloudwatch]: https://aws.amazon.com/cloudwatch/
+[pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
+[projects]: /use-timescale/:currentVersion:/security/members/

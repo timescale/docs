@@ -1,6 +1,6 @@
 ---
 title: Client credentials
-excerpt: Tiger Cloud lets you use client credentials to programmatically access resources instead of using username and password. Set up client credentials in Tiger Cloud console
+excerpt: Tiger Cloud lets you use client credentials to programmatically access resources instead of using username and password. Set up client credentials in Tiger Cloud Console
 products: [cloud]
 keywords: [client credentials, accounts, prgrammatic access]
 tags: [authentication tokens]
@@ -25,33 +25,27 @@ token programmatically, see the
 
 <Procedure>
 
-### Creating client credentials
-
-1.  [Log in to your $ACCOUNT_LONG][cloud-login].
-1.  Navigate to the `Project Settings` page to create client credentials for
-    your $PROJECT_SHORT.
-1.  In the `Project Settings` page, click `Create credentials`.
+1.  Log in to [$CONSOLE][cloud-login] and click `Settings`.
+1.  Click `Create credentials`.
 1.  In the `New client credentials` dialog, you can view the `Public key` and the
     `Secret Key`.
     Copy your secret key and store it in a secure place. You won't be able to
-    view the `Secret Key` again in the console.
+    view the `Secret Key` again in $CONSOLE.
 1.  Click `Done`.
     You can use these keys in your client applications to access $CLOUD_LONG
     resources inside the respective $PROJECT_SHORT.
     $CLOUD_LONG generates a default `Name` for the client credentials.
 1.  Click the ⋮ menu and select `Rename credentials`.
-1.  In the  `Edit credential name` dialog, type the new name and click `Accept`.
+1.  In the `Edit credential name` dialog, type the new name and click `Accept`.
 
 </Procedure>
 
-### Deleting client credentials
+## Delete client credentials
 
 <Procedure>
 
-1.  [Log in to your $ACCOUNT_LONG][cloud-login].
-1.  Navigate to the `Project Settings` page to view client credentials for
-    your $PROJECT_SHORT.
-1.  In the `Project Settings` page, click the ⋮ menu of the client credential,
+1.  Log in to [$CONSOLE][cloud-login] and click `Settings`.
+1.  Click the `⋮` menu of the client credential,
     and select `Delete`.
 1.  In the `Are you sure` dialog, type the name of the client credential, and
     click `Delete`.

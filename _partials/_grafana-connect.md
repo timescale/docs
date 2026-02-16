@@ -1,4 +1,4 @@
-## Connect Grafana to Tiger Cloud 
+## Connect Grafana to $CLOUD_LONG
 
 To visualize the results of your queries, enable Grafana to read the data in your $SERVICE_SHORT:
 
@@ -26,8 +26,4 @@ To visualize the results of your queries, enable Grafana to read the data in you
 
 </Procedure>
 
-[grafana-self-managed]: https://grafana.com/get/?tab=self-managed
-[grafana-cloud]: https://grafana.com/get/
-[cloud-login]: https://console.cloud.timescale.com/
-[create-service]: /getting-started/:currentVersion:/services/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/

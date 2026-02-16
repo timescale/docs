@@ -18,14 +18,13 @@ You upgrade your $SELF_LONG installation in-place.
 This section shows you how to:
 
 * Upgrade $SELF_LONG to a new [minor version][upgrade-minor].
-* Upgrade $SELF_LONG to a new [major version][upgrade-major].
-* Upgrade $SELF_LONG running in a [Docker container][upgrade-docker] to a new minor version.
-* Upgrade [$PG][upgrade-pg] to a new version.
+* Upgrade $SELF_LONG to a new [major version][upgrading-timescaledb].
+* Upgrade $SELF_LONG running in a [Docker container][update-docker] to a new minor version.
+* Upgrade [$PG][upgrading-postgresql-self-hosted] to a new version.
 * Downgrade $SELF_LONG to the [previous minor version][downgrade].
 
 [downgrade]: /self-hosted/:currentVersion:/upgrades/downgrade/
-[upgrade-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
-[upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
+[update-docker]: /self-hosted/:currentVersion:/upgrades/upgrade-docker/
 [upgrade-minor]: /self-hosted/:currentVersion:/upgrades/minor-upgrade/
-[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
-[upgrade-tshoot]: /self-hosted/:currentVersion:/troubleshooting/
+[upgrading-postgresql-self-hosted]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/
+[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

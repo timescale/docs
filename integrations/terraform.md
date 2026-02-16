@@ -1,5 +1,5 @@
 ---
-title: Integrate Terraform with Tiger Cloud
+title: Integrate Terraform with Tiger
 excerpt: Manage your Tiger Cloud services with a Terraform provider
 products: [cloud, self_hosted]
 keywords: [Terraform, configuration, deployment]
@@ -14,6 +14,12 @@ import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.md
 
 This page explains how to configure Terraform to manage your $SERVICE_LONG or $SELF_LONG. 
 
+<Highlight type="note">
+
+Some resources and data sources may not be generally available. Refer to the relevant documentation pages for up-to-date release status.
+
+</Highlight>
+
 ## Prerequisites
 
 <IntegrationPrereqs />
@@ -26,17 +32,13 @@ Configure Terraform based on your deployment type:
 
 <Tabs label="Configure Terraform for your service" persistKey="source-database">
 
-<Tab title="Tiger Cloud" label="tiger-cloud">
+<Tab title="Tiger" label="tiger-cloud">
 
 You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE_LONGs:
 
 <Procedure>
 
-1. **Generate client credentials for programmatic use**
-
-   1. In [$CONSOLE][console], click `Projects` and save your `Project ID`, then click `Project settings`.
-   
-   1. Click `Create credentials`, then save `Public key` and `Secret key`.
+1. **[Generate client credentials][generate-credentials]**
 
 1. **Configure $COMPANY Terraform provider**
 
@@ -143,11 +145,12 @@ You can now manage your database with Terraform.
 
 </Tabs>
 
-[terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
-[terraform]: https://developer.hashicorp.com/terraform
-[console]: https://console.cloud.timescale.com/dashboard/services
-[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
-[terraform-resources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/resources/peering_connection
-[terraform-data-sources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/data-sources/products
 [pg-provider]: https://registry.terraform.io/providers/cyrilgdn/postgresql/latest
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[terraform-data-sources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/data-sources/products
+[terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+[terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs
+[terraform-resources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/resources/peering_connection
+[terraform]: https://developer.hashicorp.com/terraform
+[generate-credentials]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials

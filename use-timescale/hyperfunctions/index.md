@@ -16,7 +16,7 @@ Take tracking p95 latency across thousands of app instances as an example:
 - With standard SQL, every rollup requires rescanning and resorting massive datasets. 
 - With $TIMESCALE_DB, the `percentile_agg` hyperfunction stores a compact state per minute, which you simply merge to get hourly or daily percentiles—no full reprocess needed.
 
-![Tiger Cloud hyperfunctions](https://assets.timescale.com/docs/images/tiger-cloud-console/percentile_agg_hyperfunction.svg)
+![$CLOUD_LONG hyperfunctions][cloud_long-hyperfunctions]
 
 The result? Scalable, real-time percentile analytics that deliver fast, accurate insights across high-ingest, high-resolution data, while keeping resource use lean.
 
@@ -34,5 +34,6 @@ For more information, read the [hyperfunctions blog post][hyperfunctions-blog].
 ## Browse hyperfunctions and $TOOLKIT_LONG features by category
 
 [about-hyperfunctions]: /use-timescale/:currentVersion:/hyperfunctions/about-hyperfunctions
+[cloud_long-hyperfunctions]: https://assets.timescale.com/docs/images/tiger-cloud-console/percentile_agg_hyperfunction.svg
 [hyperfunctions-blog]: https://www.tigerdata.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project
 [install-toolkit]: /self-hosted/:currentVersion:/tooling/install-toolkit/

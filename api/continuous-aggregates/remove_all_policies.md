@@ -10,8 +10,6 @@ api:
 products: [cloud, self_hosted, mst]
 ---
 
-import Experimental from "versionContent/_partials/_experimental.mdx";
-
 <!-- markdownlint-disable-next-line line-length -->
 # remove_all_policies() <Tag type="community" content="Community" /><Tag type="experimental" content="Experimental" />
 
@@ -19,14 +17,18 @@ Remove all policies from a continuous aggregate. The removed columnstore and
 retention policies apply to the continuous aggregate, _not_ to the original
 hypertable.
 
+<Highlight type="warning">
+
+This experimental function will be removed in future releases. Please use the [`delete_job()`][delete_job] function to delete policies.
+
+</Highlight>
+
 ```sql
 timescaledb_experimental.remove_all_policies(
      relation REGCLASS,
      if_exists BOOL = false
 ) RETURNS BOOL
 ```
-
-<Experimental />
 
 ## Samples
 
@@ -54,4 +56,4 @@ SELECT timescaledb_experimental.remove_all_policies('example_continuous_aggregat
 
 Returns true if successful.
 
-
+[delete_job]: /api/:currentVersion:/jobs-automation/delete_job/

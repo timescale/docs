@@ -119,5 +119,3 @@ One of the following can be used to avoid the OOM errors:
 1. Reduce Concurrency: If upgrading your instance is not feasible, you can reduce the concurrency of the index migration process using the `--index-jobs=<value>` flag in the migration command. By default, the value of `--index-jobs` matches the GUC max_parallel_workers. Lowering this value reduces the memory usage during migration but may increase the total migration time.
 
 By taking these steps, you can prevent OOM errors and ensure a smoother migration experience with TimescaleDB.
-
-[align-versions]: /migrate/:currentVersion:/live-migration/#align-the-version-of-timescaledb-on-the-source-and-target

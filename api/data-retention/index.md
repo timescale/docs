@@ -17,6 +17,6 @@ With TimescaleDB, you can manually remove old chunks of data or implement
 policies using these APIs.
 
 For more information about creating a data retention policy, see the
-[data retention section][data-retention-howto].
+[data retention section][retention-policy].
 
-[data-retention-howto]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/
+[retention-policy]: /use-timescale/:currentVersion:/data-retention/create-a-retention-policy/

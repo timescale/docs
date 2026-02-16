@@ -22,7 +22,7 @@ The column you select as the dimension can use either:
 - [Interval partitions][range-partition]: for example, for a second range partition.
 - [hash partitions][hash-partition]: to enable parallelization across multiple disks.
 
-<Highlight type="cloud" header="These instructions are for self-hosted TimescaleDB deployments" button="Try Tiger Cloud">
+<Highlight type="cloud" header="These instructions are for self-hosted TimescaleDB deployments" button="Try Tiger">
 
 Best practice is to not use additional dimensions. However, $CLOUD_LONG transparently provides seamless storage
 scaling, both in terms of storage capacity and available storage IOPS/bandwidth.
@@ -67,7 +67,7 @@ SELECT add_dimension('conditions', by_hash('device_id', 2), if_not_exists => tru
 | Name | Type             | Default | Required | Description                                                                                                                                       |
 |-|------------------|-|-|---------------------------------------------------------------------------------------------------------------------------------------------------|
 |`chunk_time_interval` | INTERVAL         | -       | ✖ | Interval that each chunk covers. Must be > 0.                                                                                                     |
-|`dimension` | [DIMENSION_INFO][dimension-info] | -       | ✔ | To create a `_timescaledb_internal.dimension_info` instance to partition a hypertable, you call  [`by_range`][by-range] and [`by_hash`][by-hash]. |     
+|`dimension` | [DIMENSION_INFO][dimension-info] | -       | ✔ | To create a `_timescaledb_internal.dimension_info` instance to partition a hypertable, you call  [`by_range`][range-partition] and [`by_hash`][hash-partition]. |     
 |`hypertable`| REGCLASS         | - | ✔ | The hypertable to add the dimension to.                                                                                                           |
 |`if_not_exists` | BOOLEAN          | `false` | ✖ | Set to `true` to print an error if a dimension for the column already exists. By default an exception is raised.                                  |
 |`number_partitions` | INTEGER          | -       | ✖ | Number of hash partitions to use on `column_name`. Must be > 0.                                                                                   |
@@ -82,15 +82,9 @@ SELECT add_dimension('conditions', by_hash('device_id', 2), if_not_exists => tru
 |`dimension_id`|INTEGER| ID of the dimension in the TimescaleDB internal catalog                                                     |
 |`created`|BOOLEAN| `true` if the dimension was added, `false` when you set `if_not_exists` to `true` and no dimension was added. |
 
-
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[distributed-hypertable-partitioning-best-practices]: /use-timescale/:currentVersion:/hypertables/
-[distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
-[regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/
 [add-dimension-old]: /api/:currentVersion:/hypertable/add_dimension_old/
-[rn-2130]: https://github.com/timescale/timescaledb/releases/tag/2.13.0
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[dimension-info]: /api/:currentVersion:/hypertable/add_dimension/#dimension-info
 [hash-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_hash
 [range-partition]: /api/:currentVersion:/hypertable/add_dimension/#by_range
-[dimension-info]: /api/:currentVersion:/hypertable/add_dimension/#dimension-info
-[by-range]: /api/:currentVersion:/hypertable/add_dimension/#by_range
-[by-hash]: /api/:currentVersion:/hypertable/add_dimension/#by_hash
+[rn-2130]: https://github.com/timescale/timescaledb/releases/tag/2.13.0

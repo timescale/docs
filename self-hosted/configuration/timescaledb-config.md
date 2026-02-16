@@ -9,13 +9,7 @@ tags: [tune]
 import TimescaleDBConfig from "versionContent/_partials/_timescaledb-config.mdx";
 import MultiNodeDeprecation from "versionContent/_partials/_multi-node-deprecation.mdx";
 
-# $TIGER_POSTGRES configuration and tuning
-
-Just as you can tune settings in $PG, $TIMESCALE_DB provides a number of configuration
-settings that may be useful to your specific installation and performance needs. These can
-also be set within the `postgresql.conf` file or as command-line parameters
-when starting $PG.
-when starting $PG.
+# $TIMESCALE_DB configuration and tuning
 
 <TimescaleDBConfig />
 
@@ -78,5 +72,3 @@ connecting to data nodes using certificate authentication. Defaults to
 
 Specifies the name of the file where passwords are stored and when
 connecting to data nodes using password authentication.
-
-[continuous-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/

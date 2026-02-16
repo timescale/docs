@@ -17,6 +17,6 @@ keywords: [updates, third-party tools]
 The update command `ALTER EXTENSION timescaledb UPDATE` must be the first command
 executed upon connection to a database. Some admin tools execute commands before
 this, which can disrupt the process. Try manually updating the database with
-`psql`. For instructions, see the [updating guide][update].
+`psql`. For instructions, see the [updating guide][update-db].
 
-[update]: /self-hosted/:currentVersion:/upgrades/
+[update-db]: /self-hosted/:currentVersion:/upgrades/

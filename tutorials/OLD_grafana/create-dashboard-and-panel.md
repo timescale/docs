@@ -23,7 +23,7 @@ Before you begin, make sure you have:
 *   Set up Grafana.
 
 When your installation of $TIMESCALE_DB and Grafana are complete, ingest the data
-found in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
+found in the [NYC Taxi Cab][beginner-fleet] tutorial and configure Grafana to connect
 to that database.
 
 ## Build a new dashboard
@@ -64,14 +64,16 @@ to the New York City taxi cab dataset you connected to earlier:
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/set_data_source.png" alt="Switching data sources in Grafana"/>
 
 <Highlight type="note">
+
 If you are visualizing time series data in Grafana, make sure you select
 `Time series` from the `Format As` drop down in the query builder.
+
 </Highlight>
 
 ### Visualize metrics stored in TimescaleDB
 
 Start by creating a visualization that answers the question "How many
-rides took place on each day?" from the [NYC Taxi Cab][nyc-taxi] tutorial.
+rides took place on each day?" from the [NYC Taxi Cab][beginner-fleet] tutorial.
 
 From the tutorial, you can see the standard SQL syntax for our query:
 
@@ -89,7 +91,7 @@ You need to alter this query to support Grafana's unique query syntax.
 
 First, modify the `date_trunc` function to use the TimescaleDB `time_bucket`
 function. You can consult the TimescaleDB
-[API Reference on time_bucket][time-bucket-reference]
+[API Reference on time_bucket][time_bucket]
 for more information on how to use it properly.
 
 Take a look at the `SELECT` portion of this query. First, bucket the results
@@ -155,9 +157,11 @@ When you visualize this query in Grafana, you see this:
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results.png" alt="Visualizing time-series data in Grafana"/>
 
 <Highlight type="note">
+
 Remember to set the time filter in the upper right corner of your Grafana
 dashboard. If you're using the pre-built sample dataset for this example, you
 can set your time filter around January 1, 2016.
+
 </Highlight>
 
 Currently, the data is bucketed into 1 day groupings. Adjust the `time_bucket`
@@ -183,6 +187,6 @@ When you visualize this query, it looks like this:
 
 Complete your Grafana knowledge by following all the TimescaleDB + Grafana tutorials.
 
-[install-timescale]: /getting-started/latest/
-[nyc-taxi]: /tutorials/:currentVersion:/nyc-taxi-cab
-[time-bucket-reference]: /api/:currentVersion:/hyperfunctions/time_bucket
+[beginner-fleet]: /tutorials/:currentVersion:/nyc-taxi-cab
+[install-timescale]: /getting-started/:currentVersion:/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket

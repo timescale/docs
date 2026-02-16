@@ -12,26 +12,33 @@ api:
 
 import Since2180 from "versionContent/_partials/_since_2_18_0.mdx";
 import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # add_columnstore_policy()
 
 Create a [job][job] that automatically moves chunks in a hypertable to the $COLUMNSTORE after a 
 specific time interval.
 
-You enable the $COLUMNSTORE a hypertable or continuous aggregate before you create a $COLUMNSTORE policy. 
-You do this by calling `CREATE TABLE` for hypertables and `ALTER MATERIALIZED VIEW` for continuous aggregates. When
-$COLUMNSTORE is enabled, [bloom filters][bloom-filters] are enabled by default, and every new chunk has a bloom index. 
-If you converted chunks to $COLUMNSTORE using $TIMESCALE_DB v2.19.3 or below, to enable bloom filters on that data you have 
+- **$CAGG_CAPs**:
+
+   You first call `ALTER MATERIALIZED VIEW` to enable the $COLUMNSTORE on a $CAGG, then create the job that converts
+   your data to the $COLUMNSTORE with a call to `add_columnstore_policy`.
+
+- **$HYPERTABLE_CAPs**:  
+
+   <CreateHypertablePolicyNote />
+
+When $COLUMNSTORE is enabled, [bloom filters][bloom-filters] are enabled by default, and every new chunk has a bloom index.
+Bloom indexes are not retrofitted, existing chunks need to be fully recompressed to have the bloom indexes present. If 
+you converted chunks to $COLUMNSTORE using $TIMESCALE_DB [v2.19.3][tsdb-release-2-19-3] or below, to enable bloom filters on that data you have 
 to convert those chunks to the $ROWSTORE, then convert them back to the $COLUMNSTORE. 
 
-Bloom indexes are not retrofitted, meaning that the existing chunks need to be fully recompressed to have the bloom 
-indexes present. Please check out the PR description for more in-depth explanations of how bloom filters in 
-TimescaleDB work.
+To view the policies that you set or the policies that already exist, see [informational views][informational-views]. 
 
-To view the policies that you set or the policies that already exist,
-see [informational views][informational-views], to remove a policy, see [remove_columnstore_policy][remove_columnstore_policy]. 
-
-A $COLUMNSTORE policy is applied on a per-chunk basis. If you remove an existing policy and then add a new one, the new policy applies only to the chunks that have not yet been converted to $COLUMNSTORE. The existing chunks in the $COLUMNSTORE remain unchanged. This means that chunks with different $COLUMNSTORE settings can co-exist in the same $HYPERTABLE.
+A $COLUMNSTORE policy is applied on a per-chunk basis. If you remove an existing policy and then add a new one, the new 
+policy applies only to the chunks that have not yet been converted to $COLUMNSTORE. The existing chunks in the 
+$COLUMNSTORE remain unchanged. This means that chunks with different $COLUMNSTORE settings can co-exist in the same 
+$HYPERTABLE.
 
 <Since2180 />
 
@@ -39,15 +46,18 @@ A $COLUMNSTORE policy is applied on a per-chunk basis. If you remove an existing
 
 To create a $COLUMNSTORE job:
 
-<Procedure>
+- **Enable $COLUMNSTORE**
 
-1. **Enable $COLUMNSTORE**
+    For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
+    use most often to filter your data.
+    * [Use `ALTER MATERIALIZED VIEW` for a continuous aggregate][compression_continuous-aggregate]
+      ```sql
+      ALTER MATERIALIZED VIEW assets_candlestick_daily SET (
+         timescaledb.enable_columnstore = true, 
+         timescaledb.segmentby = 'symbol');
+      ```
 
-   Create a [$HYPERTABLE][hypertables-section] for your time-series data using [CREATE TABLE][hypertable-create-table].
-   For [efficient queries][secondary-indexes] on data in the columnstore, remember to `segmentby` the column you will
-   use most often to filter your data. For example:
-
-   * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]
+   * [Use `CREATE TABLE` for a $HYPERTABLE][hypertable-create-table]. The columnstore policy is created automatically.
 
      ```sql
      CREATE TABLE crypto_ticks (
@@ -57,21 +67,13 @@ To create a $COLUMNSTORE job:
         day_volume NUMERIC
      ) WITH (
        tsdb.hypertable,
-       tsdb.partition_column='time',
        tsdb.segmentby='symbol', 
        tsdb.orderby='time DESC'
      );
      ```
      <OldCreateHypertable />
 
-   * [Use `ALTER MATERIALIZED VIEW` for a continuous aggregate][compression_continuous-aggregate]
-     ```sql
-     ALTER MATERIALIZED VIEW assets_candlestick_daily set (
-        timescaledb.enable_columnstore = true, 
-        timescaledb.segmentby = 'symbol' );
-     ```
-
-1. **Add a policy to move chunks to the $COLUMNSTORE at a specific time interval**
+- **Add a policy to move chunks to the $COLUMNSTORE at a specific time interval**
 
    For example:
 
@@ -114,7 +116,7 @@ To create a $COLUMNSTORE job:
       ```
 
 
-1. **View the policies that you set or the policies that already exist** 
+- **View the policies that you set or the policies that already exist** 
 
    ``` sql
    SELECT * FROM timescaledb_information.jobs
@@ -122,7 +124,7 @@ To create a $COLUMNSTORE job:
    ```
    See [timescaledb_information.jobs][informational-views].
 
-</Procedure>
+
 
 ## Arguments
 
@@ -136,7 +138,7 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 | `hypertable`                  |REGCLASS| -                                                                                                                            | ✔        | Name of the hypertable or continuous aggregate to run this [job][job] on.                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `after`                       |INTERVAL or INTEGER| -                                                                                                                            | ✖        | Add chunks containing data older than `now - {after}::interval` to the $COLUMNSTORE. <br/> Use an object type that matchs the time column type in `hypertable`: <ul><li><b><code>TIMESTAMP</code>, <code>TIMESTAMPTZ</code>, or <code>DATE</code></b>: use an <code>INTERVAL</code> type.</li><li><b> Integer-based timestamps </b>: set an integer type using the [integer_now_func][set_integer_now_func].</li></ul> `after` is mutually exclusive with `created_before`. |
 | `created_before`              |INTERVAL| NULL                                                                                                                         | ✖        | Add chunks with a creation time of `now() - created_before` to the $COLUMNSTORE. <br/> `created_before` is <ul><li>Not supported for continuous aggregates.</li><li>Mutually exclusive with `after`.</li></ul>                                                                                                                                                                                                                                                             |
-| `schedule_interval`           |INTERVAL| 12 hours when [chunk_time_interval][chunk_time_interval] >= `1 day` for `hypertable`. Otherwise `chunk_time_interval` / `2`. | ✖        | Set the interval between the finish time of the last execution of this policy and the next start.                                                                                                                                                                                                                                                                                                                                                                          |
+| `schedule_interval`           |INTERVAL| 12 hours when [chunk_time_interval][chunk_interval] >= `1 day` for `hypertable`. Otherwise `chunk_time_interval` / `2`. | ✖        | Set the interval between the finish time of the last execution of this policy and the next start.                                                                                                                                                                                                                                                                                                                                                                          |
 | `initial_start`               |TIMESTAMPTZ| The interval from the finish time of the last execution to the [next_start][next-start].                                     | ✖        | Set the time this job is first run. This is also the time that `next_start` is calculated from. |
 | `next_start`                  |TIMESTAMPTZ| -|  ✖       | Set the start time of the next immediate execution. It does not change the computation of the next scheduled time after the next execution.  |
 | `timezone`                    |TEXT| UTC. However, daylight savings time(DST) changes may shift this alignment.                                                   | ✖        | Set to a valid time zone to mitigate DST shifting. If `initial_start` is set, subsequent executions of this policy are aligned on `initial_start`.                                                                                                                                                                                                                                                                                                                         |
@@ -145,17 +147,13 @@ Calls to `add_columnstore_policy` require either `after` or `created_before`, bu
 <!-- vale Google.Acronyms = YES -->
 <!-- vale Vale.Spelling = YES -->
 
-
-[compression_alter-table]: /api/:currentVersion:/hypercore/alter_table/
-[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
-[set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
-[informational-views]: /api/:currentVersion:/informational-views/jobs/
-[chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
-[next-start]: /api/:currentVersion:/informational-views/jobs/#arguments
-[job]: /api/:currentVersion:/jobs-automation/add_job/
-[remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
 [bloom-filters]: https://en.wikipedia.org/wiki/Bloom_filter
+[chunk_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
+[compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
+[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+[job]: /api/:currentVersion:/jobs-automation/add_job/
+[next-start]: /api/:currentVersion:/informational-views/jobs/#arguments
+[secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
+[tsdb-release-2-19-3]: https://github.com/timescale/timescaledb/releases/tag/2.19.3

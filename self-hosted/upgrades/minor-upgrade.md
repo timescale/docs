@@ -21,7 +21,7 @@ databases.
 
 <ConsiderCloud />
 
-This page shows you how to perform a minor upgrade, for major upgrades, see [Upgrade TimescaleDB to a major version][upgrade-major].
+This page shows you how to perform a minor upgrade, for major upgrades, see [Upgrade TimescaleDB to a major version][upgrading-timescaledb].
 
 ## Prerequisites
 
@@ -42,7 +42,4 @@ This page shows you how to perform a minor upgrade, for major upgrades, see [Upg
 
 You are running a shiny new version of TimescaleDB.
 
-[relnotes]: https://github.com/timescale/timescaledb/releases
-[upgrade-pg]: /self-hosted/:currentVersion:/upgrades/upgrade-pg/#upgrade-postgresql
-[upgrade-major]: /self-hosted/:currentVersion:/upgrades/major-upgrade/
-[backup]: /self-hosted/:currentVersion:/backup-and-restore/
+[upgrading-timescaledb]: /self-hosted/:currentVersion:/upgrades/major-upgrade/

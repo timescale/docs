@@ -21,8 +21,8 @@ method, [`percentile_agg`][percentile_agg]. It uses the `uddsketch` algorithm
 with some sensible defaults.
 
 For more information about percentile approximation algorithms, see the
-[algorithms overview][algorithms].
+[algorithms overview][advanced-agg].
 
-[algorithms]: /use-timescale/:currentVersion:/hyperfunctions/percentile-approx/advanced-agg/
+[advanced-agg]: /use-timescale/:currentVersion:/hyperfunctions/percentile-approx/advanced-agg/
 [percentile_agg]: #percentile_agg
 [tdigest]: /api/:currentVersion:/hyperfunctions/percentile-approximation/tdigest/

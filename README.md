@@ -1,8 +1,8 @@
 <div align=center>
 <picture align=center>
-    <source media="(prefers-color-scheme: dark)" srcset="https://assets.timescale.com/docs/images/tigerdata-gradient-white.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://assets.timescale.com/docs/images/tigerdata-gradient-black.svg">
-    <img alt="TigerData logo" >
+    <source media="(prefers-color-scheme: dark)" srcset="https://assets.timescale.com/timescale-web/brand/show/horizontal-white.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://assets.timescale.com/timescale-web/brand/show/horizontal-black.svg">
+    <img alt="Tiger Data logo" >
 </picture>
 </div>
 
@@ -11,20 +11,20 @@
 <h3>Tiger Cloud is the modern Postgres data platform for all your applications. It enhances Postgres to handle time series, events, real-time analytics, and vector search—all in a single database alongside transactional workloads.
 </h3>
 
-[![Docs](https://img.shields.io/badge/Read_the_TigerData_docs-black?style=for-the-badge&logo=readthedocs&logoColor=white)](https://docs.tigerdata.com/)
+[![Docs](https://img.shields.io/badge/Read_the_TigerData_docs-black?style=for-the-badge&logo=readthedocs&logoColor=white)](https://www.tigerdata.com/docs/)
 [![SLACK](https://img.shields.io/badge/Ask_the_TigerData_community-black?style=for-the-badge&logo=slack&logoColor=white)](https://timescaledb.slack.com/archives/C4GT3N90X)
-[![Try Tiger Cloud for free](https://img.shields.io/badge/Try_Tiger_Cloud_for_free-black?style=for-the-badge&logo=timescale&logoColor=white)](https://console.cloud.timescale.com/signup)
+[![Try Tiger Cloud for free](https://img.shields.io/badge/Try_Tiger_for_free-black?style=for-the-badge&logo=timescale&logoColor=white)](https://console.cloud.timescale.com/signup)
 
 </div>
 
-This repository contains the current source for TigerData documentation available at https://docs.tigerdata.com/. 
+This repository contains the current source for Tiger Data documentation available at https://www.tigerdata.com/docs/. 
 
-We welcome contributions! You can contribute to TigerData documentation in the following ways:
+We welcome contributions! You can contribute to Tiger Data documentation in the following ways:
 
 - [Create an issue][docs-issues] in this repository and describe the proposed change. Our doc team takes care of it.
 - Update the docs yourself and have your change reviewed and published by our doc team.
 
-## Contribute to the TigerData docs
+## Contribute to the Tiger Data docs
 
 To make the contribution yourself:
 
@@ -45,11 +45,12 @@ To make the contribution yourself:
 
 See the [Contributing guide](CONTRIBUTING.md) for style and language guidance. 
 
-## Learn about TigerData
+## Learn about Tiger Data
 
-TigerData is Postgres made powerful. To learn more about the company and its products, visit [tigerdata.com](https://www.tigerdata.com).
+Tiger Data is Postgres made powerful. To learn more about the company and its products, visit [tigerdata.com][tigerdata-home].
 
 [docs-issues]: https://github.com/timescale/docs/issues
-[github-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
-[github-clone]: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 [gatsby]: https://www.gatsbyjs.com/
+[github-clone]: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+[github-fork]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+[tigerdata-home]: https://www.tigerdata.com

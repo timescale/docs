@@ -1,8 +1,8 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 ### Dimension info
 
-To create a `_timescaledb_internal.dimension_info` instance, you call [add_dimension][add_dimension] 
+To create a `_timescaledb_internal.dimension_info` instance, you call [add_dimension][add-dimension] 
 to an existing hypertable. 
 
 #### Samples
@@ -46,12 +46,11 @@ Create a by-range dimension builder. You can partition `by_range` on it's own.
       temperature DOUBLE PRECISION  NULL,
       humidity    DOUBLE PRECISION  NULL
    ) WITH (
-      tsdb.hypertable,
-      tsdb.partition_column='time'
+      tsdb.hypertable
    );
    ```
    
-   <OldCreateHypertable />
+   <CreateHypertablePolicyNote />
 
    This is the default partition, you do not need to add it explicitly.
 
@@ -152,8 +151,7 @@ CREATE TABLE conditions (
    temperature DOUBLE PRECISION  NULL,
    humidity    DOUBLE PRECISION  NULL
 ) WITH (
-   tsdb.hypertable,
-   tsdb.partition_column='time',
+   tsdb.hypertable
    tsdb.chunk_interval='1 day'
 );
 
@@ -174,10 +172,4 @@ SELECT add_dimension('conditions', by_hash('location', 2));
 `by_range` and `by-hash` return an opaque `_timescaledb_internal.dimension_info` instance, holding the 
 dimension information used by this function. 
 
-
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
-[by-range]: /api/:currentVersion:/hypertable/create_hypertable/#by_range
-[by-hash]: /api/:currentVersion:/hypertable/create_hypertable/#by_hash
-[by-hash]: /api/:currentVersion:/hypertable/create_hypertable/#by_hash
-
+[add-dimension]: /api/:currentVersion:/hypertable/add_dimension/

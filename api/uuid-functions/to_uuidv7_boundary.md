@@ -16,7 +16,7 @@ Create a UUIDv7 object from a Postgres timestamp for use in range queries.
 
 `ts` is converted to a UNIX timestamp split into millisecond and sub-millisecond parts.
 
-![UUIDv7 microseconds](https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg)
+![UUIDv7 microseconds][uuidv7-microseconds]
 
 The random bits of the UUID are set to zero in order to create a "lower" boundary UUID.
 
@@ -48,3 +48,5 @@ boundary UUID's timestamp.
 | Name | Type             | Default | Required | Description                                      |
 |-|------------------|-|----------|--------------------------------------------------|
 |`ts`|TIMESTAMPTZ| - | ✔ | The timestamp used to return a UUIDv7 object |
+
+[uuidv7-microseconds]: https://assets.timescale.com/docs/images/uuidv7-structure-microseconds.svg

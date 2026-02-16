@@ -45,8 +45,8 @@ precious your data is and safeguards sensitive information.
      pg_stat_statements  | 1.10    | public     | track planning and execution statistics of all SQL statements executed
      pgcrypto            | 1.3     | public     | cryptographic functions
      plpgsql             | 1.0     | pg_catalog | PL/pgSQL procedural language
-     timescaledb         | 2.11.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
-     timescaledb_toolkit | 1.16.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
+     timescaledb         | 2.24.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)
+     timescaledb_toolkit | 1.22.0  | public     | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
      ```
 
 1.  Create a table named `user_passwords`:

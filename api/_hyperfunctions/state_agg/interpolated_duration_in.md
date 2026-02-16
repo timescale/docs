@@ -93,3 +93,5 @@ api_details:
           2020-01-04 00:00:00+00  | 12:00:00
 ---
 
+
+[extract]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT

@@ -2,7 +2,7 @@
 title: Manage storage and tiering
 excerpt: Configure high-performance and low-cost object storage tiers in Tiger Cloud Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
-price_plans: [performance, scale, enterprise]
+price_plans: [scale, enterprise, performance]
 keywords: [tiered storage]
 tags: [storage, data management]
 cloud_ui:
@@ -11,6 +11,7 @@ cloud_ui:
 ---
 
 import TieredStorageBilling from "versionContent/_partials/_tiered-storage-billing.mdx";
+import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Manage storage and tiering
 
@@ -35,7 +36,7 @@ This storage type gives you up to 16 TB of storage and is available under [all $
 
 <Procedure>
 
-1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
+1. **In [$CONSOLE][services-portal], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
 
    By default, the type of high-performance storage is set to `Standard`.
 
@@ -44,7 +45,7 @@ This storage type gives you up to 16 TB of storage and is available under [all $
    - Under the [$PERFORMANCE $PRICING_PLAN][pricing-plans], IOPS is set to 3,000 - 5,000 autoscale and cannot be changed.
    - Under the [$SCALE and $ENTERPRISE $PRICING_PLANs][pricing-plans], IOPS is set to 5,000 - 8,000 autoscale and can be upgraded to 16,000 IOPS.
 
-   ![Default standard storage in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/high-performance-storage-tiger-cloud.png)
+   ![Default standard storage in Tiger][default-standard-storage-in-tiger]
 
 1. **Click `Apply`**
 
@@ -54,14 +55,18 @@ This storage type gives you up to 16 TB of storage and is available under [all $
 
 <Availability products={['cloud']} price_plans={['enterprise']} />
 
-This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. To get enhanced storage:
+This storage type gives you up to 64 TB and 32,000 IOPS, and is available under the [$ENTERPRISE $PRICING_PLAN][pricing-plans]. 
+
+<NotSupportedAzure />
+
+To get enhanced storage:
 
 <Procedure>
 
-1. **In [$CONSOLE][console], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
+1. **In [$CONSOLE][services-portal], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
 1. **Select `Enhanced` in the `Storage type` dropdown**
 
-    ![Enhanced storage in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-enhanced-storage-tiger-cloud.png)
+    ![Enhanced storage in Tiger][enhanced-storage-in-tiger]
 
     <Highlight type="note">
 
@@ -73,7 +78,7 @@ This storage type gives you up to 64 TB and 32,000 IOPS, and is available under 
    
     Select between 8,000, 16,000, 24,000, and 32,0000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
 
-   ![I/O boost in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/set-io-boost-tiger-cloud.png)
+   ![I/O boost in Tiger][io-boost-in-tiger]
 
 1. **Click `Apply`**
 
@@ -85,7 +90,7 @@ You change from enhanced storage to standard in the same way. If you are using o
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
-You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually. 
+You enable the low-cost object storage tier in $CONSOLE and then tier the data with policies or manually.
 
 ### Enable tiered storage
 
@@ -93,21 +98,15 @@ You enable tiered storage from the `Overview` tab in $CONSOLE.
 
 <Procedure>
 
-1. **In [$CONSOLE][console], select the $SERVICE_SHORT to modify**
+1. **In [$CONSOLE][services-portal], select the $SERVICE_SHORT to modify**
 
-1. **In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`**
+1. **In `Explorer`, click `Data Tiering` > then click `Enable tiered storage`**
 
-   ![Enable tiered storage](https://assets.timescale.com/docs/images/tiger-cloud-console/enable-tiered-storage-tiger-cloud-console.png)
+   ![Enable tiered storage][enable-tiered-storage]
 
    Once enabled, you can proceed to [tier data manually][manual-tier] or [set up tiering policies][tiering-policies]. When tiered storage is enabled, you see the amount of data in the tiered object storage.
 
 </Procedure>
-
-<Highlight type="note">
-
-Data tiering is available in [Scale and Enterprise][pricing-plans] pricing plans only.
-
-</Highlight>
 
 ### Automate tiering with policies
 
@@ -117,17 +116,17 @@ older than the `move_after` threshold to the object storage tier. This works sim
 
 A tiering policy schedules a job that runs periodically to asynchronously migrate eligible chunks to object storage. Chunks are considered tiered once they appear in the `timescaledb_osm.tiered_chunks` view. 
 
-You can add tiering policies to [hypertables][hypertable], including [continuous aggregates][caggs]. To manage tiering policies, [connect to your service][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
+You can add tiering policies to [hypertables][hypertables-section], including [continuous aggregates][caggs], via $CONSOLE_SHORT UI or an SQL editor. The following sections explain how to tier data with SQL commands. 
 
 #### Add a tiering policy
 
-To add a tiering policy, call `add_tiering_policy`:
+To add a tiering policy, [connect to your $SERVICE_SHORT][in-console-editors] and call `add_tiering_policy`:
 
 ```sql
 SELECT add_tiering_policy(hypertable REGCLASS, move_after INTERVAL, if_not_exists BOOL = false);
 ```
 
-For example, to tier chunks that are more than three days old in the `example` [hypertable][hypertable]:
+For example, to tier chunks that are more than three days old in the `example` [hypertable][hypertables-section]:
 
 ```sql
 SELECT add_tiering_policy('example', INTERVAL '3 days');
@@ -153,7 +152,7 @@ If you remove a tiering policy, the remaining scheduled chunks are not tiered. H
 
 ### Manually tier and untier chunks
 
-If tiering policies do not meet your current needs, you can tier and untier chunks manually. To do so, [connect to your $SERVICE_SHORT][connect-to-service] and run the queries below in the data mode, the SQL editor, or using `psql`.
+If tiering policies do not meet your current needs, you can tier and untier chunks manually. To do so, [connect to your $SERVICE_SHORT][in-console-editors] and run the queries below in the data mode, the SQL editor, or using `psql`.
 
 #### Tier chunks
 
@@ -254,6 +253,10 @@ To untier a chunk, call the `untier_chunk` stored procedure.
 
 </Procedure>
 
+### Drop tiered data
+
+To drop tiered data, call [DROP_TABLE][drop-hypertable] on the corresponding hypertable. This removes the hypertable and all its associated data from the high-performance and low-cost storage. 
+
 ### Disable tiering 
 
 If you no longer want to use tiered storage for a particular hypertable, drop the associated metadata by calling `disable_tiering`.
@@ -286,15 +289,18 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 
 </Procedure>
 
-[data-retention]: /use-timescale/:currentVersion:/data-retention/
-[console]: https://console.cloud.timescale.com/dashboard/services
-[hypertable]: /use-timescale/:currentVersion:/hypertables/
-[connect-to-service]: /getting-started/:currentVersion:/run-queries-from-console/
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[enable-tiered-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#enable-tiered-storage
-[tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies
+[data-retention]: /use-timescale/:currentVersion:/data-retention/
+[default-standard-storage-in-tiger]: https://assets.timescale.com/docs/images/tiger-on-azure/high-performance-storage-tiger-console.png
+[drop-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud#drop-a-hypertable
+[enable-tiered-storage]: https://assets.timescale.com/docs/images/tiger-on-azure/enable-tiered-storage-tiger-console.png
+[enhanced-storage-in-tiger]: https://assets.timescale.com/docs/images/tiger-on-azure/enable-enhanced-storage-tiger-console.png
+[high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[io-boost-in-tiger]: https://assets.timescale.com/docs/images/tiger-on-azure/set-io-boost-tiger-console.png
+[low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
 [manual-tier]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#manually-tier-and-untier-chunks
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
-[high-performance-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#high-performance-storage-tier
-[low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
-[cloud-regions]: /use-timescale/:currentVersion:/regions/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies

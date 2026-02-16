@@ -1,4 +1,4 @@
-import OldCreateHypertable from "versionContent/_partials/_old-api-create-hypertable.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intro.mdx";
 
 ## Optimize time-series data using hypertables
@@ -31,13 +31,12 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        details JSONB
     ) WITH (
        tsdb.hypertable,
-       tsdb.partition_column='time',
        tsdb.segmentby='block_id', 
        tsdb.orderby='time DESC'
     );
     ```
                 
-    <OldCreateHypertable />
+    <CreateHypertablePolicyNote />
 
 1.  Create an index on the `hash` column to make queries for individual
     transactions faster:
@@ -67,14 +66,10 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 
 </Procedure>
 
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[indexing]: /use-timescale/:currentVersion:/schema-management/indexing/
-[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
 [connect-using-psql]: /integrations/:currentVersion:/psql#connect-to-your-service
 [hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[indexing]: /use-timescale/:currentVersion:/schema-management/indexing/
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
-[hypertable-create-table]: /api/:currentVersion:/hypertable/create_table/
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
+[in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
+[indexing]: /use-timescale/:currentVersion:/schema-management/indexing/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
+[services-portal]: https://console.cloud.timescale.com/dashboard/services

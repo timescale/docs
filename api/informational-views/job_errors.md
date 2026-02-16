@@ -43,7 +43,7 @@ SELECT job_id, proc_schema, proc_name, pid, sqlerrcode, err_message from timesca
 |`pid`|INTEGER|The process ID of the background worker executing the job. This is `NULL` in the case of a job crash|
 |`start_time`|TIMESTAMP WITH TIME ZONE|Start time of the job|
 |`finish_time`|TIMESTAMP WITH TIME ZONE|Time when error was reported|
-|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official $PG documentation](https://www.postgresql.org/docs/current/errcodes-appendix.html) for a full list of error codes|
+|`sqlerrcode`|TEXT|The error code associated with this error, if any. See the [official $PG documentation][official-pg-documentation] for a full list of error codes|
 |`err_message`|TEXT|The detailed error message|
 
 ## Error retention policy
@@ -86,3 +86,4 @@ SELECT alter_job(id,config:=jsonb_set(config,'{drop_after}', '"2 weeks"')) FROM 
 ```
 
 [jobs]: /api/:currentVersion:/jobs-automation/
+[official-pg-documentation]: https://www.postgresql.org/docs/current/errcodes-appendix.html

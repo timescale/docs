@@ -35,7 +35,7 @@
 
 1. **Connect to your $SELF_LONG instance**
 
-   Use [`psql`][psql-connect]. 
+   Use [`psql`][connect-using-psql]. 
 
 1. **Create a Debezium user in $PG**
 
@@ -47,18 +47,14 @@
 
 1. **Enable a replication spot for Debezium**
 
-   1. Create a table for Debezium to listen to:
+   1. Create a hypertable for Debezium to listen to:
 
       ```sql
-      CREATE TABLE accounts (created_at TIMESTAMPTZ DEFAULT NOW(),
+      CREATE TABLE accounts (
+       created_at TIMESTAMPTZ DEFAULT NOW(),
        name TEXT,
-       city TEXT);
-      ```
-
-   1. Turn the table into a hypertable:
-
-      ```sql
-      SELECT create_hypertable('accounts', 'created_at');
+       city TEXT
+      ) WITH (tsdb.hypertable);
       ```
 
       Debezium also works with [$CAGGs][caggs].
@@ -68,9 +64,7 @@
       ```sql
       CREATE PUBLICATION dbz_publication FOR ALL TABLES WITH (publish = 'insert, update');
       ```
-      
+
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
-[run-queries]: /getting-started/:currentVersion:/run-queries-from-console/
-[open-console]: https://console.cloud.timescale.com/dashboard/services
-[psql-connect]: /integrations/:currentVersion:/psql/#connect-to-your-service
+[connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [debezium-replication-permissions]: https://debezium.io/documentation/reference/3.2/connectors/postgresql.html#postgresql-host-replication-permissions

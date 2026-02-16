@@ -18,12 +18,14 @@ manage a cluster of databases, which can give you faster data ingest,
 and more responsive and efficient queries for large workloads.
 
 <Highlight type="important">
+
 In some cases, your queries could be slower in a multi-node cluster due to the
 extra network communication between the various nodes. Queries perform the best
 when the query processing is distributed among the nodes and the result set is
 small relative to the queried dataset. It is important that you understand
 multi-node architecture before you begin, and plan your database according to
 your specific requirements.
+
 </Highlight>
 
 ## Multi-node architecture
@@ -77,7 +79,7 @@ automatically distributed. Regular tables and hypertables continue to work as
 usual, even when the underlying database is distributed. To enable multi-node
 capabilities, you need to explicitly create a distributed hypertable on the
 access node to make use of the data nodes. A distributed hypertable is similar
-to a regular [hypertable][hypertables], but with the difference that chunks are
+to a regular [hypertable][hypertables-section], but with the difference that chunks are
 distributed across data nodes instead of on local storage. By distributing the
 chunks, the processing power of the data nodes is combined to achieve higher
 ingest throughput and faster queries. However, the ability to achieve good
@@ -117,7 +119,7 @@ LIMIT 100;
 
 Partitioning on `time` and a space dimension such as `location`, is also best if
 you need faster insert performance. If you partition only on time, and your
-inserts are generally occuring in time order, then you are always writing to one
+inserts are generally occurring in time order, then you are always writing to one
 data node at a time. Partitioning on `time` and `location` means your
 time-ordered inserts are spread across multiple data nodes, which can lead to
 better performance.
@@ -195,5 +197,5 @@ For more information about setting up multi-node, see the
 [multi-node section][multi-node]
 
 [2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html
-[hypertables]: /use-timescale/:currentVersion:/hypertables/
+[hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/

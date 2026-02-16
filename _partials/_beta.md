@@ -2,6 +2,8 @@
 
 This feature is in beta. Beta features are experimental, and should not be used
 on production systems. If you have feedback, reach out to your customer success
-manager, or [contact us](https://www.tigerdata.com/contact/).
+manager, or [contact us][contact-us].
 
 </Highlight>
+
+[contact-us]: https://www.tigerdata.com/contact/

@@ -4,12 +4,14 @@ excerpt: Use segmenting and ordering data in the columnstore to make lookup quer
 products: [cloud, mst, self_hosted]
 keywords: [hypertable, compression, row-columnar storage, hypercore]
 ---
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
+
 
 # Improve query and upsert performance
 
 Real-time analytics applications require more than fast inserts and analytical queries. They also need high performance
 when retrieving individual records, enforcing constraints, or performing upserts, something that OLAP/columnar databases
-lack. This pages explains how to improve performance by segmenting and ordering data.
+lack. This page explains how to improve performance by segmenting and ordering data.
 
 To improve query performance using indexes, see [About indexes][about-index] and [Indexing data][create-index].
 
@@ -58,46 +60,53 @@ at the right time. When you segment your data to access specific columns, your q
 For example, to access information about a single device with a specific `device_id`, you segment on the `device_id` column. 
 This enables you to run analytical queries on compressed data in the $COLUMNSTORE much faster.
 
-For example for the following $HYPERTABLE:
-
-```sql
-CREATE TABLE metrics (
-  time TIMESTAMPTZ,
-  user_id INT,
-  device_id INT,
-  data JSONB
-) WITH (
-  tsdb.hypertable,
-  tsdb.partition_column='time'
-);
-```
+To illustrate, run the same query on a $HYPERTABLE, first without, then with optimizations:
 
 <Procedure>
 
-1. **Execute a query on a regular $HYPERTABLE**
+1. **Create a $HYPERTABLE**
+
+   Create a `metrics` $HYPERTABLE with the following command:  
+
+    ```sql
+    CREATE TABLE metrics (
+      time TIMESTAMPTZ,
+      user_id INT,
+      device_id INT,
+      data JSONB
+    ) WITH (
+      tsdb.hypertable
+    );
+    ```
+
+   <CreateHypertablePolicyNote />
+
+1. **Execute a query on the $HYPERTABLE without optimizations**
+
    1. Query your data
       ```sql
-      SELECT device_id, AVG(cpu) AS avg_cpu, AVG(disk_io) AS avg_disk_io 
+      SELECT device_id, AVG(cpu) AS avg_cpu, AVG(disk_io) AS avg_disk_io
       FROM metrics
-      WHERE device_id = 5
+      WHERE time >= '2024-03-01 00:00:00+01'
+        AND time < '2024-03-02 00:00:00+01'
+        AND device_id = 5
       GROUP BY device_id;
       ```
       Gives the following result:
       ```sql
-      device_id |      avg_cpu       |     avg_disk_io     
+      device_id |      avg_cpu       |     avg_disk_io
       -----------+--------------------+---------------------
-      5 | 0.4972598866221261 | 0.49820356730280524
+      5 | 0.4954351575883885 | 0.49725603413909114
       (1 row)
-      Time: 177,399 ms
+      Time: 29.216 ms
       ```
 
 1. **Execute a query on the same data segmented and ordered in the $COLUMNSTORE**
 
-   1. Control the way your data is ordered in the $COLUMNSTORE:
-  
+   1. Control the way your data is ordered and segmented in the $COLUMNSTORE:
+
       ```sql
       ALTER TABLE metrics SET (
-        timescaledb.enable_columnstore = true,
         timescaledb.orderby = 'time',
         timescaledb.segmentby = 'device_id'
       );
@@ -105,34 +114,31 @@ CREATE TABLE metrics (
 
    1. Query your data
       ```sql
-       select avg(cpu) from metrics where time >= '2024-03-01 00:00:00+01' and time < '2024-03-02 00:00:00+01';
-       ```
+      SELECT device_id, AVG(cpu) AS avg_cpu, AVG(disk_io) AS avg_disk_io
+      FROM metrics
+      WHERE time >= '2024-03-01 00:00:00+01'
+        AND time < '2024-03-02 00:00:00+01'
+        AND device_id = 5
+      GROUP BY device_id;
+      ```
       Gives the following result:
+   
       ```sql
-      device_id |      avg_cpu      |     avg_disk_io     
-      -----------+-------------------+---------------------
-      5 | 0.497259886622126 | 0.49820356730280535
+      device_id |      avg_cpu       |     avg_disk_io
+      -----------+--------------------+---------------------
+      5 | 0.4954351575883885 | 0.49725603413909114
       (1 row)
-      Time: 42,139 ms
+      Time: 1.828 ms
       ```
 
-   As you see, using `orderby` and `segmentby` not only reduces the amount of space taken by your data, but also 
+   As you see, using `orderby` and `segmentby` not only reduces the amount of space taken by your data, but also
    vastly improves query speed.  
 
 </Procedure>
 
 The number of rows that are compressed together in a single batch (like the ones we see above) is 1000.
-If your chunk does not contain enough data to create big enough batches, your compression ratio will be reduced.
+If your $CHUNK does not contain enough data to create big enough batches, your compression ratio will be reduced.
 This needs to be taken into account when you define your $COLUMNSTORE settings.
 
-[hypercore]: /use-timescale/:currentVersion:/hypercore/
-[blog-perf-tuning]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes
-[hash-overview]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes#:~:text=in%20ascending%20order.-,Hash%20indexes,-CREATE%20INDEX%20index_product_id
-[storage-toast]: https://www.postgresql.org/docs/current/storage-toast.html
-[postgres-index-types]: https://www.timescale.com/learn/postgresql-performance-tuning-optimizing-database-indexes
-[postgres-tam-methods]: https://www.postgresql.org/docs/current/tableam.html
-[convert-to-hypertable]: /use-timescale/:currentVersion:/hypertables/hypertable-crud/#create-a-hypertable
-[iops]: https://en.wikipedia.org/wiki/IOPS
-[segmenting-and-ordering]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/#segmenting-and-ordering-data
 [about-index]: /use-timescale/:currentVersion:/schema-management/about-indexing/
-[create-index]: https://docs.tigerdata.com/api/latest/hypertable/create_index/
+[create-index]: /api/:currentVersion:/hypertable/create_index/

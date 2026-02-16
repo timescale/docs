@@ -1,6 +1,6 @@
 ---
-title: Integrate Tableau and Tiger Cloud
-excerpt: Tableau is a popular analytics platform that helps you gain greater intelligence about your business. Integrate Tableau with Tiger Cloud
+title: Integrate Tableau and Tiger
+excerpt: Tableau is a popular analytics platform that helps you gain greater intelligence about your business. Integrate Tableau with Tiger
 products: [cloud, self_hosted]
 keywords: [visualizations, analytics, Tableau]
 ---
@@ -45,9 +45,8 @@ To connect the data in your $SERVICE_LONG to Tableau:
 
 You have successfully integrated Tableau with $CLOUD_LONG.
 
-[tableau-cloud]: https://www.tableau.com/products/trial
-[tableau-server]: https://www.tableau.com/support/releases/server/2024.2.6#esdalt
-[tableau-login]: http://online.tableau.com/
-[cloud-login]: https://console.cloud.timescale.com/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
+[tableau-cloud]: https://www.tableau.com/products/trial
+[tableau-login]: http://online.tableau.com/
+[tableau-server]: https://www.tableau.com/support/releases/server/2024.2.6#esdalt
 [tableau]: https://www.tableau.com/

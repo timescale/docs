@@ -1,6 +1,6 @@
 ---
 title: About services
-excerpt: Manage your Tiger Cloud services in the Console. Run daily admin operations, control access, set up security, compress data, run analytical queries, and more
+excerpt: Manage your Tiger Cloud services in Console. Run daily admin operations, control access, set up security, compress data, run analytical queries, and more
 products: [cloud]
 keywords: [connect, services]
 tags: [storage, resources, disk space]
@@ -8,40 +8,59 @@ cloud_ui:
     path:
         - [services, :serviceId, overview]
 ---
-import ServiceOverview from "versionContent/_partials/_service-overview.mdx";
 
-# About $SERVICE_LONGs
+# $CONSOLE_LONG overview
 
-<ServiceOverview />
+You use $CONSOLE_LONG to manage your $SERVICE_SHORTs and data in a convenient, centralized manner. When you [log into $CONSOLE][cloud-login], you see `Services` and other $PROJECT_SHORT management tabs: 
 
-When you log into [$CONSOLE][cloud-login], you see the
-$PROJECT_SHORT overview. Click a $SERVICE_SHORT to view run-time data and connection information. 
-Click `Operations` to configure your $SERVICE_SHORT. 
+![Check $SERVICE_LONG is running][check-service-is-running]
 
-![Select a query to edit](https://assets.timescale.com/docs/images/tiger-cloud-console/ops-mode-overview-tiger-cloud.png)
+- `Services`: create a new [$SERVICE_SHORT][create-service] in your $PROJECT_SHORT, and view the existing $SERVICE_SHORTs and their statuses. Each $SERVICE_SHORT is an optimized [$PG][postgres-link] instance extended with database engine innovations such as [$TIMESCALE_DB][timescaledb-link], managed for you by $CLOUD_LONG.
+- `Security`:  create [$VPCs][vpc] and [IP allowlists][ip-allowlist]. 
+- `Exporters`: [export metrics and logs][metrics-logging] from your $SERVICE_SHORTs. 
+- `Activity`: [check your $SERVICE_SHORTs][activity-log] and $PROJECT_SHORT activity. 
+- `Settings`: [create client credentials][find-connection-info], add AI model API keys, and request a SOC 2 report. 
+- `Users`: [add and remove users][members] in your $PROJECT_SHORT. 
+- `Billing`: [check usage][check-usage], [change $PRICING_PLANs][pricing], and manage payment methods. 
+- `Data view`: [write queries with autocomplete][run-queries-data-view] for any $SERVICE_SHORT, save them in folders, share them, and create charts/dashboards with the added power of AI. 
 
-Each $SERVICE_SHORT hosts a single database managed for you by $CLOUD_LONG. 
-If you need more than one database, [create a new $SERVICE_SHORT][create-service].
+When you select a $SERVICE_LONG in the `Services` tab, you see `Overview` and other $SERVICE_SHORT management tabs:
 
-## $SERVICE_SHORT_CAP users
+![Select a service to edit][select-service-to-edit]
 
-By default, when you create a new $SERVICE_SHORT, a new `tsdbadmin` user is created.
-This is the user that you use to connect to your new $SERVICE_SHORT.
-
-<Highlight type="important">
-
-The `tsdbadmin` user is the owner of the database, but is not a superuser. You
-cannot access the `postgres` user. There is no superuser access to $CLOUD_LONG databases.
-
-</Highlight>
-
-In your $SERVICE_SHORT, the `tsdbadmin` user can create another user
-with any other role. For a complete list of roles available, see the
-[$PG role attributes documentation][pg-roles-doc].
-
-You cannot create multiple databases in a single $SERVICE_SHORT. If you need data isolation, use schemas or create additional $SERVICE_SHORTs.
+- `Overview`: get an overview of your $SERVICE_SHORT details, infrastructure, [connection info][connect-service], and [performance optimization tips][recommendations].
+- `Actions`: [connect and import data][import-sync] into your $SERVICE_SHORT.
+- `Explorer`: [inspect objects and storage configuration][service-explorer] for your $SERVICE_SHORT. 
+- `Monitoring`: [get visibility][monitoring] into your $SERVICE_SHORT performance.
+- `Connectors`: [sync or stream][import-sync] directly in your $SERVICE_SHORT, so data from another source is continuously updated.
+- `SQL editor`: [query your $SERVICE_SHORTs][run-queries-sql-editor].
+- `Operations`: fully manage your $SERVICE_SHORT: [configure compute and storage][change-resources], [set up replicas][replication], [back up][backup], [upgrade][upgrade], and more. 
+- `AI`: create vector embeddings and [manage AI extensions][manage-extensions] for your $SERVICE_SHORT. 
 
 [cloud-login]: https://console.cloud.timescale.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
-[create-service]: /getting-started/:currentVersion:/services/#create-a-timescale-cloud-service
-
+[create-service]: /getting-started/:currentVersion:/services
+[metrics-logging]: /use-timescale/:currentVersion:/metrics-logging/
+[members]: /use-timescale/:currentVersion:/security/members/
+[run-queries-data-view]: /getting-started/:currentVersion:/run-queries-from-console/#data-view
+[run-queries-sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#sql-editor
+[service-explorer]: /use-timescale/:currentVersion:/services/service-explorer/
+[import-sync]: /migrate/:currentVersion:/
+[monitoring]: /use-timescale/:currentVersion:/metrics-logging/monitoring/
+[find-connection-info]: /integrations/:currentVersion:/find-connection-details/#create-client-credentials
+[pricing]: /about/:currentVersion:/pricing-and-account-management/#upgrade-or-downgrade-your-pricing-plans-at-any-time
+[check-service-is-running]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png
+[check-usage]: /about/:currentVersion:/pricing-and-account-management/#monitor-usage-and-costs
+[connect-service]: /getting-started/:currentVersion:/services/#connect-to-your-service
+[recommendations]: /use-timescale/:currentVersion:/metrics-logging/monitoring/#recommendations
+[change-resources]: /use-timescale/:currentVersion:/services//change-resources/
+[replication]: /use-timescale/:currentVersion:/ha-replicas/
+[backup]: /use-timescale/:currentVersion:/backup-restore/
+[upgrade]: /use-timescale/:currentVersion:/upgrades/
+[postgres-link]: /api/:currentVersion:/glossary/#postgresql
+[select-service-to-edit]: https://assets.timescale.com/docs/images/tiger-on-azure/ops-mode-overview-tiger-console.png
+[timescaledb-link]: /api/:currentVersion:/glossary/#timescaledb
+[vpc]: /use-timescale/:currentVersion:/security/vpc/
+[ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
+[manage-extensions]: /use-timescale/:currentVersion:/extensions/
+[activity-log]: /about/:currentVersion:/changelog#activity-log

@@ -8,6 +8,7 @@ keywords: [continuous aggregates]
 import CaggsFunctionSupport from "versionContent/_partials/_caggs-function-support.mdx";
 import CaggsIntro from "versionContent/_partials/_caggs-intro.mdx";
 import CaggsTypes from "versionContent/_partials/_caggs-types.mdx";
+import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
 # About continuous aggregates
 
@@ -27,7 +28,7 @@ daily data, create a continuous aggregate on top of your hourly continuous
 aggregate.
 
 For more information, see the documentation about
-[continuous aggregates on continuous aggregates][caggs-on-caggs].
+[continuous aggregates on continuous aggregates][hierarchical-caggs].
 
 ## Continuous aggregates with a `JOIN` clause
 
@@ -75,10 +76,12 @@ CREATE TABLE conditions (
   device_id INTEGER,
   temperature FLOAT8
 ) WITH (
-  tsdb.hypertable,
-  tsdb.partition_column='time'
+  tsdb.hypertable
 );
 ```
+
+<CreateHypertablePolicyNote />
+
 
 See the following `JOIN` examples on continuous aggregates:
 
@@ -260,14 +263,24 @@ materialization threshold forward in time. This ensures that the threshold lags
 behind the point-in-time where data changes are common, and that most INSERTs do
 not require any extra writes.
 
-When data older than the invalidation threshold is changed, the maximum and
-minimum timestamps of the changed rows is logged, and the values are used to
-determine which rows in the aggregation table need to be recalculated. This
-logging does cause some write load, but because the threshold lags behind the
-area of data that is currently changing, the writes are small and rare.
+When data older than the invalidation threshold is changed, each transaction
+logs the minimum and maximum timestamps of the rows it modified.
+The continuous aggregate then identifies which complete time buckets are affected
+based on this per-transaction tracking. The range of buckets that are recalculated
+depends on transaction boundaries:
+
+* If you modify rows in the 10:00 bucket and rows in the 15:00 bucket within a
+  **single transaction**, all buckets from 10:00 to 15:00 (including intermediate
+  buckets 11:00, 12:00, 13:00, and 14:00) are recalculated during refresh.
+* If you modify rows in the 10:00 bucket in one transaction and rows in the 15:00
+  bucket in a **separate transaction**, only the 10:00 and 15:00 buckets are
+  recalculated. The intermediate buckets (11:00, 12:00, 13:00, 14:00) are not affected.
+
+This logging does cause some write load. However, the threshold lags behind the
+area of data that is currently changing, so the writes are small and rare.
 
 [cagg-mat-hypertables]: /use-timescale/:currentVersion:/continuous-aggregates/materialized-hypertables
-[cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
-[caggs-on-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
-[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+[cagg-window-functions]: /use-timescale/:currentVersion:/continuous-aggregates/create-a-continuous-aggregate/#create-continuous-aggregates
 [caggs-joins]: /use-timescale/:currentVersion:/continuous-aggregates/about-continuous-aggregates/#continuous-aggregates-with-a-join-clause
+[hierarchical-caggs]: /use-timescale/:currentVersion:/continuous-aggregates/hierarchical-continuous-aggregates/
+[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
