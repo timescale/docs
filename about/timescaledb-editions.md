@@ -115,7 +115,6 @@ You can access a hosted version of $TDB_COMMUNITY through
 | [last][last]                                                                           | ✅ | ✅ |
 | [histogram][histogram]                                                                 | ✅ | ✅ |
 | [time_bucket][time_bucket]                                                             | ✅ | ✅ |
-| [time_bucket_ng (experimental feature)][time_bucket_ng-experimental-feature]                                | ✅ | ✅ |
 | [time_bucket_gapfill][time_bucket_gapfill]                                  | ❌ | ✅ |
 | [locf][locf]                                             | ❌ | ✅ |
 | [interpolate][interpolate]                               | ❌ | ✅ |
@@ -234,7 +233,6 @@ You can access a hosted version of $TDB_COMMUNITY through
 [tdigest]: /api/:currentVersion:/hyperfunctions/percentile-approximation/tdigest/#tdigest
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [time_bucket_gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling/time_bucket_gapfill/
-[time_bucket_ng-experimental-feature]: /api/:currentVersion:/hyperfunctions/time_bucket_ng/
 [time_weight]: /api/:currentVersion:/hyperfunctions/time-weighted-calculations/time_weight/
 [timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
 [timescaledb_informationchunks]: /api/:currentVersion:/informational-views/chunks/#available-columns
