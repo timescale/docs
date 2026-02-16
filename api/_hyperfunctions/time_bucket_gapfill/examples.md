@@ -75,20 +75,22 @@ to fill gaps at the beginning of the queried time range. Note that the
 
 ```sql
 SELECT time_bucket_gapfill('1 day', time) AS day,
+    device_id,
     locf(
         avg(value),
         (
             SELECT value
-            FROM metrics
-            WHERE time > '2021-12-31 00:00:00+00'::timestamptz
-            ORDER BY time ASC
+            FROM metrics m2
+            WHERE time < '2021-12-31 00:00:00+00'::timestamptz AND
+	          m.device_id=m2.device_id
+            ORDER BY time DESC
             LIMIT 1
         )
     ) as value
-    FROM metrics
+    FROM metrics m
     WHERE time > '2021-12-31 00:00:00+00'::timestamptz
         AND time < '2022-01-10 00:00:00-00'::timestamptz
-    GROUP BY day
+    GROUP BY day, device_id
     ORDER BY day desc;
 ```
 
@@ -148,27 +150,30 @@ arguments to `interpolate` to extrapolate the missing values starting and ending
 
 ```sql
 SELECT time_bucket_gapfill('1 day', time) AS day,
+    device_id,
     interpolate(
         avg(value),
         (
             SELECT (time, value)
-            FROM metrics
-            WHERE time > '2021-12-31 00:00:00+00'::timestamptz
-            ORDER BY time ASC
+            FROM metrics m2
+            WHERE time < '2021-12-31 00:00:00+00'::timestamptz AND
+	          m.device_id=m2.device_id
+            ORDER BY time DESC
             LIMIT 1
         ),
         (
             SELECT (time, value)
-            FROM metrics
-            WHERE time < '2021-12-10 00:00:00-00'::timestamptz
-            ORDER BY time DESC
+            FROM metrics m2
+            WHERE time > '2021-12-10 00:00:00-00'::timestamptz AND
+	          m.device_id=m2.device_id
+            ORDER BY time ASC
             LIMIT 1
         )
     ) as value
-    FROM metrics
+    FROM metrics m
     WHERE time > '2021-12-31 00:00:00+00'::timestamptz
         AND time < '2022-01-10 00:00:00-00'::timestamptz
-    GROUP BY day
+    GROUP BY day, device_id
     ORDER BY day desc;
 ```
 
