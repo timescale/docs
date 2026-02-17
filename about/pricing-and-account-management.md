@@ -136,6 +136,8 @@ When you get $CLOUD_LONG at Azure Marketplace, the following pricing options are
 - **Pay-as-you-go**: your consumption is calculated at the end of the month and included in your Azure invoice. No upfront costs, standard $CLOUD_LONG rates apply.
 - **Annual commit**: your consumption is calculated at the end of the month ensuring predictable pricing and seamless billing through your Azure account. We confirm the contract terms with you before finalizing the commitment.
 
+Looking for a private offer? [Get in touch](mailto:$CONTACT_SALES) with our sales team.
+
 </Tab>
 
 </Tabs>
