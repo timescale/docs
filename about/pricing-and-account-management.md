@@ -87,6 +87,8 @@ When you get $CLOUD_LONG at AWS Marketplace, the following pricing options are a
 
 <PricingPlansIntro />
 
+If you create a $ACCOUNT_LONG from Azure Marketplace, the pricing options are pay-as-you-go and annual commit. See [Azure pricing][azure-pricing] for details.
+
 ## Disaggregated, consumption-based compute and storage
 
 <DisaggregatedComputeStorageAzure />
@@ -127,8 +129,16 @@ region. This is because our cloud provider prices infrastructure differently bas
 
 <ManagePricing />
 
+## Azure Marketplace pricing
+
+When you get $CLOUD_LONG at Azure Marketplace, the following pricing options are available:
+
+- **Pay-as-you-go**: your consumption is calculated at the end of the month and included in your Azure invoice. No upfront costs, standard $CLOUD_LONG rates apply.
+- **Annual commit**: your consumption is calculated at the end of the month ensuring predictable pricing and seamless billing through your Azure account. We confirm the contract terms with you before finalizing the commitment.
+
 </Tab>
 
 </Tabs>
 
 [aws-pricing]: /about/:currentVersion:/pricing-and-account-management/#aws-marketplace-pricing
+[azure-pricing]: /about/:currentVersion:/pricing-and-account-management/#azure-marketplace-pricing
