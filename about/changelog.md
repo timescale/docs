@@ -9,6 +9,18 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Floating SQL Editor
+<Label type="date">February 17, 2026</Label>
+
+We have changed the interface for the SQL Editor to be a floating SQL Editor, as opposed to a dedicated tab, that will follow the user as they navigate around the UI within an individual service.
+
+This change improves the usability of the feature and allows users to easily reference their schema (through Explorer) when writing SQL queries.
+
+## Data View toggle added at the service level
+<Label type="date">February 17, 2026</Label>
+
+We brought back the toggle between Ops and Data Views within the context of a service so that users can easily switch to Data View from inside an individual service. The toggle is available above the top navigation in the UI.
+
 ## pg_textsearch v0.5.0
 <Label type="date">February 13, 2026</Label>
 
