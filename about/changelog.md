@@ -22,13 +22,15 @@ Microsoft customers can quickly sign up for Tiger Cloud through Azure Marketplac
 
 **Floating SQL editor**
 
-We have changed the interface for the SQL Editor to be floating, as opposed to a dedicated tab. Now SQL Editor follows you as you navigate around the UI within an individual service. This change improves the usability and allows you to easily reference your schema (through Explorer) when writing SQL queries.
+We have changed the interface for the SQL editor to be floating, as opposed to a dedicated tab. Now SQL editor follows you as you navigate around the UI within an individual service. This change improves the usability and allows you to easily reference your schema (through Explorer) when writing SQL queries.
+
+![Floating SQL editor](https://assets.timescale.com/docs/images/floating-sql-editor-tiger-cloud.png)
 
 **Data/Ops view toggle added at the service level**
 
 We brought back the toggle between the Ops view and Data view within the context of a service. You can now easily switch to Data view from inside an individual service. The toggle is available above the top navigation in the UI.
 
-![Floating SQL editor and view toggle](https://assets.timescale.com/docs/images/floating-sql-editor-view-toggle.png)
+![View toggle](https://assets.timescale.com/docs/images/tiger-cloud-view-toggle.png)
 
 ## pg_textsearch v0.5.0
 <Label type="date">February 13, 2026</Label>
