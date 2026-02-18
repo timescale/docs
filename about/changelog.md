@@ -9,14 +9,28 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
-## Azure Marketplace automation
+## Azure Marketplace automation and UI updates
 <Label type="date">February 18, 2026</Label>
 
-Microsoft customers can quickly sign up for Tiger Cloud through the Azure Marketplace, enabling streamlined procurement and consolidated billing.  Previously the signup process was manual, requiring help from us at Tiger Data. Now it's completely self-serve! You can find the product on the marketplace [here](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-payg?tab=Overview).
+**Azure Marketplace automation**
+
+Microsoft customers can quickly sign up for Tiger Cloud through Azure Marketplace, enabling streamlined procurement and consolidated billing. Previously the signup process was manual, requiring help from us at Tiger Data. Now it's completely self-serve! You can find the product under the [annual commit](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-annualcommit?tab=Overview) and [pay as you go](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-payg?tab=Overview) pricing options at the marketplace.
 
 ![Azure marketplace Tiger Cloud entry](https://assets.timescale.com/docs/images/azure-marketplace-automation-1.png)
 
 ![Azure marketplace Tiger Cloud integration](https://assets.timescale.com/docs/images/azure-marketplace-automation-3.png)
+
+**Floating SQL editor**
+
+We have changed the interface for the SQL editor to be floating, as opposed to a dedicated tab. Now SQL editor follows you as you navigate around the UI within an individual service. This change improves the usability and allows you to easily reference your schema (through Explorer) when writing SQL queries.
+
+![Floating SQL editor](https://assets.timescale.com/docs/images/floating-sql-editor-tiger-cloud.png)
+
+**Data/Ops view toggle added at the service level**
+
+We brought back the toggle between the Ops view and Data view within the context of a service. You can now easily switch to Data view from inside an individual service. The toggle is available above the top navigation in the UI.
+
+![View toggle](https://assets.timescale.com/docs/images/tiger-cloud-view-toggle.png)
 
 ## pg_textsearch v0.5.0
 <Label type="date">February 13, 2026</Label>
