@@ -16,7 +16,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
        of data, use the [live migration][migrate-live] tooling supplied by $COMPANY. To add data from non-$PG
        data sources, see [Import and ingest data][data-ingest].
 
-    1. In Terminal, navigate to `<local folder>` and update the following string with [your connection details][connection-info] 
+    1. In the terminal, navigate to `<local folder>` and update the following string with [your connection details][connection-info] 
       to connect to your $SERVICE_SHORT.
        
        ```bash
@@ -116,7 +116,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
     You query $HYPERTABLEs in exactly the same way as you would a relational $PG table.
     Use one of the following SQL editors to run a query and see the data you uploaded:
        - **$DATA_MODE**:  write queries, visualize data, and share your results in [$CONSOLE][portal-data-mode] for all your $SERVICE_LONGs.
-       - **SQL editor**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
+       - **$SQL_EDITOR**: write, fix, and organize SQL faster and more accurately in [$CONSOLE][portal-ops-mode] for a $SERVICE_LONG.
        - **psql**: easily run queries on your $SERVICE_LONGs or $SELF_LONG deployment from Terminal.
 
     For example:

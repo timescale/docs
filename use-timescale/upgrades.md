@@ -86,7 +86,7 @@ $TIMESCALE_DB manually:
 1. **Upgrade $TIMESCALE_DB**
 
    Either:
-   - Click `SQL Editor`, then run `ALTEREXTENSION timescaledb UPDATE`. 
+   - Click `SQL Editor` at the bottom, then run `ALTEREXTENSION timescaledb UPDATE`. 
    - Click `⋮`, then `Pause` and `Resume` the service.
 
 </Procedure>

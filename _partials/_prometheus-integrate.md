@@ -57,9 +57,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
       ![Attach a Prometheus exporter to a $SERVICE_LONG][attach-a-prometheus-exporter-to-a-service_long]
 
-   The exporter is now attached to your $SERVICE_SHORT. To unattach it, click the trash icon in the exporter list. 
-
-      ![Unattach a Prometheus exporter from a $SERVICE_LONG][unattach-a-prometheus-exporter-from-a-service_long]
+   The exporter is now attached to your $SERVICE_SHORT. To unattach it, click the trash icon in the exporter list.
 
 1. **Configure the Prometheus scrape target**
 
@@ -214,4 +212,4 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the
 [psql]: /integrations/:currentVersion:/psql/
 [scrape-targets]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[unattach-a-prometheus-exporter-from-a-service_long]: https://assets.timescale.com/docs/images/tiger-on-azure/unattach-prometheus-exporter-tiger-console.png
+
