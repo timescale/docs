@@ -37,16 +37,17 @@ Some of the most in-demand integrations are listed below.
 
 ## Configuration and deployment
 
-|                Name                | Description                                                                    |
-|:----------------------------------:|--------------------------------------------------------------------------------|
+|                                                                        Name                                                                         | Description                                                                    |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------:|--------------------------------------------------------------------------------|
+|                     <img isIcon src='https://assets.timescale.com/docs/icons/atlas-logo.svg' alt='atlas-logo'  />[Atlas][atlas]                     | Manage your database schema as code.    |
 | <img isIcon src='https://assets.timescale.com/docs/icons/azure-functions-logo.png' alt='azure-functions-logo'  />[Azure Functions][azure-functions] | Run event-driven serverless code in the cloud without managing infrastructure. |
-|     <img isIcon src='https://assets.timescale.com/docs/icons/deno-deploy-logo.png' alt='deno-deploy-logo'  />[Deno Deploy][deno-deploy]     | Deploy and run JavaScript and TypeScript applications at the edge.             |
-|          <img isIcon src='https://assets.timescale.com/docs/icons/flyway-logo.png' alt='flyway-logo'  />[Flyway][flyway]          | Manage and automate database migrations using version control.                 |
-|       <img isIcon src='https://assets.timescale.com/docs/icons/liquibase-logo.png' alt='liquibase-logo'  />[Liquibase][liquibase]       | Track, version, and automate database schema changes.                          |
-|          <img isIcon src='https://assets.timescale.com/docs/icons/pulimi-logo.png' alt='pulimi-logo'  />[Pulumi][pulumi]          | Define and manage cloud infrastructure using code in multiple languages.       |
-|          <img isIcon src='https://assets.timescale.com/docs/icons/render-logo.png' alt='render-logo'  />[Render][render]          | Deploy and scale web applications, databases, and services easily.             |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/terraform-logo.png' alt='terraform-logo'  />[Terraform][terraform]          | Safely and predictably provision and manage infrastructure in any cloud.       |
-| <img isIcon src='https://assets.timescale.com/docs/icons/kubernets-logo.png' alt='kubernets-logo'  />[Kubernetes][kubernetes] | Deploy, scale, and manage containerized applications automatically. |
+|         <img isIcon src='https://assets.timescale.com/docs/icons/deno-deploy-logo.png' alt='deno-deploy-logo'  />[Deno Deploy][deno-deploy]         | Deploy and run JavaScript and TypeScript applications at the edge.             |
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/flyway-logo.png' alt='flyway-logo'  />[Flyway][flyway]                   | Manage and automate database migrations using version control.                 |
+|             <img isIcon src='https://assets.timescale.com/docs/icons/liquibase-logo.png' alt='liquibase-logo'  />[Liquibase][liquibase]             | Track, version, and automate database schema changes.                          |
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/pulimi-logo.png' alt='pulimi-logo'  />[Pulumi][pulumi]                   | Define and manage cloud infrastructure using code in multiple languages.       |
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/render-logo.png' alt='render-logo'  />[Render][render]                   | Deploy and scale web applications, databases, and services easily.             |
+|             <img isIcon src='https://assets.timescale.com/docs/icons/terraform-logo.png' alt='terraform-logo'  />[Terraform][terraform]             | Safely and predictably provision and manage infrastructure in any cloud.       |
+|            <img isIcon src='https://assets.timescale.com/docs/icons/kubernets-logo.png' alt='kubernets-logo'  />[Kubernetes][kubernetes]            | Deploy, scale, and manage containerized applications automatically. |
 
 
 ## Data engineering and extract, transform, load
@@ -179,6 +180,7 @@ Some of the most in-demand integrations are listed below.
 [apache-skywalking]: https://skywalking.apache.org/docs/main/next/en/setup/backend/backend-postgresql-monitoring/
 [apache-spark]: https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html
 [appsmith]: https://docs.appsmith.com/connect-data/reference/querying-postgres
+[atlas]: https://atlasgo.io/guides/postgres/automatic-migrations
 [auth-js]: https://authjs.dev/getting-started/adapters/pg?framework=next-js
 [auth0]: https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
 [aws-lambda]: /integrations/:currentVersion:/aws-lambda
