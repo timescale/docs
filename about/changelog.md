@@ -9,15 +9,24 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
-## Floating SQL Editor
-<Label type="date">February 17, 2026</Label>
+## Azure Marketplace automation and UI updates
+<Label type="date">February 18, 2026</Label>
+
+**Azure Marketplace automation**
+
+Microsoft customers can quickly sign up for Tiger Cloud through the Azure Marketplace, enabling streamlined procurement and consolidated billing.  Previously the signup process was manual, requiring help from us at Tiger Data. Now it's completely self-serve! You can find the product on the marketplace [here](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-payg?tab=Overview).
+
+![Azure marketplace Tiger Cloud entry](https://assets.timescale.com/docs/images/azure-marketplace-automation-1.png)
+
+![Azure marketplace Tiger Cloud integration](https://assets.timescale.com/docs/images/azure-marketplace-automation-3.png)
+
+**Floating SQL editor**
 
 We have changed the interface for the SQL Editor to be a floating SQL Editor, as opposed to a dedicated tab, that will follow the user as they navigate around the UI within an individual service.
 
 This change improves the usability of the feature and allows users to easily reference their schema (through Explorer) when writing SQL queries.
 
-## Data View toggle added at the service level
-<Label type="date">February 17, 2026</Label>
+** Data View toggle added at the service level**
 
 We brought back the toggle between Ops and Data Views within the context of a service so that users can easily switch to Data View from inside an individual service. The toggle is available above the top navigation in the UI.
 
