@@ -9,15 +9,14 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
-## Azure marketplace automation
-<Label type="date">February 17, 2026</Label>
+## Azure Marketplace automation
+<Label type="date">February 18, 2026</Label>
 
-Microsoft customers can quickly sign up for TigerData through the Azure Marketplace, enabling streamlined procurement and consolidated billing.  Previously the signup process was manual, requiring help from us at Tiger Data. Now it's completely self-serve!  You can find the product on the marketplace [here](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-payg?tab=Overview)
+Microsoft customers can quickly sign up for Tiger Cloud through the Azure Marketplace, enabling streamlined procurement and consolidated billing.  Previously the signup process was manual, requiring help from us at Tiger Data. Now it's completely self-serve! You can find the product on the marketplace [here](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-payg?tab=Overview).
 
 ![Azure marketplace Tiger Cloud entry](https://assets.timescale.com/docs/images/azure-marketplace-automation-1.png)
-![Azure marketplace Tiger Cloud integration](https://assets.timescale.com/docs/images/azure-marketplace-automation-2.png)
 
-
+![Azure marketplace Tiger Cloud integration](https://assets.timescale.com/docs/images/azure-marketplace-automation-3.png)
 
 ## pg_textsearch v0.5.0
 <Label type="date">February 13, 2026</Label>
