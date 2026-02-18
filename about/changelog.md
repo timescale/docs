@@ -9,12 +9,48 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Azure Marketplace automation and UI updates
+<Label type="date">February 18, 2026</Label>
+
+**Azure Marketplace automation**
+
+Microsoft customers can quickly sign up for Tiger Cloud through Azure Marketplace, enabling streamlined procurement and consolidated billing. Previously the signup process was manual, requiring help from us at Tiger Data. Now it's completely self-serve! You can find the product under the [annual commit](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-annualcommit?tab=Overview) and [pay as you go](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-payg?tab=Overview) pricing options at the marketplace.
+
+![Azure marketplace Tiger Cloud entry](https://assets.timescale.com/docs/images/azure-marketplace-automation-1.png)
+
+![Azure marketplace Tiger Cloud integration](https://assets.timescale.com/docs/images/azure-marketplace-automation-3.png)
+
+**Floating SQL editor**
+
+We have changed the interface for the SQL editor to be floating, as opposed to a dedicated tab. Now SQL editor follows you as you navigate around the UI within an individual service. This change improves the usability and allows you to easily reference your schema (through Explorer) when writing SQL queries.
+
+![Floating SQL editor](https://assets.timescale.com/docs/images/floating-sql-editor-tiger-cloud.png)
+
+**Data/Ops view toggle added at the service level**
+
+We brought back the toggle between the Ops view and Data view within the context of a service. You can now easily switch to Data view from inside an individual service. The toggle is available above the top navigation in the UI.
+
+![View toggle](https://assets.timescale.com/docs/images/tiger-cloud-view-toggle.png)
+
+## pg_textsearch v0.5.0
+<Label type="date">February 13, 2026</Label>
+
+`pg_textsearch` v0.5.0 is now available on Tiger Cloud!
+
+This release includes the following highlights: 
+
+- Parallel index builds: `CREATE INDEX` now uses multiple workers for faster indexing of large tables. $PG automatically allocates workers based on the table size and `max_parallel_maintenance_workers` setting.
+- Improvements for bm25 indexes on hypertables.
+- Stability fixes.
+
+See [Optimize full text search with BM25](https://www.tigerdata.com/docs/use-timescale/latest/extensions/pg-textsearch) for how to use it. 
+
 ## Tiered Storage on Microsoft Azure
 <Label type="date">February 11, 2026</Label>
 
 Tiered Storage is now available for Tiger Cloud services running on Microsoft Azure, bringing cost-effective data management to our Azure customers. This feature enables you to automatically move rarely accessed data to low-cost storage on Azure Blob Storage while maintaining the ability to query it seamlessly with standard SQL. Customers typically see a reduction of 2-5x in storage costs depending on data compression rates.
 
-Azure Tiered Storage works just like the AWS version: enable it in Tiger Console, set tiering policies on your hypertables, and Tiger Cloud handles the rest. With this release, Tiger Cloud Services on Azure offer the same powerful data lifecycle management capabilities as those running on AWS.
+Azure Tiered Storage works just like the AWS version: enable it in Tiger Console, set tiering policies on your hypertables, and Tiger Cloud handles the rest. With this release, Tiger Cloud services on Azure offer the same powerful data lifecycle management capabilities as those running on AWS.
 
 ## Europe (Zurich) is now available
 <Label type="date">February 11, 2026</Label>
