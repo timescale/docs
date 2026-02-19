@@ -1,6 +1,6 @@
 ---
 title: Manage storage and tiering
-excerpt: Configure high-performance and low-cost object storage tiers in Tiger Cloud Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
+excerpt: Configure high-performance and low-cost object storage tiers in Tiger Console. With automated data tiering policies, you get a set it and forget it tool to cut storage costs
 products: [cloud]
 price_plans: [scale, enterprise, performance]
 keywords: [tiered storage]
@@ -45,7 +45,7 @@ This storage type gives you up to 16 TB of storage and is available under [all $
    - Under the [$PERFORMANCE $PRICING_PLAN][pricing-plans], IOPS is set to 3,000 - 5,000 autoscale and cannot be changed.
    - Under the [$SCALE and $ENTERPRISE $PRICING_PLANs][pricing-plans], IOPS is set to 5,000 - 8,000 autoscale and can be upgraded to 16,000 IOPS.
 
-   ![Default standard storage in Tiger][default-standard-storage-in-tiger]
+   ![Default standard storage in Tiger Cloud][default-standard-storage-in-tiger]
 
 1. **Click `Apply`**
 
@@ -66,7 +66,7 @@ To get enhanced storage:
 1. **In [$CONSOLE][services-portal], select your $SERVICE_SHORT, then click `Operations` > `Compute and storage`**
 1. **Select `Enhanced` in the `Storage type` dropdown**
 
-    ![Enhanced storage in Tiger][enhanced-storage-in-tiger]
+    ![Enhanced storage in Tiger Cloud][enhanced-storage-in-tiger]
 
     <Highlight type="note">
 
@@ -78,7 +78,7 @@ To get enhanced storage:
    
     Select between 8,000, 16,000, 24,000, and 32,0000 IOPS. The value that you can apply depends on the number of CPUs in your $SERVICE_SHORT. $CONSOLE notifies you if your selected IOPS requires increasing the number of CPUs. To increase IOPS to 64,000, click `Contact us` and we will be in touch to confirm the details. 
 
-   ![I/O boost in Tiger][io-boost-in-tiger]
+   ![I/O boost in Tiger Cloud][io-boost-in-tiger]
 
 1. **Click `Apply`**
 
