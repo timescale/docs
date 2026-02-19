@@ -49,11 +49,11 @@ You use the $PG_CONNECTOR for data synchronization, rather than migration. This 
 * Enable features such as [hypertables][hypertables-section], [columnstore][compression], and 
    [continuous aggregates][caggs] on your logical replica.  
 
-<EarlyAccessNoRelease />: this source Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the Tiger Community</a>. 
+<EarlyAccessNoRelease />: this source Postgres connector is not yet supported for production use. If you have any questions or feedback, talk to us in <a href="https://app.slack.com/client/T4GT3N2JK/C086NU9EZ88">#livesync in the Tiger Cloud Community</a>. 
 
 <Tabs label="Postgres source connector" persistKey="source-database">
 
-<Tab title="Tiger Cloud Console" label="tiger-cloud">
+<Tab title="Tiger Console" label="tiger-cloud">
 
 <LivesyncConsole />
 

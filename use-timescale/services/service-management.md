@@ -1,6 +1,6 @@
 ---
 title: Service management
-excerpt: Manage your Tiger Cloud service from the Operations dashboard in Tiger Cloud Console. Fork the service, reset your password, pause or delete a service, and more
+excerpt: Manage your Tiger Cloud service from the Operations dashboard in Tiger Console. Fork the service, reset your password, pause or delete a service, and more
 products: [cloud]
 keywords: [services, operations, forks]
 tags: [manage, admin, passwords, pause, stop, terminate]

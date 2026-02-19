@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure Data Studio with Tiger
-excerpt: Azure Data Studio is an open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape. Integrate Azure Data Studio with Tiger
+title: Integrate Azure Data Studio with Tiger Cloud
+excerpt: Azure Data Studio is an open-source, cross-platform hybrid data analytics tool designed to simplify the data landscape. Integrate Azure Data Studio with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---

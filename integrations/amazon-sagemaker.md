@@ -1,5 +1,5 @@
 ---
-title: Integrate Amazon Sagemaker with Tiger
+title: Integrate Amazon Sagemaker with Tiger Cloud
 excerpt: Amazon SageMaker is a fully managed machine learning service. Integrate Amazon SageMaker with Tiger Cloud to store and analyze ML model data
 products: [cloud, self_hosted]
 keywords: [connect, integrate, amazon, aws, sagemaker]

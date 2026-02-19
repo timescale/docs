@@ -58,7 +58,7 @@ provides the security tokens for Slack integration with your $AGENTS_SHORT:
       ```json
       "display_information": {
         "name": "Tiger Agent",
-        "description": "Tiger AI Agent helps you easily access your business information, and tune your Tiger services",
+        "description": "Tiger AI Agent helps you easily access your business information, and tune your Tiger Cloud services",
         "background_color": "#000000"
       },
       "features": {

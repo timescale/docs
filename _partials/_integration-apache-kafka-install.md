@@ -42,7 +42,7 @@
       ```
    1. Send some events. For example, type the following:
       ```bash
-      >Tiger
+      >Tiger Cloud
       >How Cool
       ```
    1. In another Terminal window, navigate to <KAFKA_HOME>, then run `kafka-console-consumer` to consume the events you just sent:
@@ -51,7 +51,7 @@
       ```
       You see
       ```bash
-      Tiger
+      Tiger Cloud
       How Cool
      ```
    

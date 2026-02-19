@@ -8,7 +8,7 @@ keywords: [connect, integrate, aws, lambda]
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
-# Integrate AWS Lambda with Tiger
+# Integrate AWS Lambda with Tiger Cloud
 
 [AWS Lambda][AWS-Lambda] is a serverless computing service provided by Amazon Web Services (AWS) that allows you to run 
 code without provisioning or managing servers, scaling automatically as needed.

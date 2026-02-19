@@ -19,7 +19,7 @@ To query another data source:
 
 <Tabs label="Query another data source" persistKey="source-database">
 
-<Tab title="Tiger" label="tiger-cloud">
+<Tab title="Tiger Cloud" label="tiger-cloud">
 
 You create $PG FDWs with the `postgres_fdw` extension, which is enabled by default in $CLOUD_LONG.
 

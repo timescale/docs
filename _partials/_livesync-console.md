@@ -100,7 +100,7 @@ To sync data from your $PG database to your $SERVICE_LONG using $CONSOLE:
 
 1. **Monitor synchronization**
 
-   ![Tiger connectors overview][tiger-connectors-overview]
+   ![Tiger Cloud connectors overview][tiger-connectors-overview]
 
     1. To view the amount of data replicated, click `Connectors`. The diagram in `Connector data flow` gives you an overview of the connectors you have created, their status, and how much data has been replicated.  
 
