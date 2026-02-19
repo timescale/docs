@@ -1,6 +1,6 @@
 ---
 title: Query the Bitcoin blockchain - set up dataset
-excerpt: Ingest and set up a sample blockchain dataset to practice running analytical queries on it in Tiger
+excerpt: Ingest and set up a sample blockchain dataset to practice running analytical queries on it in Tiger Cloud
 products: [cloud, self_hosted, mst]
 keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]

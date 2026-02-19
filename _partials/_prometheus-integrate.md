@@ -41,7 +41,7 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Select `Metrics` for data type and `Prometheus` for provider.
 
-      ![Create a Prometheus exporter in Tiger][create-a-prometheus-exporter-in-tiger]
+      ![Create a Prometheus exporter in Tiger Cloud][create-a-prometheus-exporter-in-tiger]
 
    1. Choose the region for the exporter. Only $SERVICE_SHORTs in the same project and region can be attached to this exporter.
    

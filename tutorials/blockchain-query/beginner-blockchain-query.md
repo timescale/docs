@@ -1,6 +1,6 @@
 ---
 title: Query the Bitcoin blockchain - query data
-excerpt: Construct queries to get five most recent blockchain transactions and blocks using a sample dataset in Tiger
+excerpt: Construct queries to get five most recent blockchain transactions and blocks using a sample dataset in Tiger Cloud
 products: [cloud, self_hosted, mst]
 keywords: [beginner, crypto, blockchain, Bitcoin, finance, analytics]
 layout_components: [next_prev_large]

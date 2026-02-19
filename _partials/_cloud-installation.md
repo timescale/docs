@@ -14,7 +14,7 @@ You create a standalone account to manage $CLOUD_LONG as a separate unit in your
 
 <Tab title="AWS Marketplace" label="aws">
 
-To have $CLOUD_LONG as a part of your AWS infrastructure, you create a $ACCOUNT_LONG through AWS Marketplace. In this 
+To have $CLOUD_LONG as a part of your AWS infrastructure, you create or link your $ACCOUNT_LONG through AWS Marketplace. In this 
 case, $CLOUD_LONG is a line item in your AWS invoice.
 
 <Procedure>

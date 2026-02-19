@@ -1,6 +1,6 @@
 ---
-title: Integrate DBeaver with Tiger
-excerpt: DBeaver is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. Integrate DBeaver with Tiger
+title: Integrate DBeaver with Tiger Cloud
+excerpt: DBeaver is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. Integrate DBeaver with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---

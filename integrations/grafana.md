@@ -1,6 +1,6 @@
 ---
-title: Integrate Grafana and Tiger
-excerpt: Grafana enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they’re stored. Integrate Grafana with Tiger
+title: Integrate Grafana and Tiger Cloud
+excerpt: Grafana enables you to query, visualize, alert on, and explore your metrics, logs, and traces wherever they're stored. Integrate Grafana with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [Grafana, visualizations, analytics, monitoring]
 ---

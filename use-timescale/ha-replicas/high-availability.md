@@ -1,6 +1,6 @@
 ---
 title: Manage high availability
-excerpt: Tiger Cloud ensures high availability of your service by creating replicas that take over in case of the primary node downtime. Create and set up high availability replicas in Tiger Cloud Console
+excerpt: Tiger Cloud ensures high availability of your service by creating replicas that take over in case of the primary node downtime. Create and set up high availability replicas in Tiger Console
 products: [cloud]
 price_plans: [performance, scale, enterprise]
 keywords: [high availability, replicas]
