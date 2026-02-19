@@ -46,7 +46,7 @@ To connect to $CLOUD_LONG:
 
 // Add only if there is a simple way to illustrate how the two solutions work together. 
 
-Take the following steps to <whatever the tool must do in conjunction with Tiger>:
+Take the following steps to <whatever the tool must do in conjunction with Tiger Cloud>:
 
 <Procedure>
 

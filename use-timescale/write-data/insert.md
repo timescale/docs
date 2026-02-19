@@ -145,7 +145,6 @@ Incorrectly sorted data results in poor compression and query performance.
     - **Cardinality**: high cardinality datasets do not compress well and may degrade query performance
     - **Batch format**: the columnstore is optimized for 1,000 records per batch per segment
     - **WAL efficiency**: compressed batches are written to WAL rather than individual tuples
-    - **Continuous aggregates**: not supported with direct compress
     - **Unique constraints**: tables with unique constraints cannot use direct compress
 
 [convert_to_columnstore]: /api/:currentVersion:/hypercore/convert_to_columnstore/

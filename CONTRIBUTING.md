@@ -113,7 +113,7 @@ See [Formatting examples][formatting] for how to use them.
 
 ## Variables
 
-Tiger Data documentation uses variables for its product names, features, and UI elements in Tiger Cloud Console with the following syntax: `$VARIABLE_NAME`. Variables do not work inside the following: 
+Tiger Data documentation uses variables for its product names, features, and UI elements in Tiger Console with the following syntax: `$VARIABLE_NAME`. Variables do not work inside the following:
 
 - Front matter on each page
 - HTML tables and tabs 
@@ -146,7 +146,7 @@ To make a documentation page more visible and clear for Google:
 - Include main page keywords into the meta tags, page title, first header, and intro. These are usually the names of features described in the page. For example, for a page dedicated to creating hypertables, you can use the keyword **hypertable** in the following way: 
 
    - Title: Create a hypertable in Tiger Cloud
-   - Description: Turn a regular Postgres table into a hypertable in a few steps, using Tiger Cloud Console. 
+   - Description: Turn a regular Postgres table into a hypertable in a few steps, using Tiger Console.
    - First header: Create a hypertable
 
 ## Docs for deprecated products
