@@ -1,6 +1,6 @@
 <Procedure>
 
-3. In the [$SERVICE_SHORT creation page][create-service], click `+ New service`.
+1. In the [$SERVICE_SHORT creation page][create-service], click `+ New service`.
 
    Follow the wizard to configure your $SERVICE_SHORT depending on its type.
 
