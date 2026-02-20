@@ -41,7 +41,7 @@ This section shows you how to attach, monitor, edit, and delete a data exporter.
 <ManageDataExporterAzure />
 
 [application-insights]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
-[azure-connection-string]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/sdk-connection-string
+[azure-connection-string]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/create-workspace-resource?tabs=cli#get-the-connection-string
 [azure-monitor]: https://learn.microsoft.com/en-us/azure/azure-monitor/
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [projects]: /use-timescale/:currentVersion:/security/members/

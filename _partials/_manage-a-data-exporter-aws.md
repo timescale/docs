@@ -34,7 +34,6 @@ Additionally, use the following tags to filter your results.
 |`service-id`||                            |
 |`region`|`us-east-1`| AWS region                 |
 |`role`|`replica` or `primary`| For $SERVICE_SHORT with replicas |
-|`node-id`|| For multi-node services    |
 
 ### Edit a data exporter
 
@@ -60,7 +59,7 @@ To remove a data exporter that you no longer need:
 
     1. In [$CONSOLE][services-portal], choose the $SERVICE_SHORT.
     1. Click `Operations` > `Exporters`.
-    1. Click the trash can icon.
+    1. Click the trash can icon next to the exporter.
     1. Repeat for every $SERVICE_SHORT attached to the exporter you want to remove. 
 
     The data exporter is now unattached from all $SERVICE_SHORTs. However, it still exists in your project.
