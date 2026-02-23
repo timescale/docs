@@ -56,7 +56,7 @@ You create an IP allow list in the $DATA_MODE settings.
 
 <Procedure>
 
-1. **In [$CONSOLE][console], click `Data view`**
+1. **In [$CONSOLE][console], toggle `Data view` at the top right**
 
 1. **Click the cog icon to open `Preferences` > `Settings`** 
 
