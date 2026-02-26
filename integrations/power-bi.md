@@ -1,5 +1,5 @@
 ---
-title: Integrate Power BI with Tiger
+title: Integrate Power BI with Tiger Cloud
 excerpt: Integrate Tiger Cloud with Power BI for advanced data visualization.
 products: [cloud, self_hosted]
 keywords: [Power BI, visualizations, analysis, real-time]
@@ -39,7 +39,7 @@ Use the PostgreSQL ODBC driver to connect Power BI to $CLOUD_LONG.
 
 </Procedure>
 
-## Import the data from your your $SERVICE_LONG into Power BI  
+## Import the data from your $SERVICE_LONG into Power BI  
 
 Establish a connection and import data from your $SERVICE_LONG into Power BI:
 

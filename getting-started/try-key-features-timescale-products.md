@@ -12,7 +12,6 @@ import HypercoreDirectCompress from "versionContent/_partials/_hypercore-direct-
 import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 import CreateHypertablePolicyNote from "versionContent/_partials/_create-hypertable-columnstore-policy-note.mdx";
 
-import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 import SupportPlans from "versionContent/_partials/_support-plans.mdx";
 
 # Try the key features in $COMPANY products
@@ -86,7 +85,7 @@ relational and time-series data from external files.
     
        <Tabs label="Upload data" persistKey="sql-editor">
 
-       <Tab title="Tiger Cloud Console" label="data-mode">
+       <Tab title="Tiger Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.
@@ -107,7 +106,7 @@ relational and time-series data from external files.
         
        <Tab title="psql" label="psql">
 
-       1. In Terminal, navigate to `<local folder>` and connect to your $SERVICE_SHORT.
+       1. In the terminal, navigate to `<local folder>` and connect to your $SERVICE_SHORT.
           ```bash
           psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
           ```
@@ -206,7 +205,7 @@ $CONSOLE. You can also do this using psql.
 
 <Procedure>
 
-1. **In $CONSOLE, click `Data view`** 
+1. **In $CONSOLE, toggle `Data view` at the top right** 
 
 1.  **Connect to your $SERVICE_SHORT**
 
@@ -303,12 +302,10 @@ a $CAGG, run the query part of the $CAGG
 
 <Availability products={['cloud']} price_plans={['enterprise', 'scale']} />
 
-<NotSupportedAzure />
-
 In the previous sections, you used $CAGGs to make fast analytical queries, and
 $HYPERCORE to reduce storage costs on frequently accessed data. To reduce storage costs even more, 
 you create tiering policies to move rarely accessed data to the object store. The object store is 
-low-cost bottomless data storage built on Amazon S3. However, no matter the tier, you can 
+low-cost bottomless data storage built on Amazon S3 or Azure Blob storage. However, no matter the tier, you can 
 [query your data when you need][querying-tiered-data]. $CLOUD_LONG seamlessly accesses the correct storage 
 tier and generates the response.
 
@@ -322,7 +319,7 @@ To set up data tiering:
 
    1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to modify.
    
-   1. In `Explorer`, click `Storage configuration` > `Tiering storage`, then click `Enable tiered storage`.
+   1. In `Explorer`, click `Data tiering` > `Enable tiered storage`.
 
       ![Enable tiered storage][enable-tiered-storage]
 

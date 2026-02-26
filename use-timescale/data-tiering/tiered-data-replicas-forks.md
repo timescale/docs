@@ -7,21 +7,17 @@ keywords: [tiered storage]
 tags: [storage, data management]
 ---
 
-import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
-
 # How tiered data works on replicas and forks
 
-There is one more thing that makes Tiered Storage even more amazing: when you keep data in the low-cost object storage tier,
+There is one more thing that makes tiered storage even more amazing: when you keep data in the low-cost object storage tier,
 you pay for this data only once, regardless of whether you have a [high-availability replica][high-availability]
-or [read replicas][read-replica] running in your $SERVICE_SHORT. We call this the savings multiplication effect of Tiered Storage.
+or [read replicas][read-replica] running in your $SERVICE_SHORT. We call this the savings multiplication effect of tiered storage.
 
 The same applies to [forks][operations-forking], which you can use, for example, for running tests or creating dev environments.
 When creating one (or more) forks, you won't be billed for data shared with the primary in the low-cost storage.
 
 If you decide to tier more data that's not in the primary, you will pay to store it in the low-cost tier,
 but you will still see substantial savings by moving that data from the high-performance tier of the fork to the cheaper object storage tier.
-
-<NotSupportedAzure />
 
 ## How this works behind the scenes
 
@@ -45,7 +41,7 @@ You can have one, multiple or 0 servers referencing the same chunk of data:
 As described above, tiered chunks are only counted once for billing purposes, so dropping or untiering a chunk that is shared with other servers
 from a fork will not affect billing as it was never counted for billing purposes.
 
-Droping or untiering a chunk that was only tiered on that fork works as expected and is covered in more detail in the following section. 
+Dropping or untiering a chunk that was only tiered on that fork works as expected and is covered in more detail in the following section. 
 
 ## What happens when a chunk is modified on a fork
 
@@ -60,7 +56,7 @@ New data tiered are not shared with parent or sibling servers, this is new data 
 If you decide to tier more data that's not in the primary, you will pay to store it in the low-cost tier,
 but you will still see substantial savings by moving that data from the high-performance tier of the fork to the cheaper object storage tier.
 
-Similar to other types of storage tiers, this type of deviation can not happen for replicas as they have to be identical with the primary server, that's why we don't mention replicas when discussing about droping chunks or tiering additional data.
+Similar to other types of storage tiers, this type of deviation can not happen for replicas as they have to be identical with the primary server, that's why we don't mention replicas when discussing dropping chunks or tiering additional data.
 
 ## What happens with backups and PITR
 
@@ -74,4 +70,4 @@ Once 14 days pass after soft deleting the data,that is the number of references 
 
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [operations-forking]: /use-timescale/:currentVersion:/services/service-management/#fork-a-service
-[read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/#read-replicas
+[read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/#what-is-read-replication

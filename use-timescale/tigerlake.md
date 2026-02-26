@@ -3,7 +3,7 @@ title: Integrate data lakes with Tiger Cloud
 excerpt: Unifies the Tiger Cloud operational architecture with data lake architectures. This enables real-time application building alongside efficient data pipeline management within a single system.
 products: [cloud]
 price_plans: [scale, enterprise]
-keywords: [data lake, lakehouse, s3, iceberg]
+keywords: [data lake, lakehouse, s3, iceberg, blob storage]
 ---
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
@@ -12,11 +12,11 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 # Integrate data lakes with $CLOUD_LONG
 
 $LAKE_LONG enables you to build real-time applications alongside efficient data pipeline management within a single 
-system. $LAKE_LONG unifies the $CLOUD_LONG operational architecture with data lake architectures. 
+system. $LAKE_SHORT unifies the $CLOUD_LONG operational architecture with data lake architectures. 
 
-![Tiger Lake architecture][tiger-lake-architecture]
+![$LAKE_LONG architecture][tiger-lake-architecture]
 
-$LAKE_LONG is a native integration enabling synchronization between $HYPERTABLEs and relational tables
+$LAKE_SHORT is a native integration enabling synchronization between $HYPERTABLEs and relational tables
 running in $SERVICE_LONGs to Iceberg tables running in [Amazon S3 Tables][s3-tables] in your AWS account. 
 
 ## Prerequisites
@@ -53,7 +53,7 @@ To connect a $SERVICE_LONG to your data lake:
    1. In `Specify stack details`, enter the following details, then click `Next`:
       * `Stack Name`: a name for this CloudFormation stack
       * `BucketName`: a name for this S3 table bucket
-      * `ProjectID` and `ServiceID`: enter the [connection details][get-project-id] for your $LAKE_LONG $SERVICE_SHORT
+      * `ProjectID` and `ServiceID`: enter the [connection details][get-project-id] for your $LAKE_SHORT $SERVICE_SHORT
    1. In `Configure stack options` check `I acknowledge that AWS CloudFormation might create IAM resources`, then 
       click `Next`.
    1. In `Review and create`, click `Submit`, then wait for the deployment to complete. 
@@ -163,7 +163,7 @@ To connect a $SERVICE_LONG to your data lake:
       `"Principal": { "AWS": "arn:aws:iam::123456789012:root" }` does not mean `root` access. This delegates 
         permissions to the entire AWS account, not just the root user.
 
-   1. Replace `<ProjectID>` and `<ServiceID>` with the the [connection details][get-project-id] for your $LAKE_LONG 
+   1. Replace `<ProjectID>` and `<ServiceID>` with the [connection details][get-project-id] for your $LAKE_SHORT 
          $SERVICE_SHORT, then click `Next`.  
 
    1. In `Permissions policies`. click `Next`.
@@ -228,7 +228,7 @@ destination Iceberg table. This happens at approximately 30.000 events a second.
 can be handled for a certain amount of time and feathered out over time. This depends on duration of the
 ingestion burst, and the amount of extra events to be handled.
 
-Once the snapshot is fully imported, the snapshot and CDC Iceberg table branches are merged. Merging takes from a couple of seconds, to ten minutes for larger tables of 5TB or more. During this time, new events are held on the WAL. Once the merge is completed, events in the WAL are CDC'd to Iceberg. This implies eventual consistency of the Iceberg table after you started the the sync.
+Once the snapshot is fully imported, the snapshot and CDC Iceberg table branches are merged. Merging takes from a couple of seconds, to ten minutes for larger tables of 5TB or more. During this time, new events are held on the WAL. Once the merge is completed, events in the WAL are CDC'd to Iceberg. This implies eventual consistency of the Iceberg table after you started the sync.
 
 To stream data from a $PG relational table, or a $HYPERTABLE in your $SERVICE_LONG to your data lake, run the following 
 statement:
@@ -330,7 +330,7 @@ data lake:
 
 **Specify a different namespace**
 
-   By default, tables are created in the the `timescaledb` namespace. To specify a different namespace when you start the sync, use the  `tigerlake.iceberg_namespace` property. For example:
+   By default, tables are created in the `timescaledb` namespace. To specify a different namespace when you start the sync, use the `tigerlake.iceberg_namespace` property. For example:
    
    ```sql
    ALTER TABLE my_hypertable SET (
@@ -376,4 +376,4 @@ data lake:
 [s3-tables]: https://aws.amazon.com/s3/features/tables/
 [samples]: /use-timescale/:currentVersion:/tigerlake/#sample-code
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
-[tiger-lake-architecture]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-lake-integration-tiger.svg
+[tiger-lake-architecture]: https://assets.timescale.com/docs/images/tiger-cloud-console/iceberg-connector-tiger-cloud.svg

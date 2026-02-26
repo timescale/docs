@@ -1,6 +1,6 @@
 ---
 title: Virtual Private Cloud
-excerpt: Virtual Private Cloud peering ensures that your Tiger Cloud services are only accessible through your secured AWS infrastructure. Set up VPC peering in Tiger Cloud Console
+excerpt: Virtual Private Cloud peering ensures that your Tiger Cloud services are only accessible through your secured AWS infrastructure. Set up VPC peering in Tiger Console
 products: [cloud]
 price_plans: [performance, scale, enterprise]
 keywords: [PrivateLink, AWS, vpc, services, operations, ]

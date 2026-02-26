@@ -8,10 +8,13 @@ provisioning your $SERVICE_SHORTs or later, as your needs grow.
   the same performance. The best way to size your needs is to sign up for a free trial and test
   with a realistic workload.
 
-* **Storage**: pay only for the storage you consume. The high-performance storage offers you up to 64 TB of compressed
-  (typically 80-100 TB uncompressed) data and is metered on your average GB consumption per hour. We can help you compress your data by up to 98% so you pay even less. 
+* **Storage**: pay only for the storage you consume. You have high-performance storage for more frequently accessed data, and
+  [low-cost bottomless blob storage][data-tiering] for older or less frequently accessed data. The high-performance storage offers you up to 64 TB of compressed
+  (typically 80-100 TB uncompressed) data and is metered on your average GB consumption per hour. We can help you compress your data by up to 98% so you pay even less. <TieredStorageBilling />
 
 For easy upgrades, each $SERVICE_SHORT stores the $TIMESCALE_DB binaries. This contributes up to 900 MB to overall storage, which amounts to less than $.80/month in additional storage costs.
 
+
 [change-compute]: /use-timescale/:currentVersion:/services/change-resources/
+[data-tiering]: /use-timescale/:currentVersion:/data-tiering/
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/

@@ -1,6 +1,6 @@
 ---
 title: Create a chatbot using pgvector
-excerpt: pgvector is an open-source extension for Postgres that enables efficient vector similarity search and can be used with Tiger. Learn to use pgvector to create a chatbot
+excerpt: pgvector is an open-source extension for Postgres that enables efficient vector similarity search and can be used with Tiger Cloud. Learn to use pgvector to create a chatbot
 products: [cloud, mst, self_hosted]
 keywords: [services, settings, extensions, pgvector]
 tags: [extensions, pgvector]

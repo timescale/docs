@@ -11,9 +11,9 @@ import PitrIntro from "versionContent/_partials/_pitr-intro.mdx";
 
 # Back up and recover your $SERVICE_SHORTs
 
-<Tabs label="Tiger on AWS and Azure" persistKey="tiger-platform-clouds">
+<Tabs label="Tiger Cloud on AWS and Azure" persistKey="tiger-platform-clouds">
 
-<Tab title="Tiger on AWS" label="aws-cloud">
+<Tab title="Tiger Cloud on AWS" label="aws-cloud">
 
 $CLOUD_LONG provides comprehensive backup and recovery solutions to protect your data, including automatic daily backups, 
 cross-region protection, and point-in-time recovery.
@@ -74,7 +74,7 @@ You can have one cross-region backup per $SERVICE_SHORT. To change the region of
 
 You initiate a point-in-time recovery from a same-region or cross-region backup in $CONSOLE_LONG:
 
-<Tabs label="Point-in-time recovery in Tiger Cloud Console">
+<Tabs label="Point-in-time recovery in Tiger Console">
 
 <Tab title="Same-region backup">
 

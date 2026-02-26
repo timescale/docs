@@ -9,6 +9,56 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Azure Marketplace automation and UI updates
+<Label type="date">February 18, 2026</Label>
+
+**Azure Marketplace automation**
+
+Microsoft customers can quickly sign up for Tiger Cloud through Azure Marketplace, enabling streamlined procurement and consolidated billing. Previously the signup process was manual, requiring help from us at Tiger Data. Now it's completely self-serve! You can find the product under the [annual commit](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-annualcommit?tab=Overview) and [pay as you go](https://marketplace.microsoft.com/en-us/product/timescale1759504210261.tigerdata-payg?tab=Overview) pricing options at the marketplace.
+
+![Azure marketplace Tiger Cloud entry](https://assets.timescale.com/docs/images/azure-marketplace-automation-1.png)
+
+![Azure marketplace Tiger Cloud integration](https://assets.timescale.com/docs/images/azure-marketplace-automation-3.png)
+
+**Floating SQL editor**
+
+We have changed the interface for the SQL editor to be floating, as opposed to a dedicated tab. Now SQL editor follows you as you navigate around the UI within an individual service. This change improves the usability and allows you to easily reference your schema (through Explorer) when writing SQL queries.
+
+![Floating SQL editor](https://assets.timescale.com/docs/images/floating-sql-editor-tiger-cloud.png)
+
+**Data/Ops view toggle added at the service level**
+
+We brought back the toggle between the Ops view and Data view within the context of a service. You can now easily switch to Data view from inside an individual service. The toggle is available above the top navigation in the UI.
+
+![View toggle](https://assets.timescale.com/docs/images/tiger-cloud-view-toggle.png)
+
+## pg_textsearch v0.5.0
+<Label type="date">February 13, 2026</Label>
+
+`pg_textsearch` v0.5.0 is now available on Tiger Cloud!
+
+This release includes the following highlights: 
+
+- Parallel index builds: `CREATE INDEX` now uses multiple workers for faster indexing of large tables. $PG automatically allocates workers based on the table size and `max_parallel_maintenance_workers` setting.
+- Improvements for bm25 indexes on hypertables.
+- Stability fixes.
+
+See [Optimize full text search with BM25](https://www.tigerdata.com/docs/use-timescale/latest/extensions/pg-textsearch) for how to use it. 
+
+## Tiered Storage on Microsoft Azure
+<Label type="date">February 11, 2026</Label>
+
+Tiered Storage is now available for Tiger Cloud services running on Microsoft Azure, bringing cost-effective data management to our Azure customers. This feature enables you to automatically move rarely accessed data to low-cost storage on Azure Blob Storage while maintaining the ability to query it seamlessly with standard SQL. Customers typically see a reduction of 2-5x in storage costs depending on data compression rates.
+
+Azure Tiered Storage works just like the AWS version: enable it in Tiger Console, set tiering policies on your hypertables, and Tiger Cloud handles the rest. With this release, Tiger Cloud services on Azure offer the same powerful data lifecycle management capabilities as those running on AWS.
+
+## Europe (Zurich) is now available
+<Label type="date">February 11, 2026</Label>
+
+Starting today, you can use Tiger Cloud in the AWS Europe (Zurich) Region. This enables applications to have low-latency access to Tiger Cloud services while meeting data residency requirements.
+
+To create your first service, see [Get started with Tiger Data](https://www.tigerdata.com/docs/getting-started/latest). For a complete list of regional availability, see [available regions](https://www.tigerdata.com/docs/about/latest/supported-platforms#available-regions).
+
 ## pg_textsearch improvements (v0.3.0 and v0.4.0)
 <Label type="date">January 16, 2026</Label>
 
@@ -67,7 +117,7 @@ The new extension version is also available for all services on Tiger Cloud.
 <Label type="date">December 12, 2025</Label>
 
 ### Activity log
-Tiger Cloud Console now offers the `Activity` tab that displays the activity log for all your services. This serves as a record of actions that have happened to your services and Tiger Cloud account, such as service resizes and project invitations. The activity log includes the corresponding service (where applicable), the user who performed the action, and a description of the action itself. You can suggest new actions to record on the `Activity` tab.
+Tiger Console now offers the `Activity` tab that displays the activity log for all your services. This serves as a record of actions that have happened to your services and Tiger Cloud account, such as service resizes and project invitations. The activity log includes the corresponding service (where applicable), the user who performed the action, and a description of the action itself. You can suggest new actions to record on the `Activity` tab.
 
 ![Activity log on Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/activity-log.png)
 
@@ -221,7 +271,7 @@ We've added a [new pricing plan](https://www.tigerdata.com/blog/introducing-agen
 
 ### **>_** Tiger CLI 
 
-We have released a new [CLI](https://github.com/timescale/tiger-cli) that lets you control Tiger Cloud from the terminal.  Everything from signing up, to spinning up services, to executing SQL on running services is now possible outside of the Tiger Cloud Console. Check out [our docs](https://www.tigerdata.com/docs/getting-started/latest/get-started-devops-as-code/) for how to download and use this new tool.
+We have released a new [CLI](https://github.com/timescale/tiger-cli) that lets you control Tiger Cloud from the terminal.  Everything from signing up, to spinning up services, to executing SQL on running services is now possible outside of the Tiger Console. Check out [our docs](https://www.tigerdata.com/docs/getting-started/latest/get-started-devops-as-code/) for how to download and use this new tool.
 
 ### 🎓 Tiger MCP for Postgres and TimescaleDB
 
@@ -238,7 +288,7 @@ This new extension enables BM25 on Postgres, which leads to significant improvem
 ## TimescaleDB 2.22.1 – configurable indexing, enhanced partitioning, and faster queries
 <Label type="date">October 10, 2025</Label>
 
-[TimescaleDB 2.22.1](https://github.com/timescale/timescaledb/releases) introduces major performance and flexibility improvements across indexing, compression, and query execution. TimescaleDB 2.22.1 was released on September 30th and is now available to all users of Tiger.
+[TimescaleDB 2.22.1](https://github.com/timescale/timescaledb/releases) introduces major performance and flexibility improvements across indexing, compression, and query execution. TimescaleDB 2.22.1 was released on September 30th and is now available to all users of Tiger Cloud.
 
 ### Highlighted features
 
@@ -295,11 +345,11 @@ For the most demanding workloads, you can now create services with 48 and 64 CPU
 
 ### 📋 Backup report for compliance
 
-Scale and Enterprise customers can now see a list of their backups in Tiger Cloud Console. For customers with SOC 2 or other compliance needs, this serves as auditable proof of backups.
+Scale and Enterprise customers can now see a list of their backups in Tiger Console. For customers with SOC 2 or other compliance needs, this serves as auditable proof of backups.
 
 ![Backup reports in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/backup-history-tiger-cloud.png)
 
-### 🗺️ New router for Tiger Cloud Console
+### 🗺️ New router for Tiger Console
 
 The UI just got snappier and easier to navigate with improved interlinking. For example, click an object in the `Jobs` page to see what hypertable the job is associated with.
 
@@ -363,7 +413,7 @@ partition key and transform the table to a hypertable.
 You can now store backups in a different region than your service, which improves resilience and helps meet enterprise compliance requirements. Cross‑region backups are available on our Enterprise plan for free at launch; usage‑based billing may be introduced later. For full details, please [see the docs](https://www.tigerdata.com/docs/use-timescale/latest/backup-restore/#enable-cross-region-backup).
 
 ### Standard Postgres instructions for onboarding
-We have added basic instructions for INSERT, UPDATE, DELETE commands to the Tiger Cloud console.  It's now shown as an option in the Import Data page.
+We have added basic instructions for INSERT, UPDATE, DELETE commands to the Tiger Console.  It's now shown as an option in the Import Data page.
 
 ### Postgres-only service type
 In Tiger Cloud, you now have an option to choose Postgres-only in the service creation flow. Just click `Looking for plan PostgreSQL?` on the `Service Type` screen.
@@ -412,7 +462,7 @@ For a comprehensive list of changes, refer to the [TimescaleDB v2.21 release not
 
 ### 🔬 Catalog objects available in the Console Explorer
 
-You can now view catalog objects in the Console Explorer. Check out the internal schemas for PostgreSQL and TimescaleDB to better understand the inner workings of your database. To turn on/off visibility, select your service in Tiger Cloud Console, then click `Explorer` and toggle `Show catalog objects`. 
+You can now view catalog objects in the Console Explorer. Check out the internal schemas for PostgreSQL and TimescaleDB to better understand the inner workings of your database. To turn on/off visibility, select your service in Tiger Console, then click `Explorer` and toggle `Show catalog objects`. 
 
 ![Explore catalog objects](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-explorer-catalog-objects.png)
 
@@ -421,7 +471,7 @@ You can now view catalog objects in the Console Explorer. Check out the internal
 
 We have released a beta Iceberg destination connector that enables Scale and Enterprise users to integrate Tiger Cloud services with Amazon S3 tables. This enables you to connect Tiger Cloud to data lakes seamlessly. We are actively developing several improvements that will make the overall data lake integration process even smoother.
 
-To use this feature, select your service in Tiger Cloud Console, then navigate to `Connectors` and select the `Amazon S3 Tables` destination connector. Integrate the connector to your S3 table bucket by providing the ARN roles, then simply select the tables that you want to sync into S3 tables. See the [documentation](https://www.tigerdata.com/docs/use-timescale/latest/tigerlake/) for details. 
+To use this feature, select your service in Tiger Console, then navigate to `Connectors` and select the `Amazon S3 Tables` destination connector. Integrate the connector to your S3 table bucket by providing the ARN roles, then simply select the tables that you want to sync into S3 tables. See the [documentation](https://www.tigerdata.com/docs/use-timescale/latest/tigerlake/) for details. 
 
 ## 🔆Console just got better
 <Label type="date">July 11, 2025</Label>
@@ -784,7 +834,7 @@ Finding logs just got easier! We've added a date, time, and timezone picker, so 
 ## 📒Faster vector search and improved job information
 <Label type="date">April 4, 2025</Label>
 
-### pgvectorscale 0.7.0: faster filtered filtered vector search with filtered indexes
+### pgvectorscale 0.7.0: faster filtered vector search with filtered indexes
 
 This pgvectorscale release adds label-based filtered vector search to the StreamingDiskANN index.
 This enables you to return more precise and efficient results by combining vector 

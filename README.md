@@ -47,6 +47,7 @@ See the [Contributing guide](CONTRIBUTING.md) for style and language guidance.
 
 ## Learn about Tiger Data
 
+
 Tiger Data is Postgres made powerful. To learn more about the company and its products, visit [tigerdata.com][tigerdata-home].
 
 [docs-issues]: https://github.com/timescale/docs/issues

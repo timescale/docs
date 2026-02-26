@@ -14,7 +14,7 @@ products: [cloud, mst, self_hosted]
 
 Generate a UUIDv7 object based on the current time. 
 
-The UUID contains a a UNIX timestamp split into millisecond and sub-millisecond parts, followed by
+The UUID contains a UNIX timestamp split into millisecond and sub-millisecond parts, followed by
 random bits.
 
 

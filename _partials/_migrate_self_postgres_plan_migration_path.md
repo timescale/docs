@@ -7,10 +7,10 @@ and always run the latest update without any hassle.
 Check the following support matrix against the versions of $TIMESCALE_DB and $PG that you are running currently
 and the versions you want to update to, then choose your upgrade path.
 
-For example, to upgrade from $TIMESCALE_DB 2.13 on $PG 13 to the latest $TIMESCALE_DB version you need to:
-1. Upgrade $TIMESCALE_DB to 2.15.0 (last version fully supporting $PG 13)
+For example, to upgrade from $TIMESCALE_DB 2.13.x on $PG 13 to $TIMESCALE_DB 2.25.x:
+1. Upgrade $TIMESCALE_DB to 2.15.x (last version fully supporting $PG 13)
 1. Upgrade $PG to 15, 16, 17, or 18
-1. Upgrade $TIMESCALE_DB to the latest available version (2.24.x or higher)
+1. Upgrade $TIMESCALE_DB to 2.25.x
 
 Older $TIMESCALE_DB versions may not be available in package repositories. If you need a specific intermediate
 version that is no longer packaged, you can [build from source][build-from-source] or upgrade directly
