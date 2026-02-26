@@ -5,24 +5,26 @@ import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prere
 <IntegrationPrereqsCloud />
 
 * Create an [Azure account](https://azure.microsoft.com/en-gb/pricing/purchase-options/azure-account) with an active subscription.
-* Get [permissions](https://learn.microsoft.com/en-us/azure/private-link/rbac-permissions) to create private endpoints and manage network resources.
+* Configure [permissions](https://learn.microsoft.com/en-us/azure/private-link/rbac-permissions) to create private endpoints and manage network resources.
 * Create an [Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/quickstart-create-virtual-network?tabs=portal) with a subnet.
 
 ## Set up Azure Private Link connection
+
+Take the following steps to connect $CLOUD_LONG to Azure with Private Link: 
 
 <Procedure>
 
 1. **Create a Private Link authorization**
 
-   1. In [$CONSOLE_LONG][console-azure-privatelink], select `Security` > `Private Link` > `Setup Private Link`. 
+   1. In [$CONSOLE_LONG][console-azure-privatelink], select `Security` > `Private Endpoints` > `Configure Private Endpoint Connection`. 
 
    1. Enter your [Azure subscription ID](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id#find-your-azure-subscription) and specify a name for the Private Link connection.
    
    1. Under `Alias`, copy the alias for the region in which you need to create the connection.
 
-      While cross-region connection is possible, it is recommended to choose the region closest to your Azure resources, for optimal performance. 
+      Cross-region connection is possible, but it is recommended to choose the region closest to your Azure resources, for optimal performance. 
 
-   1. Click `Authorize`. Your connection appears in the list. 
+   1. Click `Done`. 
 
 1. **Create a private endpoint** 
 
@@ -39,7 +41,7 @@ import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prere
       1. In `Request message`, enter your [$PROJECT_LONG ID][find-connection-details]. 
       1. Click `Next: Virtual Network`.
       1. Select the Virtual Network and subnet for your endpoint, optionally select an application security group, then click `Next: DNS`.
-      1. Optionally configure private DNS integration, then click `Next: tags`. 
+      1. Optionally configure private DNS integration, then click `Next: Tags`. 
       1. Optionally provide tags for your endpoint, then click `Next: Review + create`. 
       1. Review your config and click `Create`. 
  
