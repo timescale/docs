@@ -48,8 +48,6 @@ To add a user to a $PROJECT_SHORT:
 1.  Type the email address of the person that you want to add, select their role, and click `Invite
     user`.
 
-    ![Send a user invitation in $CONSOLE][send-a-user-invitation-in-console]
-
     [$ENTERPRISE $PRICING_PLAN][pricing-plans] and SAML users receive a notification in $CONSOLE_SHORT. Users in the
     other $PRICING_PLANs receive a confirmation email. The new user then [joins the $PROJECT_SHORT][join-a-project].
 
@@ -116,8 +114,6 @@ $PROJECT_SHORT_CAP invitations are valid for 7 days. To resend a $PROJECT_SHORT 
 
 1.  Next to the person you want to invite to your $PROJECT_SHORT, click `Resend invitation`.
 
-    ![Resend a user invitation in $CONSOLE][project-users-in-console]
-
 </Procedure>
 
 ## Change your current $PROJECT_SHORT
@@ -183,9 +179,7 @@ To change the role for another user:
 
 1.  In [$CONSOLE][cloud-login], click `Users`.
 
-1.  Next to the corresponding user, select another role in the dropdown. 
-
-    ![Change user role in $CONSOLE][change-user-role-in-console]
+1.  Next to the corresponding user, select another role in the dropdown.
 
     The user role is changed immediately. 
 
@@ -199,7 +193,6 @@ To remove a user's access to a $PROJECT_SHORT:
 
 1.  In [$CONSOLE][cloud-login], click `Users`.
 1.  Next to the person you want to remove, click `⋮` > `Remove`.
-    ![Remove user in $CONSOLE][transfer-project-ownership-in-console]
 1.  In `Remove user`, click `Remove`.
 
 The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
@@ -209,7 +202,6 @@ The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 [2fa]: /use-timescale/:currentVersion:/security/multi-factor-authentication/
 [change-project-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-project.png
 [change-project]: /use-timescale/:currentVersion:/security/members/#change-your-current-project
-[change-user-role-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-user-role.png
 [cloud-login]: https://console.cloud.timescale.com/
 [contact-support]: https://www.tigerdata.com/contact
 [database-rbac]: /use-timescale/:currentVersion:/security/read-only-role/
@@ -217,7 +209,4 @@ The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [project-users-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-project-roles-overview.png
 [remove-user-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-transfer-project-ownership.png
-[resend-a-user-invitation-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-project-roles-overview.png
 [saml]: /use-timescale/:currentVersion:/security/saml/
-[send-a-user-invitation-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-add-a-new-user.png
-[transfer-project-ownership-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-transfer-project-ownership.png
