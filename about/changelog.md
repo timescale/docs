@@ -9,6 +9,14 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Jobs timeline view 
+<Label type="date">February 25, 2026</Label>
+
+**Jobs Timeline view added to Jobs page**
+
+We have added a timeline view to the Jobs page so customers can easily see the status of all of their recent job runs at a glance. Users can hover over each run for more detail, or click on a specific job to go into the deep dive jobs view. 
+
+
 ## Azure Marketplace automation and UI updates
 <Label type="date">February 18, 2026</Label>
 
