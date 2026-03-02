@@ -155,9 +155,13 @@ $CLOUD_LONG summarizes all [$JOBs][jobs] set up for your $SERVICE_SHORT along wi
 
 <Procedure>
 
-1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`:
+1. To view $JOBs, select your $SERVICE_SHORT in $CONSOLE, then click `Monitoring` > `Jobs`: 
 
    ![Jobs][jobs-image]
+
+   Click `Timeline` at the top right to see the recent job runs with their statuses. Select the timeframe from 1 to 24 hours:
+
+   ![Jobs timeline][jobs-timeline-image]
 
 1. Click a $JOB ID in the list to view its config and run history:
 
@@ -259,5 +263,6 @@ For more examples and detailed explanations, see the [blog post on identifying p
 [service-metrics]: https://assets.timescale.com/docs/images/tiger-on-azure/service-metrics-tiger-console.png
 [update-job-config]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-edit-job.png
 [insights-image]: https://assets.timescale.com/docs/images/tiger-on-azure/insights-overview-tiger-console.png
-[jobs-image]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-jobs.png
+[jobs-image]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-jobs-table.png
+[jobs-timeline-image]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-jobs-timeline-view.png
 [connections-image]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-connections.png
