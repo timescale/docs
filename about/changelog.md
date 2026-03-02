@@ -10,11 +10,13 @@ products: [cloud]
 All the latest features and updates to $CLOUD_LONG.
 
 ## Jobs timeline view 
-<Label type="date">February 25, 2026</Label>
+<Label type="date">March 2, 2026</Label>
 
-**Jobs Timeline view added to Jobs page**
+**Timeline view added to `Jobs` page**
 
-We have added a timeline view to the Jobs page so customers can easily see the status of all of their recent job runs at a glance. Users can hover over each run for more detail, or click on a specific job to go into the deep dive jobs view. 
+We have added a timeline view to the `Jobs` page so you can easily see the status of all of your recent job runs at a glance. Hover over each run for more detail, or click on a specific job to go into the deep dive jobs view. See [Monitor your $SERVICE_LONGs](https://www.tigerdata.com/docs/use-timescale/latest/metrics-logging/monitoring/#jobs).
+
+![Tiger Cloud jobs timeline](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-jobs-timeline-view.png)
 
 
 ## Azure Marketplace automation and UI updates
