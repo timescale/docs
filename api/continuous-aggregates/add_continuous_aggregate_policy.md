@@ -86,4 +86,4 @@ Because each `batch` is an individual transaction, executing a policy in batches
 [concurrent-refresh-policies]: /use-timescale/:currentVersion:/continuous-aggregates/refresh-policies/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [real-time-aggregation]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates/
-[utc-bucketing]: https://www.tigerdata.com/docs/use-timescale/:currentVersion:/time-buckets/about-time-buckets/
+[utc-bucketing]: /use-timescale/:currentVersion:/time-buckets/about-time-buckets/#timezones
