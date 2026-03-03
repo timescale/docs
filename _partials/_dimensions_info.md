@@ -8,7 +8,7 @@ to an existing hypertable.
 #### Samples
 
 Hypertables must always have a primary range dimension, followed by an arbitrary number of additional
-dimensions that can be either range or hash, Typically this is just one hash. For example:
+dimensions that can be either range or hash. Typically, this is just one hash. For example:
 
 ```sql
 SELECT add_dimension('conditions', by_range('time'));
