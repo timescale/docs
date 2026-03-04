@@ -9,6 +9,18 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## CLI and MCP walkthrough in Tiger Console 
+<Label type="date">March 4, 2026</Label>
+
+We have added a new panel in Tiger Console that walks you through setting up:
+
+- the Tiger Cloud command line interface (CLI) for easily controlling your project from your terminal
+- the Tiger Data MCP server for adding functionality to your AI building tools
+
+There are walkthroughs for MacOS, Linux, and Windows. Find the actions in the project view under the `CLI/MCP` tab.
+
+![Tiger Cloud CLI/MCP walkthrough](https://assets.timescale.com/docs/images/cli-mcp-walkthrough-tiger-console.png)
+
 ## Jobs timeline view 
 <Label type="date">March 2, 2026</Label>
 
