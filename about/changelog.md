@@ -21,7 +21,7 @@ There are walkthroughs for MacOS, Linux, and Windows. Find the actions in the pr
 
 ![Tiger Cloud CLI/MCP walkthrough](https://assets.timescale.com/docs/images/cli-mcp-walkthrough-tiger-console.png)
 
-## Jobs timeline view 
+## Jobs timeline view & TimescaleDB 2.25
 <Label type="date">March 2, 2026</Label>
 
 **Timeline view added to `Jobs` page**
@@ -30,6 +30,40 @@ We have added a timeline view to the `Jobs` page so you can easily see the statu
 
 ![Tiger Cloud jobs timeline](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-jobs-timeline-view.png)
 
+## TimescaleDB v2.25
+
+TimescaleDB 2.25 continues improving how Postgres scales for time-series workloads, with major wins in query performance on compressed data, smoother continuous aggregate refresh behavior, and practical operational improvements as datasets and chunk counts grow. TimescaleDB 2.25 was released on **January 29, 2026** and is now available to all users on Tiger Cloud.
+
+### Highlighted Features in TimescaleDB 2.25
+
+#### Faster queries on compressed data
+A new `ColumnarIndexScan` execution path uses columnar metadata to accelerate common aggregates and FIRST/LAST queries on compressed chunks. The feature is currently disabled by default due to a known issue with partial aggregations, but can be enabled by setting the GUC `enable_columnarindexscan` to `true`. It will be enabled by default in 2.26.
+- **MIN/MAX/FIRST/LAST on compressed data** can take fast paths and avoid scanning full chunks (reported up to **289× faster** in the example).
+- **COUNT(*) with time filters** can often skip reading the time column entirely (reported up to **50× faster** in the example), reducing CPU and memory pressure.
+
+#### Continuous Aggregates
+This release reduces contention and refresh overhead for continuous aggregates—especially when using the columnstore.
+- **Direct compress on continuous aggregate refresh (GUC, off by default)** writes refresh results directly to the columnstore, bypassing the rowstore step that can cause policy contention and temporary storage overhead. This also reduces WAL activity, and will be enabled by default in an upcoming release.
+- **Direct batch delete** restores a key columnstore optimization for DELETEs on compressed hypertables: when conditions allow, it can delete whole batches without decompressing and deleting row-by-row. Previously, this path was disabled for tables with continuous aggregates because it didn’t emit the invalidation details needed to trigger the right refresh ranges. In 2.25, that support is added, so hypertables using the columnstore and CAggs can benefit from faster, lower-I/O deletes.
+- **Smaller, steadier refresh transactions by default**: CAgg refreshes can be broken into smaller “batches,” where each batch refreshes a portion of the overall time range. This keeps materialization results (and transactions) smaller, reducing stress on the service and improving predictability under heavy refresh/backfill patterns. The default `buckets_per_batch` is now **10** (previously **1**, effectively no batching).
+- **Safer defaults for continuous aggregates using the columnstore:** We’ve seen cases where columnstore-backed CAggs can time out during refresh due to suboptimal defaults. This release removes the automatic assignment of `segmentby` for columnstore CAggs (effectively using no `segmentby`) and sets the `orderby` column to the bucketing timestamp to improve refresh behavior.
+
+#### Quality of life / operability
+- **Estimate original size for columnstore chunks** to support workflows that depend on pre-compression sizing (e.g., tiering/billing and Console reporting), especially as direct compress becomes more common and raw-size stats may not exist. This also improves accuracy versus older “frozen” compression stats that didn’t reflect subsequent DML (like deletes).
+
+  Example:
+  `SELECT _timescaledb_functions.estimate_uncompressed_size('<schema>.<chunk_name>');`
+
+- **Option to auto-add newly created chunks to a publication** (GUC, off by default) to simplify logical replication workflows.
+- **Configurable `work_mem` for background worker jobs** when jobs need more memory to avoid spooling to disk. You can set it per job via the job `config` JSON.
+
+  Example:
+  `SELECT add_job('my_proc', '1 hour', config => '{"work_mem": "256MB"}'::jsonb);`
+
+  Update an existing job:
+  `SELECT alter_job(id, config := jsonb_set(config,'{work_mem}','"256MB"')) FROM _timescaledb_catalog.bgw_job WHERE id = <job_id>;`
+
+For complete details, refer to the [TimescaleDB 2.25 release notes](https://github.com/timescale/timescaledb/releases/tag/2.25.0).
 
 ## Azure Marketplace automation and UI updates
 <Label type="date">February 18, 2026</Label>
@@ -53,6 +87,9 @@ We have changed the interface for the SQL editor to be floating, as opposed to a
 We brought back the toggle between the Ops view and Data view within the context of a service. You can now easily switch to Data view from inside an individual service. The toggle is available above the top navigation in the UI.
 
 ![View toggle](https://assets.timescale.com/docs/images/tiger-cloud-view-toggle.png)
+
+
+
 
 ## pg_textsearch v0.5.0
 <Label type="date">February 13, 2026</Label>
