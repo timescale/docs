@@ -20,6 +20,7 @@ You use $CONSOLE_LONG to manage your $SERVICE_SHORTs and data in a convenient, c
 - `Exporters`: [export metrics and logs][metrics-logging] from your $SERVICE_SHORTs. 
 - `Activity`: [check your $SERVICE_SHORTs][activity-log] and $PROJECT_SHORT activity. 
 - `Settings`: [create client credentials][find-connection-info], add AI model API keys, and request a SOC 2 report. 
+- `CLI/MCP`: install $CLI_LONG and set up $MCP_LONG.
 - `Users`: [add and remove users][members] in your $PROJECT_SHORT. 
 - `Billing`: [check usage][check-usage], [change $PRICING_PLANs][pricing], and manage payment methods.
 
