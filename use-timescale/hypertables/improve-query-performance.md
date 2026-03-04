@@ -17,6 +17,7 @@ the query on it, instead of going through the entire table. This page shows you 
 performance even more.
 
 * [Optimize hypertable chunk intervals][change-chunk-intervals]: choose the optimum chunk size for your data  
+* [Automated chunk tuning][automated-chunk-tuning]: choose the optimum chunk size for your data  
 * [Enable chunk skipping][chunk-skipping]: skip chunks on non-partitioning columns in hypertables when you query your data
 * [Analyze your hypertables][analyze-hypertables]: use $PG `ANALYZE` to create the best query plan
 
@@ -92,6 +93,53 @@ Adjusting your hypertable chunk interval can improve performance in your databas
 If you use expensive index types, such as some PostGIS geospatial indexes, take
 care to check the total size of the chunk and its index using
 [`chunks_detailed_size`][chunks_detailed_size].
+
+## [Automated chunk tuning](#automated-chunk-tuning)
+
+Getting chunk intervals right is difficult, especially as your workload evolves over time. Automated chunk tuning manages chunk intervals for you by continuously evaluating your hypertable and adjusting the interval when it detects the current setting is no longer optimal.
+
+Automated chunk tuning is **off by default** and is configured at the individual hypertable level. You can enable it from the **Explorer** in the Tiger Data console. Even when disabled, the console shows the recommended chunk interval for every hypertable so you can evaluate whether a change is warranted before opting in.
+
+> :information_source: Note
+>
+> Updated chunk intervals apply to **new chunks only**. Existing historical chunks are not affected when you change or tune the interval.
+
+### [How automated tuning works](#how-automated-chunk-tuning-works)
+
+When you enable automated chunk tuning on a hypertable, the interval is evaluated and updated within 5 minutes if a change is needed. The tuner moves incrementally rather than jumping directly to the target interval:
+
+- **Increasing the interval:** if the target is more than twice the current interval, the tuner moves at most one step at a time (doubling).
+- **Decreasing the interval:** if the target is less than half the current interval, the tuner moves at most halfway toward the target per evaluation.
+- **Within 2× range:** the tuner moves directly to the recommended interval.
+
+If a compression policy is configured on the hypertable, automated chunk tuning respects it. The tuner will not increase the chunk interval beyond the compression lookback period. For example, if your compression policy compresses data after 1 day, the maximum chunk interval the tuner will set is `1 day`.
+
+You can track all interval changes made by the tuner in the **Activity Log**.
+
+### [Enable automated chunk tuning](#enable-automated-chunk-tuning)
+
+1. In the Tiger Data console, open the **Explorer** and select your hypertable.
+2. Under chunk interval settings, toggle on **Automated chunk tuning**.
+3. If your service is a `#prod` service, you will see a **Request beta access** button which you can click. Our team will manually review your hypertable and the recommended intervals before enabling.
+
+The recommended chunk interval is visible regardless of whether automated tuning is enabled, so you can preview the suggested value before turning it on.
+
+### [Limitations](#automated-chunk-tuning-limitations)
+
+Automated chunk tuning is not supported for:
+
+- Hypertables not owned by `tsdbadmin`
+- Hypertables that do not use a time-based partition column
+
+### [Disable automated chunk tuning](#disable-automated-chunk-tuning)
+
+You can turn off automated chunk tuning at any time from the Explorer. After disabling it, set your preferred interval using the console or by calling [`set_chunk_time_interval`](/docs/api/latest/hypertable/set_chunk_time_interval) directly:
+
+```sql
+SELECT set_chunk_time_interval('conditions', INTERVAL '24 hours');
+```
+
+The next new chunk will use the interval you specify.
 
 ## Enable chunk skipping
 
