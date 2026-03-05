@@ -9,6 +9,24 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Automated chunk tuning (beta)
+<Label type="date">March 5, 2026</Label>
+
+Tiger Cloud now offers automated chunk tuning in beta, taking the guesswork out of setting and maintaining chunk intervals for your hypertables. When enabled, the tuner monitors your workload and adjusts chunk intervals automatically—no manual intervention required.
+
+**What's new:**
+
+- **Per-hypertable opt-in:** Disabled by default, automated chunk tuning can be enabled for individual hypertables in the Explorer.
+- **Recommendations for all users:** Even without enabling automated tuning, you can view the recommended chunk interval for any hypertable in the Explorer.
+- **Gradual, safe adjustments:** The tuner moves chunk intervals incrementally to avoid disruptive jumps, and will never increase an interval beyond your configured compression lookback.
+- **Activity log integration:** Chunk interval changes are recorded in the Activity log for a full audit trail.
+- **No instance overhead:** All calculations run outside your service via Schemata.
+
+If you experience any negative impact, you can opt out at any time and manually reset the interval via the UI or SQL.
+
+[Learn more about automated chunk tuning.](https://www.tigerdata.com/docs/use-timescale/latest/hypertables/improve-query-performance#enable-chunk-skipping)
+
+
 ## TimescaleDB v2.25 now on Tiger Cloud
 <Label type="date">March 5, 2026</Label>
 
