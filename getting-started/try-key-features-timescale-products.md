@@ -85,7 +85,7 @@ relational and time-series data from external files.
     
        <Tabs label="Upload data" persistKey="sql-editor">
 
-       <Tab title="Tiger Cloud Console" label="data-mode">
+       <Tab title="Tiger Console" label="data-mode">
        
           The $CONSOLE data upload creates $HYPERTABLEs and relational tables from the data you are uploading:
           1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to add data to, then click `Actions` > `Import data` > `Upload .CSV`.
@@ -106,7 +106,7 @@ relational and time-series data from external files.
         
        <Tab title="psql" label="psql">
 
-       1. In Terminal, navigate to `<local folder>` and connect to your $SERVICE_SHORT.
+       1. In the terminal, navigate to `<local folder>` and connect to your $SERVICE_SHORT.
           ```bash
           psql -d "postgres://<username>:<password>@<host>:<port>/<database-name>"
           ```
@@ -205,7 +205,7 @@ $CONSOLE. You can also do this using psql.
 
 <Procedure>
 
-1. **In $CONSOLE, click `Data view`** 
+1. **In $CONSOLE, toggle `Data view` at the top right** 
 
 1.  **Connect to your $SERVICE_SHORT**
 

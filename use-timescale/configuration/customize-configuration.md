@@ -30,7 +30,7 @@ restart is modifying the compute resources of a running $SERVICE_SHORT.
 
 To modify configuration parameters, first select the $SERVICE_SHORT that you want to
 modify. This displays the $SERVICE_SHORT details, with these tabs across the top:
-`Overview`, `Actions`, `Explorer`, `Monitoring`, `Connections`, `SQL Editor`, `Operations`, and `AI`. Select `Operations`, then `Database parameters`.
+`Overview`, `Actions`, `Explorer`, `Monitoring`, `Connections`, `Operations`, and `AI`. Select `Operations`, then `Database parameters`.
 
 ![Database configuration parameters][database-configuration-parameters]
 

@@ -1,6 +1,6 @@
 ---
 title: Query time-series data tutorial - set up compression
-excerpt: Compress the dataset so you can store the NYC taxi trip data more efficiently with Tiger
+excerpt: Compress the dataset so you can store the NYC taxi trip data more efficiently with Tiger Cloud
 products: [cloud, mst, self_hosted]
 keywords: [tutorials, query]
 tags: [tutorials, beginner]

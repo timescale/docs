@@ -1,6 +1,6 @@
 ---
 title: Create a Postgres service
-excerpt: Create a Postgres service in Tiger
+excerpt: Create a Postgres service in Tiger Cloud
 products: [cloud]
 keywords: [services, Postgres, create, install]
 ---
@@ -48,7 +48,7 @@ time-series services:
 <img
     class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-view-pgservice.png"
-    alt="A running Postgres service with a running Tiger Cloud service in Tiger Cloud Console"
+    alt="A running Postgres service with a running Tiger Cloud service in Tiger Console"
 />
 
 [cloud-login]: https://console.cloud.timescale.com/

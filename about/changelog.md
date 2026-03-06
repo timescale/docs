@@ -9,6 +9,92 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Automated chunk tuning (beta)
+<Label type="date">March 6, 2026</Label>
+
+Tiger Cloud now offers automated chunk tuning in beta, taking the guesswork out of setting and maintaining chunk intervals for your hypertables. When enabled, the tuner monitors your workload and adjusts chunk intervals automatically, no manual intervention required.
+
+**What's new:**
+
+- **Per-hypertable opt-in:** disabled by default, automated chunk tuning can be enabled for individual hypertables in the Explorer.
+- **Recommendations for all users:** even without enabling automated tuning, you can view the recommended chunk interval for any hypertable in the Explorer.
+- **Gradual, safe adjustments:** the tuner moves chunk intervals incrementally to avoid disruptive jumps, and will never increase an interval beyond your configured compression lookback.
+- **Activity log integration:** chunk interval changes are recorded in the Activity log for a full audit trail.
+- **No instance overhead:** all calculations run outside your service via Schemata.
+
+![Chunk auto-tuning in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/automated-chunk-tuning.png)
+
+If you experience any negative impact, you can opt out at any time and manually reset the interval via the UI or SQL.
+
+[Learn more](https://www.tigerdata.com/docs/use-timescale/latest/hypertables/improve-query-performance#optimize-hypertable-chunk-intervals) about automated chunk tuning.
+
+
+## TimescaleDB v2.25 now on Tiger Cloud
+<Label type="date">March 5, 2026</Label>
+
+TimescaleDB v2.25 continues improving how Postgres scales for time-series workloads, with major wins in query performance on compressed data, smoother continuous aggregate refresh behavior, and practical operational improvements as datasets and chunk counts grow. TimescaleDB 2.25 was released on January 29, 2026, and is now available to all users on Tiger Cloud.
+
+### Highlighted features in TimescaleDB v2.25
+
+**Faster queries on compressed data**
+
+A new `ColumnarIndexScan` execution path uses columnar metadata to accelerate common aggregates and `FIRST`/`LAST` queries on compressed chunks. The feature is currently disabled by default due to a known issue with partial aggregations, but can be enabled by setting the GUC `enable_columnarindexscan` to `true`. It will be enabled by default in 2.26.
+- **`MIN`/`MAX`/`FIRST`/`LAST` on compressed data** can take fast paths and avoid scanning full chunks (reported up to **289× faster** in the example).
+- **`COUNT(*)` with time filters** can often skip reading the time column entirely (reported up to **50× faster** in the example), reducing CPU and memory pressure.
+
+**Continuous aggregates**
+
+This release reduces contention and refresh overhead for continuous aggregates, especially when using the columnstore.
+- **Direct compress on continuous aggregate refresh (GUC, off by default)** writes refresh results directly to the columnstore, bypassing the rowstore step that can cause policy contention and temporary storage overhead. This also reduces WAL activity, and will be enabled by default in an upcoming release.
+- **Direct batch delete** restores a key columnstore optimization for `DELETE`s on compressed hypertables: when conditions allow, it can delete whole batches without decompressing and deleting row-by-row. Previously, this path was disabled for tables with continuous aggregates because it didn’t emit the invalidation details needed to trigger the right refresh ranges. In 2.25, that support is added, so hypertables using the columnstore and continuous aggregates can benefit from faster, lower-I/O deletes.
+- **Smaller, steadier refresh transactions by default**: continuous aggregate refreshes can be broken into smaller “batches,” where each batch refreshes a portion of the overall time range. This keeps materialization results (and transactions) smaller, reducing stress on the service and improving predictability under heavy refresh/backfill patterns. The default `buckets_per_batch` is now **10** (previously **1**, effectively no batching).
+- **Safer defaults for continuous aggregates using the columnstore:** we’ve seen cases where columnstore-backed CAggs can time out during refresh due to suboptimal defaults. This release removes the automatic assignment of `segmentby` for columnstore CAggs (effectively using no `segmentby`) and sets the `orderby` column to the bucketing timestamp to improve refresh behavior.
+
+**Quality of life/operability**
+
+- **Estimate original size for columnstore chunks** to support workflows that depend on pre-compression sizing (for example, tiering/billing and Console reporting), especially as direct compress becomes more common and raw-size stats may not exist. This also improves accuracy versus older “frozen” compression stats that didn’t reflect subsequent DML (like deletes).
+
+   Example:
+   ```sql
+   SELECT _timescaledb_functions.estimate_uncompressed_size('<schema>.<chunk_name>');
+   ```
+
+- **Option to auto-add newly created chunks to a publication** (GUC, off by default) to simplify logical replication workflows.
+- **Configurable `work_mem` for background worker jobs** when jobs need more memory to avoid spooling to disk. You can set it per job via the job `config` JSON.
+
+   Example:
+   ```sql
+   SELECT add_job('my_proc', '1 hour', config => '{"work_mem": "256MB"}'::jsonb);
+   ```
+
+   Update an existing job:
+   ```sql
+   SELECT alter_job(id, config := jsonb_set(config,'{work_mem}','"256MB"')) FROM _timescaledb_catalog.bgw_job WHERE id = <job_id>;
+   ```
+
+For complete details, refer to the [TimescaleDB 2.25 release notes](https://github.com/timescale/timescaledb/releases/tag/2.25.0).
+
+## CLI and MCP walkthrough in Tiger Console 
+<Label type="date">March 4, 2026</Label>
+
+We have added a new panel in Tiger Console that walks you through setting up:
+
+- the Tiger Cloud command line interface (CLI) for easily controlling your project from your terminal
+- the Tiger Data MCP server for adding functionality to your AI building tools
+
+There are walkthroughs for MacOS, Linux, and Windows. Find the actions in the project view under the `CLI/MCP` tab.
+
+![Tiger Cloud CLI/MCP walkthrough](https://assets.timescale.com/docs/images/cli-mcp-walkthrough-tiger-console.png)
+
+## Jobs timeline view 
+<Label type="date">March 2, 2026</Label>
+
+**Timeline view added to `Jobs` page**
+
+We have added a timeline view to the `Jobs` page so you can easily see the status of all of your recent job runs at a glance. Hover over each run for more detail, or click on a specific job to go into the deep dive jobs view. See [Monitor your $SERVICE_LONGs](https://www.tigerdata.com/docs/use-timescale/latest/metrics-logging/monitoring/#jobs).
+
+![Tiger Cloud jobs timeline](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-jobs-timeline-view.png)
+
 ## Azure Marketplace automation and UI updates
 <Label type="date">February 18, 2026</Label>
 
@@ -31,6 +117,9 @@ We have changed the interface for the SQL editor to be floating, as opposed to a
 We brought back the toggle between the Ops view and Data view within the context of a service. You can now easily switch to Data view from inside an individual service. The toggle is available above the top navigation in the UI.
 
 ![View toggle](https://assets.timescale.com/docs/images/tiger-cloud-view-toggle.png)
+
+
+
 
 ## pg_textsearch v0.5.0
 <Label type="date">February 13, 2026</Label>
@@ -117,7 +206,7 @@ The new extension version is also available for all services on Tiger Cloud.
 <Label type="date">December 12, 2025</Label>
 
 ### Activity log
-Tiger Cloud Console now offers the `Activity` tab that displays the activity log for all your services. This serves as a record of actions that have happened to your services and Tiger Cloud account, such as service resizes and project invitations. The activity log includes the corresponding service (where applicable), the user who performed the action, and a description of the action itself. You can suggest new actions to record on the `Activity` tab.
+Tiger Console now offers the `Activity` tab that displays the activity log for all your services. This serves as a record of actions that have happened to your services and Tiger Cloud account, such as service resizes and project invitations. The activity log includes the corresponding service (where applicable), the user who performed the action, and a description of the action itself. You can suggest new actions to record on the `Activity` tab.
 
 ![Activity log on Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/activity-log.png)
 
@@ -271,7 +360,7 @@ We've added a [new pricing plan](https://www.tigerdata.com/blog/introducing-agen
 
 ### **>_** Tiger CLI 
 
-We have released a new [CLI](https://github.com/timescale/tiger-cli) that lets you control Tiger Cloud from the terminal.  Everything from signing up, to spinning up services, to executing SQL on running services is now possible outside of the Tiger Cloud Console. Check out [our docs](https://www.tigerdata.com/docs/getting-started/latest/get-started-devops-as-code/) for how to download and use this new tool.
+We have released a new [CLI](https://github.com/timescale/tiger-cli) that lets you control Tiger Cloud from the terminal.  Everything from signing up, to spinning up services, to executing SQL on running services is now possible outside of the Tiger Console. Check out [our docs](https://www.tigerdata.com/docs/getting-started/latest/get-started-devops-as-code/) for how to download and use this new tool.
 
 ### 🎓 Tiger MCP for Postgres and TimescaleDB
 
@@ -288,7 +377,7 @@ This new extension enables BM25 on Postgres, which leads to significant improvem
 ## TimescaleDB 2.22.1 – configurable indexing, enhanced partitioning, and faster queries
 <Label type="date">October 10, 2025</Label>
 
-[TimescaleDB 2.22.1](https://github.com/timescale/timescaledb/releases) introduces major performance and flexibility improvements across indexing, compression, and query execution. TimescaleDB 2.22.1 was released on September 30th and is now available to all users of Tiger.
+[TimescaleDB 2.22.1](https://github.com/timescale/timescaledb/releases) introduces major performance and flexibility improvements across indexing, compression, and query execution. TimescaleDB 2.22.1 was released on September 30th and is now available to all users of Tiger Cloud.
 
 ### Highlighted features
 
@@ -345,11 +434,11 @@ For the most demanding workloads, you can now create services with 48 and 64 CPU
 
 ### 📋 Backup report for compliance
 
-Scale and Enterprise customers can now see a list of their backups in Tiger Cloud Console. For customers with SOC 2 or other compliance needs, this serves as auditable proof of backups.
+Scale and Enterprise customers can now see a list of their backups in Tiger Console. For customers with SOC 2 or other compliance needs, this serves as auditable proof of backups.
 
 ![Backup reports in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/backup-history-tiger-cloud.png)
 
-### 🗺️ New router for Tiger Cloud Console
+### 🗺️ New router for Tiger Console
 
 The UI just got snappier and easier to navigate with improved interlinking. For example, click an object in the `Jobs` page to see what hypertable the job is associated with.
 
@@ -413,7 +502,7 @@ partition key and transform the table to a hypertable.
 You can now store backups in a different region than your service, which improves resilience and helps meet enterprise compliance requirements. Cross‑region backups are available on our Enterprise plan for free at launch; usage‑based billing may be introduced later. For full details, please [see the docs](https://www.tigerdata.com/docs/use-timescale/latest/backup-restore/#enable-cross-region-backup).
 
 ### Standard Postgres instructions for onboarding
-We have added basic instructions for INSERT, UPDATE, DELETE commands to the Tiger Cloud console.  It's now shown as an option in the Import Data page.
+We have added basic instructions for INSERT, UPDATE, DELETE commands to the Tiger Console.  It's now shown as an option in the Import Data page.
 
 ### Postgres-only service type
 In Tiger Cloud, you now have an option to choose Postgres-only in the service creation flow. Just click `Looking for plan PostgreSQL?` on the `Service Type` screen.
@@ -462,7 +551,7 @@ For a comprehensive list of changes, refer to the [TimescaleDB v2.21 release not
 
 ### 🔬 Catalog objects available in the Console Explorer
 
-You can now view catalog objects in the Console Explorer. Check out the internal schemas for PostgreSQL and TimescaleDB to better understand the inner workings of your database. To turn on/off visibility, select your service in Tiger Cloud Console, then click `Explorer` and toggle `Show catalog objects`. 
+You can now view catalog objects in the Console Explorer. Check out the internal schemas for PostgreSQL and TimescaleDB to better understand the inner workings of your database. To turn on/off visibility, select your service in Tiger Console, then click `Explorer` and toggle `Show catalog objects`. 
 
 ![Explore catalog objects](https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-explorer-catalog-objects.png)
 
@@ -471,7 +560,7 @@ You can now view catalog objects in the Console Explorer. Check out the internal
 
 We have released a beta Iceberg destination connector that enables Scale and Enterprise users to integrate Tiger Cloud services with Amazon S3 tables. This enables you to connect Tiger Cloud to data lakes seamlessly. We are actively developing several improvements that will make the overall data lake integration process even smoother.
 
-To use this feature, select your service in Tiger Cloud Console, then navigate to `Connectors` and select the `Amazon S3 Tables` destination connector. Integrate the connector to your S3 table bucket by providing the ARN roles, then simply select the tables that you want to sync into S3 tables. See the [documentation](https://www.tigerdata.com/docs/use-timescale/latest/tigerlake/) for details. 
+To use this feature, select your service in Tiger Console, then navigate to `Connectors` and select the `Amazon S3 Tables` destination connector. Integrate the connector to your S3 table bucket by providing the ARN roles, then simply select the tables that you want to sync into S3 tables. See the [documentation](https://www.tigerdata.com/docs/use-timescale/latest/tigerlake/) for details. 
 
 ## 🔆Console just got better
 <Label type="date">July 11, 2025</Label>

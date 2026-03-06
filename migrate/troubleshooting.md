@@ -112,7 +112,7 @@ for live migration to work smoothly.
 
 ## Can I use $CLOUD_LONG instance as source for live migration?
 
-No, $CLOUD_LONG cannot be used as a source database for live migration.
+Yes, but logical replication must be enabled first. [Contact us](mailto:support@tigerdata.com) to enable. 
 
 
 ## How can I exclude a schema/table from being replicated in live migration?

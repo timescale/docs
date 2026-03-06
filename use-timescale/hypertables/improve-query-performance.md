@@ -16,13 +16,17 @@ and only contains data from that range. When you run a query, $TIMESCALE_DB iden
 the query on it, instead of going through the entire table. This page shows you how to tune hypertables to increase 
 performance even more.
 
-* [Optimize hypertable chunk intervals][change-chunk-intervals]: choose the optimum chunk size for your data  
+* [Optimize hypertable chunk intervals][change-chunk-intervals]: choose the optimum chunk size for your data - manually or automatically 
 * [Enable chunk skipping][chunk-skipping]: skip chunks on non-partitioning columns in hypertables when you query your data
 * [Analyze your hypertables][analyze-hypertables]: use $PG `ANALYZE` to create the best query plan
 
 ## Optimize hypertable chunk intervals
 
-Adjusting your hypertable chunk interval can improve performance in your database.
+Tuning your hypertable chunk interval can improve performance in your database, especially as your workload evolves over time. With $TIMESCALE_DB, you can do this manually or automatically.
+
+### Manual tuning
+
+To manually adjust the chunk size in your database, take the following steps:
 
 <Procedure>
 
@@ -30,7 +34,7 @@ Adjusting your hypertable chunk interval can improve performance in your databas
 
    <ChunkInterval />
 
-   In the following example you create a table called `conditions` that stores time values in the
+   In the following example you create a hypertable called `conditions` that stores time values in the
    `time` column and has chunks that store data for a `chunk_interval` of one day:
 
    ```sql
@@ -46,7 +50,7 @@ Adjusting your hypertable chunk interval can improve performance in your databas
    );
    ```
 
-1. **Check current setting for chunk intervals**
+1. **Check the current setting for chunk intervals**
 
    Query the $TIMESCALE_DB catalog for a $HYPERTABLE. For example:
 
@@ -92,6 +96,64 @@ Adjusting your hypertable chunk interval can improve performance in your databas
 If you use expensive index types, such as some PostGIS geospatial indexes, take
 care to check the total size of the chunk and its index using
 [`chunks_detailed_size`][chunks_detailed_size].
+
+### Automated tuning
+
+Automated chunk tuning manages chunk intervals for you. $CLOUD_LONG continuously evaluates your hypertable and adjusts the interval when it detects the current setting is no longer optimal. Updated chunk intervals apply to **new chunks only**; existing historical chunks are not affected.
+
+<Highlight type="note">
+
+Automated chunk tuning is currently in beta.
+
+</Highlight>
+
+When you enable automated chunk tuning on a hypertable, the interval is evaluated and updated within 5 minutes if necessary. The interval is changed incrementally rather than jumping directly to the target interval:
+
+- **Large increase**: if the recommended interval is more than double the current one, the interval is only doubled each evaluation cycle rather than jumping directly to the target. For example, if the current interval is 1 day and the recommended interval is 8 days, the interval increases to 2 days first, then 4 days, then 8 days over successive evaluations.
+- **Large decrease**: if the recommended interval is less than half the current one, the interval is only halved each evaluation cycle rather than jumping directly to the target. For example, if the current interval is 8 days and the recommended interval is 1 day, the interval decreases to 4 days first, then 2 days, then 1 day over successive evaluations.
+- **Small change**: if the recommended interval is within 2x of the current one, bigger or smaller, the new interval is applied directly. For example, if the current interval is 4 days and the recommended interval is 6 days, the interval changes to 6 days immediately.
+
+If a columnstore policy is configured on the hypertable, automated chunk tuning respects it. The chunk interval is never increased beyond the `after` value. For example, if your compression policy compresses data older than 1 day, the maximum chunk interval is `1 day`.
+
+You can track all interval changes in the `Activity` tab.
+
+Automated tuning is **off by default** and is configured at the individual hypertable level. Even when disabled, $CONSOLE_LONG shows the recommended chunk interval for every hypertable so you can evaluate whether a change is warranted before opting in.
+
+#### Manage chunk tuning
+
+To enable automated chunk tuning:
+
+<Procedure>
+
+1. In $CONSOLE_LONG, select your $SERVICE_SHORT
+1. Click `Explorer` and select your hypertable
+
+   ![Chunk auto-tuning in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/automated-chunk-tuning.png)
+   
+1. Toggle on `Automated chunk tuning`
+1. For a `#prod`-tagged $SERVICE_SHORT, click `Request beta access`. Our team will manually review your hypertable and the recommended intervals before enabling
+
+</Procedure>
+
+The recommended chunk interval is visible regardless of whether automated tuning is enabled, so you can preview the suggested value before turning it on.
+
+To disable automated chunk tuning:
+
+<Procedure>
+
+1. In $CONSOLE_LONG, select your $SERVICE_SHORT
+1. Click `Explorer` and select your hypertable
+1. Toggle of `Automated chunk tuning`
+1. Optionally set your preferred interval by clicking `Change` under the interval size. The next new chunk will use the interval you specify.
+
+</Procedure>
+
+#### Limitations
+
+Automated chunk tuning is not supported for:
+
+- Hypertables not owned by `tsdbadmin`.
+- Hypertables that do not use a time-based partition column.
 
 ## Enable chunk skipping
 

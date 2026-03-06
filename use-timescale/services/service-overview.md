@@ -20,11 +20,11 @@ You use $CONSOLE_LONG to manage your $SERVICE_SHORTs and data in a convenient, c
 - `Exporters`: [export metrics and logs][metrics-logging] from your $SERVICE_SHORTs. 
 - `Activity`: [check your $SERVICE_SHORTs][activity-log] and $PROJECT_SHORT activity. 
 - `Settings`: [create client credentials][find-connection-info], add AI model API keys, and request a SOC 2 report. 
+- `CLI/MCP`: install $CLI_LONG and set up $MCP_LONG.
 - `Users`: [add and remove users][members] in your $PROJECT_SHORT. 
-- `Billing`: [check usage][check-usage], [change $PRICING_PLANs][pricing], and manage payment methods. 
-- `Data view`: [write queries with autocomplete][run-queries-data-view] for any $SERVICE_SHORT, save them in folders, share them, and create charts/dashboards with the added power of AI. 
+- `Billing`: [check usage][check-usage], [change $PRICING_PLANs][pricing], and manage payment methods.
 
-When you select a $SERVICE_LONG in the `Services` tab, you see `Overview` and other $SERVICE_SHORT management tabs:
+When you select a $SERVICE_LONG in the `Services` tab, you land in the $OPS_MODE. In this view, you manage your $SERVICE_SHORTs. You see `Overview` and other related tabs:
 
 ![Select a service to edit][select-service-to-edit]
 
@@ -33,9 +33,12 @@ When you select a $SERVICE_LONG in the `Services` tab, you see `Overview` and ot
 - `Explorer`: [inspect objects and storage configuration][service-explorer] for your $SERVICE_SHORT. 
 - `Monitoring`: [get visibility][monitoring] into your $SERVICE_SHORT performance.
 - `Connectors`: [sync or stream][import-sync] directly in your $SERVICE_SHORT, so data from another source is continuously updated.
-- `SQL editor`: [query your $SERVICE_SHORTs][run-queries-sql-editor].
 - `Operations`: fully manage your $SERVICE_SHORT: [configure compute and storage][change-resources], [set up replicas][replication], [back up][backup], [upgrade][upgrade], and more. 
 - `AI`: create vector embeddings and [manage AI extensions][manage-extensions] for your $SERVICE_SHORT. 
+
+Use the toggle at the top to switch to $DATA_MODE. In this view, you can [write queries with autocomplete][run-queries-data-view] for any $SERVICE_SHORT, save them in folders, share them, and create charts/dashboards with the added power of AI.
+
+To query your $SERVICE_SHORT from any tab, click `SQL Editor` at the bottom. The floating window expands and is ready for work. Click the window icon in its top right to change the editor position on the screen. 
 
 [cloud-login]: https://console.cloud.timescale.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html

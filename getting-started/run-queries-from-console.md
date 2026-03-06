@@ -1,5 +1,5 @@
 ---
-title: Run your queries from Tiger Cloud Console
+title: Run your queries from Tiger Console
 excerpt: Choose the right tool to manage your data. Tiger Cloud on AWS and Tiger Cloud on Azure offer Data view, SQL editor, and SQL Assistant to better address your needs
 products: [cloud]
 content_group: Getting started
@@ -33,7 +33,7 @@ You use $DATA_MODE in $CONSOLE to write queries, visualize data, and share your 
 
 <NotAvailableFreePlan />
 
-To start using $DATA_MODE, open $CONSOLE and click `Data view`. This includes the following tabs:
+To start using $DATA_MODE, open $CONSOLE and toggle `Data view`. This includes the following tabs:
 
 - **Files**: browse all your personal and shared queries, dashboards, notebooks, and folders. 
 - **Schemas**: view the schemas in your $SERVICE_SHORT.
@@ -65,7 +65,7 @@ To connect to a $SERVICE_SHORT in $DATA_MODE:
 
 1. **Connect to your $SERVICE_SHORT**
 
-   Click [`Data view`][portal-data-mode] in $CONSOLE, then select a $SERVICE_SHORT in the connection drop-down:
+   Toggle [`Data view`][portal-data-mode] in $CONSOLE, then select a $SERVICE_SHORT in the connection drop-down:
 
    ![Select a connection][select-a-connection]
 
@@ -76,8 +76,8 @@ To connect to a $SERVICE_SHORT in $DATA_MODE:
    ![Run a simple query][run-a-simple-query]
 
 Quick recap. You:
-- Manage your $SERVICE_SHORTs in [$CONSOLE][services-portal]
-- Manage your data in [$DATA_MODE in $CONSOLE][portal-data-mode]
+- Manage your $SERVICE_SHORTs in [$OPS_MODE][services-portal]
+- Manage your data in [$DATA_MODE][portal-data-mode]
 - Store configuration and security information in your config file.
 
 </Procedure>
@@ -229,7 +229,7 @@ To use $SQL_EDITOR:
 
 1.  **Open $SQL_EDITOR from $CONSOLE**
 
-    In $CONSOLE, select a $SERVICE_SHORT, then click `SQL editor`.
+    In $CONSOLE, select a $SERVICE_SHORT, then click `SQL Editor` at the bottom.
 
     ![Check $SERVICE_SHORT is running][check-service_short-is-running]
 
