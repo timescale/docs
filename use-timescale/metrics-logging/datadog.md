@@ -9,8 +9,7 @@ tags: [telemetry, monitor]
 
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter-aws.mdx";
-import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 
 # Export telemetry data to Datadog
 
@@ -22,8 +21,6 @@ This page shows you how to create a Datadog exporter in $CONSOLE, and manage the
 
 <PrereqsCloud />
 
-<NotSupportedAzure />
-
 ## Create a data exporter
 
 $CLOUD_LONG data exporters send telemetry data from a $SERVICE_LONG to third-party monitoring
@@ -33,7 +30,7 @@ tools. You create an exporter on the [$PROJECT_SHORT level][projects], in the sa
 
 ## Manage a data exporter
 
-This section shows you how to attach, monitor, edit, and delete a data exporter.
+This section shows you how to attach, edit, and delete a data exporter.
 
 <ManageDataExporter />
 

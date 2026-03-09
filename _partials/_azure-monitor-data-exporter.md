@@ -13,10 +13,14 @@
 
 1.  **Add your connection string**
 
+    [Learn where to find][connection-string] your connection string. 
+
 1.  **Click `Create exporter`**
 
 Your exporter is created and added to the list of already existing exporters. 
+
 </Procedure>
 
 [add-azure-monitor-exporter]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-integrations-azure-monitor.png
 [console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[connection-string]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/create-workspace-resource?tabs=portal#get-the-connection-string

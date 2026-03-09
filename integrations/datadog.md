@@ -8,7 +8,7 @@ keywords: [integrate]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
-import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter-aws.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
 
 # Integrate Datadog with $CLOUD_LONG
@@ -53,7 +53,7 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 
 ### Manage a data exporter
 
-This section shows you how to attach, monitor, edit, and delete a data exporter.
+This section shows you how to attach, edit, and delete a data exporter.
 
 <ManageDataExporter />
 

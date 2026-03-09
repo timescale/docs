@@ -9,7 +9,7 @@ tags: [telemetry, monitor]
 
 import AzureMonitorExporter from "versionContent/_partials/_azure-monitor-data-exporter.mdx";
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
-import ManageDataExporterAzure from "versionContent/_partials/_manage-a-data-exporter-azure.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 import NotSupportedAws from "versionContent/_partials/_not-supported-for-aws.mdx";
 
 # Export telemetry data to Azure Monitor
@@ -36,9 +36,9 @@ $CLOUD_LONG data exporters send telemetry data from a $SERVICE_LONG to third-par
 
 ## Manage a data exporter
 
-This section shows you how to attach, monitor, edit, and delete a data exporter.
+This section shows you how to attach, edit, and delete a data exporter.
 
-<ManageDataExporterAzure />
+<ManageDataExporter />
 
 [application-insights]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
 [azure-connection-string]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/create-workspace-resource?tabs=cli#get-the-connection-string

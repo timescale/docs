@@ -7,7 +7,7 @@ keywords: [integration, metrics, Cloudwatch, alerting]
 tags: [telemetry, monitor]
 ---
 
-import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter-aws.mdx";
+import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
@@ -34,7 +34,7 @@ tools. You create an exporter on the [$PROJECT_SHORT level][projects], in the sa
 
 ## Manage a data exporter
 
-This section shows you how to attach, monitor, edit, and delete a data exporter.
+This section shows you how to attach, edit, and delete a data exporter.
 
 <ManageDataExporter />
 
