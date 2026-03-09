@@ -10,6 +10,7 @@ tags: [telemetry, monitor]
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import ExporterRegion from "versionContent/_partials/_iam-oidc-exporter-region.mdx";
 
 # Export telemetry data to Datadog
 
@@ -33,6 +34,10 @@ tools. You create an exporter on the [$PROJECT_SHORT level][projects], in the sa
 This section shows you how to attach, edit, and delete a data exporter.
 
 <ManageDataExporter />
+
+## Reference
+
+<ExporterRegion />
 
 [datadog]: https://www.datadoghq.com
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

@@ -11,6 +11,7 @@ import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
 import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+import ExporterRegion from "versionContent/_partials/_iam-oidc-exporter-region.mdx";
 
 # Export telemetry data to AWS Cloudwatch
 
@@ -37,6 +38,10 @@ tools. You create an exporter on the [$PROJECT_SHORT level][projects], in the sa
 This section shows you how to attach, edit, and delete a data exporter.
 
 <ManageDataExporter />
+
+## Reference
+
+<ExporterRegion />
 
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

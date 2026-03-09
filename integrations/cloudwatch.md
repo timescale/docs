@@ -10,6 +10,7 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import CloudWatchExporter from "versionContent/_partials/_cloudwatch-data-exporter.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
+import ExporterRegion from "versionContent/_partials/_iam-oidc-exporter-region.mdx";
 
 # Integrate Amazon CloudWatch with $CLOUD_LONG
 
@@ -39,6 +40,10 @@ tool. You create an exporter on the [project level][projects], in the same AWS r
 This section shows you how to attach, edit, and delete a data exporter.
 
 <ManageDataExporter />
+
+## Reference
+
+<ExporterRegion />
 
 [cloudwatch-signup]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GettingSetup.html
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
