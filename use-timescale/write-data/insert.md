@@ -126,19 +126,17 @@ Incorrectly sorted data results in poor compression and query performance.
 
 - **Enable direct compress on `INSERT`** 
 
-   Set the following [GUC parameters][gucs]:
+   Set the following [GUC parameters][guc]:
    ```sql
    SET timescaledb.enable_direct_compress_insert = true;
-   SET timescaledb.enable_direct_compress_insert_client_sorted = true;
    ```
 
 - **Enable direct compress on `COPY`**
 
-    Set the following [GUC parameter][gucs]:
+    Set the following [GUC parameter][guc]:
     
     ```sql
     SET timescaledb.enable_direct_compress_copy = true;
-    SET timescaledb.enable_direct_compress_copy_client_sorted = true;
     ```
 
     - **Optimal batch size**: best results with batches of 1,000 to 10,000 records
