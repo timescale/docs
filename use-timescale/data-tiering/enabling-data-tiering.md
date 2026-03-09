@@ -40,12 +40,21 @@ This storage type gives you up to 16 TB of storage and is available under [all $
 
    By default, the type of high-performance storage is set to `Standard`.
 
-1. **Select the IOPS value in the `I/O boost` dropdown**
+ 1. **Select the IOPS value in the `I/O boost` dropdown**
 
-   - Under the [$PERFORMANCE $PRICING_PLAN][pricing-plans], IOPS is set to 3,000 - 5,000 autoscale and cannot be changed.
-   - Under the [$SCALE and $ENTERPRISE $PRICING_PLANs][pricing-plans], IOPS is set to 5,000 - 8,000 autoscale and can be upgraded to 16,000 IOPS.
+    - Under the [$PERFORMANCE $PRICING_PLAN][pricing-plans], IOPS is set to 3,000 - 5,000 autoscale and cannot be changed.
+    - Under the [$SCALE and $ENTERPRISE $PRICING_PLANs][pricing-plans], IOPS is set to 5,000 - 8,000 autoscale and can be upgraded to 16,000 IOPS.
 
-   ![Default standard storage in Tiger Cloud][default-standard-storage-in-tiger]
+    ![Default standard storage in Tiger Cloud][default-standard-storage-in-tiger]
+
+    The autoscaled IOPS value depends on your provisioned storage and pricing plan:
+
+    | Storage size | Performance plan IOPS | Scale/Enterprise plan IOPS |
+    |---|-----------------------|----------------------------|                                                                                                                                                         
+    | Under 500 GB | Up to 3,000           | Up to 5,000                |                                                                                                                                    
+    | 500 GB – 1,000 GB | Up to 4,000                 | Up to 6,000                      |
+    | 1,000 GB – 1,500 GB | Up to 5,000                 | Up to 7,000                      |                                                                                                                           
+    | Above 1,500 GB | Up to 5,000                 | Up to 8,000                      |
 
 1. **Click `Apply`**
 
