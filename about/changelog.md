@@ -9,6 +9,12 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Additional exportable metrics
+<Label type="date">March 9, 2026</Label>
+
+You can now export  database, replication, IO, and other metrics to Amazon CloudWatch, Datadog, and Prometheus. For instructions and complete list of exportable metrics, see [Metrics and Logging] (https://www.tigerdata.com/docs/use-timescale/latest/metrics-logging).
+
+
 ## Automated chunk tuning (beta)
 <Label type="date">March 6, 2026</Label>
 
