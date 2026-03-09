@@ -10,7 +10,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
 1. **Connect to your $SERVICE_SHORT**
 
-   Connect using $DATA_MODE or SQL editor in $CONSOLE, or psql in the command line:
+   Connect using $DATA_MODE or $SQL_EDITOR in $CONSOLE, or psql in the command line:
 
    <Tabs label="Connect to your Tiger Cloud service" persistKey="sql-editor">
 
@@ -20,7 +20,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
    <Procedure>
 
-   1. In $CONSOLE, click `Data view`. 
+   1. In $CONSOLE, toggle `Data view`. 
 
    1. In the connection drop-down in the top right, select your $SERVICE_SHORT.
 
@@ -46,7 +46,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 
    1. In $CONSOLE, select your $SERVICE_SHORT.
    
-   1. Click `SQL editor`. 
+   1. Click `SQL Editor` at the bottom.
 
       ![Check a $SERVICE_SHORT is running][check-a-service_short-is-running]
 
@@ -95,7 +95,7 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
 </Procedure>
 
 Quick recap. You:
-- Manage your $SERVICE_SHORTs in $CONSOLE: add $READ_REPLICAs and enable 
+- Manage your $SERVICE_SHORTs in the $OPS_MODE in $CONSOLE: add $READ_REPLICAs and enable 
   high availability, compress data into the $COLUMNSTORE, change parameters, and so on.
 - Analyze your data in the [$DATA_MODE][portal-data-mode] in $CONSOLE: write queries with
   autocomplete, save them in folders, share them, create charts/dashboards, and much more.

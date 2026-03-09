@@ -67,21 +67,13 @@ $SERVICE_LONG. This section shows you how to inject the logs for your Fivetran c
 
 ## View Fivetran data in your $SERVICE_LONG 
 
-To see data injected by Fivetran into your $SERVICE_LONG:
+To see data injected by Fivetran into your $SERVICE_LONG, toggle `Data view` in $CONSOLE, select your $SERVICE_SHORT, then run the following query:
 
-<Procedure>
-
-1. In $CONSOLE, click `Data view`, select your $SERVICE_SHORT, then run the following query:
    ```sql
    SELECT *
    FROM fivetran_log.account
    LIMIT 10;
    ```
-   You see something like the following:
-
-   ![Fivetran data in a service][fivetran-data-in-a-service-1]
-
-</Procedure>
 
 You have successfully integrated Fivetran with $CLOUD_LONG.
 

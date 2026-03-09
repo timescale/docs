@@ -9,9 +9,9 @@ To manage development forks:
 1. **Fork the $SERVICE_SHORT**
 
    ```shell
-    tiger service fork tgrservice --now --no-wait --name bob   
+    tiger service fork tgrservice --now --no-wait --name bob
    ```
-   By default a fork matches the resource of the parent $SERVICE_LONGs. For paid plans specify `--cpu` and/or `--memory` for dedicated resources.
+   You must specify exactly one timing option: `--now` (fork at current state), `--last-snapshot` (fork at last snapshot, faster), or `--to-timestamp` (fork at specific point in time). By default a fork matches the resources of the parent $SERVICE_LONG. For paid plans, specify `--cpu` and/or `--memory` for dedicated resources.
 
    You see something like:
 

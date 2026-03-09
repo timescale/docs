@@ -17,7 +17,7 @@ import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter
 
 You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to CloudWatch. The available metrics include CPU usage, RAM usage, and storage. This integration is available for [Scale and Enterprise][pricing-plan-features] pricing tiers.
 
-This pages explains how to export telemetry data from your $SERVICE_LONG into CloudWatch by creating a $CLOUD_LONG data exporter, then attaching it to the $SERVICE_SHORT.
+This page explains how to export telemetry data from your $SERVICE_LONG into CloudWatch by creating a $CLOUD_LONG data exporter, then attaching it to the $SERVICE_SHORT.
 
 ## Prerequisites
 

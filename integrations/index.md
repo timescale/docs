@@ -37,34 +37,35 @@ Some of the most in-demand integrations are listed below.
 
 ## Configuration and deployment
 
-|                Name                | Description                                                                    |
-|:----------------------------------:|--------------------------------------------------------------------------------|
+|                                                                        Name                                                                         | Description                                                                    |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------:|--------------------------------------------------------------------------------|
+|                     <img isIcon src='https://assets.timescale.com/docs/icons/atlas-logo.svg' alt='atlas-logo'  />[Atlas][atlas]                     | Manage your database schema as code.    |
 | <img isIcon src='https://assets.timescale.com/docs/icons/azure-functions-logo.png' alt='azure-functions-logo'  />[Azure Functions][azure-functions] | Run event-driven serverless code in the cloud without managing infrastructure. |
-|     <img isIcon src='https://assets.timescale.com/docs/icons/deno-deploy-logo.png' alt='deno-deploy-logo'  />[Deno Deploy][deno-deploy]     | Deploy and run JavaScript and TypeScript applications at the edge.             |
-|          <img isIcon src='https://assets.timescale.com/docs/icons/flyway-logo.png' alt='flyway-logo'  />[Flyway][flyway]          | Manage and automate database migrations using version control.                 |
-|       <img isIcon src='https://assets.timescale.com/docs/icons/liquibase-logo.png' alt='liquibase-logo'  />[Liquibase][liquibase]       | Track, version, and automate database schema changes.                          |
-|          <img isIcon src='https://assets.timescale.com/docs/icons/pulimi-logo.png' alt='pulimi-logo'  />[Pulumi][pulumi]          | Define and manage cloud infrastructure using code in multiple languages.       |
-|          <img isIcon src='https://assets.timescale.com/docs/icons/render-logo.png' alt='render-logo'  />[Render][render]          | Deploy and scale web applications, databases, and services easily.             |
-|    <img isIcon src='https://assets.timescale.com/docs/icons/terraform-logo.png' alt='terraform-logo'  />[Terraform][terraform]          | Safely and predictably provision and manage infrastructure in any cloud.       |
-| <img isIcon src='https://assets.timescale.com/docs/icons/kubernets-logo.png' alt='kubernets-logo'  />[Kubernetes][kubernetes] | Deploy, scale, and manage containerized applications automatically. |
+|         <img isIcon src='https://assets.timescale.com/docs/icons/deno-deploy-logo.png' alt='deno-deploy-logo'  />[Deno Deploy][deno-deploy]         | Deploy and run JavaScript and TypeScript applications at the edge.             |
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/flyway-logo.png' alt='flyway-logo'  />[Flyway][flyway]                   | Manage and automate database migrations using version control.                 |
+|             <img isIcon src='https://assets.timescale.com/docs/icons/liquibase-logo.png' alt='liquibase-logo'  />[Liquibase][liquibase]             | Track, version, and automate database schema changes.                          |
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/pulimi-logo.png' alt='pulimi-logo'  />[Pulumi][pulumi]                   | Define and manage cloud infrastructure using code in multiple languages.       |
+|                   <img isIcon src='https://assets.timescale.com/docs/icons/render-logo.png' alt='render-logo'  />[Render][render]                   | Deploy and scale web applications, databases, and services easily.             |
+|             <img isIcon src='https://assets.timescale.com/docs/icons/terraform-logo.png' alt='terraform-logo'  />[Terraform][terraform]             | Safely and predictably provision and manage infrastructure in any cloud.       |
+|            <img isIcon src='https://assets.timescale.com/docs/icons/kubernets-logo.png' alt='kubernets-logo'  />[Kubernetes][kubernetes]            | Deploy, scale, and manage containerized applications automatically. |
 
 
 ## Data engineering and extract, transform, load
 
-|            Name                      | Description                                                                              |
-|:------------------------------------:|------------------------------------------------------------------------------------------|
-|          <img isIcon src='https://assets.timescale.com/docs/icons/airbyte-logo.png' alt='airbyte-logo'  />[Airbyte][airbyte]          | Sync data between various sources and destinations.                                      |
-| <img isIcon src='https://assets.timescale.com/docs/icons/amazon-sagemaker-logo.png' alt='amazon-sagemaker-logo'  />[Amazon SageMaker][amazon-sagemaker] | Build, train, and deploy ML models into a production-ready hosted environment.           |
-|   <img isIcon src='https://assets.timescale.com/docs/icons/airflow-logo.png' alt='airflow-logo'  />[Apache Airflow][apache-airflow]   | Programmatically author, schedule, and monitor workflows.                                |
-|      <img isIcon src='https://assets.timescale.com/docs/icons/beam-logo.png' alt='beam-logo'  />[Apache Beam][apache-beam]      | Build and execute batch and streaming data pipelines across multiple processing engines. |
-|        <img isIcon src='https://assets.timescale.com/docs/icons/kafka-logo.png' alt='kafka-logo'  />[Apache Kafka][kafka]         | Stream high-performance data pipelines, analytics, and data integration.                 |
-|       <img isIcon src='https://assets.timescale.com/docs/icons/lambda-logo.png' alt='lambda-logo'  />[AWS Lambda][aws-lambda]       | Run code without provisioning or managing servers, scaling automatically as needed.      |
-|              <img isIcon src='https://assets.timescale.com/docs/icons/dbt-logo.png' alt='dbt-logo'  />[dbt][dbt]              | Transform and model data in your warehouse using SQL-based workflows.                    |
-|         <img isIcon src='https://assets.timescale.com/docs/icons/debezium-logo.png' alt='debezium-logo'  />[Debezium][debezium]         | Capture and stream real-time changes from databases.                                     |
-|        <img isIcon src='https://assets.timescale.com/docs/icons/decodable-logo.png' alt='decodable-logo'  />[Decodable][decodable]        | Build, run, and manage data pipelines effortlessly.                                      |
-|        <img isIcon src='https://assets.timescale.com/docs/icons/delta-lake-logo.png' alt='delta-lake-logo'  />[DeltaLake][deltalake]        | Enhance data lakes with ACID transactions and schema enforcement.                        |
-| <img isIcon src='https://assets.timescale.com/docs/icons/firebase-logo.png' alt='firebase-logo'  />[Firebase Wrapper][firebase-wrapper] | Simplify interactions with Firebase services through an abstraction layer.               |
-|           <img isIcon src='https://assets.timescale.com/docs/icons/stitch-logo.png' alt='stitch-logo'  />[Stitch][stitch]           | Extract, load, and transform data from various sources to data warehouses.               |
+|            Name                      | Description                                                                                                                                                                                                                                         |
+|:------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          <img isIcon src='https://assets.timescale.com/docs/icons/airbyte-logo.png' alt='airbyte-logo'  />[Airbyte][airbyte]          | Sync data between various sources and destinations.                                                                                                                                                                                                 |
+| <img isIcon src='https://assets.timescale.com/docs/icons/amazon-sagemaker-logo.png' alt='amazon-sagemaker-logo'  />[Amazon SageMaker][amazon-sagemaker] | Build, train, and deploy ML models into a production-ready hosted environment.                                                                                                                                                                      |
+|   <img isIcon src='https://assets.timescale.com/docs/icons/airflow-logo.png' alt='airflow-logo'  />[Apache Airflow][apache-airflow]   | Programmatically author, schedule, and monitor workflows.                                                                                                                                                                                           |
+|      <img isIcon src='https://assets.timescale.com/docs/icons/beam-logo.png' alt='beam-logo'  />[Apache Beam][apache-beam]      | Build and execute batch and streaming data pipelines across multiple processing engines.                                                                                                                                                            |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/kafka-logo.png' alt='kafka-logo'  />[Apache Kafka][kafka]         | Stream high-performance data pipelines, analytics, and data integration.                                                                                                                                                                            |
+|       <img isIcon src='https://assets.timescale.com/docs/icons/lambda-logo.png' alt='lambda-logo'  />[AWS Lambda][aws-lambda]       | Run code without provisioning or managing servers, scaling automatically as needed.                                                                                                                                                                 |
+|              <img isIcon src='https://assets.timescale.com/docs/icons/dbt-logo.png' alt='dbt-logo'  />[dbt][dbt]              | Transform and model data in your warehouse using SQL-based workflows. <br /><br /> **Note:** dbt uses `DELETE` with `ctid`. In hypertables, `ctid` can match rows across multiple chunks. Use `(tableoid, ctid)` to uniquely identify rows instead. |
+|         <img isIcon src='https://assets.timescale.com/docs/icons/debezium-logo.png' alt='debezium-logo'  />[Debezium][debezium]         | Capture and stream real-time changes from databases.                                                                                                                                                                                                |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/decodable-logo.png' alt='decodable-logo'  />[Decodable][decodable]        | Build, run, and manage data pipelines effortlessly.                                                                                                                                                                                                 |
+|        <img isIcon src='https://assets.timescale.com/docs/icons/delta-lake-logo.png' alt='delta-lake-logo'  />[DeltaLake][deltalake]        | Enhance data lakes with ACID transactions and schema enforcement.                                                                                                                                                                                   |
+| <img isIcon src='https://assets.timescale.com/docs/icons/firebase-logo.png' alt='firebase-logo'  />[Firebase Wrapper][firebase-wrapper] | Simplify interactions with Firebase services through an abstraction layer.                                                                                                                                                                          |
+|           <img isIcon src='https://assets.timescale.com/docs/icons/stitch-logo.png' alt='stitch-logo'  />[Stitch][stitch]           | Extract, load, and transform data from various sources to data warehouses.                                                                                                                                                                          |
 
 ## Data ingestion and streaming
 
@@ -179,6 +180,7 @@ Some of the most in-demand integrations are listed below.
 [apache-skywalking]: https://skywalking.apache.org/docs/main/next/en/setup/backend/backend-postgresql-monitoring/
 [apache-spark]: https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html
 [appsmith]: https://docs.appsmith.com/connect-data/reference/querying-postgres
+[atlas]: https://atlasgo.io/guides/postgres/automatic-migrations
 [auth-js]: https://authjs.dev/getting-started/adapters/pg?framework=next-js
 [auth0]: https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
 [aws-lambda]: /integrations/:currentVersion:/aws-lambda
@@ -254,7 +256,7 @@ Some of the most in-demand integrations are listed below.
 [stitch]: https://stitch-docs.netlify.app/docs/integrations/databases/postgresql
 [streamlit]: https://docs.streamlit.io/develop/tutorials/databases/postgresql
 [striim]: https://www.striim.com/connectors/postgresql/
-[superset]: https://superset.apache.org/docs/configuration/databases#timescaledb
+[superset]: https://superset.apache.org/docs/databases/supported/timescaledb/
 [tableau]: /integrations/:currentVersion:/tableau/
 [telegraf]: /integrations/:currentVersion:/telegraf/
 [terraform]: /integrations/:currentVersion:/terraform

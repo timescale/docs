@@ -1,6 +1,6 @@
 ---
-title: Integrate Supabase with Tiger
-excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Tiger
+title: Integrate Supabase with Tiger Cloud
+excerpt: Supabase is an open source Firebase alternative. Integrate Supabase with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---
@@ -92,7 +92,7 @@ To set up a $SERVICE_LONG optimized for analytics to receive data from Supabase:
       WITH NO DATA;
       ```
 
-   1. Setup a view to recieve the data from Supabase.
+   1. Setup a view to receive the data from Supabase.
 
       ```sql
       CREATE VIEW signs_per_minute_delay

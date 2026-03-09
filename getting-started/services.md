@@ -1,6 +1,6 @@
 ---
 title: Create your first service for Tiger Cloud on AWS and Tiger Cloud on Azure
-excerpt: Tiger Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Cloud Console
+excerpt: Tiger Cloud offers a range of capabilities to accommodate your real-time analytics and AI and vector workloads. Learn more about each of them and create your first service in Tiger Console
 products: [cloud]
 content_group: Getting started
 ---
@@ -13,7 +13,6 @@ import CreateService from "versionContent/_partials/_create-service.mdx";
 import Connect from "versionContent/_partials/_cloud-connect-service.mdx";
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
 import InstallAzure from "versionContent/_partials/_cloud-installation-azure.mdx";
-import ServiceIntroAzure from "versionContent/_partials/_services-intro-azure.mdx";
 import StartUsingCloudAzure from "versionContent/_partials/_start-using-cloud-azure.mdx";
 
 # Create a $SERVICE_LONG
@@ -56,7 +55,7 @@ To run queries and perform other operations, connect to your $SERVICE_SHORT:
 
 ## What is a $SERVICE_LONG?
 
-<ServiceIntroAzure />
+<ServiceIntro />
 
 <StartUsingCloudAzure />
 

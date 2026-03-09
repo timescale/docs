@@ -1,6 +1,6 @@
 ---
-title: Integrate pgAdmin with Tiger
-excerpt: pgAdmin is a feature-rich open-source administration and development platform for PostgreSQL. Integrate pgadmin with Tiger
+title: Integrate pgAdmin with Tiger Cloud
+excerpt: pgAdmin is a feature-rich open-source administration and development platform for PostgreSQL. Integrate pgadmin with Tiger Cloud
 products: [cloud, self_hosted]
 keywords: [integrate]
 ---

@@ -106,7 +106,7 @@ Use sparingly and only if it's essential to attract the reader's attention.
 
       <Highlight type="cloud">
 
-      A note dealing specifically with Tiger.
+      A note dealing specifically with Tiger Cloud.
 
       </Highlight>
 

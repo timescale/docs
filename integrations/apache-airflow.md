@@ -1,5 +1,5 @@
 ---
-title: Integrate Apache Airflow with Tiger
+title: Integrate Apache Airflow with Tiger Cloud
 excerpt: Apache Airflow is a platform to programmatically author, schedule, and monitor workflows. Integrate Apache Airflow with Tiger Cloud and create a data pipeline
 products: [cloud, self_hosted]
 keywords: [connect, integrate, apache, airflow]
@@ -128,7 +128,7 @@ To exchange data between Airflow and your $SERVICE_LONG:
        ![daily eth volume of assets][daily-eth-volume-of-assets]
 1. **Verify that the data appears in $CLOUD_LONG** 
 
-   1. In [$CONSOLE][cloud-login], navigate to your service and click `SQL editor`. 
+   1. In [$CONSOLE][cloud-login], navigate to your service and click `SQL Editor` at the bottom. 
    1. Run a query to view your data. For example: `SELECT symbol, name FROM company;`. 
    
       You see the new rows inserted in the table.

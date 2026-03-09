@@ -1,6 +1,6 @@
 ---
 title: Advanced parameters
-excerpt: Configure advanced parameters for your Tiger Cloud service in Tiger Cloud Console
+excerpt: Configure advanced parameters for your Tiger Cloud service in Tiger Console
 products: [cloud]
 keywords: [services, settings]
 tags: [configuration, schemas]
