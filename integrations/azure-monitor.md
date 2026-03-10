@@ -39,7 +39,7 @@ A $CLOUD_LONG data exporter sends telemetry data from a $SERVICE_LONG to third-p
 
 This section shows you how to attach, edit, and delete a data exporter.
 
-<ManageDataExporterAzure />
+<ManageDataExporter />
 
 [application-insights]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
 [azure-connection-string]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/sdk-connection-string
