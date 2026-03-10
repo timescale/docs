@@ -115,7 +115,7 @@ Some of the most in-demand integrations are listed below.
 |:------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |            <img isIcon src='https://assets.timescale.com/docs/icons/cloudwatch-logo.png' alt='cloudwatch-logo' />[Amazon Cloudwatch][cloudwatch]             | Collect, analyze, and act on data from applications, infrastructure, and services running in AWS and on-premises environments.                            |
 |         <img isIcon src='https://assets.timescale.com/docs/icons/skywalking-logo.png' alt='skywalking-logo' />[Apache SkyWalking][apache-skywalking]         | Monitor, trace, and diagnose distributed applications for improved observability. You can also [set up $PG as storage][apache-skywalking-storage]. |
-|             <img isIcon src='https://assets.timescale.com/docs/icons/azure-monitor-logo.png' alt='azure-monitor-logo' />[Azure Monitor][azure-monitor]             | Collect and analyze telemetry data from cloud and on-premises environments.   
+|             <img isIcon src='https://assets.timescale.com/docs/icons/azure-monitor-logo.png' alt='azure-monitor-logo' />[Azure Monitor][azure-monitor]             | Collect and analyze telemetry data from cloud and on-premises environments for comprehensive monitoring and observability.   
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/dash0-logo.png' alt='dash0-logo' />[Dash0][dash0]                   | OpenTelemetry Native Observability, built on CNCF Open Standards like PromQL, Perses, and OTLP, and offering full cost control.     |
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/datadog-logo.png' alt='datadog-logo' />[Datadog][datadog]                   | Gain comprehensive visibility into applications, infrastructure, and systems through real-time monitoring, logging, and analytics.                        |
 |                   <img isIcon src='https://assets.timescale.com/docs/icons/grafana-logo.png' alt='grafana-logo' />[Grafana][grafana]                   | Query, visualize, alert on, and explore your metrics and logs.                                                                                            |
@@ -186,7 +186,7 @@ Some of the most in-demand integrations are listed below.
 [aws-lambda]: /integrations/:currentVersion:/aws-lambda
 [aws]: /integrations/:currentVersion:/aws
 [azure-functions]: https://github.com/Azure/azure-functions-postgresql-extension
-[azure-monitor]: https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-monitoring
+[azure-monitor]: /integrations/:currentVersion:/azure-monitor
 [azure]: /integrations/:currentVersion:/microsoft-azure
 [cloudwatch]: /integrations/:currentVersion:/cloudwatch/
 [confluent-source]: https://docs.confluent.io/cloud/current/connectors/cc-postgresql-source.html
