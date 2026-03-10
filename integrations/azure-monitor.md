@@ -6,7 +6,7 @@ price_plans: [scale, enterprise]
 keywords: [integrate]
 ---
 
-import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
+import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import AzureMonitorExporter from "versionContent/_partials/_azure-monitor-data-exporter.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
 import NotSupportedAws from "versionContent/_partials/_not-supported-for-aws.mdx";
@@ -21,7 +21,7 @@ This page explains how to export telemetry data from your $SERVICE_LONG into Azu
 
 ## Prerequisites
 
-<IntegrationPrereqsCloud />
+<PrereqsCloud />
 
 - Get an Azure subscription with access to [Azure Monitor][azure-monitor] and [Application Insights][application-insights].
 
