@@ -47,6 +47,11 @@ module.exports = [
         excerpt: "Integrate Azure Data Studio with Tiger Cloud",
       },
       {
+        title: "Azure Monitor",
+        href: "azure-monitor",
+        excerpt: "Integrate Azure Monitor with Tiger Cloud",
+      },
+      {
         title: "Corporate data center",
         href: "corporate-data-center",
         excerpt: "Integrate your corporate data center with Tiger Cloud",

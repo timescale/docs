@@ -121,15 +121,17 @@ going on in each part.
 1.  Create a counter aggregate and the extrapolated delta function:
 
     ```sql
-    with t as (
-        SELECT measure_id,
-            time_bucket('15 min'::interval, ts) as bucket,
-            counter_agg(ts, val, toolkit_experimental.time_bucket_range('15 min'::interval, ts))
-        FROM example
-        GROUP BY measure_id, time_bucket('15 min'::interval, ts))
-    SELECT time_bucket,
-        extrapolated_delta(counter_agg, method => 'prometheus')
-    FROM t ;
+    SELECT 
+        measure_id,
+        time_bucket('15 min'::interval, ts) as bucket,
+        extrapolated_delta(
+            counter_agg(ts, val, toolkit_experimental.time_bucket_range('15 min'::interval, ts)), 
+            method => 'prometheus'
+        ) as delta
+    FROM example
+    GROUP BY 
+        measure_id, 
+        time_bucket('15 min'::interval, ts);
     ```
 
 <Highlight type="note">
