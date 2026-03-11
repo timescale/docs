@@ -8,11 +8,9 @@ extensions.
 
 Each $SERVICE_SHORT is associated with a project in $CLOUD_LONG. Each project can have multiple $SERVICE_SHORTs. Each user is a [member of one or more projects][projects].
 
-You create free and standard $SERVICE_SHORTs in $CONSOLE_LONG, depending on your [$PRICING_PLAN][pricing-plans]. A free $SERVICE_SHORT comes at zero cost and gives you limited resources to get to know $CLOUD_LONG. Once you are ready to try out more advanced features, you can switch to a paid plan and convert your free $SERVICE_SHORT to a standard one.
+You create free and standard $SERVICE_SHORTs in $CONSOLE_LONG. A standard $SERVICE_SHORT comes with the full range of features according to your $PRICING_PLAN. A free $SERVICE_SHORT comes at zero cost and gives you limited features and resources. 
 
 ![$CLOUD_LONG pricing plans][cloud_long-pricing-plans]
-
-<FreeBeta />
 
 To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 
@@ -33,7 +31,9 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 
   _$PG with $TIMESCALE_DB and vector extensions_
 
-  Free $SERVICE_SHORTs offer limited resources and a basic feature scope, perfect to get to know $CLOUD_LONG in a development environment.
+  Free $SERVICE_SHORTs come with pre-configured CPU and memory, in `us-east-1` region, and offer limited resources with a basic feature scope. This excludes connection pooling, replication, data tiering, exporters, metrics, VPC, and other features. Free $SERVICE_SHORTs are perfect for schema explorations, syntax validations, and other small-scale testing. Once you reach the resource limit, a free $SERVICE_SHORT enters a read-only state. You can convert your free $SERVICE_SHORT to a standard one at any time.
+
+   <FreeBeta />
 
 You can [manage, pause, or delete][service-management] your $SERVICE_SHORT at any time from $CONSOLE.
 

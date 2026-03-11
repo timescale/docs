@@ -1,6 +1,7 @@
 import RESTPrereqs from "versionContent/_partials/_prereqs-cloud-account-only.mdx";
 import CLIINSTALL from "versionContent/_partials/_devops-cli-install.mdx";
 import CLIREF from "versionContent/_partials/_devops-cli-reference.mdx";
+import FreeBeta from "versionContent/_partials/_free-plan-beta.mdx";
 
 $CLI_LONG is a command-line interface that you use to manage $CLOUD_LONG resources
 including VPCs, services, read replicas, and related infrastructure. $CLI_LONG calls $REST_LONG to communicate with 
@@ -31,19 +32,17 @@ Create a new $SERVICE_LONG using $CLI_LONG:
 
 1. **Submit a $SERVICE_SHORT creation request**
 
-   By default, $CLI_LONG creates a $SERVICE_SHORT for you that matches your [$PRICING_PLAN][pricing-plans]:
-   * **$FREE**: shared CPU/memory and the `time-series` and `ai` capabilities (only available in `us-east-1` region)
-   * **Paid $PRICING_PLAN**: 0.5 CPU and 2 GB memory with the `time-series` capability
+   By default, $CLI_LONG creates a $SERVICE_SHORT with 0.5 CPU and 2 GB memory with the `time-series` capability
+
    ```shell
    tiger service create
    ```
    To control the $SERVICE_SHORT configuration, use the [`service create` flags][cli-create-custom-service]. For
-   example, to create a free service if you are in a paid $PRICING_PLAN, call
-   `tiger service create --memory shared --cpu shared`.
+   example, to create a free service, call `tiger service create --memory shared --cpu shared`.
 
-   <Highlight type="note">
-   Free services with shared CPU/memory are only available in the `us-east-1` region. Paid services can be created in any available AWS or Azure region using the `--region` flag.
-   </Highlight>
+   <FreeBeta />
+
+   Free services with shared CPU/memory are only available in the `us-east-1` region. Standard services can be created in any available AWS or Azure region using the `--region` flag.
 
    $CLOUD_LONG creates a Development environment for you. That is, no delete protection, high-availability, spooling or
    read replication. You see something like:

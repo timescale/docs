@@ -1,5 +1,3 @@
-import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
-
 <Procedure>
 
 1. **Check your $SERVICE_SHORT is running correctly**
@@ -15,8 +13,6 @@ import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-fre
    <Tabs label="Connect to your Tiger Cloud service" persistKey="sql-editor">
 
    <Tab title="Data view in Console" label="data-mode">
-
-   <NotAvailableFreePlan />
 
    <Procedure>
 

@@ -18,7 +18,6 @@ import SupportPlans from "versionContent/_partials/_support-plans.mdx";
 import BillingExample from "versionContent/_partials/_billing-example.mdx";
 import ManagePricing from "versionContent/_partials/_manage-pricing-plan.mdx";
 import BillingForInactiveServices from "versionContent/_partials/_billing-for-inactive-services.mdx";
-import FreeBeta from "versionContent/_partials/_free-plan-beta.mdx";
 import DisaggregatedComputeStorage from "versionContent/_partials/_disaggregated-compute-storage.mdx";
 import DisaggregatedComputeStorageAzure from "versionContent/_partials/_disaggregated-compute-storage-azure.mdx";
 import AwsFeatures from "versionContent/_partials/_aws-features.mdx";
