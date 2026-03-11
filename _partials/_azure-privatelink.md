@@ -1,8 +1,8 @@
-import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
+import IntegrationPrereqsNoConnection from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 
 ## Prerequisites
 
-<IntegrationPrereqsCloud />
+<IntegrationPrereqsNoConnection />
 
 * Create an [Azure account](https://azure.microsoft.com/en-gb/pricing/purchase-options/azure-account) with an active subscription.
 * Configure [permissions](https://learn.microsoft.com/en-us/azure/private-link/rbac-permissions) to create private endpoints and manage network resources.
@@ -28,7 +28,7 @@ Take the following steps to connect $CLOUD_LONG to Azure with Private Link:
 
    1. Click `Done`. 
 
-      $CLOUD_LONG confirms your authorization. 
+      $CLOUD_LONG confirms your authorization. Once it is confirmed, you can create multiple private endpoints from the same authorized subscription.
 
       ![Azure Private Link authorization complete][azure-privatelink-authorization-complete]    
 
