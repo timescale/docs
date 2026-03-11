@@ -109,6 +109,17 @@ To change the environment of an existing $SERVICE_SHORT:
 
 </Procedure>
 
+## Convert a free $SERVICE_SHORT to a standard one
+
+To convert a free $SERVICE_SHORT to a standard one:
+
+<Procedure>
+
+1. In [$CONSOLE][services-portal], select the $SERVICE_SHORT to update.
+1. Click `Operations` > `Environment` > `Convert service to standard` > `Yes, convert to standard`.
+
+</Procedure>
+
 ## Pause a $SERVICE_SHORT
 
 You can pause a $SERVICE_SHORT if you want to stop it running temporarily. When you
