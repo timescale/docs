@@ -100,7 +100,7 @@ operate normally.
    2022-02-03 17:12:04 UTC [2253150]:TimescaleDB: tsdbadmin@tsdb,app=psql [53200] ERROR: out of memory
    ```
   
-If you encounter OOM errors on a free $SERVICE_SHORT, [convert it to a standard $SERVICE_SHORT][convert-to-standard], then increase its CPU and memory allocation to resolve. 
+If you encounter OOM errors on a free $SERVICE_SHORT, [convert it to a standard $SERVICE_SHORT][convert-to-standard], then increase its CPU and memory allocation as needed to resolve the memory pressure. 
 
 [change-resources]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-update-cpu-manually.png
 [cloud-login]: https://console.cloud.timescale.com/
