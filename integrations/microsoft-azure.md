@@ -8,39 +8,18 @@ keywords: [Azure, integrations]
 
 import IntegrationPrereqsCloud from "versionContent/_partials/_integration-prereqs-cloud-only.mdx";
 import TransitGateway from "versionContent/_partials/_transit-gateway.mdx";
-import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure.mdx";
+import AzurePrivateLink from "versionContent/_partials/_azure-privatelink.mdx";
+import NotSupportedAws from "versionContent/_partials/_not-supported-for-aws.mdx";
 
 # Integrate Microsoft Azure with $CLOUD_LONG
 
-
 [Microsoft Azure][azure] is a cloud computing platform and services suite, offering infrastructure, AI, analytics, security, and developer tools to help businesses build, deploy, and manage applications.
 
-This page explains how to integrate your Microsoft Azure infrastructure with $CLOUD_LONG using [AWS Transit Gateway][aws-transit-gateway].
+This page explains how to integrate your Microsoft Azure infrastructure with $CLOUD_LONG on Azure using [Azure Private Link][azure-private-link].
 
-## Prerequisites
+<NotSupportedAws />
 
-<IntegrationPrereqsCloud />
+<AzurePrivateLink />
 
-- Set up [AWS Transit Gateway][gtw-setup].
-<NotSupportedAzure />
-
-## Connect your Microsoft Azure infrastructure to your $SERVICE_LONGs
-
-To connect to $CLOUD_LONG:
-
-<Procedure>
-
-1. **Connect your infrastructure to AWS Transit Gateway**
-
-   Establish connectivity between Azure and AWS. See the [AWS architectural documentation][azure-aws] for details.
-
-<TransitGateway />
-
-</Procedure>
-
-You have successfully integrated your Microsoft Azure infrastructure with $CLOUD_LONG.
-
-[aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
-[azure-aws]: https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/
+[azure-private-link]: https://learn.microsoft.com/en-us/azure/private-link/private-link-overview
 [azure]: https://azure.microsoft.com/en-gb/
-[gtw-setup]: https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html

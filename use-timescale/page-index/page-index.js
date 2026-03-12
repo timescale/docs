@@ -700,6 +700,12 @@ module.exports = [
               "Secure your Tiger Cloud services with VPC peering and AWS PrivateLink",
           },
           {
+            title: "Azure Private Link",
+            href: "azure-privatelink",
+            excerpt:
+              "Secure your Tiger Cloud services with Azure Private Link",
+          },
+          {
             title: "IP allow list",
             href: "ip-allow-list",
             excerpt:

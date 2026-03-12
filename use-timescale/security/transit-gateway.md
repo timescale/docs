@@ -15,7 +15,7 @@ import NotSupportedAzure from "versionContent/_partials/_not-supported-for-azure
 
 # Securely connect to $CLOUD_LONG using AWS Transit Gateway
 
-[AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your $CLOUD_LONG from AWS, Google Cloud, Microsoft Azure, or any other cloud or on-premise environment.
+[AWS Transit Gateway][aws-transit-gateway] enables you to securely connect to your **$CLOUD_LONG on AWS** from Google Cloud, Microsoft Azure, AWS, or any other cloud or on-premise environment.
 
 <NotSupportedAzure />
 
@@ -47,6 +47,12 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 </Tab>
 
 <Tab title="Microsoft Azure" label="ms-azure">
+
+<Highlight type="note">
+
+These steps describe connecting **$CLOUD_LONG on AWS** to Microsoft Azure using AWS Transit Gateway. To connect **$CLOUD_LONG on Azure**, follow the steps in [Azure Private Link][azure-private-link].
+
+</Highlight>
 
 <Procedure>
 
@@ -92,6 +98,7 @@ AWS Transit Gateway enables you to connect from almost any environment, this pag
 
 You can now securely access your $SERVICE_SHORTs in $CLOUD_LONG.
 
+[azure-private-link]: /use-timescale/:currentVersion:/security/azure-privatelink/
 [aws-onprem]: https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralize-network-connectivity-using-aws-transit-gateway.html
 [aws-transit-gateway]: https://aws.amazon.com/transit-gateway/
 [azure-aws]: https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/

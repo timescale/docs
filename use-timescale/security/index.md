@@ -17,9 +17,11 @@ Learn how $CLOUD_LONG protects your data and privacy.
 *   Connect with a [stricter SSL mode][ssl-mode]
 *   Secure your $SERVICE_SHORTs with [VPC peering][vpc-peering]
 *   Connect to your $SERVICE_SHORTs from any cloud with [AWS Transit Gateway][transit-gateway]
+*   Secure your $SERVICE_SHORTs with [Azure Private Link][azure-privatelink]
 *   Restrict access with an [IP address allow list][ip-allowlist]
 
 [2fa]: /use-timescale/:currentVersion:/security/multi-factor-authentication/
+[azure-privatelink]: /use-timescale/:currentVersion:/security/azure-privatelink/
 [client-credentials]: /use-timescale/:currentVersion:/security/client-credentials/
 [database-rbac]: /use-timescale/:currentVersion:/security/read-only-role/
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
