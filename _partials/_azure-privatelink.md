@@ -10,6 +10,12 @@ import IntegrationPrereqsNoConnection from "versionContent/_partials/_prereqs-cl
 
 ## Set up Azure Private Link connection
 
+<Highlight type="note">
+
+Azure Private Link is currently in private preview. To request access in $CONSOLE_LONG, go to `Security` > `Private Endpoints` and click `Request access`. Then refresh the page and follow the steps below. 
+
+</Highlight>
+
 Take the following steps to connect $CLOUD_LONG to Azure with Private Link: 
 
 <Procedure>
