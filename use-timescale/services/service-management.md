@@ -111,7 +111,7 @@ To change the environment of an existing $SERVICE_SHORT:
 
 ## Convert a free $SERVICE_SHORT to a standard one
 
-To convert a free $SERVICE_SHORT to a standard one:
+You can convert a free $SERVICE_SHORT to a standard one, to increase its resources. Note that it is only available if you haven't reached the quota on the number of standard services [according to your pricing plan][pricing]. 
 
 <Procedure>
 
@@ -135,3 +135,4 @@ $SERVICE_SHORT.
 
 [maintenance-upgrades]: /use-timescale/:currentVersion:/upgrades/#minor-software-upgrades
 [services-portal]: https://console.cloud.timescale.com/dashboard/services
+[pricing]: /about/:currentVersion:/pricing-and-account-management#features-included-in-each-pricing-plan

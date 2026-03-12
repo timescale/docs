@@ -31,7 +31,7 @@ To the $PG you know and love, $CLOUD_LONG adds the following capabilities:
 
   _$PG with $TIMESCALE_DB and vector extensions_
 
-  Free $SERVICE_SHORTs come with pre-configured CPU and memory, are hosted in `us-east-1` region, and offer limited resources with a basic feature scope. This excludes connection pooling, replication, data tiering, exporters, metrics, VPC, and other features. Free $SERVICE_SHORTs are perfect for schema explorations, syntax validations, and other small-scale testing. Once you reach the resource limit, a free $SERVICE_SHORT enters a read-only state. You can [convert your free $SERVICE_SHORT][convert-to-free] to a standard one at any time.
+  Free $SERVICE_SHORTs come with pre-configured CPU and memory, are hosted in `us-east-1` region, and offer limited resources with a basic feature scope. This excludes connection pooling, replication, data tiering, exporters, metrics, VPC, and other features. Free $SERVICE_SHORTs are perfect for schema explorations, syntax validations, and other small-scale testing. Once you reach the storage limit, a free $SERVICE_SHORT enters a read-only state. You can [convert your free $SERVICE_SHORT][convert-to-free] to a standard one at any time.
 
    <FreeBeta />
 
