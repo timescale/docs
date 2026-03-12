@@ -39,8 +39,6 @@ The following metrics are represented by graphs:
 - Storage I/O, in ops/sec
 - Storage bandwidth, in MiB/sec
 
-The [$FREE $PRICING_PLAN][pricing-plan-features] only includes storage metrics.
-
 When you hit the limits:
 
 - **For CPU and memory**: provision more for your $SERVICE_SHORT in `Operations` > `Compute and storage`.
