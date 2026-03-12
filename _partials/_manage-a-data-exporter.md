@@ -3,7 +3,7 @@
 To send telemetry data to an external monitoring tool, you attach a data exporter to your
 $SERVICE_LONG. You can attach only one exporter to a $SERVICE_SHORT.
 
-To attach an exporter: 
+To attach an exporter:
 
 <Procedure>
 
@@ -14,27 +14,7 @@ To attach an exporter:
 
 </Procedure>
 
-### Monitor $SERVICE_LONG metrics
-
-You can now monitor your $SERVICE_SHORT metrics. Use the following metrics to check the service is running correctly:
-
-*   `timescale.cloud.system.cpu.usage.millicores`
-*   `timescale.cloud.system.cpu.total.millicores`
-*   `timescale.cloud.system.memory.usage.bytes`
-*   `timescale.cloud.system.memory.total.bytes`
-*   `timescale.cloud.system.disk.usage.bytes`
-*   `timescale.cloud.system.disk.total.bytes`
-
-Additionally, use the following tags to filter your results.
-
-|Tag|Example variable| Description                |
-|-|-|----------------------------|
-|`host`|`us-east-1.timescale.cloud`|                            |
-|`project-id`||                            |
-|`service-id`||                            |
-|`region`|`us-east-1`| AWS region                 |
-|`role`|`replica` or `primary`| For $SERVICE_SHORT with replicas |
-|`node-id`|| For multi-node services    |
+You can now monitor your $SERVICE_SHORT metrics.
 
 ### Edit a data exporter
 
@@ -46,8 +26,6 @@ To update a data exporter:
 1.  **Next to the exporter you want to edit, click the menu > `Edit`**
 1.  **Edit the exporter fields and save your changes**
 
-You cannot change fields such as the provider or the AWS region.
-
 </Procedure>
 
 ### Delete a data exporter
@@ -56,41 +34,22 @@ To remove a data exporter that you no longer need:
 
 <Procedure>
 
-1. **Disconnect the data exporter from your $SERVICE_LONGs**
+1. **Disconnect the data exporter from your $SERVICE_LONG**
 
     1. In [$CONSOLE][services-portal], choose the $SERVICE_SHORT.
     1. Click `Operations` > `Exporters`.
-    1. Click the trash can icon.
-    1. Repeat for every $SERVICE_SHORT attached to the exporter you want to remove. 
+    1. Click the trash can icon next to the exporter.
+    1. Repeat for every $SERVICE_SHORT attached to the exporter you want to remove.
 
-    The data exporter is now unattached from all $SERVICE_SHORTs. However, it still exists in your project.
+   The data exporter is now unattached from all $SERVICE_SHORTs. However, it still exists in your project.
 
-1. **Delete the exporter on the project level** 
+1. **Delete the exporter on the project level**
 
-   1. In $CONSOLE, open [Exporters][console-integrations]
-   1. Next to the exporter you want to edit, click menu > `Delete`
-   1. Confirm that you want to delete the data exporter.
+    1. In $CONSOLE, open [Exporters][console-integrations]
+    1. Next to the exporter you want to edit, click menu > `Delete`
+    1. Confirm that you want to delete the data exporter.
 
 </Procedure>
-
-### Reference
-
-When you create the IAM OIDC provider, the URL must match the region you create the exporter in.
-It must be one of the following:
-
-| Region           | Zone          | Location       | URL
-|------------------|---------------|----------------|--------------------|
-| `ap-southeast-1` | Asia Pacific  | Singapore      | `irsa-oidc-discovery-prod-ap-southeast-1.s3.ap-southeast-1.amazonaws.com`
-| `ap-southeast-2` | Asia Pacific  | Sydney         | `irsa-oidc-discovery-prod-ap-southeast-2.s3.ap-southeast-2.amazonaws.com`
-| `ap-northeast-1` | Asia Pacific  | Tokyo          | `irsa-oidc-discovery-prod-ap-northeast-1.s3.ap-northeast-1.amazonaws.com`
-| `ca-central-1`   | Canada        | Central        | `irsa-oidc-discovery-prod-ca-central-1.s3.ca-central-1.amazonaws.com`
-| `eu-central-1`   | Europe        | Frankfurt      | `irsa-oidc-discovery-prod-eu-central-1.s3.eu-central-1.amazonaws.com`
-| `eu-west-1`      | Europe        | Ireland        | `irsa-oidc-discovery-prod-eu-west-1.s3.eu-west-1.amazonaws.com`
-| `eu-west-2`      | Europe        | London         | `irsa-oidc-discovery-prod-eu-west-2.s3.eu-west-2.amazonaws.com`
-| `sa-east-1`      | South America | São Paulo      | `irsa-oidc-discovery-prod-sa-east-1.s3.sa-east-1.amazonaws.com`
-| `us-east-1`      | United States | North Virginia | `irsa-oidc-discovery-prod.s3.us-east-1.amazonaws.com`
-| `us-east-2`      | United States | Ohio           | `irsa-oidc-discovery-prod-us-east-2.s3.us-east-2.amazonaws.com`
-| `us-west-2`      | United States | Oregon         | `irsa-oidc-discovery-prod-us-west-2.s3.us-west-2.amazonaws.com`
 
 [console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
 [services-portal]: https://console.cloud.timescale.com/dashboard/services

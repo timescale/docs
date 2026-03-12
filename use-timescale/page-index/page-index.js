@@ -540,6 +540,11 @@ module.exports = [
             excerpt: "Export telemetry data to Amazon Cloudwatch",
           },
           {
+            title: "Export to Azure Monitor",
+            href: "azure-monitor",
+            excerpt: "Export telemetry data to Azure Monitor",
+          },
+          {
             title: "Export to Datadog",
             href: "datadog",
             excerpt: "Export telemetry data to Datadog",

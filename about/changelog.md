@@ -9,6 +9,92 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Automated chunk tuning (beta)
+<Label type="date">March 6, 2026</Label>
+
+Tiger Cloud now offers automated chunk tuning in beta, taking the guesswork out of setting and maintaining chunk intervals for your hypertables. When enabled, the tuner monitors your workload and adjusts chunk intervals automatically, no manual intervention required.
+
+**What's new:**
+
+- **Per-hypertable opt-in:** disabled by default, automated chunk tuning can be enabled for individual hypertables in the Explorer.
+- **Recommendations for all users:** even without enabling automated tuning, you can view the recommended chunk interval for any hypertable in the Explorer.
+- **Gradual, safe adjustments:** the tuner moves chunk intervals incrementally to avoid disruptive jumps, and will never increase an interval beyond your configured compression lookback.
+- **Activity log integration:** chunk interval changes are recorded in the Activity log for a full audit trail.
+- **No instance overhead:** all calculations run outside your service via Schemata.
+
+![Chunk auto-tuning in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/automated-chunk-tuning.png)
+
+If you experience any negative impact, you can opt out at any time and manually reset the interval via the UI or SQL.
+
+[Learn more](https://www.tigerdata.com/docs/use-timescale/latest/hypertables/improve-query-performance#optimize-hypertable-chunk-intervals) about automated chunk tuning.
+
+
+## TimescaleDB v2.25 now on Tiger Cloud
+<Label type="date">March 5, 2026</Label>
+
+TimescaleDB v2.25 continues improving how Postgres scales for time-series workloads, with major wins in query performance on compressed data, smoother continuous aggregate refresh behavior, and practical operational improvements as datasets and chunk counts grow. TimescaleDB 2.25 was released on January 29, 2026, and is now available to all users on Tiger Cloud.
+
+### Highlighted features in TimescaleDB v2.25
+
+**Faster queries on compressed data**
+
+A new `ColumnarIndexScan` execution path uses columnar metadata to accelerate common aggregates and `FIRST`/`LAST` queries on compressed chunks. The feature is currently disabled by default due to a known issue with partial aggregations, but can be enabled by setting the GUC `enable_columnarindexscan` to `true`. It will be enabled by default in 2.26.
+- **`MIN`/`MAX`/`FIRST`/`LAST` on compressed data** can take fast paths and avoid scanning full chunks (reported up to **289× faster** in the example).
+- **`COUNT(*)` with time filters** can often skip reading the time column entirely (reported up to **50× faster** in the example), reducing CPU and memory pressure.
+
+**Continuous aggregates**
+
+This release reduces contention and refresh overhead for continuous aggregates, especially when using the columnstore.
+- **Direct compress on continuous aggregate refresh (GUC, off by default)** writes refresh results directly to the columnstore, bypassing the rowstore step that can cause policy contention and temporary storage overhead. This also reduces WAL activity, and will be enabled by default in an upcoming release.
+- **Direct batch delete** restores a key columnstore optimization for `DELETE`s on compressed hypertables: when conditions allow, it can delete whole batches without decompressing and deleting row-by-row. Previously, this path was disabled for tables with continuous aggregates because it didn’t emit the invalidation details needed to trigger the right refresh ranges. In 2.25, that support is added, so hypertables using the columnstore and continuous aggregates can benefit from faster, lower-I/O deletes.
+- **Smaller, steadier refresh transactions by default**: continuous aggregate refreshes can be broken into smaller “batches,” where each batch refreshes a portion of the overall time range. This keeps materialization results (and transactions) smaller, reducing stress on the service and improving predictability under heavy refresh/backfill patterns. The default `buckets_per_batch` is now **10** (previously **1**, effectively no batching).
+- **Safer defaults for continuous aggregates using the columnstore:** we’ve seen cases where columnstore-backed CAggs can time out during refresh due to suboptimal defaults. This release removes the automatic assignment of `segmentby` for columnstore CAggs (effectively using no `segmentby`) and sets the `orderby` column to the bucketing timestamp to improve refresh behavior.
+
+**Quality of life/operability**
+
+- **Estimate original size for columnstore chunks** to support workflows that depend on pre-compression sizing (for example, tiering/billing and Console reporting), especially as direct compress becomes more common and raw-size stats may not exist. This also improves accuracy versus older “frozen” compression stats that didn’t reflect subsequent DML (like deletes).
+
+   Example:
+   ```sql
+   SELECT _timescaledb_functions.estimate_uncompressed_size('<schema>.<chunk_name>');
+   ```
+
+- **Option to auto-add newly created chunks to a publication** (GUC, off by default) to simplify logical replication workflows.
+- **Configurable `work_mem` for background worker jobs** when jobs need more memory to avoid spooling to disk. You can set it per job via the job `config` JSON.
+
+   Example:
+   ```sql
+   SELECT add_job('my_proc', '1 hour', config => '{"work_mem": "256MB"}'::jsonb);
+   ```
+
+   Update an existing job:
+   ```sql
+   SELECT alter_job(id, config := jsonb_set(config,'{work_mem}','"256MB"')) FROM _timescaledb_catalog.bgw_job WHERE id = <job_id>;
+   ```
+
+For complete details, refer to the [TimescaleDB 2.25 release notes](https://github.com/timescale/timescaledb/releases/tag/2.25.0).
+
+## CLI and MCP walkthrough in Tiger Console 
+<Label type="date">March 4, 2026</Label>
+
+We have added a new panel in Tiger Console that walks you through setting up:
+
+- the Tiger Cloud command line interface (CLI) for easily controlling your project from your terminal
+- the Tiger Data MCP server for adding functionality to your AI building tools
+
+There are walkthroughs for MacOS, Linux, and Windows. Find the actions in the project view under the `CLI/MCP` tab.
+
+![Tiger Cloud CLI/MCP walkthrough](https://assets.timescale.com/docs/images/cli-mcp-walkthrough-tiger-console.png)
+
+## Jobs timeline view 
+<Label type="date">March 2, 2026</Label>
+
+**Timeline view added to `Jobs` page**
+
+We have added a timeline view to the `Jobs` page so you can easily see the status of all of your recent job runs at a glance. Hover over each run for more detail, or click on a specific job to go into the deep dive jobs view. See [Monitor your $SERVICE_LONGs](https://www.tigerdata.com/docs/use-timescale/latest/metrics-logging/monitoring/#jobs).
+
+![Tiger Cloud jobs timeline](https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-jobs-timeline-view.png)
+
 ## Azure Marketplace automation and UI updates
 <Label type="date">February 18, 2026</Label>
 
@@ -31,6 +117,9 @@ We have changed the interface for the SQL editor to be floating, as opposed to a
 We brought back the toggle between the Ops view and Data view within the context of a service. You can now easily switch to Data view from inside an individual service. The toggle is available above the top navigation in the UI.
 
 ![View toggle](https://assets.timescale.com/docs/images/tiger-cloud-view-toggle.png)
+
+
+
 
 ## pg_textsearch v0.5.0
 <Label type="date">February 13, 2026</Label>

@@ -6,7 +6,6 @@ content_group: Getting started
 ---
 
 import WhereNext from "versionContent/_partials/_where-to-next.mdx";
-import NotAvailableFreePlan from "versionContent/_partials/_not-available-in-free-plan.mdx";
 
 # Run your queries from $CONSOLE
 
@@ -30,8 +29,6 @@ If you prefer the command line to $CONSOLE editors, use [psql][psql].
 You use $DATA_MODE in $CONSOLE to write queries, visualize data, and share your results.
 
 ![$CONSOLE $DATA_MODE][console-data_mode]
-
-<NotAvailableFreePlan />
 
 To start using $DATA_MODE, open $CONSOLE and toggle `Data view`. This includes the following tabs:
 

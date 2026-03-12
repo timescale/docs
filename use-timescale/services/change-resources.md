@@ -21,16 +21,18 @@ $SERVICE_LONGs at any time, with a short downtime.
 
 ## Update compute resources for a $SERVICE_SHORT
 
-You can change the CPU and memory allocation for your $SERVICE_SHORT at any time with
+You can change the CPU and memory allocation for your standard $SERVICE_SHORT at any time with
 minimal downtime, usually less than a minute. The new resources become available as soon as 
-the $SERVICE_SHORT restarts. You can change the CPU and memory allocation up or down, as frequently as required. 
+the $SERVICE_SHORT restarts. You can change the CPU and memory allocation up or down, as frequently as required.
 
 ![Change resources][change-resources]
+
+To change the resources of a free $SERVICE_SHORT, first [convert it to a standard one][convert-to-standard].
 
 Note that:
 
 - For the 48 CPU / 192 GiB option, 6 CPU / 14 GiB is reserved for platform operations.
-- For the 64 CPU / 256 GiB option, 6 CPU / 16 GiB is reserved for platform operations. 
+- For the 64 CPU / 256 GiB option, 6 CPU / 16 GiB is reserved for platform operations.
 
 There is momentary downtime while the new compute settings are applied. In most cases, this is 
 less than a minute. However, before making changes to your $SERVICE_SHORT, best practice
@@ -67,7 +69,7 @@ settings are applied during an appropriate service window.
 
 ## Out of memory errors
 
-If you run intensive queries on your $SERVICE_SHORTs, you might
+If you run intensive queries on your standard $SERVICE_SHORTs, you might
 encounter out of memory (OOM) errors. This occurs if your query consumes more
 memory than is available.
 
@@ -97,8 +99,11 @@ operate normally.
    ```yml
    2022-02-03 17:12:04 UTC [2253150]:TimescaleDB: tsdbadmin@tsdb,app=psql [53200] ERROR: out of memory
    ```
+  
+If you encounter OOM errors on a free $SERVICE_SHORT, [convert it to a standard $SERVICE_SHORT][convert-to-standard], then increase its CPU and memory allocation as needed to resolve the memory pressure. 
 
 [change-resources]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-update-cpu-manually.png
 [cloud-login]: https://console.cloud.timescale.com/
+[convert-to-standard]: /use-timescale/:currentVersion:/services/service-management/#convert-a-free-service-to-a-standard-one
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
 [services-portal]: https://console.cloud.timescale.com/dashboard/services

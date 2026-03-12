@@ -38,10 +38,6 @@ This page explains how to capture changes in your database and stream them using
 
 ## Configure your database to work with Debezium
 
-<Tabs label="Integrate with Debezium" persistKey="source-database">
-
-<Tab title="Self-hosted TimescaleDB" label="self-hosted">
-
 To set up $SELF_LONG to communicate with Debezium:
 
 <Procedure>
@@ -60,18 +56,7 @@ Set up Kafka Connect server, plugins, drivers, and connectors:
 
 </Procedure>
 
-</Tab>
-
-<Tab title="Tiger Cloud" label="tiger-cloud">
-
-Debezium requires logical replication to be enabled. Currently, this is not enabled by default on $SERVICE_LONGs.
-We are working on enabling this feature as you read. As soon as it is live, these docs will be updated.
-
-</Tab>
-
-</Tabs>
-
-And that is it,  you have configured Debezium to interact with $COMPANY products.
+And that is it, you have configured Debezium to interact with $TIMESCALE_DB.
 
 [caggs]: /use-timescale/:currentVersion:/continuous-aggregates/
 [debezium]: https://debezium.io/

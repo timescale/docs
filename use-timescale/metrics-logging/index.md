@@ -15,10 +15,12 @@ cloud_ui:
 Find metrics and logs for your $SERVICE_SHORTs in $CONSOLE, or integrate with third-party monitoring services:
 
 *   [Monitor][monitor] your $SERVICE_SHORTs in $CONSOLE.
-*   Export metrics to [Datadog][datadog].
 *   Export metrics to [Amazon Cloudwatch][cloudwatch].
+*   Export metrics to [Azure Monitor][azure-monitor].
+*   Export metrics to [Datadog][datadog].
 *   Export metrics to [Prometheus][prometheus].
 
+[azure-monitor]: /use-timescale/:currentVersion:/metrics-logging/azure-monitor/
 [cloudwatch]: /use-timescale/:currentVersion:/metrics-logging/aws-cloudwatch/
 [datadog]: /use-timescale/:currentVersion:/metrics-logging/datadog/
 [monitor]: /use-timescale/:currentVersion:/metrics-logging/monitoring/
