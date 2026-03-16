@@ -9,6 +9,11 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Support for Azure Monitor
+<Label type="date">March 16, 2026</Label>
+
+Tiger Cloud now offers support for exporting telemetry data from your Tiger Cloud services with the time-series and analytics capability enabled to Azure Monitor. To learn more, see [Integrate Azure Monitor with Tiger Cloud](https://www.tigerdata.com/docs/integrations/latest/azure-monitor)
+
 ## Automated chunk tuning (beta)
 <Label type="date">March 6, 2026</Label>
 
