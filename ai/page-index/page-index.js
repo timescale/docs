@@ -8,6 +8,11 @@ module.exports = [
       "Integrate AI with your Tiger Data products",
     children: [
       {
+        title: "Vectorizer and in-database LLM calls deprecation",
+        href: "vectorizer-deprecation",
+        excerpt: "Migration guide for the deprecation of managed vectorizer and in-database LLM calls on Timescale Cloud",
+      },
+      {
         title: "Integrate Tiger Cloud with your AI Assistant",
         href: "mcp-server",
         excerpt: "Manage your services and optimize your schema and queries with your AI Assistant",
