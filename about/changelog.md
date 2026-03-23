@@ -9,6 +9,13 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Additional metrics available for export
+<Label type="date">March 23, 2026</Label>
+
+You can now enable the export of database metrics such as replication, cache usage, and background activity to Amazon CloudWatch, Datadog, and Prometheus by selecting 'PostgreSQL metrics' when creating or modifying an exporter in the Tiger Cloud console. Additionally, system-level disk metrics such as IO and throughput are now being exported by default.
+
+For additional information, see [Metrics and Logging] (https://www.tigerdata.com/docs/use-timescale/latest/metrics-logging).
+
 ## Support cases in Tiger Console
 <Label type="date">March 23, 2026</Label>
 
