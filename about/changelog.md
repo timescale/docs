@@ -19,6 +19,7 @@ You can now view and manage your support cases directly in Tiger Console. Open t
 - Reply to open cases
 - Close open cases
 
+![Manage support in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-manage-support.png)
 
 ## Support for Azure Monitor
 <Label type="date">March 17, 2026</Label>

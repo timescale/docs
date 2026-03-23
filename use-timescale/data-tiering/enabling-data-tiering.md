@@ -268,6 +268,12 @@ To drop tiered data, call [DROP_TABLE][drop-hypertable] on the corresponding hyp
 
 ### Disable tiering 
 
+<Highlight type="important">
+
+Contact $COMPANY support if you are disabling tiering when moving from $SCALE to $PERFORMANCE $PRICING_PLAN.
+
+</Highlight>
+
 If you no longer want to use tiered storage for a particular hypertable, drop the associated metadata by calling `disable_tiering`.
 
 <Procedure>
