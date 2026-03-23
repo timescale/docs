@@ -23,6 +23,7 @@ You use $CONSOLE_LONG to manage your $SERVICE_SHORTs and data in a convenient, c
 - `CLI/MCP`: install $CLI_LONG and set up $MCP_LONG.
 - `Users`: [add and remove users][members] in your $PROJECT_SHORT. 
 - `Billing`: [check usage][check-usage], [change $PRICING_PLANs][pricing], and manage payment methods.
+- `Support`: open and manage [support tickets][support-tickets]. 
 
 When you select a $SERVICE_LONG in the `Services` tab, you land in the $OPS_MODE. In this view, you manage your $SERVICE_SHORTs. You see `Overview` and other related tabs:
 
@@ -67,3 +68,4 @@ To query your $SERVICE_SHORT from any tab, click `SQL Editor` at the bottom. The
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
 [manage-extensions]: /use-timescale/:currentVersion:/extensions/
 [activity-log]: /about/:currentVersion:/changelog#activity-log
+[support-tickets]: /about/:currentVersion:/pricing-and-account-management#tiger-cloud-support

@@ -9,6 +9,18 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## Support cases in Tiger Console
+<Label type="date">March 23, 2026</Label>
+
+You can now view and manage your support cases directly in Tiger Console. Open the `Support` tab at the project level to:
+
+- View all support cases for your project from the last 90 days
+- Read the full email conversation thread
+- Reply to open cases
+- Close open cases
+
+![Manage support in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-manage-support.png)
+
 ## Support for Azure Monitor
 <Label type="date">March 17, 2026</Label>
 
