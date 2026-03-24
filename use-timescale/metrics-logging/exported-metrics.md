@@ -1,17 +1,39 @@
 ---
-title: PostgreSQL metrics
-excerpt: Reference for PostgreSQL metrics available in Tiger Cloud
+title: Metrics exported by Tiger Cloud exporters
+excerpt: Reference for system and PostgreSQL metrics exported by Tiger Cloud
 products: [cloud]
 keywords: [metrics, postgresql, monitoring]
 tags: [telemetry, monitor, metrics]
 ---
 
-# PostgreSQL metrics
+# Exported metrics
+
+This page provides a list of metrics you can export with all $CLOUD_LONG exporters. 
+
+## $CLOUD_LONG metrics
+
+These are the metrics exported by default by every $CLOUD_LONG exporter:
+
+|Metric|Description|
+|-|-|
+|`timescale_cloud_system_cpu_total_millicores`|Total CPU capacity available to the service, in millicores.|
+|`timescale_cloud_system_cpu_usage_millicores`|Current CPU usage by the service, in millicores.|
+|`timescale_cloud_system_disk_io_read_bytes`|Total bytes read from disk.|
+|`timescale_cloud_system_disk_io_read_ops`|Total number of disk read operations.|
+|`timescale_cloud_system_disk_io_total_bytes`|Total bytes of all disk I/O (reads and writes combined).|
+|`timescale_cloud_system_disk_io_total_ops`|Total number of all disk I/O operations (reads and writes combined).|
+|`timescale_cloud_system_disk_io_write_bytes`|Total bytes written to disk.|
+|`timescale_cloud_system_disk_io_write_ops`|Total number of disk write operations.|
+|`timescale_cloud_system_disk_usage_bytes`|Current disk space used by the service, in bytes.|
+|`timescale_cloud_system_memory_total_bytes`|Total memory available to the service, in bytes.|
+|`timescale_cloud_system_memory_usage_bytes`|Current memory usage by the service, in bytes.|
+
+## $PG metrics
 
 These additional metrics are collected if you tick `PostgreSQL metrics` when creating $CLOUD_LONG exporters. 
 All metrics have a scrape interval of 15 seconds.
 
-## Exporter metrics
+### Exporter metrics
 
 These metrics show the health and status of the metrics collection process, including scrape duration, errors, and total scrape count.
 
@@ -22,7 +44,7 @@ These metrics show the health and status of the metrics collection process, incl
 |`pg_exporter_scrapes_total`|Total number of times PostgreSQL was scraped for metrics.|
 |`pg_exporter_user_queries_load_error`|Whether the user queries file was loaded and parsed successfully (1 for error, 0 for success).|
 
-## Lock metrics
+### Lock metrics
 
 These metrics track current lock activity in the database, helping you detect lock contention that may be blocking queries.
 
@@ -30,7 +52,7 @@ These metrics track current lock activity in the database, helping you detect lo
 |-|-|
 |`pg_locks_count`|Number of locks.|
 
-## Replication metrics
+### Replication metrics
 
 These metrics track the status and lag of replication slots, helping you monitor whether replicas are keeping up with the primary.
 
@@ -39,7 +61,7 @@ These metrics track the status and lag of replication slots, helping you monitor
 |`pg_replication_slots_active`|Flag indicating if the slot is active.|
 |`pg_replication_slots_pg_wal_lsn_diff`|Replication lag in bytes.|
 
-## PG settings metrics
+### PG settings metrics
 
 These metrics expose the current values of PostgreSQL configuration parameters as numeric values, covering memory limits, planner costs, autovacuum tuning, WAL configuration, and more.
 
@@ -376,7 +398,7 @@ These metrics expose the current values of PostgreSQL configuration parameters a
 |`pg_settings_work_mem_bytes`|Sets the maximum memory to be used for query workspaces. Units converted to bytes.|
 |`pg_settings_zero_damaged_pages`|Continues processing past damaged page headers.|
 
-## PG stats metrics
+### PG stats metrics
 
 These metrics come from PostgreSQL's internal statistics collector and include connection counts, transaction throughput, buffer usage, replication state, and database-level I/O.
 

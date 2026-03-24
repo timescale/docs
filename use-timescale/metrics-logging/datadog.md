@@ -14,9 +14,9 @@ import ExporterRegion from "versionContent/_partials/_iam-oidc-exporter-region.m
 
 # Export telemetry data to Datadog
 
-You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Datadog][datadog]. The available metrics include CPU usage, RAM usage, and storage. This integration is available for [$SCALE or $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
+You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Datadog][datadog]. See [Exported metrics](/use-timescale/:currentVersion:/metrics-logging/exported-metrics/) for the full list of default and additional metrics you can export.
 
-This page shows you how to create a Datadog exporter in $CONSOLE, and manage the lifecycle of data exporters.
+This page shows you how to create a Datadog exporter in $CONSOLE, and manage the lifecycle of data exporters. This integration is available for [$SCALE or $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 ## Prerequisites
 

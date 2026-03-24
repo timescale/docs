@@ -127,7 +127,9 @@
 
     </Tabs> 
 
-1. Select the AWS Region your CloudWatch services run in, then click `Create exporter`.
+1. Select the AWS Region your CloudWatch services run in.
+
+1. Optionally tick `PostgreSQL metrics` to export [additional metrics](/use-timescale/:currentVersion:/metrics-logging/exported-metrics/#postgres-metrics), then click `Create exporter`.
 
 </Procedure>
 
