@@ -40,9 +40,9 @@
    You cannot attach a $SERVICE_LONG to multiple $CLOUD_LONG $VPCs at the same time.
 
 [add-peering]: https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-tiger-console.png
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [cloud_long-new-vpc]: https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-console.png
 [create-a-new-vpc-in-cloud_long]: https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [supporttigerdatacom]: mailto:support@tigerdata.com

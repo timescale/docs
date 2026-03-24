@@ -171,7 +171,7 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
 [nyc_datatargz]: https://assets.timescale.com/docs/downloads/nyc_data.tar.gz
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[portal-data-mode]: https://console.cloud.tigerdata.com/dashboard/services?popsql
+[portal-ops-mode]: https://console.cloud.tigerdata.com/dashboard/services
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

@@ -126,5 +126,5 @@ instance to your $SERVICE_LONG, in real time.
 [postgres-connector-start]: https://assets.timescale.com/docs/images/tiger-on-azure/pg-connector-start-tiger-console.png
 [postgres-connector-wizard]: https://assets.timescale.com/docs/images/tiger-on-azure/pg-connector-wizard-tiger-console.png
 [psql]: /integrations/:currentVersion:/psql/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [tiger-connectors-overview]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-connector-overview.png

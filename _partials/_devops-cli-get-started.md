@@ -68,7 +68,7 @@ Create a new $SERVICE_LONG using $CLI_LONG:
    │ Direct Endpoint   │ tgrservice.tgrproject.tsdb.cloud.timescale.com:39004                                             │
    │ Created           │ 2025-10-20 20:33:46 UTC                                                                          │
    │ Connection String │ postgresql://tsdbadmin@tgrservice.tgrproject.tsdb.cloud.timescale.com:0007/tsdb?sslmode=require │
-   │ Console URL       │ https://console.cloud.timescale.com/dashboard/services/tgrservice                                │
+   │ Console URL       │ https://console.cloud.tigerdata.com/dashboard/services/tgrservice                                │
    └───────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────┘
    ```
    This $SERVICE_SHORT is set as default by the $CLI_SHORT.
@@ -79,9 +79,9 @@ Create a new $SERVICE_LONG using $CLI_LONG:
    ```
    You see something like:
    ```terminaloutput
-   api_url:     https://console.cloud.timescale.com/public/api/v1
-   console_url: https://console.cloud.timescale.com
-   gateway_url: https://console.cloud.timescale.com/api
+   api_url:     https://console.cloud.tigerdata.com/public/api/v1
+   console_url: https://console.cloud.tigerdata.com
+   gateway_url: https://console.cloud.tigerdata.com/api
    docs_mcp:       true
    docs_mcp_url:   https://mcp.tigerdata.com/docs
    project_id:  tgrproject

@@ -5,4 +5,4 @@ Best practice is to run $TIMESCALE_DB in a [$SERVICE_LONG][service_long], but if
 self-host you can run $TIMESCALE_DB yourself.
 
 
-[service_long]: https://console.cloud.timescale.com/signup
+[service_long]: https://console.cloud.tigerdata.com/signup

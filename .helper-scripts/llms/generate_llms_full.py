@@ -115,7 +115,7 @@ class TigerDataDocumentationGenerator:
             '$PG_VECTORIZER': 'PgVectorizer',
 
             # URL Variables (from vars.js)
-            '$CONSOLE_URL': 'https://console.cloud.timescale.com/',
+            '$CONSOLE_URL': 'https://console.cloud.tigerdata.com/',
             '$MST_CONSOLE_URL': 'https://portal.managed.timescale.com/',
             '$POPSQL_URL': 'https://popsql.com/',
             '$WEBSITE_MARKETING': 'www.tigerdata.com',

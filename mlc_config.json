@@ -15,7 +15,7 @@
       "pattern": "^https://console.anthropic.com/settings/keys"
     },
     {
-      "pattern": "^https://console.cloud.timescale.com/public/api/v1"
+      "pattern": "^https://console.cloud.tigerdata.com/public/api/v1"
     },
     {
       "pattern": "^https://console.aws.amazon.com/rds/home#databases"

@@ -15,4 +15,4 @@
 </Procedure>
 
 [add-datadog-exporter]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-integrations-datadog.png
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[console-integrations]: https://console.cloud.tigerdata.com/dashboard/integrations

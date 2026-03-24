@@ -825,5 +825,5 @@ querying by time and location.
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [postgis]: http://postgis.net/documentation
 [psql]: /integrations/:currentVersion:/psql/
-[timescale-signup]: https://console.cloud.timescale.com/signup
+[timescale-signup]: https://console.cloud.tigerdata.com/signup
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

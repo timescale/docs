@@ -104,7 +104,7 @@ $CLOUD_LONG is SOC 2 Type 2 compliant. This ensures that organizations can secur
 [ec2-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html
 [security-overview]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-platform-security-overview.svg
 [ip-allowlist]: /use-timescale/:currentVersion:/security/ip-allow-list/
-[open-support-ticket]: https://console.cloud.timescale.com/dashboard/support
+[open-support-ticket]: https://console.cloud.tigerdata.com/dashboard/support
 [pgspot]: https://github.com/timescale/pgspot
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [security-at-timescale]: https://www.tigerdata.com/security

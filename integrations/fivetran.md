@@ -85,5 +85,5 @@ You have successfully integrated Fivetran with $CLOUD_LONG.
 [fivetran-data-in-a-service]: https://assets.timescale.com/docs/images/integrations-fivetran-sync-data.png
 [fivetran-data-source]: https://assets.timescale.com/docs/images/integrations-fivetran-data-source.png
 [fivetran]: https://fivetran.com/docs/getting-started
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-data-mode]: https://console.cloud.tigerdata.com/dashboard/services?popsql
 [sign-up-fivetran]: https://www.fivetran.com/

@@ -213,7 +213,7 @@ And that is it, you have imported your data to your $SERVICE_LONG.
 [configure-the-csv-import-in-tiger]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-configure-csv-file-import.png
 [configure-the-parquet-import-in-tiger]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-configure-parquet-file-import.png
 [configure-the-text-file-import-in-tiger]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-configure-txt-file-import.png
-[console]: https://console.cloud.timescale.com/dashboard/
+[console]: https://console.cloud.tigerdata.com/dashboard/
 [credentials-iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console
 [credentials-public]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-anonymous-user
 [import-csv-from-s3-in-tiger]: https://assets.timescale.com/docs/images/tiger-cloud-console/import-csv-file-from-s3.png

@@ -181,5 +181,5 @@ You initiate a point-in-time recovery in $CONSOLE_LONG:
 [cross-region]: /use-timescale/:currentVersion:/backup-restore#enable-cross-region-backup
 [disable-cross-region-backup]: https://assets.timescale.com/docs/images/tiger-on-azure/cross-region-backup-list-in-tiger-console.png
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [wal]: https://www.postgresql.org/docs/current/wal-intro.html
