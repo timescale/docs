@@ -13,7 +13,7 @@ import EarlyAccessGeneral from "versionContent/_partials/_early_access.mdx";
 
 # Control user access to $PROJECT_LONGs
 
-When you sign up for a [30-day free trial][cloud-login], $CLOUD_LONG creates a $PROJECT_SHORT with built-in role-based access.
+When you sign up for a [$500 credit, 30-day free trial][cloud-login], $CLOUD_LONG creates a $PROJECT_SHORT with built-in role-based access.
 
 This includes the following roles: 
 

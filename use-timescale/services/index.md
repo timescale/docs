@@ -30,7 +30,7 @@ Read about $CLOUD_LONG features in the documentation:
 
 You're now on your way to a great start with $CLOUD_LONG.
 
-You have an unthrottled, 30-day free trial with $CLOUD_LONG to continue to
+You have a $500 credit, 30-day free trial with $CLOUD_LONG to continue to
 test your use case. Before the end of your trial, make sure you add your credit
 card information. This ensures a smooth transition after your trial period
 concludes.
