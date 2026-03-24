@@ -554,6 +554,11 @@ module.exports = [
             href: "metrics-to-prometheus",
             excerpt: "Export telemetry data to Prometheus",
           },
+          {
+            title: "PostgreSQL metrics",
+            href: "pg-metrics",
+            excerpt: "Reference for PostgreSQL metrics available in Tiger Cloud",
+          },
         ],
       },
       {
