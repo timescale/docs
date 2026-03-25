@@ -30,7 +30,7 @@ To export your data, do the following:
 
 <Procedure>
 
-To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. The Prometheus exporter exposes the metrics related to the $SERVICE_LONG like CPU, memory, and storage. To scrape other metrics, use Postgres Exporter as described for $SELF_LONG. The Prometheus exporter is available for [$SCALE and $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
+To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus exporter in $CONSOLE, attach it to your $SERVICE_SHORT, then configure Prometheus to scrape metrics using the exposed URL. See [Exported metrics][exported-metrics] for the full list of default and additional metrics you can export. The Prometheus exporter is available for [$SCALE and $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 1. **Create a Prometheus exporter**
 
@@ -42,9 +42,11 @@ To export metrics from a $SERVICE_LONG, you create a dedicated Prometheus export
 
    1. Choose the region for the exporter. Only $SERVICE_SHORTs in the same project and region can be attached to this exporter.
    
-   1. Name your exporter. 
+   1. Name your exporter.
 
    1. Change the auto-generated Prometheus credentials, if needed. See [official documentation][prometheus-authentication] on basic authentication in Prometheus.
+
+   1. Optionally tick `PostgreSQL metrics` to export [additional metrics][exported-metrics], then click `Create exporter`.
 
 1. **Attach the exporter to a $SERVICE_SHORT**
 
@@ -177,6 +179,7 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the
 [create-a-prometheus-exporter-in-tiger]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-create-prometheus-exporter.png
 [create-service]: /getting-started/:currentVersion:/services/
 [enable-timescaledb]: /self-hosted/:currentVersion:/install/
+[exported-metrics]: /use-timescale/:currentVersion:/metrics-logging/exported-metrics/#postgres-metrics
 [grafana-prometheus]: https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/
 [grafana]: /integrations/:currentVersion:/grafana/
 [install-exporter]: https://grafana.com/oss/prometheus/exporters/postgres-exporter/?tab=installation
