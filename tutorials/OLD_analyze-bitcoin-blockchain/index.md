@@ -53,4 +53,4 @@ this tutorial is to
 [install-timescale]: /getting-started/:currentVersion:/
 [psql]: /integrations/:currentVersion:/psql/
 [see-our-blog-post]: https://www.tigerdata.com/blog/building-blockchain-apps-on-postgres
-[sign-up-for-a-free-account_long]: http://console.cloud.timescale.com/signup
+[sign-up-for-a-free-account_long]: http://console.cloud.tigerdata.com/signup

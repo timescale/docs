@@ -420,7 +420,7 @@ this tutorial, drop us a line on our [community Slack channel][slack].
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [install-timescale]: /getting-started/:currentVersion:/
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
-[sign-up]: http://console.cloud.timescale.com/signup
+[sign-up]: http://console.cloud.tigerdata.com/signup
 [slack]: https://slack.timescale.com
 [TimescaleDB]: https://timescale.com/
 [tracking-a-sql-view-on-hasura-cloud]: https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-track-view.png

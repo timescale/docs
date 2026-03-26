@@ -37,7 +37,7 @@ This section covers:
 [about-data-tiering]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/
 [add-retention-policies]: /api/:currentVersion:/continuous-aggregates/add_policies/
 [aws-gp3]: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html
-[cloud_long]: https://console.cloud.timescale.com/
+[cloud_long]: https://console.cloud.tigerdata.com/
 [create-service]: /getting-started/:currentVersion:/services/
 [creating-data-tiering-policy]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#automate-tiering-with-policies
 [data-tiering-workflow]: /use-timescale/:currentVersion:/data-tiering/about-data-tiering/#the-tiered-storage-workflow

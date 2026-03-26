@@ -52,5 +52,5 @@ token programmatically, see the
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs

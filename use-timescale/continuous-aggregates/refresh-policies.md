@@ -195,4 +195,4 @@ Follow the logic used by automated refresh policies and avoid refreshing time bu
 [future-watermark]: /use-timescale/:currentVersion:/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [real-time-aggregates]: /use-timescale/:currentVersion:/continuous-aggregates/real-time-aggregates
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

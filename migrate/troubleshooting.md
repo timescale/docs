@@ -357,4 +357,4 @@ ERROR:  insufficient data left in message.
 
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [mst]: /mst/:currentVersion:/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

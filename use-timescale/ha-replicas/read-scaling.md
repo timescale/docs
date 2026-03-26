@@ -138,4 +138,4 @@ To delete a replica set:
 [read-replica-sets]: https://assets.timescale.com/docs/images/tiger-on-azure/configured-replica-set-tiger-console.png
 [read-replicas-in-console_long]: https://assets.timescale.com/docs/images/tiger-on-azure/read-replica-sets-tiger-console.png
 [read-scaling-in-timescale]: https://assets.timescale.com/docs/images/read-scaling-timescale.png
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

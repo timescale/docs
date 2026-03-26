@@ -195,6 +195,6 @@ invite `@eon` to join, then ask a question:
 [linear-token]: https://linear.app/docs/api-and-webhooks#api-keys
 [logfire-token]: http://logfire.pydantic.dev/docs/how-to-guides/create-write-tokens/
 [query-tiger-agent]: https://assets.timescale.com/docs/images/tiger-eon-big-question.png
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [tiger-agents]: https://github.com/timescale/tiger-agents-for-work
 [tiger-cli]: https://github.com/timescale/tiger-cli/

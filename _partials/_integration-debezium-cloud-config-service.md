@@ -28,6 +28,6 @@
      );
      ```
 
-[open-console]: https://console.cloud.timescale.com/dashboard/services
+[open-console]: https://console.cloud.tigerdata.com/dashboard/services
 [psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [run-queries]: /getting-started/:currentVersion:/run-queries-from-console/

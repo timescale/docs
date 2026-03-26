@@ -31,4 +31,4 @@ Users of [$CLOUD_LONG][cloud-login] and platform packages for Linux, Windows, Ma
 Docker, and Kubernetes are unaffected.
 
 [postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/

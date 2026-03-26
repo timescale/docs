@@ -199,5 +199,5 @@ $SERVICE_LONG in real time.
 [s3-connector-change-config]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-edit.png
 [s3-connector-stats]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-s3-connector-import-details.png
 [s3-connector-table-selection]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-s3-connector-create-tables.png
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

@@ -375,5 +375,5 @@ data lake:
 [s3-console]: https://console.aws.amazon.com/s3/
 [s3-tables]: https://aws.amazon.com/s3/features/tables/
 [samples]: /use-timescale/:currentVersion:/tigerlake/#sample-code
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [tiger-lake-architecture]: https://assets.timescale.com/docs/images/tiger-cloud-console/iceberg-connector-tiger-cloud.svg

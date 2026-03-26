@@ -75,4 +75,4 @@ directory can be adjusted via the `--config-dir` flag or the `TIGER_CONFIG_DIR` 
     tiger auth login --public-key=<public_key> --secret-key=<secret-key> --project-id=<project_id>
     ```
 
-[rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
+[rest-api-credentials]: https://console.cloud.tigerdata.com/dashboard/settings

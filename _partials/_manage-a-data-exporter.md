@@ -51,5 +51,5 @@ To remove a data exporter that you no longer need:
 
 </Procedure>
 
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[console-integrations]: https://console.cloud.tigerdata.com/dashboard/integrations
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

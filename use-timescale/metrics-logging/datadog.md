@@ -10,13 +10,12 @@ tags: [telemetry, monitor]
 import DataDogExporter from "versionContent/_partials/_datadog-data-exporter.mdx";
 import PrereqsCloud from "versionContent/_partials/_prereqs-cloud-no-connection.mdx";
 import ManageDataExporter from "versionContent/_partials/_manage-a-data-exporter.mdx";
-import ExporterRegion from "versionContent/_partials/_iam-oidc-exporter-region.mdx";
 
 # Export telemetry data to Datadog
 
-You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Datadog][datadog]. The available metrics include CPU usage, RAM usage, and storage. This integration is available for [$SCALE or $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
+You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Datadog][datadog]. See [Exported metrics](/use-timescale/:currentVersion:/metrics-logging/exported-metrics/) for the full list of default and additional metrics you can export.
 
-This page shows you how to create a Datadog exporter in $CONSOLE, and manage the lifecycle of data exporters.
+This page shows you how to create a Datadog exporter in $CONSOLE, and manage the lifecycle of data exporters. This integration is available for [$SCALE or $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 ## Prerequisites
 
@@ -35,9 +34,6 @@ This section shows you how to attach, edit, and delete a data exporter.
 
 <ManageDataExporter />
 
-## Reference
-
-<ExporterRegion />
 
 [datadog]: https://www.datadoghq.com
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

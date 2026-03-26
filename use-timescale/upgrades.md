@@ -234,6 +234,6 @@ To change your maintenance window:
 [readreplica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [relnotes]: https://github.com/timescale/timescaledb/releases
 [service-management]: /use-timescale/:currentVersion:/services/service-management/#change-the-service-environment
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [status-page]: https://status.timescale.com/
 [supported-systems]: /about/:currentVersion:/supported-platforms/#supported-systems

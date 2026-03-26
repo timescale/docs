@@ -104,4 +104,4 @@ In the `Services` page of the $MST_CONSOLE_LONG, click the service you want to c
 [retrive-the-service-id-in-console-1]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png
 [retrive-the-service-id-in-console]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-id.png
 [service_long-connection-details]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-service-connection-details.png
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

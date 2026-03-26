@@ -15,7 +15,9 @@
 
     [Learn where to find][connection-string] your connection string. 
 
-1.  **Click `Create exporter`**
+1. **Export additional metrics**
+
+   Optionally tick `PostgreSQL metrics` to export [additional metrics](/use-timescale/:currentVersion:/metrics-logging/exported-metrics/#postgres-metrics), then click `Create exporter`.
 
 Your exporter is created and added to the list of already existing exporters. 
 

@@ -153,4 +153,4 @@ comprehensive list of [metrics][datadog-postgres-metrics] collected.
 [pricing-plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan
 [projects]: /use-timescale/:currentVersion:/security/members/
 [psql]: /integrations/:currentVersion:/psql/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
