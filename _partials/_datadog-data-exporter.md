@@ -10,7 +10,11 @@
 
     The AWS region must be the same for your $CLOUD_LONG exporter and the Datadog provider.
 
-1.  **Set `Site` to your Datadog region, then click `Create exporter`**
+1.  **Set `Site` to your Datadog region**
+
+1. **Export additional metrics**
+
+   Optionally tick `PostgreSQL metrics` to export [additional metrics](/use-timescale/:currentVersion:/metrics-logging/exported-metrics/#postgres-metrics), then click `Create exporter`.
 
 </Procedure>
 
