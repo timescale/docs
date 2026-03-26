@@ -191,22 +191,22 @@ instance to a $SERVICE_LONG:
    `--target`: The connection string to the target $SERVICE_LONG.
 
    `--table-map`: (Optional) A JSON string that maps source tables to target tables. If not provided, the source and target table names are assumed to be the same.
+
    For example, to map the source table `metrics` to the target table `metrics_data`:
+
+   `--table-map '{"source": {"schema": "public", "table": "metrics"}, "target": {"schema": "public", "table": "metrics_data"}}'`
+
+   To map only the schema, use:
+
+   `--table-map '{"source": {"schema": "public"}, "target": {"schema": "analytics"}}'`
+
+   This flag can be repeated for multiple table mappings.
 
    `--table-sync-workers`: (Optional) The number of parallel workers to use for initial table sync. Default is 4.
 
    `--copy-data`: (Optional) By default, the initial table data is copied from source to target before starting logical replication. Set to `false` so only changes made after replication slot creation are replicated.
    Best practice is to set to `false` during dry-run livesync so you do not copy table data.
 
-   ```
-   --table-map '{"source": {"schema": "public", "table": "metrics"}, "target": {"schema": "public", "table": "metrics_data"}}'
-   ```
-   To map only the schema, use:
-
-   ```
-   --table-map '{"source": {"schema": "public"}, "target": {"schema": "analytics"}}'
-   ```
-   This flag can be repeated for multiple table mappings.
 
 1. **Capture logs**
 
@@ -330,13 +330,11 @@ EOF
 
 1. **Clean up**
 
-   Use the `--drop` flag to remove the replication slots created by the $PG_CONNECTOR on the source database.
+   Use the `drop` sub-command to remove the replication slots created by the $PG_CONNECTOR on the source database.
 
    ```shell
-   docker run -it --rm --name livesync timescale/live-sync:<version-tag> run \
-      --publication <publication_name> --subscription <subscription_name> \
-      --source $SOURCE --target $TARGET \
-      --drop
+   docker run -it --rm --name livesync timescale/live-sync:<version-tag> drop \
+      --subscription <subscription_name> --source $SOURCE --target $TARGET \
    ```
 
 </Procedure>
