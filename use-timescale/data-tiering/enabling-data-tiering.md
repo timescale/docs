@@ -317,5 +317,5 @@ If you no longer want to use tiered storage for a particular hypertable, drop th
 [low-cost-storage]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering/#low-cost-object-storage-tier
 [manual-tier]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#manually-tier-and-untier-chunks
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [tiering-policies]: /use-timescale/:currentVersion:/data-tiering/enabling-data-tiering#automate-tiering-with-policies

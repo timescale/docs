@@ -94,7 +94,7 @@ again with your new device.
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [console_long-2fa]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-2fa.png
 [install-google-authenticator]: https://support.google.com/accounts/answer/1066447
 [supporttigerdatacom]: mailto:support@tigerdata.com

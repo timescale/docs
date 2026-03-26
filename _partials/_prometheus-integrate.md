@@ -192,5 +192,5 @@ You can further [visualize your data][grafana-prometheus] with Grafana. Use the
 [prometheus]: https://prometheus.io/docs/introduction/overview/
 [psql]: /integrations/:currentVersion:/psql/
 [scrape-targets]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 

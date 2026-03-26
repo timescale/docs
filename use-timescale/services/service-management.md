@@ -134,5 +134,5 @@ and its underlying data from the server. You cannot recover a deleted
 $SERVICE_SHORT.
 
 [maintenance-upgrades]: /use-timescale/:currentVersion:/upgrades/#minor-software-upgrades
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [pricing]: /about/:currentVersion:/pricing-and-account-management#features-included-in-each-pricing-plan

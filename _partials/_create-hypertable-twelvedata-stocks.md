@@ -59,4 +59,4 @@ named `stocks_real_time`, and one regular $PG table named `company`.
 
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

@@ -9,6 +9,6 @@ it:
     $COMPANY blog and forum.
 
 [cloud-console-index]: /console/
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [keywords]: /keywords/
 [search]: /search/?query=Tiger

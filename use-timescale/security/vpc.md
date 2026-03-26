@@ -228,10 +228,10 @@ some time for DNS propagation.
 [aws-vpc-setup-vpc]: /use-timescale/:currentVersion:/security/vpc/#secure-your-tiger-cloud-services-with-vpc-peering-and-aws-privatelink
 [cloud_long-isolation-architecture]: https://assets.timescale.com/docs/images/tsc-vpc-architecture.png
 [cloud_long-new-vpc]: https://assets.timescale.com/docs/images/tiger-cloud-console/add-peering-vpc-tiger-console.png
-[console-vpc]: https://console.cloud.timescale.com/dashboard/vpc
+[console-vpc]: https://console.cloud.tigerdata.com/dashboard/vpc
 [create-a-new-vpc-in-cloud_long]: https://assets.timescale.com/docs/images/tiger-cloud-console/configure-peering-vpc-tiger-console.png
 [create-a-new-vpc-route]: https://assets.timescale.com/docs/images/tsc-vpc-add-route.png
 [create-service]: /getting-started/:currentVersion:/services/#create-a-tiger-cloud-service
 [projects]: /use-timescale/:currentVersion:/security/members/
 [regions]: /about/:currentVersion:/supported-platforms/#available-regions
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

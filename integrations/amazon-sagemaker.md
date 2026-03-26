@@ -139,5 +139,5 @@ machine learning models. You can also untegrate visualization tools like [Grafan
 [hypertables-section]: /use-timescale/:currentVersion:/hypertables/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /integrations/:currentVersion:/psql/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [tableau]: /integrations/:currentVersion:/tableau/

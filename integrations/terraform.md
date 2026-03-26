@@ -147,7 +147,7 @@ You can now manage your database with Terraform.
 
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [pg-provider]: https://registry.terraform.io/providers/cyrilgdn/postgresql/latest
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [terraform-data-sources]: https://registry.terraform.io/providers/timescale/timescale/latest/docs/data-sources/products
 [terraform-install]: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 [terraform-provider]: https://registry.terraform.io/providers/timescale/timescale/latest/docs

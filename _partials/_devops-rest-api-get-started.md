@@ -39,7 +39,7 @@ proper authentication headers.
    Set the base URL in your environment:
 
     ```bash
-    export API_BASE_URL="https://console.cloud.timescale.com/public/api/v1"
+    export API_BASE_URL="https://console.cloud.tigerdata.com/public/api/v1"
     ```
 
 1. **Test your authenticated connection to $REST_LONG by listing the $SERVICE_SHORTs in the current $PROJECT_LONG**

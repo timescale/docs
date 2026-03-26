@@ -80,4 +80,4 @@ import CreateHypertableProcedure from "versionContent/_partials/_hypercore_creat
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [informational-views]: /api/:currentVersion:/informational-views/jobs/
 [remove_columnstore_policy]: /api/:currentVersion:/hypercore/remove_columnstore_policy/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

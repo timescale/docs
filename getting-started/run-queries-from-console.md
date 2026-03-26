@@ -263,7 +263,7 @@ To use $SQL_EDITOR:
 [popsql-desktop]: https://popsql.com/download
 [popsql-pricing]: https://popsql.com/pricing
 [popsql]: /getting-started/:currentVersion:/run-queries-from-console/#data-mode
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
+[portal-data-mode]: https://console.cloud.tigerdata.com/dashboard/services?popsql
 [pricing-plan-features]: https://www.tigerdata.com/pricing#features
 [projects]: /use-timescale/:currentVersion:/security/members/
 [psql]: /integrations/:currentVersion:/psql/
@@ -273,14 +273,14 @@ To use $SQL_EDITOR:
 [run-a-simple-query]: https://assets.timescale.com/docs/images/tiger-cloud-console/run-query-in-scratchpad-tiger-console.png
 [schema-browser]: https://docs.popsql.com/docs/schema
 [select-a-connection]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [share-query]: https://docs.popsql.com/docs/sharing-a-link-to-your-query-and-results
 [sql-assistant-img]: https://assets.timescale.com/docs/images/tiger-cloud-console/sql-assistant-in-action.png
 [sql-assistant-settings]: https://assets.timescale.com/docs/images/tiger-console-sql-editor-preferences.png
 [popsql-dbt]: https://popsql.com/dbt
 [read-replica]: /use-timescale/:currentVersion:/ha-replicas/read-scaling/
 [sql-assistant]: /getting-started/:currentVersion:/run-queries-from-console/#sql-assistant
-[sql-editor-settings]: https://console.cloud.timescale.com/dashboard/settings?popsql=%2Fpreferences%2Fai
+[sql-editor-settings]: https://console.cloud.tigerdata.com/dashboard/settings?popsql=%2Fpreferences%2Fai
 [sql-editor]: /getting-started/:currentVersion:/run-queries-from-console/#ops-mode-sql-editor
 [version-history]: https://docs.popsql.com/docs/version-history
 [write-query]: https://docs.popsql.com/docs/writing-a-query

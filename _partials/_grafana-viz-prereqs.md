@@ -15,6 +15,6 @@ The examples in this section use these variables and Grafana functions:
 *   `$bucket_interval`: the interval size to pass to the `time_bucket`
     function when aggregating data.
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [grafana-cloud]: https://grafana.com/get/
 [try-timescale-features]: /getting-started/:currentVersion:/try-key-features-timescale-products/

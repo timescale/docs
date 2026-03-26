@@ -227,6 +227,6 @@ You can set `max_connections` within the following ranges, based on your $SERVIC
 `max_connections` of the primary $SERVICE_SHORT cannot be higher than its replica's. 
 
 [about-connection-pooling-types]: /use-timescale/:currentVersion:/services/connection-pooling#pool-types
-[cloud-login]: https://console.cloud.timescale.com
+[cloud-login]: https://console.cloud.tigerdata.com
 [max-connections]: /use-timescale/:currentVersion:/services/connection-pooling#min-and-max-connection-ranges
 [pgbouncer]: https://www.pgbouncer.org/usage.html

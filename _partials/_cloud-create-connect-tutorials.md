@@ -36,5 +36,5 @@ command-line utility. If you've used $PG before, you might already have
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [psql]: /integrations/:currentVersion:/psql/
