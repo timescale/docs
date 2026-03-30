@@ -9,6 +9,21 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## pg_textsearch v1.0.0 — production ready
+<Label type="date">March 2026</Label>
+
+`pg_textsearch` v1.0.0 is now generally available and production ready on Tiger Cloud!
+
+This release marks the graduation from early access to GA. Highlights include:
+
+- **Production ready**: `pg_textsearch` is now recommended for production workloads.
+- **Force merge**: new `bm25_force_merge()` function for consolidating index segments after bulk loads, improving query performance.
+- **Implicit query syntax**: simplified `ORDER BY content <@> 'search terms'` syntax with automatic index detection.
+- **New GUCs**: `pg_textsearch.segments_per_level` for compaction tuning and `pg_textsearch.log_scores` for debugging.
+- **Supported Postgres versions**: PostgreSQL 17 and 18.
+
+See [Optimize full text search with BM25](https://www.tigerdata.com/docs/use-timescale/latest/extensions/pg-textsearch) for full documentation.
+
 ## Additional metrics available for export
 <Label type="date">March 24, 2026</Label>
 
@@ -185,7 +200,7 @@ Tiger Cloud now includes significant improvements to `pg_textsearch`, bringing m
 - **Improved partition handling (v0.4.0):**  
   Fixes and stability improvements for indexes on tables with large numbers of partitions.
 
-Additional optimizations, including block compression and parallel indexing, are in progress as `pg_textsearch` continues its sprint toward GA.
+Block compression shipped in v0.4.0 and parallel indexing shipped in v0.5.0. `pg_textsearch` reached GA with v1.0.0 in March 2026.
 
 **Learn more:**
 - [pg_textsearch v0.3.0 release notes](https://github.com/timescale/pg_textsearch/releases/tag/v0.3.0)  

@@ -6,10 +6,10 @@ tags: [search, indexing, performance, BM25]
 products: [cloud, self_hosted]
 ---
 
-import EA1125 from "versionContent/_partials/_early_access_11_25.mdx";
 import SINCE010 from "versionContent/_partials/_since_0_1_0.mdx";
 import SINCE040 from "versionContent/_partials/_since_0_4_0.mdx";
 import SINCE050 from "versionContent/_partials/_since_0_5_0.mdx";
+import SINCE100 from "versionContent/_partials/_since_1_0_0.mdx";
 import IntegrationPrereqs from "versionContent/_partials/_integration-prereqs.mdx";
 
 # Optimize full text search with BM25 
@@ -39,7 +39,9 @@ the following best practices:
 * **Query optimization**: use score thresholds to filter low-relevance results
 * **Index monitoring**: regularly check index usage and memory consumption
 
-<EA1125 /> this preview release is designed for development and staging environments. 
+`pg_textsearch` v1.0.0 is production ready (March 2026). It supports $PG 17 and 18.
+
+<SINCE100 />
 
 ## Prerequisites
 
@@ -177,10 +179,12 @@ an explicit index name.
 
 <Procedure>
 
-1. **Perform ranked searches using the distance operator**
+1. **Perform ranked searches using implicit syntax**
+
+   The simplest way to query is with the implicit `<@>` syntax. The BM25 index is automatically detected from the column:
 
    ```sql
-   SELECT name, description, description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
+   SELECT name, description, description <@> 'ergonomic work' as score
    FROM products
    ORDER BY score
    LIMIT 3;
@@ -195,6 +199,21 @@ an explicit index name.
     Mechanical Keyboard        | Durable mechanical switches with RGB backlighting for gaming and productivity      |                   0
     Standing Desk              | Adjustable height desk for better posture and productivity throughout the workday  |                   0
    ```
+
+1. **Use explicit index specification with `to_bm25query()`**
+
+   For `WHERE` clause filtering or when you need to specify the index explicitly, use `to_bm25query()`:
+
+   ```sql
+   SELECT name, description <@> to_bm25query('ergonomic work', 'products_search_idx') as score
+   FROM products
+   ORDER BY score
+   LIMIT 3;
+   ```
+
+   The implicit `text <@> 'query'` syntax does not work inside PL/pgSQL functions or DO blocks. Use
+   `to_bm25query()` with an explicit index name in those contexts. See [bm25query data type](#bm25query-data-type)
+   for details.
 
 1. **Filter results by score threshold**
 
@@ -237,7 +256,7 @@ an explicit index name.
 
    ```sql
    EXPLAIN SELECT * FROM products
-   ORDER BY description <@> to_bm25query('ergonomic', 'products_search_idx')
+   ORDER BY description <@> 'ergonomic'
    LIMIT 5;
    ```
 
@@ -251,6 +270,15 @@ an explicit index name.
             Sort Key: ((description <@> 'products_search_idx:ergonomic'::bm25query))
             ->  Seq Scan on products  (cost=0.00..8.53 rows=3 width=140)
    ```
+
+   For small datasets, $PG may prefer sequential scans over index scans. To force index usage during testing:
+
+   ```sql
+   SET enable_seqscan = off;
+   ```
+
+   Even when `EXPLAIN` shows a sequential scan, the `<@>` operator always uses the BM25 index internally for
+   corpus statistics (document counts, average document length) required for accurate BM25 scoring.
 
 </Procedure>
 
@@ -388,6 +416,46 @@ Combine `pg_textsearch` with `pgvector` or `pgvectorscale` to build powerful hyb
 
 You have implemented hybrid search combining semantic and keyword search.
 
+## bm25query data type
+
+The `bm25query` type represents queries for BM25 scoring with optional index context. You need this type when using
+`to_bm25query()` for explicit index specification, `WHERE` clause filtering, or PL/pgSQL compatibility.
+
+### Constructor functions
+
+| Function | Description |
+|---|---|
+| `to_bm25query(text)` | Create a bm25query without index name (for `ORDER BY` only) |
+| `to_bm25query(text, text)` | Create a bm25query with query text and index name |
+
+```sql
+-- Create a bm25query with index name (required for WHERE clause and standalone scoring)
+SELECT to_bm25query('search query text', 'products_search_idx');
+-- Returns: products_search_idx:search query text
+
+-- Create a bm25query without index name (only works in ORDER BY with index scan)
+SELECT to_bm25query('search query text');
+-- Returns: search query text
+```
+
+### Cast syntax
+
+You can also create a `bm25query` using cast syntax with an embedded index name:
+
+```sql
+SELECT 'products_search_idx:search query text'::bm25query;
+-- Returns: products_search_idx:search query text
+```
+
+### Operators
+
+| Operator | Description |
+|---|---|
+| `text <@> bm25query` | BM25 scoring operator (returns negative scores; lower is better) |
+| `bm25query = bm25query` | Equality comparison |
+
+<SINCE100 />
+
 ## Configuration options
 
 Customize `pg_textsearch` behavior for your specific use case and data characteristics.
@@ -424,6 +492,15 @@ Customize `pg_textsearch` behavior for your specific use case and data character
    ```
    <SINCE040 />
 
+   ```sql
+   -- Control segments per level before automatic compaction (default 8, range 2-64)
+   SET pg_textsearch.segments_per_level = 8;
+
+   -- Log BM25 scores during scans for debugging (disabled by default)
+   SET pg_textsearch.log_scores = false;
+   ```
+   <SINCE100 />
+
 1. **Configure language-specific text processing**
 
    You can create multiple BM25 indexes on the same column with different language configurations:
@@ -449,7 +526,22 @@ Customize `pg_textsearch` behavior for your specific use case and data character
    WITH (text_config='english', k1=1.5, b=0.8);
    ```
 
-   1. **Monitor index usage and memory consumption**
+1. **Optimize query performance with force merge**
+
+   After bulk loads or sustained incremental inserts, multiple index segments may accumulate. Consolidating
+   them into a single segment improves query speed by reducing the number of segments scanned. This is
+   analogous to Lucene's `forceMerge(1)`:
+
+   ```sql
+   SELECT bm25_force_merge('products_search_idx');
+   ```
+
+   Best used after large batch inserts, not during ongoing write traffic. The operation rewrites all segments
+   into a single segment and reclaims freed pages.
+
+   <SINCE100 />
+
+1. **Monitor index usage and memory consumption**
 
       - Check index usage statistics
           ```sql
@@ -458,20 +550,19 @@ Customize `pg_textsearch` behavior for your specific use case and data character
           WHERE indexrelid::regclass::text ~ 'bm25';
           ```
 
-      - View index summary with corpus statistics and memory usage
+      - View index summary with corpus statistics and memory usage (requires superuser)
           ```sql
           SELECT bm25_summarize_index('products_search_idx');
           ```
 
-      - View detailed index structure (output is truncated for display)
+      - View detailed index structure (requires superuser, output is truncated for display)
           ```sql
           SELECT bm25_dump_index('products_search_idx');
           ```
 
-      - Export full index dump to a file for detailed analysis
-          ```sql
-          SELECT bm25_dump_index('products_search_idx', '/tmp/index_dump.txt');
-          ```
+          The two-argument form `bm25_dump_index('idx', '/tmp/dump.txt')` that writes output to a file is
+          only available in debug builds (compiled with `-DDEBUG_DUMP_INDEX`). It is not available in
+          production builds on $CLOUD_LONG.
 
       - Force memtable spill to disk (useful for testing or memory management)
           ```sql
@@ -483,13 +574,109 @@ Customize `pg_textsearch` behavior for your specific use case and data character
 You have configured `pg_textsearch` for optimal performance. For production applications, consider implementing result
 caching and pagination to improve user experience with large result sets.
 
+## Filtering guidance
+
+There are two ways filtering interacts with BM25 index scans:
+
+**Pre-filtering** uses a separate index (B-tree, etc.) to reduce rows before scoring:
+
+```sql
+-- Create index on filter column
+CREATE INDEX ON products (category);
+
+-- Query filters first, then scores matching rows
+SELECT * FROM products
+WHERE category = 'Electronics'
+ORDER BY description <@> 'ergonomic wireless'
+LIMIT 10;
+```
+
+**Post-filtering** applies the BM25 index scan first, then filters results:
+
+```sql
+SELECT * FROM products
+WHERE description <@> to_bm25query('ergonomic', 'products_search_idx') < -0.5
+ORDER BY description <@> 'ergonomic'
+LIMIT 10;
+```
+
+**Performance considerations**:
+
+* **Pre-filtering tradeoff**: if the filter matches many rows (for example, 100K+), scoring all of them can be expensive.
+  The BM25 index is most efficient when it can use top-k optimization (`ORDER BY` + `LIMIT`) to avoid scoring every
+  matching document.
+* **Post-filtering tradeoff**: the index returns top-k results *before* filtering. If your `WHERE` clause eliminates
+  most results, you may get fewer rows than requested. Increase `LIMIT` to compensate, then re-limit in application code.
+* **Best case**: pre-filter with a selective condition (matches <10% of rows), then let BM25 score the reduced set with
+  `ORDER BY` + `LIMIT`.
+
+## Crash recovery
+
+The memtable is rebuilt from the heap on startup, so no data is lost if $PG crashes before spilling to disk.
+
+## Self-hosted installation
+
+For self-hosted installations, `pg_textsearch` must be loaded via `shared_preload_libraries`. Add the following to
+`postgresql.conf` and restart the server:
+
+```
+shared_preload_libraries = 'pg_textsearch'  # add to existing list if needed
+```
+
+This is not required on $CLOUD_LONG, where the extension is pre-configured.
+
 ## Current limitations
 
+Current limitations include:
 
-The preview releases focus on core BM25 functionality. Current limitations include:
-
-* **No phrase search**: you cannot search for exact multi-word phrases.
-* **No compressed data support**: `pg_textsearch` does not work with compressed data. 
+* **No phrase search**: you cannot search for exact multi-word phrases. You can emulate phrase matching by combining
+  BM25 ranking with a post-filter:
+  ```sql
+  SELECT * FROM (
+      SELECT *, content <@> 'database system' AS score
+      FROM documents
+      ORDER BY score
+      LIMIT 100  -- over-fetch to account for post-filter
+  ) sub
+  WHERE content ILIKE '%database system%'
+  ORDER BY score
+  LIMIT 10;
+  ```
+* **No compressed data support**: `pg_textsearch` does not work with compressed data.
+* **No expression indexing**: each BM25 index covers a single text column. You cannot create an index on an expression
+  like `lower(title) || ' ' || content`. As a workaround, use a generated column:
+  ```sql
+  ALTER TABLE documents ADD COLUMN search_text text
+      GENERATED ALWAYS AS (
+          COALESCE(title, '') || ' ' || COALESCE(content, '')
+      ) STORED;
+  CREATE INDEX ON documents USING bm25(search_text) WITH (text_config = 'english');
+  ```
+* **No built-in faceted search**: `pg_textsearch` does not provide dedicated faceting operators. Use standard $PG
+  `GROUP BY` for facet counts:
+  ```sql
+  SELECT category, count(*)
+  FROM products
+  WHERE description <@> to_bm25query('ergonomic', 'products_search_idx') < -1.0
+  GROUP BY category;
+  ```
+* **Insert/update performance**: sustained write-heavy workloads are not yet fully optimized. For initial data loading,
+  create the index after loading data rather than using incremental inserts.
+* **No background compaction**: segment compaction runs synchronously during memtable spill operations. Write-heavy
+  workloads may observe compaction latency during spills.
+* **Partitioned table statistics**: BM25 indexes on partitioned tables use partition-local statistics. Each partition
+  maintains its own document count, average document length, and per-term document frequencies. Scores are not directly
+  comparable across partitions.
+* **Word length limit**: inherits $PG's tsvector word length limit of 2047 characters. Words exceeding this limit are
+  ignored during tokenization.
+* **PL/pgSQL limitation**: the implicit `text <@> 'query'` syntax does not work inside PL/pgSQL DO blocks, functions,
+  or stored procedures. Use `to_bm25query()` with an explicit index name instead:
+  ```sql
+  -- Inside PL/pgSQL, use explicit index name:
+  SELECT * FROM documents
+  ORDER BY content <@> to_bm25query('search terms', 'docs_idx')
+  LIMIT 10;
+  ```
 
 [bm25-wiki]: https://en.wikipedia.org/wiki/Okapi_BM25
 [connect-using-psql]: /integrations/:currentVersion:/psql/#connect-to-your-service
