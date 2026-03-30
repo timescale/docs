@@ -110,7 +110,7 @@ Insights include `Metrics`, `Current lock contention`, and `Queries`.
 
 `Current lock contention` shows how many queries or transactions are currently waiting for locks held by other queries or transactions.
 
-`Queries` displays the top 50 queries matching your search. This includes executions, total rows, total time, P95 time, and other metrics.
+`Queries` displays the top 50 queries matching your search. This includes a whole range of metrics:
 
 ![Queries][queries]
 
