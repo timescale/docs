@@ -41,7 +41,7 @@ To set up $CLOUD_LONG via Azure:
 
    You are redirected to $CONSOLE_LONG. 
 
-1. **Sign up for a $500 credit, 30-day free trial**
+1. **Sign up for a $1000-credit, 30-day free trial**
 
    Add your details, then click `Start your free trial`. If you want to link an existing $ACCOUNT_LONG to Azure, log in with your existing credentials.
 

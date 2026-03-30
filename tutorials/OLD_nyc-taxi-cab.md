@@ -31,7 +31,7 @@ SQL command, but it is helpful if you've seen SQL before.
 
 There are multiple options for using $CLOUD_LONG to follow along with this tutorial. **All connection information
 and database naming** throughout this tutorial assumes you are connected to **Tiger Cloud**, our hosted,
-fully managed database-as-a-service. [Sign up for a free, $500 credit, 30-day free trial account][timescale-signup], no credit-card
+fully managed database-as-a-service. [Sign up for a $1000-credit, 30-day free trial account][timescale-signup], no credit card
 required. Once you confirm the account and get logged in, proceed to the **Background** section below.
 
 If you would like to follow along with a local or on-prem install, you can follow the [install TimescaleDB][install-timescale]

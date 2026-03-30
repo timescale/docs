@@ -2,7 +2,7 @@
 
 To set up $CLOUD_LONG:
 
-1. **Sign up for a $500 credit, 30-day free trial**
+1. **Sign up for a $1000-credit, 30-day free trial**
 
    Open [Sign up for $CLOUD_LONG][timescale-signup] and add your details, then click `Start your free trial`. You receive a confirmation email in your inbox.
 
