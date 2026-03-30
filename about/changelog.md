@@ -9,6 +9,18 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## New performance graphs in Metrics and Insights
+
+<Label type="date">March 30, 2026</Label>
+
+Two new graphs are now available to help you monitor database performance and resource usage over time.
+
+In **Metrics**, a new Queries per Second graph gives you a real-time view of your database's throughput, making it easier to spot unexpected spikes or drops in query volume.
+
+In **Insights**, the query deep dive page now includes resource consumption metrics — CPU, memory, and storage IO (read and write) — tracked over time. Use this to identify whether a query's performance is improving or degrading, and to understand the downstream impact of your queries on overall system health.
+
+See [Metrics and logging](/use-timescale/:currentVersion:/metrics-logging/) and [Query insights](/use-timescale/:currentVersion:/insights/) for more information.
+
 ## Additional metrics available for export
 <Label type="date">March 24, 2026</Label>
 
