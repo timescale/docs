@@ -103,7 +103,7 @@ operate normally.
 If you encounter OOM errors on a free $SERVICE_SHORT, [convert it to a standard $SERVICE_SHORT][convert-to-standard], then increase its CPU and memory allocation as needed to resolve the memory pressure. 
 
 [change-resources]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-update-cpu-manually.png
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [convert-to-standard]: /use-timescale/:currentVersion:/services/service-management/#convert-a-free-service-to-a-standard-one
 [high-availability]: /use-timescale/:currentVersion:/ha-replicas/high-availability/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

@@ -3,7 +3,7 @@
 | `auto_sparse_indexes` | `BOOLEAN` | `true` | The hypertable columns that are used as index keys will have suitable sparse indexes when compressed. Must be set at the moment of chunk compression, e.g. when the `compress_chunk()` is called. |
 | `bgw_log_level` | `ENUM` | `WARNING` | Log level for the scheduler and workers of the background worker subsystem. Requires configuration reload to change. |
 | `compress_truncate_behaviour` | `ENUM` | `COMPRESS_TRUNCATE_ONLY` | Defines how truncate behaves at the end of compression. 'truncate_only' forces truncation. 'truncate_disabled' deletes rows instead of truncate. 'truncate_or_delete' allows falling back to deletion. |
-| `compression_batch_size_limit` | `INTEGER` | `1000` | Setting this option to a number between 1 and 999 will force compression to limit the size of compressed batches to that amount of uncompressed tuples.Setting this to 0 defaults to the max batch size of 1000.<br />min: `1`, max: `1000` |
+| `compression_batch_size_limit` | `INTEGER` | `TARGET_COMPRESSED_BATCH_SIZE` | Setting this option to a number between 1 and 32767 will force compression to limit the size of compressed batches to that amount of uncompressed tuples. The setting influences only the compression process itself. The value of the setting is taken from the context of the session where the compression is performed. It is not persisted in any way.<br />min: `1`, max: `GLOBAL_MAX_ROWS_PER_COMPRESSION` |
 | `compression_orderby_default_function` | `STRING` | `"_timescaledb_functions.get_orderby_defaults"` | Function to use for calculating default order_by setting for compression |
 | `compression_segmentby_default_function` | `STRING` | `"_timescaledb_functions.get_segmentby_defaults"` | Function to use for calculating default segment_by setting for compression |
 | `current_timestamp_mock` | `STRING` | `NULL` |  this is for debugging purposes |
@@ -15,6 +15,7 @@
 | `debug_require_vector_qual` | `ENUM` | `DRO_Allow` | this is for debugging purposes, to let us check if the vectorized quals are used or not. EXPLAIN differs after PG15 for custom nodes, and using the test templates is a pain |
 | `debug_skip_scan_info` | `BOOLEAN` | `false` | Print debug info about SkipScan distinct columns |
 | `debug_toast_tuple_target` | `INTEGER` | `/* bootValue = */ 128` |  this is for debugging purposes<br />min: `/* minValue = */ 1`, max: `/* maxValue = */ 65535` |
+| `default_chunk_time_interval` | `STRING` | `NULL` | Chunk time interval to use for a new hypertable, unless a specific chunk time interval is set on the hypertable. The default chunk interval is only used for hypertables with a compatible time type, e.g., timestamp, date, and UUID (v7). Hypertables using an integer partitioning column have hard-coded defaults.Expert-level setting. These parameters are optimized for internal workflows; incorrect configurations can negatively impact query performance and system efficiency. |
 | `direct_compress_copy_tuple_sort_limit` | `INTEGER` | `100000` | This is mainly used to keep the memory footprint down for operations like importing large amounts of data in single transaction. Setting this to 0 would make it unlimited.<br />min: `0`, max: `2147483647` |
 | `direct_compress_insert_tuple_sort_limit` | `INTEGER` | `10000` | This is mainly used to keep the memory footprint down for operations like importing large amounts of data in single transaction. Setting this to 0 would make it unlimited.<br />min: `0`, max: `2147483647` |
 | `enable_bool_compression` | `BOOLEAN` | `true` | Enable bool compression |
@@ -27,8 +28,9 @@
 | `enable_chunk_auto_publication` | `BOOLEAN` | `false` | Enable automatically adding newly created chunks to the publication of their hypertable |
 | `enable_chunk_skipping` | `BOOLEAN` | `false` | Enable using chunk column stats to filter chunks based on column filters |
 | `enable_chunkwise_aggregation` | `BOOLEAN` | `true` | Enable the pushdown of aggregations to the chunk level |
-| `enable_columnarindexscan` | `BOOLEAN` | `false` | Enable experimental support for returning results directly from compression metadata without decompression |
+| `enable_columnarindexscan` | `BOOLEAN` | `true` | Enable experimental support for returning results directly from compression metadata without decompression |
 | `enable_columnarscan` | `BOOLEAN` | `true` | Transparently decompress columnar data using ColumnarScan custom node. Disabling columnar scan will ignore data stored in columnar format in queries. |
+| `enable_composite_bloom_indexes` | `BOOLEAN` | `true` | This composite index speeds up the equality queries on compressed columns, and can be disabled when not desired. |
 | `enable_compressed_direct_batch_delete` | `BOOLEAN` | `true` | Enable direct batch deletion in compressed chunks |
 | `enable_compressed_skipscan` | `BOOLEAN` | `true` | Enable SkipScan for distinct inputs over compressed chunks |
 | `enable_compression_indexscan` | `BOOLEAN` | `false` | Enable indexscan during compression, if matching index is found |
@@ -84,4 +86,4 @@
 | `skip_scan_run_cost_multiplier` | `REAL` | `1.0` | Default is 1.0 i.e. regularly estimated SkipScan run cost, 0.0 will make SkipScan to have run cost = 0<br />min: `0.0`, max: `1.0` |
 | `telemetry_level` | `ENUM` | `TELEMETRY_DEFAULT` | Level used to determine which telemetry to send |
 
-Version: [2.25.2](https://github.com/timescale/timescaledb/releases/tag/2.25.2)
+Version: [2.26.1](https://github.com/timescale/timescaledb/releases/tag/2.26.1)

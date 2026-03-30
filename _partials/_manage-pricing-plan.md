@@ -20,6 +20,6 @@ alt="Adding a payment method in Timescale"/>
 
 - **Add-ons**: add `Production support` and improved database performance for mission-critical workloads.  
 
-[cloud-billing]: https://console.cloud.timescale.com/dashboard/billing/details
+[cloud-billing]: https://console.cloud.tigerdata.com/dashboard/billing/details
 [contact-company]: https://www.tigerdata.com/contact/
 [plan-features]: /about/:currentVersion:/pricing-and-account-management/#features-included-in-each-pricing-plan

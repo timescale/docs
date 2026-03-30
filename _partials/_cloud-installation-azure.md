@@ -62,5 +62,5 @@ To set up $CLOUD_LONG via Azure:
 [azure-annual-commit]: https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/timescale1759504210261.tigerdata-annualcommit
 [azure-marketplace]: https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home
 [azure-paygo]: https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/timescale1759504210261.tigerdata-payg
-[console-billing]: https://console.cloud.timescale.com/dashboard/billing/plans
+[console-billing]: https://console.cloud.tigerdata.com/dashboard/billing/plans
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

@@ -289,5 +289,5 @@ Your $AGENTS_SHORTs are now configured with $COMPANY MCP server access and perso
 [prompt-templates]: https://github.com/timescale/tiger-agents-for-work/blob/main/docs/prompt_templates.md
 [query-tiger-agent-1]: https://assets.timescale.com/docs/images/tiger-agent/query-in-terminal.png
 [query-tiger-agent]: https://assets.timescale.com/docs/images/tiger-agent/query-in-slack.png
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [uv-install]: https://docs.astral.sh/uv/getting-started/installation/

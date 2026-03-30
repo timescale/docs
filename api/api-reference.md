@@ -12,7 +12,7 @@ A comprehensive RESTful API for managing $CLOUD_LONG resources including VPCs, s
 ## Overview
 
 **API Version:** 1.0.0  
-**Base URL:** `https://console.cloud.timescale.com/public/api/v1`
+**Base URL:** `https://console.cloud.tigerdata.com/public/api/v1`
 
 ## Authentication
 
@@ -26,7 +26,7 @@ Authorization: Basic <base64(access_key:secret_key)>
 ### Example
 ```bash
 # Using cURL
-curl -X GET "https://console.cloud.timescale.com/public/api/v1/projects/{project_id}/services" \
+curl -X GET "https://console.cloud.tigerdata.com/public/api/v1/projects/{project_id}/services" \
   -H "Authorization: Basic $(echo -n 'your_access_key:your_secret_key' | base64)"
 ```
 

@@ -41,7 +41,7 @@ Use the toggle at the top to switch to $DATA_MODE. In this view, you can [write 
 
 To query your $SERVICE_SHORT from any tab, click `SQL Editor` at the bottom. The floating window expands and is ready for work. Click the window icon in its top right to change the editor position on the screen. 
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
 [create-service]: /getting-started/:currentVersion:/services
 [metrics-logging]: /use-timescale/:currentVersion:/metrics-logging/

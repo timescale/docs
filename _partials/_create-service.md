@@ -17,5 +17,5 @@
 
 You can [manage, pause, or delete][service-management] your $SERVICE_SHORT at any time from $CONSOLE.
 
-[create-service]: https://console.cloud.timescale.com/dashboard/create_services
+[create-service]: https://console.cloud.tigerdata.com/dashboard/create_services
 [service-management]: /use-timescale/:currentVersion:/services/service-management/

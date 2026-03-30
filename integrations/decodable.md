@@ -71,5 +71,5 @@ You have successfully integrated Decodable with $CLOUD_LONG.
 [decodable]: https://www.decodable.co/
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [psql]: /integrations/:currentVersion:/psql/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [sign-up-decodable]: https://auth.decodable.co/u/signup/

@@ -16,6 +16,6 @@ To set up $CLOUD_LONG:
 
 </Procedure>
 
-[console-billing]: https://console.cloud.timescale.com/dashboard/billing/plans
+[console-billing]: https://console.cloud.tigerdata.com/dashboard/billing/plans
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
-[timescale-signup]: https://console.cloud.timescale.com/signup
+[timescale-signup]: https://console.cloud.tigerdata.com/signup

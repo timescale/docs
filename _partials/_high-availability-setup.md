@@ -10,5 +10,5 @@
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com
+[cloud-login]: https://console.cloud.tigerdata.com
 [service_long-replicas]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ha-replicas.png

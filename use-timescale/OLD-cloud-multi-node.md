@@ -63,5 +63,5 @@ alt="TimescaleDB running multi-node $SERVICE_SHORT"/>
 
 </Procedure>
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [multi-node]: /self-hosted/:currentVersion:/multinode-timescaledb/

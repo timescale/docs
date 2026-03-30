@@ -6,7 +6,7 @@
   <li>
     <p>
       Sign in to the{" "}
-      <a href="https://console.cloud.timescale.com/">Tiger Console</a> and click <code>Create service</code>.
+      <a href="https://console.cloud.tigerdata.com/">Tiger Console</a> and click <code>Create service</code>.
     </p>
   </li>
   <li>

@@ -389,12 +389,12 @@ What next? See the [use case tutorials][tutorials], interact with the data in yo
 [main-features-and-tiered-data]: https://assets.timescale.com/docs/images/mutation.png 
 [migrate-live]: /migrate/:currentVersion:/live-migration/
 [migrate-with-downtime]: /migrate/:currentVersion:/pg-dump-and-restore/
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/services?popsql
-[portal-ops-mode]: https://console.cloud.timescale.com/dashboard/services
+[portal-data-mode]: https://console.cloud.tigerdata.com/dashboard/services?popsql
+[portal-ops-mode]: https://console.cloud.tigerdata.com/dashboard/services
 [querying-tiered-data]: /use-timescale/:currentVersion:/data-tiering/querying-tiered-data/
 [reduced-data-calls-with-caggs]: https://assets.timescale.com/docs/images/continuous-aggregate.png
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services
 [test-drive-enable-compression]: /getting-started/:currentVersion:/try-key-features-timescale-products/#enhance-query-performance-for-analytics
 [test-drive-tiered-storage]: /getting-started/:currentVersion:/try-key-features-timescale-products/#slash-storage-charges
 [tiered-storage]: https://assets.timescale.com/docs/images/tiered-storage.png 

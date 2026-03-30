@@ -484,7 +484,7 @@ Before you begin, make sure you have:
 <!-- markdown-link-check-enable-->
 
 [api-key]:https://platform.openai.com/account/api-keys
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [developer-qa]: https://www.tigerdata.com/blog/tag/dev-q-a
 [openai-signup]: https://platform.openai.com/overview
 [pgvector-repo]: https://github.com/pgvector/pgvector/blob/master/README.md

@@ -69,6 +69,6 @@ To configure $SERVICE_LONG with your Grafana installation, log in to Grafana and
 When you have configured $TIMESCALE_DB as a data source in Grafana, you can create
 panels that are populated with data using SQL.
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/
 [grafana]: https://grafana.com/

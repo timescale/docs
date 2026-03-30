@@ -72,4 +72,4 @@ import HypertableIntro from "versionContent/_partials/_tutorials_hypertable_intr
 [in-console-editors]: /getting-started/:currentVersion:/run-queries-from-console/
 [indexing]: /use-timescale/:currentVersion:/schema-management/indexing/
 [secondary-indexes]: /use-timescale/:currentVersion:/hypercore/secondary-indexes/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

@@ -142,7 +142,7 @@ You have successfully integrated Apache Airflow with $CLOUD_LONG and created a d
 [Airflow-Task]:https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html
 [Airflow_UI]: localhost:8080
 
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
 [connection-info]: /integrations/:currentVersion:/find-connection-details/
 [daily-eth-volume-of-assets]: https://assets.timescale.com/docs/images/integrations-apache-airflow.png
 [ingest-data]: /getting-started/:currentVersion:/try-key-features-timescale-products/#optimize-time-series-data-in-hypertables-with-hypercore

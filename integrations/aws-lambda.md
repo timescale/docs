@@ -202,4 +202,4 @@ You can now seamlessly ingest time-series data from AWS Lambda into $CLOUD_LONG.
 [install-aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 [install-nodejs]: https://nodejs.org/en/download
 [psql]: /integrations/:currentVersion:/psql/
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

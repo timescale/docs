@@ -79,7 +79,7 @@
    1. Select a $PROJECT_LONG:
 
       ```terminaloutput
-      Auth URL is: https://console.cloud.timescale.com/oauth/authorize?client_id=lotsOfURLstuff
+      Auth URL is: https://console.cloud.tigerdata.com/oauth/authorize?client_id=lotsOfURLstuff
       Opening browser for authentication...
       Select a project:
 
@@ -117,4 +117,4 @@
       └────────────┴─────────────────────┴────────┴─────────────┴──────────────┴──────────────────┘
       ```
 
-[rest-api-credentials]: https://console.cloud.timescale.com/dashboard/settings
+[rest-api-credentials]: https://console.cloud.tigerdata.com/dashboard/settings

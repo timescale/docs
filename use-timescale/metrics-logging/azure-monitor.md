@@ -14,9 +14,9 @@ import NotSupportedAws from "versionContent/_partials/_not-supported-for-aws.mdx
 
 # Export telemetry data to Azure Monitor
 
-You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Azure Monitor][azure-monitor]. Available metrics include CPU usage, RAM usage, and storage. This integration is available for [$SCALE or $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
+You can export telemetry data from your $SERVICE_LONGs with the time-series and analytics capability enabled to [Azure Monitor][azure-monitor]. See [Exported metrics](/use-timescale/:currentVersion:/metrics-logging/exported-metrics/) for the full list of default and additional metrics you can export.
 
-This page shows you how to create an Azure Monitor exporter in $CONSOLE, and manage the lifecycle of data exporters.
+This page shows you how to create an Azure Monitor exporter in $CONSOLE, and manage the lifecycle of data exporters. This integration is available for [$SCALE or $ENTERPRISE][pricing-plan-features] $PRICING_PLANs.
 
 ## Prerequisites
 

@@ -78,7 +78,7 @@ You have successfully added an IP allow list for querying your $SERVICE_SHORT in
 
 [add-ip-addresses-to-allow-list]: https://assets.timescale.com/docs/images/tiger-cloud-console/add-ip-addresses-to-allow-list-tiger-console.png
 [attach-ip-allow-list]: https://assets.timescale.com/docs/images/tiger-on-azure/attach-ip-allow-list-tiger-console.png
-[console]: https://console.cloud.timescale.com/dashboard/
+[console]: https://console.cloud.tigerdata.com/dashboard/
 [create-ip-allow-list]: https://assets.timescale.com/docs/images/tiger-cloud-console/create-ip-allow-list-tiger-console.png
 [create-service]: /getting-started/:currentVersion:/services/
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/

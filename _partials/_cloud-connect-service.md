@@ -99,7 +99,7 @@ Quick recap. You:
 
 [check-a-service_short-is-running]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-ops-mode-sql-editor-empty.png
 [check-service_short-is-running]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-services-view.png
-[portal-data-mode]: https://console.cloud.timescale.com/dashboard/data-view?popsql
+[portal-data-mode]: https://console.cloud.tigerdata.com/dashboard/data-view?popsql
 [psql]: /integrations/:currentVersion:/psql/
 [select-a-connection]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-data-mode-connection-dropdown.png
-[services-portal]: https://console.cloud.timescale.com/dashboard/services
+[services-portal]: https://console.cloud.tigerdata.com/dashboard/services

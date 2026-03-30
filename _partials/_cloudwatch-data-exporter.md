@@ -127,7 +127,9 @@
 
     </Tabs> 
 
-1. Select the AWS Region your CloudWatch services run in, then click `Create exporter`.
+1. Select the AWS Region your CloudWatch services run in.
+
+1. Optionally tick `PostgreSQL metrics` to export [additional metrics](/use-timescale/:currentVersion:/metrics-logging/exported-metrics/#postgres-metrics), then click `Create exporter`.
 
 </Procedure>
 
@@ -138,7 +140,7 @@
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
 [console-cloudwatch-configuration]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups
 [console-cloudwatch-create-group]: https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups/create-log-group
-[console-integrations]: https://console.cloud.timescale.com/dashboard/integrations
+[console-integrations]: https://console.cloud.tigerdata.com/dashboard/integrations
 [create-an-iam-id-provider]: https://console.aws.amazon.com/iam/home#/identity_providers
 [create-an-iam-user]: https://console.aws.amazon.com/iam/home#/users/create
 [list-iam-users]: https://console.aws.amazon.com/iam/home#/users

@@ -6,7 +6,8 @@ $PG 15 support is deprecated and will be removed from $TIMESCALE_DB in June 2026
 
 | $TIMESCALE_DB version |$PG 18|$PG 17|$PG 16|$PG 15|$PG 14|$PG 13|$PG 12|$PG 11|$PG 10|
 |-----------------------|-|-|-|-|-|-|-|-|-|
-| 2.25.x                |✅|✅|✅|✅|❌|❌|❌|❌|❌|❌| 
+| 2.26.x                |✅|✅|✅|✅|❌|❌|❌|❌|❌|❌|
+| 2.25.x                |✅|✅|✅|✅|❌|❌|❌|❌|❌|❌|
 | 2.24.x                |✅|✅|✅|✅|❌|❌|❌|❌|❌|❌|
 | 2.23.x                |✅|✅|✅|✅|❌|❌|❌|❌|❌|❌|
 | 2.22.x                |❌|✅|✅|✅|❌|❌|❌|❌|❌|❌|
@@ -31,4 +32,4 @@ Users of [$CLOUD_LONG][cloud-login] and platform packages for Linux, Windows, Ma
 Docker, and Kubernetes are unaffected.
 
 [postgres-breaking-change]: https://www.postgresql.org/about/news/postgresql-172-166-1510-1415-1318-and-1222-released-2965/
-[cloud-login]: https://console.cloud.timescale.com/
+[cloud-login]: https://console.cloud.tigerdata.com/
