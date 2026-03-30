@@ -116,15 +116,15 @@ Insights include `Metrics`, `Current lock contention`, and `Queries`.
 
 | Column                | Description                                                                                     |
 |-----------------------|-------------------------------------------------------------------------------------------------|
-| `Executions`          | How many times the query ran during the selected period.                                        |
-| `Total rows`          | How many rows the query scanned, inserted, or updated during the selected period.               |
-| `Total time`          | How long the query spent executing in total across all runs.                                    |
-| `Time (P95)`          | How long the query takes in the worst typical case. Measured at the 95th percentile.            |
-| `CPU User (P95)`      | How much CPU your query uses for its own work, such as calculations and data processing. Measured at the 95th percentile in millicores. |
-| `CPU System (P95)`    | How much CPU the operating system uses on behalf of your query, such as disk and network operations. Measured at the 95th percentile in millicores. |
-| `Memory (P95)`        | How much memory your query consumes during execution. Measured at the 95th percentile in MiB. |
-| `Storage read (P95)`  | How many read operations your query triggers on disk. Measured at the 95th percentile in ops/sec. |
-| `Storage write (P95)` | How many write operations your query triggers on disk. Measured at the 95th percentile in ops/sec. |
+| `Executions`          | Number of times the query ran during the selected period.                                       |
+| `Total rows`          | Total rows scanned, inserted, or updated by the query during the selected period.               |
+| `Total time`          | Combined execution time across all runs of the query.                                           |
+| `Time (P95)`          | Execution time in the worst typical case. 95th percentile.                                      |
+| `CPU User (P95)`      | CPU spent on the query's own work — calculations, sorting, filtering. 95th percentile, in millicores. |
+| `CPU System (P95)`    | CPU spent by the OS for the query — disk reads, memory management, network I/O. 95th percentile, in millicores. |
+| `Memory (P95)`        | Memory used during query execution. 95th percentile, in MiB. |
+| `Storage read (P95)`  | Disk read operations caused by the query. 95th percentile, in ops/sec. |
+| `Storage write (P95)` | Disk write operations caused by the query. 95th percentile, in ops/sec. |
 | `Hypertables`         | Whether the query ran on a $HYPERTABLE.                                                    |
 | `Columnar tables`     | Whether the query read data from a chunk in the $COLUMNSTORE.                              |
 | `User name`           | The database user who ran the query.                                                       |
@@ -151,11 +151,11 @@ This view includes the following graphs:
 - `Plans and executions`: the number of query plans and executions over time. You can use this to optimize query performance, helping you assess if you can benefit from prepared statements to reduce planning overhead.
 - `Shared buffers hit and miss`: shared buffers play a critical role in $PG's performance by caching data in memory. A shared buffer hit occurs when the required data block is found in the shared buffer memory, while a miss indicates that $PG couldn't locate the block in memory. A miss doesn't necessarily mean a disk read, because $PG may retrieve the data from the operating system's disk pages cache. If you observe a high number of shared buffer misses, your current shared buffers setting might be insufficient. Increasing the shared buffer size can improve cache hit rates and query speed.
 - `Cache hit ratio`: measures how much of your query's data is read from shared buffers. A 100% value indicates that all the data required by the query was found in the shared buffer, while a 0% value means none of the necessary data blocks were in the shared buffers. This metric provides a clear understanding of how efficiently your query leverages shared buffers, helping you optimize data access and database performance.
-- `CPU time (user)`: how much CPU time your query spends on its own work, such as parsing, sorting, filtering, and computing results. A spike here usually means the query is doing more computational work than expected — check for missing indexes, unnecessary joins, or large sequential scans.
-- `CPU time (system)`: how much CPU time the operating system spends on behalf of your query, such as reading from disk, managing memory, and handling network I/O. High values here often point to heavy disk access or memory pressure rather than query logic itself.
-- `Memory allocated`: how much memory your query consumes during execution. Watch for sudden increases, which may indicate inefficient joins, large sorts spilling to disk, or growing result sets. If memory usage consistently approaches your $SERVICE_SHORT's limits, consider optimizing the query or provisioning more resources.
-- `Storage IO bytes read`: how much data your query reads from disk over time. High read volumes can indicate full table scans or queries that access more data than necessary. Adding indexes or narrowing your query's time range can help reduce reads.
-- `Storage IO bytes written`: how much data your query writes to disk over time. This includes inserts, updates, and temporary files created during sorts or joins. Unexpectedly high write volumes may suggest that large intermediate results are spilling to disk.
+- `CPU time (user)`: CPU time the query spends on its own work — parsing, sorting, filtering, computing results. A spike here means the query is doing more computation than expected. Check for missing indexes, unnecessary joins, or large sequential scans.
+- `CPU time (system)`: CPU time the OS spends servicing the query — disk reads, memory management, network I/O. High values point to heavy disk access or memory pressure rather than query logic.
+- `Memory allocated`: memory the query uses during execution. Sudden increases often come from inefficient joins, large sorts spilling to disk, or growing result sets. If usage stays near the $SERVICE_SHORT's limits, optimize the query or provision more resources.
+- `Storage IO bytes read`: data the query reads from disk over time. High read volumes point to full table scans or queries accessing more data than necessary. Adding indexes or narrowing the time range helps reduce reads.
+- `Storage IO bytes written`: data the query writes to disk over time. This includes inserts, updates, and temporary files from sorts or joins. Unusually high writes often mean large intermediate results are spilling to disk.
 
 ## Jobs
 
