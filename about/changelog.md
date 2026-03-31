@@ -10,16 +10,19 @@ products: [cloud]
 All the latest features and updates to $CLOUD_LONG.
 
 ## New performance graphs in Metrics and Insights
+<Label type="date">March 31, 2026</Label>
 
-<Label type="date">March 30, 2026</Label>
+Several new graphs are now available to help you monitor database performance and resource usage over time.
 
-Two new graphs are now available to help you monitor database performance and resource usage over time.
+In `Metrics`, a new `Queries per Second` graph gives you a real-time view of your database's throughput, making it easier to spot unexpected spikes or drops in query volume.
 
-In **Metrics**, a new Queries per Second graph gives you a real-time view of your database's throughput, making it easier to spot unexpected spikes or drops in query volume.
+![Queries per second in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/queries-per-second-tiger-cloud.png)
 
-In **Insights**, the query deep dive page now includes resource consumption metrics — CPU, memory, and storage IO (read and write) — tracked over time. Use this to identify whether a query's performance is improving or degrading, and to understand the downstream impact of your queries on overall system health.
+In `Insights`, the query deep dive page now includes resource consumption metrics — CPU, memory, and storage IO (read and write) — tracked over time. Use this to identify whether a query's performance is improving or degrading, and to understand the downstream impact of your queries on overall system health.
 
-See [Metrics and logging](/use-timescale/:currentVersion:/metrics-logging/) and [Query insights](/use-timescale/:currentVersion:/insights/) for more information.
+![Resource consumption metrics in Tiger Cloud](https://assets.timescale.com/docs/images/tiger-cloud-console/resource-consumption-metrics-tiger-cloud.png)
+
+See [Metrics](/use-timescale/:currentVersion:/metrics-logging/monitoring/#metrics) and [Insights](/use-timescale/:currentVersion:/metrics-logging/monitoring/#insights) for more information.
 
 ## Additional metrics available for export
 <Label type="date">March 24, 2026</Label>
