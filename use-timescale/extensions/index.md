@@ -19,7 +19,7 @@ The following $PG extensions are installed with each $SERVICE_LONG:
 | Extension                                   | Description                                | Enabled by default                                                    |
 |---------------------------------------------|--------------------------------------------|-----------------------------------------------------------------------|
 | [pgai][pgai]                                | Helper functions for AI workflows          | For [AI-focused][install] $SERVICE_SHORTs                            |
-| [pg_textsearch][pg_textsearch]              | [BM25][bm25-wiki]-based full-text search   | Currently early access. For development and staging environments only |
+| [pg_textsearch][pg_textsearch]              | [BM25][bm25-wiki]-based full-text search   | -                                                                     |
 | [pgvector][pgvector]                        | Vector similarity search for $PG           | For [AI-focused][install] $SERVICE_SHORTs                            |
 | [pgvectorscale][pgvectorscale]              | Advanced indexing for vector data          | For [AI-focused][install] $SERVICE_SHORTs                            |
 | [timescaledb_toolkit][toolkit]  | TimescaleDB Toolkit                        | For [Real-time analytics][install] $SERVICE_SHORTs                   |
