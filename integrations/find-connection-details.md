@@ -100,7 +100,7 @@ In the `Services` page of the $MST_CONSOLE_LONG, click the service you want to c
 [mst-connection-details]: https://assets.timescale.com/docs/images/mst-connection-info.png
 [postgres-config]: https://www.postgresql.org/docs/current/runtime-config-file-locations.html
 [rest-api-reference]: /api/:currentVersion:/api-reference/
-[retrive-the-project-id-in-console]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-project-id.png
+[retrive-the-project-id-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-change-project.png
 [retrive-the-service-id-in-console-1]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-cloud-console-client-credentials.png
 [retrive-the-service-id-in-console]: https://assets.timescale.com/docs/images/tiger-on-azure/tiger-console-service-id.png
 [service_long-connection-details]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-service-connection-details.png

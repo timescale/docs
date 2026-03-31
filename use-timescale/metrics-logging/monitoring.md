@@ -35,9 +35,10 @@ The following metrics are represented by graphs:
 
 - CPU, in mCPU
 - Memory, in GiB
+- Queries per second, in q/sec
 - Storage used, in GiB
-- Storage I/O, in ops/sec
-- Storage bandwidth, in MiB/sec
+- Read and write storage I/O, in ops/sec
+- Read and write storage bandwidth, in MiB/sec
 
 When you hit the limits:
 
@@ -109,20 +110,24 @@ Insights include `Metrics`, `Current lock contention`, and `Queries`.
 
 `Current lock contention` shows how many queries or transactions are currently waiting for locks held by other queries or transactions.
 
-`Queries` displays the top 50 queries matching your search. This includes executions, total rows, total time, median time, P95 time, related hypertables, tables in the columnstore, and user name. 
+`Queries` displays the top 50 queries matching your search. This includes a whole range of metrics:
 
 ![Queries][queries]
 
-| Column            | Description                                                                                     |
-|-------------------|-------------------------------------------------------------------------------------------------|
-| `Executions`      | The number of times the query ran during the selected period.                                   |
-| `Total rows`      | The total number of rows scanned, inserted, or updated by the query during the selected period. |
-| `Total time`      | The total time of query execution.                                                              |
-| `Median time`     | The median (P50) time of query execution.                                                       |
-| `P95 time`        | The ninety-fifth percentile, or the maximum time of query execution.                            |
-| `Hypertables`     | If the query ran on a $HYPERTABLE.                                                         |
-| `Columnar tables` | If the query drew results from a chunk in the $COLUMNSTORE.                                |
-| `User name`       | The user name of the user running the query.                                          |
+| Column                | Description                                                                                     |
+|-----------------------|-------------------------------------------------------------------------------------------------|
+| `Executions`          | Number of times the query ran during the selected period.                                       |
+| `Total rows`          | Total rows scanned, inserted, or updated by the query during the selected period.               |
+| `Total time`          | Combined execution time across all runs of the query.                                           |
+| `Time (P95)`          | Execution time in the worst typical case. 95th percentile.                                      |
+| `CPU User (P95)`      | CPU spent on the query's own work — calculations, sorting, filtering. 95th percentile, in millicores. |
+| `CPU System (P95)`    | CPU spent by the OS for the query — disk reads, memory management, network I/O. 95th percentile, in millicores. |
+| `Memory (P95)`        | Memory used during query execution. 95th percentile, in MiB. |
+| `Storage read (P95)`  | Disk read operations caused by the query. 95th percentile, in ops/sec. |
+| `Storage write (P95)` | Disk write operations caused by the query. 95th percentile, in ops/sec. |
+| `Hypertables`         | Whether the query ran on a $HYPERTABLE.                                                    |
+| `Columnar tables`     | Whether the query read data from a chunk in the $COLUMNSTORE.                              |
+| `User name`           | The database user who ran the query.                                                       |
 
 These metrics calculations are based on the entire period you've selected. For example, if you've selected six hours, all the metrics represent an aggregation of the previous six hours of executions.
 
@@ -146,6 +151,11 @@ This view includes the following graphs:
 - `Plans and executions`: the number of query plans and executions over time. You can use this to optimize query performance, helping you assess if you can benefit from prepared statements to reduce planning overhead.
 - `Shared buffers hit and miss`: shared buffers play a critical role in $PG's performance by caching data in memory. A shared buffer hit occurs when the required data block is found in the shared buffer memory, while a miss indicates that $PG couldn't locate the block in memory. A miss doesn't necessarily mean a disk read, because $PG may retrieve the data from the operating system's disk pages cache. If you observe a high number of shared buffer misses, your current shared buffers setting might be insufficient. Increasing the shared buffer size can improve cache hit rates and query speed.
 - `Cache hit ratio`: measures how much of your query's data is read from shared buffers. A 100% value indicates that all the data required by the query was found in the shared buffer, while a 0% value means none of the necessary data blocks were in the shared buffers. This metric provides a clear understanding of how efficiently your query leverages shared buffers, helping you optimize data access and database performance.
+- `CPU time (user)`: CPU time the query spends on its own work — parsing, sorting, filtering, computing results. A spike here means the query is doing more computation than expected. Check for missing indexes, unnecessary joins, or large sequential scans.
+- `CPU time (system)`: CPU time the OS spends servicing the query — disk reads, memory management, network I/O. High values point to heavy disk access or memory pressure rather than query logic.
+- `Memory allocated`: memory the query uses during execution. Sudden increases often come from inefficient joins, large sorts spilling to disk, or growing result sets. If usage stays near the $SERVICE_SHORT's limits, optimize the query or provision more resources.
+- `Storage IO bytes read`: data the query reads from disk over time. High read volumes point to full table scans or queries accessing more data than necessary. Adding indexes or narrowing the time range helps reduce reads.
+- `Storage IO bytes written`: data the query writes to disk over time. This includes inserts, updates, and temporary files from sorts or joins. Unusually high writes often mean large intermediate results are spilling to disk.
 
 ## Jobs
 
