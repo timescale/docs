@@ -5,7 +5,7 @@ provisioning your $SERVICE_SHORTs or later, as your needs grow.
   basis, and you can [scale it up to 64 CPU][change-compute] at any time. You can also [scale out using replicas][readreplica]
   as your application grows. We also provide services to help you lower your compute needs
   while improving query performance. $CLOUD_LONG is very efficient and generally needs less compute than other databases to deliver
-  the same performance. The best way to size your needs is to sign up for a free trial and test
+  the same performance. The best way to size your needs is to sign up for a $1000 credit, 30-day free trial and test
   with a realistic workload.
 
 * **Storage**: pay only for the storage you consume. You have high-performance storage for more frequently accessed data, and
