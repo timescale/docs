@@ -208,5 +208,4 @@ The user is deleted immediately, they can no longer access your $PROJECT_SHORT.
 [join-a-project]: /use-timescale/:currentVersion:/security/members/#join-a-project
 [pricing-plans]: /about/:currentVersion:/pricing-and-account-management/
 [project-users-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-project-roles-overview.png
-[remove-user-in-console]: https://assets.timescale.com/docs/images/tiger-cloud-console/tiger-console-transfer-project-ownership.png
 [saml]: /use-timescale/:currentVersion:/security/saml/
