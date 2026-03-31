@@ -8,11 +8,19 @@ tags: [telemetry, monitor, metrics]
 
 # Exported metrics
 
-This page provides a list of metrics you can export with all $CLOUD_LONG exporters. 
+This page provides a list of metrics you can export with all $CLOUD_LONG exporters.
+
+<Highlight type="note">
+
+The following limitations apply for replica metrics:
+- For HA replicas, metrics are only exported for the primary and one HA replica.
+- For read replica sets, metrics are exported for the primary/`standby_leader` and one read replica.
+
+</Highlight>
 
 ## $CLOUD_LONG metrics
 
-These are the metrics exported by default by every $CLOUD_LONG exporter:
+These are the metrics exported by default by every $CLOUD_LONG exporter. You can filter them by `project_id`, `service_id`, `role`, and `region`.
 
 |Metric|Description|
 |-|-|
@@ -31,7 +39,7 @@ These are the metrics exported by default by every $CLOUD_LONG exporter:
 ## $PG metrics
 
 These additional metrics are collected if you tick `PostgreSQL metrics` when creating $CLOUD_LONG exporters. 
-All metrics have a scrape interval of 15 seconds.
+All metrics have a scrape interval of 15 seconds. You can filter them by `project_id`, `service_id`, and `role`.
 
 ### Exporter metrics
 
