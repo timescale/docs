@@ -54,6 +54,12 @@ as it requires schema synchronization between the primary and replica nodes and
 replicating partition root tables, which are
 [not currently supported][postgres-partition-limitations].
 
+For migrating or replicating data from any $PG or $TIMESCALE_DB
+database to $TIMESCALE_DB, you can use the
+[$PG_CONNECTOR][livesync-postgresql]. The $PG_CONNECTOR is built on top of
+$PG's logical replication protocol and extends it for $TIMESCALE_DB
+use cases, providing continuous, low-latency data synchronization.
+
 $PG achieves streaming replication by having replicas continuously stream
 the WAL from the primary database. See the official
 [replication documentation][replication-documentation]
@@ -71,6 +77,7 @@ out-of-the-box support for automatic failover. Read more in the $PG
 configurable high availability solution with automatic failover functionality.
 
 [backup]: /self-hosted/:currentVersion:/backup-and-restore/
+[livesync-postgresql]: /migrate/:currentVersion:/livesync-for-postgresql/
 [failover-docs]: https://www.postgresql.org/docs/current/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
 [pgctl-docs]: https://www.postgresql.org/docs/current/app-pg-ctl.html
