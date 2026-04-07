@@ -9,6 +9,11 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## New cloud platform status page
+<Label type="date">April 6, 2026</Label>
+
+The Tiger Cloud platform status page has been migrated to https://status.tigerdata.com/. The new status page is tightly integrated with our incident response workflows to provide better visibility into service health, including historical uptime.  You can subscribe to be notified whenever an incident is created, updated, and resolved.
+
 ## TimescaleDB v2.26 now on Tiger Cloud
 <Label type="date">March 30, 2026</Label>
 
@@ -53,6 +58,7 @@ This release improves query planning so TimescaleDB can skip more irrelevant chu
 - **Internal catalog cleanup:** Removes a dropped column from `_timescaledb_catalog.chunk`; customers who query internal catalog tables directly should update any dependencies.
 
 For complete details, refer to the [TimescaleDB 2.26.0 release notes](https://github.com/timescale/timescaledb/releases/tag/2.26.0).
+
 
 ## pg_textsearch v1.0.0 — production ready
 <Label type="date">March 31, 2026</Label>
