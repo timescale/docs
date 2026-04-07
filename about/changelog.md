@@ -12,7 +12,7 @@ All the latest features and updates to $CLOUD_LONG.
 ## New cloud platform status page
 <Label type="date">April 6, 2026</Label>
 
-The cloud platform status page has been migrated to https://status.tigerdata.com/. The new status page is tightly integrated with our incident response workflows to provide better visibility into service health, including historical uptime, and you can subscribe to be notified whenever an incident incident is created, updated, and resolved.
+The Tiger Cloud platform status page has been migrated to https://status.tigerdata.com/. The new status page is tightly integrated with our incident response workflows to provide better visibility into service health, including historical uptime.  You can subscribe to be notified whenever an incident is created, updated, and resolved.
 
 ## pg_textsearch v1.0.0 — production ready
 <Label type="date">March 31, 2026</Label>
