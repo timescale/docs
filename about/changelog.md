@@ -9,6 +9,56 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## New cloud platform status page
+<Label type="date">April 6, 2026</Label>
+
+The Tiger Cloud platform status page has been migrated to https://status.tigerdata.com/. The new status page is tightly integrated with our incident response workflows to provide better visibility into service health, including historical uptime.  You can subscribe to be notified whenever an incident is created, updated, and resolved.
+
+## TimescaleDB v2.26 now on Tiger Cloud
+<Label type="date">March 30, 2026</Label>
+
+TimescaleDB v2.26 continues improving how TimescaleDB scales for real-world analytical workloads, with major gains in columnstore query performance, better filtering efficiency on compressed data, and practical query-planning improvements that reduce unnecessary work. TimescaleDB 2.26.0 was released on March 24, 2026, and is available on GitHub and on Tiger Cloud as of March 30, 2026.
+
+### Highlighted features in TimescaleDB v2.26
+
+**Faster analytical queries on the columnstore**
+
+This release expands the vectorized query path so more analytical queries can stay on the high-performance columnar execution engine instead of falling back to slower row-based processing.
+
+- **Vectorized Postgres functions in aggregation paths:** Queries that use functions like `time_bucket()` in grouping or aggregation expressions can now continue running in the columnar pipeline. This delivers significantly faster performance for common analytical patterns, with benchmark examples showing roughly **3.5x faster** execution on affected workloads.
+- **Faster `MIN()`/`MAX()` on text columns:** `MIN()` and `MAX()` on text columns using C collation now run natively in the vectorized aggregation path, avoiding row-based fallback and improving performance for workloads that use text values as tie-breakers or grouping outputs.
+
+**Faster summary-style queries on compressed data**
+
+TimescaleDB 2.26 enables a new fast path for common aggregate and “latest/earliest value” queries on compressed chunks.
+
+- **`ColumnarIndexScan` enabled by default:** First introduced in 2.25.0 and now enabled by default in 2.26, this execution path allows queries using `COUNT`, `MIN`, `MAX`, and partial `FIRST`/`LAST` to read directly from sparse min/max metadata instead of decompressing full batches. This substantially improves performance for common summary queries on the columnstore, with benchmark examples showing speedups of up to **70x+**.
+
+**Better filtering and UPSERT performance with composite bloom filters**
+
+This release improves how TimescaleDB prunes compressed batches when queries or conflict checks involve multiple columns.
+
+- Composite bloom filters: Multi-column predicates can now be pushed down directly into compressed scans for both `SELECT` and `UPSERT` operations.
+- This helps avoid unnecessary decompression, improving efficiency for workloads with selective multi-column lookups and conflict-heavy writes.
+- Benchmark examples show **2x+ faster** performance when composite bloom filters apply.
+- `EXPLAIN` plans now surface more details to help you understand pruning effectiveness.
+
+**Smarter chunk exclusion**
+
+This release improves query planning so TimescaleDB can skip more irrelevant chunks earlier.
+
+- **Runtime chunk exclusion on nested loop joins:** Chunk exclusion now applies on the inner side of nested loop joins, reducing unnecessary scans for join-heavy workloads.
+- **Chunk exclusion for `IN`/`ANY` on open time dimensions:** Queries using these predicate patterns can now benefit from pruning as well, reducing wasted work on large datasets.
+
+**Quality of life and operability**
+
+- **Safer extension re-creation in-session:** `CREATE EXTENSION timescaledb` now works correctly after `DROP EXTENSION` in the same session.
+- **More reliable chunk creation in replication edge cases:** Fixes a failure mode tied to replica identity invalidation.
+- **Improved background worker reliability:** Advisory locks were removed from background worker job coordination and replaced with graceful cancellation logic, reducing contention and deadlock risk under concurrency.
+- **Internal catalog cleanup:** Removes a dropped column from `_timescaledb_catalog.chunk`; if you query internal catalog tables directly, update any dependencies.
+
+For complete details, refer to the [TimescaleDB 2.26.0 release notes](https://github.com/timescale/timescaledb/releases/tag/2.26.0).
+
 ## pg_textsearch v1.0.0 — production ready
 <Label type="date">March 31, 2026</Label>
 
