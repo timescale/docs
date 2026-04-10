@@ -78,9 +78,9 @@ You use the [$COMPANY Terraform provider][terraform-provider] to manage $SERVICE
    1. Create a `terraform.tfvars` file in the same directory as your `main.tf` to pass in the variable values:
 
        ```hcl
-       export TF_VAR_ts_project_id="<your-timescale-project-id>"
-       export TF_VAR_ts_access_key="<your-timescale-access-key>"
-       export TF_VAR_ts_secret_key="<your-timescale-secret-key>"
+       ts_project_id = "<your-timescale-project-id>"
+       ts_access_key = "<your-timescale-access-key>"
+       ts_secret_key = "<your-timescale-secret-key>"
        ```
       
 1. **Add your resources**
