@@ -330,7 +330,11 @@ module.exports = [
   },
   {
     from: "/latest/getting-started/",
-    to: "https://www.tigerdata.com/docs/getting-started/latest/"
+    to: "https://www.tigerdata.com/docs/get-started"
+  },
+  {
+    from: "/latest/getting-started",
+    to: "https://www.tigerdata.com/docs/get-started"
   },
   {
     from: "/latest/getting-started/installation/mac/installation-homebrew",
