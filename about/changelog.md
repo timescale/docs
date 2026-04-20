@@ -9,6 +9,25 @@ products: [cloud]
 
 All the latest features and updates to $CLOUD_LONG.
 
+## PostgreSQL Source Connector is now GA (production-ready)
+<Label type="date">April 20, 2026</Label>
+
+The PostgreSQL Source Connector is now generally available (GA), completing its migration to the Tiger Connect architecture. This improves reliability, scalability, and consistency with other connectors.
+
+**What’s new**
+* Aligned with Tiger Connect architecture, replacing legacy components
+* Configurable worker count for initial data copy during setup for improved performance
+* Flexible table selection:
+   * Select via publication
+   * Select tables directly
+* Redesigned UI with separate Overview and Settings views
+* SSH tunneling support for secure connections
+* Bulk updates for table and schema mappings
+* Improved hypertable configuration experience
+* General UX and workflow improvements
+
+**Notes**: This release marks the connector as stable and ready for production use.
+
 ## New cloud platform status page
 <Label type="date">April 6, 2026</Label>
 
